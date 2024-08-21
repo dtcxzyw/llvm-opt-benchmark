@@ -580,7 +580,7 @@ define hidden { ptr, ptr } @"_ZN5alloc11collections5btree3map25BTreeMap$LT$K$C$V
   %.fca.1.extract.i31.i.i = extractvalue { i64, i64 } %18, 1
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6), !noalias !64
   %trunc32.i.i = trunc nuw i64 %.fca.0.extract.i30.i.i to i1
-  br i1 %trunc32.i.i, label %.lr.ph.i.i, label %.loopexit28
+  br i1 %trunc32.i.i, label %.lr.ph.i.i, label %.loopexit27
 
 .lr.ph.i.i:                                       ; preds = %.noexc, %.noexc3
   %.fca.1.extract.i35.i.i = phi i64 [ %.fca.1.extract.i.i.i, %.noexc3 ], [ %.fca.1.extract.i31.i.i, %.noexc ]
@@ -605,7 +605,7 @@ define hidden { ptr, ptr } @"_ZN5alloc11collections5btree3map25BTreeMap$LT$K$C$V
   %.fca.1.extract.i.i.i = extractvalue { i64, i64 } %24, 1
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6), !noalias !64
   %trunc.i.i = trunc nuw i64 %.fca.0.extract.i.i.i to i1
-  br i1 %trunc.i.i, label %.lr.ph.i.i, label %.loopexit28
+  br i1 %trunc.i.i, label %.lr.ph.i.i, label %.loopexit27
 
 25:                                               ; preds = %.lr.ph.i.i
   %26 = load ptr, ptr %7, align 8, !noalias !60, !nonnull !4, !align !5, !noundef !4
@@ -617,10 +617,10 @@ define hidden { ptr, ptr } @"_ZN5alloc11collections5btree3map25BTreeMap$LT$K$C$V
   %.sroa.19.0.ph = phi i64 [ %.fca.1.extract.i35.i.i, %25 ], [ undef, %5 ]
   %.sroa.14.0.ph = phi i64 [ %28, %25 ], [ 0, %5 ]
   %.sroa.7.0.ph = phi i64 [ %27, %25 ], [ %2, %5 ]
-  %.sroa.0.06.ph = phi ptr [ %26, %25 ], [ %1, %5 ]
+  %.sroa.0.0.ph = phi ptr [ %26, %25 ], [ %1, %5 ]
   %.sroa.11.0.ph = ptrtoint ptr %0 to i64
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7)
-  store ptr %.sroa.0.06.ph, ptr %8, align 8
+  store ptr %.sroa.0.0.ph, ptr %8, align 8
   %.sroa.7.0..sroa_idx = getelementptr inbounds i8, ptr %8, i64 8
   store i64 %.sroa.7.0.ph, ptr %.sroa.7.0..sroa_idx, align 8
   %.sroa.11.0..sroa_idx = getelementptr inbounds i8, ptr %8, i64 16
@@ -634,24 +634,23 @@ define hidden { ptr, ptr } @"_ZN5alloc11collections5btree3map25BTreeMap$LT$K$C$V
   %30 = call noundef align 8 dereferenceable(16) ptr @"_ZN5alloc11collections5btree3map5entry28VacantEntry$LT$K$C$V$C$A$GT$6insert17hbfc887bbe4e079f6E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %8, ptr noundef nonnull %3, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %4)
   br label %31
 
-31:                                               ; preds = %29, %.loopexit28
-  %.sroa.3.0 = phi ptr [ %38, %.loopexit28 ], [ undef, %29 ]
-  %.sroa.0.0 = phi ptr [ %36, %.loopexit28 ], [ null, %29 ]
-  %32 = insertvalue { ptr, ptr } poison, ptr %.sroa.0.0, 0
-  %33 = insertvalue { ptr, ptr } %32, ptr %.sroa.3.0, 1
-  ret { ptr, ptr } %33
+31:                                               ; preds = %29, %.loopexit27
+  %.merged = phi { ptr, ptr } [ %38, %.loopexit27 ], [ { ptr null, ptr undef }, %29 ]
+  ret { ptr, ptr } %.merged
 
-.loopexit28:                                      ; preds = %.noexc3, %.noexc
+.loopexit27:                                      ; preds = %.noexc3, %.noexc
   %.sroa.0.034.lcssa.sink.i.ph.i = phi ptr [ %12, %.noexc ], [ %22, %.noexc3 ]
   %.fca.1.extract.i35.lcssa.sink.i.ph.i = phi i64 [ %.fca.1.extract.i31.i.i, %.noexc ], [ %.fca.1.extract.i.i.i, %.noexc3 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7)
-  %34 = getelementptr inbounds i8, ptr %.sroa.0.034.lcssa.sink.i.ph.i, i64 176
-  %35 = getelementptr inbounds { ptr, ptr }, ptr %34, i64 %.fca.1.extract.i35.lcssa.sink.i.ph.i
-  %36 = load ptr, ptr %35, align 8, !noalias !75, !nonnull !4, !noundef !4
-  %37 = getelementptr inbounds i8, ptr %35, i64 8
-  %38 = load ptr, ptr %37, align 8, !noalias !75, !nonnull !4, !align !79, !noundef !4
-  store ptr %3, ptr %35, align 8, !noalias !75
-  store ptr %4, ptr %37, align 8, !noalias !75
+  %32 = getelementptr inbounds i8, ptr %.sroa.0.034.lcssa.sink.i.ph.i, i64 176
+  %33 = getelementptr inbounds { ptr, ptr }, ptr %32, i64 %.fca.1.extract.i35.lcssa.sink.i.ph.i
+  %34 = load ptr, ptr %33, align 8, !noalias !75, !nonnull !4, !noundef !4
+  %35 = getelementptr inbounds i8, ptr %33, i64 8
+  %36 = load ptr, ptr %35, align 8, !noalias !75, !nonnull !4, !align !79, !noundef !4
+  store ptr %3, ptr %33, align 8, !noalias !75
+  store ptr %4, ptr %35, align 8, !noalias !75
+  %37 = insertvalue { ptr, ptr } poison, ptr %34, 0
+  %38 = insertvalue { ptr, ptr } %37, ptr %36, 1
   br label %31
 
 39:                                               ; preds = %40
@@ -710,7 +709,7 @@ define hidden { ptr, ptr } @"_ZN5alloc11collections5btree3map25BTreeMap$LT$K$C$V
   %.fca.1.extract.i31.i.i = extractvalue { i64, i64 } %16, 1
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5), !noalias !86
   %trunc32.i.i = trunc nuw i64 %.fca.0.extract.i30.i.i to i1
-  br i1 %trunc32.i.i, label %.lr.ph.i.i, label %.loopexit27
+  br i1 %trunc32.i.i, label %.lr.ph.i.i, label %.loopexit26
 
 .lr.ph.i.i:                                       ; preds = %.noexc, %.noexc3
   %.fca.1.extract.i35.i.i = phi i64 [ %.fca.1.extract.i.i.i, %.noexc3 ], [ %.fca.1.extract.i31.i.i, %.noexc ]
@@ -735,7 +734,7 @@ define hidden { ptr, ptr } @"_ZN5alloc11collections5btree3map25BTreeMap$LT$K$C$V
   %.fca.1.extract.i.i.i = extractvalue { i64, i64 } %22, 1
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5), !noalias !86
   %trunc.i.i = trunc nuw i64 %.fca.0.extract.i.i.i to i1
-  br i1 %trunc.i.i, label %.lr.ph.i.i, label %.loopexit27
+  br i1 %trunc.i.i, label %.lr.ph.i.i, label %.loopexit26
 
 23:                                               ; preds = %.lr.ph.i.i
   %24 = load i32, ptr %6, align 4, !noalias !83, !noundef !4
@@ -760,23 +759,22 @@ define hidden { ptr, ptr } @"_ZN5alloc11collections5btree3map25BTreeMap$LT$K$C$V
   %26 = call noundef align 8 dereferenceable(16) ptr @"_ZN5alloc11collections5btree3map5entry28VacantEntry$LT$K$C$V$C$A$GT$6insert17h20652cecc03bb425E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(40) %7, ptr noundef nonnull %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %3)
   br label %27
 
-27:                                               ; preds = %25, %.loopexit27
-  %.sroa.3.0 = phi ptr [ %33, %.loopexit27 ], [ undef, %25 ]
-  %.sroa.0.0 = phi ptr [ %31, %.loopexit27 ], [ null, %25 ]
-  %28 = insertvalue { ptr, ptr } poison, ptr %.sroa.0.0, 0
-  %29 = insertvalue { ptr, ptr } %28, ptr %.sroa.3.0, 1
-  ret { ptr, ptr } %29
+27:                                               ; preds = %25, %.loopexit26
+  %.merged = phi { ptr, ptr } [ %33, %.loopexit26 ], [ { ptr null, ptr undef }, %25 ]
+  ret { ptr, ptr } %.merged
 
-.loopexit27:                                      ; preds = %.noexc3, %.noexc
+.loopexit26:                                      ; preds = %.noexc3, %.noexc
   %.sroa.13.0.ph = phi i64 [ %.fca.1.extract.i31.i.i, %.noexc ], [ %.fca.1.extract.i.i.i, %.noexc3 ]
   %.sroa.7.0.ph = phi ptr [ %10, %.noexc ], [ %20, %.noexc3 ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6)
-  %30 = getelementptr inbounds { ptr, ptr }, ptr %.sroa.7.0.ph, i64 %.sroa.13.0.ph
-  %31 = load ptr, ptr %30, align 8, !noalias !97, !nonnull !4, !noundef !4
-  %32 = getelementptr inbounds i8, ptr %30, i64 8
-  %33 = load ptr, ptr %32, align 8, !noalias !97, !nonnull !4, !align !79, !noundef !4
-  store ptr %2, ptr %30, align 8, !noalias !97
-  store ptr %3, ptr %32, align 8, !noalias !97
+  %28 = getelementptr inbounds { ptr, ptr }, ptr %.sroa.7.0.ph, i64 %.sroa.13.0.ph
+  %29 = load ptr, ptr %28, align 8, !noalias !97, !nonnull !4, !noundef !4
+  %30 = getelementptr inbounds i8, ptr %28, i64 8
+  %31 = load ptr, ptr %30, align 8, !noalias !97, !nonnull !4, !align !79, !noundef !4
+  store ptr %2, ptr %28, align 8, !noalias !97
+  store ptr %3, ptr %30, align 8, !noalias !97
+  %32 = insertvalue { ptr, ptr } poison, ptr %29, 0
+  %33 = insertvalue { ptr, ptr } %32, ptr %31, 1
   br label %27
 
 34:                                               ; preds = %35

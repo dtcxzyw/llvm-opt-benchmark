@@ -763,33 +763,32 @@ entry:
 
 invoke.cont:                                      ; preds = %entry
   %call5.i.i.i.i.i.i1 = invoke noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #43
-          to label %_ZNSt7__cxx114listIPN6Assimp9LogStreamESaIS3_EE9push_backERKS3_.exit unwind label %lpad
+          to label %try.cont unwind label %lpad
 
-_ZNSt7__cxx114listIPN6Assimp9LogStreamESaIS3_EE9push_backERKS3_.exit: ; preds = %invoke.cont
+lpad:                                             ; preds = %invoke.cont, %entry
+  %0 = landingpad { ptr, i32 }
+          catch ptr null
+  %1 = extractvalue { ptr, i32 } %0, 0
+  %2 = tail call ptr @__cxa_begin_catch(ptr %1) #44
+  tail call void @__cxa_end_catch()
+  br label %return
+
+try.cont:                                         ; preds = %invoke.cont
   %tobool.not = icmp eq ptr %call, null
   %._Z23CallbackToLogRedirectorPKcPc = select i1 %tobool.not, ptr null, ptr @_Z23CallbackToLogRedirectorPKcPc
   %_M_storage.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i.i.i.i1, i64 16
   store ptr %call, ptr %_M_storage.i.i.i.i, align 8
   tail call void @_ZNSt8__detail15_List_node_base7_M_hookEPS0_(ptr noundef nonnull align 8 dereferenceable(16) %call5.i.i.i.i.i.i1, ptr noundef nonnull @_ZN6AssimpL18gPredefinedStreamsB5cxx11E) #44
-  %0 = load i64, ptr getelementptr inbounds (i8, ptr @_ZN6AssimpL18gPredefinedStreamsB5cxx11E, i64 16), align 8
-  %add.i.i.i = add i64 %0, 1
+  %3 = load i64, ptr getelementptr inbounds (i8, ptr @_ZN6AssimpL18gPredefinedStreamsB5cxx11E, i64 16), align 8
+  %add.i.i.i = add i64 %3, 1
   store i64 %add.i.i.i, ptr getelementptr inbounds (i8, ptr @_ZN6AssimpL18gPredefinedStreamsB5cxx11E, i64 16), align 8
+  %4 = insertvalue { ptr, ptr } poison, ptr %._Z23CallbackToLogRedirectorPKcPc, 0
+  %5 = insertvalue { ptr, ptr } %4, ptr %call, 1
   br label %return
 
-lpad:                                             ; preds = %invoke.cont, %entry
-  %1 = landingpad { ptr, i32 }
-          catch ptr null
-  %2 = extractvalue { ptr, i32 } %1, 0
-  %3 = tail call ptr @__cxa_begin_catch(ptr %2) #44
-  tail call void @__cxa_end_catch()
-  br label %return
-
-return:                                           ; preds = %_ZNSt7__cxx114listIPN6Assimp9LogStreamESaIS3_EE9push_backERKS3_.exit, %lpad
-  %retval.sroa.0.0 = phi ptr [ null, %lpad ], [ %._Z23CallbackToLogRedirectorPKcPc, %_ZNSt7__cxx114listIPN6Assimp9LogStreamESaIS3_EE9push_backERKS3_.exit ]
-  %retval.sroa.3.0 = phi ptr [ null, %lpad ], [ %call, %_ZNSt7__cxx114listIPN6Assimp9LogStreamESaIS3_EE9push_backERKS3_.exit ]
-  %.fca.0.insert = insertvalue { ptr, ptr } poison, ptr %retval.sroa.0.0, 0
-  %.fca.1.insert = insertvalue { ptr, ptr } %.fca.0.insert, ptr %retval.sroa.3.0, 1
-  ret { ptr, ptr } %.fca.1.insert
+return:                                           ; preds = %try.cont, %lpad
+  %.fca.1.insert.merged = phi { ptr, ptr } [ %5, %try.cont ], [ zeroinitializer, %lpad ]
+  ret { ptr, ptr } %.fca.1.insert.merged
 }
 
 declare noundef ptr @_ZN6Assimp9LogStream19createDefaultStreamE18aiDefaultLogStreamPKcPNS_8IOSystemE(i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #4

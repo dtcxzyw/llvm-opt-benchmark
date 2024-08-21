@@ -772,7 +772,7 @@ define internal { double, double } @_ZL18mod_ster_e_forward5PJ_LPP8PJconsts(doub
 
 34:                                               ; preds = %3
   %35 = tail call i32 @proj_errno_set(ptr noundef nonnull %2, i32 noundef 2050)
-  br label %51
+  br label %49
 
 36:                                               ; preds = %3
   %37 = fdiv double 2.000000e+00, %32
@@ -787,16 +787,11 @@ define internal { double, double } @_ZL18mod_ster_e_forward5PJ_LPP8PJconsts(doub
   %46 = getelementptr inbounds i8, ptr %5, i64 24
   %47 = load i32, ptr %46, align 8
   %48 = tail call { double, double } @_Z9pj_zpoly17COMPLEXPKS_i(double %39, double %44, ptr noundef %45, i32 noundef %47)
-  %49 = extractvalue { double, double } %48, 0
-  %50 = extractvalue { double, double } %48, 1
-  br label %51
+  br label %49
 
-51:                                               ; preds = %36, %34
-  %.sroa.333.0 = phi double [ 0.000000e+00, %34 ], [ %50, %36 ]
-  %.sroa.032.0 = phi double [ 0.000000e+00, %34 ], [ %49, %36 ]
-  %.fca.0.insert = insertvalue { double, double } poison, double %.sroa.032.0, 0
-  %.fca.1.insert = insertvalue { double, double } %.fca.0.insert, double %.sroa.333.0, 1
-  ret { double, double } %.fca.1.insert
+49:                                               ; preds = %36, %34
+  %.fca.1.insert.merged = phi { double, double } [ zeroinitializer, %34 ], [ %48, %36 ]
+  ret { double, double } %.fca.1.insert.merged
 }
 
 declare { double, double } @_Z10pj_zpolyd17COMPLEXPKS_iPS_(double, double, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1

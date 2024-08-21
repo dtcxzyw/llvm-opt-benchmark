@@ -444,11 +444,11 @@ define hidden { ptr, ptr } @"_ZN5alloc11collections5btree8navigate35LeafRange$LT
   %12 = load i64, ptr %11, align 8, !alias.scope !71, !noalias !70
   %13 = icmp eq i64 %10, %12
   %.0.i.i = select i1 %8, i1 %13, i1 false
-  br i1 %.0.i.i, label %19, label %.thread
+  br i1 %.0.i.i, label %17, label %.thread
 
 "_ZN55_$LT$T$u20$as$u20$core..option..SpecOptionPartialEq$GT$2eq17h16e868868ac91a5dE.llvm.16172010221878647751.exit": ; preds = %1
   %.mux.i = and i1 %4, %6
-  br i1 %.mux.i, label %19, label %14
+  br i1 %.mux.i, label %17, label %14
 
 14:                                               ; preds = %"_ZN55_$LT$T$u20$as$u20$core..option..SpecOptionPartialEq$GT$2eq17h16e868868ac91a5dE.llvm.16172010221878647751.exit"
   br i1 %4, label %15, label %.thread
@@ -459,16 +459,11 @@ define hidden { ptr, ptr } @"_ZN5alloc11collections5btree8navigate35LeafRange$LT
 
 .thread:                                          ; preds = %7, %14
   %16 = tail call { ptr, ptr } @_ZN5alloc11collections5btree3mem7replace17h64fab20f13585635E.llvm.16172010221878647751(ptr noalias noundef nonnull align 8 dereferenceable(24) %0, ptr noalias nonnull readonly align 1 poison)
-  %17 = extractvalue { ptr, ptr } %16, 0
-  %18 = extractvalue { ptr, ptr } %16, 1
-  br label %19
+  br label %17
 
-19:                                               ; preds = %7, %"_ZN55_$LT$T$u20$as$u20$core..option..SpecOptionPartialEq$GT$2eq17h16e868868ac91a5dE.llvm.16172010221878647751.exit", %.thread
-  %.sroa.3.0 = phi ptr [ %18, %.thread ], [ undef, %"_ZN55_$LT$T$u20$as$u20$core..option..SpecOptionPartialEq$GT$2eq17h16e868868ac91a5dE.llvm.16172010221878647751.exit" ], [ undef, %7 ]
-  %.sroa.0.0 = phi ptr [ %17, %.thread ], [ null, %"_ZN55_$LT$T$u20$as$u20$core..option..SpecOptionPartialEq$GT$2eq17h16e868868ac91a5dE.llvm.16172010221878647751.exit" ], [ null, %7 ]
-  %20 = insertvalue { ptr, ptr } poison, ptr %.sroa.0.0, 0
-  %21 = insertvalue { ptr, ptr } %20, ptr %.sroa.3.0, 1
-  ret { ptr, ptr } %21
+17:                                               ; preds = %7, %"_ZN55_$LT$T$u20$as$u20$core..option..SpecOptionPartialEq$GT$2eq17h16e868868ac91a5dE.llvm.16172010221878647751.exit", %.thread
+  %.merged = phi { ptr, ptr } [ %16, %.thread ], [ { ptr null, ptr undef }, %"_ZN55_$LT$T$u20$as$u20$core..option..SpecOptionPartialEq$GT$2eq17h16e868868ac91a5dE.llvm.16172010221878647751.exit" ], [ { ptr null, ptr undef }, %7 ]
+  ret { ptr, ptr } %.merged
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable

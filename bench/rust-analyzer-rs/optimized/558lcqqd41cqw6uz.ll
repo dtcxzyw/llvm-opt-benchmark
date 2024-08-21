@@ -3944,14 +3944,14 @@ define internal fastcc void @_ZN3fst3raw4node17StateOneTransNext5input17hd6a41a3
 define internal fastcc { i64, i64 } @_ZN3fst3raw4node4Node10find_input17he73127824da5648cE(ptr noalias nocapture noundef readonly align 8 dereferenceable(64) %0, i8 noundef %1) unnamed_addr #1 personality ptr @rust_eh_personality {
   %3 = getelementptr inbounds i8, ptr %0, i64 56
   %4 = load i8, ptr %3, align 8, !range !17, !noundef !8
-  switch i8 %4, label %default.unreachable11 [
+  switch i8 %4, label %default.unreachable9 [
     i8 0, label %5
     i8 1, label %24
     i8 2, label %43
-    i8 3, label %_ZN3fst3raw4node13StateAnyTrans10find_input17h3e2487f5d50bcb60E.exit
+    i8 3, label %92
   ]
 
-default.unreachable11:                            ; preds = %2
+default.unreachable9:                             ; preds = %2
   unreachable
 
 5:                                                ; preds = %2
@@ -3990,15 +3990,16 @@ _ZN3fst3raw4node17StateOneTransNext5input17hd6a41a377fd0b235E.exit: ; preds = %8
   %.0.in.i = phi ptr [ %21, %19 ], [ %11, %8 ]
   %.0.i = load i8, ptr %.0.in.i, align 1, !noalias !439, !noundef !8
   %23 = icmp eq i8 %.0.i, %1
-  br label %_ZN3fst3raw4node13StateAnyTrans10find_input17h3e2487f5d50bcb60E.exit
+  %. = select i1 %23, { i64, i64 } { i64 1, i64 0 }, { i64, i64 } { i64 0, i64 undef }
+  br label %92
 
 24:                                               ; preds = %2
   %25 = getelementptr inbounds i8, ptr %0, i64 57
-  %.val4 = load i8, ptr %25, align 1, !noundef !8
+  %.val2 = load i8, ptr %25, align 1, !noundef !8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !442)
-  %26 = and i8 %.val4, 63
-  %.not.i6 = icmp eq i8 %26, 0
-  br i1 %.not.i6, label %31, label %27
+  %26 = and i8 %.val2, 63
+  %.not.i4 = icmp eq i8 %26, 0
+  br i1 %.not.i4, label %31, label %27
 
 27:                                               ; preds = %24
   %28 = add nsw i8 %26, -1
@@ -4025,10 +4026,11 @@ _ZN3fst3raw4node17StateOneTransNext5input17hd6a41a377fd0b235E.exit: ; preds = %8
   unreachable
 
 _ZN3fst3raw4node13StateOneTrans5input17h69da25547d91ab0cE.exit: ; preds = %27, %38
-  %.0.in.i7 = phi ptr [ %40, %38 ], [ %30, %27 ]
-  %.0.i8 = load i8, ptr %.0.in.i7, align 1, !noalias !442, !noundef !8
-  %42 = icmp eq i8 %.0.i8, %1
-  br label %_ZN3fst3raw4node13StateAnyTrans10find_input17h3e2487f5d50bcb60E.exit
+  %.0.in.i5 = phi ptr [ %40, %38 ], [ %30, %27 ]
+  %.0.i6 = load i8, ptr %.0.in.i5, align 1, !noalias !442, !noundef !8
+  %42 = icmp eq i8 %.0.i6, %1
+  %.1 = select i1 %42, { i64, i64 } { i64 1, i64 0 }, { i64, i64 } { i64 0, i64 undef }
+  br label %92
 
 43:                                               ; preds = %2
   %44 = getelementptr inbounds i8, ptr %0, i64 57
@@ -4112,19 +4114,23 @@ _ZN3fst3raw4node13StateOneTrans5input17h69da25547d91ab0cE.exit: ; preds = %27, %
   %87 = load i8, ptr %86, align 1, !noalias !445, !noundef !8
   %88 = zext i8 %87 to i64
   %.not29.i = icmp ugt i64 %50, %88
+  %.30.i = zext i1 %.not29.i to i64
   br label %_ZN3fst3raw4node13StateAnyTrans10find_input17h3e2487f5d50bcb60E.exit
 
 89:                                               ; preds = %78
   tail call void @_ZN4core9panicking18panic_bounds_check17h5aa5e8a957e001f9E(i64 noundef %82, i64 noundef %56, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.ee33ef7e5b2babbfb09eb0d7c843416c.12) #17, !noalias !445
   unreachable
 
-_ZN3fst3raw4node13StateAnyTrans10find_input17h3e2487f5d50bcb60E.exit: ; preds = %71, %84, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8position17hd95b1519eafb5a62E.exit.i", %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h7f8348404877e53bE.exit.i", %2, %_ZN3fst3raw4node13StateOneTrans5input17h69da25547d91ab0cE.exit, %_ZN3fst3raw4node17StateOneTransNext5input17hd6a41a377fd0b235E.exit
-  %.sroa.7.0 = phi i64 [ 0, %_ZN3fst3raw4node17StateOneTransNext5input17hd6a41a377fd0b235E.exit ], [ 0, %_ZN3fst3raw4node13StateOneTrans5input17h69da25547d91ab0cE.exit ], [ undef, %2 ], [ %88, %84 ], [ %77, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8position17hd95b1519eafb5a62E.exit.i" ], [ undef, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h7f8348404877e53bE.exit.i" ], [ undef, %71 ]
-  %.sroa.0.0.shrunk = phi i1 [ %23, %_ZN3fst3raw4node17StateOneTransNext5input17hd6a41a377fd0b235E.exit ], [ %42, %_ZN3fst3raw4node13StateOneTrans5input17h69da25547d91ab0cE.exit ], [ false, %2 ], [ %.not29.i, %84 ], [ true, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8position17hd95b1519eafb5a62E.exit.i" ], [ false, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h7f8348404877e53bE.exit.i" ], [ false, %71 ]
-  %.sroa.0.0 = zext i1 %.sroa.0.0.shrunk to i64
-  %90 = insertvalue { i64, i64 } poison, i64 %.sroa.0.0, 0
-  %91 = insertvalue { i64, i64 } %90, i64 %.sroa.7.0, 1
-  ret { i64, i64 } %91
+_ZN3fst3raw4node13StateAnyTrans10find_input17h3e2487f5d50bcb60E.exit: ; preds = %71, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h7f8348404877e53bE.exit.i", %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8position17hd95b1519eafb5a62E.exit.i", %84
+  %.sroa.5.1.i = phi i64 [ %88, %84 ], [ %77, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8position17hd95b1519eafb5a62E.exit.i" ], [ undef, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h7f8348404877e53bE.exit.i" ], [ undef, %71 ]
+  %.sroa.0.1.i = phi i64 [ %.30.i, %84 ], [ 1, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8position17hd95b1519eafb5a62E.exit.i" ], [ 0, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h7f8348404877e53bE.exit.i" ], [ 0, %71 ]
+  %90 = insertvalue { i64, i64 } poison, i64 %.sroa.0.1.i, 0
+  %91 = insertvalue { i64, i64 } %90, i64 %.sroa.5.1.i, 1
+  br label %92
+
+92:                                               ; preds = %2, %_ZN3fst3raw4node13StateOneTrans5input17h69da25547d91ab0cE.exit, %_ZN3fst3raw4node17StateOneTransNext5input17hd6a41a377fd0b235E.exit, %_ZN3fst3raw4node13StateAnyTrans10find_input17h3e2487f5d50bcb60E.exit
+  %.merged = phi { i64, i64 } [ %91, %_ZN3fst3raw4node13StateAnyTrans10find_input17h3e2487f5d50bcb60E.exit ], [ %., %_ZN3fst3raw4node17StateOneTransNext5input17hd6a41a377fd0b235E.exit ], [ %.1, %_ZN3fst3raw4node13StateOneTrans5input17h69da25547d91ab0cE.exit ], [ { i64 0, i64 undef }, %2 ]
+  ret { i64, i64 } %.merged
 }
 
 ; Function Attrs: nonlazybind uwtable

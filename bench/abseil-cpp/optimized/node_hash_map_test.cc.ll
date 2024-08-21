@@ -148676,7 +148676,7 @@ _ZN4absl18container_internal12raw_hash_setINS0_17NodeHashMapPolicyIiiEENS0_19Sta
 
 while.cond.preheader:                             ; preds = %_ZN4absl18container_internal12raw_hash_setINS0_17NodeHashMapPolicyIiiEENS0_19StatefulTestingHashENS0_20StatefulTestingEqualENS0_5AllocISt4pairIKiiEEEE5beginEv.exit
   %cmp.i.i.i5.not10 = icmp eq ptr %first.coerce0, %last.coerce0
-  br i1 %cmp.i.i.i5.not10, label %return, label %while.body
+  br i1 %cmp.i.i.i5.not10, label %while.end, label %while.body
 
 if.then9:                                         ; preds = %_ZN4absl18container_internal12raw_hash_setINS0_17NodeHashMapPolicyIiiEENS0_19StatefulTestingHashENS0_20StatefulTestingEqualENS0_5AllocISt4pairIKiiEEEE5beginEv.exit
   %capacity_.i.i.i = getelementptr inbounds i8, ptr %this, i64 16
@@ -148741,13 +148741,16 @@ while.end.i.i.i.i:                                ; preds = %while.body.i.i.i.i,
   tail call void @_ZdlPv(ptr noundef %19) #34
   tail call void @_ZN4absl18container_internal13EraseMetaOnlyERNS0_12CommonFieldsEPNS0_6ctrl_tEm(ptr noundef nonnull align 8 dereferenceable(32) %this, ptr noundef %first.sroa.0.011, i64 noundef 8)
   %cmp.i.i.i5.not = icmp eq ptr %spec.select, %last.coerce0
-  br i1 %cmp.i.i.i5.not, label %return, label %while.body, !llvm.loop !3420
+  br i1 %cmp.i.i.i5.not, label %while.end, label %while.body, !llvm.loop !3420
 
-return:                                           ; preds = %while.end.i.i.i.i, %while.cond.preheader, %entry, %_ZN4absl18container_internal12raw_hash_setINS0_17NodeHashMapPolicyIiiEENS0_19StatefulTestingHashENS0_20StatefulTestingEqualENS0_5AllocISt4pairIKiiEEEE13destroy_slotsEv.exit
-  %retval.sroa.0.0 = phi ptr [ null, %_ZN4absl18container_internal12raw_hash_setINS0_17NodeHashMapPolicyIiiEENS0_19StatefulTestingHashENS0_20StatefulTestingEqualENS0_5AllocISt4pairIKiiEEEE13destroy_slotsEv.exit ], [ null, %entry ], [ %last.coerce0, %while.cond.preheader ], [ %last.coerce0, %while.end.i.i.i.i ]
-  %.fca.0.insert = insertvalue { ptr, ptr } poison, ptr %retval.sroa.0.0, 0
-  %.fca.1.insert = insertvalue { ptr, ptr } %.fca.0.insert, ptr %last.coerce1, 1
-  ret { ptr, ptr } %.fca.1.insert
+while.end:                                        ; preds = %while.end.i.i.i.i, %while.cond.preheader
+  %20 = insertvalue { ptr, ptr } poison, ptr %last.coerce0, 0
+  %21 = insertvalue { ptr, ptr } %20, ptr %last.coerce1, 1
+  br label %return
+
+return:                                           ; preds = %entry, %while.end, %_ZN4absl18container_internal12raw_hash_setINS0_17NodeHashMapPolicyIiiEENS0_19StatefulTestingHashENS0_20StatefulTestingEqualENS0_5AllocISt4pairIKiiEEEE13destroy_slotsEv.exit
+  %.fca.1.insert.merged = phi { ptr, ptr } [ { ptr null, ptr undef }, %_ZN4absl18container_internal12raw_hash_setINS0_17NodeHashMapPolicyIiiEENS0_19StatefulTestingHashENS0_20StatefulTestingEqualENS0_5AllocISt4pairIKiiEEEE13destroy_slotsEv.exit ], [ %21, %while.end ], [ { ptr null, ptr undef }, %entry ]
+  ret { ptr, ptr } %.fca.1.insert.merged
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -149605,7 +149608,7 @@ _ZN4absl18container_internal12raw_hash_setINS0_17NodeHashMapPolicyINSt7__cxx1112
 
 while.cond.preheader:                             ; preds = %_ZN4absl18container_internal12raw_hash_setINS0_17NodeHashMapPolicyINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_EENS0_19StatefulTestingHashENS0_20StatefulTestingEqualENS0_5AllocISt4pairIKS8_S8_EEEE5beginEv.exit
   %cmp.i.i.i5.not10 = icmp eq ptr %first.coerce0, %last.coerce0
-  br i1 %cmp.i.i.i5.not10, label %return, label %while.body
+  br i1 %cmp.i.i.i5.not10, label %while.end, label %while.body
 
 if.then9:                                         ; preds = %_ZN4absl18container_internal12raw_hash_setINS0_17NodeHashMapPolicyINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_EENS0_19StatefulTestingHashENS0_20StatefulTestingEqualENS0_5AllocISt4pairIKS8_S8_EEEE5beginEv.exit
   %capacity_.i.i.i = getelementptr inbounds i8, ptr %this, i64 16
@@ -149676,13 +149679,16 @@ while.end.i.i.i.i:                                ; preds = %while.body.i.i.i.i,
   tail call void @_ZdlPv(ptr noundef %19) #34
   tail call void @_ZN4absl18container_internal13EraseMetaOnlyERNS0_12CommonFieldsEPNS0_6ctrl_tEm(ptr noundef nonnull align 8 dereferenceable(32) %this, ptr noundef %first.sroa.0.011, i64 noundef 8)
   %cmp.i.i.i5.not = icmp eq ptr %spec.select, %last.coerce0
-  br i1 %cmp.i.i.i5.not, label %return, label %while.body, !llvm.loop !3431
+  br i1 %cmp.i.i.i5.not, label %while.end, label %while.body, !llvm.loop !3431
 
-return:                                           ; preds = %while.end.i.i.i.i, %while.cond.preheader, %entry, %_ZN4absl18container_internal12raw_hash_setINS0_17NodeHashMapPolicyINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_EENS0_19StatefulTestingHashENS0_20StatefulTestingEqualENS0_5AllocISt4pairIKS8_S8_EEEE13destroy_slotsEv.exit
-  %retval.sroa.0.0 = phi ptr [ null, %_ZN4absl18container_internal12raw_hash_setINS0_17NodeHashMapPolicyINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_EENS0_19StatefulTestingHashENS0_20StatefulTestingEqualENS0_5AllocISt4pairIKS8_S8_EEEE13destroy_slotsEv.exit ], [ null, %entry ], [ %last.coerce0, %while.cond.preheader ], [ %last.coerce0, %while.end.i.i.i.i ]
-  %.fca.0.insert = insertvalue { ptr, ptr } poison, ptr %retval.sroa.0.0, 0
-  %.fca.1.insert = insertvalue { ptr, ptr } %.fca.0.insert, ptr %last.coerce1, 1
-  ret { ptr, ptr } %.fca.1.insert
+while.end:                                        ; preds = %while.end.i.i.i.i, %while.cond.preheader
+  %20 = insertvalue { ptr, ptr } poison, ptr %last.coerce0, 0
+  %21 = insertvalue { ptr, ptr } %20, ptr %last.coerce1, 1
+  br label %return
+
+return:                                           ; preds = %entry, %while.end, %_ZN4absl18container_internal12raw_hash_setINS0_17NodeHashMapPolicyINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_EENS0_19StatefulTestingHashENS0_20StatefulTestingEqualENS0_5AllocISt4pairIKS8_S8_EEEE13destroy_slotsEv.exit
+  %.fca.1.insert.merged = phi { ptr, ptr } [ { ptr null, ptr undef }, %_ZN4absl18container_internal12raw_hash_setINS0_17NodeHashMapPolicyINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_EENS0_19StatefulTestingHashENS0_20StatefulTestingEqualENS0_5AllocISt4pairIKS8_S8_EEEE13destroy_slotsEv.exit ], [ %21, %while.end ], [ { ptr null, ptr undef }, %entry ]
+  ret { ptr, ptr } %.fca.1.insert.merged
 }
 
 ; Function Attrs: mustprogress uwtable

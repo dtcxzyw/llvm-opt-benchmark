@@ -17510,10 +17510,10 @@ ehcleanup2181:                                    ; preds = %ehcleanup2180, %lpa
   br label %ehcleanup2182
 
 ehcleanup2182:                                    ; preds = %ehcleanup143, %ehcleanup2181, %lpad148, %lpad87, %ehcleanup84, %ehcleanup44, %ehcleanup33, %ehcleanup, %lpad4, %lpad2
-  %lpad.val2186.merged = phi { ptr, i32 } [ %.pn284.pn.pn, %ehcleanup2181 ], [ %165, %lpad148 ], [ %.pn137.pn.pn, %ehcleanup143 ], [ %67, %lpad87 ], [ %.pn135, %ehcleanup84 ], [ %42, %lpad2 ], [ %.pn131, %ehcleanup ], [ %.pn129, %ehcleanup44 ], [ %.pn, %ehcleanup33 ], [ %43, %lpad4 ]
+  %.merged = phi { ptr, i32 } [ %.pn284.pn.pn, %ehcleanup2181 ], [ %165, %lpad148 ], [ %.pn137.pn.pn, %ehcleanup143 ], [ %67, %lpad87 ], [ %.pn135, %ehcleanup84 ], [ %42, %lpad2 ], [ %.pn131, %ehcleanup ], [ %.pn129, %ehcleanup44 ], [ %.pn, %ehcleanup33 ], [ %43, %lpad4 ]
   call void @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %results) #26
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %version) #26
-  resume { ptr, i32 } %lpad.val2186.merged
+  resume { ptr, i32 } %.merged
 
 terminate.lpad:                                   ; preds = %ehcleanup143
   %1837 = landingpad { ptr, i32 }
@@ -27424,8 +27424,8 @@ cond.true.i:                                      ; preds = %if.end.i
   br label %invoke.cont1
 
 invoke.cont1:                                     ; preds = %cond.true.i, %if.end.i
-  %retval.sroa.0.0.i = phi i32 [ %7, %cond.true.i ], [ 0, %if.end.i ]
-  %call4 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEi(ptr noundef nonnull align 8 dereferenceable(8) %call, i32 noundef %retval.sroa.0.0.i)
+  %.fca.1.insert.merged.i = phi i32 [ %7, %cond.true.i ], [ 0, %if.end.i ]
+  %call4 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEi(ptr noundef nonnull align 8 dereferenceable(8) %call, i32 noundef %.fca.1.insert.merged.i)
           to label %invoke.cont3 unwind label %lpad
 
 invoke.cont3:                                     ; preds = %invoke.cont1
@@ -28923,8 +28923,8 @@ cond.true.i:                                      ; preds = %if.end.i
   br label %invoke.cont4
 
 invoke.cont4:                                     ; preds = %cond.true.i, %if.end.i
-  %retval.sroa.0.0.i = phi i32 [ %7, %cond.true.i ], [ 0, %if.end.i ]
-  %call7 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEi(ptr noundef nonnull align 8 dereferenceable(8) %call, i32 noundef %retval.sroa.0.0.i)
+  %.fca.1.insert.merged.i = phi i32 [ %7, %cond.true.i ], [ 0, %if.end.i ]
+  %call7 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEi(ptr noundef nonnull align 8 dereferenceable(8) %call, i32 noundef %.fca.1.insert.merged.i)
           to label %invoke.cont6 unwind label %lpad2
 
 invoke.cont6:                                     ; preds = %invoke.cont4
@@ -44427,14 +44427,13 @@ cond.true:                                        ; preds = %if.end
   %retval.sroa.0.0.copyload = load i64, ptr %m_mark.i.i.i, align 4
   %retval.sroa.3.0.call.sroa_idx = getelementptr inbounds i8, ptr %4, i64 12
   %retval.sroa.3.0.copyload = load i32, ptr %retval.sroa.3.0.call.sroa_idx, align 4
+  %5 = insertvalue { i64, i32 } poison, i64 %retval.sroa.0.0.copyload, 0
+  %6 = insertvalue { i64, i32 } %5, i32 %retval.sroa.3.0.copyload, 1
   br label %cond.end
 
 cond.end:                                         ; preds = %if.end, %cond.true
-  %retval.sroa.0.0 = phi i64 [ %retval.sroa.0.0.copyload, %cond.true ], [ -1, %if.end ]
-  %retval.sroa.3.0 = phi i32 [ %retval.sroa.3.0.copyload, %cond.true ], [ -1, %if.end ]
-  %.fca.0.insert = insertvalue { i64, i32 } poison, i64 %retval.sroa.0.0, 0
-  %.fca.1.insert = insertvalue { i64, i32 } %.fca.0.insert, i32 %retval.sroa.3.0, 1
-  ret { i64, i32 } %.fca.1.insert
+  %.fca.1.insert.merged = phi { i64, i32 } [ %6, %cond.true ], [ { i64 -1, i32 -1 }, %if.end ]
+  ret { i64, i32 } %.fca.1.insert.merged
 }
 
 declare void @_ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEC1ERKNS_12basic_stringIcS2_S3_EESt13_Ios_Openmode(ptr noundef nonnull align 8 dereferenceable(128), ptr noundef nonnull align 8 dereferenceable(32), i32 noundef) unnamed_addr #0
@@ -50549,8 +50548,8 @@ cond.true.i:                                      ; preds = %if.end.i
   br label %invoke.cont4
 
 invoke.cont4:                                     ; preds = %cond.true.i, %if.end.i
-  %retval.sroa.0.0.i = phi i32 [ %7, %cond.true.i ], [ 0, %if.end.i ]
-  %call7 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEi(ptr noundef nonnull align 8 dereferenceable(8) %call, i32 noundef %retval.sroa.0.0.i)
+  %.fca.1.insert.merged.i = phi i32 [ %7, %cond.true.i ], [ 0, %if.end.i ]
+  %call7 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEi(ptr noundef nonnull align 8 dereferenceable(8) %call, i32 noundef %.fca.1.insert.merged.i)
           to label %invoke.cont6 unwind label %lpad2
 
 invoke.cont6:                                     ; preds = %invoke.cont4
@@ -100648,8 +100647,8 @@ cond.true.i:                                      ; preds = %if.end.i
   br label %invoke.cont4
 
 invoke.cont4:                                     ; preds = %cond.true.i, %if.end.i
-  %retval.sroa.0.0.i = phi i32 [ %7, %cond.true.i ], [ 0, %if.end.i ]
-  %call7 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEi(ptr noundef nonnull align 8 dereferenceable(8) %call, i32 noundef %retval.sroa.0.0.i)
+  %.fca.1.insert.merged.i = phi i32 [ %7, %cond.true.i ], [ 0, %if.end.i ]
+  %call7 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEi(ptr noundef nonnull align 8 dereferenceable(8) %call, i32 noundef %.fca.1.insert.merged.i)
           to label %invoke.cont6 unwind label %lpad2
 
 invoke.cont6:                                     ; preds = %invoke.cont4

@@ -601,7 +601,7 @@ define internal void @_ZN3std3sys3pal6common12thread_local10fast_local13destroy_
   tail call void @llvm.experimental.noalias.scope.decl(metadata !101)
   %7 = load i64, ptr %4, align 8, !range !36, !alias.scope !101, !noalias !96, !noundef !4
   %8 = icmp eq i64 %7, 0
-  br i1 %8, label %39, label %9
+  br i1 %8, label %"_ZN4core3ptr130drop_in_place$LT$core..result..Result$LT$$LP$$RP$$C$alloc..boxed..Box$LT$dyn$u20$core..any..Any$u2b$core..marker..Send$GT$$GT$$GT$17hd385fdd9af35eb29E.exit", label %9
 
 9:                                                ; preds = %1
   %10 = getelementptr inbounds i8, ptr %4, i64 16
@@ -628,7 +628,7 @@ define internal void @_ZN3std3sys3pal6common12thread_local10fast_local13destroy_
 
 "_ZN4core3ptr69drop_in_place$LT$core..cell..RefCell$LT$alloc..string..String$GT$$GT$17h76068cc71456de5aE.exit.i.i.i.i.i.i": ; preds = %17, %13, %.noexc.i
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3), !noalias !104
-  br label %39
+  br label %"_ZN4core3ptr130drop_in_place$LT$core..result..Result$LT$$LP$$RP$$C$alloc..boxed..Box$LT$dyn$u20$core..any..Any$u2b$core..marker..Send$GT$$GT$$GT$17hd385fdd9af35eb29E.exit"
 
 19:                                               ; preds = %9
   %20 = landingpad { ptr, i32 }
@@ -682,7 +682,7 @@ define internal void @_ZN3std3sys3pal6common12thread_local10fast_local13destroy_
 38:                                               ; preds = %37
   unreachable
 
-39:                                               ; preds = %1, %"_ZN4core3ptr69drop_in_place$LT$core..cell..RefCell$LT$alloc..string..String$GT$$GT$17h76068cc71456de5aE.exit.i.i.i.i.i.i"
+"_ZN4core3ptr130drop_in_place$LT$core..result..Result$LT$$LP$$RP$$C$alloc..boxed..Box$LT$dyn$u20$core..any..Any$u2b$core..marker..Send$GT$$GT$$GT$17hd385fdd9af35eb29E.exit": ; preds = %1, %"_ZN4core3ptr69drop_in_place$LT$core..cell..RefCell$LT$alloc..string..String$GT$$GT$17h76068cc71456de5aE.exit.i.i.i.i.i.i"
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %4), !noalias !96
   ret void
 }
@@ -699,12 +699,12 @@ define internal void @_ZN3std3sys3pal6common12thread_local10fast_local13destroy_
   store i8 2, ptr %5, align 1, !noalias !123
   %6 = load i64, ptr %3, align 8, !range !36, !alias.scope !128, !noalias !123, !noundef !4
   %7 = icmp eq i64 %6, 0
-  br i1 %7, label %30, label %8
+  br i1 %7, label %"_ZN4core3ptr130drop_in_place$LT$core..result..Result$LT$$LP$$RP$$C$alloc..boxed..Box$LT$dyn$u20$core..any..Any$u2b$core..marker..Send$GT$$GT$$GT$17hd385fdd9af35eb29E.exit", label %8
 
 8:                                                ; preds = %1
   %9 = getelementptr inbounds i8, ptr %3, i64 8
   invoke void @"_ZN73_$LT$sharded_slab..tid..Registration$u20$as$u20$core..ops..drop..Drop$GT$4drop17h561a6885683961deE"(ptr noalias noundef nonnull align 8 dereferenceable(16) %9)
-          to label %30 unwind label %10, !noalias !131
+          to label %"_ZN4core3ptr130drop_in_place$LT$core..result..Result$LT$$LP$$RP$$C$alloc..boxed..Box$LT$dyn$u20$core..any..Any$u2b$core..marker..Send$GT$$GT$$GT$17hd385fdd9af35eb29E.exit" unwind label %10, !noalias !131
 
 10:                                               ; preds = %8
   %11 = landingpad { ptr, i32 }
@@ -758,7 +758,7 @@ define internal void @_ZN3std3sys3pal6common12thread_local10fast_local13destroy_
 29:                                               ; preds = %28
   unreachable
 
-30:                                               ; preds = %1, %8
+"_ZN4core3ptr130drop_in_place$LT$core..result..Result$LT$$LP$$RP$$C$alloc..boxed..Box$LT$dyn$u20$core..any..Any$u2b$core..marker..Send$GT$$GT$$GT$17hd385fdd9af35eb29E.exit": ; preds = %1, %8
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3), !noalias !123
   ret void
 }
@@ -1004,11 +1004,8 @@ __rust_try.llvm.12580687237527604788.exit:        ; preds = %.body.i.i.i.i
   br label %35
 
 35:                                               ; preds = %__rust_try.llvm.12580687237527604788.exit, %34
-  %.sroa.6.06 = phi ptr [ undef, %34 ], [ %31, %__rust_try.llvm.12580687237527604788.exit ]
-  %36 = phi ptr [ null, %34 ], [ %30, %__rust_try.llvm.12580687237527604788.exit ]
-  %37 = insertvalue { ptr, ptr } poison, ptr %36, 0
-  %38 = insertvalue { ptr, ptr } %37, ptr %.sroa.6.06, 1
-  ret { ptr, ptr } %38
+  %.merged = phi { ptr, ptr } [ { ptr null, ptr undef }, %34 ], [ %27, %__rust_try.llvm.12580687237527604788.exit ]
+  ret { ptr, ptr } %.merged
 }
 
 ; Function Attrs: nounwind nonlazybind uwtable
@@ -1054,11 +1051,8 @@ define hidden { ptr, ptr } @_ZN3std9panicking3try17h4f2123c5f5bb7c61E(ptr noalia
   br label %15
 
 15:                                               ; preds = %9, %14
-  %16 = phi ptr [ undef, %14 ], [ %11, %9 ]
-  %17 = phi ptr [ null, %14 ], [ %10, %9 ]
-  %18 = insertvalue { ptr, ptr } poison, ptr %17, 0
-  %19 = insertvalue { ptr, ptr } %18, ptr %16, 1
-  ret { ptr, ptr } %19
+  %.merged = phi { ptr, ptr } [ { ptr null, ptr undef }, %14 ], [ %6, %9 ]
+  ret { ptr, ptr } %.merged
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable

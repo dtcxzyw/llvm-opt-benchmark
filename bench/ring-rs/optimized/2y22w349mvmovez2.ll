@@ -615,7 +615,7 @@ define { ptr, i64 } @_ZN4ring4aead13less_safe_key12open_within_17h7e870cc27c7204
   %10 = alloca [16 x i8], align 16
   %11 = icmp ugt i64 %7, %6
   %12 = sub i64 %6, %7
-  br i1 %11, label %26, label %13
+  br i1 %11, label %28, label %13
 
 13:                                               ; preds = %8
   call void @llvm.lifetime.start.p0(i64 17, ptr nonnull %9)
@@ -640,33 +640,36 @@ define { ptr, i64 } @_ZN4ring4aead13less_safe_key12open_within_17h7e870cc27c7204
   %23 = getelementptr inbounds i8, ptr %9, i64 1
   %.sroa.016.0.copyload = load <16 x i8>, ptr %23, align 1
   call void @llvm.lifetime.end.p0(i64 17, ptr nonnull %9)
-  br i1 %trunc, label %26, label %_ZN4ring13constant_time23verify_slices_are_equal17ha963d7590b538eceE.exit
+  br i1 %trunc, label %28, label %_ZN4ring13constant_time23verify_slices_are_equal17ha963d7590b538eceE.exit
 
 _ZN4ring13constant_time23verify_slices_are_equal17ha963d7590b538eceE.exit: ; preds = %"_ZN4spin4once17Once$LT$T$C$R$GT$13try_call_once17h06b4d0781e22c176E.exit"
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %10)
   store <16 x i8> %.sroa.016.0.copyload, ptr %10, align 16
   %24 = call noundef i32 @ring_core_0_17_8__CRYPTO_memcmp(ptr noundef nonnull readonly %10, ptr noundef nonnull readonly %4, i64 noundef 16)
   %.not = icmp eq i32 %24, 0
-  br i1 %.not, label %.sink.split, label %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17hbd7f023510873fc8E.llvm.12309478120345669377.exit27"
+  br i1 %.not, label %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17hbd7f023510873fc8E.llvm.12309478120345669377.exit", label %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17hbd7f023510873fc8E.llvm.12309478120345669377.exit27"
+
+"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17hbd7f023510873fc8E.llvm.12309478120345669377.exit": ; preds = %_ZN4ring13constant_time23verify_slices_are_equal17ha963d7590b538eceE.exit
+  %25 = insertvalue { ptr, i64 } poison, ptr %5, 0
+  %26 = insertvalue { ptr, i64 } %25, i64 %12, 1
+  br label %.sink.split
 
 "_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17hbd7f023510873fc8E.llvm.12309478120345669377.exit27": ; preds = %_ZN4ring13constant_time23verify_slices_are_equal17ha963d7590b538eceE.exit
-  %25 = icmp eq i64 %6, %7
-  br i1 %25, label %.sink.split, label %.lr.ph.preheader
+  %27 = icmp eq i64 %6, %7
+  br i1 %27, label %.sink.split, label %.lr.ph.preheader
 
 .lr.ph.preheader:                                 ; preds = %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17hbd7f023510873fc8E.llvm.12309478120345669377.exit27"
   call void @llvm.memset.p0.i64(ptr nonnull align 1 %5, i8 0, i64 %12, i1 false)
   br label %.sink.split
 
-.sink.split:                                      ; preds = %_ZN4ring13constant_time23verify_slices_are_equal17ha963d7590b538eceE.exit, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17hbd7f023510873fc8E.llvm.12309478120345669377.exit27", %.lr.ph.preheader
-  %.sroa.0.0.ph = phi ptr [ null, %.lr.ph.preheader ], [ null, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17hbd7f023510873fc8E.llvm.12309478120345669377.exit27" ], [ %5, %_ZN4ring13constant_time23verify_slices_are_equal17ha963d7590b538eceE.exit ]
+.sink.split:                                      ; preds = %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17hbd7f023510873fc8E.llvm.12309478120345669377.exit27", %.lr.ph.preheader, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17hbd7f023510873fc8E.llvm.12309478120345669377.exit"
+  %.merged.ph = phi { ptr, i64 } [ %26, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17hbd7f023510873fc8E.llvm.12309478120345669377.exit" ], [ { ptr null, i64 undef }, %.lr.ph.preheader ], [ { ptr null, i64 undef }, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17hbd7f023510873fc8E.llvm.12309478120345669377.exit27" ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %10)
-  br label %26
+  br label %28
 
-26:                                               ; preds = %.sink.split, %"_ZN4spin4once17Once$LT$T$C$R$GT$13try_call_once17h06b4d0781e22c176E.exit", %8
-  %.sroa.0.0 = phi ptr [ null, %8 ], [ null, %"_ZN4spin4once17Once$LT$T$C$R$GT$13try_call_once17h06b4d0781e22c176E.exit" ], [ %.sroa.0.0.ph, %.sink.split ]
-  %27 = insertvalue { ptr, i64 } poison, ptr %.sroa.0.0, 0
-  %28 = insertvalue { ptr, i64 } %27, i64 %12, 1
-  ret { ptr, i64 } %28
+28:                                               ; preds = %.sink.split, %"_ZN4spin4once17Once$LT$T$C$R$GT$13try_call_once17h06b4d0781e22c176E.exit", %8
+  %.merged = phi { ptr, i64 } [ { ptr null, i64 undef }, %8 ], [ { ptr null, i64 undef }, %"_ZN4spin4once17Once$LT$T$C$R$GT$13try_call_once17h06b4d0781e22c176E.exit" ], [ %.merged.ph, %.sink.split ]
+  ret { ptr, i64 } %.merged
 }
 
 ; Function Attrs: nonlazybind uwtable

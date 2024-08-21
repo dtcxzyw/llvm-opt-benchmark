@@ -1733,7 +1733,7 @@ define ptr @WasmEdge_ValueGetExternRef(ptr nocapture noundef readonly byval(%str
 ; Function Attrs: mustprogress uwtable
 define { i32, ptr } @WasmEdge_StringCreateByCString(ptr noundef readonly %0) local_unnamed_addr #1 {
   %.not = icmp eq ptr %0, null
-  br i1 %.not, label %WasmEdge_StringCreateByBuffer.exit, label %2
+  br i1 %.not, label %7, label %2
 
 2:                                                ; preds = %1
   %3 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #35
@@ -1747,12 +1747,15 @@ _ZSt6copy_nIPKcjPcET1_T_T0_S3_.exit.i:            ; preds = %2
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %6, ptr nonnull readonly align 1 %0, i64 %5, i1 false)
   br label %WasmEdge_StringCreateByBuffer.exit
 
-WasmEdge_StringCreateByBuffer.exit:               ; preds = %_ZSt6copy_nIPKcjPcET1_T_T0_S3_.exit.i, %2, %1
-  %.sroa.0.0 = phi i32 [ 0, %1 ], [ 0, %2 ], [ %4, %_ZSt6copy_nIPKcjPcET1_T_T0_S3_.exit.i ]
-  %.sroa.3.0 = phi ptr [ null, %1 ], [ null, %2 ], [ %6, %_ZSt6copy_nIPKcjPcET1_T_T0_S3_.exit.i ]
-  %.fca.0.insert = insertvalue { i32, ptr } poison, i32 %.sroa.0.0, 0
-  %.fca.1.insert = insertvalue { i32, ptr } %.fca.0.insert, ptr %.sroa.3.0, 1
-  ret { i32, ptr } %.fca.1.insert
+WasmEdge_StringCreateByBuffer.exit:               ; preds = %2, %_ZSt6copy_nIPKcjPcET1_T_T0_S3_.exit.i
+  %.sroa.3.0.i = phi ptr [ %6, %_ZSt6copy_nIPKcjPcET1_T_T0_S3_.exit.i ], [ null, %2 ]
+  %.fca.0.insert.i = insertvalue { i32, ptr } poison, i32 %4, 0
+  %.fca.1.insert.i = insertvalue { i32, ptr } %.fca.0.insert.i, ptr %.sroa.3.0.i, 1
+  br label %7
+
+7:                                                ; preds = %1, %WasmEdge_StringCreateByBuffer.exit
+  %.fca.1.insert.merged = phi { i32, ptr } [ %.fca.1.insert.i, %WasmEdge_StringCreateByBuffer.exit ], [ zeroinitializer, %1 ]
+  ret { i32, ptr } %.fca.1.insert.merged
 }
 
 ; Function Attrs: mustprogress uwtable

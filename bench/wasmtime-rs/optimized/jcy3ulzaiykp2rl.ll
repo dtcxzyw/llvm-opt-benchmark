@@ -1808,20 +1808,19 @@ define hidden noundef i128 @_ZN4core5error5Error7type_id17h4f2c64d6121c39bbE(ptr
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
 define hidden { i32, i8 } @"_ZN4core6option19Option$LT$$RF$T$GT$6cloned17h10c1a19ed180a3e1E"(ptr noalias nocapture noundef readonly align 4 dereferenceable_or_null(8) %0) unnamed_addr #9 {
   %2 = icmp eq ptr %0, null
-  br i1 %2, label %7, label %3
+  br i1 %2, label %9, label %3
 
 3:                                                ; preds = %1
   %4 = load i32, ptr %0, align 4, !alias.scope !189, !noundef !4
   %5 = getelementptr inbounds i8, ptr %0, i64 4
   %6 = load i8, ptr %5, align 4, !range !192, !alias.scope !189, !noundef !4
-  br label %7
+  %7 = insertvalue { i32, i8 } poison, i32 %4, 0
+  %8 = insertvalue { i32, i8 } %7, i8 %6, 1
+  br label %9
 
-7:                                                ; preds = %1, %3
-  %.sroa.0.0 = phi i32 [ %4, %3 ], [ undef, %1 ]
-  %.sroa.2.0 = phi i8 [ %6, %3 ], [ 0, %1 ]
-  %8 = insertvalue { i32, i8 } poison, i32 %.sroa.0.0, 0
-  %9 = insertvalue { i32, i8 } %8, i8 %.sroa.2.0, 1
-  ret { i32, i8 } %9
+9:                                                ; preds = %1, %3
+  %.merged = phi { i32, i8 } [ %8, %3 ], [ { i32 undef, i8 0 }, %1 ]
+  ret { i32, i8 } %.merged
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
@@ -2842,7 +2841,7 @@ default.unreachable.i.i.i.i:                      ; preds = %19
   %.0.i.i.i.i.i = tail call noundef range(i8 -1, 2) i8 @llvm.ucmp.i8.i64(i64 %1, i64 %.val20.i.i.i.i)
   switch i8 %.0.i.i.i.i.i, label %default.unreachable.i.i.i.i [
     i8 -1, label %22
-    i8 0, label %36
+    i8 0, label %34
     i8 1, label %17
   ]
 
@@ -2879,20 +2878,19 @@ default.unreachable.i.i.i.i:                      ; preds = %19
   %32 = call noundef align 8 dereferenceable(16) ptr @"_ZN5alloc11collections5btree3map5entry28VacantEntry$LT$K$C$V$C$A$GT$6insert17h1594f419d35c714cE.llvm.14171400993280223970"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(40) %5, ptr noalias noundef nonnull align 8 %2, i64 noundef %3)
   br label %33
 
-33:                                               ; preds = %31, %36
-  %.sroa.3.0 = phi i64 [ %40, %36 ], [ undef, %31 ]
-  %.sroa.0.0 = phi ptr [ %38, %36 ], [ null, %31 ]
-  %34 = insertvalue { ptr, i64 } poison, ptr %.sroa.0.0, 0
-  %35 = insertvalue { ptr, i64 } %34, i64 %.sroa.3.0, 1
-  ret { ptr, i64 } %35
+33:                                               ; preds = %31, %34
+  %.merged = phi { ptr, i64 } [ %40, %34 ], [ { ptr null, i64 undef }, %31 ]
+  ret { ptr, i64 } %.merged
 
-36:                                               ; preds = %19
-  %37 = getelementptr inbounds { [2 x i64] }, ptr %.sroa.0.0.i.i, i64 %.sroa.8.0.i.i.i.i
-  %38 = load ptr, ptr %37, align 8, !noalias !368, !nonnull !4, !align !9, !noundef !4
-  %39 = getelementptr inbounds i8, ptr %37, i64 8
-  %40 = load i64, ptr %39, align 8, !noalias !368, !noundef !4
-  store ptr %2, ptr %37, align 8, !noalias !368
-  store i64 %3, ptr %39, align 8, !noalias !372
+34:                                               ; preds = %19
+  %35 = getelementptr inbounds { [2 x i64] }, ptr %.sroa.0.0.i.i, i64 %.sroa.8.0.i.i.i.i
+  %36 = load ptr, ptr %35, align 8, !noalias !368, !nonnull !4, !align !9, !noundef !4
+  %37 = getelementptr inbounds i8, ptr %35, i64 8
+  %38 = load i64, ptr %37, align 8, !noalias !368, !noundef !4
+  store ptr %2, ptr %35, align 8, !noalias !368
+  store i64 %3, ptr %37, align 8, !noalias !372
+  %39 = insertvalue { ptr, i64 } poison, ptr %36, 0
+  %40 = insertvalue { ptr, i64 } %39, i64 %38, 1
   br label %33
 }
 
@@ -10607,14 +10605,13 @@ define hidden { ptr, ptr } @"_ZN97_$LT$indexmap..map..iter..Iter$LT$K$C$V$GT$$u2
   %7 = getelementptr inbounds i8, ptr %4, i64 72
   store ptr %7, ptr %0, align 8, !alias.scope !1731
   %8 = getelementptr inbounds i8, ptr %4, i64 40
+  %9 = insertvalue { ptr, ptr } poison, ptr %4, 0
+  %10 = insertvalue { ptr, ptr } %9, ptr %8, 1
   br label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hb0f6ddb1eea68ce0E.llvm.14171400993280223970.exit.thread"
 
 "_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hb0f6ddb1eea68ce0E.llvm.14171400993280223970.exit.thread": ; preds = %1, %6
-  %.sroa.3.0 = phi ptr [ %8, %6 ], [ undef, %1 ]
-  %.sroa.0.0 = phi ptr [ %4, %6 ], [ null, %1 ]
-  %9 = insertvalue { ptr, ptr } poison, ptr %.sroa.0.0, 0
-  %10 = insertvalue { ptr, ptr } %9, ptr %.sroa.3.0, 1
-  ret { ptr, ptr } %10
+  %.merged = phi { ptr, ptr } [ %10, %6 ], [ { ptr null, ptr undef }, %1 ]
+  ret { ptr, ptr } %.merged
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable

@@ -650,9 +650,11 @@ define hidden { ptr, i64 } @"_ZN4core5slice4iter13Iter$LT$T$GT$10make_slice17hea
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
 define hidden { i64, i64 } @"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17h0839520e8569b23aE.llvm.1408189901302408350"(i64 noundef %0, i64 %1) unnamed_addr #6 {
-  %3 = insertvalue { i64, i64 } poison, i64 %0, 0
-  %4 = insertvalue { i64, i64 } %3, i64 %1, 1
-  ret { i64, i64 } %4
+  %3 = icmp eq i64 %0, -9223372036854775807
+  %4 = insertvalue { i64, i64 } poison, i64 %0, 0
+  %5 = insertvalue { i64, i64 } %4, i64 %1, 1
+  %.merged = select i1 %3, { i64, i64 } { i64 -9223372036854775807, i64 undef }, { i64, i64 } %5
+  ret { i64, i64 } %.merged
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
@@ -985,7 +987,9 @@ define hidden void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$13shrink_to_fit17h157adc53d9
 
 10:                                               ; preds = %6
   %11 = extractvalue { i64, i64 } %7, 1
-  tail call void @_ZN5alloc5alloc18handle_alloc_error17h836e982fea7018bdE(i64 noundef %8, i64 noundef %11) #24
+  %12 = icmp eq i64 %8, -9223372036854775807
+  %13 = select i1 %12, i64 undef, i64 %11
+  tail call void @_ZN5alloc5alloc18handle_alloc_error17h836e982fea7018bdE(i64 noundef %8, i64 noundef %13) #24
   unreachable
 
 _ZN5alloc7raw_vec14handle_reserve17hbe02af521469e2d1E.llvm.1408189901302408350.exit: ; preds = %6, %1
@@ -1014,7 +1018,9 @@ define hidden void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$13shrink_to_fit17h218310edd3
 
 10:                                               ; preds = %6
   %11 = extractvalue { i64, i64 } %7, 1
-  tail call void @_ZN5alloc5alloc18handle_alloc_error17h836e982fea7018bdE(i64 noundef %8, i64 noundef %11) #24
+  %12 = icmp eq i64 %8, -9223372036854775807
+  %13 = select i1 %12, i64 undef, i64 %11
+  tail call void @_ZN5alloc5alloc18handle_alloc_error17h836e982fea7018bdE(i64 noundef %8, i64 noundef %13) #24
   unreachable
 
 _ZN5alloc7raw_vec14handle_reserve17hbe02af521469e2d1E.llvm.1408189901302408350.exit: ; preds = %6, %1
@@ -1043,7 +1049,9 @@ define hidden void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$13shrink_to_fit17h668a9b14ce
 
 10:                                               ; preds = %6
   %11 = extractvalue { i64, i64 } %7, 1
-  tail call void @_ZN5alloc5alloc18handle_alloc_error17h836e982fea7018bdE(i64 noundef %8, i64 noundef %11) #24
+  %12 = icmp eq i64 %8, -9223372036854775807
+  %13 = select i1 %12, i64 undef, i64 %11
+  tail call void @_ZN5alloc5alloc18handle_alloc_error17h836e982fea7018bdE(i64 noundef %8, i64 noundef %13) #24
   unreachable
 
 _ZN5alloc7raw_vec14handle_reserve17hbe02af521469e2d1E.llvm.1408189901302408350.exit: ; preds = %6, %1
@@ -1072,7 +1080,9 @@ define hidden void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$13shrink_to_fit17hb973f17375
 
 10:                                               ; preds = %6
   %11 = extractvalue { i64, i64 } %7, 1
-  tail call void @_ZN5alloc5alloc18handle_alloc_error17h836e982fea7018bdE(i64 noundef %8, i64 noundef %11) #24
+  %12 = icmp eq i64 %8, -9223372036854775807
+  %13 = select i1 %12, i64 undef, i64 %11
+  tail call void @_ZN5alloc5alloc18handle_alloc_error17h836e982fea7018bdE(i64 noundef %8, i64 noundef %13) #24
   unreachable
 
 _ZN5alloc7raw_vec14handle_reserve17hbe02af521469e2d1E.llvm.1408189901302408350.exit: ; preds = %6, %1
@@ -1101,7 +1111,9 @@ define hidden void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$13shrink_to_fit17hd1eeb61a0a
 
 10:                                               ; preds = %6
   %11 = extractvalue { i64, i64 } %7, 1
-  tail call void @_ZN5alloc5alloc18handle_alloc_error17h836e982fea7018bdE(i64 noundef %8, i64 noundef %11) #24
+  %12 = icmp eq i64 %8, -9223372036854775807
+  %13 = select i1 %12, i64 undef, i64 %11
+  tail call void @_ZN5alloc5alloc18handle_alloc_error17h836e982fea7018bdE(i64 noundef %8, i64 noundef %13) #24
   unreachable
 
 _ZN5alloc7raw_vec14handle_reserve17hbe02af521469e2d1E.llvm.1408189901302408350.exit: ; preds = %6, %1
@@ -1284,7 +1296,9 @@ define hidden void @_ZN5alloc7raw_vec14handle_reserve17hbe02af521469e2d1E.llvm.1
   unreachable
 
 5:                                                ; preds = %2
-  tail call void @_ZN5alloc5alloc18handle_alloc_error17h836e982fea7018bdE(i64 noundef %0, i64 noundef %1) #24
+  %6 = icmp eq i64 %0, -9223372036854775807
+  %7 = select i1 %6, i64 undef, i64 %1
+  tail call void @_ZN5alloc5alloc18handle_alloc_error17h836e982fea7018bdE(i64 noundef %0, i64 noundef %7) #24
   unreachable
 }
 

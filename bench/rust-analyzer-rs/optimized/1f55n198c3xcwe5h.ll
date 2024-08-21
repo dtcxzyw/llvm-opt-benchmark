@@ -1503,10 +1503,8 @@ define hidden { i64, ptr } @"_ZN88_$LT$rowan..api..Preorder$LT$L$GT$$u20$as$u20$
   %2 = tail call { i64, ptr } @"_ZN82_$LT$rowan..cursor..Preorder$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h5f246160015d372fE"(ptr noalias noundef nonnull align 8 dereferenceable(32) %0)
   %3 = extractvalue { i64, ptr } %2, 0
   %4 = icmp eq i64 %3, 2
-  %5 = extractvalue { i64, ptr } %2, 1
-  %spec.select = select i1 %4, ptr undef, ptr %5
-  %6 = insertvalue { i64, ptr } %2, ptr %spec.select, 1
-  ret { i64, ptr } %6
+  %spec.select = select i1 %4, { i64, ptr } { i64 2, ptr undef }, { i64, ptr } %2
+  ret { i64, ptr } %spec.select
 }
 
 ; Function Attrs: nonlazybind uwtable

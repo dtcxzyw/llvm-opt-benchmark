@@ -2617,11 +2617,8 @@ define hidden { ptr, ptr } @_ZN3std9panicking3try17hb8d3949324f72011E(ptr noalia
   br label %15
 
 15:                                               ; preds = %9, %14
-  %16 = phi ptr [ undef, %14 ], [ %11, %9 ]
-  %17 = phi ptr [ null, %14 ], [ %10, %9 ]
-  %18 = insertvalue { ptr, ptr } poison, ptr %17, 0
-  %19 = insertvalue { ptr, ptr } %18, ptr %16, 1
-  ret { ptr, ptr } %19
+  %.merged = phi { ptr, ptr } [ { ptr null, ptr undef }, %14 ], [ %6, %9 ]
+  ret { ptr, ptr } %.merged
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -2705,11 +2702,8 @@ __rust_try.llvm.5232973679748665674.exit:         ; preds = %.body.i.i.i.i
   br label %35
 
 35:                                               ; preds = %__rust_try.llvm.5232973679748665674.exit, %34
-  %.sroa.6.06 = phi ptr [ undef, %34 ], [ %31, %__rust_try.llvm.5232973679748665674.exit ]
-  %36 = phi ptr [ null, %34 ], [ %30, %__rust_try.llvm.5232973679748665674.exit ]
-  %37 = insertvalue { ptr, ptr } poison, ptr %36, 0
-  %38 = insertvalue { ptr, ptr } %37, ptr %.sroa.6.06, 1
-  ret { ptr, ptr } %38
+  %.merged = phi { ptr, ptr } [ { ptr null, ptr undef }, %34 ], [ %27, %__rust_try.llvm.5232973679748665674.exit ]
+  ret { ptr, ptr } %.merged
 }
 
 ; Function Attrs: nounwind nonlazybind uwtable
@@ -2771,11 +2765,8 @@ __rust_try.llvm.5232973679748665674.exit:         ; preds = %14
   br label %25
 
 25:                                               ; preds = %__rust_try.llvm.5232973679748665674.exit, %24
-  %.sroa.6.07 = phi ptr [ undef, %24 ], [ %21, %__rust_try.llvm.5232973679748665674.exit ]
-  %26 = phi ptr [ null, %24 ], [ %20, %__rust_try.llvm.5232973679748665674.exit ]
-  %27 = insertvalue { ptr, ptr } poison, ptr %26, 0
-  %28 = insertvalue { ptr, ptr } %27, ptr %.sroa.6.07, 1
-  ret { ptr, ptr } %28
+  %.merged = phi { ptr, ptr } [ { ptr null, ptr undef }, %24 ], [ %17, %__rust_try.llvm.5232973679748665674.exit ]
+  ret { ptr, ptr } %.merged
 }
 
 ; Function Attrs: nounwind nonlazybind uwtable

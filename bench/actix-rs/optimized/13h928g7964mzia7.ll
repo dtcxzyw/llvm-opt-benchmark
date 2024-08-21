@@ -14,9 +14,11 @@ target triple = "x86_64-unknown-linux-gnu"
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
 define hidden { i64, i64 } @"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17h84015741f1851455E.llvm.9397651224479784633"(i64 noundef %0, i64 %1) unnamed_addr #0 {
-  %3 = insertvalue { i64, i64 } poison, i64 %0, 0
-  %4 = insertvalue { i64, i64 } %3, i64 %1, 1
-  ret { i64, i64 } %4
+  %3 = icmp eq i64 %0, -9223372036854775807
+  %4 = insertvalue { i64, i64 } poison, i64 %0, 0
+  %5 = insertvalue { i64, i64 } %4, i64 %1, 1
+  %.merged = select i1 %3, { i64, i64 } { i64 -9223372036854775807, i64 undef }, { i64, i64 } %5
+  ret { i64, i64 } %.merged
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
@@ -34,7 +36,9 @@ define hidden void @_ZN5alloc7raw_vec14handle_reserve17hf0112dc2ee693d5aE.llvm.9
   unreachable
 
 5:                                                ; preds = %2
-  tail call void @_ZN5alloc5alloc18handle_alloc_error17h426354a964e0805cE(i64 noundef %0, i64 noundef %1) #16
+  %6 = icmp eq i64 %0, -9223372036854775807
+  %7 = select i1 %6, i64 undef, i64 %1
+  tail call void @_ZN5alloc5alloc18handle_alloc_error17h426354a964e0805cE(i64 noundef %0, i64 noundef %7) #16
   unreachable
 }
 

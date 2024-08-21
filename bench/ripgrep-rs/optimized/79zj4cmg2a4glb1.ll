@@ -583,24 +583,24 @@ define hidden noundef i32 @"_ZN67_$LT$std..io..stdio..Stdout$u20$as$u20$std..os.
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
 define hidden { ptr, i64 } @"_ZN71_$LT$alloc..borrow..Cow$LT$B$GT$$u20$as$u20$core..ops..deref..Deref$GT$5deref17h239f42c44216f515E"(ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %0) unnamed_addr #4 {
-  %.sroa.0.0.in = getelementptr inbounds i8, ptr %0, i64 8
-  %.sroa.0.0 = load ptr, ptr %.sroa.0.0.in, align 8, !nonnull !4, !noundef !4
-  %.sroa.5.0.in = getelementptr inbounds i8, ptr %0, i64 16
-  %.sroa.5.0 = load i64, ptr %.sroa.5.0.in, align 8, !noundef !4
-  %2 = insertvalue { ptr, i64 } poison, ptr %.sroa.0.0, 0
-  %3 = insertvalue { ptr, i64 } %2, i64 %.sroa.5.0, 1
-  ret { ptr, i64 } %3
+  %.pn1.in = getelementptr inbounds i8, ptr %0, i64 16
+  %.pn1 = load i64, ptr %.pn1.in, align 8, !noundef !4
+  %.pn3.in = getelementptr inbounds i8, ptr %0, i64 8
+  %.pn3 = load ptr, ptr %.pn3.in, align 8, !nonnull !4, !noundef !4
+  %.pn = insertvalue { ptr, i64 } poison, ptr %.pn3, 0
+  %.merged = insertvalue { ptr, i64 } %.pn, i64 %.pn1, 1
+  ret { ptr, i64 } %.merged
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
 define hidden { ptr, i64 } @"_ZN71_$LT$alloc..borrow..Cow$LT$B$GT$$u20$as$u20$core..ops..deref..Deref$GT$5deref17hadce0459da434c9fE"(ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %0) unnamed_addr #4 {
-  %.sroa.0.0.in = getelementptr inbounds i8, ptr %0, i64 8
-  %.sroa.0.0 = load ptr, ptr %.sroa.0.0.in, align 8, !nonnull !4, !noundef !4
-  %.sroa.5.0.in = getelementptr inbounds i8, ptr %0, i64 16
-  %.sroa.5.0 = load i64, ptr %.sroa.5.0.in, align 8, !noundef !4
-  %2 = insertvalue { ptr, i64 } poison, ptr %.sroa.0.0, 0
-  %3 = insertvalue { ptr, i64 } %2, i64 %.sroa.5.0, 1
-  ret { ptr, i64 } %3
+  %.pn1.in = getelementptr inbounds i8, ptr %0, i64 16
+  %.pn1 = load i64, ptr %.pn1.in, align 8, !noundef !4
+  %.pn3.in = getelementptr inbounds i8, ptr %0, i64 8
+  %.pn3 = load ptr, ptr %.pn3.in, align 8, !nonnull !4, !noundef !4
+  %.pn = insertvalue { ptr, i64 } poison, ptr %.pn3, 0
+  %.merged = insertvalue { ptr, i64 } %.pn, i64 %.pn1, 1
+  ret { ptr, i64 } %.merged
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -676,7 +676,7 @@ _ZN5alloc3fmt6format17hf6ddbaba453730d3E.exit.i:  ; preds = %17
   %30 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr46drop_in_place$LT$alloc..vec..Vec$LT$u8$GT$$GT$17h9b11311928cb727fE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %4) #14
-          to label %73 unwind label %71, !noalias !83
+          to label %75 unwind label %73, !noalias !83
 
 31:                                               ; preds = %19
   %32 = icmp eq i32 %25, -1
@@ -773,7 +773,9 @@ _ZN5alloc3fmt6format17hf6ddbaba453730d3E.exit.i:  ; preds = %17
 
 69:                                               ; preds = %.noexc.i
   %70 = extractvalue { i64, i64 } %66, 1
-  invoke void @_ZN5alloc5alloc18handle_alloc_error17h836e982fea7018bdE(i64 noundef %67, i64 noundef %70) #13
+  %71 = icmp eq i64 %67, -9223372036854775807
+  %72 = select i1 %71, i64 undef, i64 %70
+  invoke void @_ZN5alloc5alloc18handle_alloc_error17h836e982fea7018bdE(i64 noundef %67, i64 noundef %72) #13
           to label %.noexc19.i unwind label %29, !noalias !83
 
 .noexc19.i:                                       ; preds = %69
@@ -784,13 +786,13 @@ _ZN5alloc3fmt6format17hf6ddbaba453730d3E.exit.i:  ; preds = %17
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4), !noalias !83
   br label %_ZN8grep_cli8hostname11gethostname17h1d44d4bbce674e0aE.exit
 
-71:                                               ; preds = %29
-  %72 = landingpad { ptr, i32 }
+73:                                               ; preds = %29
+  %74 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17h76c6e1c84248d3ffE() #16, !noalias !83
   unreachable
 
-73:                                               ; preds = %29
+75:                                               ; preds = %29
   resume { ptr, i32 } %30
 
 _ZN8grep_cli8hostname11gethostname17h1d44d4bbce674e0aE.exit: ; preds = %10, %_ZN5alloc3fmt6format17hf6ddbaba453730d3E.exit.i, %"_ZN4core3ptr46drop_in_place$LT$alloc..vec..Vec$LT$u8$GT$$GT$17h9b11311928cb727fE.exit.i", %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$13shrink_to_fit17hfe01a7dd54a028caE.exit.i"

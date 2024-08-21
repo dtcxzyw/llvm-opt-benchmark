@@ -113,7 +113,7 @@ _ZN14regex_automata4meta5regex9RegexInfo13is_impossible17h4c32fb66793d62c6E.exit
   %63 = getelementptr inbounds i8, ptr %62, i64 16
   %64 = load i64, ptr %63, align 8, !range !7, !invariant.load !3
   %65 = invoke align 8 ptr @"_ZN14regex_automata4util4pool5inner22PoolGuard$LT$T$C$F$GT$9value_mut17h03eccd355f123ee8E"(ptr nonnull align 8 %9)
-          to label %66 unwind label %92
+          to label %66 unwind label %88
 
 66:                                               ; preds = %_ZN14regex_automata4meta5regex9RegexInfo13is_impossible17h4c32fb66793d62c6E.exit.thread
   %67 = add i64 %64, -1
@@ -123,11 +123,9 @@ _ZN14regex_automata4meta5regex9RegexInfo13is_impossible17h4c32fb66793d62c6E.exit
   %71 = getelementptr inbounds i8, ptr %62, i64 128
   %72 = load ptr, ptr %71, align 8, !invariant.load !3, !nonnull !3
   %73 = invoke { i32, i32 } %72(ptr align 1 %70, ptr align 8 %65, ptr nonnull align 8 %1, ptr align 8 %2, i64 %3)
-          to label %74 unwind label %92
+          to label %74 unwind label %88
 
 74:                                               ; preds = %66
-  %75 = extractvalue { i32, i32 } %73, 0
-  %76 = extractvalue { i32, i32 } %73, 1
   %.sroa.01.sroa.0.0.copyload = load i64, ptr %9, align 8
   %.sroa.01.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %9, i64 8
   %.sroa.01.sroa.2.0.copyload = load i64, ptr %.sroa.01.sroa.2.0..sroa_idx, align 8
@@ -138,66 +136,63 @@ _ZN14regex_automata4meta5regex9RegexInfo13is_impossible17h4c32fb66793d62c6E.exit
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %5)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7)
-  %77 = icmp eq i64 %.sroa.01.sroa.0.0.copyload, 0
-  br i1 %77, label %78, label %81
+  %75 = icmp eq i64 %.sroa.01.sroa.0.0.copyload, 0
+  br i1 %75, label %76, label %79
 
-78:                                               ; preds = %74
-  %79 = inttoptr i64 %.sroa.01.sroa.2.0.copyload to ptr
-  store ptr %79, ptr %7, align 8
-  %80 = trunc nuw i8 %.sroa.01.sroa.4.0.copyload to i1
-  br i1 %80, label %85, label %83
+76:                                               ; preds = %74
+  %77 = inttoptr i64 %.sroa.01.sroa.2.0.copyload to ptr
+  store ptr %77, ptr %7, align 8
+  %78 = trunc nuw i8 %.sroa.01.sroa.4.0.copyload to i1
+  br i1 %78, label %83, label %81
 
-81:                                               ; preds = %74
+79:                                               ; preds = %74
   store i64 %.sroa.01.sroa.2.0.copyload, ptr %6, align 8
-  %82 = icmp eq i64 %.sroa.01.sroa.2.0.copyload, 2
-  br i1 %82, label %.noexc5, label %86
+  %80 = icmp eq i64 %.sroa.01.sroa.2.0.copyload, 2
+  br i1 %80, label %.noexc5, label %84
 
-83:                                               ; preds = %78
-  %84 = icmp ne ptr %.sroa.01.sroa.3.0.copyload, null
-  call void @llvm.assume(i1 %84)
-  call void @"_ZN14regex_automata4util4pool5inner17Pool$LT$T$C$F$GT$9put_value17hfc868b4c5f713897E"(ptr nonnull align 8 %.sroa.01.sroa.3.0.copyload, ptr align 8 %79)
+81:                                               ; preds = %76
+  %82 = icmp ne ptr %.sroa.01.sroa.3.0.copyload, null
+  call void @llvm.assume(i1 %82)
+  call void @"_ZN14regex_automata4util4pool5inner17Pool$LT$T$C$F$GT$9put_value17hfc868b4c5f713897E"(ptr nonnull align 8 %.sroa.01.sroa.3.0.copyload, ptr align 8 %77)
   br label %"_ZN14regex_automata4util4pool5inner22PoolGuard$LT$T$C$F$GT$7put_imp17h9ad714504e7d7a6cE.exit"
 
-85:                                               ; preds = %78
+83:                                               ; preds = %76
   call void @"_ZN4core3ptr80drop_in_place$LT$alloc..boxed..Box$LT$regex_automata..meta..regex..Cache$GT$$GT$17h5ee9ac6c044178ceE"(ptr nonnull align 8 %7)
   br label %"_ZN14regex_automata4util4pool5inner22PoolGuard$LT$T$C$F$GT$7put_imp17h9ad714504e7d7a6cE.exit"
 
-.noexc5:                                          ; preds = %81
+.noexc5:                                          ; preds = %79
   store ptr null, ptr %5, align 8
   call void @_ZN4core9panicking13assert_failed17h1f57358f8ec3e200E(i8 1, ptr nonnull align 8 @_ZN14regex_automata4util4pool5inner17THREAD_ID_DROPPED17h57fc349bbbf9736cE, ptr nonnull align 8 %6, ptr nonnull align 8 %5, ptr nonnull align 8 @anon.e75120ad5db99556c36ae7c5eb845701.3) #10
   unreachable
 
-86:                                               ; preds = %81
-  %87 = icmp ne ptr %.sroa.01.sroa.3.0.copyload, null
-  call void @llvm.assume(i1 %87)
-  %88 = getelementptr inbounds i8, ptr %.sroa.01.sroa.3.0.copyload, i64 40
-  call void @_ZN4core4sync6atomic12atomic_store17h8309d489731ae414E(ptr nonnull %88, i64 %.sroa.01.sroa.2.0.copyload, i8 1)
+84:                                               ; preds = %79
+  %85 = icmp ne ptr %.sroa.01.sroa.3.0.copyload, null
+  call void @llvm.assume(i1 %85)
+  %86 = getelementptr inbounds i8, ptr %.sroa.01.sroa.3.0.copyload, i64 40
+  call void @_ZN4core4sync6atomic12atomic_store17h8309d489731ae414E(ptr nonnull %86, i64 %.sroa.01.sroa.2.0.copyload, i8 1)
   br label %"_ZN14regex_automata4util4pool5inner22PoolGuard$LT$T$C$F$GT$7put_imp17h9ad714504e7d7a6cE.exit"
 
-"_ZN14regex_automata4util4pool5inner22PoolGuard$LT$T$C$F$GT$7put_imp17h9ad714504e7d7a6cE.exit": ; preds = %86, %85, %83
+"_ZN14regex_automata4util4pool5inner22PoolGuard$LT$T$C$F$GT$7put_imp17h9ad714504e7d7a6cE.exit": ; preds = %84, %83, %81
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %5)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7)
   br label %_ZN14regex_automata4meta5regex9RegexInfo13is_impossible17h4c32fb66793d62c6E.exit.thread14
 
 _ZN14regex_automata4meta5regex9RegexInfo13is_impossible17h4c32fb66793d62c6E.exit.thread14: ; preds = %36, %31, %22, %"_ZN14regex_automata4util4pool5inner22PoolGuard$LT$T$C$F$GT$7put_imp17h9ad714504e7d7a6cE.exit", %_ZN14regex_automata4meta5regex9RegexInfo13is_impossible17h4c32fb66793d62c6E.exit
-  %.sroa.3.0 = phi i32 [ %76, %"_ZN14regex_automata4util4pool5inner22PoolGuard$LT$T$C$F$GT$7put_imp17h9ad714504e7d7a6cE.exit" ], [ undef, %_ZN14regex_automata4meta5regex9RegexInfo13is_impossible17h4c32fb66793d62c6E.exit ], [ undef, %22 ], [ undef, %31 ], [ undef, %36 ]
-  %.sroa.0.0 = phi i32 [ %75, %"_ZN14regex_automata4util4pool5inner22PoolGuard$LT$T$C$F$GT$7put_imp17h9ad714504e7d7a6cE.exit" ], [ 0, %_ZN14regex_automata4meta5regex9RegexInfo13is_impossible17h4c32fb66793d62c6E.exit ], [ 0, %22 ], [ 0, %31 ], [ 0, %36 ]
-  %89 = insertvalue { i32, i32 } poison, i32 %.sroa.0.0, 0
-  %90 = insertvalue { i32, i32 } %89, i32 %.sroa.3.0, 1
-  ret { i32, i32 } %90
+  %.merged = phi { i32, i32 } [ %73, %"_ZN14regex_automata4util4pool5inner22PoolGuard$LT$T$C$F$GT$7put_imp17h9ad714504e7d7a6cE.exit" ], [ { i32 0, i32 undef }, %_ZN14regex_automata4meta5regex9RegexInfo13is_impossible17h4c32fb66793d62c6E.exit ], [ { i32 0, i32 undef }, %22 ], [ { i32 0, i32 undef }, %31 ], [ { i32 0, i32 undef }, %36 ]
+  ret { i32, i32 } %.merged
 
-91:                                               ; preds = %92
+87:                                               ; preds = %88
   resume { ptr, i32 } %lpad.thr_comm.split-lp
 
-92:                                               ; preds = %_ZN14regex_automata4meta5regex9RegexInfo13is_impossible17h4c32fb66793d62c6E.exit.thread, %66
+88:                                               ; preds = %_ZN14regex_automata4meta5regex9RegexInfo13is_impossible17h4c32fb66793d62c6E.exit.thread, %66
   %lpad.thr_comm.split-lp = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr366drop_in_place$LT$regex_automata..util..pool..PoolGuard$LT$regex_automata..meta..regex..Cache$C$alloc..boxed..Box$LT$dyn$u20$core..ops..function..Fn$LT$$LP$$RP$$GT$$u2b$Output$u20$$u3d$$u20$regex_automata..meta..regex..Cache$u2b$core..panic..unwind_safe..UnwindSafe$u2b$core..marker..Send$u2b$core..marker..Sync$u2b$core..panic..unwind_safe..RefUnwindSafe$GT$$GT$$GT$17h6b0825514f743d52E"(ptr nonnull align 8 %9) #11
-          to label %91 unwind label %93
+          to label %87 unwind label %89
 
-93:                                               ; preds = %92
-  %94 = landingpad { ptr, i32 }
+89:                                               ; preds = %88
+  %90 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hbacfddf1bcf21a1eE() #12
   unreachable

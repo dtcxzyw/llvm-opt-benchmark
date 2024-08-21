@@ -994,7 +994,7 @@ define internal { double, double } @_ZL23peirce_q_square_inverse5PJ_XYP8PJconsts
 25:                                               ; preds = %22
   %26 = fcmp oeq double %1, 0.000000e+00
   %or.cond11 = select i1 %4, i1 %26, i1 false
-  br i1 %or.cond11, label %37, label %33
+  br i1 %or.cond11, label %35, label %33
 
 27:                                               ; preds = %22
   %28 = fcmp oge double %1, 0.000000e+00
@@ -1015,16 +1015,11 @@ define internal { double, double } @_ZL23peirce_q_square_inverse5PJ_XYP8PJconsts
   %.sroa.020.0 = phi double [ 0xBFE921FB54442D18, %9 ], [ 0xBFE921FB54442D18, %6 ], [ 0xC002D97C7F3321D2, %16 ], [ 0.000000e+00, %25 ], [ 0x3FE921FB54442D18, %10 ], [ 0x4002D97C7F3321D2, %18 ], [ 0x3FF921FB54442D18, %27 ], [ %., %31 ], [ 0xBFF921FB54442D18, %29 ]
   %.sroa.11.0 = phi double [ 0x3FE921FB54442D18, %9 ], [ 0.000000e+00, %6 ], [ %17, %16 ], [ 0.000000e+00, %25 ], [ 0.000000e+00, %10 ], [ 0.000000e+00, %18 ], [ 0.000000e+00, %27 ], [ 0.000000e+00, %31 ], [ 0.000000e+00, %29 ]
   %34 = tail call { double, double } @_Z21pj_generic_inverse_2d5PJ_XYP8PJconsts5PJ_LPd(double %0, double %1, ptr noundef %2, double %.sroa.020.0, double %.sroa.11.0, double noundef 1.000000e-10)
-  %35 = extractvalue { double, double } %34, 0
-  %36 = extractvalue { double, double } %34, 1
-  br label %37
+  br label %35
 
-37:                                               ; preds = %25, %33
-  %.sroa.040.0 = phi double [ %35, %33 ], [ 0.000000e+00, %25 ]
-  %.sroa.3.0 = phi double [ %36, %33 ], [ 0x3FF921FB54442D18, %25 ]
-  %.fca.0.insert = insertvalue { double, double } poison, double %.sroa.040.0, 0
-  %.fca.1.insert = insertvalue { double, double } %.fca.0.insert, double %.sroa.3.0, 1
-  ret { double, double } %.fca.1.insert
+35:                                               ; preds = %25, %33
+  %.fca.1.insert.merged = phi { double, double } [ %34, %33 ], [ { double 0.000000e+00, double 0x3FF921FB54442D18 }, %25 ]
+  ret { double, double } %.fca.1.insert.merged
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -1043,7 +1038,7 @@ define internal { double, double } @_ZL24peirce_q_diamond_inverse5PJ_XYP8PJconst
 9:                                                ; preds = %6
   %10 = fcmp oeq double %0, 0.000000e+00
   %or.cond8 = select i1 %10, i1 %8, i1 false
-  br i1 %or.cond8, label %26, label %11
+  br i1 %or.cond8, label %24, label %11
 
 11:                                               ; preds = %9
   %12 = fcmp olt double %1, 0.000000e+00
@@ -1074,16 +1069,11 @@ define internal { double, double } @_ZL24peirce_q_diamond_inverse5PJ_XYP8PJconst
   %or.cond38 = select i1 %20, i1 true, i1 %22
   %.sroa.9.1 = select i1 %or.cond38, double 0xBFE921FB54442D18, double %.sroa.9.0
   %23 = tail call { double, double } @_Z21pj_generic_inverse_2d5PJ_XYP8PJconsts5PJ_LPd(double %0, double %1, ptr noundef %2, double %.sroa.020.0, double %.sroa.9.1, double noundef 1.000000e-10)
-  %24 = extractvalue { double, double } %23, 0
-  %25 = extractvalue { double, double } %23, 1
-  br label %26
+  br label %24
 
-26:                                               ; preds = %9, %18
-  %.sroa.035.0 = phi double [ %24, %18 ], [ 0.000000e+00, %9 ]
-  %.sroa.3.0 = phi double [ %25, %18 ], [ 0x3FF921FB54442D18, %9 ]
-  %.fca.0.insert = insertvalue { double, double } poison, double %.sroa.035.0, 0
-  %.fca.1.insert = insertvalue { double, double } %.fca.0.insert, double %.sroa.3.0, 1
-  ret { double, double } %.fca.1.insert
+24:                                               ; preds = %9, %18
+  %.fca.1.insert.merged = phi { double, double } [ %23, %18 ], [ { double 0.000000e+00, double 0x3FF921FB54442D18 }, %9 ]
+  ret { double, double } %.fca.1.insert.merged
 }
 
 declare void @_Z14proj_log_errorPK8PJconstsPKcz(ptr noundef, ptr noundef, ...) local_unnamed_addr #1

@@ -25279,9 +25279,9 @@ while.end.loopexit97:                             ; preds = %if.then.i.i.i47, %i
   br label %while.end
 
 while.end:                                        ; preds = %_ZNSt8__detail18__to_chars_10_implIjEEvPcjT_.exit.i.i, %if.then2.i, %while.end.loopexit97, %while.end.loopexit
-  %retval.sroa.0.0.i.pn.lcssa = phi ptr [ %add.ptr.i85.us, %while.end.loopexit ], [ %add.ptr.i29.i42, %while.end.loopexit97 ], [ %add.ptr.i29.i, %_ZNSt8__detail18__to_chars_10_implIjEEvPcjT_.exit.i.i ], [ %add.ptr.i, %if.then2.i ]
+  %__last.pn.i.pn.lcssa = phi ptr [ %add.ptr.i85.us, %while.end.loopexit ], [ %add.ptr.i29.i42, %while.end.loopexit97 ], [ %add.ptr.i29.i, %_ZNSt8__detail18__to_chars_10_implIjEEvPcjT_.exit.i.i ], [ %add.ptr.i, %if.then2.i ]
   %call12 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %agg.result) #18
-  %sub.ptr.lhs.cast = ptrtoint ptr %retval.sroa.0.0.i.pn.lcssa to i64
+  %sub.ptr.lhs.cast = ptrtoint ptr %__last.pn.i.pn.lcssa to i64
   %sub.ptr.rhs.cast = ptrtoint ptr %call12 to i64
   %sub.ptr.sub = sub i64 %sub.ptr.lhs.cast, %sub.ptr.rhs.cast
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6resizeEm(ptr noundef nonnull align 8 dereferenceable(32) %agg.result, i64 noundef %sub.ptr.sub)
@@ -25657,9 +25657,9 @@ while.end.loopexit94:                             ; preds = %if.then.i.i.i48, %i
   br label %while.end
 
 while.end:                                        ; preds = %_ZNSt8__detail18__to_chars_10_implImEEvPcjT_.exit.i.i, %if.then2.i, %while.end.loopexit94, %while.end.loopexit
-  %retval.sroa.0.0.i.pn.lcssa = phi ptr [ %add.ptr.i82.us, %while.end.loopexit ], [ %add.ptr.i29.i43, %while.end.loopexit94 ], [ %add.ptr.i29.i, %_ZNSt8__detail18__to_chars_10_implImEEvPcjT_.exit.i.i ], [ %add.ptr.i, %if.then2.i ]
+  %__last.pn.i.pn.lcssa = phi ptr [ %add.ptr.i82.us, %while.end.loopexit ], [ %add.ptr.i29.i43, %while.end.loopexit94 ], [ %add.ptr.i29.i, %_ZNSt8__detail18__to_chars_10_implImEEvPcjT_.exit.i.i ], [ %add.ptr.i, %if.then2.i ]
   %call12 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %agg.result) #18
-  %sub.ptr.lhs.cast = ptrtoint ptr %retval.sroa.0.0.i.pn.lcssa to i64
+  %sub.ptr.lhs.cast = ptrtoint ptr %__last.pn.i.pn.lcssa to i64
   %sub.ptr.rhs.cast = ptrtoint ptr %call12 to i64
   %sub.ptr.sub = sub i64 %sub.ptr.lhs.cast, %sub.ptr.rhs.cast
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6resizeEm(ptr noundef nonnull align 8 dereferenceable(32) %agg.result, i64 noundef %sub.ptr.sub)
@@ -30918,9 +30918,9 @@ while.end.loopexit86:                             ; preds = %if.then.i.i.i45, %i
   br label %while.end
 
 while.end:                                        ; preds = %_ZSt12__to_chars_iImENSt9enable_ifIXsr5__or_ISt5__or_IJSt7is_sameINSt9remove_cvIT_E4typeEaES2_IS6_sES2_IS6_iES2_IS6_lES2_IS6_xEEES1_IJS2_IS6_hES2_IS6_tES2_IS6_jES2_IS6_mES2_IS6_yEEES2_IcS6_EEE5valueESt15to_chars_resultE4typeEPcSN_S4_i.exit, %while.end.loopexit86, %while.end.loopexit
-  %retval.sroa.0.0.i.pn.lcssa = phi ptr [ %add.ptr.i102.i, %_ZSt12__to_chars_iImENSt9enable_ifIXsr5__or_ISt5__or_IJSt7is_sameINSt9remove_cvIT_E4typeEaES2_IS6_sES2_IS6_iES2_IS6_lES2_IS6_xEEES1_IJS2_IS6_hES2_IS6_tES2_IS6_jES2_IS6_mES2_IS6_yEEES2_IcS6_EEE5valueESt15to_chars_resultE4typeEPcSN_S4_i.exit ], [ %add.ptr.i102.i40.us, %while.end.loopexit ], [ %add.ptr.i102.i40, %while.end.loopexit86 ]
+  %__last.pn.i.pn.lcssa = phi ptr [ %add.ptr.i102.i, %_ZSt12__to_chars_iImENSt9enable_ifIXsr5__or_ISt5__or_IJSt7is_sameINSt9remove_cvIT_E4typeEaES2_IS6_sES2_IS6_iES2_IS6_lES2_IS6_xEEES1_IJS2_IS6_hES2_IS6_tES2_IS6_jES2_IS6_mES2_IS6_yEEES2_IcS6_EEE5valueESt15to_chars_resultE4typeEPcSN_S4_i.exit ], [ %add.ptr.i102.i40.us, %while.end.loopexit ], [ %add.ptr.i102.i40, %while.end.loopexit86 ]
   %call12 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %agg.result) #18
-  %sub.ptr.lhs.cast = ptrtoint ptr %retval.sroa.0.0.i.pn.lcssa to i64
+  %sub.ptr.lhs.cast = ptrtoint ptr %__last.pn.i.pn.lcssa to i64
   %sub.ptr.rhs.cast = ptrtoint ptr %call12 to i64
   %sub.ptr.sub = sub i64 %sub.ptr.lhs.cast, %sub.ptr.rhs.cast
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6resizeEm(ptr noundef nonnull align 8 dereferenceable(32) %agg.result, i64 noundef %sub.ptr.sub)

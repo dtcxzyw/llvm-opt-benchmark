@@ -582,14 +582,13 @@ if.end:                                           ; preds = %entry
 if.then2:                                         ; preds = %if.end
   %call.i = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %map) #9
   %call1.i = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %map) #9
+  %.fca.0.insert.i4 = insertvalue { ptr, i64 } poison, ptr %call.i, 0
+  %.fca.1.insert.i5 = insertvalue { ptr, i64 } %.fca.0.insert.i4, i64 %call1.i, 1
   br label %return
 
 return:                                           ; preds = %entry, %if.end, %if.then2
-  %retval.sroa.0.0 = phi ptr [ %call.i, %if.then2 ], [ null, %if.end ], [ @.str.1, %entry ]
-  %retval.sroa.4.0 = phi i64 [ %call1.i, %if.then2 ], [ 0, %if.end ], [ 14, %entry ]
-  %.fca.0.insert = insertvalue { ptr, i64 } poison, ptr %retval.sroa.0.0, 0
-  %.fca.1.insert = insertvalue { ptr, i64 } %.fca.0.insert, i64 %retval.sroa.4.0, 1
-  ret { ptr, i64 } %.fca.1.insert
+  %.fca.1.insert.merged = phi { ptr, i64 } [ %.fca.1.insert.i5, %if.then2 ], [ zeroinitializer, %if.end ], [ { ptr @.str.1, i64 14 }, %entry ]
+  ret { ptr, i64 } %.fca.1.insert.merged
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
@@ -657,14 +656,13 @@ if.end:                                           ; preds = %hermes_source_map_g
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #9
   %call.i = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %pathBuf_) #9
   %call1.i = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %pathBuf_) #9
+  %.fca.0.insert.i = insertvalue { ptr, i64 } poison, ptr %call.i, 0
+  %.fca.1.insert.i = insertvalue { ptr, i64 } %.fca.0.insert.i, i64 %call1.i, 1
   br label %return
 
 return:                                           ; preds = %entry, %lor.lhs.false.i, %hermes_source_map_get_num_paths.exit, %if.end
-  %retval.sroa.0.0 = phi ptr [ %call.i, %if.end ], [ null, %hermes_source_map_get_num_paths.exit ], [ null, %lor.lhs.false.i ], [ null, %entry ]
-  %retval.sroa.3.0 = phi i64 [ %call1.i, %if.end ], [ 0, %hermes_source_map_get_num_paths.exit ], [ 0, %lor.lhs.false.i ], [ 0, %entry ]
-  %.fca.0.insert = insertvalue { ptr, i64 } poison, ptr %retval.sroa.0.0, 0
-  %.fca.1.insert = insertvalue { ptr, i64 } %.fca.0.insert, i64 %retval.sroa.3.0, 1
-  ret { ptr, i64 } %.fca.1.insert
+  %.fca.1.insert.merged = phi { ptr, i64 } [ %.fca.1.insert.i, %if.end ], [ zeroinitializer, %hermes_source_map_get_num_paths.exit ], [ zeroinitializer, %lor.lhs.false.i ], [ zeroinitializer, %entry ]
+  ret { ptr, i64 } %.fca.1.insert.merged
 }
 
 ; Function Attrs: nounwind

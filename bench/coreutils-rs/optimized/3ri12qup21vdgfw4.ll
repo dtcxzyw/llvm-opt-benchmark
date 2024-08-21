@@ -644,16 +644,15 @@ _ZN3std4sync6poison4Flag4done17h6aecd475d8dd2349E.exit.i.i.i.i.i.i.i.i.i: ; pred
   br i1 %174, label %.loopexit, label %23
 
 175:                                              ; preds = %"_ZN9itertools9Itertools13find_position28_$u7b$$u7b$closure$u7d$$u7d$17hffa7c13e2e3e8644E.exit.i.i"
-  %176 = add i64 %.pre129, 1
-  store i64 %176, ptr %2, align 8, !noalias !55
+  %176 = insertvalue { i64, ptr } poison, i64 %25, 0
+  %177 = insertvalue { i64, ptr } %176, ptr %26, 1
+  %178 = add i64 %.pre129, 1
+  store i64 %178, ptr %2, align 8, !noalias !55
   br label %.loopexit
 
 .loopexit:                                        ; preds = %"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold9enumerate28_$u7b$$u7b$closure$u7d$$u7d$17h69165de91c83bcfbE.exit", %3, %175
-  %.sroa.3.0 = phi ptr [ %26, %175 ], [ null, %3 ], [ null, %"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold9enumerate28_$u7b$$u7b$closure$u7d$$u7d$17h69165de91c83bcfbE.exit" ]
-  %.sroa.0.0 = phi i64 [ %25, %175 ], [ undef, %3 ], [ undef, %"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold9enumerate28_$u7b$$u7b$closure$u7d$$u7d$17h69165de91c83bcfbE.exit" ]
-  %177 = insertvalue { i64, ptr } poison, i64 %.sroa.0.0, 0
-  %178 = insertvalue { i64, ptr } %177, ptr %.sroa.3.0, 1
-  ret { i64, ptr } %178
+  %.merged = phi { i64, ptr } [ %177, %175 ], [ { i64 undef, ptr null }, %3 ], [ { i64 undef, ptr null }, %"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold9enumerate28_$u7b$$u7b$closure$u7d$$u7d$17h69165de91c83bcfbE.exit" ]
+  ret { i64, ptr } %.merged
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable

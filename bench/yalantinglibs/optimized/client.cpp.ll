@@ -20552,12 +20552,11 @@ _ZN4asio6detail10socket_ops11getaddrinfoEPKcS3_RK8addrinfoPPS4_RSt10error_code.e
 if.end:                                           ; preds = %init.i.i.i.i, %init.check.i.i.i.i, %if.then, %_ZN4asio6detail10socket_ops11getaddrinfoEPKcS3_RK8addrinfoPPS4_RSt10error_code.exit
   %.sink7 = phi i32 [ %8, %_ZN4asio6detail10socket_ops11getaddrinfoEPKcS3_RK8addrinfoPPS4_RSt10error_code.exit ], [ 125, %if.then ], [ 125, %init.check.i.i.i.i ], [ 125, %init.i.i.i.i ]
   %.sink = phi ptr [ %9, %_ZN4asio6detail10socket_ops11getaddrinfoEPKcS3_RK8addrinfoPPS4_RSt10error_code.exit ], [ @_ZZN4asio15system_categoryEvE8instance, %if.then ], [ @_ZZN4asio15system_categoryEvE8instance, %init.check.i.i.i.i ], [ @_ZZN4asio15system_categoryEvE8instance, %init.i.i.i.i ]
+  %.fca.1.insert.merged = phi { i32, ptr } [ %call9.i, %_ZN4asio6detail10socket_ops11getaddrinfoEPKcS3_RK8addrinfoPPS4_RSt10error_code.exit ], [ { i32 125, ptr @_ZZN4asio15system_categoryEvE8instance }, %if.then ], [ { i32 125, ptr @_ZZN4asio15system_categoryEvE8instance }, %init.check.i.i.i.i ], [ { i32 125, ptr @_ZZN4asio15system_categoryEvE8instance }, %init.i.i.i.i ]
   store i32 %.sink7, ptr %ec, align 8
   %ref.tmp.sroa.22.0..sroa_idx.i = getelementptr inbounds i8, ptr %ec, i64 8
   store ptr %.sink, ptr %ref.tmp.sroa.22.0..sroa_idx.i, align 8
-  %.fca.0.insert = insertvalue { i32, ptr } poison, i32 %.sink7, 0
-  %.fca.1.insert = insertvalue { i32, ptr } %.fca.0.insert, ptr %.sink, 1
-  ret { i32, ptr } %.fca.1.insert
+  ret { i32, ptr } %.fca.1.insert.merged
 }
 
 ; Function Attrs: mustprogress uwtable

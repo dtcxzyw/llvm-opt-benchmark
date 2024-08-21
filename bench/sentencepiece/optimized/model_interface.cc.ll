@@ -441,7 +441,7 @@ define { i64, ptr } @_ZNK13sentencepiece14ModelInterface9unk_pieceEv(ptr nocaptu
 _ZNK13sentencepiece11TrainerSpec9unk_pieceB5cxx11Ev.exit: ; preds = %10, %13, %15
   %.0.i = phi ptr [ %18, %15 ], [ %14, %13 ], [ %.0.i.i.i, %10 ]
   %19 = tail call noundef zeroext i1 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5emptyEv(ptr noundef nonnull align 8 dereferenceable(32) %.0.i) #22
-  br i1 %19, label %40, label %20
+  br i1 %19, label %38, label %20
 
 20:                                               ; preds = %_ZNK13sentencepiece11TrainerSpec9unk_pieceB5cxx11Ev.exit
   %21 = load ptr, ptr %2, align 8
@@ -473,16 +473,11 @@ _ZNK13sentencepiece11TrainerSpec9unk_pieceB5cxx11Ev.exit: ; preds = %10, %13, %1
 _ZNK13sentencepiece11TrainerSpec9unk_pieceB5cxx11Ev.exit4: ; preds = %28, %31, %33
   %.0.i2 = phi ptr [ %36, %33 ], [ %32, %31 ], [ %.0.i.i.i3, %28 ]
   %37 = tail call { i64, ptr } @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEcvSt17basic_string_viewIcS2_EEv(ptr noundef nonnull align 8 dereferenceable(32) %.0.i2) #22
-  %38 = extractvalue { i64, ptr } %37, 0
-  %39 = extractvalue { i64, ptr } %37, 1
-  br label %40
+  br label %38
 
-40:                                               ; preds = %_ZNK13sentencepiece11TrainerSpec9unk_pieceB5cxx11Ev.exit, %_ZNK13sentencepiece11TrainerSpec9unk_pieceB5cxx11Ev.exit4
-  %.sroa.3.0 = phi ptr [ %39, %_ZNK13sentencepiece11TrainerSpec9unk_pieceB5cxx11Ev.exit4 ], [ @.str, %_ZNK13sentencepiece11TrainerSpec9unk_pieceB5cxx11Ev.exit ]
-  %.sroa.0.0 = phi i64 [ %38, %_ZNK13sentencepiece11TrainerSpec9unk_pieceB5cxx11Ev.exit4 ], [ 5, %_ZNK13sentencepiece11TrainerSpec9unk_pieceB5cxx11Ev.exit ]
-  %.fca.0.insert = insertvalue { i64, ptr } poison, i64 %.sroa.0.0, 0
-  %.fca.1.insert = insertvalue { i64, ptr } %.fca.0.insert, ptr %.sroa.3.0, 1
-  ret { i64, ptr } %.fca.1.insert
+38:                                               ; preds = %_ZNK13sentencepiece11TrainerSpec9unk_pieceB5cxx11Ev.exit, %_ZNK13sentencepiece11TrainerSpec9unk_pieceB5cxx11Ev.exit4
+  %.fca.1.insert.merged = phi { i64, ptr } [ %37, %_ZNK13sentencepiece11TrainerSpec9unk_pieceB5cxx11Ev.exit4 ], [ { i64 5, ptr @.str }, %_ZNK13sentencepiece11TrainerSpec9unk_pieceB5cxx11Ev.exit ]
+  ret { i64, ptr } %.fca.1.insert.merged
 }
 
 ; Function Attrs: nounwind
@@ -523,7 +518,7 @@ define { i64, ptr } @_ZNK13sentencepiece14ModelInterface9bos_pieceEv(ptr nocaptu
 _ZNK13sentencepiece11TrainerSpec9bos_pieceB5cxx11Ev.exit: ; preds = %10, %13, %15
   %.0.i = phi ptr [ %18, %15 ], [ %14, %13 ], [ %.0.i.i.i, %10 ]
   %19 = tail call noundef zeroext i1 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5emptyEv(ptr noundef nonnull align 8 dereferenceable(32) %.0.i) #22
-  br i1 %19, label %40, label %20
+  br i1 %19, label %38, label %20
 
 20:                                               ; preds = %_ZNK13sentencepiece11TrainerSpec9bos_pieceB5cxx11Ev.exit
   %21 = load ptr, ptr %2, align 8
@@ -555,16 +550,11 @@ _ZNK13sentencepiece11TrainerSpec9bos_pieceB5cxx11Ev.exit: ; preds = %10, %13, %1
 _ZNK13sentencepiece11TrainerSpec9bos_pieceB5cxx11Ev.exit4: ; preds = %28, %31, %33
   %.0.i2 = phi ptr [ %36, %33 ], [ %32, %31 ], [ %.0.i.i.i3, %28 ]
   %37 = tail call { i64, ptr } @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEcvSt17basic_string_viewIcS2_EEv(ptr noundef nonnull align 8 dereferenceable(32) %.0.i2) #22
-  %38 = extractvalue { i64, ptr } %37, 0
-  %39 = extractvalue { i64, ptr } %37, 1
-  br label %40
+  br label %38
 
-40:                                               ; preds = %_ZNK13sentencepiece11TrainerSpec9bos_pieceB5cxx11Ev.exit, %_ZNK13sentencepiece11TrainerSpec9bos_pieceB5cxx11Ev.exit4
-  %.sroa.3.0 = phi ptr [ %39, %_ZNK13sentencepiece11TrainerSpec9bos_pieceB5cxx11Ev.exit4 ], [ @.str.1, %_ZNK13sentencepiece11TrainerSpec9bos_pieceB5cxx11Ev.exit ]
-  %.sroa.0.0 = phi i64 [ %38, %_ZNK13sentencepiece11TrainerSpec9bos_pieceB5cxx11Ev.exit4 ], [ 3, %_ZNK13sentencepiece11TrainerSpec9bos_pieceB5cxx11Ev.exit ]
-  %.fca.0.insert = insertvalue { i64, ptr } poison, i64 %.sroa.0.0, 0
-  %.fca.1.insert = insertvalue { i64, ptr } %.fca.0.insert, ptr %.sroa.3.0, 1
-  ret { i64, ptr } %.fca.1.insert
+38:                                               ; preds = %_ZNK13sentencepiece11TrainerSpec9bos_pieceB5cxx11Ev.exit, %_ZNK13sentencepiece11TrainerSpec9bos_pieceB5cxx11Ev.exit4
+  %.fca.1.insert.merged = phi { i64, ptr } [ %37, %_ZNK13sentencepiece11TrainerSpec9bos_pieceB5cxx11Ev.exit4 ], [ { i64 3, ptr @.str.1 }, %_ZNK13sentencepiece11TrainerSpec9bos_pieceB5cxx11Ev.exit ]
+  ret { i64, ptr } %.fca.1.insert.merged
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -599,7 +589,7 @@ define { i64, ptr } @_ZNK13sentencepiece14ModelInterface9eos_pieceEv(ptr nocaptu
 _ZNK13sentencepiece11TrainerSpec9eos_pieceB5cxx11Ev.exit: ; preds = %10, %13, %15
   %.0.i = phi ptr [ %18, %15 ], [ %14, %13 ], [ %.0.i.i.i, %10 ]
   %19 = tail call noundef zeroext i1 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5emptyEv(ptr noundef nonnull align 8 dereferenceable(32) %.0.i) #22
-  br i1 %19, label %40, label %20
+  br i1 %19, label %38, label %20
 
 20:                                               ; preds = %_ZNK13sentencepiece11TrainerSpec9eos_pieceB5cxx11Ev.exit
   %21 = load ptr, ptr %2, align 8
@@ -631,16 +621,11 @@ _ZNK13sentencepiece11TrainerSpec9eos_pieceB5cxx11Ev.exit: ; preds = %10, %13, %1
 _ZNK13sentencepiece11TrainerSpec9eos_pieceB5cxx11Ev.exit4: ; preds = %28, %31, %33
   %.0.i2 = phi ptr [ %36, %33 ], [ %32, %31 ], [ %.0.i.i.i3, %28 ]
   %37 = tail call { i64, ptr } @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEcvSt17basic_string_viewIcS2_EEv(ptr noundef nonnull align 8 dereferenceable(32) %.0.i2) #22
-  %38 = extractvalue { i64, ptr } %37, 0
-  %39 = extractvalue { i64, ptr } %37, 1
-  br label %40
+  br label %38
 
-40:                                               ; preds = %_ZNK13sentencepiece11TrainerSpec9eos_pieceB5cxx11Ev.exit, %_ZNK13sentencepiece11TrainerSpec9eos_pieceB5cxx11Ev.exit4
-  %.sroa.3.0 = phi ptr [ %39, %_ZNK13sentencepiece11TrainerSpec9eos_pieceB5cxx11Ev.exit4 ], [ @.str.2, %_ZNK13sentencepiece11TrainerSpec9eos_pieceB5cxx11Ev.exit ]
-  %.sroa.0.0 = phi i64 [ %38, %_ZNK13sentencepiece11TrainerSpec9eos_pieceB5cxx11Ev.exit4 ], [ 4, %_ZNK13sentencepiece11TrainerSpec9eos_pieceB5cxx11Ev.exit ]
-  %.fca.0.insert = insertvalue { i64, ptr } poison, i64 %.sroa.0.0, 0
-  %.fca.1.insert = insertvalue { i64, ptr } %.fca.0.insert, ptr %.sroa.3.0, 1
-  ret { i64, ptr } %.fca.1.insert
+38:                                               ; preds = %_ZNK13sentencepiece11TrainerSpec9eos_pieceB5cxx11Ev.exit, %_ZNK13sentencepiece11TrainerSpec9eos_pieceB5cxx11Ev.exit4
+  %.fca.1.insert.merged = phi { i64, ptr } [ %37, %_ZNK13sentencepiece11TrainerSpec9eos_pieceB5cxx11Ev.exit4 ], [ { i64 4, ptr @.str.2 }, %_ZNK13sentencepiece11TrainerSpec9eos_pieceB5cxx11Ev.exit ]
+  ret { i64, ptr } %.fca.1.insert.merged
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -675,7 +660,7 @@ define { i64, ptr } @_ZNK13sentencepiece14ModelInterface9pad_pieceEv(ptr nocaptu
 _ZNK13sentencepiece11TrainerSpec9pad_pieceB5cxx11Ev.exit: ; preds = %10, %13, %15
   %.0.i = phi ptr [ %18, %15 ], [ %14, %13 ], [ %.0.i.i.i, %10 ]
   %19 = tail call noundef zeroext i1 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5emptyEv(ptr noundef nonnull align 8 dereferenceable(32) %.0.i) #22
-  br i1 %19, label %40, label %20
+  br i1 %19, label %38, label %20
 
 20:                                               ; preds = %_ZNK13sentencepiece11TrainerSpec9pad_pieceB5cxx11Ev.exit
   %21 = load ptr, ptr %2, align 8
@@ -707,16 +692,11 @@ _ZNK13sentencepiece11TrainerSpec9pad_pieceB5cxx11Ev.exit: ; preds = %10, %13, %1
 _ZNK13sentencepiece11TrainerSpec9pad_pieceB5cxx11Ev.exit4: ; preds = %28, %31, %33
   %.0.i2 = phi ptr [ %36, %33 ], [ %32, %31 ], [ %.0.i.i.i3, %28 ]
   %37 = tail call { i64, ptr } @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEcvSt17basic_string_viewIcS2_EEv(ptr noundef nonnull align 8 dereferenceable(32) %.0.i2) #22
-  %38 = extractvalue { i64, ptr } %37, 0
-  %39 = extractvalue { i64, ptr } %37, 1
-  br label %40
+  br label %38
 
-40:                                               ; preds = %_ZNK13sentencepiece11TrainerSpec9pad_pieceB5cxx11Ev.exit, %_ZNK13sentencepiece11TrainerSpec9pad_pieceB5cxx11Ev.exit4
-  %.sroa.3.0 = phi ptr [ %39, %_ZNK13sentencepiece11TrainerSpec9pad_pieceB5cxx11Ev.exit4 ], [ @.str.3, %_ZNK13sentencepiece11TrainerSpec9pad_pieceB5cxx11Ev.exit ]
-  %.sroa.0.0 = phi i64 [ %38, %_ZNK13sentencepiece11TrainerSpec9pad_pieceB5cxx11Ev.exit4 ], [ 5, %_ZNK13sentencepiece11TrainerSpec9pad_pieceB5cxx11Ev.exit ]
-  %.fca.0.insert = insertvalue { i64, ptr } poison, i64 %.sroa.0.0, 0
-  %.fca.1.insert = insertvalue { i64, ptr } %.fca.0.insert, ptr %.sroa.3.0, 1
-  ret { i64, ptr } %.fca.1.insert
+38:                                               ; preds = %_ZNK13sentencepiece11TrainerSpec9pad_pieceB5cxx11Ev.exit, %_ZNK13sentencepiece11TrainerSpec9pad_pieceB5cxx11Ev.exit4
+  %.fca.1.insert.merged = phi { i64, ptr } [ %37, %_ZNK13sentencepiece11TrainerSpec9pad_pieceB5cxx11Ev.exit4 ], [ { i64 5, ptr @.str.3 }, %_ZNK13sentencepiece11TrainerSpec9pad_pieceB5cxx11Ev.exit ]
+  ret { i64, ptr } %.fca.1.insert.merged
 }
 
 ; Function Attrs: mustprogress uwtable

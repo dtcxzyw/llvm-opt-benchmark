@@ -578,32 +578,28 @@ define { i64, i64 } @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$11try_reserve17h88a5
   %4 = load i64, ptr %0, align 8, !noundef !3
   %5 = sub i64 %4, %1
   %6 = icmp ult i64 %5, %2
-  br i1 %6, label %7, label %12
+  br i1 %6, label %7, label %11
 
 7:                                                ; preds = %3
   %8 = tail call { i64, i64 } @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17h736f6b2cce9b2e5bE"(ptr nonnull align 8 %0, i64 %1, i64 %2)
   %9 = extractvalue { i64, i64 } %8, 0
-  %10 = extractvalue { i64, i64 } %8, 1
-  %11 = icmp eq i64 %9, -9223372036854775807
-  br i1 %11, label %._crit_edge, label %14
+  %10 = icmp eq i64 %9, -9223372036854775807
+  br i1 %10, label %._crit_edge, label %13
 
 ._crit_edge:                                      ; preds = %7
   %.pre = load i64, ptr %0, align 8
   %.pre11 = sub i64 %.pre, %1
-  br label %12
+  br label %11
 
-12:                                               ; preds = %._crit_edge, %3
+11:                                               ; preds = %._crit_edge, %3
   %.pre-phi = phi i64 [ %.pre11, %._crit_edge ], [ %5, %3 ]
-  %13 = icmp uge i64 %.pre-phi, %2
-  tail call void @llvm.assume(i1 %13)
-  br label %14
+  %12 = icmp uge i64 %.pre-phi, %2
+  tail call void @llvm.assume(i1 %12)
+  br label %13
 
-14:                                               ; preds = %7, %12
-  %.sroa.3.0 = phi i64 [ undef, %12 ], [ %10, %7 ]
-  %.sroa.0.0 = phi i64 [ -9223372036854775807, %12 ], [ %9, %7 ]
-  %15 = insertvalue { i64, i64 } poison, i64 %.sroa.0.0, 0
-  %16 = insertvalue { i64, i64 } %15, i64 %.sroa.3.0, 1
-  ret { i64, i64 } %16
+13:                                               ; preds = %7, %11
+  %.merged = phi { i64, i64 } [ { i64 -9223372036854775807, i64 undef }, %11 ], [ %8, %7 ]
+  ret { i64, i64 } %.merged
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable

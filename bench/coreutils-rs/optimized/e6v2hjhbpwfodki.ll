@@ -4066,24 +4066,23 @@ define hidden { ptr, ptr } @"_ZN5alloc11collections5btree3map25BTreeMap$LT$K$C$V
   br label %41
 
 41:                                               ; preds = %39, %.loopexit41
-  %.sroa.3.0 = phi ptr [ %48, %.loopexit41 ], [ undef, %39 ]
-  %.sroa.0.0 = phi ptr [ %46, %.loopexit41 ], [ null, %39 ]
-  %42 = insertvalue { ptr, ptr } poison, ptr %.sroa.0.0, 0
-  %43 = insertvalue { ptr, ptr } %42, ptr %.sroa.3.0, 1
-  ret { ptr, ptr } %43
+  %.merged = phi { ptr, ptr } [ %48, %.loopexit41 ], [ { ptr null, ptr undef }, %39 ]
+  ret { ptr, ptr } %.merged
 
 .loopexit41:                                      ; preds = %.noexc4, %.noexc
   %.sroa.10.0.ph.i = phi i64 [ %21, %.noexc ], [ %34, %.noexc4 ]
   %.sroa.5.0.ph.i = phi ptr [ %12, %.noexc ], [ %30, %.noexc4 ]
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %7), !noalias !694
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8)
-  %44 = getelementptr inbounds i8, ptr %.sroa.5.0.ph.i, i64 176
-  %45 = getelementptr inbounds { [2 x i64] }, ptr %44, i64 %.sroa.10.0.ph.i
-  %46 = load ptr, ptr %45, align 8, !noalias !707, !nonnull !13, !noundef !13
-  %47 = getelementptr inbounds i8, ptr %45, i64 8
-  %48 = load ptr, ptr %47, align 8, !noalias !707, !nonnull !13, !align !351, !noundef !13
-  store ptr %2, ptr %45, align 8, !noalias !707
-  store ptr %3, ptr %47, align 8, !noalias !707
+  %42 = getelementptr inbounds i8, ptr %.sroa.5.0.ph.i, i64 176
+  %43 = getelementptr inbounds { [2 x i64] }, ptr %42, i64 %.sroa.10.0.ph.i
+  %44 = load ptr, ptr %43, align 8, !noalias !707, !nonnull !13, !noundef !13
+  %45 = getelementptr inbounds i8, ptr %43, i64 8
+  %46 = load ptr, ptr %45, align 8, !noalias !707, !nonnull !13, !align !351, !noundef !13
+  store ptr %2, ptr %43, align 8, !noalias !707
+  store ptr %3, ptr %45, align 8, !noalias !707
+  %47 = insertvalue { ptr, ptr } poison, ptr %44, 0
+  %48 = insertvalue { ptr, ptr } %47, ptr %46, 1
   br label %41
 
 "_ZN4core3ptr237drop_in_place$LT$alloc..sync..Arc$LT$dyn$u20$core..ops..function..Fn$LT$$LP$$RF$libc..unix..linux_like..linux..gnu..b64..x86_64..siginfo_t$C$$RP$$GT$$u2b$Output$u20$$u3d$$u20$$LP$$RP$$u2b$core..marker..Send$u2b$core..marker..Sync$GT$$GT$17h095bfa5828580209E.llvm.16397499954887149854.exit": ; preds = %49, %52
