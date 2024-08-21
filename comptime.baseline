@@ -10601,7 +10601,7 @@ hyperscan/truffle.c.ll 144093314
 hyperscan/trufflecompile.cpp.ll 108518024
 hyperscan/ucp_table.cpp.ll 1627340373
 hyperscan/ue2string.cpp.ll 610749465
-hyperscan/unsupported.cpp.ll 98137522
+hyperscan/unsupported.cpp.ll 98235714
 icu/alphaindex.ll 734277375
 icu/anytrans.ll 213113930
 icu/appendable.ll 52312255
@@ -25715,7 +25715,7 @@ openssl/libssl-lib-tlsany_meth.ll 61234453
 openssl/libssl-lib-uint_set.ll 155594484
 openssl/libssl-shlib-arch.ll 62162223
 openssl/libssl-shlib-bio_ssl.ll 127277475
-openssl/libssl-shlib-cc_newreno.ll 189757620
+openssl/libssl-shlib-cc_newreno.ll 189947462
 openssl/libssl-shlib-d1_lib.ll 327948404
 openssl/libssl-shlib-d1_srtp.ll 69346352
 openssl/libssl-shlib-dtls_meth.ll 320661939
