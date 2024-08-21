@@ -37978,8 +37978,8 @@ define hidden noundef align 8 ptr @_ZN5serde9__private2de7content21visit_content
   ret ptr %.1
 }
 
-; Function Attrs: cold nonlazybind uwtable
-define hidden void @_ZN5serde9__private2de7content21visit_content_seq_ref17h29a7630d1d72aa8eE.llvm.12815775647222681290(ptr noalias nocapture noundef writeonly sret([248 x i8]) align 8 dereferenceable(248) %0, ptr noalias nocapture noundef nonnull readonly align 8 %1, i64 noundef %2) unnamed_addr #9 personality ptr @rust_eh_personality {
+; Function Attrs: nonlazybind uwtable
+define hidden void @_ZN5serde9__private2de7content21visit_content_seq_ref17h29a7630d1d72aa8eE.llvm.12815775647222681290(ptr noalias nocapture noundef writeonly sret([248 x i8]) align 8 dereferenceable(248) %0, ptr noalias nocapture noundef nonnull readonly align 8 %1, i64 noundef %2) unnamed_addr #0 personality ptr @rust_eh_personality {
   %4 = alloca {}, align 1
   %5 = alloca { i8, [23 x i8] }, align 8
   call void @llvm.lifetime.start.p0(i64 0, ptr nonnull %4)
@@ -37994,8 +37994,8 @@ define hidden void @_ZN5serde9__private2de7content21visit_content_seq_ref17h29a7
   ret void
 }
 
-; Function Attrs: cold nonlazybind uwtable
-define hidden void @_ZN5serde9__private2de7content21visit_content_seq_ref17h2f22a3c858ddb3f3E.llvm.12815775647222681290(ptr noalias nocapture noundef writeonly sret([152 x i8]) align 8 dereferenceable(152) %0, ptr noalias nocapture noundef nonnull readonly align 8 %1, i64 noundef %2) unnamed_addr #9 personality ptr @rust_eh_personality {
+; Function Attrs: nonlazybind uwtable
+define hidden void @_ZN5serde9__private2de7content21visit_content_seq_ref17h2f22a3c858ddb3f3E.llvm.12815775647222681290(ptr noalias nocapture noundef writeonly sret([152 x i8]) align 8 dereferenceable(152) %0, ptr noalias nocapture noundef nonnull readonly align 8 %1, i64 noundef %2) unnamed_addr #0 personality ptr @rust_eh_personality {
   %4 = alloca {}, align 1
   %5 = alloca { i8, [23 x i8] }, align 8
   call void @llvm.lifetime.start.p0(i64 0, ptr nonnull %4)
@@ -38827,8 +38827,8 @@ common.resume:                                    ; preds = %94, %40
   unreachable
 }
 
-; Function Attrs: cold nonlazybind uwtable
-define hidden void @_ZN5serde9__private2de7content21visit_content_seq_ref17h382466bc9a808075E.llvm.12815775647222681290(ptr noalias nocapture noundef writeonly sret([120 x i8]) align 8 dereferenceable(120) %0, ptr noalias nocapture noundef nonnull readonly align 8 %1, i64 noundef %2) unnamed_addr #9 personality ptr @rust_eh_personality {
+; Function Attrs: nonlazybind uwtable
+define hidden void @_ZN5serde9__private2de7content21visit_content_seq_ref17h382466bc9a808075E.llvm.12815775647222681290(ptr noalias nocapture noundef writeonly sret([120 x i8]) align 8 dereferenceable(120) %0, ptr noalias nocapture noundef nonnull readonly align 8 %1, i64 noundef %2) unnamed_addr #0 personality ptr @rust_eh_personality {
   %4 = alloca {}, align 1
   %5 = alloca { i8, [23 x i8] }, align 8
   call void @llvm.lifetime.start.p0(i64 0, ptr nonnull %4)
@@ -42479,8 +42479,8 @@ common.resume:                                    ; preds = %80, %38
   unreachable
 }
 
-; Function Attrs: cold nonlazybind uwtable
-define hidden void @_ZN5serde9__private2de7content21visit_content_seq_ref17hf97f1b23fbf70e71E.llvm.12815775647222681290(ptr noalias nocapture noundef writeonly sret([312 x i8]) align 8 dereferenceable(312) %0, ptr noalias nocapture noundef nonnull readonly align 8 %1, i64 noundef %2) unnamed_addr #9 personality ptr @rust_eh_personality {
+; Function Attrs: nonlazybind uwtable
+define hidden void @_ZN5serde9__private2de7content21visit_content_seq_ref17hf97f1b23fbf70e71E.llvm.12815775647222681290(ptr noalias nocapture noundef writeonly sret([312 x i8]) align 8 dereferenceable(312) %0, ptr noalias nocapture noundef nonnull readonly align 8 %1, i64 noundef %2) unnamed_addr #0 personality ptr @rust_eh_personality {
   %4 = alloca {}, align 1
   %5 = alloca { i8, [23 x i8] }, align 8
   call void @llvm.lifetime.start.p0(i64 0, ptr nonnull %4)

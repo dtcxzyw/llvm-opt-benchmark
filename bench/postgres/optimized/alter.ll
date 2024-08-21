@@ -52,7 +52,7 @@ define dso_local { i64, i32 } @ExecRenameStmt(ptr noundef %0) local_unnamed_addr
   %4 = alloca ptr, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 4
   %6 = load i32, ptr %5, align 4
-  switch i32 %6, label %223 [
+  switch i32 %6, label %238 [
     i32 40, label %7
     i32 13, label %7
     i32 9, label %9
@@ -97,7 +97,7 @@ define dso_local { i64, i32 } @ExecRenameStmt(ptr noundef %0) local_unnamed_addr
   %8 = tail call { i64, i32 } @RenameConstraint(ptr noundef nonnull %0) #7
   %.fca.0.extract46 = extractvalue { i64, i32 } %8, 0
   %.sroa.14.0.extract.shift104 = lshr i64 %.fca.0.extract46, 32
-  br label %227
+  br label %242
 
 9:                                                ; preds = %1
   %10 = getelementptr inbounds i8, ptr %0, i64 32
@@ -107,7 +107,7 @@ define dso_local { i64, i32 } @ExecRenameStmt(ptr noundef %0) local_unnamed_addr
   %14 = tail call { i64, i32 } @RenameDatabase(ptr noundef %11, ptr noundef %13) #7
   %.fca.0.extract42 = extractvalue { i64, i32 } %14, 0
   %.sroa.14.0.extract.shift102 = lshr i64 %.fca.0.extract42, 32
-  br label %227
+  br label %242
 
 15:                                               ; preds = %1
   %16 = getelementptr inbounds i8, ptr %0, i64 32
@@ -117,7 +117,7 @@ define dso_local { i64, i32 } @ExecRenameStmt(ptr noundef %0) local_unnamed_addr
   %20 = tail call { i64, i32 } @RenameRole(ptr noundef %17, ptr noundef %19) #7
   %.fca.0.extract38 = extractvalue { i64, i32 } %20, 0
   %.sroa.14.0.extract.shift100 = lshr i64 %.fca.0.extract38, 32
-  br label %227
+  br label %242
 
 21:                                               ; preds = %1
   %22 = getelementptr inbounds i8, ptr %0, i64 32
@@ -127,7 +127,7 @@ define dso_local { i64, i32 } @ExecRenameStmt(ptr noundef %0) local_unnamed_addr
   %26 = tail call { i64, i32 } @RenameSchema(ptr noundef %23, ptr noundef %25) #7
   %.fca.0.extract34 = extractvalue { i64, i32 } %26, 0
   %.sroa.14.0.extract.shift98 = lshr i64 %.fca.0.extract34, 32
-  br label %227
+  br label %242
 
 27:                                               ; preds = %1
   %28 = getelementptr inbounds i8, ptr %0, i64 32
@@ -137,19 +137,19 @@ define dso_local { i64, i32 } @ExecRenameStmt(ptr noundef %0) local_unnamed_addr
   %32 = tail call { i64, i32 } @RenameTableSpace(ptr noundef %29, ptr noundef %31) #7
   %.fca.0.extract30 = extractvalue { i64, i32 } %32, 0
   %.sroa.14.0.extract.shift96 = lshr i64 %.fca.0.extract30, 32
-  br label %227
+  br label %242
 
 33:                                               ; preds = %1, %1, %1, %1, %1, %1
   %34 = tail call { i64, i32 } @RenameRelation(ptr noundef nonnull %0) #7
   %.fca.0.extract26 = extractvalue { i64, i32 } %34, 0
   %.sroa.14.0.extract.shift94 = lshr i64 %.fca.0.extract26, 32
-  br label %227
+  br label %242
 
 35:                                               ; preds = %1, %1
   %36 = tail call { i64, i32 } @renameatt(ptr noundef nonnull %0) #7
   %.fca.0.extract22 = extractvalue { i64, i32 } %36, 0
   %.sroa.14.0.extract.shift92 = lshr i64 %.fca.0.extract22, 32
-  br label %227
+  br label %242
 
 37:                                               ; preds = %1
   %38 = getelementptr inbounds i8, ptr %0, i64 16
@@ -161,25 +161,25 @@ define dso_local { i64, i32 } @ExecRenameStmt(ptr noundef %0) local_unnamed_addr
   %44 = tail call { i64, i32 } @RenameRewriteRule(ptr noundef %39, ptr noundef %41, ptr noundef %43) #7
   %.fca.0.extract18 = extractvalue { i64, i32 } %44, 0
   %.sroa.14.0.extract.shift90 = lshr i64 %.fca.0.extract18, 32
-  br label %227
+  br label %242
 
 45:                                               ; preds = %1
   %46 = tail call { i64, i32 } @renametrig(ptr noundef nonnull %0) #7
   %.fca.0.extract14 = extractvalue { i64, i32 } %46, 0
   %.sroa.14.0.extract.shift88 = lshr i64 %.fca.0.extract14, 32
-  br label %227
+  br label %242
 
 47:                                               ; preds = %1
   %48 = tail call { i64, i32 } @rename_policy(ptr noundef nonnull %0) #7
   %.fca.0.extract10 = extractvalue { i64, i32 } %48, 0
   %.sroa.14.0.extract.shift86 = lshr i64 %.fca.0.extract10, 32
-  br label %227
+  br label %242
 
 49:                                               ; preds = %1, %1
   %50 = tail call { i64, i32 } @RenameType(ptr noundef nonnull %0) #7
   %.fca.0.extract6 = extractvalue { i64, i32 } %50, 0
   %.sroa.14.0.extract.shift84 = lshr i64 %.fca.0.extract6, 32
-  br label %227
+  br label %242
 
 51:                                               ; preds = %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1
   %52 = getelementptr inbounds i8, ptr %0, i64 24
@@ -279,7 +279,7 @@ define dso_local { i64, i32 } @ExecRenameStmt(ptr noundef %0) local_unnamed_addr
   br label %108
 
 108:                                              ; preds = %106, %103, %102
-  switch i32 %59, label %184 [
+  switch i32 %59, label %187 [
     i32 6100, label %109
     i32 1255, label %134
     i32 3456, label %147
@@ -326,7 +326,7 @@ define dso_local { i64, i32 } @ExecRenameStmt(ptr noundef %0) local_unnamed_addr
   unreachable
 
 133:                                              ; preds = %84
-  switch i32 %59, label %184 [
+  switch i32 %59, label %187 [
     i32 1255, label %134
     i32 3456, label %147
     i32 2616, label %156
@@ -348,7 +348,7 @@ define dso_local { i64, i32 } @ExecRenameStmt(ptr noundef %0) local_unnamed_addr
   %145 = getelementptr inbounds i8, ptr %140, i64 68
   %146 = load i32, ptr %145, align 4
   call void @IsThereFunctionInNamespace(ptr noundef %57, i32 noundef %143, ptr noundef nonnull %144, i32 noundef %146) #7
-  br label %195
+  br label %210
 
 147:                                              ; preds = %133, %108
   %148 = getelementptr inbounds i8, ptr %65, i64 16
@@ -360,7 +360,7 @@ define dso_local { i64, i32 } @ExecRenameStmt(ptr noundef %0) local_unnamed_addr
   %154 = getelementptr inbounds i8, ptr %153, i64 68
   %155 = load i32, ptr %154, align 4
   call void @IsThereCollationInNamespace(ptr noundef %57, i32 noundef %155) #7
-  br label %195
+  br label %210
 
 156:                                              ; preds = %133, %108
   %157 = getelementptr inbounds i8, ptr %65, i64 16
@@ -374,7 +374,7 @@ define dso_local { i64, i32 } @ExecRenameStmt(ptr noundef %0) local_unnamed_addr
   %165 = getelementptr inbounds i8, ptr %162, i64 72
   %166 = load i32, ptr %165, align 4
   call void @IsThereOpClassInNamespace(ptr noundef %57, i32 noundef %164, i32 noundef %166) #7
-  br label %195
+  br label %210
 
 167:                                              ; preds = %133, %108
   %168 = getelementptr inbounds i8, ptr %65, i64 16
@@ -388,107 +388,148 @@ define dso_local { i64, i32 } @ExecRenameStmt(ptr noundef %0) local_unnamed_addr
   %176 = getelementptr inbounds i8, ptr %173, i64 72
   %177 = load i32, ptr %176, align 4
   call void @IsThereOpFamilyInNamespace(ptr noundef %57, i32 noundef %175, i32 noundef %177) #7
-  br label %195
+  br label %210
 
 .thread.i:                                        ; preds = %133, %126, %116
   %178 = load i32, ptr @MyDatabaseId, align 4
   %179 = zext i32 %178 to i64
   %180 = ptrtoint ptr %57 to i64
   %181 = call zeroext i1 @SearchSysCacheExists(i32 noundef 64, i64 noundef %179, i64 noundef %180, i64 noundef 0, i64 noundef 0) #7
-  br i1 %181, label %182, label %183
+  br i1 %181, label %182, label %186
 
 182:                                              ; preds = %.thread.i
-  call fastcc void @report_name_conflict(i32 noundef 6100, ptr noundef %57)
+  %183 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #8
+  call void @llvm.assume(i1 %183)
+  %184 = call i32 @errcode(i32 noundef 290948) #7
+  %185 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.14, ptr noundef %57) #7
+  call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 110, ptr noundef nonnull @__func__.report_name_conflict) #7
   unreachable
 
-183:                                              ; preds = %.thread.i
+186:                                              ; preds = %.thread.i
   call void @LogicalRepWorkersWakeupAtCommit(i32 noundef %.sroa.14.0.extract.trunc) #7
-  br label %195
+  br label %210
 
-184:                                              ; preds = %133, %108
-  %185 = icmp sgt i32 %61, -1
-  br i1 %185, label %186, label %195
+187:                                              ; preds = %133, %108
+  %188 = icmp sgt i32 %61, -1
+  br i1 %188, label %189, label %210
 
-186:                                              ; preds = %184
+189:                                              ; preds = %187
   %.not115.i = icmp eq i32 %.0.i, 0
-  %187 = ptrtoint ptr %57 to i64
-  br i1 %.not115.i, label %192, label %188
+  %190 = ptrtoint ptr %57 to i64
+  br i1 %.not115.i, label %195, label %191
 
-188:                                              ; preds = %186
-  %189 = zext i32 %.0.i to i64
-  %190 = call zeroext i1 @SearchSysCacheExists(i32 noundef %61, i64 noundef %187, i64 noundef %189, i64 noundef 0, i64 noundef 0) #7
-  br i1 %190, label %191, label %195
+191:                                              ; preds = %189
+  %192 = zext i32 %.0.i to i64
+  %193 = call zeroext i1 @SearchSysCacheExists(i32 noundef %61, i64 noundef %190, i64 noundef %192, i64 noundef 0, i64 noundef 0) #7
+  br i1 %193, label %194, label %210
 
-191:                                              ; preds = %188
+194:                                              ; preds = %191
   call fastcc void @report_namespace_conflict(i32 noundef %59, ptr noundef %57, i32 noundef %.0.i)
   unreachable
 
-192:                                              ; preds = %186
-  %193 = call zeroext i1 @SearchSysCacheExists(i32 noundef %61, i64 noundef %187, i64 noundef 0, i64 noundef 0, i64 noundef 0) #7
-  br i1 %193, label %194, label %195
+195:                                              ; preds = %189
+  %196 = call zeroext i1 @SearchSysCacheExists(i32 noundef %61, i64 noundef %190, i64 noundef 0, i64 noundef 0, i64 noundef 0) #7
+  br i1 %196, label %197, label %210
 
-194:                                              ; preds = %192
-  call fastcc void @report_name_conflict(i32 noundef %59, ptr noundef %57)
+197:                                              ; preds = %195
+  switch i32 %59, label %203 [
+    i32 3466, label %206
+    i32 2328, label %198
+    i32 1417, label %199
+    i32 2612, label %200
+    i32 6104, label %201
+    i32 6100, label %202
+  ]
+
+198:                                              ; preds = %197
+  br label %206
+
+199:                                              ; preds = %197
+  br label %206
+
+200:                                              ; preds = %197
+  br label %206
+
+201:                                              ; preds = %197
+  br label %206
+
+202:                                              ; preds = %197
+  br label %206
+
+203:                                              ; preds = %197
+  %204 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #8
+  call void @llvm.assume(i1 %204)
+  %205 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.15, i32 noundef %59) #7
+  call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 104, ptr noundef nonnull @__func__.report_name_conflict) #7
   unreachable
 
-195:                                              ; preds = %192, %188, %184, %183, %167, %156, %147, %134
-  %196 = getelementptr inbounds i8, ptr %55, i64 56
-  %197 = load ptr, ptr %196, align 8
-  %198 = getelementptr inbounds i8, ptr %197, i64 116
-  %199 = load i16, ptr %198, align 4
-  %200 = sext i16 %199 to i64
-  %201 = shl nsw i64 %200, 3
-  %202 = call ptr @palloc0(i64 noundef %201) #7
-  %203 = load ptr, ptr %196, align 8
-  %204 = getelementptr inbounds i8, ptr %203, i64 116
-  %205 = load i16, ptr %204, align 4
-  %206 = sext i16 %205 to i64
-  %207 = call ptr @palloc0(i64 noundef %206) #7
-  %208 = load ptr, ptr %196, align 8
-  %209 = getelementptr inbounds i8, ptr %208, i64 116
-  %210 = load i16, ptr %209, align 4
-  %211 = sext i16 %210 to i64
-  %212 = call ptr @palloc0(i64 noundef %211) #7
-  call void @namestrcpy(ptr noundef nonnull %3, ptr noundef %57) #7
-  %213 = ptrtoint ptr %3 to i64
-  %214 = add nsw i32 %73, -1
-  %215 = sext i32 %214 to i64
-  %216 = getelementptr i64, ptr %202, i64 %215
-  store i64 %213, ptr %216, align 8
-  %217 = getelementptr i8, ptr %212, i64 %215
-  store i8 1, ptr %217, align 1
-  %218 = load ptr, ptr %74, align 8
-  %219 = call ptr @heap_modify_tuple(ptr noundef nonnull %65, ptr noundef %218, ptr noundef %202, ptr noundef %207, ptr noundef %212) #7
-  %220 = getelementptr inbounds i8, ptr %65, i64 4
-  call void @CatalogTupleUpdate(ptr noundef nonnull %55, ptr noundef nonnull %220, ptr noundef %219) #7
-  %221 = load ptr, ptr @object_access_hook, align 8
-  %.not116.i = icmp eq ptr %221, null
-  br i1 %.not116.i, label %AlterObjectRename_internal.exit, label %222
+206:                                              ; preds = %202, %201, %200, %199, %198, %197
+  %.0.i.i = phi ptr [ @.str.14, %202 ], [ @.str.13, %201 ], [ @.str.12, %200 ], [ @.str.11, %199 ], [ @.str.10, %198 ], [ @.str.9, %197 ]
+  %207 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #8
+  call void @llvm.assume(i1 %207)
+  %208 = call i32 @errcode(i32 noundef 290948) #7
+  %209 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull %.0.i.i, ptr noundef %57) #7
+  call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 110, ptr noundef nonnull @__func__.report_name_conflict) #7
+  unreachable
 
-222:                                              ; preds = %195
+210:                                              ; preds = %195, %191, %187, %186, %167, %156, %147, %134
+  %211 = getelementptr inbounds i8, ptr %55, i64 56
+  %212 = load ptr, ptr %211, align 8
+  %213 = getelementptr inbounds i8, ptr %212, i64 116
+  %214 = load i16, ptr %213, align 4
+  %215 = sext i16 %214 to i64
+  %216 = shl nsw i64 %215, 3
+  %217 = call ptr @palloc0(i64 noundef %216) #7
+  %218 = load ptr, ptr %211, align 8
+  %219 = getelementptr inbounds i8, ptr %218, i64 116
+  %220 = load i16, ptr %219, align 4
+  %221 = sext i16 %220 to i64
+  %222 = call ptr @palloc0(i64 noundef %221) #7
+  %223 = load ptr, ptr %211, align 8
+  %224 = getelementptr inbounds i8, ptr %223, i64 116
+  %225 = load i16, ptr %224, align 4
+  %226 = sext i16 %225 to i64
+  %227 = call ptr @palloc0(i64 noundef %226) #7
+  call void @namestrcpy(ptr noundef nonnull %3, ptr noundef %57) #7
+  %228 = ptrtoint ptr %3 to i64
+  %229 = add nsw i32 %73, -1
+  %230 = sext i32 %229 to i64
+  %231 = getelementptr i64, ptr %217, i64 %230
+  store i64 %228, ptr %231, align 8
+  %232 = getelementptr i8, ptr %227, i64 %230
+  store i8 1, ptr %232, align 1
+  %233 = load ptr, ptr %74, align 8
+  %234 = call ptr @heap_modify_tuple(ptr noundef nonnull %65, ptr noundef %233, ptr noundef %217, ptr noundef %222, ptr noundef %227) #7
+  %235 = getelementptr inbounds i8, ptr %65, i64 4
+  call void @CatalogTupleUpdate(ptr noundef nonnull %55, ptr noundef nonnull %235, ptr noundef %234) #7
+  %236 = load ptr, ptr @object_access_hook, align 8
+  %.not116.i = icmp eq ptr %236, null
+  br i1 %.not116.i, label %AlterObjectRename_internal.exit, label %237
+
+237:                                              ; preds = %210
   call void @RunObjectPostAlterHook(i32 noundef %59, i32 noundef %.sroa.14.0.extract.trunc, i32 noundef 0, i32 noundef 0, i1 noundef zeroext false) #7
   br label %AlterObjectRename_internal.exit
 
-AlterObjectRename_internal.exit:                  ; preds = %195, %222
-  call void @pfree(ptr noundef nonnull %202) #7
-  call void @pfree(ptr noundef %207) #7
-  call void @pfree(ptr noundef nonnull %212) #7
-  call void @heap_freetuple(ptr noundef %219) #7
+AlterObjectRename_internal.exit:                  ; preds = %210, %237
+  call void @pfree(ptr noundef nonnull %217) #7
+  call void @pfree(ptr noundef %222) #7
+  call void @pfree(ptr noundef nonnull %227) #7
+  call void @heap_freetuple(ptr noundef %234) #7
   call void @ReleaseSysCache(ptr noundef nonnull %65) #7
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %2)
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %3)
   call void @table_close(ptr noundef nonnull %55, i32 noundef 3) #7
-  br label %227
+  br label %242
 
-223:                                              ; preds = %1
-  %224 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #8
-  tail call void @llvm.assume(i1 %224)
-  %225 = load i32, ptr %5, align 4
-  %226 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str, i32 noundef %225) #7
+238:                                              ; preds = %1
+  %239 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #8
+  tail call void @llvm.assume(i1 %239)
+  %240 = load i32, ptr %5, align 4
+  %241 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str, i32 noundef %240) #7
   tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 447, ptr noundef nonnull @__func__.ExecRenameStmt) #7
   unreachable
 
-227:                                              ; preds = %AlterObjectRename_internal.exit, %49, %47, %45, %37, %35, %33, %27, %21, %15, %9, %7
+242:                                              ; preds = %AlterObjectRename_internal.exit, %49, %47, %45, %37, %35, %33, %27, %21, %15, %9, %7
   %.sroa.072.0 = phi i64 [ %.fca.0.extract, %AlterObjectRename_internal.exit ], [ %.fca.0.extract6, %49 ], [ %.fca.0.extract10, %47 ], [ %.fca.0.extract14, %45 ], [ %.fca.0.extract18, %37 ], [ %.fca.0.extract22, %35 ], [ %.fca.0.extract26, %33 ], [ %.fca.0.extract30, %27 ], [ %.fca.0.extract34, %21 ], [ %.fca.0.extract38, %15 ], [ %.fca.0.extract42, %9 ], [ %.fca.0.extract46, %7 ]
   %.sroa.14.0 = phi i64 [ %.sroa.14.0.extract.shift, %AlterObjectRename_internal.exit ], [ %.sroa.14.0.extract.shift84, %49 ], [ %.sroa.14.0.extract.shift86, %47 ], [ %.sroa.14.0.extract.shift88, %45 ], [ %.sroa.14.0.extract.shift90, %37 ], [ %.sroa.14.0.extract.shift92, %35 ], [ %.sroa.14.0.extract.shift94, %33 ], [ %.sroa.14.0.extract.shift96, %27 ], [ %.sroa.14.0.extract.shift98, %21 ], [ %.sroa.14.0.extract.shift100, %15 ], [ %.sroa.14.0.extract.shift102, %9 ], [ %.sroa.14.0.extract.shift104, %7 ]
   %.pn = phi { i64, i32 } [ %54, %AlterObjectRename_internal.exit ], [ %50, %49 ], [ %48, %47 ], [ %46, %45 ], [ %44, %37 ], [ %36, %35 ], [ %34, %33 ], [ %32, %27 ], [ %26, %21 ], [ %20, %15 ], [ %14, %9 ], [ %8, %7 ]
@@ -1552,52 +1593,9 @@ declare void @IsThereOpFamilyInNamespace(ptr noundef, i32 noundef, i32 noundef) 
 
 declare zeroext i1 @SearchSysCacheExists(i32 noundef, i64 noundef, i64 noundef, i64 noundef, i64 noundef) local_unnamed_addr #1
 
-; Function Attrs: cold noreturn nounwind uwtable
-define internal fastcc void @report_name_conflict(i32 noundef %0, ptr noundef %1) unnamed_addr #4 {
-  switch i32 %0, label %8 [
-    i32 3466, label %11
-    i32 2328, label %3
-    i32 1417, label %4
-    i32 2612, label %5
-    i32 6104, label %6
-    i32 6100, label %7
-  ]
-
-3:                                                ; preds = %2
-  br label %11
-
-4:                                                ; preds = %2
-  br label %11
-
-5:                                                ; preds = %2
-  br label %11
-
-6:                                                ; preds = %2
-  br label %11
-
-7:                                                ; preds = %2
-  br label %11
-
-8:                                                ; preds = %2
-  %9 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #8
-  tail call void @llvm.assume(i1 %9)
-  %10 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.15, i32 noundef %0) #7
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 104, ptr noundef nonnull @__func__.report_name_conflict) #7
-  unreachable
-
-11:                                               ; preds = %2, %7, %6, %5, %4, %3
-  %.0 = phi ptr [ @.str.14, %7 ], [ @.str.13, %6 ], [ @.str.12, %5 ], [ @.str.11, %4 ], [ @.str.10, %3 ], [ @.str.9, %2 ]
-  %12 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #8
-  tail call void @llvm.assume(i1 %12)
-  %13 = tail call i32 @errcode(i32 noundef 290948) #7
-  %14 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull %.0, ptr noundef %1) #7
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 110, ptr noundef nonnull @__func__.report_name_conflict) #7
-  unreachable
-}
-
 declare void @LogicalRepWorkersWakeupAtCommit(i32 noundef) local_unnamed_addr #1
 
-; Function Attrs: cold noreturn nounwind uwtable
+; Function Attrs: noreturn nounwind uwtable
 define internal fastcc void @report_namespace_conflict(i32 noundef %0, ptr noundef %1, i32 noundef %2) unnamed_addr #4 {
   switch i32 %0, label %9 [
     i32 2607, label %12
@@ -1672,7 +1670,7 @@ attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
 attributes #3 = { cold "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { cold noreturn nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { noreturn nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #5 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
 attributes #6 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #7 = { nounwind }

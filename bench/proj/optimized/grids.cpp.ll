@@ -815,7 +815,7 @@ define void @_ZN5osgeo4proj4GridD2Ev(ptr noundef nonnull align 8 dereferenceable
 ; Function Attrs: nounwind
 declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #6
 
-; Function Attrs: cold mustprogress noreturn nounwind memory(inaccessiblemem: write) uwtable
+; Function Attrs: mustprogress noreturn nounwind memory(inaccessiblemem: write) uwtable
 define void @_ZN5osgeo4proj4GridD0Ev(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #7 align 2 {
   tail call void @llvm.trap() #31
   unreachable
@@ -893,7 +893,7 @@ _ZNSt6vectorISt10unique_ptrIN5osgeo4proj17VerticalShiftGridESt14default_deleteIS
   ret void
 }
 
-; Function Attrs: cold mustprogress noreturn nounwind memory(inaccessiblemem: write) uwtable
+; Function Attrs: mustprogress noreturn nounwind memory(inaccessiblemem: write) uwtable
 define void @_ZN5osgeo4proj17VerticalShiftGridD0Ev(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #7 align 2 {
   tail call void @llvm.trap() #31
   unreachable
@@ -8237,7 +8237,7 @@ _ZNSt6vectorISt10unique_ptrIN5osgeo4proj19HorizontalShiftGridESt14default_delete
   ret void
 }
 
-; Function Attrs: cold mustprogress noreturn nounwind memory(inaccessiblemem: write) uwtable
+; Function Attrs: mustprogress noreturn nounwind memory(inaccessiblemem: write) uwtable
 define void @_ZN5osgeo4proj19HorizontalShiftGridD0Ev(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #7 align 2 {
   tail call void @llvm.trap() #31
   unreachable
@@ -14864,7 +14864,7 @@ _ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_P
   ret void
 }
 
-; Function Attrs: cold mustprogress noreturn nounwind memory(inaccessiblemem: write) uwtable
+; Function Attrs: mustprogress noreturn nounwind memory(inaccessiblemem: write) uwtable
 define void @_ZN5osgeo4proj16GenericShiftGridD0Ev(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #7 align 2 {
   tail call void @llvm.trap() #31
   unreachable
@@ -25177,7 +25177,7 @@ attributes #3 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protect
 attributes #4 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
 attributes #5 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #6 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { cold mustprogress noreturn nounwind memory(inaccessiblemem: write) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { mustprogress noreturn nounwind memory(inaccessiblemem: write) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #8 = { cold noreturn nounwind memory(inaccessiblemem: write) }
 attributes #9 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
 attributes #10 = { nofree nounwind }

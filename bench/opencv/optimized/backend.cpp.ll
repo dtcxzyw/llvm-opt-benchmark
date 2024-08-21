@@ -2292,7 +2292,7 @@ define void @_ZN2cv15highgui_backend9UIBackendD2Ev(ptr nocapture nonnull readnon
   ret void
 }
 
-; Function Attrs: cold mustprogress noreturn nounwind memory(inaccessiblemem: write) uwtable
+; Function Attrs: mustprogress noreturn nounwind memory(inaccessiblemem: write) uwtable
 define void @_ZN2cv15highgui_backend9UIBackendD0Ev(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #9 align 2 {
   tail call void @llvm.trap() #30
   unreachable
@@ -2306,7 +2306,7 @@ define void @_ZN2cv15highgui_backend12UIWindowBaseD2Ev(ptr nocapture nonnull rea
   ret void
 }
 
-; Function Attrs: cold mustprogress noreturn nounwind memory(inaccessiblemem: write) uwtable
+; Function Attrs: mustprogress noreturn nounwind memory(inaccessiblemem: write) uwtable
 define void @_ZN2cv15highgui_backend12UIWindowBaseD0Ev(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #9 align 2 {
   tail call void @llvm.trap() #30
   unreachable
@@ -2317,7 +2317,7 @@ define void @_ZN2cv15highgui_backend8UIWindowD2Ev(ptr nocapture nonnull readnone
   ret void
 }
 
-; Function Attrs: cold mustprogress noreturn nounwind memory(inaccessiblemem: write) uwtable
+; Function Attrs: mustprogress noreturn nounwind memory(inaccessiblemem: write) uwtable
 define void @_ZN2cv15highgui_backend8UIWindowD0Ev(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #9 align 2 {
   tail call void @llvm.trap() #30
   unreachable
@@ -2328,7 +2328,7 @@ define void @_ZN2cv15highgui_backend10UITrackbarD2Ev(ptr nocapture nonnull readn
   ret void
 }
 
-; Function Attrs: cold mustprogress noreturn nounwind memory(inaccessiblemem: write) uwtable
+; Function Attrs: mustprogress noreturn nounwind memory(inaccessiblemem: write) uwtable
 define void @_ZN2cv15highgui_backend10UITrackbarD0Ev(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #9 align 2 {
   tail call void @llvm.trap() #30
   unreachable
@@ -12350,7 +12350,7 @@ attributes #5 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal
 attributes #6 = { noreturn nounwind uwtable "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+sse3,+x87" "tune-cpu"="generic" }
 attributes #7 = { cold nofree noreturn }
 attributes #8 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+sse3,+x87" "tune-cpu"="generic" }
-attributes #9 = { cold mustprogress noreturn nounwind memory(inaccessiblemem: write) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+sse3,+x87" "tune-cpu"="generic" }
+attributes #9 = { mustprogress noreturn nounwind memory(inaccessiblemem: write) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+sse3,+x87" "tune-cpu"="generic" }
 attributes #10 = { cold noreturn nounwind memory(inaccessiblemem: write) }
 attributes #11 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+sse3,+x87" "tune-cpu"="generic" }
 attributes #12 = { nobuiltin allocsize(0) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+sse3,+x87" "tune-cpu"="generic" }

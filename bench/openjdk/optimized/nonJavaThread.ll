@@ -188,7 +188,7 @@ define hidden void @_ZN13NonJavaThreadD2Ev(ptr noundef nonnull align 8 dereferen
 ; Function Attrs: nounwind
 declare void @_ZN6ThreadD2Ev(ptr noundef nonnull align 8 dereferenceable(888)) unnamed_addr #3
 
-; Function Attrs: cold mustprogress noreturn nounwind memory(inaccessiblemem: write) uwtable
+; Function Attrs: mustprogress noreturn nounwind memory(inaccessiblemem: write) uwtable
 define hidden void @_ZN13NonJavaThreadD0Ev(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #4 align 2 {
   tail call void @llvm.trap() #12
   unreachable
@@ -387,7 +387,7 @@ define hidden void @_ZN11NamedThreadD2Ev(ptr noundef nonnull align 8 dereference
 
 declare void @_Z8FreeHeapPv(ptr noundef) local_unnamed_addr #2
 
-; Function Attrs: cold mustprogress noreturn nounwind memory(inaccessiblemem: write) uwtable
+; Function Attrs: mustprogress noreturn nounwind memory(inaccessiblemem: write) uwtable
 define hidden void @_ZN11NamedThreadD0Ev(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #4 align 2 {
   tail call void @llvm.trap() #12
   unreachable
@@ -999,7 +999,7 @@ attributes #0 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal
 attributes #1 = { nofree nounwind }
 attributes #2 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #3 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { cold mustprogress noreturn nounwind memory(inaccessiblemem: write) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { mustprogress noreturn nounwind memory(inaccessiblemem: write) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #5 = { cold noreturn nounwind memory(inaccessiblemem: write) }
 attributes #6 = { noreturn "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #7 = { mustprogress nocallback nofree nosync nounwind willreturn }

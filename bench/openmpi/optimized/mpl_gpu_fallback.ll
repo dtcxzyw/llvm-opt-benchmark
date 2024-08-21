@@ -3,7 +3,7 @@ source_filename = "bench/openmpi/original/mpl_gpu_fallback.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-pc-linux-gnu"
 
-; Function Attrs: cold nofree noreturn nounwind uwtable
+; Function Attrs: nofree noreturn nounwind uwtable
 define noundef i32 @MPL_gpu_ipc_handle_create(ptr nocapture noundef readnone %0, ptr nocapture noundef readnone %1) local_unnamed_addr #0 {
   tail call void @abort() #7
   unreachable
@@ -12,13 +12,13 @@ define noundef i32 @MPL_gpu_ipc_handle_create(ptr nocapture noundef readnone %0,
 ; Function Attrs: cold nofree noreturn nounwind
 declare void @abort() local_unnamed_addr #1
 
-; Function Attrs: cold nofree noreturn nounwind uwtable
+; Function Attrs: nofree noreturn nounwind uwtable
 define noundef i32 @MPL_gpu_ipc_handle_map(i32 noundef %0, i32 noundef %1, ptr nocapture noundef readnone %2) local_unnamed_addr #0 {
   tail call void @abort() #7
   unreachable
 }
 
-; Function Attrs: cold nofree noreturn nounwind uwtable
+; Function Attrs: nofree noreturn nounwind uwtable
 define noundef i32 @MPL_gpu_ipc_handle_unmap(ptr nocapture noundef readnone %0) local_unnamed_addr #0 {
   tail call void @abort() #7
   unreachable
@@ -58,13 +58,13 @@ define noundef i32 @MPL_gpu_unregister_host(ptr nocapture noundef readnone %0) l
   ret i32 0
 }
 
-; Function Attrs: cold nofree noreturn nounwind uwtable
+; Function Attrs: nofree noreturn nounwind uwtable
 define noundef i32 @MPL_gpu_malloc(ptr nocapture noundef readnone %0, i64 noundef %1, i32 noundef %2) local_unnamed_addr #0 {
   tail call void @abort() #7
   unreachable
 }
 
-; Function Attrs: cold nofree noreturn nounwind uwtable
+; Function Attrs: nofree noreturn nounwind uwtable
 define noundef i32 @MPL_gpu_free(ptr nocapture noundef readnone %0) local_unnamed_addr #0 {
   tail call void @abort() #7
   unreachable
@@ -108,7 +108,7 @@ define noundef i32 @MPL_gpu_free_hook_register(ptr nocapture noundef readnone %0
 ; Function Attrs: mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite)
 declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #6
 
-attributes #0 = { cold nofree noreturn nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #0 = { nofree noreturn nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { cold nofree noreturn nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { mustprogress nofree nounwind willreturn memory(argmem: write, inaccessiblemem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #3 = { mustprogress nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

@@ -932,7 +932,7 @@ _ZNSt23enable_shared_from_thisIN5arrow2io13FileInterfaceEED2Ev.exit: ; preds = %
   ret void
 }
 
-; Function Attrs: cold mustprogress noreturn nounwind memory(inaccessiblemem: write) uwtable
+; Function Attrs: mustprogress noreturn nounwind memory(inaccessiblemem: write) uwtable
 define void @_ZN5arrow2io13FileInterfaceD0Ev(ptr nocapture noundef nonnull readnone align 8 dereferenceable(28) %this) unnamed_addr #4 align 2 {
 entry:
   tail call void @llvm.trap() #31
@@ -4468,42 +4468,42 @@ _ZNSt10unique_ptrIN5arrow2io16RandomAccessFile4ImplESt14default_deleteIS3_EED2Ev
   ret void
 }
 
-; Function Attrs: cold mustprogress noreturn nounwind memory(inaccessiblemem: write) uwtable
+; Function Attrs: mustprogress noreturn nounwind memory(inaccessiblemem: write) uwtable
 define void @_ZN5arrow2io16RandomAccessFileD1Ev(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #4 align 2 {
 entry:
   tail call void @llvm.trap() #31
   unreachable
 }
 
-; Function Attrs: cold noreturn nounwind memory(inaccessiblemem: write) uwtable
+; Function Attrs: noreturn nounwind memory(inaccessiblemem: write) uwtable
 define void @_ZTv0_n24_N5arrow2io16RandomAccessFileD1Ev(ptr nocapture readonly %this) unnamed_addr #8 align 2 {
 entry:
   tail call void @llvm.trap() #31
   unreachable
 }
 
-; Function Attrs: cold noreturn nounwind memory(inaccessiblemem: write) uwtable
+; Function Attrs: noreturn nounwind memory(inaccessiblemem: write) uwtable
 define void @_ZThn8_N5arrow2io16RandomAccessFileD1Ev(ptr nocapture readnone %this) unnamed_addr #8 align 2 {
 entry:
   tail call void @llvm.trap() #31
   unreachable
 }
 
-; Function Attrs: cold mustprogress noreturn nounwind memory(inaccessiblemem: write) uwtable
+; Function Attrs: mustprogress noreturn nounwind memory(inaccessiblemem: write) uwtable
 define void @_ZN5arrow2io16RandomAccessFileD0Ev(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #4 align 2 {
 entry:
   tail call void @llvm.trap() #31
   unreachable
 }
 
-; Function Attrs: cold noreturn nounwind memory(inaccessiblemem: write) uwtable
+; Function Attrs: noreturn nounwind memory(inaccessiblemem: write) uwtable
 define void @_ZTv0_n24_N5arrow2io16RandomAccessFileD0Ev(ptr nocapture readonly %this) unnamed_addr #8 align 2 {
 entry:
   tail call void @llvm.trap() #31
   unreachable
 }
 
-; Function Attrs: cold noreturn nounwind memory(inaccessiblemem: write) uwtable
+; Function Attrs: noreturn nounwind memory(inaccessiblemem: write) uwtable
 define void @_ZThn8_N5arrow2io16RandomAccessFileD0Ev(ptr nocapture readnone %this) unnamed_addr #8 align 2 {
 entry:
   tail call void @llvm.trap() #31
@@ -17949,11 +17949,11 @@ attributes #0 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-w
 attributes #1 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+crc32,+cx8,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87" "tune-cpu"="generic" }
 attributes #2 = { nofree nounwind }
 attributes #3 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+crc32,+cx8,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87" "tune-cpu"="generic" }
-attributes #4 = { cold mustprogress noreturn nounwind memory(inaccessiblemem: write) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+crc32,+cx8,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87" "tune-cpu"="generic" }
+attributes #4 = { mustprogress noreturn nounwind memory(inaccessiblemem: write) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+crc32,+cx8,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87" "tune-cpu"="generic" }
 attributes #5 = { cold noreturn nounwind memory(inaccessiblemem: write) }
 attributes #6 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+crc32,+cx8,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87" "tune-cpu"="generic" }
 attributes #7 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+crc32,+cx8,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87" "tune-cpu"="generic" }
-attributes #8 = { cold noreturn nounwind memory(inaccessiblemem: write) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+crc32,+cx8,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87" "tune-cpu"="generic" }
+attributes #8 = { noreturn nounwind memory(inaccessiblemem: write) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+crc32,+cx8,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87" "tune-cpu"="generic" }
 attributes #9 = { nobuiltin allocsize(0) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+crc32,+cx8,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87" "tune-cpu"="generic" }
 attributes #10 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
 attributes #11 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }

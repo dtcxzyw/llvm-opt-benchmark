@@ -204,7 +204,7 @@ target triple = "x86_64-unknown-linux-gnu"
 ; Function Attrs: nounwind uwtable
 define void @llhttp_init(ptr noundef %parser, i32 noundef %type, ptr noundef %settings) local_unnamed_addr #0 {
 entry:
-  %call = tail call i32 @llhttp__internal_init(ptr noundef %parser) #10
+  %call = tail call i32 @llhttp__internal_init(ptr noundef %parser) #9
   %conv = trunc i32 %type to i8
   %type1 = getelementptr inbounds i8, ptr %parser, i64 72
   store i8 %conv, ptr %type1, align 8
@@ -275,7 +275,7 @@ entry:
   %2 = load ptr, ptr %data3, align 8
   %lenient_flags4 = getelementptr inbounds i8, ptr %parser, i64 77
   %3 = load i8, ptr %lenient_flags4, align 1
-  %call = tail call i32 @llhttp__internal_init(ptr noundef %parser) #10
+  %call = tail call i32 @llhttp__internal_init(ptr noundef %parser) #9
   store i8 %0, ptr %type1, align 8
   store ptr %1, ptr %settings2, align 8
   store ptr %2, ptr %data3, align 8
@@ -287,7 +287,7 @@ entry:
 define i32 @llhttp_execute(ptr noundef %parser, ptr noundef %data, i64 noundef %len) local_unnamed_addr #0 {
 entry:
   %add.ptr = getelementptr inbounds i8, ptr %data, i64 %len
-  %call = tail call i32 @llhttp__internal_execute(ptr noundef %parser, ptr noundef %data, ptr noundef %add.ptr) #10
+  %call = tail call i32 @llhttp__internal_execute(ptr noundef %parser, ptr noundef %data, ptr noundef %add.ptr) #9
   ret i32 %call
 }
 
@@ -333,7 +333,7 @@ lor.lhs.false:                                    ; preds = %do.body
   br i1 %cmp4, label %sw.bb13, label %do.end
 
 do.end:                                           ; preds = %lor.lhs.false
-  %call = tail call i32 %3(ptr noundef nonnull %parser) #10
+  %call = tail call i32 %3(ptr noundef nonnull %parser) #9
   %cmp9.not = icmp eq i32 %call, 0
   br i1 %cmp9.not, label %sw.bb13, label %return
 
@@ -346,7 +346,7 @@ sw.bb14:                                          ; preds = %if.end
   br label %return
 
 sw.default:                                       ; preds = %if.end
-  tail call void @abort() #11
+  tail call void @abort() #10
   unreachable
 
 return:                                           ; preds = %do.end, %entry, %sw.bb14, %sw.bb13
@@ -446,7 +446,7 @@ entry:
   br i1 %0, label %switch.lookup, label %sw.default
 
 sw.default:                                       ; preds = %entry
-  tail call void @abort() #11
+  tail call void @abort() #10
   unreachable
 
 switch.lookup:                                    ; preds = %entry
@@ -463,7 +463,7 @@ entry:
   br i1 %0, label %switch.lookup, label %sw.default
 
 sw.default:                                       ; preds = %entry
-  tail call void @abort() #11
+  tail call void @abort() #10
   unreachable
 
 switch.lookup:                                    ; preds = %entry
@@ -873,7 +873,7 @@ sw.bb98:                                          ; preds = %entry
   br label %return
 
 sw.default:                                       ; preds = %entry
-  tail call void @abort() #11
+  tail call void @abort() #10
   unreachable
 
 return:                                           ; preds = %entry, %sw.bb98, %sw.bb97, %sw.bb96, %sw.bb95, %sw.bb94, %sw.bb93, %sw.bb92, %sw.bb91, %sw.bb90, %sw.bb89, %sw.bb88, %sw.bb87, %sw.bb86, %sw.bb85, %sw.bb84, %sw.bb83, %sw.bb82, %sw.bb81, %sw.bb80, %sw.bb79, %sw.bb78, %sw.bb77, %sw.bb76, %sw.bb75, %sw.bb74, %sw.bb73, %sw.bb72, %sw.bb71, %sw.bb70, %sw.bb69, %sw.bb68, %sw.bb67, %sw.bb66, %sw.bb65, %sw.bb64, %sw.bb63, %sw.bb62, %sw.bb61, %sw.bb60, %sw.bb59, %sw.bb58, %sw.bb57, %sw.bb56, %sw.bb55, %sw.bb54, %sw.bb53, %sw.bb52, %sw.bb51, %sw.bb50, %sw.bb49, %sw.bb48, %sw.bb47, %sw.bb46, %sw.bb45, %sw.bb44, %sw.bb43, %sw.bb42, %sw.bb41, %sw.bb40, %sw.bb39, %sw.bb38, %sw.bb37, %sw.bb36, %sw.bb35, %sw.bb34, %sw.bb33, %sw.bb32, %sw.bb31, %sw.bb30, %sw.bb29, %sw.bb28, %sw.bb27, %sw.bb26, %sw.bb25, %sw.bb24, %sw.bb23, %sw.bb22, %sw.bb21, %sw.bb20, %sw.bb19, %sw.bb18, %sw.bb17, %sw.bb16, %sw.bb15, %sw.bb14, %sw.bb13, %sw.bb12, %sw.bb11, %sw.bb10, %sw.bb9, %sw.bb8, %sw.bb7, %sw.bb6, %sw.bb5, %sw.bb4, %sw.bb3, %sw.bb2, %sw.bb1
@@ -999,7 +999,7 @@ lor.lhs.false:                                    ; preds = %entry
   br i1 %cmp2, label %do.end, label %if.end
 
 if.end:                                           ; preds = %lor.lhs.false
-  %call = tail call i32 %1(ptr noundef nonnull %s) #10
+  %call = tail call i32 %1(ptr noundef nonnull %s) #9
   br label %do.end
 
 do.end:                                           ; preds = %entry, %lor.lhs.false, %if.end
@@ -1025,7 +1025,7 @@ if.end:                                           ; preds = %lor.lhs.false
   %sub.ptr.lhs.cast = ptrtoint ptr %endp to i64
   %sub.ptr.rhs.cast = ptrtoint ptr %p to i64
   %sub.ptr.sub = sub i64 %sub.ptr.lhs.cast, %sub.ptr.rhs.cast
-  %call = tail call i32 %1(ptr noundef nonnull %s, ptr noundef %p, i64 noundef %sub.ptr.sub) #10
+  %call = tail call i32 %1(ptr noundef nonnull %s, ptr noundef %p, i64 noundef %sub.ptr.sub) #9
   %cmp4 = icmp eq i32 %call, -1
   br i1 %cmp4, label %if.then5, label %do.end
 
@@ -1054,7 +1054,7 @@ lor.lhs.false:                                    ; preds = %entry
   br i1 %cmp2, label %do.end, label %if.end
 
 if.end:                                           ; preds = %lor.lhs.false
-  %call = tail call i32 %1(ptr noundef nonnull %s) #10
+  %call = tail call i32 %1(ptr noundef nonnull %s) #9
   br label %do.end
 
 do.end:                                           ; preds = %entry, %lor.lhs.false, %if.end
@@ -1080,7 +1080,7 @@ if.end:                                           ; preds = %lor.lhs.false
   %sub.ptr.lhs.cast = ptrtoint ptr %endp to i64
   %sub.ptr.rhs.cast = ptrtoint ptr %p to i64
   %sub.ptr.sub = sub i64 %sub.ptr.lhs.cast, %sub.ptr.rhs.cast
-  %call = tail call i32 %1(ptr noundef nonnull %s, ptr noundef %p, i64 noundef %sub.ptr.sub) #10
+  %call = tail call i32 %1(ptr noundef nonnull %s, ptr noundef %p, i64 noundef %sub.ptr.sub) #9
   %cmp4 = icmp eq i32 %call, -1
   br i1 %cmp4, label %if.then5, label %do.end
 
@@ -1109,7 +1109,7 @@ lor.lhs.false:                                    ; preds = %entry
   br i1 %cmp2, label %do.end, label %if.end
 
 if.end:                                           ; preds = %lor.lhs.false
-  %call = tail call i32 %1(ptr noundef nonnull %s) #10
+  %call = tail call i32 %1(ptr noundef nonnull %s) #9
   br label %do.end
 
 do.end:                                           ; preds = %entry, %lor.lhs.false, %if.end
@@ -1135,7 +1135,7 @@ if.end:                                           ; preds = %lor.lhs.false
   %sub.ptr.lhs.cast = ptrtoint ptr %endp to i64
   %sub.ptr.rhs.cast = ptrtoint ptr %p to i64
   %sub.ptr.sub = sub i64 %sub.ptr.lhs.cast, %sub.ptr.rhs.cast
-  %call = tail call i32 %1(ptr noundef nonnull %s, ptr noundef %p, i64 noundef %sub.ptr.sub) #10
+  %call = tail call i32 %1(ptr noundef nonnull %s, ptr noundef %p, i64 noundef %sub.ptr.sub) #9
   %cmp4 = icmp eq i32 %call, -1
   br i1 %cmp4, label %if.then5, label %do.end
 
@@ -1164,7 +1164,7 @@ lor.lhs.false:                                    ; preds = %entry
   br i1 %cmp2, label %do.end, label %if.end
 
 if.end:                                           ; preds = %lor.lhs.false
-  %call = tail call i32 %1(ptr noundef nonnull %s) #10
+  %call = tail call i32 %1(ptr noundef nonnull %s) #9
   br label %do.end
 
 do.end:                                           ; preds = %entry, %lor.lhs.false, %if.end
@@ -1190,7 +1190,7 @@ if.end:                                           ; preds = %lor.lhs.false
   %sub.ptr.lhs.cast = ptrtoint ptr %endp to i64
   %sub.ptr.rhs.cast = ptrtoint ptr %p to i64
   %sub.ptr.sub = sub i64 %sub.ptr.lhs.cast, %sub.ptr.rhs.cast
-  %call = tail call i32 %1(ptr noundef nonnull %s, ptr noundef %p, i64 noundef %sub.ptr.sub) #10
+  %call = tail call i32 %1(ptr noundef nonnull %s, ptr noundef %p, i64 noundef %sub.ptr.sub) #9
   %cmp4 = icmp eq i32 %call, -1
   br i1 %cmp4, label %if.then5, label %do.end
 
@@ -1219,7 +1219,7 @@ lor.lhs.false:                                    ; preds = %entry
   br i1 %cmp2, label %do.end, label %if.end
 
 if.end:                                           ; preds = %lor.lhs.false
-  %call = tail call i32 %1(ptr noundef nonnull %s) #10
+  %call = tail call i32 %1(ptr noundef nonnull %s) #9
   br label %do.end
 
 do.end:                                           ; preds = %entry, %lor.lhs.false, %if.end
@@ -1245,7 +1245,7 @@ if.end:                                           ; preds = %lor.lhs.false
   %sub.ptr.lhs.cast = ptrtoint ptr %endp to i64
   %sub.ptr.rhs.cast = ptrtoint ptr %p to i64
   %sub.ptr.sub = sub i64 %sub.ptr.lhs.cast, %sub.ptr.rhs.cast
-  %call = tail call i32 %1(ptr noundef nonnull %s, ptr noundef %p, i64 noundef %sub.ptr.sub) #10
+  %call = tail call i32 %1(ptr noundef nonnull %s, ptr noundef %p, i64 noundef %sub.ptr.sub) #9
   %cmp4 = icmp eq i32 %call, -1
   br i1 %cmp4, label %if.then5, label %do.end
 
@@ -1274,7 +1274,7 @@ lor.lhs.false:                                    ; preds = %entry
   br i1 %cmp2, label %do.end, label %if.end
 
 if.end:                                           ; preds = %lor.lhs.false
-  %call = tail call i32 %1(ptr noundef nonnull %s) #10
+  %call = tail call i32 %1(ptr noundef nonnull %s) #9
   br label %do.end
 
 do.end:                                           ; preds = %entry, %lor.lhs.false, %if.end
@@ -1300,7 +1300,7 @@ if.end:                                           ; preds = %lor.lhs.false
   %sub.ptr.lhs.cast = ptrtoint ptr %endp to i64
   %sub.ptr.rhs.cast = ptrtoint ptr %p to i64
   %sub.ptr.sub = sub i64 %sub.ptr.lhs.cast, %sub.ptr.rhs.cast
-  %call = tail call i32 %1(ptr noundef nonnull %s, ptr noundef %p, i64 noundef %sub.ptr.sub) #10
+  %call = tail call i32 %1(ptr noundef nonnull %s, ptr noundef %p, i64 noundef %sub.ptr.sub) #9
   %cmp4 = icmp eq i32 %call, -1
   br i1 %cmp4, label %if.then5, label %do.end
 
@@ -1329,7 +1329,7 @@ lor.lhs.false:                                    ; preds = %entry
   br i1 %cmp2, label %do.end, label %if.end
 
 if.end:                                           ; preds = %lor.lhs.false
-  %call = tail call i32 %1(ptr noundef nonnull %s) #10
+  %call = tail call i32 %1(ptr noundef nonnull %s) #9
   br label %do.end
 
 do.end:                                           ; preds = %entry, %lor.lhs.false, %if.end
@@ -1352,7 +1352,7 @@ lor.lhs.false:                                    ; preds = %entry
   br i1 %cmp2, label %do.end, label %if.end
 
 if.end:                                           ; preds = %lor.lhs.false
-  %call = tail call i32 %1(ptr noundef nonnull %s) #10
+  %call = tail call i32 %1(ptr noundef nonnull %s) #9
   br label %do.end
 
 do.end:                                           ; preds = %entry, %lor.lhs.false, %if.end
@@ -1375,7 +1375,7 @@ lor.lhs.false:                                    ; preds = %entry
   br i1 %cmp2, label %do.end, label %if.end
 
 if.end:                                           ; preds = %lor.lhs.false
-  %call = tail call i32 %1(ptr noundef nonnull %s) #10
+  %call = tail call i32 %1(ptr noundef nonnull %s) #9
   br label %do.end
 
 do.end:                                           ; preds = %entry, %lor.lhs.false, %if.end
@@ -1401,7 +1401,7 @@ if.end:                                           ; preds = %lor.lhs.false
   %sub.ptr.lhs.cast = ptrtoint ptr %endp to i64
   %sub.ptr.rhs.cast = ptrtoint ptr %p to i64
   %sub.ptr.sub = sub i64 %sub.ptr.lhs.cast, %sub.ptr.rhs.cast
-  %call = tail call i32 %1(ptr noundef nonnull %s, ptr noundef %p, i64 noundef %sub.ptr.sub) #10
+  %call = tail call i32 %1(ptr noundef nonnull %s, ptr noundef %p, i64 noundef %sub.ptr.sub) #9
   %cmp4 = icmp eq i32 %call, -1
   br i1 %cmp4, label %if.then5, label %do.end
 
@@ -1430,7 +1430,7 @@ lor.lhs.false:                                    ; preds = %entry
   br i1 %cmp2, label %do.end, label %if.end
 
 if.end:                                           ; preds = %lor.lhs.false
-  %call = tail call i32 %1(ptr noundef nonnull %s) #10
+  %call = tail call i32 %1(ptr noundef nonnull %s) #9
   br label %do.end
 
 do.end:                                           ; preds = %entry, %lor.lhs.false, %if.end
@@ -1456,7 +1456,7 @@ if.end:                                           ; preds = %lor.lhs.false
   %sub.ptr.lhs.cast = ptrtoint ptr %endp to i64
   %sub.ptr.rhs.cast = ptrtoint ptr %p to i64
   %sub.ptr.sub = sub i64 %sub.ptr.lhs.cast, %sub.ptr.rhs.cast
-  %call = tail call i32 %1(ptr noundef nonnull %s, ptr noundef %p, i64 noundef %sub.ptr.sub) #10
+  %call = tail call i32 %1(ptr noundef nonnull %s, ptr noundef %p, i64 noundef %sub.ptr.sub) #9
   %cmp4 = icmp eq i32 %call, -1
   br i1 %cmp4, label %if.then5, label %do.end
 
@@ -1485,7 +1485,7 @@ lor.lhs.false:                                    ; preds = %entry
   br i1 %cmp2, label %do.end, label %if.end
 
 if.end:                                           ; preds = %lor.lhs.false
-  %call = tail call i32 %1(ptr noundef nonnull %s) #10
+  %call = tail call i32 %1(ptr noundef nonnull %s) #9
   br label %do.end
 
 do.end:                                           ; preds = %entry, %lor.lhs.false, %if.end
@@ -1511,7 +1511,7 @@ if.end:                                           ; preds = %lor.lhs.false
   %sub.ptr.lhs.cast = ptrtoint ptr %endp to i64
   %sub.ptr.rhs.cast = ptrtoint ptr %p to i64
   %sub.ptr.sub = sub i64 %sub.ptr.lhs.cast, %sub.ptr.rhs.cast
-  %call = tail call i32 %1(ptr noundef nonnull %s, ptr noundef %p, i64 noundef %sub.ptr.sub) #10
+  %call = tail call i32 %1(ptr noundef nonnull %s, ptr noundef %p, i64 noundef %sub.ptr.sub) #9
   %cmp4 = icmp eq i32 %call, -1
   br i1 %cmp4, label %if.then5, label %do.end
 
@@ -1540,7 +1540,7 @@ lor.lhs.false:                                    ; preds = %entry
   br i1 %cmp2, label %do.end, label %if.end
 
 if.end:                                           ; preds = %lor.lhs.false
-  %call = tail call i32 %1(ptr noundef nonnull %s) #10
+  %call = tail call i32 %1(ptr noundef nonnull %s) #9
   br label %do.end
 
 do.end:                                           ; preds = %entry, %lor.lhs.false, %if.end
@@ -1563,7 +1563,7 @@ lor.lhs.false:                                    ; preds = %entry
   br i1 %cmp2, label %do.end, label %if.end
 
 if.end:                                           ; preds = %lor.lhs.false
-  %call = tail call i32 %1(ptr noundef nonnull %s) #10
+  %call = tail call i32 %1(ptr noundef nonnull %s) #9
   br label %do.end
 
 do.end:                                           ; preds = %entry, %lor.lhs.false, %if.end
@@ -1586,7 +1586,7 @@ lor.lhs.false:                                    ; preds = %entry
   br i1 %cmp2, label %do.end, label %if.end
 
 if.end:                                           ; preds = %lor.lhs.false
-  %call = tail call i32 %1(ptr noundef nonnull %s) #10
+  %call = tail call i32 %1(ptr noundef nonnull %s) #9
   br label %do.end
 
 do.end:                                           ; preds = %entry, %lor.lhs.false, %if.end
@@ -1594,8 +1594,8 @@ do.end:                                           ; preds = %entry, %lor.lhs.fal
   ret i32 %err.0
 }
 
-; Function Attrs: cold nofree nounwind uwtable
-define void @llhttp__debug(ptr noundef %s, ptr noundef readonly %p, ptr noundef readnone %endp, ptr noundef %msg) local_unnamed_addr #8 {
+; Function Attrs: nofree nounwind uwtable
+define void @llhttp__debug(ptr noundef %s, ptr noundef readonly %p, ptr noundef readnone %endp, ptr noundef %msg) local_unnamed_addr #7 {
 entry:
   %cmp = icmp eq ptr %p, %endp
   %0 = load ptr, ptr @stderr, align 8
@@ -1608,13 +1608,13 @@ entry:
   br i1 %cmp, label %if.then, label %if.else
 
 if.then:                                          ; preds = %entry
-  %call = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.192, ptr noundef %s, i32 noundef %conv, i32 noundef %conv1, ptr noundef %msg) #12
+  %call = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.192, ptr noundef %s, i32 noundef %conv, i32 noundef %conv1, ptr noundef %msg) #11
   br label %if.end
 
 if.else:                                          ; preds = %entry
   %3 = load i8, ptr %p, align 1
   %conv6 = sext i8 %3 to i32
-  %call7 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.193, ptr noundef %s, i32 noundef %conv, i32 noundef %conv1, i32 noundef %conv6, ptr noundef %msg) #12
+  %call7 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.193, ptr noundef %s, i32 noundef %conv, i32 noundef %conv1, i32 noundef %conv6, ptr noundef %msg) #11
   br label %if.end
 
 if.end:                                           ; preds = %if.else, %if.then
@@ -1622,7 +1622,7 @@ if.end:                                           ; preds = %if.else, %if.then
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fprintf(ptr nocapture noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #9
+declare noundef i32 @fprintf(ptr nocapture noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #8
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -1632,11 +1632,10 @@ attributes #4 = { mustprogress nocallback nofree nounwind willreturn memory(argm
 attributes #5 = { cold nofree noreturn nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #6 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #7 = { nofree nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #8 = { cold nofree nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #9 = { nofree nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #10 = { nounwind }
-attributes #11 = { noreturn nounwind }
-attributes #12 = { cold }
+attributes #8 = { nofree nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #9 = { nounwind }
+attributes #10 = { noreturn nounwind }
+attributes #11 = { cold }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

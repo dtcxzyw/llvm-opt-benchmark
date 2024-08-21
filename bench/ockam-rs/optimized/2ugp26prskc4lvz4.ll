@@ -130868,8 +130868,8 @@ define hidden void @"_ZN5serde2de5impls77_$LT$impl$u20$serde..de..Deserialize$u2
   ret void
 }
 
-; Function Attrs: cold nonlazybind uwtable
-define hidden void @_ZN5serde2de7Visitor10visit_i12817h13ee3dbf3e9ee645E(ptr noalias nocapture noundef writeonly sret({ i8, [31 x i8] }) align 8 dereferenceable(32) %0, i128 noundef %1) unnamed_addr #40 personality ptr @rust_eh_personality {
+; Function Attrs: nonlazybind uwtable
+define hidden void @_ZN5serde2de7Visitor10visit_i12817h13ee3dbf3e9ee645E(ptr noalias nocapture noundef writeonly sret({ i8, [31 x i8] }) align 8 dereferenceable(32) %0, i128 noundef %1) unnamed_addr #1 personality ptr @rust_eh_personality {
   %3 = alloca {}, align 1
   %4 = alloca { i8, [23 x i8] }, align 8
   %5 = alloca [1 x { ptr, ptr }], align 8
@@ -130927,8 +130927,8 @@ define hidden void @_ZN5serde2de7Visitor10visit_i12817h13ee3dbf3e9ee645E(ptr noa
   ret void
 }
 
-; Function Attrs: cold nonlazybind uwtable
-define hidden void @_ZN5serde2de7Visitor10visit_u12817h818b4d46421f5744E(ptr noalias nocapture noundef writeonly sret({ i8, [31 x i8] }) align 8 dereferenceable(32) %0, i128 noundef %1) unnamed_addr #40 personality ptr @rust_eh_personality {
+; Function Attrs: nonlazybind uwtable
+define hidden void @_ZN5serde2de7Visitor10visit_u12817h818b4d46421f5744E(ptr noalias nocapture noundef writeonly sret({ i8, [31 x i8] }) align 8 dereferenceable(32) %0, i128 noundef %1) unnamed_addr #1 personality ptr @rust_eh_personality {
   %3 = alloca {}, align 1
   %4 = alloca { i8, [23 x i8] }, align 8
   %5 = alloca [1 x { ptr, ptr }], align 8

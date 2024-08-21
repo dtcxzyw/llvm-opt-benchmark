@@ -12886,31 +12886,31 @@ define hidden void @"_ZN153_$LT$core..result..Result$LT$T$C$F$GT$$u20$as$u20$cor
   ret void
 }
 
-; Function Attrs: cold inlinehint noreturn nounwind nonlazybind memory(inaccessiblemem: write) uwtable
+; Function Attrs: inlinehint noreturn nounwind nonlazybind memory(inaccessiblemem: write) uwtable
 define hidden void @"_ZN153_$LT$core..result..Result$LT$T$C$F$GT$$u20$as$u20$core..ops..try_trait..FromResidual$LT$core..result..Result$LT$core..convert..Infallible$C$E$GT$$GT$$GT$13from_residual17h0fb5378c8e43e74cE.llvm.6364507639633030286"(ptr noalias nocapture noundef readnone sret({ { { i64, ptr, {} }, i64 } }) align 8 dereferenceable(24) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %1) unnamed_addr #8 {
   tail call void @llvm.trap()
   unreachable
 }
 
-; Function Attrs: cold inlinehint noreturn nounwind nonlazybind memory(inaccessiblemem: write) uwtable
+; Function Attrs: inlinehint noreturn nounwind nonlazybind memory(inaccessiblemem: write) uwtable
 define hidden void @"_ZN153_$LT$core..result..Result$LT$T$C$F$GT$$u20$as$u20$core..ops..try_trait..FromResidual$LT$core..result..Result$LT$core..convert..Infallible$C$E$GT$$GT$$GT$13from_residual17h2171d5b2c433d295E.llvm.6364507639633030286"(ptr noalias nocapture noundef readnone sret({ { { [4 x i64] }, i64 } }) align 8 dereferenceable(40) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %1) unnamed_addr #8 {
   tail call void @llvm.trap()
   unreachable
 }
 
-; Function Attrs: cold inlinehint noreturn nounwind nonlazybind memory(inaccessiblemem: write) uwtable
+; Function Attrs: inlinehint noreturn nounwind nonlazybind memory(inaccessiblemem: write) uwtable
 define hidden void @"_ZN153_$LT$core..result..Result$LT$T$C$F$GT$$u20$as$u20$core..ops..try_trait..FromResidual$LT$core..result..Result$LT$core..convert..Infallible$C$E$GT$$GT$$GT$13from_residual17h27ecd5d4f975e5e0E.llvm.6364507639633030286"(ptr noalias nocapture noundef readnone sret({ { { i64, ptr, {} }, i64 } }) align 8 dereferenceable(24) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %1) unnamed_addr #8 {
   tail call void @llvm.trap()
   unreachable
 }
 
-; Function Attrs: cold inlinehint noreturn nounwind nonlazybind memory(inaccessiblemem: write) uwtable
+; Function Attrs: inlinehint noreturn nounwind nonlazybind memory(inaccessiblemem: write) uwtable
 define hidden void @"_ZN153_$LT$core..result..Result$LT$T$C$F$GT$$u20$as$u20$core..ops..try_trait..FromResidual$LT$core..result..Result$LT$core..convert..Infallible$C$E$GT$$GT$$GT$13from_residual17h31b34b6d037a4836E.llvm.6364507639633030286"(ptr noalias nocapture noundef readnone sret({ { { i64, ptr, {} }, i64 } }) align 8 dereferenceable(24) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %1) unnamed_addr #8 {
   tail call void @llvm.trap()
   unreachable
 }
 
-; Function Attrs: cold inlinehint noreturn nounwind nonlazybind memory(inaccessiblemem: write) uwtable
+; Function Attrs: inlinehint noreturn nounwind nonlazybind memory(inaccessiblemem: write) uwtable
 define hidden void @"_ZN153_$LT$core..result..Result$LT$T$C$F$GT$$u20$as$u20$core..ops..try_trait..FromResidual$LT$core..result..Result$LT$core..convert..Infallible$C$E$GT$$GT$$GT$13from_residual17h4d862f5145bf174aE.llvm.6364507639633030286"(ptr noalias nocapture noundef readnone sret({ { { i64, ptr, {} }, i64 } }) align 8 dereferenceable(24) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %1) unnamed_addr #8 {
   tail call void @llvm.trap()
   unreachable
@@ -12928,7 +12928,7 @@ define hidden void @"_ZN153_$LT$core..result..Result$LT$T$C$F$GT$$u20$as$u20$cor
   ret void
 }
 
-; Function Attrs: cold inlinehint noreturn nounwind nonlazybind memory(inaccessiblemem: write) uwtable
+; Function Attrs: inlinehint noreturn nounwind nonlazybind memory(inaccessiblemem: write) uwtable
 define hidden void @"_ZN153_$LT$core..result..Result$LT$T$C$F$GT$$u20$as$u20$core..ops..try_trait..FromResidual$LT$core..result..Result$LT$core..convert..Infallible$C$E$GT$$GT$$GT$13from_residual17h6a852c8e1155722eE.llvm.6364507639633030286"(ptr noalias nocapture noundef readnone sret({ { { i64, ptr, {} }, i64 } }) align 8 dereferenceable(24) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %1) unnamed_addr #8 {
   tail call void @llvm.trap()
   unreachable
@@ -12952,7 +12952,7 @@ define hidden void @"_ZN153_$LT$core..result..Result$LT$T$C$F$GT$$u20$as$u20$cor
   ret void
 }
 
-; Function Attrs: cold inlinehint noreturn nounwind nonlazybind memory(inaccessiblemem: write) uwtable
+; Function Attrs: inlinehint noreturn nounwind nonlazybind memory(inaccessiblemem: write) uwtable
 define hidden void @"_ZN153_$LT$core..result..Result$LT$T$C$F$GT$$u20$as$u20$core..ops..try_trait..FromResidual$LT$core..result..Result$LT$core..convert..Infallible$C$E$GT$$GT$$GT$13from_residual17had3c9cfa88ce871fE.llvm.6364507639633030286"(ptr noalias nocapture noundef readnone sret({ { { i64, ptr, {} }, i64 } }) align 8 dereferenceable(24) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %1) unnamed_addr #8 {
   tail call void @llvm.trap()
   unreachable
@@ -17344,7 +17344,7 @@ define hidden void @"_ZN50_$LT$T$u20$as$u20$core..convert..From$LT$T$GT$$GT$4fro
   ret void
 }
 
-; Function Attrs: alwaysinline cold noreturn nounwind nonlazybind memory(inaccessiblemem: write) uwtable
+; Function Attrs: alwaysinline noreturn nounwind nonlazybind memory(inaccessiblemem: write) uwtable
 define hidden void @"_ZN50_$LT$T$u20$as$u20$core..convert..From$LT$T$GT$$GT$4from17h9c960e11870c4718E.llvm.6364507639633030286"() unnamed_addr #15 {
   tail call void @llvm.trap()
   unreachable
@@ -23896,14 +23896,14 @@ attributes #4 = { mustprogress nofree norecurse nosync nounwind nonlazybind will
 attributes #5 = { mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
 attributes #6 = { mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
 attributes #7 = { inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
-attributes #8 = { cold inlinehint noreturn nounwind nonlazybind memory(inaccessiblemem: write) uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
+attributes #8 = { inlinehint noreturn nounwind nonlazybind memory(inaccessiblemem: write) uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
 attributes #9 = { inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
 attributes #10 = { nofree norecurse nosync nounwind nonlazybind memory(argmem: read, inaccessiblemem: write) uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
 attributes #11 = { inlinehint nofree norecurse nosync nounwind nonlazybind memory(read, argmem: readwrite, inaccessiblemem: readwrite) uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
 attributes #12 = { mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
 attributes #13 = { alwaysinline nonlazybind uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
 attributes #14 = { alwaysinline mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
-attributes #15 = { alwaysinline cold noreturn nounwind nonlazybind memory(inaccessiblemem: write) uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
+attributes #15 = { alwaysinline noreturn nounwind nonlazybind memory(inaccessiblemem: write) uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
 attributes #16 = { nofree norecurse nosync nounwind nonlazybind memory(read, argmem: readwrite, inaccessiblemem: readwrite) uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
 attributes #17 = { mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
 attributes #18 = { inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(read, argmem: readwrite, inaccessiblemem: write) uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }

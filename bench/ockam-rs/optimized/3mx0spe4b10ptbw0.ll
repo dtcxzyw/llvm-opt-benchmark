@@ -529,8 +529,8 @@ define hidden noalias noundef nonnull align 8 ptr @_ZN10ockam_core5error5Error3n
   unreachable
 }
 
-; Function Attrs: cold nonlazybind uwtable
-define hidden noundef nonnull align 8 ptr @_ZN10ockam_core5error5Error7context17h30b5edee88032014E(ptr noalias noundef nonnull returned align 8 %0, ptr noalias noundef nonnull readonly align 1 %1, i64 noundef %2, ptr noalias nocapture noundef align 8 dereferenceable(40) %3) unnamed_addr #1 personality ptr @rust_eh_personality {
+; Function Attrs: nonlazybind uwtable
+define hidden noundef nonnull align 8 ptr @_ZN10ockam_core5error5Error7context17h30b5edee88032014E(ptr noalias noundef nonnull returned align 8 %0, ptr noalias noundef nonnull readonly align 1 %1, i64 noundef %2, ptr noalias nocapture noundef align 8 dereferenceable(40) %3) unnamed_addr #0 personality ptr @rust_eh_personality {
   %5 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %6 = alloca ptr, align 8
   store ptr %0, ptr %6, align 8

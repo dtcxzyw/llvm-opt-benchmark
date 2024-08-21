@@ -49,7 +49,7 @@ entry:
 invoke.cont:                                      ; preds = %entry
   %_mailbox_handle = getelementptr inbounds i8, ptr %this, i64 208
   store ptr null, ptr %_mailbox_handle, align 8
-  %call = tail call noalias noundef dereferenceable_or_null(224) ptr @_ZnwmRKSt9nothrow_t(i64 noundef 224, ptr noundef nonnull align 1 dereferenceable(1) @_ZSt7nothrow) #14
+  %call = tail call noalias noundef dereferenceable_or_null(224) ptr @_ZnwmRKSt9nothrow_t(i64 noundef 224, ptr noundef nonnull align 1 dereferenceable(1) @_ZSt7nothrow) #12
   %new.isnull = icmp eq ptr %call, null
   br i1 %new.isnull, label %if.then, label %new.notnull
 
@@ -66,7 +66,7 @@ if.then:                                          ; preds = %invoke.cont
   %_poller4 = getelementptr inbounds i8, ptr %this, i64 216
   store ptr null, ptr %_poller4, align 8
   %1 = load ptr, ptr @stderr, align 8
-  %call7 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 17) #15
+  %call7 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 17) #13
   %2 = load ptr, ptr @stderr, align 8
   %call9 = tail call i32 @fflush(ptr noundef %2)
   invoke void @_ZN3zmq9zmq_abortEPKc(ptr noundef nonnull @.str.2)
@@ -80,7 +80,7 @@ lpad:                                             ; preds = %entry
 lpad2:                                            ; preds = %new.notnull
   %4 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZdlPvRKSt9nothrow_t(ptr noundef nonnull %call, ptr noundef nonnull align 1 dereferenceable(1) @_ZSt7nothrow) #16
+  tail call void @_ZdlPvRKSt9nothrow_t(ptr noundef nonnull %call, ptr noundef nonnull align 1 dereferenceable(1) @_ZSt7nothrow) #14
   br label %ehcleanup
 
 lpad5:                                            ; preds = %invoke.cont20, %invoke.cont17, %if.then14, %do.end, %if.then
@@ -117,12 +117,12 @@ if.end26:                                         ; preds = %invoke.cont20, %inv
 
 ehcleanup:                                        ; preds = %lpad2, %lpad5
   %.pn = phi { ptr, i32 } [ %5, %lpad5 ], [ %4, %lpad2 ]
-  tail call void @_ZN3zmq9mailbox_tD1Ev(ptr noundef nonnull align 8 dereferenceable(176) %_mailbox) #17
+  tail call void @_ZN3zmq9mailbox_tD1Ev(ptr noundef nonnull align 8 dereferenceable(176) %_mailbox) #15
   br label %ehcleanup27
 
 ehcleanup27:                                      ; preds = %ehcleanup, %lpad
   %.pn.pn = phi { ptr, i32 } [ %.pn, %ehcleanup ], [ %3, %lpad ]
-  tail call void @_ZN3zmq8object_tD2Ev(ptr noundef nonnull align 8 dereferenceable(20) %this) #17
+  tail call void @_ZN3zmq8object_tD2Ev(ptr noundef nonnull align 8 dereferenceable(20) %this) #15
   resume { ptr, i32 } %.pn.pn
 }
 
@@ -169,15 +169,15 @@ entry:
   br i1 %isnull, label %delete.end, label %delete.notnull
 
 delete.notnull:                                   ; preds = %entry
-  tail call void @_ZN3zmq7epoll_tD1Ev(ptr noundef nonnull align 8 dereferenceable(224) %0) #17
-  tail call void @_ZdlPv(ptr noundef nonnull %0) #16
+  tail call void @_ZN3zmq7epoll_tD1Ev(ptr noundef nonnull align 8 dereferenceable(224) %0) #15
+  tail call void @_ZdlPv(ptr noundef nonnull %0) #14
   br label %delete.end
 
 delete.end:                                       ; preds = %delete.notnull, %entry
   store ptr null, ptr %_poller, align 8
   %_mailbox = getelementptr inbounds i8, ptr %this, i64 32
-  tail call void @_ZN3zmq9mailbox_tD1Ev(ptr noundef nonnull align 8 dereferenceable(176) %_mailbox) #17
-  tail call void @_ZN3zmq8object_tD2Ev(ptr noundef nonnull align 8 dereferenceable(20) %this) #17
+  tail call void @_ZN3zmq9mailbox_tD1Ev(ptr noundef nonnull align 8 dereferenceable(176) %_mailbox) #15
+  tail call void @_ZN3zmq8object_tD2Ev(ptr noundef nonnull align 8 dereferenceable(20) %this) #15
   ret void
 }
 
@@ -191,15 +191,15 @@ declare void @_ZdlPv(ptr noundef) local_unnamed_addr #3
 define void @_ZThn24_N3zmq11io_thread_tD1Ev(ptr noundef %this) unnamed_addr #7 align 2 {
 entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 -24
-  tail call void @_ZN3zmq11io_thread_tD1Ev(ptr noundef nonnull align 8 dereferenceable(224) %0) #17
+  tail call void @_ZN3zmq11io_thread_tD1Ev(ptr noundef nonnull align 8 dereferenceable(224) %0) #15
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_ZN3zmq11io_thread_tD0Ev(ptr noundef nonnull align 8 dereferenceable(224) %this) unnamed_addr #6 align 2 {
 entry:
-  tail call void @_ZN3zmq11io_thread_tD1Ev(ptr noundef nonnull align 8 dereferenceable(224) %this) #17
-  tail call void @_ZdlPv(ptr noundef nonnull %this) #16
+  tail call void @_ZN3zmq11io_thread_tD1Ev(ptr noundef nonnull align 8 dereferenceable(224) %this) #15
+  tail call void @_ZdlPv(ptr noundef nonnull %this) #14
   ret void
 }
 
@@ -207,8 +207,8 @@ entry:
 define void @_ZThn24_N3zmq11io_thread_tD0Ev(ptr noundef %this) unnamed_addr #7 align 2 {
 entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 -24
-  tail call void @_ZN3zmq11io_thread_tD1Ev(ptr noundef nonnull align 8 dereferenceable(224) %0) #17
-  tail call void @_ZdlPv(ptr noundef nonnull %0) #16
+  tail call void @_ZN3zmq11io_thread_tD1Ev(ptr noundef nonnull align 8 dereferenceable(224) %0) #15
+  tail call void @_ZdlPv(ptr noundef nonnull %0) #14
   ret void
 }
 
@@ -219,7 +219,7 @@ entry:
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %name, i8 0, i64 16, i1 false)
   %call = tail call noundef i32 @_ZNK3zmq8object_t7get_tidEv(ptr noundef nonnull align 8 dereferenceable(20) %this)
   %sub2 = add i32 %call, -2
-  %call3 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %name, i64 noundef 16, ptr noundef nonnull @.str.3, i32 noundef %sub2) #17
+  %call3 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %name, i64 noundef 16, ptr noundef nonnull @.str.3, i32 noundef %sub2) #15
   %_poller = getelementptr inbounds i8, ptr %this, i64 216
   %0 = load ptr, ptr %_poller, align 8
   call void @_ZN3zmq20worker_poller_base_t5startEPKc(ptr noundef nonnull align 8 dereferenceable(192) %0, ptr noundef nonnull %name)
@@ -276,7 +276,7 @@ while.cond:                                       ; preds = %while.cond.backedge
   br i1 %cmp, label %if.then, label %lor.rhs
 
 lor.rhs:                                          ; preds = %while.cond
-  %call2 = tail call ptr @__errno_location() #18
+  %call2 = tail call ptr @__errno_location() #16
   %0 = load i32, ptr %call2, align 4
   switch i32 %0, label %if.then10 [
     i32 4, label %while.cond.backedge
@@ -292,9 +292,9 @@ if.then:                                          ; preds = %while.cond
   br label %while.cond.backedge
 
 if.then10:                                        ; preds = %lor.rhs
-  %call12 = call ptr @strerror(i32 noundef %0) #17
+  %call12 = call ptr @strerror(i32 noundef %0) #15
   %2 = load ptr, ptr @stderr, align 8
-  %call13 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %2, ptr noundef nonnull @.str.4, ptr noundef %call12, ptr noundef nonnull @.str.1, i32 noundef 68) #15
+  %call13 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %2, ptr noundef nonnull @.str.4, ptr noundef %call12, ptr noundef nonnull @.str.1, i32 noundef 68) #13
   %3 = load ptr, ptr @stderr, align 8
   %call14 = call i32 @fflush(ptr noundef %3)
   call void @_ZN3zmq9zmq_abortEPKc(ptr noundef %call12)
@@ -322,39 +322,47 @@ entry:
   ret void
 }
 
-; Function Attrs: cold mustprogress uwtable
-define void @_ZN3zmq11io_thread_t9out_eventEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #12 align 2 {
+; Function Attrs: mustprogress uwtable
+define void @_ZN3zmq11io_thread_t9out_eventEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #0 align 2 {
 entry:
   %0 = load ptr, ptr @stderr, align 8
-  %call = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.5, ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.1, i32 noundef 74) #15
+  %call = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.5, ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.1, i32 noundef 74) #13
   %1 = load ptr, ptr @stderr, align 8
   %call2 = tail call i32 @fflush(ptr noundef %1)
   tail call void @_ZN3zmq9zmq_abortEPKc(ptr noundef nonnull @.str.6)
   ret void
 }
 
-; Function Attrs: cold uwtable
-define void @_ZThn24_N3zmq11io_thread_t9out_eventEv(ptr nocapture noundef readnone %this) unnamed_addr #13 align 2 {
+; Function Attrs: uwtable
+define void @_ZThn24_N3zmq11io_thread_t9out_eventEv(ptr nocapture readnone %this) unnamed_addr #11 align 2 {
 entry:
-  tail call void @_ZN3zmq11io_thread_t9out_eventEv(ptr nonnull align 8 poison)
+  %0 = load ptr, ptr @stderr, align 8
+  %call.i = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.5, ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.1, i32 noundef 74) #13
+  %1 = load ptr, ptr @stderr, align 8
+  %call2.i = tail call i32 @fflush(ptr noundef %1)
+  tail call void @_ZN3zmq9zmq_abortEPKc(ptr noundef nonnull @.str.6)
   ret void
 }
 
-; Function Attrs: cold mustprogress uwtable
-define void @_ZN3zmq11io_thread_t11timer_eventEi(ptr nocapture nonnull readnone align 8 %this, i32 %0) unnamed_addr #12 align 2 {
+; Function Attrs: mustprogress uwtable
+define void @_ZN3zmq11io_thread_t11timer_eventEi(ptr nocapture nonnull readnone align 8 %this, i32 %0) unnamed_addr #0 align 2 {
 entry:
   %1 = load ptr, ptr @stderr, align 8
-  %call = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1, ptr noundef nonnull @.str.5, ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.1, i32 noundef 80) #15
+  %call = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1, ptr noundef nonnull @.str.5, ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.1, i32 noundef 80) #13
   %2 = load ptr, ptr @stderr, align 8
   %call2 = tail call i32 @fflush(ptr noundef %2)
   tail call void @_ZN3zmq9zmq_abortEPKc(ptr noundef nonnull @.str.6)
   ret void
 }
 
-; Function Attrs: cold uwtable
-define void @_ZThn24_N3zmq11io_thread_t11timer_eventEi(ptr nocapture noundef readnone %this, i32 %0) unnamed_addr #13 align 2 {
+; Function Attrs: uwtable
+define void @_ZThn24_N3zmq11io_thread_t11timer_eventEi(ptr nocapture readnone %this, i32 %0) unnamed_addr #11 align 2 {
 entry:
-  tail call void @_ZN3zmq11io_thread_t11timer_eventEi(ptr nonnull align 8 poison, i32 poison)
+  %1 = load ptr, ptr @stderr, align 8
+  %call.i = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1, ptr noundef nonnull @.str.5, ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.1, i32 noundef 80) #13
+  %2 = load ptr, ptr @stderr, align 8
+  %call2.i = tail call i32 @fflush(ptr noundef %2)
+  tail call void @_ZN3zmq9zmq_abortEPKc(ptr noundef nonnull @.str.6)
   ret void
 }
 
@@ -368,7 +376,7 @@ entry:
 
 if.then:                                          ; preds = %entry
   %1 = load ptr, ptr @stderr, align 8
-  %call = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1, ptr noundef nonnull @.str.5, ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.1, i32 noundef 85) #15
+  %call = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1, ptr noundef nonnull @.str.5, ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.1, i32 noundef 85) #13
   %2 = load ptr, ptr @stderr, align 8
   %call2 = tail call i32 @fflush(ptr noundef %2)
   tail call void @_ZN3zmq9zmq_abortEPKc(ptr noundef nonnull @.str.7)
@@ -390,7 +398,7 @@ entry:
 
 if.then:                                          ; preds = %entry
   %1 = load ptr, ptr @stderr, align 8
-  %call = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1, ptr noundef nonnull @.str.5, ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.1, i32 noundef 91) #15
+  %call = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1, ptr noundef nonnull @.str.5, ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.1, i32 noundef 91) #13
   %2 = load ptr, ptr @stderr, align 8
   %call2 = tail call i32 @fflush(ptr noundef %2)
   tail call void @_ZN3zmq9zmq_abortEPKc(ptr noundef nonnull @.str.8)
@@ -463,13 +471,11 @@ attributes #8 = { mustprogress nocallback nofree nounwind willreturn memory(argm
 attributes #9 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #10 = { mustprogress nofree nosync nounwind willreturn memory(none) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #11 = { uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #12 = { cold mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #13 = { cold uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #14 = { builtin nounwind allocsize(0) }
-attributes #15 = { cold }
-attributes #16 = { builtin nounwind }
-attributes #17 = { nounwind }
-attributes #18 = { nounwind willreturn memory(none) }
+attributes #12 = { builtin nounwind allocsize(0) }
+attributes #13 = { cold }
+attributes #14 = { builtin nounwind }
+attributes #15 = { nounwind }
+attributes #16 = { nounwind willreturn memory(none) }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

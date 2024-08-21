@@ -1425,7 +1425,7 @@ define hidden void @_ZN3std9panicking3try7do_call17he8d3a90465fd26f8E.llvm.69837
   ret void
 }
 
-; Function Attrs: cold inlinehint nounwind nonlazybind uwtable
+; Function Attrs: inlinehint nounwind nonlazybind uwtable
 define hidden void @_ZN3std9panicking3try8do_catch17h531ebe60b1d16298E.llvm.6983745458144533099(ptr nocapture noundef writeonly %0, ptr noundef %1) unnamed_addr #8 personality ptr @rust_eh_personality {
   %3 = invoke { ptr, ptr } @_ZN3std9panicking3try7cleanup17h78e59bc883c56638E(ptr noundef %1)
           to label %6 unwind label %4
@@ -1449,7 +1449,7 @@ define hidden void @_ZN3std9panicking3try8do_catch17h531ebe60b1d16298E.llvm.6983
   ret void
 }
 
-; Function Attrs: cold inlinehint nounwind nonlazybind uwtable
+; Function Attrs: inlinehint nounwind nonlazybind uwtable
 define hidden void @_ZN3std9panicking3try8do_catch17h98137473a55cfcfaE.llvm.6983745458144533099(ptr nocapture noundef writeonly %0, ptr noundef %1) unnamed_addr #8 personality ptr @rust_eh_personality {
   %3 = invoke { ptr, ptr } @_ZN3std9panicking3try7cleanup17h78e59bc883c56638E(ptr noundef %1)
           to label %6 unwind label %4
@@ -1473,7 +1473,7 @@ define hidden void @_ZN3std9panicking3try8do_catch17h98137473a55cfcfaE.llvm.6983
   ret void
 }
 
-; Function Attrs: cold inlinehint nounwind nonlazybind uwtable
+; Function Attrs: inlinehint nounwind nonlazybind uwtable
 define hidden void @_ZN3std9panicking3try8do_catch17hd54b9c13c4a222a7E.llvm.6983745458144533099(ptr nocapture noundef writeonly %0, ptr noundef %1) unnamed_addr #8 personality ptr @rust_eh_personality {
   %3 = invoke { ptr, ptr } @_ZN3std9panicking3try7cleanup17h78e59bc883c56638E(ptr noundef %1)
           to label %6 unwind label %4
@@ -3255,7 +3255,7 @@ attributes #4 = { inlinehint mustprogress nofree norecurse nosync nounwind nonla
 attributes #5 = { nounwind nonlazybind uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
 attributes #6 = { mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
 attributes #7 = { inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(readwrite, inaccessiblemem: none) uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
-attributes #8 = { cold inlinehint nounwind nonlazybind uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
+attributes #8 = { inlinehint nounwind nonlazybind uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
 attributes #9 = { inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
 attributes #10 = { inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
 attributes #11 = { inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read, inaccessiblemem: read) uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }

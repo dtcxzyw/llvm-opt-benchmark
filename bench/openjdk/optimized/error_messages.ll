@@ -185,13 +185,13 @@ define hidden void @print_message(ptr nocapture noundef %0, ptr noundef %1, ptr 
   call void @llvm.va_start.p0(ptr nonnull %7)
   call void @llvm.lifetime.start.p0(i64 8704, ptr nonnull %5)
   call void @llvm.lifetime.start.p0(i64 8704, ptr nonnull %6)
-  %8 = call i32 @vsnprintf(ptr noundef nonnull %5, i64 noundef 8704, ptr noundef readonly %3, ptr noundef nonnull %7) #10
+  %8 = call i32 @vsnprintf(ptr noundef nonnull %5, i64 noundef 8704, ptr noundef readonly %3, ptr noundef nonnull %7) #9
   %9 = getelementptr inbounds i8, ptr %5, i64 8703
   store i8 0, ptr %9, align 1
-  %10 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %5) #11
+  %10 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %5) #10
   %11 = trunc i64 %10 to i32
-  %12 = call i32 @utf8ToPlatform(ptr noundef nonnull %5, i32 noundef %11, ptr noundef nonnull %6, i32 noundef 8704) #10
-  %13 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.166, ptr noundef %1, ptr noundef nonnull %6, ptr noundef %2) #10
+  %12 = call i32 @utf8ToPlatform(ptr noundef nonnull %5, i32 noundef %11, ptr noundef nonnull %6, i32 noundef 8704) #9
+  %13 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.166, ptr noundef %1, ptr noundef nonnull %6, ptr noundef %2) #9
   call void @llvm.lifetime.end.p0(i64 8704, ptr nonnull %5)
   call void @llvm.lifetime.end.p0(i64 8704, ptr nonnull %6)
   call void @llvm.va_end.p0(ptr nonnull %7)
@@ -204,8 +204,8 @@ declare void @llvm.va_start.p0(ptr) #1
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
 declare void @llvm.va_end.p0(ptr) #1
 
-; Function Attrs: cold nounwind uwtable
-define hidden void @error_message(ptr nocapture noundef readonly %0, ...) local_unnamed_addr #2 {
+; Function Attrs: nounwind uwtable
+define hidden void @error_message(ptr nocapture noundef readonly %0, ...) local_unnamed_addr #0 {
   %2 = alloca [8704 x i8], align 16
   %3 = alloca [8704 x i8], align 16
   %4 = alloca [1 x %struct.__va_list_tag], align 16
@@ -213,13 +213,13 @@ define hidden void @error_message(ptr nocapture noundef readonly %0, ...) local_
   %5 = load ptr, ptr @stderr, align 8
   call void @llvm.lifetime.start.p0(i64 8704, ptr nonnull %2)
   call void @llvm.lifetime.start.p0(i64 8704, ptr nonnull %3)
-  %6 = call i32 @vsnprintf(ptr noundef nonnull %2, i64 noundef 8704, ptr noundef readonly %0, ptr noundef nonnull %4) #10
+  %6 = call i32 @vsnprintf(ptr noundef nonnull %2, i64 noundef 8704, ptr noundef readonly %0, ptr noundef nonnull %4) #9
   %7 = getelementptr inbounds i8, ptr %2, i64 8703
   store i8 0, ptr %7, align 1
-  %8 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %2) #11
+  %8 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %2) #10
   %9 = trunc i64 %8 to i32
-  %10 = call i32 @utf8ToPlatform(ptr noundef nonnull %2, i32 noundef %9, ptr noundef nonnull %3, i32 noundef 8704) #10
-  %11 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %5, ptr noundef nonnull @.str.166, ptr noundef nonnull @.str, ptr noundef nonnull %3, ptr noundef nonnull @.str.1) #12
+  %10 = call i32 @utf8ToPlatform(ptr noundef nonnull %2, i32 noundef %9, ptr noundef nonnull %3, i32 noundef 8704) #9
+  %11 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %5, ptr noundef nonnull @.str.166, ptr noundef nonnull @.str, ptr noundef nonnull %3, ptr noundef nonnull @.str.1) #11
   call void @llvm.lifetime.end.p0(i64 8704, ptr nonnull %2)
   call void @llvm.lifetime.end.p0(i64 8704, ptr nonnull %3)
   call void @llvm.va_end.p0(ptr nonnull %4)
@@ -232,7 +232,7 @@ define hidden void @error_message(ptr nocapture noundef readonly %0, ...) local_
 15:                                               ; preds = %1
   %16 = load ptr, ptr @stderr, align 8
   call void (ptr, ptr, ptr, ptr, ...) @print_message(ptr noundef %16, ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.3, ptr noundef nonnull @.str.60, i32 noundef 181, ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.5, i32 noundef 108)
-  call void @debugInit_exit(i32 noundef 181, ptr noundef nonnull @.str.4) #10
+  call void @debugInit_exit(i32 noundef 181, ptr noundef nonnull @.str.4) #9
   br label %17
 
 17:                                               ; preds = %15, %1
@@ -240,7 +240,7 @@ define hidden void @error_message(ptr nocapture noundef readonly %0, ...) local_
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull ptr @jvmtiErrorText(i32 noundef %0) local_unnamed_addr #3 {
+define hidden noundef nonnull ptr @jvmtiErrorText(i32 noundef %0) local_unnamed_addr #2 {
   switch i32 %0, label %75 [
     i32 0, label %76
     i32 10, label %2
@@ -545,7 +545,7 @@ define hidden noundef nonnull ptr @jvmtiErrorText(i32 noundef %0) local_unnamed_
   ret ptr %.0
 }
 
-declare void @debugInit_exit(i32 noundef, ptr noundef) local_unnamed_addr #4
+declare void @debugInit_exit(i32 noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
 define hidden void @tty_message(ptr nocapture noundef readonly %0, ...) local_unnamed_addr #0 {
@@ -556,13 +556,13 @@ define hidden void @tty_message(ptr nocapture noundef readonly %0, ...) local_un
   %5 = load ptr, ptr @stdout, align 8
   call void @llvm.lifetime.start.p0(i64 8704, ptr nonnull %2)
   call void @llvm.lifetime.start.p0(i64 8704, ptr nonnull %3)
-  %6 = call i32 @vsnprintf(ptr noundef nonnull %2, i64 noundef 8704, ptr noundef readonly %0, ptr noundef nonnull %4) #10
+  %6 = call i32 @vsnprintf(ptr noundef nonnull %2, i64 noundef 8704, ptr noundef readonly %0, ptr noundef nonnull %4) #9
   %7 = getelementptr inbounds i8, ptr %2, i64 8703
   store i8 0, ptr %7, align 1
-  %8 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %2) #11
+  %8 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %2) #10
   %9 = trunc i64 %8 to i32
-  %10 = call i32 @utf8ToPlatform(ptr noundef nonnull %2, i32 noundef %9, ptr noundef nonnull %3, i32 noundef 8704) #10
-  %11 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %5, ptr noundef nonnull @.str.166, ptr noundef nonnull @.str.6, ptr noundef nonnull %3, ptr noundef nonnull @.str.1) #10
+  %10 = call i32 @utf8ToPlatform(ptr noundef nonnull %2, i32 noundef %9, ptr noundef nonnull %3, i32 noundef 8704) #9
+  %11 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %5, ptr noundef nonnull @.str.166, ptr noundef nonnull @.str.6, ptr noundef nonnull %3, ptr noundef nonnull @.str.1) #9
   call void @llvm.lifetime.end.p0(i64 8704, ptr nonnull %2)
   call void @llvm.lifetime.end.p0(i64 8704, ptr nonnull %3)
   call void @llvm.va_end.p0(ptr nonnull %4)
@@ -572,7 +572,7 @@ define hidden void @tty_message(ptr nocapture noundef readonly %0, ...) local_un
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fflush(ptr nocapture noundef) local_unnamed_addr #5
+declare noundef i32 @fflush(ptr nocapture noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
 define hidden void @jdiAssertionFailed(ptr noundef %0, i32 noundef %1, ptr noundef %2) local_unnamed_addr #0 {
@@ -584,8 +584,8 @@ define hidden void @jdiAssertionFailed(ptr noundef %0, i32 noundef %1, ptr nound
   br i1 %.not, label %9, label %8
 
 8:                                                ; preds = %3
-  tail call void @log_message_begin(ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.5, i32 noundef 128) #10
-  tail call void (ptr, ...) @log_message_end(ptr noundef nonnull @.str.8, ptr noundef %0, i32 noundef %1, ptr noundef %2) #10
+  tail call void @log_message_begin(ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.5, i32 noundef 128) #9
+  tail call void (ptr, ...) @log_message_end(ptr noundef nonnull @.str.8, ptr noundef %0, i32 noundef %1, ptr noundef %2) #9
   br label %9
 
 9:                                                ; preds = %3, %8
@@ -604,19 +604,19 @@ define hidden void @jdiAssertionFailed(ptr noundef %0, i32 noundef %1, ptr nound
 15:                                               ; preds = %12
   %16 = load ptr, ptr @stderr, align 8
   tail call void (ptr, ptr, ptr, ptr, ...) @print_message(ptr noundef %16, ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.3, ptr noundef nonnull @.str.60, i32 noundef 181, ptr noundef nonnull @.str.11, ptr noundef nonnull @.str.5, i32 noundef 132)
-  tail call void @debugInit_exit(i32 noundef 181, ptr noundef nonnull @.str.11) #10
+  tail call void @debugInit_exit(i32 noundef 181, ptr noundef nonnull @.str.11) #9
   br label %17
 
 17:                                               ; preds = %15, %12, %9
   ret void
 }
 
-declare void @log_message_begin(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #4
+declare void @log_message_begin(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #3
 
-declare void @log_message_end(ptr noundef, ...) local_unnamed_addr #4
+declare void @log_message_end(ptr noundef, ...) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull ptr @eventText(i32 noundef %0) local_unnamed_addr #3 {
+define hidden noundef nonnull ptr @eventText(i32 noundef %0) local_unnamed_addr #2 {
   %switch.tableidx = add i32 %0, -1
   %2 = icmp ult i32 %switch.tableidx, 22
   br i1 %2, label %switch.lookup, label %4
@@ -633,7 +633,7 @@ switch.lookup:                                    ; preds = %1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull ptr @jdwpErrorText(i16 noundef zeroext %0) local_unnamed_addr #3 {
+define hidden noundef nonnull ptr @jdwpErrorText(i16 noundef zeroext %0) local_unnamed_addr #2 {
   switch i16 %0, label %58 [
     i16 0, label %59
     i16 10, label %2
@@ -872,15 +872,15 @@ define hidden noundef nonnull ptr @jdwpErrorText(i16 noundef zeroext %0) local_u
 
 ; Function Attrs: nounwind uwtable
 define hidden void @do_pause() local_unnamed_addr #0 {
-  %1 = tail call i64 @pthread_self() #13
-  %2 = tail call i32 @getpid() #10
+  %1 = tail call i64 @pthread_self() #12
+  %2 = tail call i32 @getpid() #9
   %3 = trunc i64 %1 to i32
   tail call void (ptr, ...) @tty_message(ptr noundef nonnull @.str.164, i32 noundef %2, i32 noundef %3, i32 noundef %3)
   br label %4
 
 4:                                                ; preds = %0, %4
   %.08 = phi i32 [ 600, %0 ], [ %6, %4 ]
-  %5 = tail call i32 @sleep(i32 noundef 10) #10
+  %5 = tail call i32 @sleep(i32 noundef 10) #9
   %6 = add nsw i32 %.08, -10
   %7 = icmp ugt i32 %.08, 10
   br i1 %7, label %4, label %8, !llvm.loop !6
@@ -891,44 +891,43 @@ define hidden void @do_pause() local_unnamed_addr #0 {
 }
 
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(none)
-declare i64 @pthread_self() local_unnamed_addr #6
+declare i64 @pthread_self() local_unnamed_addr #5
 
 ; Function Attrs: nounwind
-declare i32 @getpid() local_unnamed_addr #7
+declare i32 @getpid() local_unnamed_addr #6
 
-declare i32 @sleep(i32 noundef) local_unnamed_addr #4
+declare i32 @sleep(i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @vsnprintf(ptr nocapture noundef, i64 noundef, ptr nocapture noundef readonly, ptr noundef) local_unnamed_addr #5
+declare noundef i32 @vsnprintf(ptr nocapture noundef, i64 noundef, ptr nocapture noundef readonly, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #8
+declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #7
 
-declare i32 @utf8ToPlatform(ptr noundef, i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #4
+declare i32 @utf8ToPlatform(ptr noundef, i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fprintf(ptr nocapture noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #5
+declare noundef i32 @fprintf(ptr nocapture noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #4
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #9
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #8
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #9
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #8
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn }
-attributes #2 = { cold nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { nofree nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { mustprogress nofree nosync nounwind willreturn memory(none) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #8 = { mustprogress nofree nounwind willreturn memory(argmem: read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #9 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #10 = { nounwind }
-attributes #11 = { nounwind willreturn memory(read) }
-attributes #12 = { cold nounwind }
-attributes #13 = { nounwind willreturn memory(none) }
+attributes #2 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { nofree nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { mustprogress nofree nosync nounwind willreturn memory(none) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { mustprogress nofree nounwind willreturn memory(argmem: read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #8 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #9 = { nounwind }
+attributes #10 = { nounwind willreturn memory(read) }
+attributes #11 = { cold nounwind }
+attributes #12 = { nounwind willreturn memory(none) }
 
 !llvm.module.flags = !{!0, !1, !2, !3, !4, !5}
 

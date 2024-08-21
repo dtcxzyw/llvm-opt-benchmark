@@ -51,7 +51,7 @@ entry:
 
 if.then:                                          ; preds = %entry
   %0 = load ptr, ptr @stderr, align 8
-  %call = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.2, i32 noundef 20) #7
+  %call = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.2, i32 noundef 20) #6
   %1 = load ptr, ptr @stderr, align 8
   %call2 = tail call i32 @fflush(ptr noundef %1)
   tail call void @_ZN3zmq9zmq_abortEPKc(ptr noundef nonnull @.str.1)
@@ -65,7 +65,7 @@ do.body3:                                         ; preds = %if.then, %entry
 
 if.then7:                                         ; preds = %do.body3
   %3 = load ptr, ptr @stderr, align 8
-  %call8 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %3, ptr noundef nonnull @.str, ptr noundef nonnull @.str.3, ptr noundef nonnull @.str.2, i32 noundef 21) #7
+  %call8 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %3, ptr noundef nonnull @.str, ptr noundef nonnull @.str.3, ptr noundef nonnull @.str.2, i32 noundef 21) #6
   %4 = load ptr, ptr @stderr, align 8
   %call9 = tail call i32 @fflush(ptr noundef %4)
   tail call void @_ZN3zmq9zmq_abortEPKc(ptr noundef nonnull @.str.3)
@@ -88,8 +88,8 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_ZN3zmq11io_object_tD0Ev(ptr noundef nonnull align 8 dereferenceable(16) %this) unnamed_addr #2 align 2 {
 entry:
-  tail call void @_ZN3zmq11io_object_tD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %this) #8
-  tail call void @_ZdlPv(ptr noundef nonnull %this) #9
+  tail call void @_ZN3zmq11io_object_tD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %this) #7
+  tail call void @_ZdlPv(ptr noundef nonnull %this) #8
   ret void
 }
 
@@ -116,7 +116,7 @@ entry:
 
 if.then:                                          ; preds = %entry
   %1 = load ptr, ptr @stderr, align 8
-  %call = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1, ptr noundef nonnull @.str, ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.2, i32 noundef 29) #7
+  %call = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1, ptr noundef nonnull @.str, ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.2, i32 noundef 29) #6
   %2 = load ptr, ptr @stderr, align 8
   %call2 = tail call i32 @fflush(ptr noundef %2)
   tail call void @_ZN3zmq9zmq_abortEPKc(ptr noundef nonnull @.str.4)
@@ -215,33 +215,33 @@ entry:
 
 declare void @_ZN3zmq13poller_base_t12cancel_timerEPNS_13i_poll_eventsEi(ptr noundef nonnull align 8 dereferenceable(80), ptr noundef, i32 noundef) local_unnamed_addr #5
 
-; Function Attrs: cold mustprogress uwtable
-define void @_ZN3zmq11io_object_t8in_eventEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #6 align 2 {
+; Function Attrs: mustprogress uwtable
+define void @_ZN3zmq11io_object_t8in_eventEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #0 align 2 {
 entry:
   %0 = load ptr, ptr @stderr, align 8
-  %call = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str, ptr noundef nonnull @.str.5, ptr noundef nonnull @.str.2, i32 noundef 78) #7
+  %call = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str, ptr noundef nonnull @.str.5, ptr noundef nonnull @.str.2, i32 noundef 78) #6
   %1 = load ptr, ptr @stderr, align 8
   %call2 = tail call i32 @fflush(ptr noundef %1)
   tail call void @_ZN3zmq9zmq_abortEPKc(ptr noundef nonnull @.str.5)
   ret void
 }
 
-; Function Attrs: cold mustprogress uwtable
-define void @_ZN3zmq11io_object_t9out_eventEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #6 align 2 {
+; Function Attrs: mustprogress uwtable
+define void @_ZN3zmq11io_object_t9out_eventEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #0 align 2 {
 entry:
   %0 = load ptr, ptr @stderr, align 8
-  %call = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str, ptr noundef nonnull @.str.5, ptr noundef nonnull @.str.2, i32 noundef 83) #7
+  %call = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str, ptr noundef nonnull @.str.5, ptr noundef nonnull @.str.2, i32 noundef 83) #6
   %1 = load ptr, ptr @stderr, align 8
   %call2 = tail call i32 @fflush(ptr noundef %1)
   tail call void @_ZN3zmq9zmq_abortEPKc(ptr noundef nonnull @.str.5)
   ret void
 }
 
-; Function Attrs: cold mustprogress uwtable
-define void @_ZN3zmq11io_object_t11timer_eventEi(ptr nocapture nonnull readnone align 8 %this, i32 %0) unnamed_addr #6 align 2 {
+; Function Attrs: mustprogress uwtable
+define void @_ZN3zmq11io_object_t11timer_eventEi(ptr nocapture nonnull readnone align 8 %this, i32 %0) unnamed_addr #0 align 2 {
 entry:
   %1 = load ptr, ptr @stderr, align 8
-  %call = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1, ptr noundef nonnull @.str, ptr noundef nonnull @.str.5, ptr noundef nonnull @.str.2, i32 noundef 88) #7
+  %call = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1, ptr noundef nonnull @.str, ptr noundef nonnull @.str.5, ptr noundef nonnull @.str.2, i32 noundef 88) #6
   %2 = load ptr, ptr @stderr, align 8
   %call2 = tail call i32 @fflush(ptr noundef %2)
   tail call void @_ZN3zmq9zmq_abortEPKc(ptr noundef nonnull @.str.5)
@@ -254,10 +254,9 @@ attributes #2 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal
 attributes #3 = { nobuiltin nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #4 = { nofree nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #5 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { cold mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { cold }
-attributes #8 = { nounwind }
-attributes #9 = { builtin nounwind }
+attributes #6 = { cold }
+attributes #7 = { nounwind }
+attributes #8 = { builtin nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

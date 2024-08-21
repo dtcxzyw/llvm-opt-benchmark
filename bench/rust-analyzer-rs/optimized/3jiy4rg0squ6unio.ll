@@ -45144,8 +45144,8 @@ define hidden void @"_ZN9lsp_types10inlay_hint1_89_$LT$impl$u20$serde..ser..Seri
   ret void
 }
 
-; Function Attrs: cold nonlazybind uwtable
-define hidden void @"_ZN9lsp_types10inlay_hint1_90_$LT$impl$u20$serde..de..Deserialize$u20$for$u20$lsp_types..inlay_hint..InlayHintLabel$GT$11deserialize17h00ddbee6bc91c579E"(ptr noalias nocapture noundef writeonly sret({ i64, [3 x i64] }) align 8 dereferenceable(32) %0, ptr noalias noundef nonnull readonly align 1 %1, i64 noundef %2) unnamed_addr #0 personality ptr @rust_eh_personality {
+; Function Attrs: nonlazybind uwtable
+define hidden void @"_ZN9lsp_types10inlay_hint1_90_$LT$impl$u20$serde..de..Deserialize$u20$for$u20$lsp_types..inlay_hint..InlayHintLabel$GT$11deserialize17h00ddbee6bc91c579E"(ptr noalias nocapture noundef writeonly sret({ i64, [3 x i64] }) align 8 dereferenceable(32) %0, ptr noalias noundef nonnull readonly align 1 %1, i64 noundef %2) unnamed_addr #1 personality ptr @rust_eh_personality {
   %4 = tail call noundef nonnull align 8 ptr @_ZN5serde2de5Error13missing_field17hd387aed4a43bf277E(ptr noalias noundef nonnull readonly align 1 %1, i64 noundef %2), !noalias !9563
   %5 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr %4, ptr %5, align 8
@@ -47433,8 +47433,8 @@ define hidden void @"_ZN9lsp_types14signature_help1_93_$LT$impl$u20$serde..ser..
   ret void
 }
 
-; Function Attrs: cold nonlazybind uwtable
-define hidden void @"_ZN9lsp_types14signature_help1_94_$LT$impl$u20$serde..de..Deserialize$u20$for$u20$lsp_types..signature_help..ParameterLabel$GT$11deserialize17h0d443b3f3f276c47E"(ptr noalias nocapture noundef writeonly sret({ i64, [2 x i64] }) align 8 dereferenceable(24) %0, ptr noalias noundef nonnull readonly align 1 %1, i64 noundef %2) unnamed_addr #0 personality ptr @rust_eh_personality {
+; Function Attrs: nonlazybind uwtable
+define hidden void @"_ZN9lsp_types14signature_help1_94_$LT$impl$u20$serde..de..Deserialize$u20$for$u20$lsp_types..signature_help..ParameterLabel$GT$11deserialize17h0d443b3f3f276c47E"(ptr noalias nocapture noundef writeonly sret({ i64, [2 x i64] }) align 8 dereferenceable(24) %0, ptr noalias noundef nonnull readonly align 1 %1, i64 noundef %2) unnamed_addr #1 personality ptr @rust_eh_personality {
   %4 = tail call noundef nonnull align 8 ptr @_ZN5serde2de5Error13missing_field17hd387aed4a43bf277E(ptr noalias noundef nonnull readonly align 1 %1, i64 noundef %2), !noalias !10179
   %5 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr %4, ptr %5, align 8

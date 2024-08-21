@@ -8,7 +8,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @stderr = external local_unnamed_addr global ptr, align 8
 @.str = private unnamed_addr constant [5 x i8] c"%s: \00", align 1
 
-; Function Attrs: cold mustprogress nofree nounwind uwtable
+; Function Attrs: mustprogress nofree nounwind uwtable
 define hidden void @_ZN6hermes9hermesLogEPKcS1_z(ptr noundef %componentName, ptr nocapture noundef readonly %fmt, ...) local_unnamed_addr #0 {
 entry:
   %args = alloca [1 x %struct.__va_list_tag], align 16
@@ -38,7 +38,7 @@ declare void @llvm.va_end.p0(ptr) #2
 ; Function Attrs: nofree nounwind
 declare noundef i32 @fputc(i32 noundef, ptr nocapture noundef) local_unnamed_addr #3
 
-attributes #0 = { cold mustprogress nofree nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #0 = { mustprogress nofree nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nofree nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { mustprogress nocallback nofree nosync nounwind willreturn }
 attributes #3 = { nofree nounwind }

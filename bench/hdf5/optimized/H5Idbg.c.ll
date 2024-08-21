@@ -20,7 +20,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.12 = private unnamed_addr constant [32 x i8] c"                user_path = %s\0A\00", align 1
 @.str.13 = private unnamed_addr constant [32 x i8] c"                full_path = %s\0A\00", align 1
 
-; Function Attrs: cold nounwind uwtable
+; Function Attrs: nounwind uwtable
 define noundef i32 @H5I_dump_ids_for_type(i32 noundef %0) local_unnamed_addr #0 {
   %2 = load ptr, ptr @stderr, align 8
   %3 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %2, ptr noundef nonnull @.str, i32 noundef %0) #4
@@ -29,7 +29,7 @@ define noundef i32 @H5I_dump_ids_for_type(i32 noundef %0) local_unnamed_addr #0 
   %6 = load ptr, ptr %5, align 8
   %.not = icmp eq ptr %6, null
   %7 = load ptr, ptr @stderr, align 8
-  br i1 %.not, label %35, label %8
+  br i1 %.not, label %92, label %8
 
 8:                                                ; preds = %1
   %9 = getelementptr inbounds i8, ptr %6, i64 8
@@ -62,117 +62,111 @@ define noundef i32 @H5I_dump_ids_for_type(i32 noundef %0) local_unnamed_addr #0 
   %.not18 = icmp eq ptr %32, null
   br i1 %.not18, label %.loopexit, label %.lr.ph
 
-.lr.ph:                                           ; preds = %26, %.lr.ph
-  %.sink26 = phi ptr [ %34, %.lr.ph ], [ %32, %26 ]
+.lr.ph:                                           ; preds = %26, %H5I__id_dump_cb.exit
+  %.sink26 = phi ptr [ %34, %H5I__id_dump_cb.exit ], [ %32, %26 ]
   %33 = getelementptr inbounds i8, ptr %.sink26, i64 72
   %34 = load ptr, ptr %33, align 8
-  tail call fastcc void @H5I__id_dump_cb(ptr noundef nonnull %.sink26, i32 %0)
+  %35 = load ptr, ptr @stderr, align 8
+  %36 = load i64, ptr %.sink26, align 8
+  %37 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %35, ptr noundef nonnull @.str.8, i64 noundef %36) #4
+  %38 = load ptr, ptr @stderr, align 8
+  %39 = getelementptr inbounds i8, ptr %.sink26, i64 8
+  %40 = load i32, ptr %39, align 8
+  %41 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %38, ptr noundef nonnull @.str.9, i32 noundef %40) #4
+  %42 = load ptr, ptr @stderr, align 8
+  %43 = getelementptr inbounds i8, ptr %.sink26, i64 16
+  %44 = load ptr, ptr %43, align 8
+  %45 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %42, ptr noundef nonnull @.str.10, ptr noundef %44) #4
+  %46 = load ptr, ptr @stderr, align 8
+  %47 = getelementptr inbounds i8, ptr %.sink26, i64 48
+  %48 = load i8, ptr %47, align 8
+  %49 = and i8 %48, 1
+  %50 = zext nneg i8 %49 to i32
+  %51 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %46, ptr noundef nonnull @.str.11, i32 noundef %50) #4
+  switch i32 %0, label %H5I__id_dump_cb.exit [
+    i32 2, label %52
+    i32 5, label %63
+    i32 3, label %74
+  ]
+
+52:                                               ; preds = %.lr.ph
+  %53 = load ptr, ptr %43, align 8
+  %54 = tail call ptr @H5VL_object_data(ptr noundef %53) #6
+  %55 = getelementptr inbounds i8, ptr %53, i64 8
+  %56 = load ptr, ptr %55, align 8
+  %57 = load ptr, ptr %56, align 8
+  %58 = getelementptr inbounds i8, ptr %57, i64 4
+  %59 = load i32, ptr %58, align 4
+  %60 = icmp eq i32 %59, 0
+  br i1 %60, label %61, label %H5I__id_dump_cb.exit
+
+61:                                               ; preds = %52
+  %62 = tail call ptr @H5G_nameof(ptr noundef %54) #6
+  br label %78
+
+63:                                               ; preds = %.lr.ph
+  %64 = load ptr, ptr %43, align 8
+  %65 = tail call ptr @H5VL_object_data(ptr noundef %64) #6
+  %66 = getelementptr inbounds i8, ptr %64, i64 8
+  %67 = load ptr, ptr %66, align 8
+  %68 = load ptr, ptr %67, align 8
+  %69 = getelementptr inbounds i8, ptr %68, i64 4
+  %70 = load i32, ptr %69, align 4
+  %71 = icmp eq i32 %70, 0
+  br i1 %71, label %72, label %H5I__id_dump_cb.exit
+
+72:                                               ; preds = %63
+  %73 = tail call ptr @H5D_nameof(ptr noundef %65) #6
+  br label %78
+
+74:                                               ; preds = %.lr.ph
+  %75 = load ptr, ptr %43, align 8
+  %76 = tail call ptr @H5T_get_actual_type(ptr noundef %75) #6
+  %77 = tail call ptr @H5T_nameof(ptr noundef %76) #6
+  br label %78
+
+78:                                               ; preds = %74, %72, %61
+  %.0.i = phi ptr [ %77, %74 ], [ %73, %72 ], [ %62, %61 ]
+  %.not.i = icmp eq ptr %.0.i, null
+  br i1 %.not.i, label %H5I__id_dump_cb.exit, label %79
+
+79:                                               ; preds = %78
+  %80 = getelementptr inbounds i8, ptr %.0.i, i64 8
+  %81 = load ptr, ptr %80, align 8
+  %.not24.i = icmp eq ptr %81, null
+  br i1 %.not24.i, label %86, label %82
+
+82:                                               ; preds = %79
+  %83 = load ptr, ptr @stderr, align 8
+  %84 = tail call ptr @H5RS_get_str(ptr noundef nonnull %81) #6
+  %85 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %83, ptr noundef nonnull @.str.12, ptr noundef %84) #4
+  br label %86
+
+86:                                               ; preds = %82, %79
+  %87 = load ptr, ptr %.0.i, align 8
+  %.not25.i = icmp eq ptr %87, null
+  br i1 %.not25.i, label %H5I__id_dump_cb.exit, label %88
+
+88:                                               ; preds = %86
+  %89 = load ptr, ptr @stderr, align 8
+  %90 = tail call ptr @H5RS_get_str(ptr noundef nonnull %87) #6
+  %91 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %89, ptr noundef nonnull @.str.13, ptr noundef %90) #4
+  br label %H5I__id_dump_cb.exit
+
+H5I__id_dump_cb.exit:                             ; preds = %.lr.ph, %52, %63, %78, %86, %88
   %.not20 = icmp eq ptr %34, null
   br i1 %.not20, label %.loopexit, label %.lr.ph
 
-35:                                               ; preds = %1
-  %36 = tail call i64 @fwrite(ptr nonnull @.str.7, i64 56, i64 1, ptr %7) #5
+92:                                               ; preds = %1
+  %93 = tail call i64 @fwrite(ptr nonnull @.str.7, i64 56, i64 1, ptr %7) #5
   br label %.loopexit
 
-.loopexit:                                        ; preds = %.lr.ph, %26, %8, %35
+.loopexit:                                        ; preds = %H5I__id_dump_cb.exit, %26, %8, %92
   ret i32 0
 }
 
 ; Function Attrs: nofree nounwind
 declare noundef i32 @fprintf(ptr nocapture noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #1
-
-; Function Attrs: cold nounwind uwtable
-define internal fastcc void @H5I__id_dump_cb(ptr nocapture noundef readonly %0, i32 %.0.val) unnamed_addr #0 {
-  %2 = load ptr, ptr @stderr, align 8
-  %3 = load i64, ptr %0, align 8
-  %4 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %2, ptr noundef nonnull @.str.8, i64 noundef %3) #4
-  %5 = load ptr, ptr @stderr, align 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 8
-  %7 = load i32, ptr %6, align 8
-  %8 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %5, ptr noundef nonnull @.str.9, i32 noundef %7) #4
-  %9 = load ptr, ptr @stderr, align 8
-  %10 = getelementptr inbounds i8, ptr %0, i64 16
-  %11 = load ptr, ptr %10, align 8
-  %12 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %9, ptr noundef nonnull @.str.10, ptr noundef %11) #4
-  %13 = load ptr, ptr @stderr, align 8
-  %14 = getelementptr inbounds i8, ptr %0, i64 48
-  %15 = load i8, ptr %14, align 8
-  %16 = and i8 %15, 1
-  %17 = zext nneg i8 %16 to i32
-  %18 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %13, ptr noundef nonnull @.str.11, i32 noundef %17) #4
-  switch i32 %.0.val, label %.thread [
-    i32 2, label %19
-    i32 5, label %30
-    i32 3, label %41
-  ]
-
-19:                                               ; preds = %1
-  %20 = load ptr, ptr %10, align 8
-  %21 = tail call ptr @H5VL_object_data(ptr noundef %20) #6
-  %22 = getelementptr inbounds i8, ptr %20, i64 8
-  %23 = load ptr, ptr %22, align 8
-  %24 = load ptr, ptr %23, align 8
-  %25 = getelementptr inbounds i8, ptr %24, i64 4
-  %26 = load i32, ptr %25, align 4
-  %27 = icmp eq i32 %26, 0
-  br i1 %27, label %28, label %.thread
-
-28:                                               ; preds = %19
-  %29 = tail call ptr @H5G_nameof(ptr noundef %21) #6
-  br label %45
-
-30:                                               ; preds = %1
-  %31 = load ptr, ptr %10, align 8
-  %32 = tail call ptr @H5VL_object_data(ptr noundef %31) #6
-  %33 = getelementptr inbounds i8, ptr %31, i64 8
-  %34 = load ptr, ptr %33, align 8
-  %35 = load ptr, ptr %34, align 8
-  %36 = getelementptr inbounds i8, ptr %35, i64 4
-  %37 = load i32, ptr %36, align 4
-  %38 = icmp eq i32 %37, 0
-  br i1 %38, label %39, label %.thread
-
-39:                                               ; preds = %30
-  %40 = tail call ptr @H5D_nameof(ptr noundef %32) #6
-  br label %45
-
-41:                                               ; preds = %1
-  %42 = load ptr, ptr %10, align 8
-  %43 = tail call ptr @H5T_get_actual_type(ptr noundef %42) #6
-  %44 = tail call ptr @H5T_nameof(ptr noundef %43) #6
-  br label %45
-
-45:                                               ; preds = %39, %28, %41
-  %.0 = phi ptr [ %44, %41 ], [ %40, %39 ], [ %29, %28 ]
-  %.not = icmp eq ptr %.0, null
-  br i1 %.not, label %.thread, label %46
-
-46:                                               ; preds = %45
-  %47 = getelementptr inbounds i8, ptr %.0, i64 8
-  %48 = load ptr, ptr %47, align 8
-  %.not24 = icmp eq ptr %48, null
-  br i1 %.not24, label %53, label %49
-
-49:                                               ; preds = %46
-  %50 = load ptr, ptr @stderr, align 8
-  %51 = tail call ptr @H5RS_get_str(ptr noundef nonnull %48) #6
-  %52 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %50, ptr noundef nonnull @.str.12, ptr noundef %51) #4
-  br label %53
-
-53:                                               ; preds = %49, %46
-  %54 = load ptr, ptr %.0, align 8
-  %.not25 = icmp eq ptr %54, null
-  br i1 %.not25, label %.thread, label %55
-
-55:                                               ; preds = %53
-  %56 = load ptr, ptr @stderr, align 8
-  %57 = tail call ptr @H5RS_get_str(ptr noundef nonnull %54) #6
-  %58 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %56, ptr noundef nonnull @.str.13, ptr noundef %57) #4
-  br label %.thread
-
-.thread:                                          ; preds = %19, %30, %1, %53, %55, %45
-  ret void
-}
 
 declare ptr @H5VL_object_data(ptr noundef) local_unnamed_addr #2
 
@@ -189,7 +183,7 @@ declare ptr @H5RS_get_str(ptr noundef) local_unnamed_addr #2
 ; Function Attrs: nofree nounwind
 declare noundef i64 @fwrite(ptr nocapture noundef, i64 noundef, i64 noundef, ptr nocapture noundef) local_unnamed_addr #3
 
-attributes #0 = { cold nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nofree nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #3 = { nofree nounwind }

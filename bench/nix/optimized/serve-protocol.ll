@@ -27532,73 +27532,73 @@ define linkonce_odr noundef ptr @_ZN7testing4Test5SetupEv(ptr noundef nonnull al
   ret ptr null
 }
 
-; Function Attrs: cold mustprogress noreturn nounwind memory(inaccessiblemem: write) uwtable
+; Function Attrs: mustprogress noreturn nounwind memory(inaccessiblemem: write) uwtable
 define internal void @_ZN3nix18VersionedProtoTestINS_10ServeProtoEXadsoKcL_ZNS_L13serveProtoDirEEEEED1Ev(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #12 align 2 {
   tail call void @llvm.trap() #33
   unreachable
 }
 
-; Function Attrs: cold mustprogress noreturn nounwind memory(inaccessiblemem: write) uwtable
+; Function Attrs: mustprogress noreturn nounwind memory(inaccessiblemem: write) uwtable
 define internal void @_ZN3nix18VersionedProtoTestINS_10ServeProtoEXadsoKcL_ZNS_L13serveProtoDirEEEEED0Ev(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #12 align 2 {
   tail call void @llvm.trap() #33
   unreachable
 }
 
-; Function Attrs: cold noreturn nounwind memory(inaccessiblemem: write) uwtable
+; Function Attrs: noreturn nounwind memory(inaccessiblemem: write) uwtable
 define internal void @_ZThn8_N3nix18VersionedProtoTestINS_10ServeProtoEXadsoKcL_ZNS_L13serveProtoDirEEEEED1Ev(ptr nocapture readnone %0) unnamed_addr #13 align 2 {
   tail call void @llvm.trap() #33
   unreachable
 }
 
-; Function Attrs: cold noreturn nounwind memory(inaccessiblemem: write) uwtable
+; Function Attrs: noreturn nounwind memory(inaccessiblemem: write) uwtable
 define internal void @_ZThn8_N3nix18VersionedProtoTestINS_10ServeProtoEXadsoKcL_ZNS_L13serveProtoDirEEEEED0Ev(ptr nocapture readnone %0) unnamed_addr #13 align 2 {
   tail call void @llvm.trap() #33
   unreachable
 }
 
-; Function Attrs: cold noreturn nounwind memory(inaccessiblemem: write) uwtable
+; Function Attrs: noreturn nounwind memory(inaccessiblemem: write) uwtable
 define internal void @_ZTv0_n24_N3nix18VersionedProtoTestINS_10ServeProtoEXadsoKcL_ZNS_L13serveProtoDirEEEEED1Ev(ptr nocapture readonly %0) unnamed_addr #13 align 2 {
   tail call void @llvm.trap() #33
   unreachable
 }
 
-; Function Attrs: cold noreturn nounwind memory(inaccessiblemem: write) uwtable
+; Function Attrs: noreturn nounwind memory(inaccessiblemem: write) uwtable
 define internal void @_ZTv0_n24_N3nix18VersionedProtoTestINS_10ServeProtoEXadsoKcL_ZNS_L13serveProtoDirEEEEED0Ev(ptr nocapture readonly %0) unnamed_addr #13 align 2 {
   tail call void @llvm.trap() #33
   unreachable
 }
 
-; Function Attrs: cold mustprogress noreturn nounwind memory(inaccessiblemem: write) uwtable
+; Function Attrs: mustprogress noreturn nounwind memory(inaccessiblemem: write) uwtable
 define internal void @_ZN3nix9ProtoTestINS_10ServeProtoEXadsoKcL_ZNS_L13serveProtoDirEEEEED1Ev(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #12 align 2 {
   tail call void @llvm.trap() #33
   unreachable
 }
 
-; Function Attrs: cold mustprogress noreturn nounwind memory(inaccessiblemem: write) uwtable
+; Function Attrs: mustprogress noreturn nounwind memory(inaccessiblemem: write) uwtable
 define internal void @_ZN3nix9ProtoTestINS_10ServeProtoEXadsoKcL_ZNS_L13serveProtoDirEEEEED0Ev(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #12 align 2 {
   tail call void @llvm.trap() #33
   unreachable
 }
 
-; Function Attrs: cold noreturn nounwind memory(inaccessiblemem: write) uwtable
+; Function Attrs: noreturn nounwind memory(inaccessiblemem: write) uwtable
 define internal void @_ZThn8_N3nix9ProtoTestINS_10ServeProtoEXadsoKcL_ZNS_L13serveProtoDirEEEEED1Ev(ptr nocapture readnone %0) unnamed_addr #13 align 2 {
   tail call void @llvm.trap() #33
   unreachable
 }
 
-; Function Attrs: cold noreturn nounwind memory(inaccessiblemem: write) uwtable
+; Function Attrs: noreturn nounwind memory(inaccessiblemem: write) uwtable
 define internal void @_ZThn8_N3nix9ProtoTestINS_10ServeProtoEXadsoKcL_ZNS_L13serveProtoDirEEEEED0Ev(ptr nocapture readnone %0) unnamed_addr #13 align 2 {
   tail call void @llvm.trap() #33
   unreachable
 }
 
-; Function Attrs: cold noreturn nounwind memory(inaccessiblemem: write) uwtable
+; Function Attrs: noreturn nounwind memory(inaccessiblemem: write) uwtable
 define internal void @_ZTv0_n24_N3nix9ProtoTestINS_10ServeProtoEXadsoKcL_ZNS_L13serveProtoDirEEEEED1Ev(ptr nocapture readonly %0) unnamed_addr #13 align 2 {
   tail call void @llvm.trap() #33
   unreachable
 }
 
-; Function Attrs: cold noreturn nounwind memory(inaccessiblemem: write) uwtable
+; Function Attrs: noreturn nounwind memory(inaccessiblemem: write) uwtable
 define internal void @_ZTv0_n24_N3nix9ProtoTestINS_10ServeProtoEXadsoKcL_ZNS_L13serveProtoDirEEEEED0Ev(ptr nocapture readonly %0) unnamed_addr #13 align 2 {
   tail call void @llvm.trap() #33
   unreachable
@@ -51031,8 +51031,8 @@ attributes #8 = { uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no
 attributes #9 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
 attributes #10 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
 attributes #11 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #12 = { cold mustprogress noreturn nounwind memory(inaccessiblemem: write) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #13 = { cold noreturn nounwind memory(inaccessiblemem: write) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #12 = { mustprogress noreturn nounwind memory(inaccessiblemem: write) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #13 = { noreturn nounwind memory(inaccessiblemem: write) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #14 = { noreturn "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #15 = { mustprogress nofree nounwind willreturn memory(argmem: read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #16 = { noreturn nounwind uwtable "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

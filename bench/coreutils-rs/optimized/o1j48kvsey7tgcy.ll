@@ -220,12 +220,12 @@ define hidden { ptr, i64 } @"_ZN4core5array92_$LT$impl$u20$core..convert..AsMut$
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden void @_ZN4rand3rng3Rng4fill17hcf7f2c7db5eebc63E(ptr noalias noundef align 16 dereferenceable(320) %0, ptr noalias noundef nonnull align 1 %1, i64 noundef %2) unnamed_addr #5 {
+define hidden void @_ZN4rand3rng3Rng4fill17hcf7f2c7db5eebc63E(ptr noalias noundef align 16 dereferenceable(320) %0, ptr noalias noundef nonnull align 1 %1, i64 noundef %2) unnamed_addr #5 personality ptr @rust_eh_personality {
   tail call void @"_ZN74_$LT$rand_core..block..BlockRng$LT$R$GT$$u20$as$u20$rand_core..RngCore$GT$10fill_bytes17h761f90944a5db47dE.llvm.15424224493582452841"(ptr noalias noundef nonnull align 16 dereferenceable(320) %0, ptr noalias noundef nonnull align 1 %1, i64 noundef %2)
   ret void
 }
 
-; Function Attrs: cold inlinehint noreturn nonlazybind uwtable
+; Function Attrs: inlinehint noreturn nonlazybind uwtable
 define hidden void @"_ZN4rand3rng3Rng4fill28_$u7b$$u7b$closure$u7d$$u7d$17h306dc2349e559128E.llvm.16263599318705296510"(ptr noundef nonnull align 1 %0, ptr noalias noundef readonly align 8 dereferenceable(24) %1) unnamed_addr #7 personality ptr @rust_eh_personality {
   %3 = alloca { { { { { ptr, ptr } }, {} }, {} } }, align 8
   store ptr %0, ptr %3, align 8
@@ -598,7 +598,7 @@ attributes #3 = { inlinehint mustprogress nofree norecurse nosync nounwind nonla
 attributes #4 = { inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
 attributes #5 = { nonlazybind uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
 attributes #6 = { inlinehint nonlazybind uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
-attributes #7 = { cold inlinehint noreturn nonlazybind uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
+attributes #7 = { inlinehint noreturn nonlazybind uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
 attributes #8 = { inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
 attributes #9 = { alwaysinline nonlazybind uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
 attributes #10 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }

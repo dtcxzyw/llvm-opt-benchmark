@@ -3,7 +3,7 @@ source_filename = "bench/qemu/original/stubs_io_uring.c.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-; Function Attrs: cold nofree noreturn nounwind sspstrong uwtable
+; Function Attrs: nofree noreturn nounwind sspstrong uwtable
 define dso_local void @luring_detach_aio_context(ptr nocapture noundef readnone %s, ptr nocapture noundef readnone %old_context) local_unnamed_addr #0 {
 entry:
   tail call void @abort() #2
@@ -13,28 +13,28 @@ entry:
 ; Function Attrs: cold nofree noreturn nounwind
 declare void @abort() local_unnamed_addr #1
 
-; Function Attrs: cold nofree noreturn nounwind sspstrong uwtable
+; Function Attrs: nofree noreturn nounwind sspstrong uwtable
 define dso_local void @luring_attach_aio_context(ptr nocapture noundef readnone %s, ptr nocapture noundef readnone %new_context) local_unnamed_addr #0 {
 entry:
   tail call void @abort() #2
   unreachable
 }
 
-; Function Attrs: cold nofree noreturn nounwind sspstrong uwtable
+; Function Attrs: nofree noreturn nounwind sspstrong uwtable
 define dso_local noalias noundef nonnull ptr @luring_init(ptr nocapture noundef readnone %errp) local_unnamed_addr #0 {
 entry:
   tail call void @abort() #2
   unreachable
 }
 
-; Function Attrs: cold nofree noreturn nounwind sspstrong uwtable
+; Function Attrs: nofree noreturn nounwind sspstrong uwtable
 define dso_local void @luring_cleanup(ptr nocapture noundef readnone %s) local_unnamed_addr #0 {
 entry:
   tail call void @abort() #2
   unreachable
 }
 
-attributes #0 = { cold nofree noreturn nounwind sspstrong uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #0 = { nofree noreturn nounwind sspstrong uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { cold nofree noreturn nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { noreturn nounwind }
 

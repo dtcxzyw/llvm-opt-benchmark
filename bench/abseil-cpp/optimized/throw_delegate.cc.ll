@@ -20,18 +20,18 @@ target triple = "x86_64-unknown-linux-gnu"
 ; Function Attrs: mustprogress noreturn uwtable
 define dso_local void @_ZN4absl13base_internal18ThrowStdLogicErrorERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(32) %what_arg) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
-  %exception = tail call ptr @__cxa_allocate_exception(i64 16) #5
+  %exception = tail call ptr @__cxa_allocate_exception(i64 16) #4
   invoke void @_ZNSt11logic_errorC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(16) %exception, ptr noundef nonnull align 8 dereferenceable(32) %what_arg)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
-  tail call void @__cxa_throw(ptr nonnull %exception, ptr nonnull @_ZTISt11logic_error, ptr nonnull @_ZNSt11logic_errorD1Ev) #6
+  tail call void @__cxa_throw(ptr nonnull %exception, ptr nonnull @_ZTISt11logic_error, ptr nonnull @_ZNSt11logic_errorD1Ev) #5
   unreachable
 
 lpad:                                             ; preds = %entry
   %0 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %exception) #5
+  tail call void @__cxa_free_exception(ptr %exception) #4
   resume { ptr, i32 } %0
 }
 
@@ -52,18 +52,18 @@ declare void @__cxa_throw(ptr, ptr, ptr) local_unnamed_addr #3
 ; Function Attrs: mustprogress noreturn uwtable
 define dso_local void @_ZN4absl13base_internal18ThrowStdLogicErrorEPKc(ptr noundef %what_arg) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
-  %exception = tail call ptr @__cxa_allocate_exception(i64 16) #5
+  %exception = tail call ptr @__cxa_allocate_exception(i64 16) #4
   invoke void @_ZNSt11logic_errorC1EPKc(ptr noundef nonnull align 8 dereferenceable(16) %exception, ptr noundef %what_arg)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
-  tail call void @__cxa_throw(ptr nonnull %exception, ptr nonnull @_ZTISt11logic_error, ptr nonnull @_ZNSt11logic_errorD1Ev) #6
+  tail call void @__cxa_throw(ptr nonnull %exception, ptr nonnull @_ZTISt11logic_error, ptr nonnull @_ZNSt11logic_errorD1Ev) #5
   unreachable
 
 lpad:                                             ; preds = %entry
   %0 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %exception) #5
+  tail call void @__cxa_free_exception(ptr %exception) #4
   resume { ptr, i32 } %0
 }
 
@@ -72,18 +72,18 @@ declare void @_ZNSt11logic_errorC1EPKc(ptr noundef nonnull align 8 dereferenceab
 ; Function Attrs: mustprogress noreturn uwtable
 define dso_local void @_ZN4absl13base_internal23ThrowStdInvalidArgumentERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(32) %what_arg) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
-  %exception = tail call ptr @__cxa_allocate_exception(i64 16) #5
+  %exception = tail call ptr @__cxa_allocate_exception(i64 16) #4
   invoke void @_ZNSt16invalid_argumentC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(16) %exception, ptr noundef nonnull align 8 dereferenceable(32) %what_arg)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
-  tail call void @__cxa_throw(ptr nonnull %exception, ptr nonnull @_ZTISt16invalid_argument, ptr nonnull @_ZNSt16invalid_argumentD1Ev) #6
+  tail call void @__cxa_throw(ptr nonnull %exception, ptr nonnull @_ZTISt16invalid_argument, ptr nonnull @_ZNSt16invalid_argumentD1Ev) #5
   unreachable
 
 lpad:                                             ; preds = %entry
   %0 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %exception) #5
+  tail call void @__cxa_free_exception(ptr %exception) #4
   resume { ptr, i32 } %0
 }
 
@@ -95,18 +95,18 @@ declare void @_ZNSt16invalid_argumentD1Ev(ptr noundef nonnull align 8 dereferenc
 ; Function Attrs: mustprogress noreturn uwtable
 define dso_local void @_ZN4absl13base_internal23ThrowStdInvalidArgumentEPKc(ptr noundef %what_arg) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
-  %exception = tail call ptr @__cxa_allocate_exception(i64 16) #5
+  %exception = tail call ptr @__cxa_allocate_exception(i64 16) #4
   invoke void @_ZNSt16invalid_argumentC1EPKc(ptr noundef nonnull align 8 dereferenceable(16) %exception, ptr noundef %what_arg)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
-  tail call void @__cxa_throw(ptr nonnull %exception, ptr nonnull @_ZTISt16invalid_argument, ptr nonnull @_ZNSt16invalid_argumentD1Ev) #6
+  tail call void @__cxa_throw(ptr nonnull %exception, ptr nonnull @_ZTISt16invalid_argument, ptr nonnull @_ZNSt16invalid_argumentD1Ev) #5
   unreachable
 
 lpad:                                             ; preds = %entry
   %0 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %exception) #5
+  tail call void @__cxa_free_exception(ptr %exception) #4
   resume { ptr, i32 } %0
 }
 
@@ -115,18 +115,18 @@ declare void @_ZNSt16invalid_argumentC1EPKc(ptr noundef nonnull align 8 derefere
 ; Function Attrs: mustprogress noreturn uwtable
 define dso_local void @_ZN4absl13base_internal19ThrowStdDomainErrorERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(32) %what_arg) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
-  %exception = tail call ptr @__cxa_allocate_exception(i64 16) #5
+  %exception = tail call ptr @__cxa_allocate_exception(i64 16) #4
   invoke void @_ZNSt12domain_errorC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(16) %exception, ptr noundef nonnull align 8 dereferenceable(32) %what_arg)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
-  tail call void @__cxa_throw(ptr nonnull %exception, ptr nonnull @_ZTISt12domain_error, ptr nonnull @_ZNSt12domain_errorD1Ev) #6
+  tail call void @__cxa_throw(ptr nonnull %exception, ptr nonnull @_ZTISt12domain_error, ptr nonnull @_ZNSt12domain_errorD1Ev) #5
   unreachable
 
 lpad:                                             ; preds = %entry
   %0 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %exception) #5
+  tail call void @__cxa_free_exception(ptr %exception) #4
   resume { ptr, i32 } %0
 }
 
@@ -138,18 +138,18 @@ declare void @_ZNSt12domain_errorD1Ev(ptr noundef nonnull align 8 dereferenceabl
 ; Function Attrs: mustprogress noreturn uwtable
 define dso_local void @_ZN4absl13base_internal19ThrowStdDomainErrorEPKc(ptr noundef %what_arg) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
-  %exception = tail call ptr @__cxa_allocate_exception(i64 16) #5
+  %exception = tail call ptr @__cxa_allocate_exception(i64 16) #4
   invoke void @_ZNSt12domain_errorC1EPKc(ptr noundef nonnull align 8 dereferenceable(16) %exception, ptr noundef %what_arg)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
-  tail call void @__cxa_throw(ptr nonnull %exception, ptr nonnull @_ZTISt12domain_error, ptr nonnull @_ZNSt12domain_errorD1Ev) #6
+  tail call void @__cxa_throw(ptr nonnull %exception, ptr nonnull @_ZTISt12domain_error, ptr nonnull @_ZNSt12domain_errorD1Ev) #5
   unreachable
 
 lpad:                                             ; preds = %entry
   %0 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %exception) #5
+  tail call void @__cxa_free_exception(ptr %exception) #4
   resume { ptr, i32 } %0
 }
 
@@ -158,18 +158,18 @@ declare void @_ZNSt12domain_errorC1EPKc(ptr noundef nonnull align 8 dereferencea
 ; Function Attrs: mustprogress noreturn uwtable
 define dso_local void @_ZN4absl13base_internal19ThrowStdLengthErrorERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(32) %what_arg) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
-  %exception = tail call ptr @__cxa_allocate_exception(i64 16) #5
+  %exception = tail call ptr @__cxa_allocate_exception(i64 16) #4
   invoke void @_ZNSt12length_errorC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(16) %exception, ptr noundef nonnull align 8 dereferenceable(32) %what_arg)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
-  tail call void @__cxa_throw(ptr nonnull %exception, ptr nonnull @_ZTISt12length_error, ptr nonnull @_ZNSt12length_errorD1Ev) #6
+  tail call void @__cxa_throw(ptr nonnull %exception, ptr nonnull @_ZTISt12length_error, ptr nonnull @_ZNSt12length_errorD1Ev) #5
   unreachable
 
 lpad:                                             ; preds = %entry
   %0 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %exception) #5
+  tail call void @__cxa_free_exception(ptr %exception) #4
   resume { ptr, i32 } %0
 }
 
@@ -181,18 +181,18 @@ declare void @_ZNSt12length_errorD1Ev(ptr noundef nonnull align 8 dereferenceabl
 ; Function Attrs: mustprogress noreturn uwtable
 define dso_local void @_ZN4absl13base_internal19ThrowStdLengthErrorEPKc(ptr noundef %what_arg) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
-  %exception = tail call ptr @__cxa_allocate_exception(i64 16) #5
+  %exception = tail call ptr @__cxa_allocate_exception(i64 16) #4
   invoke void @_ZNSt12length_errorC1EPKc(ptr noundef nonnull align 8 dereferenceable(16) %exception, ptr noundef %what_arg)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
-  tail call void @__cxa_throw(ptr nonnull %exception, ptr nonnull @_ZTISt12length_error, ptr nonnull @_ZNSt12length_errorD1Ev) #6
+  tail call void @__cxa_throw(ptr nonnull %exception, ptr nonnull @_ZTISt12length_error, ptr nonnull @_ZNSt12length_errorD1Ev) #5
   unreachable
 
 lpad:                                             ; preds = %entry
   %0 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %exception) #5
+  tail call void @__cxa_free_exception(ptr %exception) #4
   resume { ptr, i32 } %0
 }
 
@@ -201,18 +201,18 @@ declare void @_ZNSt12length_errorC1EPKc(ptr noundef nonnull align 8 dereferencea
 ; Function Attrs: mustprogress noreturn uwtable
 define dso_local void @_ZN4absl13base_internal18ThrowStdOutOfRangeERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(32) %what_arg) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
-  %exception = tail call ptr @__cxa_allocate_exception(i64 16) #5
+  %exception = tail call ptr @__cxa_allocate_exception(i64 16) #4
   invoke void @_ZNSt12out_of_rangeC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(16) %exception, ptr noundef nonnull align 8 dereferenceable(32) %what_arg)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
-  tail call void @__cxa_throw(ptr nonnull %exception, ptr nonnull @_ZTISt12out_of_range, ptr nonnull @_ZNSt12out_of_rangeD1Ev) #6
+  tail call void @__cxa_throw(ptr nonnull %exception, ptr nonnull @_ZTISt12out_of_range, ptr nonnull @_ZNSt12out_of_rangeD1Ev) #5
   unreachable
 
 lpad:                                             ; preds = %entry
   %0 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %exception) #5
+  tail call void @__cxa_free_exception(ptr %exception) #4
   resume { ptr, i32 } %0
 }
 
@@ -224,18 +224,18 @@ declare void @_ZNSt12out_of_rangeD1Ev(ptr noundef nonnull align 8 dereferenceabl
 ; Function Attrs: mustprogress noreturn uwtable
 define dso_local void @_ZN4absl13base_internal18ThrowStdOutOfRangeEPKc(ptr noundef %what_arg) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
-  %exception = tail call ptr @__cxa_allocate_exception(i64 16) #5
+  %exception = tail call ptr @__cxa_allocate_exception(i64 16) #4
   invoke void @_ZNSt12out_of_rangeC1EPKc(ptr noundef nonnull align 8 dereferenceable(16) %exception, ptr noundef %what_arg)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
-  tail call void @__cxa_throw(ptr nonnull %exception, ptr nonnull @_ZTISt12out_of_range, ptr nonnull @_ZNSt12out_of_rangeD1Ev) #6
+  tail call void @__cxa_throw(ptr nonnull %exception, ptr nonnull @_ZTISt12out_of_range, ptr nonnull @_ZNSt12out_of_rangeD1Ev) #5
   unreachable
 
 lpad:                                             ; preds = %entry
   %0 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %exception) #5
+  tail call void @__cxa_free_exception(ptr %exception) #4
   resume { ptr, i32 } %0
 }
 
@@ -244,18 +244,18 @@ declare void @_ZNSt12out_of_rangeC1EPKc(ptr noundef nonnull align 8 dereferencea
 ; Function Attrs: mustprogress noreturn uwtable
 define dso_local void @_ZN4absl13base_internal20ThrowStdRuntimeErrorERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(32) %what_arg) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
-  %exception = tail call ptr @__cxa_allocate_exception(i64 16) #5
+  %exception = tail call ptr @__cxa_allocate_exception(i64 16) #4
   invoke void @_ZNSt13runtime_errorC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(16) %exception, ptr noundef nonnull align 8 dereferenceable(32) %what_arg)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
-  tail call void @__cxa_throw(ptr nonnull %exception, ptr nonnull @_ZTISt13runtime_error, ptr nonnull @_ZNSt13runtime_errorD1Ev) #6
+  tail call void @__cxa_throw(ptr nonnull %exception, ptr nonnull @_ZTISt13runtime_error, ptr nonnull @_ZNSt13runtime_errorD1Ev) #5
   unreachable
 
 lpad:                                             ; preds = %entry
   %0 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %exception) #5
+  tail call void @__cxa_free_exception(ptr %exception) #4
   resume { ptr, i32 } %0
 }
 
@@ -267,18 +267,18 @@ declare void @_ZNSt13runtime_errorD1Ev(ptr noundef nonnull align 8 dereferenceab
 ; Function Attrs: mustprogress noreturn uwtable
 define dso_local void @_ZN4absl13base_internal20ThrowStdRuntimeErrorEPKc(ptr noundef %what_arg) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
-  %exception = tail call ptr @__cxa_allocate_exception(i64 16) #5
+  %exception = tail call ptr @__cxa_allocate_exception(i64 16) #4
   invoke void @_ZNSt13runtime_errorC1EPKc(ptr noundef nonnull align 8 dereferenceable(16) %exception, ptr noundef %what_arg)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
-  tail call void @__cxa_throw(ptr nonnull %exception, ptr nonnull @_ZTISt13runtime_error, ptr nonnull @_ZNSt13runtime_errorD1Ev) #6
+  tail call void @__cxa_throw(ptr nonnull %exception, ptr nonnull @_ZTISt13runtime_error, ptr nonnull @_ZNSt13runtime_errorD1Ev) #5
   unreachable
 
 lpad:                                             ; preds = %entry
   %0 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %exception) #5
+  tail call void @__cxa_free_exception(ptr %exception) #4
   resume { ptr, i32 } %0
 }
 
@@ -287,18 +287,18 @@ declare void @_ZNSt13runtime_errorC1EPKc(ptr noundef nonnull align 8 dereference
 ; Function Attrs: mustprogress noreturn uwtable
 define dso_local void @_ZN4absl13base_internal18ThrowStdRangeErrorERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(32) %what_arg) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
-  %exception = tail call ptr @__cxa_allocate_exception(i64 16) #5
+  %exception = tail call ptr @__cxa_allocate_exception(i64 16) #4
   invoke void @_ZNSt11range_errorC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(16) %exception, ptr noundef nonnull align 8 dereferenceable(32) %what_arg)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
-  tail call void @__cxa_throw(ptr nonnull %exception, ptr nonnull @_ZTISt11range_error, ptr nonnull @_ZNSt11range_errorD1Ev) #6
+  tail call void @__cxa_throw(ptr nonnull %exception, ptr nonnull @_ZTISt11range_error, ptr nonnull @_ZNSt11range_errorD1Ev) #5
   unreachable
 
 lpad:                                             ; preds = %entry
   %0 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %exception) #5
+  tail call void @__cxa_free_exception(ptr %exception) #4
   resume { ptr, i32 } %0
 }
 
@@ -310,18 +310,18 @@ declare void @_ZNSt11range_errorD1Ev(ptr noundef nonnull align 8 dereferenceable
 ; Function Attrs: mustprogress noreturn uwtable
 define dso_local void @_ZN4absl13base_internal18ThrowStdRangeErrorEPKc(ptr noundef %what_arg) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
-  %exception = tail call ptr @__cxa_allocate_exception(i64 16) #5
+  %exception = tail call ptr @__cxa_allocate_exception(i64 16) #4
   invoke void @_ZNSt11range_errorC1EPKc(ptr noundef nonnull align 8 dereferenceable(16) %exception, ptr noundef %what_arg)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
-  tail call void @__cxa_throw(ptr nonnull %exception, ptr nonnull @_ZTISt11range_error, ptr nonnull @_ZNSt11range_errorD1Ev) #6
+  tail call void @__cxa_throw(ptr nonnull %exception, ptr nonnull @_ZTISt11range_error, ptr nonnull @_ZNSt11range_errorD1Ev) #5
   unreachable
 
 lpad:                                             ; preds = %entry
   %0 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %exception) #5
+  tail call void @__cxa_free_exception(ptr %exception) #4
   resume { ptr, i32 } %0
 }
 
@@ -330,18 +330,18 @@ declare void @_ZNSt11range_errorC1EPKc(ptr noundef nonnull align 8 dereferenceab
 ; Function Attrs: mustprogress noreturn uwtable
 define dso_local void @_ZN4absl13base_internal21ThrowStdOverflowErrorERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(32) %what_arg) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
-  %exception = tail call ptr @__cxa_allocate_exception(i64 16) #5
+  %exception = tail call ptr @__cxa_allocate_exception(i64 16) #4
   invoke void @_ZNSt14overflow_errorC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(16) %exception, ptr noundef nonnull align 8 dereferenceable(32) %what_arg)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
-  tail call void @__cxa_throw(ptr nonnull %exception, ptr nonnull @_ZTISt14overflow_error, ptr nonnull @_ZNSt14overflow_errorD1Ev) #6
+  tail call void @__cxa_throw(ptr nonnull %exception, ptr nonnull @_ZTISt14overflow_error, ptr nonnull @_ZNSt14overflow_errorD1Ev) #5
   unreachable
 
 lpad:                                             ; preds = %entry
   %0 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %exception) #5
+  tail call void @__cxa_free_exception(ptr %exception) #4
   resume { ptr, i32 } %0
 }
 
@@ -353,18 +353,18 @@ declare void @_ZNSt14overflow_errorD1Ev(ptr noundef nonnull align 8 dereferencea
 ; Function Attrs: mustprogress noreturn uwtable
 define dso_local void @_ZN4absl13base_internal21ThrowStdOverflowErrorEPKc(ptr noundef %what_arg) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
-  %exception = tail call ptr @__cxa_allocate_exception(i64 16) #5
+  %exception = tail call ptr @__cxa_allocate_exception(i64 16) #4
   invoke void @_ZNSt14overflow_errorC1EPKc(ptr noundef nonnull align 8 dereferenceable(16) %exception, ptr noundef %what_arg)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
-  tail call void @__cxa_throw(ptr nonnull %exception, ptr nonnull @_ZTISt14overflow_error, ptr nonnull @_ZNSt14overflow_errorD1Ev) #6
+  tail call void @__cxa_throw(ptr nonnull %exception, ptr nonnull @_ZTISt14overflow_error, ptr nonnull @_ZNSt14overflow_errorD1Ev) #5
   unreachable
 
 lpad:                                             ; preds = %entry
   %0 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %exception) #5
+  tail call void @__cxa_free_exception(ptr %exception) #4
   resume { ptr, i32 } %0
 }
 
@@ -373,18 +373,18 @@ declare void @_ZNSt14overflow_errorC1EPKc(ptr noundef nonnull align 8 dereferenc
 ; Function Attrs: mustprogress noreturn uwtable
 define dso_local void @_ZN4absl13base_internal22ThrowStdUnderflowErrorERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(32) %what_arg) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
-  %exception = tail call ptr @__cxa_allocate_exception(i64 16) #5
+  %exception = tail call ptr @__cxa_allocate_exception(i64 16) #4
   invoke void @_ZNSt15underflow_errorC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(16) %exception, ptr noundef nonnull align 8 dereferenceable(32) %what_arg)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
-  tail call void @__cxa_throw(ptr nonnull %exception, ptr nonnull @_ZTISt15underflow_error, ptr nonnull @_ZNSt15underflow_errorD1Ev) #6
+  tail call void @__cxa_throw(ptr nonnull %exception, ptr nonnull @_ZTISt15underflow_error, ptr nonnull @_ZNSt15underflow_errorD1Ev) #5
   unreachable
 
 lpad:                                             ; preds = %entry
   %0 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %exception) #5
+  tail call void @__cxa_free_exception(ptr %exception) #4
   resume { ptr, i32 } %0
 }
 
@@ -396,41 +396,41 @@ declare void @_ZNSt15underflow_errorD1Ev(ptr noundef nonnull align 8 dereference
 ; Function Attrs: mustprogress noreturn uwtable
 define dso_local void @_ZN4absl13base_internal22ThrowStdUnderflowErrorEPKc(ptr noundef %what_arg) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
-  %exception = tail call ptr @__cxa_allocate_exception(i64 16) #5
+  %exception = tail call ptr @__cxa_allocate_exception(i64 16) #4
   invoke void @_ZNSt15underflow_errorC1EPKc(ptr noundef nonnull align 8 dereferenceable(16) %exception, ptr noundef %what_arg)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
-  tail call void @__cxa_throw(ptr nonnull %exception, ptr nonnull @_ZTISt15underflow_error, ptr nonnull @_ZNSt15underflow_errorD1Ev) #6
+  tail call void @__cxa_throw(ptr nonnull %exception, ptr nonnull @_ZTISt15underflow_error, ptr nonnull @_ZNSt15underflow_errorD1Ev) #5
   unreachable
 
 lpad:                                             ; preds = %entry
   %0 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %exception) #5
+  tail call void @__cxa_free_exception(ptr %exception) #4
   resume { ptr, i32 } %0
 }
 
 declare void @_ZNSt15underflow_errorC1EPKc(ptr noundef nonnull align 8 dereferenceable(16), ptr noundef) unnamed_addr #1
 
-; Function Attrs: cold mustprogress noreturn uwtable
-define dso_local void @_ZN4absl13base_internal23ThrowStdBadFunctionCallEv() local_unnamed_addr #4 {
+; Function Attrs: mustprogress noreturn uwtable
+define dso_local void @_ZN4absl13base_internal23ThrowStdBadFunctionCallEv() local_unnamed_addr #0 {
 entry:
-  %exception = tail call ptr @__cxa_allocate_exception(i64 8) #5
+  %exception = tail call ptr @__cxa_allocate_exception(i64 8) #4
   store ptr getelementptr inbounds (i8, ptr @_ZTVSt17bad_function_call, i64 16), ptr %exception, align 8
-  tail call void @__cxa_throw(ptr nonnull %exception, ptr nonnull @_ZTISt17bad_function_call, ptr nonnull @_ZNSt17bad_function_callD1Ev) #6
+  tail call void @__cxa_throw(ptr nonnull %exception, ptr nonnull @_ZTISt17bad_function_call, ptr nonnull @_ZNSt17bad_function_callD1Ev) #5
   unreachable
 }
 
 ; Function Attrs: nounwind
 declare void @_ZNSt17bad_function_callD1Ev(ptr noundef nonnull align 8 dereferenceable(8)) unnamed_addr #2
 
-; Function Attrs: cold mustprogress noreturn uwtable
-define dso_local void @_ZN4absl13base_internal16ThrowStdBadAllocEv() local_unnamed_addr #4 {
+; Function Attrs: mustprogress noreturn uwtable
+define dso_local void @_ZN4absl13base_internal16ThrowStdBadAllocEv() local_unnamed_addr #0 {
 entry:
-  %exception = tail call ptr @__cxa_allocate_exception(i64 8) #5
+  %exception = tail call ptr @__cxa_allocate_exception(i64 8) #4
   store ptr getelementptr inbounds (i8, ptr @_ZTVSt9bad_alloc, i64 16), ptr %exception, align 8
-  tail call void @__cxa_throw(ptr nonnull %exception, ptr nonnull @_ZTISt9bad_alloc, ptr nonnull @_ZNSt9bad_allocD1Ev) #6
+  tail call void @__cxa_throw(ptr nonnull %exception, ptr nonnull @_ZTISt9bad_alloc, ptr nonnull @_ZNSt9bad_allocD1Ev) #5
   unreachable
 }
 
@@ -441,9 +441,8 @@ attributes #0 = { mustprogress noreturn uwtable "frame-pointer"="all" "min-legal
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #3 = { cold noreturn }
-attributes #4 = { cold mustprogress noreturn uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { nounwind }
-attributes #6 = { noreturn }
+attributes #4 = { nounwind }
+attributes #5 = { noreturn }
 
 !llvm.module.flags = !{!0, !1, !2, !3, !4}
 

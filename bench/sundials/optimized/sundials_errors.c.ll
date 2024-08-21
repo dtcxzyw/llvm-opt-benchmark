@@ -41,7 +41,7 @@ target triple = "x86_64-pc-linux-gnu"
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(write, inaccessiblemem: readwrite) uwtable
 define range(i32 -9988, 1) i32 @SUNErrHandler_Create(ptr noundef %0, ptr noundef %1, ptr nocapture noundef writeonly %2) local_unnamed_addr #0 {
-  %4 = tail call noalias dereferenceable_or_null(24) ptr @malloc(i64 noundef 24) #15
+  %4 = tail call noalias dereferenceable_or_null(24) ptr @malloc(i64 noundef 24) #14
   %.not = icmp eq ptr %4, null
   br i1 %.not, label %8, label %5
 
@@ -73,7 +73,7 @@ define void @SUNErrHandler_Destroy(ptr noundef %0) local_unnamed_addr #2 {
   br i1 %.not5, label %5, label %4
 
 4:                                                ; preds = %2
-  tail call void @free(ptr noundef nonnull %3) #16
+  tail call void @free(ptr noundef nonnull %3) #15
   store ptr null, ptr %0, align 8
   br label %5
 
@@ -103,10 +103,10 @@ switch.lookup:                                    ; preds = %1
 
 ; Function Attrs: nounwind uwtable
 define void @SUNLogErrHandlerFn(i32 noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, ptr nocapture noundef readnone %5, ptr nocapture noundef readonly %6) local_unnamed_addr #5 {
-  %8 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %2) #17
+  %8 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %2) #16
   %9 = add i64 %8, 6
-  %10 = tail call noalias ptr @malloc(i64 noundef %9) #15
-  %11 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %10, i64 noundef %9, ptr noundef nonnull @.str.30, ptr noundef %2, i32 noundef %0) #16
+  %10 = tail call noalias ptr @malloc(i64 noundef %9) #14
+  %11 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %10, i64 noundef %9, ptr noundef nonnull @.str.30, ptr noundef %2, i32 noundef %0) #15
   %12 = icmp eq ptr %3, null
   br i1 %12, label %13, label %SUNGetErrMsg.exit
 
@@ -125,55 +125,55 @@ SUNGetErrMsg.exit:                                ; preds = %13, %switch.lookup,
   %.0 = phi ptr [ %3, %7 ], [ %switch.load, %switch.lookup ], [ @.str.25, %13 ]
   %16 = getelementptr inbounds i8, ptr %6, i64 16
   %17 = load ptr, ptr %16, align 8
-  %18 = tail call i32 (ptr, i32, ptr, ptr, ptr, ...) @SUNLogger_QueueMsg(ptr noundef %17, i32 noundef 1, ptr noundef %10, ptr noundef %1, ptr noundef nonnull %.0) #16
-  tail call void @free(ptr noundef %10) #16
+  %18 = tail call i32 (ptr, i32, ptr, ptr, ptr, ...) @SUNLogger_QueueMsg(ptr noundef %17, i32 noundef 1, ptr noundef %10, ptr noundef %1, ptr noundef nonnull %.0) #15
+  tail call void @free(ptr noundef %10) #15
   ret void
 }
 
 ; Function Attrs: nofree nounwind uwtable
 define internal fastcc noalias noundef ptr @sunCombineFileAndLine(i32 noundef %0, ptr noundef %1) unnamed_addr #6 {
-  %3 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #17
+  %3 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #16
   %4 = add i64 %3, 6
-  %5 = tail call noalias ptr @malloc(i64 noundef %4) #15
-  %6 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %5, i64 noundef %4, ptr noundef nonnull @.str.30, ptr noundef %1, i32 noundef %0) #16
+  %5 = tail call noalias ptr @malloc(i64 noundef %4) #14
+  %6 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %5, i64 noundef %4, ptr noundef nonnull @.str.30, ptr noundef %1, i32 noundef %0) #15
   ret ptr %5
 }
 
 declare i32 @SUNLogger_QueueMsg(ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, ...) local_unnamed_addr #7
 
-; Function Attrs: cold noreturn nounwind uwtable
+; Function Attrs: noreturn nounwind uwtable
 define void @SUNAbortErrHandlerFn(i32 noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef readnone %3, i32 noundef %4, ptr nocapture noundef readnone %5, ptr nocapture noundef readonly %6) local_unnamed_addr #8 {
   %8 = tail call fastcc ptr @sunCombineFileAndLine(i32 noundef %0, ptr noundef %2)
   %9 = getelementptr inbounds i8, ptr %6, i64 16
   %10 = load ptr, ptr %9, align 8
-  %11 = tail call i32 (ptr, i32, ptr, ptr, ptr, ...) @SUNLogger_QueueMsg(ptr noundef %10, i32 noundef 1, ptr noundef %8, ptr noundef %1, ptr noundef nonnull @.str.26) #16
-  tail call void @free(ptr noundef %8) #16
-  tail call void @abort() #18
+  %11 = tail call i32 (ptr, i32, ptr, ptr, ptr, ...) @SUNLogger_QueueMsg(ptr noundef %10, i32 noundef 1, ptr noundef %8, ptr noundef %1, ptr noundef nonnull @.str.26) #15
+  tail call void @free(ptr noundef %8) #15
+  tail call void @abort() #17
   unreachable
 }
 
 ; Function Attrs: cold nofree noreturn nounwind
 declare void @abort() local_unnamed_addr #9
 
-; Function Attrs: cold nounwind uwtable
-define void @SUNGlobalFallbackErrHandler(i32 noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, ...) local_unnamed_addr #10 {
+; Function Attrs: nounwind uwtable
+define void @SUNGlobalFallbackErrHandler(i32 noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, ...) local_unnamed_addr #5 {
   %6 = alloca [1 x %struct.__va_list_tag], align 16
   %7 = alloca ptr, align 8
   store ptr null, ptr %7, align 8
   call void @llvm.va_start.p0(ptr nonnull %6)
-  %8 = call noalias dereferenceable_or_null(131) ptr @malloc(i64 noundef 131) #15
-  %9 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %8, i64 noundef 131, ptr noundef nonnull @.str.30, ptr noundef nonnull @.str.27, i32 noundef 95) #16
-  call void @sunCreateLogMessage(i32 noundef 1, i32 noundef 0, ptr noundef %8, ptr noundef nonnull @__func__.SUNGlobalFallbackErrHandler, ptr noundef nonnull @.str.28, ptr noundef nonnull %6, ptr noundef nonnull %7) #16
+  %8 = call noalias dereferenceable_or_null(131) ptr @malloc(i64 noundef 131) #14
+  %9 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %8, i64 noundef 131, ptr noundef nonnull @.str.30, ptr noundef nonnull @.str.27, i32 noundef 95) #15
+  call void @sunCreateLogMessage(i32 noundef 1, i32 noundef 0, ptr noundef %8, ptr noundef nonnull @__func__.SUNGlobalFallbackErrHandler, ptr noundef nonnull @.str.28, ptr noundef nonnull %6, ptr noundef nonnull %7) #15
   %10 = load ptr, ptr @stderr, align 8
   %11 = load ptr, ptr %7, align 8
-  %fputs = call i32 @fputs(ptr %11, ptr %10) #19
+  %fputs = call i32 @fputs(ptr %11, ptr %10) #18
   %12 = load ptr, ptr %7, align 8
-  call void @free(ptr noundef %12) #16
-  call void @free(ptr noundef %8) #16
-  %13 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %2) #17
+  call void @free(ptr noundef %12) #15
+  call void @free(ptr noundef %8) #15
+  %13 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %2) #16
   %14 = add i64 %13, 6
-  %15 = call noalias ptr @malloc(i64 noundef %14) #15
-  %16 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %15, i64 noundef %14, ptr noundef nonnull @.str.30, ptr noundef %2, i32 noundef %0) #16
+  %15 = call noalias ptr @malloc(i64 noundef %14) #14
+  %16 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %15, i64 noundef %14, ptr noundef nonnull @.str.30, ptr noundef %2, i32 noundef %0) #15
   %17 = icmp eq ptr %3, null
   br i1 %17, label %18, label %SUNGetErrMsg.exit
 
@@ -190,13 +190,13 @@ switch.lookup:                                    ; preds = %18
 
 SUNGetErrMsg.exit:                                ; preds = %18, %switch.lookup, %5
   %.0 = phi ptr [ %3, %5 ], [ %switch.load, %switch.lookup ], [ @.str.25, %18 ]
-  call void @sunCreateLogMessage(i32 noundef 1, i32 noundef 0, ptr noundef %15, ptr noundef %1, ptr noundef nonnull %.0, ptr noundef nonnull %6, ptr noundef nonnull %7) #16
+  call void @sunCreateLogMessage(i32 noundef 1, i32 noundef 0, ptr noundef %15, ptr noundef %1, ptr noundef nonnull %.0, ptr noundef nonnull %6, ptr noundef nonnull %7) #15
   %21 = load ptr, ptr @stderr, align 8
   %22 = load ptr, ptr %7, align 8
-  %fputs10 = call i32 @fputs(ptr %22, ptr %21) #19
+  %fputs10 = call i32 @fputs(ptr %22, ptr %21) #18
   %23 = load ptr, ptr %7, align 8
-  call void @free(ptr noundef %23) #16
-  call void @free(ptr noundef %15) #16
+  call void @free(ptr noundef %23) #15
+  call void @free(ptr noundef %15) #15
   call void @llvm.va_end.p0(ptr nonnull %6)
   ret void
 }
@@ -204,19 +204,19 @@ SUNGetErrMsg.exit:                                ; preds = %18, %switch.lookup,
 declare void @sunCreateLogMessage(i32 noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #7
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #11
+declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #10
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @snprintf(ptr noalias nocapture noundef writeonly, i64 noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #12
+declare noundef i32 @snprintf(ptr noalias nocapture noundef writeonly, i64 noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #11
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_start.p0(ptr) #13
+declare void @llvm.va_start.p0(ptr) #12
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_end.p0(ptr) #13
+declare void @llvm.va_end.p0(ptr) #12
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fputs(ptr nocapture noundef readonly, ptr nocapture noundef) local_unnamed_addr #14
+declare noundef i32 @fputs(ptr nocapture noundef readonly, ptr nocapture noundef) local_unnamed_addr #13
 
 attributes #0 = { mustprogress nofree nounwind willreturn memory(write, inaccessiblemem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -226,18 +226,17 @@ attributes #4 = { mustprogress nofree norecurse nosync nounwind willreturn memor
 attributes #5 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #6 = { nofree nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #7 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #8 = { cold noreturn nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #8 = { noreturn nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #9 = { cold nofree noreturn nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #10 = { cold nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #11 = { mustprogress nofree nounwind willreturn memory(argmem: read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #12 = { nofree nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #13 = { mustprogress nocallback nofree nosync nounwind willreturn }
-attributes #14 = { nofree nounwind }
-attributes #15 = { nounwind allocsize(0) }
-attributes #16 = { nounwind }
-attributes #17 = { nounwind willreturn memory(read) }
-attributes #18 = { noreturn nounwind }
-attributes #19 = { cold }
+attributes #10 = { mustprogress nofree nounwind willreturn memory(argmem: read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #11 = { nofree nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #12 = { mustprogress nocallback nofree nosync nounwind willreturn }
+attributes #13 = { nofree nounwind }
+attributes #14 = { nounwind allocsize(0) }
+attributes #15 = { nounwind }
+attributes #16 = { nounwind willreturn memory(read) }
+attributes #17 = { noreturn nounwind }
+attributes #18 = { cold }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

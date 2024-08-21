@@ -834,7 +834,7 @@ declare i32 @errmsg(ptr noundef, ...) local_unnamed_addr #1
 
 declare i32 @errdetail(ptr noundef, ...) local_unnamed_addr #1
 
-; Function Attrs: cold noreturn nounwind uwtable
+; Function Attrs: noreturn nounwind uwtable
 define dso_local void @MemoryContextSizeFailure(ptr nocapture noundef readnone %0, i64 noundef %1, i32 noundef %2) local_unnamed_addr #9 {
   %4 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #17
   tail call void @llvm.assume(i1 %4)
@@ -1327,7 +1327,7 @@ define dso_local ptr @pchomp(ptr nocapture noundef readonly %0) local_unnamed_ad
   ret ptr %14
 }
 
-; Function Attrs: cold noreturn nounwind uwtable
+; Function Attrs: noreturn nounwind uwtable
 define internal void @BogusFree(ptr noundef %0) #9 {
   %2 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #17
   tail call void @llvm.assume(i1 %2)
@@ -1338,7 +1338,7 @@ define internal void @BogusFree(ptr noundef %0) #9 {
   unreachable
 }
 
-; Function Attrs: cold noreturn nounwind uwtable
+; Function Attrs: noreturn nounwind uwtable
 define internal noalias noundef nonnull ptr @BogusRealloc(ptr noundef %0, i64 %1, i32 %2) #9 {
   %4 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #17
   tail call void @llvm.assume(i1 %4)
@@ -1349,7 +1349,7 @@ define internal noalias noundef nonnull ptr @BogusRealloc(ptr noundef %0, i64 %1
   unreachable
 }
 
-; Function Attrs: cold noreturn nounwind uwtable
+; Function Attrs: noreturn nounwind uwtable
 define internal noalias noundef nonnull ptr @BogusGetChunkContext(ptr noundef %0) #9 {
   %2 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #17
   tail call void @llvm.assume(i1 %2)
@@ -1360,7 +1360,7 @@ define internal noalias noundef nonnull ptr @BogusGetChunkContext(ptr noundef %0
   unreachable
 }
 
-; Function Attrs: cold noreturn nounwind uwtable
+; Function Attrs: noreturn nounwind uwtable
 define internal noundef i64 @BogusGetChunkSpace(ptr noundef %0) #9 {
   %2 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #17
   tail call void @llvm.assume(i1 %2)
@@ -1565,7 +1565,7 @@ attributes #5 = { mustprogress nofree norecurse nosync nounwind willreturn memor
 attributes #6 = { nofree nosync nounwind memory(read, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #7 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
 attributes #8 = { cold "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #9 = { cold noreturn nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #9 = { noreturn nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #10 = { nofree norecurse nounwind memory(readwrite, argmem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #11 = { mustprogress nofree nounwind willreturn memory(argmem: read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #12 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }

@@ -80,10 +80,10 @@ define dso_local i32 @intel_backlight_invert_pwm_level(ptr nocapture noundef rea
   br i1 %6, label %7, label %19, !prof !5
 
 7:                                                ; preds = %2
-  tail call void asm sideeffect "907: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 907b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 907) #10, !srcloc !6
+  tail call void asm sideeffect "907: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 907b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 907) #9, !srcloc !6
   %8 = getelementptr inbounds i8, ptr %3, i64 8
   %9 = load ptr, ptr %8, align 8
-  %10 = tail call ptr @dev_driver_string(ptr noundef %9) #10
+  %10 = tail call ptr @dev_driver_string(ptr noundef %9) #9
   %11 = load ptr, ptr %8, align 8
   %12 = getelementptr inbounds i8, ptr %11, i64 80
   %13 = load ptr, ptr %12, align 8
@@ -96,11 +96,11 @@ define dso_local i32 @intel_backlight_invert_pwm_level(ptr nocapture noundef rea
 
 17:                                               ; preds = %15, %7
   %18 = phi ptr [ %16, %15 ], [ %13, %7 ]
-  tail call void (ptr, ...) @__warn_printk(ptr noundef nonnull @.str, ptr noundef %10, ptr noundef %18, ptr noundef nonnull @.str.1) #10
-  tail call void asm sideeffect "908: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 908b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 908) #10, !srcloc !7
-  tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.2, i32 89, i32 2313, i64 12) #10, !srcloc !8
-  tail call void asm sideeffect "909: nop\0A\09.pushsection .discard.instr_end\0A\09.long 909b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 909) #10, !srcloc !9
-  tail call void asm sideeffect "910: nop\0A\09.pushsection .discard.instr_end\0A\09.long 910b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 910) #10, !srcloc !10
+  tail call void (ptr, ...) @__warn_printk(ptr noundef nonnull @.str, ptr noundef %10, ptr noundef %18, ptr noundef nonnull @.str.1) #9
+  tail call void asm sideeffect "908: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 908b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 908) #9, !srcloc !7
+  tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.2, i32 89, i32 2313, i64 12) #9, !srcloc !8
+  tail call void asm sideeffect "909: nop\0A\09.pushsection .discard.instr_end\0A\09.long 909b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 909) #9, !srcloc !9
+  tail call void asm sideeffect "910: nop\0A\09.pushsection .discard.instr_end\0A\09.long 910b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 910) #9, !srcloc !10
   br label %19
 
 19:                                               ; preds = %17, %2
@@ -114,7 +114,7 @@ define dso_local i32 @intel_backlight_invert_pwm_level(ptr nocapture noundef rea
   br i1 %24, label %25, label %27
 
 25:                                               ; preds = %23
-  %26 = tail call zeroext i1 @intel_has_quirk(ptr noundef %3, i32 noundef 3) #10
+  %26 = tail call zeroext i1 @intel_has_quirk(ptr noundef %3, i32 noundef 3) #9
   br i1 %26, label %27, label %33
 
 27:                                               ; preds = %25, %23
@@ -163,12 +163,12 @@ define dso_local void @intel_backlight_set_pwm_level(ptr noundef %0, i32 noundef
   %12 = load i32, ptr %11, align 8
   %13 = getelementptr inbounds i8, ptr %3, i64 96
   %14 = load ptr, ptr %13, align 8
-  tail call void (ptr, ptr, i32, ptr, ...) @__drm_dev_dbg(ptr noundef null, ptr noundef %10, i32 noundef 2, ptr noundef nonnull @.str.3, i32 noundef %12, ptr noundef %14, i32 noundef %1) #10
+  tail call void (ptr, ptr, i32, ptr, ...) @__drm_dev_dbg(ptr noundef null, ptr noundef %10, i32 noundef 2, ptr noundef nonnull @.str.3, i32 noundef %12, ptr noundef %14, i32 noundef %1) #9
   %15 = getelementptr inbounds i8, ptr %3, i64 2112
   %16 = load ptr, ptr %15, align 8
   %17 = getelementptr inbounds i8, ptr %16, i64 16
   %18 = load ptr, ptr %17, align 8
-  tail call void %18(ptr noundef %0, i32 noundef %1) #10
+  tail call void %18(ptr noundef %0, i32 noundef %1) #9
   ret void
 }
 
@@ -197,10 +197,10 @@ define dso_local i32 @intel_backlight_level_to_pwm(ptr nocapture noundef readonl
 
 15:                                               ; preds = %11
   store i1 true, ptr @intel_backlight_level_to_pwm.__already_done, align 1
-  tail call void asm sideeffect "911: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 911b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 911) #10, !srcloc !12
+  tail call void asm sideeffect "911: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 911b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 911) #9, !srcloc !12
   %16 = getelementptr inbounds i8, ptr %3, i64 8
   %17 = load ptr, ptr %16, align 8
-  %18 = tail call ptr @dev_driver_string(ptr noundef %17) #10
+  %18 = tail call ptr @dev_driver_string(ptr noundef %17) #9
   %19 = load ptr, ptr %16, align 8
   %20 = getelementptr inbounds i8, ptr %19, i64 80
   %21 = load ptr, ptr %20, align 8
@@ -213,11 +213,11 @@ define dso_local i32 @intel_backlight_level_to_pwm(ptr nocapture noundef readonl
 
 25:                                               ; preds = %23, %15
   %26 = phi ptr [ %24, %23 ], [ %21, %15 ]
-  tail call void (ptr, ...) @__warn_printk(ptr noundef nonnull @.str, ptr noundef %18, ptr noundef %26, ptr noundef nonnull @.str.4) #10
-  tail call void asm sideeffect "912: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 912b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 912) #10, !srcloc !13
-  tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.2, i32 119, i32 2313, i64 12) #10, !srcloc !14
-  tail call void asm sideeffect "913: nop\0A\09.pushsection .discard.instr_end\0A\09.long 913b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 913) #10, !srcloc !15
-  tail call void asm sideeffect "914: nop\0A\09.pushsection .discard.instr_end\0A\09.long 914b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 914) #10, !srcloc !16
+  tail call void (ptr, ...) @__warn_printk(ptr noundef nonnull @.str, ptr noundef %18, ptr noundef %26, ptr noundef nonnull @.str.4) #9
+  tail call void asm sideeffect "912: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 912b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 912) #9, !srcloc !13
+  tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.2, i32 119, i32 2313, i64 12) #9, !srcloc !14
+  tail call void asm sideeffect "913: nop\0A\09.pushsection .discard.instr_end\0A\09.long 913b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 913) #9, !srcloc !15
+  tail call void asm sideeffect "914: nop\0A\09.pushsection .discard.instr_end\0A\09.long 914b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 914) #9, !srcloc !16
   %.pre = load i32, ptr %4, align 4
   br label %27
 
@@ -233,9 +233,9 @@ define dso_local i32 @intel_backlight_level_to_pwm(ptr nocapture noundef readonl
   br i1 %35, label %36, label %37, !prof !5
 
 36:                                               ; preds = %27
-  tail call void asm sideeffect "897: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 897b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 897) #10, !srcloc !17
-  tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.2, i32 43, i32 2305, i64 12) #10, !srcloc !18
-  tail call void asm sideeffect "898: nop\0A\09.pushsection .discard.instr_end\0A\09.long 898b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 898) #10, !srcloc !19
+  tail call void asm sideeffect "897: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 897b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 897) #9, !srcloc !17
+  tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.2, i32 43, i32 2305, i64 12) #9, !srcloc !18
+  tail call void asm sideeffect "898: nop\0A\09.pushsection .discard.instr_end\0A\09.long 898b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 898) #9, !srcloc !19
   br label %37
 
 37:                                               ; preds = %36, %27
@@ -243,9 +243,9 @@ define dso_local i32 @intel_backlight_level_to_pwm(ptr nocapture noundef readonl
   br i1 %38, label %39, label %40, !prof !5
 
 39:                                               ; preds = %37
-  tail call void asm sideeffect "899: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 899b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 899) #10, !srcloc !20
-  tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.2, i32 44, i32 2305, i64 12) #10, !srcloc !21
-  tail call void asm sideeffect "900: nop\0A\09.pushsection .discard.instr_end\0A\09.long 900b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 900) #10, !srcloc !22
+  tail call void asm sideeffect "899: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 899b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 899) #9, !srcloc !20
+  tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.2, i32 44, i32 2305, i64 12) #9, !srcloc !21
+  tail call void asm sideeffect "900: nop\0A\09.pushsection .discard.instr_end\0A\09.long 900b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 900) #9, !srcloc !22
   br label %40
 
 40:                                               ; preds = %39, %37
@@ -291,10 +291,10 @@ define dso_local i32 @intel_backlight_level_from_pwm(ptr nocapture noundef reado
 
 15:                                               ; preds = %11
   store i1 true, ptr @intel_backlight_level_from_pwm.__already_done, align 1
-  tail call void asm sideeffect "915: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 915b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 915) #10, !srcloc !23
+  tail call void asm sideeffect "915: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 915b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 915) #9, !srcloc !23
   %16 = getelementptr inbounds i8, ptr %3, i64 8
   %17 = load ptr, ptr %16, align 8
-  %18 = tail call ptr @dev_driver_string(ptr noundef %17) #10
+  %18 = tail call ptr @dev_driver_string(ptr noundef %17) #9
   %19 = load ptr, ptr %16, align 8
   %20 = getelementptr inbounds i8, ptr %19, i64 80
   %21 = load ptr, ptr %20, align 8
@@ -307,11 +307,11 @@ define dso_local i32 @intel_backlight_level_from_pwm(ptr nocapture noundef reado
 
 25:                                               ; preds = %23, %15
   %26 = phi ptr [ %24, %23 ], [ %21, %15 ]
-  tail call void (ptr, ...) @__warn_printk(ptr noundef nonnull @.str, ptr noundef %18, ptr noundef %26, ptr noundef nonnull @.str.4) #10
-  tail call void asm sideeffect "916: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 916b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 916) #10, !srcloc !24
-  tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.2, i32 133, i32 2313, i64 12) #10, !srcloc !25
-  tail call void asm sideeffect "917: nop\0A\09.pushsection .discard.instr_end\0A\09.long 917b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 917) #10, !srcloc !26
-  tail call void asm sideeffect "918: nop\0A\09.pushsection .discard.instr_end\0A\09.long 918b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 918) #10, !srcloc !27
+  tail call void (ptr, ...) @__warn_printk(ptr noundef nonnull @.str, ptr noundef %18, ptr noundef %26, ptr noundef nonnull @.str.4) #9
+  tail call void asm sideeffect "916: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 916b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 916) #9, !srcloc !24
+  tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.2, i32 133, i32 2313, i64 12) #9, !srcloc !25
+  tail call void asm sideeffect "917: nop\0A\09.pushsection .discard.instr_end\0A\09.long 917b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 917) #9, !srcloc !26
+  tail call void asm sideeffect "918: nop\0A\09.pushsection .discard.instr_end\0A\09.long 918b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 918) #9, !srcloc !27
   br label %27
 
 27:                                               ; preds = %25, %11
@@ -325,7 +325,7 @@ define dso_local i32 @intel_backlight_level_from_pwm(ptr nocapture noundef reado
   br i1 %32, label %33, label %42
 
 33:                                               ; preds = %31
-  %34 = tail call zeroext i1 @intel_has_quirk(ptr noundef %3, i32 noundef 3) #10
+  %34 = tail call zeroext i1 @intel_has_quirk(ptr noundef %3, i32 noundef 3) #9
   br i1 %34, label %35, label %42
 
 35:                                               ; preds = %33, %27
@@ -350,9 +350,9 @@ define dso_local i32 @intel_backlight_level_from_pwm(ptr nocapture noundef reado
   br i1 %51, label %52, label %53, !prof !5
 
 52:                                               ; preds = %42
-  tail call void asm sideeffect "897: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 897b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 897) #10, !srcloc !17
-  tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.2, i32 43, i32 2305, i64 12) #10, !srcloc !18
-  tail call void asm sideeffect "898: nop\0A\09.pushsection .discard.instr_end\0A\09.long 898b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 898) #10, !srcloc !19
+  tail call void asm sideeffect "897: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 897b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 897) #9, !srcloc !17
+  tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.2, i32 43, i32 2305, i64 12) #9, !srcloc !18
+  tail call void asm sideeffect "898: nop\0A\09.pushsection .discard.instr_end\0A\09.long 898b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 898) #9, !srcloc !19
   br label %53
 
 53:                                               ; preds = %52, %42
@@ -360,9 +360,9 @@ define dso_local i32 @intel_backlight_level_from_pwm(ptr nocapture noundef reado
   br i1 %54, label %55, label %56, !prof !5
 
 55:                                               ; preds = %53
-  tail call void asm sideeffect "899: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 899b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 899) #10, !srcloc !20
-  tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.2, i32 44, i32 2305, i64 12) #10, !srcloc !21
-  tail call void asm sideeffect "900: nop\0A\09.pushsection .discard.instr_end\0A\09.long 900b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 900) #10, !srcloc !22
+  tail call void asm sideeffect "899: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 899b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 899) #9, !srcloc !20
+  tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.2, i32 44, i32 2305, i64 12) #9, !srcloc !21
+  tail call void asm sideeffect "900: nop\0A\09.pushsection .discard.instr_end\0A\09.long 900b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 900) #9, !srcloc !22
   br label %56
 
 56:                                               ; preds = %55, %53
@@ -402,17 +402,17 @@ define dso_local void @intel_backlight_set_acpi(ptr noundef %0, i32 noundef %1, 
 
 13:                                               ; preds = %9
   %14 = getelementptr inbounds i8, ptr %5, i64 1616
-  tail call void @mutex_lock(ptr noundef %14) #10
+  tail call void @mutex_lock(ptr noundef %14) #9
   %15 = getelementptr inbounds i8, ptr %4, i64 2036
   %16 = load i32, ptr %15, align 4
   %17 = icmp eq i32 %16, 0
   br i1 %17, label %18, label %30, !prof !5
 
 18:                                               ; preds = %13
-  tail call void asm sideeffect "927: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 927b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 927) #10, !srcloc !30
+  tail call void asm sideeffect "927: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 927b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 927) #9, !srcloc !30
   %19 = getelementptr inbounds i8, ptr %5, i64 8
   %20 = load ptr, ptr %19, align 8
-  %21 = tail call ptr @dev_driver_string(ptr noundef %20) #10
+  %21 = tail call ptr @dev_driver_string(ptr noundef %20) #9
   %22 = load ptr, ptr %19, align 8
   %23 = getelementptr inbounds i8, ptr %22, i64 80
   %24 = load ptr, ptr %23, align 8
@@ -425,11 +425,11 @@ define dso_local void @intel_backlight_set_acpi(ptr noundef %0, i32 noundef %1, 
 
 28:                                               ; preds = %26, %18
   %29 = phi ptr [ %27, %26 ], [ %24, %18 ]
-  tail call void (ptr, ...) @__warn_printk(ptr noundef nonnull @.str, ptr noundef %21, ptr noundef %29, ptr noundef nonnull @.str.5) #10
-  tail call void asm sideeffect "928: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 928b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 928) #10, !srcloc !31
-  tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.2, i32 316, i32 2313, i64 12) #10, !srcloc !32
-  tail call void asm sideeffect "929: nop\0A\09.pushsection .discard.instr_end\0A\09.long 929b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 929) #10, !srcloc !33
-  tail call void asm sideeffect "930: nop\0A\09.pushsection .discard.instr_end\0A\09.long 930b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 930) #10, !srcloc !34
+  tail call void (ptr, ...) @__warn_printk(ptr noundef nonnull @.str, ptr noundef %21, ptr noundef %29, ptr noundef nonnull @.str.5) #9
+  tail call void asm sideeffect "928: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 928b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 928) #9, !srcloc !31
+  tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.2, i32 316, i32 2313, i64 12) #9, !srcloc !32
+  tail call void asm sideeffect "929: nop\0A\09.pushsection .discard.instr_end\0A\09.long 929b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 929) #9, !srcloc !33
+  tail call void asm sideeffect "930: nop\0A\09.pushsection .discard.instr_end\0A\09.long 930b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 930) #9, !srcloc !34
   %.pre = load i32, ptr %15, align 4
   br label %30
 
@@ -472,9 +472,9 @@ define dso_local void @intel_backlight_set_acpi(ptr noundef %0, i32 noundef %1, 
   br i1 %58, label %59, label %60, !prof !5
 
 59:                                               ; preds = %53
-  tail call void asm sideeffect "897: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 897b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 897) #10, !srcloc !17
-  tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.2, i32 43, i32 2305, i64 12) #10, !srcloc !18
-  tail call void asm sideeffect "898: nop\0A\09.pushsection .discard.instr_end\0A\09.long 898b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 898) #10, !srcloc !19
+  tail call void asm sideeffect "897: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 897b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 897) #9, !srcloc !17
+  tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.2, i32 43, i32 2305, i64 12) #9, !srcloc !18
+  tail call void asm sideeffect "898: nop\0A\09.pushsection .discard.instr_end\0A\09.long 898b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 898) #9, !srcloc !19
   %.pre5 = load ptr, ptr %50, align 8
   br label %60
 
@@ -520,16 +520,16 @@ define dso_local void @intel_backlight_set_acpi(ptr noundef %0, i32 noundef %1, 
   %90 = load i32, ptr %89, align 8
   %91 = getelementptr inbounds i8, ptr %81, i64 96
   %92 = load ptr, ptr %91, align 8
-  tail call void (ptr, ptr, i32, ptr, ...) @__drm_dev_dbg(ptr noundef null, ptr noundef %88, i32 noundef 2, ptr noundef nonnull @.str.18, i32 noundef %90, ptr noundef %92, i32 noundef %48) #10
+  tail call void (ptr, ptr, i32, ptr, ...) @__drm_dev_dbg(ptr noundef null, ptr noundef %88, i32 noundef 2, ptr noundef nonnull @.str.18, i32 noundef %90, ptr noundef %92, i32 noundef %48) #9
   %93 = getelementptr inbounds i8, ptr %81, i64 2104
   %94 = load ptr, ptr %93, align 8
   %95 = getelementptr inbounds i8, ptr %94, i64 16
   %96 = load ptr, ptr %95, align 8
-  tail call void %96(ptr noundef %0, i32 noundef %48) #10
+  tail call void %96(ptr noundef %0, i32 noundef %48) #9
   br label %97
 
 97:                                               ; preds = %87, %76
-  tail call void @mutex_unlock(ptr noundef %14) #10
+  tail call void @mutex_unlock(ptr noundef %14) #9
   br label %98
 
 98:                                               ; preds = %97, %9, %3
@@ -572,12 +572,12 @@ define dso_local void @intel_backlight_disable(ptr noundef %0) local_unnamed_add
   %19 = load i32, ptr %18, align 8
   %20 = getelementptr inbounds i8, ptr %2, i64 96
   %21 = load ptr, ptr %20, align 8
-  tail call void (ptr, ptr, i32, ptr, ...) @__drm_dev_dbg(ptr noundef null, ptr noundef %17, i32 noundef 2, ptr noundef nonnull @.str.6, i32 noundef %19, ptr noundef %21) #10
+  tail call void (ptr, ptr, i32, ptr, ...) @__drm_dev_dbg(ptr noundef null, ptr noundef %17, i32 noundef 2, ptr noundef nonnull @.str.6, i32 noundef %19, ptr noundef %21) #9
   br label %35
 
 22:                                               ; preds = %7
   %23 = getelementptr inbounds i8, ptr %3, i64 1616
-  tail call void @mutex_lock(ptr noundef %23) #10
+  tail call void @mutex_lock(ptr noundef %23) #9
   %24 = getelementptr inbounds i8, ptr %2, i64 2096
   %25 = load ptr, ptr %24, align 8
   %26 = icmp eq ptr %25, null
@@ -595,8 +595,8 @@ define dso_local void @intel_backlight_disable(ptr noundef %0) local_unnamed_add
   %32 = load ptr, ptr %31, align 8
   %33 = getelementptr inbounds i8, ptr %32, i64 24
   %34 = load ptr, ptr %33, align 8
-  tail call void %34(ptr noundef %0, i32 noundef 0) #10
-  tail call void @mutex_unlock(ptr noundef %23) #10
+  tail call void %34(ptr noundef %0, i32 noundef 0) #9
+  tail call void @mutex_unlock(ptr noundef %23) #9
   br label %35
 
 35:                                               ; preds = %29, %16, %1
@@ -627,9 +627,9 @@ define dso_local void @intel_backlight_enable(ptr noundef %0, ptr noundef %1) lo
 16:                                               ; preds = %13, %11
   %17 = phi ptr [ %15, %13 ], [ null, %11 ]
   %18 = add i32 %7, 65
-  tail call void (ptr, ptr, i32, ptr, ...) @__drm_dev_dbg(ptr noundef null, ptr noundef %17, i32 noundef 2, ptr noundef nonnull @.str.7, i32 noundef %18) #10
+  tail call void (ptr, ptr, i32, ptr, ...) @__drm_dev_dbg(ptr noundef null, ptr noundef %17, i32 noundef 2, ptr noundef nonnull @.str.7, i32 noundef %18) #9
   %19 = getelementptr inbounds i8, ptr %4, i64 1616
-  tail call void @mutex_lock(ptr noundef %19) #10
+  tail call void @mutex_lock(ptr noundef %19) #9
   %20 = load ptr, ptr %1, align 8
   %21 = getelementptr inbounds i8, ptr %20, i64 2036
   %22 = load i32, ptr %21, align 4
@@ -637,9 +637,9 @@ define dso_local void @intel_backlight_enable(ptr noundef %0, ptr noundef %1) lo
   br i1 %23, label %24, label %25, !prof !5
 
 24:                                               ; preds = %16
-  tail call void asm sideeffect "931: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 931b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 931) #10, !srcloc !35
-  tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.2, i32 762, i32 2305, i64 12) #10, !srcloc !36
-  tail call void asm sideeffect "932: nop\0A\09.pushsection .discard.instr_end\0A\09.long 932b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 932) #10, !srcloc !37
+  tail call void asm sideeffect "931: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 931b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 931) #9, !srcloc !35
+  tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.2, i32 762, i32 2305, i64 12) #9, !srcloc !36
+  tail call void asm sideeffect "932: nop\0A\09.pushsection .discard.instr_end\0A\09.long 932b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 932) #9, !srcloc !37
   br label %25
 
 25:                                               ; preds = %24, %16
@@ -665,9 +665,9 @@ define dso_local void @intel_backlight_enable(ptr noundef %0, ptr noundef %1) lo
   br i1 %39, label %40, label %41, !prof !5
 
 40:                                               ; preds = %36
-  tail call void asm sideeffect "897: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 897b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 897) #10, !srcloc !17
-  tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.2, i32 43, i32 2305, i64 12) #10, !srcloc !18
-  tail call void asm sideeffect "898: nop\0A\09.pushsection .discard.instr_end\0A\09.long 898b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 898) #10, !srcloc !19
+  tail call void asm sideeffect "897: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 897b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 897) #9, !srcloc !17
+  tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.2, i32 43, i32 2305, i64 12) #9, !srcloc !18
+  tail call void asm sideeffect "898: nop\0A\09.pushsection .discard.instr_end\0A\09.long 898b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 898) #9, !srcloc !19
   %.pre.i = load ptr, ptr %33, align 8
   br label %41
 
@@ -692,7 +692,7 @@ define dso_local void @intel_backlight_enable(ptr noundef %0, ptr noundef %1) lo
   %55 = load ptr, ptr %54, align 8
   %56 = getelementptr inbounds i8, ptr %55, i64 32
   %57 = load ptr, ptr %56, align 8
-  tail call void %57(ptr noundef %0, ptr noundef %1, i32 noundef %53) #10
+  tail call void %57(ptr noundef %0, ptr noundef %1, i32 noundef %53) #9
   %58 = getelementptr inbounds i8, ptr %20, i64 2040
   store i8 1, ptr %58, align 8
   %59 = getelementptr inbounds i8, ptr %20, i64 2096
@@ -706,7 +706,7 @@ define dso_local void @intel_backlight_enable(ptr noundef %0, ptr noundef %1) lo
   br label %__intel_backlight_enable.exit
 
 __intel_backlight_enable.exit:                    ; preds = %52, %62
-  tail call void @mutex_unlock(ptr noundef %19) #10
+  tail call void @mutex_unlock(ptr noundef %19) #9
   br label %64
 
 64:                                               ; preds = %__intel_backlight_enable.exit, %2
@@ -717,16 +717,16 @@ __intel_backlight_enable.exit:                    ; preds = %52, %62
 define dso_local noundef i32 @intel_backlight_device_register(ptr noundef %0) local_unnamed_addr #0 align 16 {
   %2 = alloca %struct.backlight_properties, align 4
   %3 = load ptr, ptr %0, align 8
-  call void @llvm.lifetime.start.p0(i64 28, ptr nonnull %2) #10
+  call void @llvm.lifetime.start.p0(i64 28, ptr nonnull %2) #9
   %4 = getelementptr inbounds i8, ptr %0, i64 2096
   %5 = load ptr, ptr %4, align 8
   %6 = icmp eq ptr %5, null
   br i1 %6, label %8, label %7, !prof !11
 
 7:                                                ; preds = %1
-  tail call void asm sideeffect "937: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 937b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 937) #10, !srcloc !38
-  tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.2, i32 922, i32 2305, i64 12) #10, !srcloc !39
-  tail call void asm sideeffect "938: nop\0A\09.pushsection .discard.instr_end\0A\09.long 938b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 938) #10, !srcloc !40
+  tail call void asm sideeffect "937: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 937b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 937) #9, !srcloc !38
+  tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.2, i32 922, i32 2305, i64 12) #9, !srcloc !39
+  tail call void asm sideeffect "938: nop\0A\09.pushsection .discard.instr_end\0A\09.long 938b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 938) #9, !srcloc !40
   br label %104
 
 8:                                                ; preds = %1
@@ -742,13 +742,13 @@ define dso_local noundef i32 @intel_backlight_device_register(ptr noundef %0) lo
   br i1 %15, label %16, label %17, !prof !5
 
 16:                                               ; preds = %12
-  tail call void asm sideeffect "939: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 939b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 939) #10, !srcloc !41
-  tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.2, i32 928, i32 2305, i64 12) #10, !srcloc !42
-  tail call void asm sideeffect "940: nop\0A\09.pushsection .discard.instr_end\0A\09.long 940b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 940) #10, !srcloc !43
+  tail call void asm sideeffect "939: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 939b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 939) #9, !srcloc !41
+  tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.2, i32 928, i32 2305, i64 12) #9, !srcloc !42
+  tail call void asm sideeffect "940: nop\0A\09.pushsection .discard.instr_end\0A\09.long 940b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 940) #9, !srcloc !43
   br label %17
 
 17:                                               ; preds = %16, %12
-  %18 = tail call i32 @__acpi_video_get_backlight_type(i1 noundef zeroext true, ptr noundef null) #10
+  %18 = tail call i32 @__acpi_video_get_backlight_type(i1 noundef zeroext true, ptr noundef null) #9
   %19 = icmp eq i32 %18, 3
   br i1 %19, label %27, label %20
 
@@ -763,7 +763,7 @@ define dso_local noundef i32 @intel_backlight_device_register(ptr noundef %0) lo
 
 25:                                               ; preds = %22, %20
   %26 = phi ptr [ %24, %22 ], [ null, %20 ]
-  tail call void (ptr, ptr, ...) @_dev_info(ptr noundef %26, ptr noundef nonnull @.str.8) #11
+  tail call void (ptr, ptr, ...) @_dev_info(ptr noundef %26, ptr noundef nonnull @.str.8) #10
   br label %104
 
 27:                                               ; preds = %17
@@ -782,9 +782,9 @@ define dso_local noundef i32 @intel_backlight_device_register(ptr noundef %0) lo
   br i1 %36, label %37, label %38, !prof !5
 
 37:                                               ; preds = %27
-  tail call void asm sideeffect "897: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 897b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 897) #10, !srcloc !17
-  tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.2, i32 43, i32 2305, i64 12) #10, !srcloc !18
-  tail call void asm sideeffect "898: nop\0A\09.pushsection .discard.instr_end\0A\09.long 898b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 898) #10, !srcloc !19
+  tail call void asm sideeffect "897: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 897b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 897) #9, !srcloc !17
+  tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.2, i32 43, i32 2305, i64 12) #9, !srcloc !18
+  tail call void asm sideeffect "898: nop\0A\09.pushsection .discard.instr_end\0A\09.long 898b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 898) #9, !srcloc !19
   br label %38
 
 38:                                               ; preds = %37, %27
@@ -809,25 +809,25 @@ define dso_local noundef i32 @intel_backlight_device_register(ptr noundef %0) lo
   %56 = getelementptr inbounds i8, ptr %2, i64 8
   %57 = select i1 %55, i32 4, i32 0
   store i32 %57, ptr %56, align 4
-  %58 = tail call noalias ptr @kstrdup(ptr noundef nonnull @.str.9, i32 noundef 3264) #10
+  %58 = tail call noalias ptr @kstrdup(ptr noundef nonnull @.str.9, i32 noundef 3264) #9
   %59 = icmp eq ptr %58, null
   br i1 %59, label %104, label %60
 
 60:                                               ; preds = %38
-  %61 = tail call ptr @backlight_device_get_by_name(ptr noundef nonnull %58) #10
+  %61 = tail call ptr @backlight_device_get_by_name(ptr noundef nonnull %58) #9
   %62 = icmp eq ptr %61, null
   br i1 %62, label %72, label %63
 
 63:                                               ; preds = %60
   %64 = getelementptr inbounds i8, ptr %61, i64 144
-  tail call void @put_device(ptr noundef %64) #10
-  tail call void @kfree(ptr noundef nonnull %58) #10
+  tail call void @put_device(ptr noundef %64) #9
+  tail call void @kfree(ptr noundef nonnull %58) #9
   %65 = getelementptr inbounds i8, ptr %3, i64 64
   %66 = load ptr, ptr %65, align 8
   %67 = load i32, ptr %66, align 8
   %68 = getelementptr inbounds i8, ptr %0, i64 96
   %69 = load ptr, ptr %68, align 8
-  %70 = tail call noalias ptr (i32, ptr, ...) @kasprintf(i32 noundef 3264, ptr noundef nonnull @.str.10, i32 noundef %67, ptr noundef %69) #10
+  %70 = tail call noalias ptr (i32, ptr, ...) @kasprintf(i32 noundef 3264, ptr noundef nonnull @.str.10, i32 noundef %67, ptr noundef %69) #9
   %71 = icmp eq ptr %70, null
   br i1 %71, label %104, label %72
 
@@ -835,7 +835,7 @@ define dso_local noundef i32 @intel_backlight_device_register(ptr noundef %0) lo
   %73 = phi ptr [ %70, %63 ], [ %58, %60 ]
   %74 = getelementptr inbounds i8, ptr %0, i64 8
   %75 = load ptr, ptr %74, align 8
-  %76 = call ptr @backlight_device_register(ptr noundef nonnull %73, ptr noundef %75, ptr noundef %0, ptr noundef nonnull @intel_backlight_device_ops, ptr noundef nonnull %2) #10
+  %76 = call ptr @backlight_device_register(ptr noundef nonnull %73, ptr noundef %75, ptr noundef %0, ptr noundef nonnull @intel_backlight_device_ops, ptr noundef nonnull %2) #9
   %77 = icmp ugt ptr %76, inttoptr (i64 -4096 to ptr)
   br i1 %77, label %78, label %91
 
@@ -855,7 +855,7 @@ define dso_local noundef i32 @intel_backlight_device_register(ptr noundef %0) lo
   %87 = getelementptr inbounds i8, ptr %0, i64 96
   %88 = load ptr, ptr %87, align 8
   %89 = ptrtoint ptr %76 to i64
-  call void (ptr, ptr, ...) @_dev_err(ptr noundef %84, ptr noundef nonnull @.str.11, i32 noundef %86, ptr noundef %88, ptr noundef nonnull %73, i64 noundef %89) #11
+  call void (ptr, ptr, ...) @_dev_err(ptr noundef %84, ptr noundef nonnull @.str.11, i32 noundef %86, ptr noundef %88, ptr noundef nonnull %73, i64 noundef %89) #10
   %90 = trunc i64 %89 to i32
   br label %102
 
@@ -875,17 +875,17 @@ define dso_local noundef i32 @intel_backlight_device_register(ptr noundef %0) lo
   %99 = load i32, ptr %98, align 8
   %100 = getelementptr inbounds i8, ptr %0, i64 96
   %101 = load ptr, ptr %100, align 8
-  call void (ptr, ptr, i32, ptr, ...) @__drm_dev_dbg(ptr noundef null, ptr noundef %97, i32 noundef 2, ptr noundef nonnull @.str.12, i32 noundef %99, ptr noundef %101, ptr noundef nonnull %73) #10
+  call void (ptr, ptr, i32, ptr, ...) @__drm_dev_dbg(ptr noundef null, ptr noundef %97, i32 noundef 2, ptr noundef nonnull @.str.12, i32 noundef %99, ptr noundef %101, ptr noundef nonnull %73) #9
   br label %102
 
 102:                                              ; preds = %96, %83
   %103 = phi i32 [ %90, %83 ], [ 0, %96 ]
-  call void @kfree(ptr noundef nonnull %73) #10
+  call void @kfree(ptr noundef nonnull %73) #9
   br label %104
 
 104:                                              ; preds = %102, %63, %38, %25, %8, %7
   %105 = phi i32 [ %103, %102 ], [ 0, %25 ], [ -19, %7 ], [ 0, %8 ], [ -12, %38 ], [ -12, %63 ]
-  call void @llvm.lifetime.end.p0(i64 28, ptr nonnull %2) #10
+  call void @llvm.lifetime.end.p0(i64 28, ptr nonnull %2) #9
   ret i32 %105
 }
 
@@ -924,7 +924,7 @@ define dso_local void @intel_backlight_device_unregister(ptr nocapture noundef %
   br i1 %4, label %6, label %5
 
 5:                                                ; preds = %1
-  tail call void @backlight_device_unregister(ptr noundef nonnull %3) #10
+  tail call void @backlight_device_unregister(ptr noundef nonnull %3) #9
   store ptr null, ptr %2, align 8
   br label %6
 
@@ -946,7 +946,7 @@ define dso_local void @intel_backlight_update(ptr nocapture noundef readnone %0,
 9:                                                ; preds = %4
   %10 = load ptr, ptr %5, align 8
   %11 = getelementptr inbounds i8, ptr %10, i64 1616
-  tail call void @mutex_lock(ptr noundef %11) #10
+  tail call void @mutex_lock(ptr noundef %11) #9
   %12 = getelementptr inbounds i8, ptr %5, i64 2040
   %13 = load i8, ptr %12, align 8, !range !28, !noundef !29
   %14 = icmp eq i8 %13, 0
@@ -960,9 +960,9 @@ define dso_local void @intel_backlight_update(ptr nocapture noundef readnone %0,
   br i1 %19, label %20, label %21, !prof !5
 
 20:                                               ; preds = %15
-  tail call void asm sideeffect "931: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 931b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 931) #10, !srcloc !35
-  tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.2, i32 762, i32 2305, i64 12) #10, !srcloc !36
-  tail call void asm sideeffect "932: nop\0A\09.pushsection .discard.instr_end\0A\09.long 932b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 932) #10, !srcloc !37
+  tail call void asm sideeffect "931: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 931b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 931) #9, !srcloc !35
+  tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.2, i32 762, i32 2305, i64 12) #9, !srcloc !36
+  tail call void asm sideeffect "932: nop\0A\09.pushsection .discard.instr_end\0A\09.long 932b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 932) #9, !srcloc !37
   br label %21
 
 21:                                               ; preds = %20, %15
@@ -988,9 +988,9 @@ define dso_local void @intel_backlight_update(ptr nocapture noundef readnone %0,
   br i1 %35, label %36, label %37, !prof !5
 
 36:                                               ; preds = %32
-  tail call void asm sideeffect "897: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 897b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 897) #10, !srcloc !17
-  tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.2, i32 43, i32 2305, i64 12) #10, !srcloc !18
-  tail call void asm sideeffect "898: nop\0A\09.pushsection .discard.instr_end\0A\09.long 898b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 898) #10, !srcloc !19
+  tail call void asm sideeffect "897: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 897b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 897) #9, !srcloc !17
+  tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.2, i32 43, i32 2305, i64 12) #9, !srcloc !18
+  tail call void asm sideeffect "898: nop\0A\09.pushsection .discard.instr_end\0A\09.long 898b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 898) #9, !srcloc !19
   %.pre.i = load ptr, ptr %29, align 8
   br label %37
 
@@ -1015,7 +1015,7 @@ define dso_local void @intel_backlight_update(ptr nocapture noundef readnone %0,
   %51 = load ptr, ptr %50, align 8
   %52 = getelementptr inbounds i8, ptr %51, i64 32
   %53 = load ptr, ptr %52, align 8
-  tail call void %53(ptr noundef %2, ptr noundef %3, i32 noundef %49) #10
+  tail call void %53(ptr noundef %2, ptr noundef %3, i32 noundef %49) #9
   %54 = getelementptr inbounds i8, ptr %16, i64 2040
   store i8 1, ptr %54, align 8
   %55 = getelementptr inbounds i8, ptr %16, i64 2096
@@ -1029,7 +1029,7 @@ define dso_local void @intel_backlight_update(ptr nocapture noundef readnone %0,
   br label %__intel_backlight_enable.exit
 
 __intel_backlight_enable.exit:                    ; preds = %58, %48, %9
-  tail call void @mutex_unlock(ptr noundef %11) #10
+  tail call void @mutex_unlock(ptr noundef %11) #9
   br label %60
 
 60:                                               ; preds = %__intel_backlight_enable.exit, %4
@@ -1045,7 +1045,7 @@ define dso_local i32 @intel_backlight_setup(ptr noundef %0, i32 noundef %1) loca
   br i1 %6, label %7, label %30
 
 7:                                                ; preds = %2
-  %8 = tail call zeroext i1 @intel_has_quirk(ptr noundef %3, i32 noundef 0) #10
+  %8 = tail call zeroext i1 @intel_has_quirk(ptr noundef %3, i32 noundef 0) #9
   %9 = icmp eq ptr %3, null
   br i1 %8, label %10, label %20
 
@@ -1063,7 +1063,7 @@ define dso_local i32 @intel_backlight_setup(ptr noundef %0, i32 noundef %1) loca
   %17 = load i32, ptr %16, align 8
   %18 = getelementptr inbounds i8, ptr %0, i64 96
   %19 = load ptr, ptr %18, align 8
-  tail call void (ptr, ptr, i32, ptr, ...) @__drm_dev_dbg(ptr noundef null, ptr noundef %15, i32 noundef 2, ptr noundef nonnull @.str.13, i32 noundef %17, ptr noundef %19) #10
+  tail call void (ptr, ptr, i32, ptr, ...) @__drm_dev_dbg(ptr noundef null, ptr noundef %15, i32 noundef 2, ptr noundef nonnull @.str.13, i32 noundef %17, ptr noundef %19) #9
   br label %30
 
 20:                                               ; preds = %7
@@ -1080,7 +1080,7 @@ define dso_local i32 @intel_backlight_setup(ptr noundef %0, i32 noundef %1) loca
   %27 = load i32, ptr %26, align 8
   %28 = getelementptr inbounds i8, ptr %0, i64 96
   %29 = load ptr, ptr %28, align 8
-  tail call void (ptr, ptr, i32, ptr, ...) @__drm_dev_dbg(ptr noundef null, ptr noundef %25, i32 noundef 2, ptr noundef nonnull @.str.14, i32 noundef %27, ptr noundef %29) #10
+  tail call void (ptr, ptr, i32, ptr, ...) @__drm_dev_dbg(ptr noundef null, ptr noundef %25, i32 noundef 2, ptr noundef nonnull @.str.14, i32 noundef %27, ptr noundef %29) #9
   br label %83
 
 30:                                               ; preds = %14, %2
@@ -1091,10 +1091,10 @@ define dso_local i32 @intel_backlight_setup(ptr noundef %0, i32 noundef %1) loca
   br i1 %34, label %35, label %47, !prof !5
 
 35:                                               ; preds = %30
-  tail call void asm sideeffect "955: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 955b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 955) #10, !srcloc !44
+  tail call void asm sideeffect "955: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 955b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 955) #9, !srcloc !44
   %36 = getelementptr inbounds i8, ptr %3, i64 8
   %37 = load ptr, ptr %36, align 8
-  %38 = tail call ptr @dev_driver_string(ptr noundef %37) #10
+  %38 = tail call ptr @dev_driver_string(ptr noundef %37) #9
   %39 = load ptr, ptr %36, align 8
   %40 = getelementptr inbounds i8, ptr %39, i64 80
   %41 = load ptr, ptr %40, align 8
@@ -1107,20 +1107,20 @@ define dso_local i32 @intel_backlight_setup(ptr noundef %0, i32 noundef %1) loca
 
 45:                                               ; preds = %43, %35
   %46 = phi ptr [ %44, %43 ], [ %41, %35 ]
-  tail call void (ptr, ...) @__warn_printk(ptr noundef nonnull @.str, ptr noundef %38, ptr noundef %46, ptr noundef nonnull @.str.15) #10
-  tail call void asm sideeffect "956: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 956b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 956) #10, !srcloc !45
-  tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.2, i32 1663, i32 2313, i64 12) #10, !srcloc !46
-  tail call void asm sideeffect "957: nop\0A\09.pushsection .discard.instr_end\0A\09.long 957b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 957) #10, !srcloc !47
-  tail call void asm sideeffect "958: nop\0A\09.pushsection .discard.instr_end\0A\09.long 958b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 958) #10, !srcloc !48
+  tail call void (ptr, ...) @__warn_printk(ptr noundef nonnull @.str, ptr noundef %38, ptr noundef %46, ptr noundef nonnull @.str.15) #9
+  tail call void asm sideeffect "956: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 956b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 956) #9, !srcloc !45
+  tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.2, i32 1663, i32 2313, i64 12) #9, !srcloc !46
+  tail call void asm sideeffect "957: nop\0A\09.pushsection .discard.instr_end\0A\09.long 957b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 957) #9, !srcloc !47
+  tail call void asm sideeffect "958: nop\0A\09.pushsection .discard.instr_end\0A\09.long 958b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 958) #9, !srcloc !48
   br label %83
 
 47:                                               ; preds = %30
   %48 = getelementptr inbounds i8, ptr %3, i64 1616
-  tail call void @mutex_lock(ptr noundef %48) #10
+  tail call void @mutex_lock(ptr noundef %48) #9
   %49 = load ptr, ptr %32, align 8
   %50 = load ptr, ptr %49, align 8
-  %51 = tail call i32 %50(ptr noundef %0, i32 noundef %1) #10
-  tail call void @mutex_unlock(ptr noundef %48) #10
+  %51 = tail call i32 %50(ptr noundef %0, i32 noundef %1) #9
+  tail call void @mutex_unlock(ptr noundef %48) #9
   %52 = icmp eq i32 %51, 0
   br i1 %52, label %64, label %53
 
@@ -1139,7 +1139,7 @@ define dso_local i32 @intel_backlight_setup(ptr noundef %0, i32 noundef %1) loca
   %61 = load i32, ptr %60, align 8
   %62 = getelementptr inbounds i8, ptr %0, i64 96
   %63 = load ptr, ptr %62, align 8
-  tail call void (ptr, ptr, i32, ptr, ...) @__drm_dev_dbg(ptr noundef null, ptr noundef %59, i32 noundef 2, ptr noundef nonnull @.str.16, i32 noundef %61, ptr noundef %63) #10
+  tail call void (ptr, ptr, i32, ptr, ...) @__drm_dev_dbg(ptr noundef null, ptr noundef %59, i32 noundef 2, ptr noundef nonnull @.str.16, i32 noundef %61, ptr noundef %63) #9
   br label %83
 
 64:                                               ; preds = %47
@@ -1166,7 +1166,7 @@ define dso_local i32 @intel_backlight_setup(ptr noundef %0, i32 noundef %1) loca
   %80 = load i32, ptr %79, align 4
   %81 = getelementptr inbounds i8, ptr %0, i64 2036
   %82 = load i32, ptr %81, align 4
-  tail call void (ptr, ptr, i32, ptr, ...) @__drm_dev_dbg(ptr noundef null, ptr noundef %70, i32 noundef 2, ptr noundef nonnull @.str.17, i32 noundef %72, ptr noundef %74, ptr noundef nonnull %78, i32 noundef %80, i32 noundef %82) #10
+  tail call void (ptr, ptr, i32, ptr, ...) @__drm_dev_dbg(ptr noundef null, ptr noundef %70, i32 noundef 2, ptr noundef nonnull @.str.17, i32 noundef %72, ptr noundef %74, ptr noundef nonnull %78, i32 noundef %80, i32 noundef %82) #9
   br label %83
 
 83:                                               ; preds = %69, %58, %45, %24
@@ -1182,7 +1182,7 @@ define dso_local void @intel_backlight_destroy(ptr nocapture noundef %0) local_u
   br i1 %4, label %7, label %5
 
 5:                                                ; preds = %1
-  %6 = tail call i32 @__SCT__might_resched() #10
+  %6 = tail call i32 @__SCT__might_resched() #9
   br label %7
 
 7:                                                ; preds = %5, %1
@@ -1201,7 +1201,7 @@ define dso_local void @intel_backlight_init_funcs(ptr noundef %0) local_unnamed_
   br i1 %6, label %7, label %10
 
 7:                                                ; preds = %1
-  %8 = tail call i32 @intel_dsi_dcs_init_backlight_funcs(ptr noundef %2) #10
+  %8 = tail call i32 @intel_dsi_dcs_init_backlight_funcs(ptr noundef %2) #9
   %9 = icmp eq i32 %8, 0
   br i1 %9, label %62, label %10
 
@@ -1299,12 +1299,12 @@ thread-pre-split:                                 ; preds = %16, %22, %29, %30, 
   br i1 %52, label %53, label %60
 
 53:                                               ; preds = %50
-  %54 = tail call i32 @intel_dp_aux_init_backlight_funcs(ptr noundef %2) #10
+  %54 = tail call i32 @intel_dp_aux_init_backlight_funcs(ptr noundef %2) #9
   %55 = icmp eq i32 %54, 0
   br i1 %55, label %62, label %56
 
 56:                                               ; preds = %53
-  %57 = tail call zeroext i1 @intel_has_quirk(ptr noundef %3, i32 noundef 5) #10
+  %57 = tail call zeroext i1 @intel_has_quirk(ptr noundef %3, i32 noundef 5) #9
   br i1 %57, label %60, label %58
 
 58:                                               ; preds = %56
@@ -1339,7 +1339,7 @@ define internal noundef i32 @intel_backlight_device_update_status(ptr nocapture 
   %3 = load ptr, ptr %2, align 8
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %4, i64 400
-  %6 = tail call i32 @drm_modeset_lock(ptr noundef %5, ptr noundef null) #10
+  %6 = tail call i32 @drm_modeset_lock(ptr noundef %5, ptr noundef null) #9
   %7 = icmp eq ptr %4, null
   br i1 %7, label %11, label %8
 
@@ -1353,7 +1353,7 @@ define internal noundef i32 @intel_backlight_device_update_status(ptr nocapture 
   %13 = load i32, ptr %0, align 8
   %14 = getelementptr inbounds i8, ptr %0, i64 4
   %15 = load i32, ptr %14, align 4
-  tail call void (ptr, ptr, i32, ptr, ...) @__drm_dev_dbg(ptr noundef null, ptr noundef %12, i32 noundef 2, ptr noundef nonnull @.str.19, i32 noundef %13, i32 noundef %15) #10
+  tail call void (ptr, ptr, i32, ptr, ...) @__drm_dev_dbg(ptr noundef null, ptr noundef %12, i32 noundef 2, ptr noundef nonnull @.str.19, i32 noundef %13, i32 noundef %15) #9
   %16 = getelementptr inbounds i8, ptr %3, i64 1904
   %17 = load ptr, ptr %16, align 8
   %18 = load i32, ptr %0, align 8
@@ -1367,17 +1367,17 @@ define internal noundef i32 @intel_backlight_device_update_status(ptr nocapture 
 
 25:                                               ; preds = %11
   %26 = getelementptr inbounds i8, ptr %21, i64 1616
-  tail call void @mutex_lock(ptr noundef %26) #10
+  tail call void @mutex_lock(ptr noundef %26) #9
   %27 = getelementptr inbounds i8, ptr %20, i64 2036
   %28 = load i32, ptr %27, align 4
   %29 = icmp eq i32 %28, 0
   br i1 %29, label %30, label %42, !prof !5
 
 30:                                               ; preds = %25
-  tail call void asm sideeffect "933: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 933b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 933) #10, !srcloc !49
+  tail call void asm sideeffect "933: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 933b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 933) #9, !srcloc !49
   %31 = getelementptr inbounds i8, ptr %21, i64 8
   %32 = load ptr, ptr %31, align 8
-  %33 = tail call ptr @dev_driver_string(ptr noundef %32) #10
+  %33 = tail call ptr @dev_driver_string(ptr noundef %32) #9
   %34 = load ptr, ptr %31, align 8
   %35 = getelementptr inbounds i8, ptr %34, i64 80
   %36 = load ptr, ptr %35, align 8
@@ -1390,11 +1390,11 @@ define internal noundef i32 @intel_backlight_device_update_status(ptr nocapture 
 
 40:                                               ; preds = %38, %30
   %41 = phi ptr [ %39, %38 ], [ %36, %30 ]
-  tail call void (ptr, ...) @__warn_printk(ptr noundef nonnull @.str, ptr noundef %33, ptr noundef %41, ptr noundef nonnull @.str.5) #10
-  tail call void asm sideeffect "934: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 934b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 934) #10, !srcloc !50
-  tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.2, i32 841, i32 2313, i64 12) #10, !srcloc !51
-  tail call void asm sideeffect "935: nop\0A\09.pushsection .discard.instr_end\0A\09.long 935b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 935) #10, !srcloc !52
-  tail call void asm sideeffect "936: nop\0A\09.pushsection .discard.instr_end\0A\09.long 936b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 936) #10, !srcloc !53
+  tail call void (ptr, ...) @__warn_printk(ptr noundef nonnull @.str, ptr noundef %33, ptr noundef %41, ptr noundef nonnull @.str.5) #9
+  tail call void asm sideeffect "934: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 934b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 934) #9, !srcloc !50
+  tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.2, i32 841, i32 2313, i64 12) #9, !srcloc !51
+  tail call void asm sideeffect "935: nop\0A\09.pushsection .discard.instr_end\0A\09.long 935b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 935) #9, !srcloc !52
+  tail call void asm sideeffect "936: nop\0A\09.pushsection .discard.instr_end\0A\09.long 936b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 936) #9, !srcloc !53
   %.pre = load i32, ptr %27, align 4
   br label %42
 
@@ -1406,9 +1406,9 @@ define internal noundef i32 @intel_backlight_device_update_status(ptr nocapture 
   br i1 %46, label %47, label %48, !prof !5
 
 47:                                               ; preds = %42
-  tail call void asm sideeffect "899: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 899b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 899) #10, !srcloc !20
-  tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.2, i32 44, i32 2305, i64 12) #10, !srcloc !21
-  tail call void asm sideeffect "900: nop\0A\09.pushsection .discard.instr_end\0A\09.long 900b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 900) #10, !srcloc !22
+  tail call void asm sideeffect "899: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 899b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 899) #9, !srcloc !20
+  tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.2, i32 44, i32 2305, i64 12) #9, !srcloc !21
+  tail call void asm sideeffect "900: nop\0A\09.pushsection .discard.instr_end\0A\09.long 900b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 900) #9, !srcloc !22
   br label %48
 
 48:                                               ; preds = %47, %42
@@ -1448,16 +1448,16 @@ define internal noundef i32 @intel_backlight_device_update_status(ptr nocapture 
   %75 = load i32, ptr %74, align 8
   %76 = getelementptr inbounds i8, ptr %66, i64 96
   %77 = load ptr, ptr %76, align 8
-  tail call void (ptr, ptr, i32, ptr, ...) @__drm_dev_dbg(ptr noundef null, ptr noundef %73, i32 noundef 2, ptr noundef nonnull @.str.18, i32 noundef %75, ptr noundef %77, i32 noundef %60) #10
+  tail call void (ptr, ptr, i32, ptr, ...) @__drm_dev_dbg(ptr noundef null, ptr noundef %73, i32 noundef 2, ptr noundef nonnull @.str.18, i32 noundef %75, ptr noundef %77, i32 noundef %60) #9
   %78 = getelementptr inbounds i8, ptr %66, i64 2104
   %79 = load ptr, ptr %78, align 8
   %80 = getelementptr inbounds i8, ptr %79, i64 16
   %81 = load ptr, ptr %80, align 8
-  tail call void %81(ptr noundef %17, i32 noundef %60) #10
+  tail call void %81(ptr noundef %17, i32 noundef %60) #9
   br label %82
 
 82:                                               ; preds = %72, %48
-  tail call void @mutex_unlock(ptr noundef %26) #10
+  tail call void @mutex_unlock(ptr noundef %26) #9
   br label %83
 
 83:                                               ; preds = %82, %11
@@ -1485,7 +1485,7 @@ define internal noundef i32 @intel_backlight_device_update_status(ptr nocapture 
 
 98:                                               ; preds = %95, %91
   %99 = phi i1 [ false, %91 ], [ %97, %95 ]
-  tail call void %89(ptr noundef %3, i1 noundef zeroext %99) #10
+  tail call void %89(ptr noundef %3, i1 noundef zeroext %99) #9
   br label %102
 
 100:                                              ; preds = %83
@@ -1494,7 +1494,7 @@ define internal noundef i32 @intel_backlight_device_update_status(ptr nocapture 
   br label %102
 
 102:                                              ; preds = %100, %98, %87
-  tail call void @drm_modeset_unlock(ptr noundef %5) #10
+  tail call void @drm_modeset_unlock(ptr noundef %5) #9
   ret i32 0
 }
 
@@ -1504,7 +1504,7 @@ define internal i32 @intel_backlight_device_get_brightness(ptr nocapture noundef
   %3 = load ptr, ptr %2, align 8
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %4, i64 8928
-  %6 = tail call i64 @intel_runtime_pm_get(ptr noundef %5) #10
+  %6 = tail call i64 @intel_runtime_pm_get(ptr noundef %5) #9
   %7 = icmp eq i64 %6, 0
   br i1 %7, label %54, label %8
 
@@ -1514,10 +1514,10 @@ define internal i32 @intel_backlight_device_get_brightness(ptr nocapture noundef
   %11 = getelementptr inbounds i8, ptr %0, i64 4
   %12 = getelementptr inbounds i8, ptr %3, i64 2032
   %13 = getelementptr inbounds i8, ptr %3, i64 2036
-  %14 = tail call i32 @drm_modeset_lock(ptr noundef %9, ptr noundef null) #10
+  %14 = tail call i32 @drm_modeset_lock(ptr noundef %9, ptr noundef null) #9
   %15 = load ptr, ptr %3, align 8
   %16 = getelementptr inbounds i8, ptr %15, i64 1616
-  tail call void @mutex_lock(ptr noundef %16) #10
+  tail call void @mutex_lock(ptr noundef %16) #9
   %17 = load i8, ptr %10, align 8, !range !28, !noundef !29
   %18 = icmp eq i8 %17, 0
   br i1 %18, label %26, label %19
@@ -1527,13 +1527,13 @@ define internal i32 @intel_backlight_device_get_brightness(ptr nocapture noundef
   %21 = load ptr, ptr %20, align 8
   %22 = getelementptr inbounds i8, ptr %21, i64 8
   %23 = load ptr, ptr %22, align 8
-  %24 = tail call i32 @intel_connector_get_pipe(ptr noundef %3) #10
-  %25 = tail call i32 %23(ptr noundef %3, i32 noundef %24) #10
+  %24 = tail call i32 @intel_connector_get_pipe(ptr noundef %3) #9
+  %25 = tail call i32 %23(ptr noundef %3, i32 noundef %24) #9
   br label %26
 
 26:                                               ; preds = %19, %8
   %27 = phi i32 [ %25, %19 ], [ 0, %8 ]
-  tail call void @mutex_unlock(ptr noundef %16) #10
+  tail call void @mutex_unlock(ptr noundef %16) #9
   %28 = icmp eq ptr %15, null
   br i1 %28, label %32, label %29
 
@@ -1544,7 +1544,7 @@ define internal i32 @intel_backlight_device_get_brightness(ptr nocapture noundef
 
 32:                                               ; preds = %29, %26
   %33 = phi ptr [ %31, %29 ], [ null, %26 ]
-  tail call void (ptr, ptr, i32, ptr, ...) @__drm_dev_dbg(ptr noundef null, ptr noundef %33, i32 noundef 2, ptr noundef nonnull @.str.20, i32 noundef %27) #10
+  tail call void (ptr, ptr, i32, ptr, ...) @__drm_dev_dbg(ptr noundef null, ptr noundef %33, i32 noundef 2, ptr noundef nonnull @.str.20, i32 noundef %27) #9
   %34 = load i32, ptr %11, align 4
   %35 = load i32, ptr %12, align 8
   %36 = load i32, ptr %13, align 4
@@ -1552,14 +1552,14 @@ define internal i32 @intel_backlight_device_get_brightness(ptr nocapture noundef
   br i1 %37, label %38, label %39, !prof !5
 
 38:                                               ; preds = %32
-  tail call void asm sideeffect "897: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 897b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 897) #10, !srcloc !17
-  tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.2, i32 43, i32 2305, i64 12) #10, !srcloc !18
-  tail call void asm sideeffect "898: nop\0A\09.pushsection .discard.instr_end\0A\09.long 898b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 898) #10, !srcloc !19
+  tail call void asm sideeffect "897: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 897b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 897) #9, !srcloc !17
+  tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.2, i32 43, i32 2305, i64 12) #9, !srcloc !18
+  tail call void asm sideeffect "898: nop\0A\09.pushsection .discard.instr_end\0A\09.long 898b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 898) #9, !srcloc !19
   br label %39
 
 39:                                               ; preds = %38, %32
-  tail call void @drm_modeset_unlock(ptr noundef %9) #10
-  tail call void @intel_runtime_pm_put_unchecked(ptr noundef %5) #10
+  tail call void @drm_modeset_unlock(ptr noundef %9) #9
+  tail call void @intel_runtime_pm_put_unchecked(ptr noundef %5) #9
   %40 = icmp ugt i32 %36, %27
   %41 = tail call i32 @llvm.umax.i32(i32 %27, i32 %35)
   %42 = select i1 %40, i32 %41, i32 %36
@@ -1612,14 +1612,14 @@ define internal noundef range(i32 -19, 1) i32 @bxt_setup_backlight(ptr noundef %
   %10 = getelementptr inbounds i8, ptr %3, i64 7368
   %11 = getelementptr inbounds i8, ptr %3, i64 7512
   %12 = load ptr, ptr %11, align 8
-  %13 = tail call i32 %12(ptr noundef %10, i32 %9, i1 noundef zeroext true) #10
+  %13 = tail call i32 %12(ptr noundef %10, i32 %9, i1 noundef zeroext true) #9
   %14 = load i8, ptr %6, align 2
   %15 = icmp eq i8 %14, 1
   br i1 %15, label %16, label %23
 
 16:                                               ; preds = %2
   %17 = load ptr, ptr %11, align 8
-  %18 = tail call i32 %17(ptr noundef %10, i32 295936, i1 noundef zeroext true) #10
+  %18 = tail call i32 %17(ptr noundef %10, i32 295936, i1 noundef zeroext true) #9
   %19 = getelementptr inbounds i8, ptr %0, i64 2053
   %20 = lshr i32 %18, 22
   %21 = trunc i32 %20 to i8
@@ -1639,7 +1639,7 @@ define internal noundef range(i32 -19, 1) i32 @bxt_setup_backlight(ptr noundef %
   %30 = shl nuw nsw i32 %29, 8
   %31 = add nuw nsw i32 %30, 819796
   %32 = load ptr, ptr %11, align 8
-  %33 = tail call i32 %32(ptr noundef %10, i32 %31, i1 noundef zeroext true) #10
+  %33 = tail call i32 %32(ptr noundef %10, i32 %31, i1 noundef zeroext true) #9
   %34 = getelementptr inbounds i8, ptr %0, i64 2048
   store i32 %33, ptr %34, align 8
   %35 = icmp eq i32 %33, 0
@@ -1675,7 +1675,7 @@ define internal noundef range(i32 -19, 1) i32 @bxt_setup_backlight(ptr noundef %
   %53 = load ptr, ptr %52, align 8
   %54 = load i8, ptr %6, align 2
   %55 = zext i8 %54 to i32
-  tail call void (ptr, ptr, i32, ptr, ...) @__drm_dev_dbg(ptr noundef null, ptr noundef %49, i32 noundef 2, ptr noundef nonnull @.str.23, i32 noundef %51, ptr noundef %53, i32 noundef %55) #10
+  tail call void (ptr, ptr, i32, ptr, ...) @__drm_dev_dbg(ptr noundef null, ptr noundef %49, i32 noundef 2, ptr noundef nonnull @.str.23, i32 noundef %51, ptr noundef %53, i32 noundef %55) #9
   br label %56
 
 56:                                               ; preds = %48, %36
@@ -1694,7 +1694,7 @@ define internal i32 @bxt_get_backlight(ptr nocapture noundef readonly %0, i32 %1
   %9 = getelementptr inbounds i8, ptr %3, i64 7368
   %10 = getelementptr inbounds i8, ptr %3, i64 7512
   %11 = load ptr, ptr %10, align 8
-  %12 = tail call i32 %11(ptr noundef %9, i32 %8, i1 noundef zeroext true) #10
+  %12 = tail call i32 %11(ptr noundef %9, i32 %8, i1 noundef zeroext true) #9
   ret i32 %12
 }
 
@@ -1710,7 +1710,7 @@ define internal void @bxt_set_backlight(ptr nocapture noundef readonly %0, i32 n
   %10 = getelementptr inbounds i8, ptr %4, i64 7368
   %11 = getelementptr inbounds i8, ptr %4, i64 7544
   %12 = load ptr, ptr %11, align 8
-  tail call void %12(ptr noundef %10, i32 %9, i32 noundef %1, i1 noundef zeroext true) #10
+  tail call void %12(ptr noundef %10, i32 %9, i32 noundef %1, i1 noundef zeroext true) #9
   ret void
 }
 
@@ -1732,12 +1732,12 @@ define internal void @bxt_disable_backlight(ptr noundef %0, i32 noundef %1) #0 a
   %12 = load i32, ptr %11, align 8
   %13 = getelementptr inbounds i8, ptr %3, i64 96
   %14 = load ptr, ptr %13, align 8
-  tail call void (ptr, ptr, i32, ptr, ...) @__drm_dev_dbg(ptr noundef null, ptr noundef %10, i32 noundef 2, ptr noundef nonnull @.str.3, i32 noundef %12, ptr noundef %14, i32 noundef %1) #10
+  tail call void (ptr, ptr, i32, ptr, ...) @__drm_dev_dbg(ptr noundef null, ptr noundef %10, i32 noundef 2, ptr noundef nonnull @.str.3, i32 noundef %12, ptr noundef %14, i32 noundef %1) #9
   %15 = getelementptr inbounds i8, ptr %3, i64 2112
   %16 = load ptr, ptr %15, align 8
   %17 = getelementptr inbounds i8, ptr %16, i64 16
   %18 = load ptr, ptr %17, align 8
-  tail call void %18(ptr noundef %0, i32 noundef %1) #10
+  tail call void %18(ptr noundef %0, i32 noundef %1) #9
   %19 = getelementptr inbounds i8, ptr %3, i64 2054
   %20 = load i8, ptr %19, align 2
   %21 = zext i8 %20 to i32
@@ -1746,21 +1746,21 @@ define internal void @bxt_disable_backlight(ptr noundef %0, i32 noundef %1) #0 a
   %24 = getelementptr inbounds i8, ptr %4, i64 7368
   %25 = getelementptr inbounds i8, ptr %4, i64 7512
   %26 = load ptr, ptr %25, align 8
-  %27 = tail call i32 %26(ptr noundef %24, i32 %23, i1 noundef zeroext true) #10
+  %27 = tail call i32 %26(ptr noundef %24, i32 %23, i1 noundef zeroext true) #9
   %28 = and i32 %27, 2147483647
   %29 = getelementptr inbounds i8, ptr %4, i64 7544
   %30 = load ptr, ptr %29, align 8
-  tail call void %30(ptr noundef %24, i32 %23, i32 noundef %28, i1 noundef zeroext true) #10
+  tail call void %30(ptr noundef %24, i32 %23, i32 noundef %28, i1 noundef zeroext true) #9
   %31 = load i8, ptr %19, align 2
   %32 = icmp eq i8 %31, 1
   br i1 %32, label %33, label %38
 
 33:                                               ; preds = %9
   %34 = load ptr, ptr %25, align 8
-  %35 = tail call i32 %34(ptr noundef %24, i32 295936, i1 noundef zeroext true) #10
+  %35 = tail call i32 %34(ptr noundef %24, i32 295936, i1 noundef zeroext true) #9
   %36 = and i32 %35, 2147483647
   %37 = load ptr, ptr %29, align 8
-  tail call void %37(ptr noundef %24, i32 295936, i32 noundef %36, i1 noundef zeroext true) #10
+  tail call void %37(ptr noundef %24, i32 295936, i32 noundef %36, i1 noundef zeroext true) #9
   br label %38
 
 38:                                               ; preds = %33, %9
@@ -1783,7 +1783,7 @@ define internal void @bxt_enable_backlight(ptr nocapture noundef readonly %0, pt
   %13 = getelementptr inbounds i8, ptr %5, i64 7368
   %14 = getelementptr inbounds i8, ptr %5, i64 7512
   %15 = load ptr, ptr %14, align 8
-  %16 = tail call i32 %15(ptr noundef %13, i32 295936, i1 noundef zeroext true) #10
+  %16 = tail call i32 %15(ptr noundef %13, i32 295936, i1 noundef zeroext true) #9
   %17 = icmp sgt i32 %16, -1
   br i1 %17, label %32, label %18
 
@@ -1802,11 +1802,11 @@ define internal void @bxt_enable_backlight(ptr nocapture noundef readonly %0, pt
   %26 = load i32, ptr %25, align 8
   %27 = getelementptr inbounds i8, ptr %4, i64 96
   %28 = load ptr, ptr %27, align 8
-  tail call void (ptr, ptr, i32, ptr, ...) @__drm_dev_dbg(ptr noundef null, ptr noundef %24, i32 noundef 2, ptr noundef nonnull @.str.29, i32 noundef %26, ptr noundef %28) #10
+  tail call void (ptr, ptr, i32, ptr, ...) @__drm_dev_dbg(ptr noundef null, ptr noundef %24, i32 noundef 2, ptr noundef nonnull @.str.29, i32 noundef %26, ptr noundef %28) #9
   %29 = and i32 %16, 2147483647
   %30 = getelementptr inbounds i8, ptr %5, i64 7544
   %31 = load ptr, ptr %30, align 8
-  tail call void %31(ptr noundef %13, i32 295936, i32 noundef %29, i1 noundef zeroext true) #10
+  tail call void %31(ptr noundef %13, i32 295936, i32 noundef %29, i1 noundef zeroext true) #9
   br label %32
 
 32:                                               ; preds = %23, %12
@@ -1819,7 +1819,7 @@ define internal void @bxt_enable_backlight(ptr nocapture noundef readonly %0, pt
   %39 = or i32 %38, -2130706432
   %40 = getelementptr inbounds i8, ptr %5, i64 7544
   %41 = load ptr, ptr %40, align 8
-  tail call void %41(ptr noundef %13, i32 295936, i32 noundef %39, i1 noundef zeroext true) #10
+  tail call void %41(ptr noundef %13, i32 295936, i32 noundef %39, i1 noundef zeroext true) #9
   %.pre = load i8, ptr %9, align 2
   br label %42
 
@@ -1831,7 +1831,7 @@ define internal void @bxt_enable_backlight(ptr nocapture noundef readonly %0, pt
   %47 = getelementptr inbounds i8, ptr %5, i64 7368
   %48 = getelementptr inbounds i8, ptr %5, i64 7512
   %49 = load ptr, ptr %48, align 8
-  %50 = tail call i32 %49(ptr noundef %47, i32 %46, i1 noundef zeroext true) #10
+  %50 = tail call i32 %49(ptr noundef %47, i32 %46, i1 noundef zeroext true) #9
   %51 = icmp sgt i32 %50, -1
   br i1 %51, label %70, label %52
 
@@ -1850,7 +1850,7 @@ define internal void @bxt_enable_backlight(ptr nocapture noundef readonly %0, pt
   %60 = load i32, ptr %59, align 8
   %61 = getelementptr inbounds i8, ptr %4, i64 96
   %62 = load ptr, ptr %61, align 8
-  tail call void (ptr, ptr, i32, ptr, ...) @__drm_dev_dbg(ptr noundef null, ptr noundef %58, i32 noundef 2, ptr noundef nonnull @.str.30, i32 noundef %60, ptr noundef %62) #10
+  tail call void (ptr, ptr, i32, ptr, ...) @__drm_dev_dbg(ptr noundef null, ptr noundef %58, i32 noundef 2, ptr noundef nonnull @.str.30, i32 noundef %60, ptr noundef %62) #9
   %63 = and i32 %50, 2147483647
   %64 = load i8, ptr %9, align 2
   %65 = zext i8 %64 to i32
@@ -1858,7 +1858,7 @@ define internal void @bxt_enable_backlight(ptr nocapture noundef readonly %0, pt
   %67 = add nuw nsw i32 %66, 819792
   %68 = getelementptr inbounds i8, ptr %5, i64 7544
   %69 = load ptr, ptr %68, align 8
-  tail call void %69(ptr noundef %47, i32 %67, i32 noundef %63, i1 noundef zeroext true) #10
+  tail call void %69(ptr noundef %47, i32 %67, i32 noundef %63, i1 noundef zeroext true) #9
   br label %70
 
 70:                                               ; preds = %57, %42
@@ -1870,7 +1870,7 @@ define internal void @bxt_enable_backlight(ptr nocapture noundef readonly %0, pt
   %76 = load i32, ptr %75, align 8
   %77 = getelementptr inbounds i8, ptr %5, i64 7544
   %78 = load ptr, ptr %77, align 8
-  tail call void %78(ptr noundef %47, i32 %74, i32 noundef %76, i1 noundef zeroext true) #10
+  tail call void %78(ptr noundef %47, i32 %74, i32 noundef %76, i1 noundef zeroext true) #9
   %79 = load ptr, ptr %1, align 8
   %80 = load ptr, ptr %79, align 8
   %81 = icmp eq ptr %80, null
@@ -1887,12 +1887,12 @@ define internal void @bxt_enable_backlight(ptr nocapture noundef readonly %0, pt
   %88 = load i32, ptr %87, align 8
   %89 = getelementptr inbounds i8, ptr %79, i64 96
   %90 = load ptr, ptr %89, align 8
-  tail call void (ptr, ptr, i32, ptr, ...) @__drm_dev_dbg(ptr noundef null, ptr noundef %86, i32 noundef 2, ptr noundef nonnull @.str.3, i32 noundef %88, ptr noundef %90, i32 noundef %2) #10
+  tail call void (ptr, ptr, i32, ptr, ...) @__drm_dev_dbg(ptr noundef null, ptr noundef %86, i32 noundef 2, ptr noundef nonnull @.str.3, i32 noundef %88, ptr noundef %90, i32 noundef %2) #9
   %91 = getelementptr inbounds i8, ptr %79, i64 2112
   %92 = load ptr, ptr %91, align 8
   %93 = getelementptr inbounds i8, ptr %92, i64 16
   %94 = load ptr, ptr %93, align 8
-  tail call void %94(ptr noundef %1, i32 noundef %2) #10
+  tail call void %94(ptr noundef %1, i32 noundef %2) #9
   %95 = getelementptr inbounds i8, ptr %4, i64 2042
   %96 = load i8, ptr %95, align 2, !range !28, !noundef !29
   %97 = icmp eq i8 %96, 0
@@ -1902,20 +1902,20 @@ define internal void @bxt_enable_backlight(ptr nocapture noundef readonly %0, pt
   %101 = shl nuw nsw i32 %100, 8
   %102 = add nuw nsw i32 %101, 819792
   %103 = load ptr, ptr %77, align 8
-  tail call void %103(ptr noundef %47, i32 %102, i32 noundef %98, i1 noundef zeroext true) #10
+  tail call void %103(ptr noundef %47, i32 %102, i32 noundef %98, i1 noundef zeroext true) #9
   %104 = load i8, ptr %9, align 2
   %105 = zext i8 %104 to i32
   %106 = shl nuw nsw i32 %105, 8
   %107 = add nuw nsw i32 %106, 819792
   %108 = load ptr, ptr %48, align 8
-  %109 = tail call i32 %108(ptr noundef %47, i32 %107, i1 noundef zeroext false) #10
+  %109 = tail call i32 %108(ptr noundef %47, i32 %107, i1 noundef zeroext false) #9
   %110 = load i8, ptr %9, align 2
   %111 = zext i8 %110 to i32
   %112 = shl nuw nsw i32 %111, 8
   %113 = add nuw nsw i32 %112, 819792
   %114 = or disjoint i32 %98, -2147483648
   %115 = load ptr, ptr %77, align 8
-  tail call void %115(ptr noundef %47, i32 %113, i32 noundef %114, i1 noundef zeroext true) #10
+  tail call void %115(ptr noundef %47, i32 %113, i32 noundef %114, i1 noundef zeroext true) #9
   ret void
 }
 
@@ -1947,7 +1947,7 @@ define internal fastcc i32 @get_backlight_max_vbt(ptr noundef %0) unnamed_addr #
 11:                                               ; preds = %8, %7
   %12 = phi ptr [ %10, %8 ], [ null, %7 ]
   %13 = zext i16 %4 to i32
-  tail call void (ptr, ptr, i32, ptr, ...) @__drm_dev_dbg(ptr noundef null, ptr noundef %12, i32 noundef 2, ptr noundef nonnull @.str.26, i32 noundef %13) #10
+  tail call void (ptr, ptr, i32, ptr, ...) @__drm_dev_dbg(ptr noundef null, ptr noundef %12, i32 noundef 2, ptr noundef nonnull @.str.26, i32 noundef %13) #9
   br label %20
 
 14:                                               ; preds = %1
@@ -1960,7 +1960,7 @@ define internal fastcc i32 @get_backlight_max_vbt(ptr noundef %0) unnamed_addr #
 
 18:                                               ; preds = %15, %14
   %19 = phi ptr [ %17, %15 ], [ null, %14 ]
-  tail call void (ptr, ptr, i32, ptr, ...) @__drm_dev_dbg(ptr noundef null, ptr noundef %19, i32 noundef 2, ptr noundef nonnull @.str.27, i32 noundef 200) #10
+  tail call void (ptr, ptr, i32, ptr, ...) @__drm_dev_dbg(ptr noundef null, ptr noundef %19, i32 noundef 2, ptr noundef nonnull @.str.27, i32 noundef 200) #9
   br label %20
 
 20:                                               ; preds = %18, %11
@@ -1982,11 +1982,11 @@ define internal fastcc i32 @get_backlight_max_vbt(ptr noundef %0) unnamed_addr #
 
 31:                                               ; preds = %28, %27
   %32 = phi ptr [ %30, %28 ], [ null, %27 ]
-  tail call void (ptr, ptr, i32, ptr, ...) @__drm_dev_dbg(ptr noundef null, ptr noundef %32, i32 noundef 2, ptr noundef nonnull @.str.24) #10
+  tail call void (ptr, ptr, i32, ptr, ...) @__drm_dev_dbg(ptr noundef null, ptr noundef %32, i32 noundef 2, ptr noundef nonnull @.str.24) #9
   br label %42
 
 33:                                               ; preds = %20
-  %34 = tail call i32 %25(ptr noundef %0, i32 noundef %21) #10
+  %34 = tail call i32 %25(ptr noundef %0, i32 noundef %21) #9
   %35 = icmp eq i32 %34, 0
   br i1 %35, label %36, label %42
 
@@ -2000,7 +2000,7 @@ define internal fastcc i32 @get_backlight_max_vbt(ptr noundef %0) unnamed_addr #
 
 40:                                               ; preds = %37, %36
   %41 = phi ptr [ %39, %37 ], [ null, %36 ]
-  tail call void (ptr, ptr, i32, ptr, ...) @__drm_dev_dbg(ptr noundef null, ptr noundef %41, i32 noundef 2, ptr noundef nonnull @.str.25) #10
+  tail call void (ptr, ptr, i32, ptr, ...) @__drm_dev_dbg(ptr noundef null, ptr noundef %41, i32 noundef 2, ptr noundef nonnull @.str.25) #9
   br label %42
 
 42:                                               ; preds = %40, %33, %31
@@ -2017,10 +2017,10 @@ define internal fastcc i32 @get_backlight_min_vbt(ptr nocapture noundef readonly
   br i1 %5, label %6, label %18, !prof !5
 
 6:                                                ; preds = %1
-  tail call void asm sideeffect "941: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 941b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 941) #10, !srcloc !54
+  tail call void asm sideeffect "941: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 941b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 941) #9, !srcloc !54
   %7 = getelementptr inbounds i8, ptr %2, i64 8
   %8 = load ptr, ptr %7, align 8
-  %9 = tail call ptr @dev_driver_string(ptr noundef %8) #10
+  %9 = tail call ptr @dev_driver_string(ptr noundef %8) #9
   %10 = load ptr, ptr %7, align 8
   %11 = getelementptr inbounds i8, ptr %10, i64 80
   %12 = load ptr, ptr %11, align 8
@@ -2033,11 +2033,11 @@ define internal fastcc i32 @get_backlight_min_vbt(ptr nocapture noundef readonly
 
 16:                                               ; preds = %14, %6
   %17 = phi ptr [ %15, %14 ], [ %12, %6 ]
-  tail call void (ptr, ...) @__warn_printk(ptr noundef nonnull @.str, ptr noundef %9, ptr noundef %17, ptr noundef nonnull @.str.1) #10
-  tail call void asm sideeffect "942: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 942b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 942) #10, !srcloc !55
-  tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.2, i32 1194, i32 2313, i64 12) #10, !srcloc !56
-  tail call void asm sideeffect "943: nop\0A\09.pushsection .discard.instr_end\0A\09.long 943b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 943) #10, !srcloc !57
-  tail call void asm sideeffect "944: nop\0A\09.pushsection .discard.instr_end\0A\09.long 944b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 944) #10, !srcloc !58
+  tail call void (ptr, ...) @__warn_printk(ptr noundef nonnull @.str, ptr noundef %9, ptr noundef %17, ptr noundef nonnull @.str.1) #9
+  tail call void asm sideeffect "942: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 942b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 942) #9, !srcloc !55
+  tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.2, i32 1194, i32 2313, i64 12) #9, !srcloc !56
+  tail call void asm sideeffect "943: nop\0A\09.pushsection .discard.instr_end\0A\09.long 943b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 943) #9, !srcloc !57
+  tail call void asm sideeffect "944: nop\0A\09.pushsection .discard.instr_end\0A\09.long 944b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 944) #9, !srcloc !58
   br label %18
 
 18:                                               ; preds = %16, %1
@@ -2060,7 +2060,7 @@ define internal fastcc i32 @get_backlight_min_vbt(ptr nocapture noundef readonly
 
 30:                                               ; preds = %27, %25
   %31 = phi ptr [ %29, %27 ], [ null, %25 ]
-  tail call void (ptr, ptr, i32, ptr, ...) @__drm_dev_dbg(ptr noundef null, ptr noundef %31, i32 noundef 2, ptr noundef nonnull @.str.28, i32 noundef %22, i32 noundef %23) #10
+  tail call void (ptr, ptr, i32, ptr, ...) @__drm_dev_dbg(ptr noundef null, ptr noundef %31, i32 noundef 2, ptr noundef nonnull @.str.28, i32 noundef %22, i32 noundef %23) #9
   br label %32
 
 32:                                               ; preds = %30, %18
@@ -2102,7 +2102,7 @@ define internal noundef range(i32 -19, 1) i32 @cnp_setup_backlight(ptr noundef %
   %21 = getelementptr inbounds i8, ptr %3, i64 7368
   %22 = getelementptr inbounds i8, ptr %3, i64 7512
   %23 = load ptr, ptr %22, align 8
-  %24 = tail call i32 %23(ptr noundef %21, i32 794624, i1 noundef zeroext true) #10
+  %24 = tail call i32 %23(ptr noundef %21, i32 794624, i1 noundef zeroext true) #9
   %25 = and i32 %24, 4
   %26 = icmp eq i32 %25, 0
   br i1 %26, label %27, label %._crit_edge
@@ -2128,7 +2128,7 @@ define internal noundef range(i32 -19, 1) i32 @cnp_setup_backlight(ptr noundef %
   %37 = load ptr, ptr %36, align 8
   %38 = load i8, ptr %6, align 2
   %39 = zext i8 %38 to i32
-  tail call void (ptr, ptr, i32, ptr, ...) @__drm_dev_dbg(ptr noundef null, ptr noundef %33, i32 noundef 2, ptr noundef nonnull @.str.31, i32 noundef %35, ptr noundef %37, i32 noundef %39) #10
+  tail call void (ptr, ptr, i32, ptr, ...) @__drm_dev_dbg(ptr noundef null, ptr noundef %33, i32 noundef 2, ptr noundef nonnull @.str.31, i32 noundef %35, ptr noundef %37, i32 noundef %39) #9
   store i8 0, ptr %6, align 2
   br label %40
 
@@ -2140,7 +2140,7 @@ define internal noundef range(i32 -19, 1) i32 @cnp_setup_backlight(ptr noundef %
   %45 = getelementptr inbounds i8, ptr %3, i64 7368
   %46 = getelementptr inbounds i8, ptr %3, i64 7512
   %47 = load ptr, ptr %46, align 8
-  %48 = tail call i32 %47(ptr noundef %45, i32 %44, i1 noundef zeroext true) #10
+  %48 = tail call i32 %47(ptr noundef %45, i32 %44, i1 noundef zeroext true) #9
   %49 = getelementptr inbounds i8, ptr %0, i64 2042
   %50 = lshr i32 %48, 29
   %51 = trunc nuw nsw i32 %50 to i8
@@ -2151,7 +2151,7 @@ define internal noundef range(i32 -19, 1) i32 @cnp_setup_backlight(ptr noundef %
   %55 = shl nuw nsw i32 %54, 8
   %56 = add nuw nsw i32 %55, 819796
   %57 = load ptr, ptr %46, align 8
-  %58 = tail call i32 %57(ptr noundef %45, i32 %56, i1 noundef zeroext true) #10
+  %58 = tail call i32 %57(ptr noundef %45, i32 %56, i1 noundef zeroext true) #9
   %59 = getelementptr inbounds i8, ptr %0, i64 2048
   store i32 %58, ptr %59, align 8
   %60 = icmp eq i32 %58, 0
@@ -2187,7 +2187,7 @@ define internal noundef range(i32 -19, 1) i32 @cnp_setup_backlight(ptr noundef %
   %78 = load ptr, ptr %77, align 8
   %79 = load i8, ptr %6, align 2
   %80 = zext i8 %79 to i32
-  tail call void (ptr, ptr, i32, ptr, ...) @__drm_dev_dbg(ptr noundef null, ptr noundef %74, i32 noundef 2, ptr noundef nonnull @.str.32, i32 noundef %76, ptr noundef %78, i32 noundef %80) #10
+  tail call void (ptr, ptr, i32, ptr, ...) @__drm_dev_dbg(ptr noundef null, ptr noundef %74, i32 noundef 2, ptr noundef nonnull @.str.32, i32 noundef %76, ptr noundef %78, i32 noundef %80) #9
   br label %81
 
 81:                                               ; preds = %73, %61
@@ -2213,12 +2213,12 @@ define internal void @cnp_disable_backlight(ptr noundef %0, i32 noundef %1) #0 a
   %12 = load i32, ptr %11, align 8
   %13 = getelementptr inbounds i8, ptr %3, i64 96
   %14 = load ptr, ptr %13, align 8
-  tail call void (ptr, ptr, i32, ptr, ...) @__drm_dev_dbg(ptr noundef null, ptr noundef %10, i32 noundef 2, ptr noundef nonnull @.str.3, i32 noundef %12, ptr noundef %14, i32 noundef %1) #10
+  tail call void (ptr, ptr, i32, ptr, ...) @__drm_dev_dbg(ptr noundef null, ptr noundef %10, i32 noundef 2, ptr noundef nonnull @.str.3, i32 noundef %12, ptr noundef %14, i32 noundef %1) #9
   %15 = getelementptr inbounds i8, ptr %3, i64 2112
   %16 = load ptr, ptr %15, align 8
   %17 = getelementptr inbounds i8, ptr %16, i64 16
   %18 = load ptr, ptr %17, align 8
-  tail call void %18(ptr noundef %0, i32 noundef %1) #10
+  tail call void %18(ptr noundef %0, i32 noundef %1) #9
   %19 = getelementptr inbounds i8, ptr %3, i64 2054
   %20 = load i8, ptr %19, align 2
   %21 = zext i8 %20 to i32
@@ -2227,11 +2227,11 @@ define internal void @cnp_disable_backlight(ptr noundef %0, i32 noundef %1) #0 a
   %24 = getelementptr inbounds i8, ptr %4, i64 7368
   %25 = getelementptr inbounds i8, ptr %4, i64 7512
   %26 = load ptr, ptr %25, align 8
-  %27 = tail call i32 %26(ptr noundef %24, i32 %23, i1 noundef zeroext true) #10
+  %27 = tail call i32 %26(ptr noundef %24, i32 %23, i1 noundef zeroext true) #9
   %28 = and i32 %27, 2147483647
   %29 = getelementptr inbounds i8, ptr %4, i64 7544
   %30 = load ptr, ptr %29, align 8
-  tail call void %30(ptr noundef %24, i32 %23, i32 noundef %28, i1 noundef zeroext true) #10
+  tail call void %30(ptr noundef %24, i32 %23, i32 noundef %28, i1 noundef zeroext true) #9
   ret void
 }
 
@@ -2247,7 +2247,7 @@ define internal void @cnp_enable_backlight(ptr nocapture readnone %0, ptr nounde
   %11 = getelementptr inbounds i8, ptr %5, i64 7368
   %12 = getelementptr inbounds i8, ptr %5, i64 7512
   %13 = load ptr, ptr %12, align 8
-  %14 = tail call i32 %13(ptr noundef %11, i32 %10, i1 noundef zeroext true) #10
+  %14 = tail call i32 %13(ptr noundef %11, i32 %10, i1 noundef zeroext true) #9
   %15 = icmp sgt i32 %14, -1
   br i1 %15, label %30, label %16
 
@@ -2262,7 +2262,7 @@ define internal void @cnp_enable_backlight(ptr nocapture readnone %0, ptr nounde
 
 21:                                               ; preds = %18, %16
   %22 = phi ptr [ %20, %18 ], [ null, %16 ]
-  tail call void (ptr, ptr, i32, ptr, ...) @__drm_dev_dbg(ptr noundef null, ptr noundef %22, i32 noundef 2, ptr noundef nonnull @.str.33) #10
+  tail call void (ptr, ptr, i32, ptr, ...) @__drm_dev_dbg(ptr noundef null, ptr noundef %22, i32 noundef 2, ptr noundef nonnull @.str.33) #9
   %23 = and i32 %14, 2147483647
   %24 = load i8, ptr %6, align 2
   %25 = zext i8 %24 to i32
@@ -2270,7 +2270,7 @@ define internal void @cnp_enable_backlight(ptr nocapture readnone %0, ptr nounde
   %27 = add nuw nsw i32 %26, 819792
   %28 = getelementptr inbounds i8, ptr %5, i64 7544
   %29 = load ptr, ptr %28, align 8
-  tail call void %29(ptr noundef %11, i32 %27, i32 noundef %23, i1 noundef zeroext true) #10
+  tail call void %29(ptr noundef %11, i32 %27, i32 noundef %23, i1 noundef zeroext true) #9
   br label %30
 
 30:                                               ; preds = %21, %3
@@ -2282,7 +2282,7 @@ define internal void @cnp_enable_backlight(ptr nocapture readnone %0, ptr nounde
   %36 = load i32, ptr %35, align 8
   %37 = getelementptr inbounds i8, ptr %5, i64 7544
   %38 = load ptr, ptr %37, align 8
-  tail call void %38(ptr noundef %11, i32 %34, i32 noundef %36, i1 noundef zeroext true) #10
+  tail call void %38(ptr noundef %11, i32 %34, i32 noundef %36, i1 noundef zeroext true) #9
   %39 = load ptr, ptr %1, align 8
   %40 = load ptr, ptr %39, align 8
   %41 = icmp eq ptr %40, null
@@ -2299,12 +2299,12 @@ define internal void @cnp_enable_backlight(ptr nocapture readnone %0, ptr nounde
   %48 = load i32, ptr %47, align 8
   %49 = getelementptr inbounds i8, ptr %39, i64 96
   %50 = load ptr, ptr %49, align 8
-  tail call void (ptr, ptr, i32, ptr, ...) @__drm_dev_dbg(ptr noundef null, ptr noundef %46, i32 noundef 2, ptr noundef nonnull @.str.3, i32 noundef %48, ptr noundef %50, i32 noundef %2) #10
+  tail call void (ptr, ptr, i32, ptr, ...) @__drm_dev_dbg(ptr noundef null, ptr noundef %46, i32 noundef 2, ptr noundef nonnull @.str.3, i32 noundef %48, ptr noundef %50, i32 noundef %2) #9
   %51 = getelementptr inbounds i8, ptr %39, i64 2112
   %52 = load ptr, ptr %51, align 8
   %53 = getelementptr inbounds i8, ptr %52, i64 16
   %54 = load ptr, ptr %53, align 8
-  tail call void %54(ptr noundef %1, i32 noundef %2) #10
+  tail call void %54(ptr noundef %1, i32 noundef %2) #9
   %55 = getelementptr inbounds i8, ptr %4, i64 2042
   %56 = load i8, ptr %55, align 2, !range !28, !noundef !29
   %57 = icmp eq i8 %56, 0
@@ -2314,20 +2314,20 @@ define internal void @cnp_enable_backlight(ptr nocapture readnone %0, ptr nounde
   %61 = shl nuw nsw i32 %60, 8
   %62 = add nuw nsw i32 %61, 819792
   %63 = load ptr, ptr %37, align 8
-  tail call void %63(ptr noundef %11, i32 %62, i32 noundef %58, i1 noundef zeroext true) #10
+  tail call void %63(ptr noundef %11, i32 %62, i32 noundef %58, i1 noundef zeroext true) #9
   %64 = load i8, ptr %6, align 2
   %65 = zext i8 %64 to i32
   %66 = shl nuw nsw i32 %65, 8
   %67 = add nuw nsw i32 %66, 819792
   %68 = load ptr, ptr %12, align 8
-  %69 = tail call i32 %68(ptr noundef %11, i32 %67, i1 noundef zeroext false) #10
+  %69 = tail call i32 %68(ptr noundef %11, i32 %67, i1 noundef zeroext false) #9
   %70 = load i8, ptr %6, align 2
   %71 = zext i8 %70 to i32
   %72 = shl nuw nsw i32 %71, 8
   %73 = add nuw nsw i32 %72, 819792
   %74 = or disjoint i32 %58, -2147483648
   %75 = load ptr, ptr %37, align 8
-  tail call void %75(ptr noundef %11, i32 %73, i32 noundef %74, i1 noundef zeroext true) #10
+  tail call void %75(ptr noundef %11, i32 %73, i32 noundef %74, i1 noundef zeroext true) #9
   ret void
 }
 
@@ -2355,13 +2355,13 @@ define internal noundef range(i32 -19, 1) i32 @lpt_setup_backlight(ptr noundef %
   br i1 %6, label %10, label %14
 
 10:                                               ; preds = %2
-  %11 = tail call i32 %9(ptr noundef %7, i32 794628, i1 noundef zeroext true) #10
+  %11 = tail call i32 %9(ptr noundef %7, i32 794628, i1 noundef zeroext true) #9
   %12 = trunc i32 %11 to i8
   %13 = lshr i8 %12, 5
   br label %17
 
 14:                                               ; preds = %2
-  %15 = tail call i32 %9(ptr noundef %7, i32 794624, i1 noundef zeroext true) #10
+  %15 = tail call i32 %9(ptr noundef %7, i32 794624, i1 noundef zeroext true) #9
   %16 = trunc i32 %15 to i8
   br label %17
 
@@ -2371,19 +2371,19 @@ define internal noundef range(i32 -19, 1) i32 @lpt_setup_backlight(ptr noundef %
   %20 = getelementptr inbounds i8, ptr %0, i64 2043
   store i8 %19, ptr %20, align 1
   %21 = load ptr, ptr %8, align 8
-  %22 = tail call i32 %21(ptr noundef %7, i32 819792, i1 noundef zeroext true) #10
+  %22 = tail call i32 %21(ptr noundef %7, i32 819792, i1 noundef zeroext true) #9
   %23 = getelementptr inbounds i8, ptr %0, i64 2042
   %24 = lshr i32 %22, 29
   %25 = trunc nuw nsw i32 %24 to i8
   %26 = and i8 %25, 1
   store i8 %26, ptr %23, align 2
   %27 = load ptr, ptr %8, align 8
-  %28 = tail call i32 %27(ptr noundef %7, i32 819796, i1 noundef zeroext true) #10
+  %28 = tail call i32 %27(ptr noundef %7, i32 819796, i1 noundef zeroext true) #9
   %29 = lshr i32 %28, 16
   %30 = getelementptr inbounds i8, ptr %0, i64 2048
   store i32 %29, ptr %30, align 8
   %31 = load ptr, ptr %8, align 8
-  %32 = tail call i32 %31(ptr noundef %7, i32 295504, i1 noundef zeroext true) #10
+  %32 = tail call i32 %31(ptr noundef %7, i32 295504, i1 noundef zeroext true) #9
   %33 = load i32, ptr %30, align 8
   %34 = icmp eq i32 %33, 0
   br i1 %34, label %35, label %.thread
@@ -2420,7 +2420,7 @@ define internal noundef range(i32 -19, 1) i32 @lpt_setup_backlight(ptr noundef %
   %54 = getelementptr inbounds i8, ptr %53, i64 7368
   %55 = getelementptr inbounds i8, ptr %53, i64 7512
   %56 = load ptr, ptr %55, align 8
-  %57 = tail call i32 %56(ptr noundef %54, i32 295508, i1 noundef zeroext true) #10
+  %57 = tail call i32 %56(ptr noundef %54, i32 295508, i1 noundef zeroext true) #9
   %58 = and i32 %57, 65535
   %59 = icmp eq ptr %3, null
   br i1 %59, label %63, label %60
@@ -2432,7 +2432,7 @@ define internal noundef range(i32 -19, 1) i32 @lpt_setup_backlight(ptr noundef %
 
 63:                                               ; preds = %60, %52
   %64 = phi ptr [ %62, %60 ], [ null, %52 ]
-  tail call void (ptr, ptr, i32, ptr, ...) @__drm_dev_dbg(ptr noundef null, ptr noundef %64, i32 noundef 2, ptr noundef nonnull @.str.34) #10
+  tail call void (ptr, ptr, i32, ptr, ...) @__drm_dev_dbg(ptr noundef null, ptr noundef %64, i32 noundef 2, ptr noundef nonnull @.str.34) #9
   %65 = getelementptr inbounds i8, ptr %0, i64 1904
   %66 = load ptr, ptr %65, align 8
   %67 = load ptr, ptr %66, align 8
@@ -2440,19 +2440,19 @@ define internal noundef range(i32 -19, 1) i32 @lpt_setup_backlight(ptr noundef %
   %69 = getelementptr inbounds i8, ptr %68, i64 7368
   %70 = getelementptr inbounds i8, ptr %68, i64 7512
   %71 = load ptr, ptr %70, align 8
-  %72 = tail call i32 %71(ptr noundef %69, i32 819796, i1 noundef zeroext true) #10
+  %72 = tail call i32 %71(ptr noundef %69, i32 819796, i1 noundef zeroext true) #9
   %73 = and i32 %72, -65536
   %74 = or disjoint i32 %73, %58
   %75 = getelementptr inbounds i8, ptr %68, i64 7544
   %76 = load ptr, ptr %75, align 8
-  tail call void %76(ptr noundef %69, i32 819796, i32 noundef %74, i1 noundef zeroext true) #10
+  tail call void %76(ptr noundef %69, i32 819796, i32 noundef %74, i1 noundef zeroext true) #9
   %77 = or disjoint i32 %22, 1073741824
   %78 = getelementptr inbounds i8, ptr %3, i64 7544
   %79 = load ptr, ptr %78, align 8
-  tail call void %79(ptr noundef %7, i32 819792, i32 noundef %77, i1 noundef zeroext true) #10
+  tail call void %79(ptr noundef %7, i32 819792, i32 noundef %77, i1 noundef zeroext true) #9
   %80 = and i32 %32, 2147483647
   %81 = load ptr, ptr %78, align 8
-  tail call void %81(ptr noundef %7, i32 295504, i32 noundef %80, i1 noundef zeroext true) #10
+  tail call void %81(ptr noundef %7, i32 295504, i32 noundef %80, i1 noundef zeroext true) #9
   br label %82
 
 82:                                               ; preds = %63, %44, %.thread
@@ -2470,7 +2470,7 @@ define internal noundef range(i32 -19, 1) i32 @lpt_setup_backlight(ptr noundef %
   %90 = load i32, ptr %89, align 8
   %91 = getelementptr inbounds i8, ptr %0, i64 96
   %92 = load ptr, ptr %91, align 8
-  tail call void (ptr, ptr, i32, ptr, ...) @__drm_dev_dbg(ptr noundef null, ptr noundef %88, i32 noundef 2, ptr noundef nonnull @.str.35, i32 noundef %90, ptr noundef %92) #10
+  tail call void (ptr, ptr, i32, ptr, ...) @__drm_dev_dbg(ptr noundef null, ptr noundef %88, i32 noundef 2, ptr noundef nonnull @.str.35, i32 noundef %90, ptr noundef %92) #9
   br label %93
 
 93:                                               ; preds = %87, %35
@@ -2484,7 +2484,7 @@ define internal range(i32 0, 65536) i32 @lpt_get_backlight(ptr nocapture noundef
   %4 = getelementptr inbounds i8, ptr %3, i64 7368
   %5 = getelementptr inbounds i8, ptr %3, i64 7512
   %6 = load ptr, ptr %5, align 8
-  %7 = tail call i32 %6(ptr noundef %4, i32 819796, i1 noundef zeroext true) #10
+  %7 = tail call i32 %6(ptr noundef %4, i32 819796, i1 noundef zeroext true) #9
   %8 = and i32 %7, 65535
   ret i32 %8
 }
@@ -2496,12 +2496,12 @@ define internal void @lpt_set_backlight(ptr nocapture noundef readonly %0, i32 n
   %5 = getelementptr inbounds i8, ptr %4, i64 7368
   %6 = getelementptr inbounds i8, ptr %4, i64 7512
   %7 = load ptr, ptr %6, align 8
-  %8 = tail call i32 %7(ptr noundef %5, i32 819796, i1 noundef zeroext true) #10
+  %8 = tail call i32 %7(ptr noundef %5, i32 819796, i1 noundef zeroext true) #9
   %9 = and i32 %8, -65536
   %10 = or i32 %9, %1
   %11 = getelementptr inbounds i8, ptr %4, i64 7544
   %12 = load ptr, ptr %11, align 8
-  tail call void %12(ptr noundef %5, i32 819796, i32 noundef %10, i1 noundef zeroext true) #10
+  tail call void %12(ptr noundef %5, i32 819796, i32 noundef %10, i1 noundef zeroext true) #9
   ret void
 }
 
@@ -2523,16 +2523,16 @@ define internal void @lpt_disable_backlight(ptr noundef %0, i32 noundef %1) #0 a
   %12 = load i32, ptr %11, align 8
   %13 = getelementptr inbounds i8, ptr %3, i64 96
   %14 = load ptr, ptr %13, align 8
-  tail call void (ptr, ptr, i32, ptr, ...) @__drm_dev_dbg(ptr noundef null, ptr noundef %10, i32 noundef 2, ptr noundef nonnull @.str.3, i32 noundef %12, ptr noundef %14, i32 noundef %1) #10
+  tail call void (ptr, ptr, i32, ptr, ...) @__drm_dev_dbg(ptr noundef null, ptr noundef %10, i32 noundef 2, ptr noundef nonnull @.str.3, i32 noundef %12, ptr noundef %14, i32 noundef %1) #9
   %15 = getelementptr inbounds i8, ptr %3, i64 2112
   %16 = load ptr, ptr %15, align 8
   %17 = getelementptr inbounds i8, ptr %16, i64 16
   %18 = load ptr, ptr %17, align 8
-  tail call void %18(ptr noundef %0, i32 noundef %1) #10
+  tail call void %18(ptr noundef %0, i32 noundef %1) #9
   %19 = getelementptr inbounds i8, ptr %4, i64 7368
   %20 = getelementptr inbounds i8, ptr %4, i64 7512
   %21 = load ptr, ptr %20, align 8
-  %22 = tail call i32 %21(ptr noundef %19, i32 295504, i1 noundef zeroext true) #10
+  %22 = tail call i32 %21(ptr noundef %19, i32 295504, i1 noundef zeroext true) #9
   %23 = icmp sgt i32 %22, -1
   br i1 %23, label %35, label %24
 
@@ -2548,20 +2548,20 @@ define internal void @lpt_disable_backlight(ptr noundef %0, i32 noundef %1) #0 a
   %29 = phi ptr [ %27, %25 ], [ null, %24 ]
   %30 = load i32, ptr %11, align 8
   %31 = load ptr, ptr %13, align 8
-  tail call void (ptr, ptr, i32, ptr, ...) @__drm_dev_dbg(ptr noundef null, ptr noundef %29, i32 noundef 2, ptr noundef nonnull @.str.36, i32 noundef %30, ptr noundef %31) #10
+  tail call void (ptr, ptr, i32, ptr, ...) @__drm_dev_dbg(ptr noundef null, ptr noundef %29, i32 noundef 2, ptr noundef nonnull @.str.36, i32 noundef %30, ptr noundef %31) #9
   %32 = and i32 %22, 2147483647
   %33 = getelementptr inbounds i8, ptr %4, i64 7544
   %34 = load ptr, ptr %33, align 8
-  tail call void %34(ptr noundef %19, i32 295504, i32 noundef %32, i1 noundef zeroext true) #10
+  tail call void %34(ptr noundef %19, i32 295504, i32 noundef %32, i1 noundef zeroext true) #9
   br label %35
 
 35:                                               ; preds = %28, %9
   %36 = load ptr, ptr %20, align 8
-  %37 = tail call i32 %36(ptr noundef %19, i32 819792, i1 noundef zeroext true) #10
+  %37 = tail call i32 %36(ptr noundef %19, i32 819792, i1 noundef zeroext true) #9
   %38 = and i32 %37, 2147483647
   %39 = getelementptr inbounds i8, ptr %4, i64 7544
   %40 = load ptr, ptr %39, align 8
-  tail call void %40(ptr noundef %19, i32 819792, i32 noundef %38, i1 noundef zeroext true) #10
+  tail call void %40(ptr noundef %19, i32 819792, i32 noundef %38, i1 noundef zeroext true) #9
   ret void
 }
 
@@ -2572,7 +2572,7 @@ define internal void @lpt_enable_backlight(ptr nocapture readnone %0, ptr nounde
   %6 = getelementptr inbounds i8, ptr %5, i64 7368
   %7 = getelementptr inbounds i8, ptr %5, i64 7512
   %8 = load ptr, ptr %7, align 8
-  %9 = tail call i32 %8(ptr noundef %6, i32 819792, i1 noundef zeroext true) #10
+  %9 = tail call i32 %8(ptr noundef %6, i32 819792, i1 noundef zeroext true) #9
   %10 = icmp sgt i32 %9, -1
   br i1 %10, label %25, label %11
 
@@ -2591,11 +2591,11 @@ define internal void @lpt_enable_backlight(ptr nocapture readnone %0, ptr nounde
   %19 = load i32, ptr %18, align 8
   %20 = getelementptr inbounds i8, ptr %4, i64 96
   %21 = load ptr, ptr %20, align 8
-  tail call void (ptr, ptr, i32, ptr, ...) @__drm_dev_dbg(ptr noundef null, ptr noundef %17, i32 noundef 2, ptr noundef nonnull @.str.37, i32 noundef %19, ptr noundef %21) #10
+  tail call void (ptr, ptr, i32, ptr, ...) @__drm_dev_dbg(ptr noundef null, ptr noundef %17, i32 noundef 2, ptr noundef nonnull @.str.37, i32 noundef %19, ptr noundef %21) #9
   %22 = and i32 %9, 2147483647
   %23 = getelementptr inbounds i8, ptr %5, i64 7544
   %24 = load ptr, ptr %23, align 8
-  tail call void %24(ptr noundef %6, i32 819792, i32 noundef %22, i1 noundef zeroext true) #10
+  tail call void %24(ptr noundef %6, i32 819792, i32 noundef %22, i1 noundef zeroext true) #9
   br label %25
 
 25:                                               ; preds = %16, %3
@@ -2611,17 +2611,17 @@ define internal void @lpt_enable_backlight(ptr nocapture readnone %0, ptr nounde
   %35 = select i1 %28, i32 -33, i32 -2
   %36 = select i1 %28, i32 %33, i32 %31
   %37 = load ptr, ptr %7, align 8
-  %38 = tail call i32 %37(ptr noundef %6, i32 %34, i1 noundef zeroext true) #10
+  %38 = tail call i32 %37(ptr noundef %6, i32 %34, i1 noundef zeroext true) #9
   %39 = and i32 %38, %35
   %40 = or disjoint i32 %39, %36
   %41 = getelementptr inbounds i8, ptr %5, i64 7544
   %42 = load ptr, ptr %41, align 8
-  tail call void %42(ptr noundef %6, i32 %34, i32 noundef %40, i1 noundef zeroext true) #10
+  tail call void %42(ptr noundef %6, i32 %34, i32 noundef %40, i1 noundef zeroext true) #9
   %43 = getelementptr inbounds i8, ptr %4, i64 2048
   %44 = load i32, ptr %43, align 8
   %45 = shl i32 %44, 16
   %46 = load ptr, ptr %41, align 8
-  tail call void %46(ptr noundef %6, i32 819796, i32 noundef %45, i1 noundef zeroext true) #10
+  tail call void %46(ptr noundef %6, i32 819796, i32 noundef %45, i1 noundef zeroext true) #9
   %47 = getelementptr inbounds i8, ptr %4, i64 2042
   %48 = load i8, ptr %47, align 2, !range !28, !noundef !29
   %49 = icmp eq i8 %48, 0
@@ -2631,12 +2631,12 @@ define internal void @lpt_enable_backlight(ptr nocapture readnone %0, ptr nounde
   %53 = or disjoint i32 %50, 1073741824
   %54 = select i1 %52, i32 %53, i32 %50
   %55 = load ptr, ptr %41, align 8
-  tail call void %55(ptr noundef %6, i32 819792, i32 noundef %54, i1 noundef zeroext true) #10
+  tail call void %55(ptr noundef %6, i32 819792, i32 noundef %54, i1 noundef zeroext true) #9
   %56 = load ptr, ptr %7, align 8
-  %57 = tail call i32 %56(ptr noundef %6, i32 819792, i1 noundef zeroext false) #10
+  %57 = tail call i32 %56(ptr noundef %6, i32 819792, i1 noundef zeroext false) #9
   %58 = or disjoint i32 %54, -2147483648
   %59 = load ptr, ptr %41, align 8
-  tail call void %59(ptr noundef %6, i32 819792, i32 noundef %58, i1 noundef zeroext true) #10
+  tail call void %59(ptr noundef %6, i32 819792, i32 noundef %58, i1 noundef zeroext true) #9
   %60 = load ptr, ptr %1, align 8
   %61 = load ptr, ptr %60, align 8
   %62 = icmp eq ptr %61, null
@@ -2653,12 +2653,12 @@ define internal void @lpt_enable_backlight(ptr nocapture readnone %0, ptr nounde
   %69 = load i32, ptr %68, align 8
   %70 = getelementptr inbounds i8, ptr %60, i64 96
   %71 = load ptr, ptr %70, align 8
-  tail call void (ptr, ptr, i32, ptr, ...) @__drm_dev_dbg(ptr noundef null, ptr noundef %67, i32 noundef 2, ptr noundef nonnull @.str.3, i32 noundef %69, ptr noundef %71, i32 noundef %2) #10
+  tail call void (ptr, ptr, i32, ptr, ...) @__drm_dev_dbg(ptr noundef null, ptr noundef %67, i32 noundef 2, ptr noundef nonnull @.str.3, i32 noundef %69, ptr noundef %71, i32 noundef %2) #9
   %72 = getelementptr inbounds i8, ptr %60, i64 2112
   %73 = load ptr, ptr %72, align 8
   %74 = getelementptr inbounds i8, ptr %73, i64 16
   %75 = load ptr, ptr %74, align 8
-  tail call void %75(ptr noundef %1, i32 noundef %2) #10
+  tail call void %75(ptr noundef %1, i32 noundef %2) #9
   ret void
 }
 
@@ -2687,7 +2687,7 @@ define internal range(i32 0, 65536) i32 @pch_get_backlight(ptr nocapture noundef
   %4 = getelementptr inbounds i8, ptr %3, i64 7368
   %5 = getelementptr inbounds i8, ptr %3, i64 7512
   %6 = load ptr, ptr %5, align 8
-  %7 = tail call i32 %6(ptr noundef %4, i32 295508, i1 noundef zeroext true) #10
+  %7 = tail call i32 %6(ptr noundef %4, i32 295508, i1 noundef zeroext true) #9
   %8 = and i32 %7, 65535
   ret i32 %8
 }
@@ -2711,14 +2711,14 @@ define internal noundef range(i32 -19, 1) i32 @pch_setup_backlight(ptr noundef %
   %4 = getelementptr inbounds i8, ptr %3, i64 7368
   %5 = getelementptr inbounds i8, ptr %3, i64 7512
   %6 = load ptr, ptr %5, align 8
-  %7 = tail call i32 %6(ptr noundef %4, i32 819792, i1 noundef zeroext true) #10
+  %7 = tail call i32 %6(ptr noundef %4, i32 819792, i1 noundef zeroext true) #9
   %8 = getelementptr inbounds i8, ptr %0, i64 2042
   %9 = lshr i32 %7, 29
   %10 = trunc nuw nsw i32 %9 to i8
   %11 = and i8 %10, 1
   store i8 %11, ptr %8, align 2
   %12 = load ptr, ptr %5, align 8
-  %13 = tail call i32 %12(ptr noundef %4, i32 819796, i1 noundef zeroext true) #10
+  %13 = tail call i32 %12(ptr noundef %4, i32 819796, i1 noundef zeroext true) #9
   %14 = lshr i32 %13, 16
   %15 = getelementptr inbounds i8, ptr %0, i64 2048
   store i32 %14, ptr %15, align 8
@@ -2740,7 +2740,7 @@ define internal noundef range(i32 -19, 1) i32 @pch_setup_backlight(ptr noundef %
   %24 = getelementptr inbounds i8, ptr %0, i64 2044
   store i32 %23, ptr %24, align 4
   %25 = load ptr, ptr %5, align 8
-  %26 = tail call i32 %25(ptr noundef %4, i32 295504, i1 noundef zeroext true) #10
+  %26 = tail call i32 %25(ptr noundef %4, i32 295504, i1 noundef zeroext true) #9
   %27 = icmp slt i32 %26, 0
   %28 = icmp slt i32 %7, 0
   %29 = select i1 %27, i1 %28, i1 false
@@ -2761,7 +2761,7 @@ define internal noundef range(i32 -19, 1) i32 @pch_setup_backlight(ptr noundef %
   %39 = load i32, ptr %38, align 8
   %40 = getelementptr inbounds i8, ptr %0, i64 96
   %41 = load ptr, ptr %40, align 8
-  tail call void (ptr, ptr, i32, ptr, ...) @__drm_dev_dbg(ptr noundef null, ptr noundef %37, i32 noundef 2, ptr noundef nonnull @.str.35, i32 noundef %39, ptr noundef %41) #10
+  tail call void (ptr, ptr, i32, ptr, ...) @__drm_dev_dbg(ptr noundef null, ptr noundef %37, i32 noundef 2, ptr noundef nonnull @.str.35, i32 noundef %39, ptr noundef %41) #9
   br label %42
 
 42:                                               ; preds = %36, %19
@@ -2776,12 +2776,12 @@ define internal void @pch_set_backlight(ptr nocapture noundef readonly %0, i32 n
   %5 = getelementptr inbounds i8, ptr %4, i64 7368
   %6 = getelementptr inbounds i8, ptr %4, i64 7512
   %7 = load ptr, ptr %6, align 8
-  %8 = tail call i32 %7(ptr noundef %5, i32 295508, i1 noundef zeroext true) #10
+  %8 = tail call i32 %7(ptr noundef %5, i32 295508, i1 noundef zeroext true) #9
   %9 = and i32 %8, -65536
   %10 = or i32 %9, %1
   %11 = getelementptr inbounds i8, ptr %4, i64 7544
   %12 = load ptr, ptr %11, align 8
-  tail call void %12(ptr noundef %5, i32 295508, i32 noundef %10, i1 noundef zeroext true) #10
+  tail call void %12(ptr noundef %5, i32 295508, i32 noundef %10, i1 noundef zeroext true) #9
   ret void
 }
 
@@ -2803,25 +2803,25 @@ define internal void @pch_disable_backlight(ptr noundef %0, i32 noundef %1) #0 a
   %12 = load i32, ptr %11, align 8
   %13 = getelementptr inbounds i8, ptr %3, i64 96
   %14 = load ptr, ptr %13, align 8
-  tail call void (ptr, ptr, i32, ptr, ...) @__drm_dev_dbg(ptr noundef null, ptr noundef %10, i32 noundef 2, ptr noundef nonnull @.str.3, i32 noundef %12, ptr noundef %14, i32 noundef %1) #10
+  tail call void (ptr, ptr, i32, ptr, ...) @__drm_dev_dbg(ptr noundef null, ptr noundef %10, i32 noundef 2, ptr noundef nonnull @.str.3, i32 noundef %12, ptr noundef %14, i32 noundef %1) #9
   %15 = getelementptr inbounds i8, ptr %3, i64 2112
   %16 = load ptr, ptr %15, align 8
   %17 = getelementptr inbounds i8, ptr %16, i64 16
   %18 = load ptr, ptr %17, align 8
-  tail call void %18(ptr noundef %0, i32 noundef %1) #10
+  tail call void %18(ptr noundef %0, i32 noundef %1) #9
   %19 = getelementptr inbounds i8, ptr %4, i64 7368
   %20 = getelementptr inbounds i8, ptr %4, i64 7512
   %21 = load ptr, ptr %20, align 8
-  %22 = tail call i32 %21(ptr noundef %19, i32 295504, i1 noundef zeroext true) #10
+  %22 = tail call i32 %21(ptr noundef %19, i32 295504, i1 noundef zeroext true) #9
   %23 = and i32 %22, 2147483647
   %24 = getelementptr inbounds i8, ptr %4, i64 7544
   %25 = load ptr, ptr %24, align 8
-  tail call void %25(ptr noundef %19, i32 295504, i32 noundef %23, i1 noundef zeroext true) #10
+  tail call void %25(ptr noundef %19, i32 295504, i32 noundef %23, i1 noundef zeroext true) #9
   %26 = load ptr, ptr %20, align 8
-  %27 = tail call i32 %26(ptr noundef %19, i32 819792, i1 noundef zeroext true) #10
+  %27 = tail call i32 %26(ptr noundef %19, i32 819792, i1 noundef zeroext true) #9
   %28 = and i32 %27, 2147483647
   %29 = load ptr, ptr %24, align 8
-  tail call void %29(ptr noundef %19, i32 819792, i32 noundef %28, i1 noundef zeroext true) #10
+  tail call void %29(ptr noundef %19, i32 819792, i32 noundef %28, i1 noundef zeroext true) #9
   ret void
 }
 
@@ -2834,7 +2834,7 @@ define internal void @pch_enable_backlight(ptr nocapture noundef readonly %0, pt
   %8 = getelementptr inbounds i8, ptr %5, i64 7368
   %9 = getelementptr inbounds i8, ptr %5, i64 7512
   %10 = load ptr, ptr %9, align 8
-  %11 = tail call i32 %10(ptr noundef %8, i32 295504, i1 noundef zeroext true) #10
+  %11 = tail call i32 %10(ptr noundef %8, i32 295504, i1 noundef zeroext true) #9
   %12 = icmp sgt i32 %11, -1
   br i1 %12, label %27, label %13
 
@@ -2853,16 +2853,16 @@ define internal void @pch_enable_backlight(ptr nocapture noundef readonly %0, pt
   %21 = load i32, ptr %20, align 8
   %22 = getelementptr inbounds i8, ptr %4, i64 96
   %23 = load ptr, ptr %22, align 8
-  tail call void (ptr, ptr, i32, ptr, ...) @__drm_dev_dbg(ptr noundef null, ptr noundef %19, i32 noundef 2, ptr noundef nonnull @.str.38, i32 noundef %21, ptr noundef %23) #10
+  tail call void (ptr, ptr, i32, ptr, ...) @__drm_dev_dbg(ptr noundef null, ptr noundef %19, i32 noundef 2, ptr noundef nonnull @.str.38, i32 noundef %21, ptr noundef %23) #9
   %24 = and i32 %11, 2147483647
   %25 = getelementptr inbounds i8, ptr %5, i64 7544
   %26 = load ptr, ptr %25, align 8
-  tail call void %26(ptr noundef %8, i32 295504, i32 noundef %24, i1 noundef zeroext true) #10
+  tail call void %26(ptr noundef %8, i32 295504, i32 noundef %24, i1 noundef zeroext true) #9
   br label %27
 
 27:                                               ; preds = %18, %3
   %28 = load ptr, ptr %9, align 8
-  %29 = tail call i32 %28(ptr noundef %8, i32 819792, i1 noundef zeroext true) #10
+  %29 = tail call i32 %28(ptr noundef %8, i32 819792, i1 noundef zeroext true) #9
   %30 = icmp sgt i32 %29, -1
   br i1 %30, label %45, label %31
 
@@ -2881,11 +2881,11 @@ define internal void @pch_enable_backlight(ptr nocapture noundef readonly %0, pt
   %39 = load i32, ptr %38, align 8
   %40 = getelementptr inbounds i8, ptr %4, i64 96
   %41 = load ptr, ptr %40, align 8
-  tail call void (ptr, ptr, i32, ptr, ...) @__drm_dev_dbg(ptr noundef null, ptr noundef %37, i32 noundef 2, ptr noundef nonnull @.str.37, i32 noundef %39, ptr noundef %41) #10
+  tail call void (ptr, ptr, i32, ptr, ...) @__drm_dev_dbg(ptr noundef null, ptr noundef %37, i32 noundef 2, ptr noundef nonnull @.str.37, i32 noundef %39, ptr noundef %41) #9
   %42 = and i32 %29, 2147483647
   %43 = getelementptr inbounds i8, ptr %5, i64 7544
   %44 = load ptr, ptr %43, align 8
-  tail call void %44(ptr noundef %8, i32 819792, i32 noundef %42, i1 noundef zeroext true) #10
+  tail call void %44(ptr noundef %8, i32 819792, i32 noundef %42, i1 noundef zeroext true) #9
   br label %45
 
 45:                                               ; preds = %36, %27
@@ -2894,12 +2894,12 @@ define internal void @pch_enable_backlight(ptr nocapture noundef readonly %0, pt
   %48 = select i1 %46, i32 1610612736, i32 %47
   %49 = getelementptr inbounds i8, ptr %5, i64 7544
   %50 = load ptr, ptr %49, align 8
-  tail call void %50(ptr noundef %8, i32 295504, i32 noundef %48, i1 noundef zeroext true) #10
+  tail call void %50(ptr noundef %8, i32 295504, i32 noundef %48, i1 noundef zeroext true) #9
   %51 = load ptr, ptr %9, align 8
-  %52 = tail call i32 %51(ptr noundef %8, i32 295504, i1 noundef zeroext false) #10
+  %52 = tail call i32 %51(ptr noundef %8, i32 295504, i1 noundef zeroext false) #9
   %53 = or i32 %48, -2147483648
   %54 = load ptr, ptr %49, align 8
-  tail call void %54(ptr noundef %8, i32 295504, i32 noundef %53, i1 noundef zeroext true) #10
+  tail call void %54(ptr noundef %8, i32 295504, i32 noundef %53, i1 noundef zeroext true) #9
   %55 = load ptr, ptr %1, align 8
   %56 = load ptr, ptr %55, align 8
   %57 = icmp eq ptr %56, null
@@ -2916,28 +2916,28 @@ define internal void @pch_enable_backlight(ptr nocapture noundef readonly %0, pt
   %64 = load i32, ptr %63, align 8
   %65 = getelementptr inbounds i8, ptr %55, i64 96
   %66 = load ptr, ptr %65, align 8
-  tail call void (ptr, ptr, i32, ptr, ...) @__drm_dev_dbg(ptr noundef null, ptr noundef %62, i32 noundef 2, ptr noundef nonnull @.str.3, i32 noundef %64, ptr noundef %66, i32 noundef %2) #10
+  tail call void (ptr, ptr, i32, ptr, ...) @__drm_dev_dbg(ptr noundef null, ptr noundef %62, i32 noundef 2, ptr noundef nonnull @.str.3, i32 noundef %64, ptr noundef %66, i32 noundef %2) #9
   %67 = getelementptr inbounds i8, ptr %55, i64 2112
   %68 = load ptr, ptr %67, align 8
   %69 = getelementptr inbounds i8, ptr %68, i64 16
   %70 = load ptr, ptr %69, align 8
-  tail call void %70(ptr noundef %1, i32 noundef %2) #10
+  tail call void %70(ptr noundef %1, i32 noundef %2) #9
   %71 = getelementptr inbounds i8, ptr %4, i64 2048
   %72 = load i32, ptr %71, align 8
   %73 = shl i32 %72, 16
   %74 = load ptr, ptr %49, align 8
-  tail call void %74(ptr noundef %8, i32 819796, i32 noundef %73, i1 noundef zeroext true) #10
+  tail call void %74(ptr noundef %8, i32 819796, i32 noundef %73, i1 noundef zeroext true) #9
   %75 = getelementptr inbounds i8, ptr %4, i64 2042
   %76 = load i8, ptr %75, align 2, !range !28, !noundef !29
   %77 = icmp eq i8 %76, 0
   %78 = select i1 %77, i32 0, i32 536870912
   %79 = load ptr, ptr %49, align 8
-  tail call void %79(ptr noundef %8, i32 819792, i32 noundef %78, i1 noundef zeroext true) #10
+  tail call void %79(ptr noundef %8, i32 819792, i32 noundef %78, i1 noundef zeroext true) #9
   %80 = load ptr, ptr %9, align 8
-  %81 = tail call i32 %80(ptr noundef %8, i32 819792, i1 noundef zeroext false) #10
+  %81 = tail call i32 %80(ptr noundef %8, i32 819792, i1 noundef zeroext false) #9
   %82 = or disjoint i32 %78, -2147483648
   %83 = load ptr, ptr %49, align 8
-  tail call void %83(ptr noundef %8, i32 819792, i32 noundef %82, i1 noundef zeroext true) #10
+  tail call void %83(ptr noundef %8, i32 819792, i32 noundef %82, i1 noundef zeroext true) #9
   ret void
 }
 
@@ -2954,14 +2954,14 @@ define internal i32 @pch_hz_to_pwm(ptr nocapture noundef readonly %0, i32 nounde
   ret i32 %10
 }
 
-; Function Attrs: cold fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i32 @ext_pwm_setup_backlight(ptr nocapture noundef %0, i32 %1) #8 align 16 {
+; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
+define internal noundef i32 @ext_pwm_setup_backlight(ptr nocapture noundef %0, i32 %1) #0 align 16 {
   %3 = load ptr, ptr %0, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 2248
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds i8, ptr %5, i64 2
   %7 = load i48, ptr %6, align 1
-  %8 = tail call i32 @__SCT__might_resched() #10
+  %8 = tail call i32 @__SCT__might_resched() #9
   %9 = getelementptr inbounds i8, ptr %0, i64 2056
   store ptr inttoptr (i64 -19 to ptr), ptr %9, align 8
   %10 = icmp eq ptr %3, null
@@ -2981,7 +2981,7 @@ define internal noundef i32 @ext_pwm_setup_backlight(ptr nocapture noundef %0, i
   %20 = load i32, ptr %19, align 8
   %21 = getelementptr inbounds i8, ptr %0, i64 96
   %22 = load ptr, ptr %21, align 8
-  tail call void (ptr, ptr, ...) @_dev_err(ptr noundef %15, ptr noundef nonnull @.str.43, i32 noundef %20, ptr noundef %22, ptr noundef nonnull %18) #11
+  tail call void (ptr, ptr, ...) @_dev_err(ptr noundef %15, ptr noundef nonnull @.str.43, i32 noundef %20, ptr noundef %22, ptr noundef nonnull %18) #10
   store ptr null, ptr %9, align 8
   ret i32 -19
 }
@@ -3029,7 +3029,7 @@ define internal void @ext_pwm_set_backlight(ptr nocapture noundef readonly %0, i
   br label %13
 
 13:                                               ; preds = %4, %2
-  %14 = tail call i32 @__SCT__might_resched() #10
+  %14 = tail call i32 @__SCT__might_resched() #9
   ret void
 }
 
@@ -3051,15 +3051,15 @@ define internal void @ext_pwm_disable_backlight(ptr noundef %0, i32 noundef %1) 
   %12 = load i32, ptr %11, align 8
   %13 = getelementptr inbounds i8, ptr %3, i64 96
   %14 = load ptr, ptr %13, align 8
-  tail call void (ptr, ptr, i32, ptr, ...) @__drm_dev_dbg(ptr noundef null, ptr noundef %10, i32 noundef 2, ptr noundef nonnull @.str.3, i32 noundef %12, ptr noundef %14, i32 noundef %1) #10
+  tail call void (ptr, ptr, i32, ptr, ...) @__drm_dev_dbg(ptr noundef null, ptr noundef %10, i32 noundef 2, ptr noundef nonnull @.str.3, i32 noundef %12, ptr noundef %14, i32 noundef %1) #9
   %15 = getelementptr inbounds i8, ptr %3, i64 2112
   %16 = load ptr, ptr %15, align 8
   %17 = getelementptr inbounds i8, ptr %16, i64 16
   %18 = load ptr, ptr %17, align 8
-  tail call void %18(ptr noundef %0, i32 noundef %1) #10
+  tail call void %18(ptr noundef %0, i32 noundef %1) #9
   %19 = getelementptr inbounds i8, ptr %3, i64 2084
   store i8 0, ptr %19, align 4
-  %20 = tail call i32 @__SCT__might_resched() #10
+  %20 = tail call i32 @__SCT__might_resched() #9
   ret void
 }
 
@@ -3083,7 +3083,7 @@ define internal void @ext_pwm_enable_backlight(ptr nocapture readnone %0, ptr no
 14:                                               ; preds = %6, %3
   %15 = getelementptr inbounds i8, ptr %4, i64 2084
   store i8 1, ptr %15, align 4
-  %16 = tail call i32 @__SCT__might_resched() #10
+  %16 = tail call i32 @__SCT__might_resched() #9
   ret void
 }
 
@@ -3094,10 +3094,10 @@ define internal noundef range(i32 -19, 1) i32 @vlv_setup_backlight(ptr noundef %
   br i1 %4, label %5, label %17, !prof !5
 
 5:                                                ; preds = %2
-  tail call void asm sideeffect "951: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 951b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 951) #10, !srcloc !59
+  tail call void asm sideeffect "951: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 951b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 951) #9, !srcloc !59
   %6 = getelementptr inbounds i8, ptr %3, i64 8
   %7 = load ptr, ptr %6, align 8
-  %8 = tail call ptr @dev_driver_string(ptr noundef %7) #10
+  %8 = tail call ptr @dev_driver_string(ptr noundef %7) #9
   %9 = load ptr, ptr %6, align 8
   %10 = getelementptr inbounds i8, ptr %9, i64 80
   %11 = load ptr, ptr %10, align 8
@@ -3110,11 +3110,11 @@ define internal noundef range(i32 -19, 1) i32 @vlv_setup_backlight(ptr noundef %
 
 15:                                               ; preds = %13, %5
   %16 = phi ptr [ %14, %13 ], [ %11, %5 ]
-  tail call void (ptr, ...) @__warn_printk(ptr noundef nonnull @.str, ptr noundef %8, ptr noundef %16, ptr noundef nonnull @.str.46) #10
-  tail call void asm sideeffect "952: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 952b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 952) #10, !srcloc !60
-  tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.2, i32 1383, i32 2313, i64 12) #10, !srcloc !61
-  tail call void asm sideeffect "953: nop\0A\09.pushsection .discard.instr_end\0A\09.long 953b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 953) #10, !srcloc !62
-  tail call void asm sideeffect "954: nop\0A\09.pushsection .discard.instr_end\0A\09.long 954b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 954) #10, !srcloc !63
+  tail call void (ptr, ...) @__warn_printk(ptr noundef nonnull @.str, ptr noundef %8, ptr noundef %16, ptr noundef nonnull @.str.46) #9
+  tail call void asm sideeffect "952: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 952b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 952) #9, !srcloc !60
+  tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.2, i32 1383, i32 2313, i64 12) #9, !srcloc !61
+  tail call void asm sideeffect "953: nop\0A\09.pushsection .discard.instr_end\0A\09.long 953b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 953) #9, !srcloc !62
+  tail call void asm sideeffect "954: nop\0A\09.pushsection .discard.instr_end\0A\09.long 954b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 954) #9, !srcloc !63
   br label %56
 
 17:                                               ; preds = %2
@@ -3123,7 +3123,7 @@ define internal noundef range(i32 -19, 1) i32 @vlv_setup_backlight(ptr noundef %
   %20 = getelementptr inbounds i8, ptr %3, i64 7368
   %21 = getelementptr inbounds i8, ptr %3, i64 7512
   %22 = load ptr, ptr %21, align 8
-  %23 = tail call i32 %22(ptr noundef %20, i32 %19, i1 noundef zeroext true) #10
+  %23 = tail call i32 %22(ptr noundef %20, i32 %19, i1 noundef zeroext true) #9
   %24 = getelementptr inbounds i8, ptr %0, i64 2042
   %25 = lshr i32 %23, 28
   %26 = trunc nuw nsw i32 %25 to i8
@@ -3131,7 +3131,7 @@ define internal noundef range(i32 -19, 1) i32 @vlv_setup_backlight(ptr noundef %
   store i8 %27, ptr %24, align 2
   %28 = or disjoint i32 %18, 1970772
   %29 = load ptr, ptr %21, align 8
-  %30 = tail call i32 %29(ptr noundef %20, i32 %28, i1 noundef zeroext true) #10
+  %30 = tail call i32 %29(ptr noundef %20, i32 %28, i1 noundef zeroext true) #9
   %31 = lshr i32 %30, 16
   %32 = getelementptr inbounds i8, ptr %0, i64 2048
   store i32 %31, ptr %32, align 8
@@ -3171,7 +3171,7 @@ define internal noundef range(i32 -19, 1) i32 @vlv_setup_backlight(ptr noundef %
   %53 = getelementptr inbounds i8, ptr %0, i64 96
   %54 = load ptr, ptr %53, align 8
   %55 = add nuw nsw i32 %1, 65
-  tail call void (ptr, ptr, i32, ptr, ...) @__drm_dev_dbg(ptr noundef null, ptr noundef %50, i32 noundef 2, ptr noundef nonnull @.str.47, i32 noundef %52, ptr noundef %54, i32 noundef %55) #10
+  tail call void (ptr, ptr, i32, ptr, ...) @__drm_dev_dbg(ptr noundef null, ptr noundef %50, i32 noundef 2, ptr noundef nonnull @.str.47, i32 noundef %52, ptr noundef %54, i32 noundef %55) #9
   br label %56
 
 56:                                               ; preds = %49, %36, %15
@@ -3186,10 +3186,10 @@ define internal range(i32 0, 65536) i32 @vlv_get_backlight(ptr nocapture noundef
   br i1 %4, label %5, label %17, !prof !5
 
 5:                                                ; preds = %2
-  tail call void asm sideeffect "919: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 919b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 919) #10, !srcloc !64
+  tail call void asm sideeffect "919: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 919b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 919) #9, !srcloc !64
   %6 = getelementptr inbounds i8, ptr %3, i64 8
   %7 = load ptr, ptr %6, align 8
-  %8 = tail call ptr @dev_driver_string(ptr noundef %7) #10
+  %8 = tail call ptr @dev_driver_string(ptr noundef %7) #9
   %9 = load ptr, ptr %6, align 8
   %10 = getelementptr inbounds i8, ptr %9, i64 80
   %11 = load ptr, ptr %10, align 8
@@ -3202,11 +3202,11 @@ define internal range(i32 0, 65536) i32 @vlv_get_backlight(ptr nocapture noundef
 
 15:                                               ; preds = %13, %5
   %16 = phi ptr [ %14, %13 ], [ %11, %5 ]
-  tail call void (ptr, ...) @__warn_printk(ptr noundef nonnull @.str, ptr noundef %8, ptr noundef %16, ptr noundef nonnull @.str.46) #10
-  tail call void asm sideeffect "920: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 920b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 920) #10, !srcloc !65
-  tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.2, i32 182, i32 2313, i64 12) #10, !srcloc !66
-  tail call void asm sideeffect "921: nop\0A\09.pushsection .discard.instr_end\0A\09.long 921b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 921) #10, !srcloc !67
-  tail call void asm sideeffect "922: nop\0A\09.pushsection .discard.instr_end\0A\09.long 922b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 922) #10, !srcloc !68
+  tail call void (ptr, ...) @__warn_printk(ptr noundef nonnull @.str, ptr noundef %8, ptr noundef %16, ptr noundef nonnull @.str.46) #9
+  tail call void asm sideeffect "920: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 920b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 920) #9, !srcloc !65
+  tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.2, i32 182, i32 2313, i64 12) #9, !srcloc !66
+  tail call void asm sideeffect "921: nop\0A\09.pushsection .discard.instr_end\0A\09.long 921b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 921) #9, !srcloc !67
+  tail call void asm sideeffect "922: nop\0A\09.pushsection .discard.instr_end\0A\09.long 922b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 922) #9, !srcloc !68
   br label %25
 
 17:                                               ; preds = %2
@@ -3215,7 +3215,7 @@ define internal range(i32 0, 65536) i32 @vlv_get_backlight(ptr nocapture noundef
   %20 = getelementptr inbounds i8, ptr %3, i64 7368
   %21 = getelementptr inbounds i8, ptr %3, i64 7512
   %22 = load ptr, ptr %21, align 8
-  %23 = tail call i32 %22(ptr noundef %20, i32 %19, i1 noundef zeroext true) #10
+  %23 = tail call i32 %22(ptr noundef %20, i32 %19, i1 noundef zeroext true) #9
   %24 = and i32 %23, 65535
   br label %25
 
@@ -3237,12 +3237,12 @@ define internal void @vlv_set_backlight(ptr nocapture noundef readonly %0, i32 n
   %11 = getelementptr inbounds i8, ptr %4, i64 7368
   %12 = getelementptr inbounds i8, ptr %4, i64 7512
   %13 = load ptr, ptr %12, align 8
-  %14 = tail call i32 %13(ptr noundef %11, i32 %10, i1 noundef zeroext true) #10
+  %14 = tail call i32 %13(ptr noundef %11, i32 %10, i1 noundef zeroext true) #9
   %15 = and i32 %14, -65536
   %16 = or i32 %15, %1
   %17 = getelementptr inbounds i8, ptr %4, i64 7544
   %18 = load ptr, ptr %17, align 8
-  tail call void %18(ptr noundef %11, i32 %10, i32 noundef %16, i1 noundef zeroext true) #10
+  tail call void %18(ptr noundef %11, i32 %10, i32 noundef %16, i1 noundef zeroext true) #9
   ret void
 }
 
@@ -3268,22 +3268,22 @@ define internal void @vlv_disable_backlight(ptr noundef %0, i32 noundef %1) #0 a
   %16 = load i32, ptr %15, align 8
   %17 = getelementptr inbounds i8, ptr %3, i64 96
   %18 = load ptr, ptr %17, align 8
-  tail call void (ptr, ptr, i32, ptr, ...) @__drm_dev_dbg(ptr noundef null, ptr noundef %14, i32 noundef 2, ptr noundef nonnull @.str.3, i32 noundef %16, ptr noundef %18, i32 noundef %1) #10
+  tail call void (ptr, ptr, i32, ptr, ...) @__drm_dev_dbg(ptr noundef null, ptr noundef %14, i32 noundef 2, ptr noundef nonnull @.str.3, i32 noundef %16, ptr noundef %18, i32 noundef %1) #9
   %19 = getelementptr inbounds i8, ptr %3, i64 2112
   %20 = load ptr, ptr %19, align 8
   %21 = getelementptr inbounds i8, ptr %20, i64 16
   %22 = load ptr, ptr %21, align 8
-  tail call void %22(ptr noundef %0, i32 noundef %1) #10
+  tail call void %22(ptr noundef %0, i32 noundef %1) #9
   %23 = shl i32 %8, 8
   %24 = add i32 %23, 1970768
   %25 = getelementptr inbounds i8, ptr %4, i64 7368
   %26 = getelementptr inbounds i8, ptr %4, i64 7512
   %27 = load ptr, ptr %26, align 8
-  %28 = tail call i32 %27(ptr noundef %25, i32 %24, i1 noundef zeroext true) #10
+  %28 = tail call i32 %27(ptr noundef %25, i32 %24, i1 noundef zeroext true) #9
   %29 = and i32 %28, 2147483647
   %30 = getelementptr inbounds i8, ptr %4, i64 7544
   %31 = load ptr, ptr %30, align 8
-  tail call void %31(ptr noundef %25, i32 %24, i32 noundef %29, i1 noundef zeroext true) #10
+  tail call void %31(ptr noundef %25, i32 %24, i32 noundef %29, i1 noundef zeroext true) #9
   ret void
 }
 
@@ -3299,7 +3299,7 @@ define internal void @vlv_enable_backlight(ptr nocapture noundef readonly %0, pt
   %11 = getelementptr inbounds i8, ptr %5, i64 7368
   %12 = getelementptr inbounds i8, ptr %5, i64 7512
   %13 = load ptr, ptr %12, align 8
-  %14 = tail call i32 %13(ptr noundef %11, i32 %10, i1 noundef zeroext true) #10
+  %14 = tail call i32 %13(ptr noundef %11, i32 %10, i1 noundef zeroext true) #9
   %15 = icmp sgt i32 %14, -1
   br i1 %15, label %30, label %16
 
@@ -3318,11 +3318,11 @@ define internal void @vlv_enable_backlight(ptr nocapture noundef readonly %0, pt
   %24 = load i32, ptr %23, align 8
   %25 = getelementptr inbounds i8, ptr %4, i64 96
   %26 = load ptr, ptr %25, align 8
-  tail call void (ptr, ptr, i32, ptr, ...) @__drm_dev_dbg(ptr noundef null, ptr noundef %22, i32 noundef 2, ptr noundef nonnull @.str.30, i32 noundef %24, ptr noundef %26) #10
+  tail call void (ptr, ptr, i32, ptr, ...) @__drm_dev_dbg(ptr noundef null, ptr noundef %22, i32 noundef 2, ptr noundef nonnull @.str.30, i32 noundef %24, ptr noundef %26) #9
   %27 = and i32 %14, 2147483647
   %28 = getelementptr inbounds i8, ptr %5, i64 7544
   %29 = load ptr, ptr %28, align 8
-  tail call void %29(ptr noundef %11, i32 %10, i32 noundef %27, i1 noundef zeroext true) #10
+  tail call void %29(ptr noundef %11, i32 %10, i32 noundef %27, i1 noundef zeroext true) #9
   br label %30
 
 30:                                               ; preds = %21, %3
@@ -3332,7 +3332,7 @@ define internal void @vlv_enable_backlight(ptr nocapture noundef readonly %0, pt
   %34 = add i32 %9, 1970772
   %35 = getelementptr inbounds i8, ptr %5, i64 7544
   %36 = load ptr, ptr %35, align 8
-  tail call void %36(ptr noundef %11, i32 %34, i32 noundef %33, i1 noundef zeroext true) #10
+  tail call void %36(ptr noundef %11, i32 %34, i32 noundef %33, i1 noundef zeroext true) #9
   %37 = load ptr, ptr %1, align 8
   %38 = load ptr, ptr %37, align 8
   %39 = icmp eq ptr %38, null
@@ -3349,23 +3349,23 @@ define internal void @vlv_enable_backlight(ptr nocapture noundef readonly %0, pt
   %46 = load i32, ptr %45, align 8
   %47 = getelementptr inbounds i8, ptr %37, i64 96
   %48 = load ptr, ptr %47, align 8
-  tail call void (ptr, ptr, i32, ptr, ...) @__drm_dev_dbg(ptr noundef null, ptr noundef %44, i32 noundef 2, ptr noundef nonnull @.str.3, i32 noundef %46, ptr noundef %48, i32 noundef %2) #10
+  tail call void (ptr, ptr, i32, ptr, ...) @__drm_dev_dbg(ptr noundef null, ptr noundef %44, i32 noundef 2, ptr noundef nonnull @.str.3, i32 noundef %46, ptr noundef %48, i32 noundef %2) #9
   %49 = getelementptr inbounds i8, ptr %37, i64 2112
   %50 = load ptr, ptr %49, align 8
   %51 = getelementptr inbounds i8, ptr %50, i64 16
   %52 = load ptr, ptr %51, align 8
-  tail call void %52(ptr noundef %1, i32 noundef %2) #10
+  tail call void %52(ptr noundef %1, i32 noundef %2) #9
   %53 = getelementptr inbounds i8, ptr %4, i64 2042
   %54 = load i8, ptr %53, align 2, !range !28, !noundef !29
   %55 = icmp eq i8 %54, 0
   %56 = select i1 %55, i32 0, i32 268435456
   %57 = load ptr, ptr %35, align 8
-  tail call void %57(ptr noundef %11, i32 %10, i32 noundef %56, i1 noundef zeroext true) #10
+  tail call void %57(ptr noundef %11, i32 %10, i32 noundef %56, i1 noundef zeroext true) #9
   %58 = load ptr, ptr %12, align 8
-  %59 = tail call i32 %58(ptr noundef %11, i32 %10, i1 noundef zeroext false) #10
+  %59 = tail call i32 %58(ptr noundef %11, i32 %10, i1 noundef zeroext false) #9
   %60 = or disjoint i32 %56, -2147483648
   %61 = load ptr, ptr %35, align 8
-  tail call void %61(ptr noundef %11, i32 %10, i32 noundef %60, i1 noundef zeroext true) #10
+  tail call void %61(ptr noundef %11, i32 %10, i32 noundef %60, i1 noundef zeroext true) #9
   ret void
 }
 
@@ -3375,7 +3375,7 @@ define internal i32 @vlv_hz_to_pwm(ptr nocapture noundef readonly %0, i32 nounde
   %4 = getelementptr inbounds i8, ptr %3, i64 7368
   %5 = getelementptr inbounds i8, ptr %3, i64 7512
   %6 = load ptr, ptr %5, align 8
-  %7 = tail call i32 %6(ptr noundef %4, i32 2032640, i1 noundef zeroext true) #10
+  %7 = tail call i32 %6(ptr noundef %4, i32 2032640, i1 noundef zeroext true) #9
   %8 = and i32 %7, 1073741824
   %9 = icmp eq i32 %8, 0
   br i1 %9, label %10, label %16
@@ -3410,7 +3410,7 @@ define internal noundef range(i32 -19, 1) i32 @i965_setup_backlight(ptr noundef 
   %4 = getelementptr inbounds i8, ptr %3, i64 7368
   %5 = getelementptr inbounds i8, ptr %3, i64 7512
   %6 = load ptr, ptr %5, align 8
-  %7 = tail call i32 %6(ptr noundef %4, i32 397904, i1 noundef zeroext true) #10
+  %7 = tail call i32 %6(ptr noundef %4, i32 397904, i1 noundef zeroext true) #9
   %8 = getelementptr inbounds i8, ptr %0, i64 2041
   %9 = lshr i32 %7, 30
   %10 = trunc nuw nsw i32 %9 to i8
@@ -3422,7 +3422,7 @@ define internal noundef range(i32 -19, 1) i32 @i965_setup_backlight(ptr noundef 
   %15 = and i8 %14, 1
   store i8 %15, ptr %12, align 2
   %16 = load ptr, ptr %5, align 8
-  %17 = tail call i32 %16(ptr noundef %4, i32 397908, i1 noundef zeroext true) #10
+  %17 = tail call i32 %16(ptr noundef %4, i32 397908, i1 noundef zeroext true) #9
   %18 = lshr i32 %17, 16
   %19 = getelementptr inbounds i8, ptr %0, i64 2048
   store i32 %18, ptr %19, align 8
@@ -3471,7 +3471,7 @@ define internal noundef range(i32 -19, 1) i32 @i965_setup_backlight(ptr noundef 
   %44 = load i32, ptr %43, align 8
   %45 = getelementptr inbounds i8, ptr %0, i64 96
   %46 = load ptr, ptr %45, align 8
-  tail call void (ptr, ptr, i32, ptr, ...) @__drm_dev_dbg(ptr noundef null, ptr noundef %42, i32 noundef 2, ptr noundef nonnull @.str.48, i32 noundef %44, ptr noundef %46) #10
+  tail call void (ptr, ptr, i32, ptr, ...) @__drm_dev_dbg(ptr noundef null, ptr noundef %42, i32 noundef 2, ptr noundef nonnull @.str.48, i32 noundef %44, ptr noundef %46) #9
   br label %47
 
 47:                                               ; preds = %41, %23
@@ -3486,7 +3486,7 @@ define internal range(i32 0, 16711426) i32 @i9xx_get_backlight(ptr nocapture nou
   %5 = getelementptr inbounds i8, ptr %4, i64 7368
   %6 = getelementptr inbounds i8, ptr %4, i64 7512
   %7 = load ptr, ptr %6, align 8
-  %8 = tail call i32 %7(ptr noundef %5, i32 397908, i1 noundef zeroext true) #10
+  %8 = tail call i32 %7(ptr noundef %5, i32 397908, i1 noundef zeroext true) #9
   %9 = and i32 %8, 65535
   %10 = getelementptr inbounds i8, ptr %4, i64 2632
   %11 = load i16, ptr %10, align 8
@@ -3499,16 +3499,16 @@ define internal range(i32 0, 16711426) i32 @i9xx_get_backlight(ptr nocapture nou
   br i1 %17, label %26, label %18
 
 18:                                               ; preds = %2
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %3) #10
+  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %3) #9
   store i8 0, ptr %3, align 1, !annotation !69
   %19 = getelementptr inbounds i8, ptr %4, i64 8
   %20 = load ptr, ptr %19, align 8
   %21 = getelementptr i8, ptr %20, i64 -184
-  %22 = call i32 @pci_read_config_byte(ptr noundef %21, i32 noundef 244, ptr noundef nonnull %3) #10
+  %22 = call i32 @pci_read_config_byte(ptr noundef %21, i32 noundef 244, ptr noundef nonnull %3) #9
   %23 = load i8, ptr %3, align 1
   %24 = zext i8 %23 to i32
   %25 = mul nuw nsw i32 %14, %24
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %3) #10
+  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %3) #9
   br label %26
 
 26:                                               ; preds = %18, %2
@@ -3526,10 +3526,10 @@ define internal void @i9xx_set_backlight(ptr nocapture noundef readonly %0, i32 
   br i1 %7, label %8, label %20, !prof !5
 
 8:                                                ; preds = %2
-  tail call void asm sideeffect "923: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 923b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 923) #10, !srcloc !70
+  tail call void asm sideeffect "923: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 923b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 923) #9, !srcloc !70
   %9 = getelementptr inbounds i8, ptr %4, i64 8
   %10 = load ptr, ptr %9, align 8
-  %11 = tail call ptr @dev_driver_string(ptr noundef %10) #10
+  %11 = tail call ptr @dev_driver_string(ptr noundef %10) #9
   %12 = load ptr, ptr %9, align 8
   %13 = getelementptr inbounds i8, ptr %12, i64 80
   %14 = load ptr, ptr %13, align 8
@@ -3542,11 +3542,11 @@ define internal void @i9xx_set_backlight(ptr nocapture noundef readonly %0, i32 
 
 18:                                               ; preds = %16, %8
   %19 = phi ptr [ %17, %16 ], [ %14, %8 ]
-  tail call void (ptr, ...) @__warn_printk(ptr noundef nonnull @.str, ptr noundef %11, ptr noundef %19, ptr noundef nonnull @.str.1) #10
-  tail call void asm sideeffect "924: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 924b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 924) #10, !srcloc !71
-  tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.2, i32 232, i32 2313, i64 12) #10, !srcloc !72
-  tail call void asm sideeffect "925: nop\0A\09.pushsection .discard.instr_end\0A\09.long 925b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 925) #10, !srcloc !73
-  tail call void asm sideeffect "926: nop\0A\09.pushsection .discard.instr_end\0A\09.long 926b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 926) #10, !srcloc !74
+  tail call void (ptr, ...) @__warn_printk(ptr noundef nonnull @.str, ptr noundef %11, ptr noundef %19, ptr noundef nonnull @.str.1) #9
+  tail call void asm sideeffect "924: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 924b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 924) #9, !srcloc !71
+  tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.2, i32 232, i32 2313, i64 12) #9, !srcloc !72
+  tail call void asm sideeffect "925: nop\0A\09.pushsection .discard.instr_end\0A\09.long 925b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 925) #9, !srcloc !73
+  tail call void asm sideeffect "926: nop\0A\09.pushsection .discard.instr_end\0A\09.long 926b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 926) #9, !srcloc !74
   br label %20
 
 20:                                               ; preds = %18, %2
@@ -3566,7 +3566,7 @@ define internal void @i9xx_set_backlight(ptr nocapture noundef readonly %0, i32 
   %32 = getelementptr inbounds i8, ptr %4, i64 8
   %33 = load ptr, ptr %32, align 8
   %34 = getelementptr i8, ptr %33, i64 -184
-  %35 = tail call i32 @pci_write_config_byte(ptr noundef %34, i32 noundef 244, i8 noundef zeroext %29) #10
+  %35 = tail call i32 @pci_write_config_byte(ptr noundef %34, i32 noundef 244, i8 noundef zeroext %29) #9
   br label %36
 
 36:                                               ; preds = %24, %20
@@ -3580,12 +3580,12 @@ define internal void @i9xx_set_backlight(ptr nocapture noundef readonly %0, i32 
   %44 = getelementptr inbounds i8, ptr %4, i64 7368
   %45 = getelementptr inbounds i8, ptr %4, i64 7512
   %46 = load ptr, ptr %45, align 8
-  %47 = tail call i32 %46(ptr noundef %44, i32 397908, i1 noundef zeroext true) #10
+  %47 = tail call i32 %46(ptr noundef %44, i32 397908, i1 noundef zeroext true) #9
   %48 = and i32 %47, %41
   %49 = or i32 %48, %43
   %50 = getelementptr inbounds i8, ptr %4, i64 7544
   %51 = load ptr, ptr %50, align 8
-  tail call void %51(ptr noundef %44, i32 397908, i32 noundef %49, i1 noundef zeroext true) #10
+  tail call void %51(ptr noundef %44, i32 397908, i32 noundef %49, i1 noundef zeroext true) #9
   ret void
 }
 
@@ -3607,20 +3607,20 @@ define internal void @i965_disable_backlight(ptr noundef %0, i32 noundef %1) #0 
   %12 = load i32, ptr %11, align 8
   %13 = getelementptr inbounds i8, ptr %3, i64 96
   %14 = load ptr, ptr %13, align 8
-  tail call void (ptr, ptr, i32, ptr, ...) @__drm_dev_dbg(ptr noundef null, ptr noundef %10, i32 noundef 2, ptr noundef nonnull @.str.3, i32 noundef %12, ptr noundef %14, i32 noundef %1) #10
+  tail call void (ptr, ptr, i32, ptr, ...) @__drm_dev_dbg(ptr noundef null, ptr noundef %10, i32 noundef 2, ptr noundef nonnull @.str.3, i32 noundef %12, ptr noundef %14, i32 noundef %1) #9
   %15 = getelementptr inbounds i8, ptr %3, i64 2112
   %16 = load ptr, ptr %15, align 8
   %17 = getelementptr inbounds i8, ptr %16, i64 16
   %18 = load ptr, ptr %17, align 8
-  tail call void %18(ptr noundef %0, i32 noundef %1) #10
+  tail call void %18(ptr noundef %0, i32 noundef %1) #9
   %19 = getelementptr inbounds i8, ptr %4, i64 7368
   %20 = getelementptr inbounds i8, ptr %4, i64 7512
   %21 = load ptr, ptr %20, align 8
-  %22 = tail call i32 %21(ptr noundef %19, i32 397904, i1 noundef zeroext true) #10
+  %22 = tail call i32 %21(ptr noundef %19, i32 397904, i1 noundef zeroext true) #9
   %23 = and i32 %22, 2147483647
   %24 = getelementptr inbounds i8, ptr %4, i64 7544
   %25 = load ptr, ptr %24, align 8
-  tail call void %25(ptr noundef %19, i32 397904, i32 noundef %23, i1 noundef zeroext true) #10
+  tail call void %25(ptr noundef %19, i32 397904, i32 noundef %23, i1 noundef zeroext true) #9
   ret void
 }
 
@@ -3635,7 +3635,7 @@ define internal void @i965_enable_backlight(ptr nocapture readnone %0, ptr nound
   %10 = getelementptr inbounds i8, ptr %5, i64 7368
   %11 = getelementptr inbounds i8, ptr %5, i64 7512
   %12 = load ptr, ptr %11, align 8
-  %13 = tail call i32 %12(ptr noundef %10, i32 397904, i1 noundef zeroext true) #10
+  %13 = tail call i32 %12(ptr noundef %10, i32 397904, i1 noundef zeroext true) #9
   %14 = icmp sgt i32 %13, -1
   br i1 %14, label %29, label %15
 
@@ -3654,11 +3654,11 @@ define internal void @i965_enable_backlight(ptr nocapture readnone %0, ptr nound
   %23 = load i32, ptr %22, align 8
   %24 = getelementptr inbounds i8, ptr %4, i64 96
   %25 = load ptr, ptr %24, align 8
-  tail call void (ptr, ptr, i32, ptr, ...) @__drm_dev_dbg(ptr noundef null, ptr noundef %21, i32 noundef 2, ptr noundef nonnull @.str.30, i32 noundef %23, ptr noundef %25) #10
+  tail call void (ptr, ptr, i32, ptr, ...) @__drm_dev_dbg(ptr noundef null, ptr noundef %21, i32 noundef 2, ptr noundef nonnull @.str.30, i32 noundef %23, ptr noundef %25) #9
   %26 = and i32 %13, 2147483647
   %27 = getelementptr inbounds i8, ptr %5, i64 7544
   %28 = load ptr, ptr %27, align 8
-  tail call void %28(ptr noundef %10, i32 397904, i32 noundef %26, i1 noundef zeroext true) #10
+  tail call void %28(ptr noundef %10, i32 397904, i32 noundef %26, i1 noundef zeroext true) #9
   br label %29
 
 29:                                               ; preds = %20, %3
@@ -3672,7 +3672,7 @@ define internal void @i965_enable_backlight(ptr nocapture readnone %0, ptr nound
   %37 = shl i32 %36, 16
   %38 = getelementptr inbounds i8, ptr %5, i64 7544
   %39 = load ptr, ptr %38, align 8
-  tail call void %39(ptr noundef %10, i32 397908, i32 noundef %37, i1 noundef zeroext true) #10
+  tail call void %39(ptr noundef %10, i32 397908, i32 noundef %37, i1 noundef zeroext true) #9
   %40 = shl i32 %9, 29
   %41 = load i8, ptr %32, align 1, !range !28, !noundef !29
   %42 = icmp eq i8 %41, 0
@@ -3684,12 +3684,12 @@ define internal void @i965_enable_backlight(ptr nocapture readnone %0, ptr nound
   %48 = or disjoint i32 %44, 268435456
   %49 = select i1 %47, i32 %44, i32 %48
   %50 = load ptr, ptr %38, align 8
-  tail call void %50(ptr noundef %10, i32 397904, i32 noundef %49, i1 noundef zeroext true) #10
+  tail call void %50(ptr noundef %10, i32 397904, i32 noundef %49, i1 noundef zeroext true) #9
   %51 = load ptr, ptr %11, align 8
-  %52 = tail call i32 %51(ptr noundef %10, i32 397904, i1 noundef zeroext false) #10
+  %52 = tail call i32 %51(ptr noundef %10, i32 397904, i1 noundef zeroext false) #9
   %53 = or i32 %49, -2147483648
   %54 = load ptr, ptr %38, align 8
-  tail call void %54(ptr noundef %10, i32 397904, i32 noundef %53, i1 noundef zeroext true) #10
+  tail call void %54(ptr noundef %10, i32 397904, i32 noundef %53, i1 noundef zeroext true) #9
   %55 = load ptr, ptr %1, align 8
   %56 = load ptr, ptr %55, align 8
   %57 = icmp eq ptr %56, null
@@ -3706,12 +3706,12 @@ define internal void @i965_enable_backlight(ptr nocapture readnone %0, ptr nound
   %64 = load i32, ptr %63, align 8
   %65 = getelementptr inbounds i8, ptr %55, i64 96
   %66 = load ptr, ptr %65, align 8
-  tail call void (ptr, ptr, i32, ptr, ...) @__drm_dev_dbg(ptr noundef null, ptr noundef %62, i32 noundef 2, ptr noundef nonnull @.str.3, i32 noundef %64, ptr noundef %66, i32 noundef %2) #10
+  tail call void (ptr, ptr, i32, ptr, ...) @__drm_dev_dbg(ptr noundef null, ptr noundef %62, i32 noundef 2, ptr noundef nonnull @.str.3, i32 noundef %64, ptr noundef %66, i32 noundef %2) #9
   %67 = getelementptr inbounds i8, ptr %55, i64 2112
   %68 = load ptr, ptr %67, align 8
   %69 = getelementptr inbounds i8, ptr %68, i64 16
   %70 = load ptr, ptr %69, align 8
-  tail call void %70(ptr noundef %1, i32 noundef %2) #10
+  tail call void %70(ptr noundef %1, i32 noundef %2) #9
   ret void
 }
 
@@ -3746,7 +3746,7 @@ define internal noundef range(i32 -19, 1) i32 @i9xx_setup_backlight(ptr noundef 
   %5 = getelementptr inbounds i8, ptr %4, i64 7368
   %6 = getelementptr inbounds i8, ptr %4, i64 7512
   %7 = load ptr, ptr %6, align 8
-  %8 = tail call i32 %7(ptr noundef %5, i32 397908, i1 noundef zeroext true) #10
+  %8 = tail call i32 %7(ptr noundef %5, i32 397908, i1 noundef zeroext true) #9
   %9 = getelementptr inbounds i8, ptr %4, i64 2632
   %10 = load i16, ptr %9, align 8
   %11 = icmp eq i16 %10, 2
@@ -3819,7 +3819,7 @@ define internal noundef range(i32 -19, 1) i32 @i9xx_setup_backlight(ptr noundef 
   %50 = getelementptr inbounds i8, ptr %49, i64 7368
   %51 = getelementptr inbounds i8, ptr %49, i64 7512
   %52 = load ptr, ptr %51, align 8
-  %53 = tail call i32 %52(ptr noundef %50, i32 397908, i1 noundef zeroext true) #10
+  %53 = tail call i32 %52(ptr noundef %50, i32 397908, i1 noundef zeroext true) #9
   %54 = and i32 %53, 65535
   %55 = getelementptr inbounds i8, ptr %49, i64 2632
   %56 = load i16, ptr %55, align 8
@@ -3831,16 +3831,16 @@ define internal noundef range(i32 -19, 1) i32 @i9xx_setup_backlight(ptr noundef 
   br i1 %61, label %70, label %62
 
 62:                                               ; preds = %46
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %3) #10
+  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %3) #9
   store i8 0, ptr %3, align 1, !annotation !69
   %63 = getelementptr inbounds i8, ptr %49, i64 8
   %64 = load ptr, ptr %63, align 8
   %65 = getelementptr i8, ptr %64, i64 -184
-  %66 = call i32 @pci_read_config_byte(ptr noundef %65, i32 noundef 244, ptr noundef nonnull %3) #10
+  %66 = call i32 @pci_read_config_byte(ptr noundef %65, i32 noundef 244, ptr noundef nonnull %3) #9
   %67 = load i8, ptr %3, align 1
   %68 = zext i8 %67 to i32
   %69 = mul nuw nsw i32 %59, %68
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %3) #10
+  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %3) #9
   br label %70
 
 70:                                               ; preds = %62, %46
@@ -3875,7 +3875,7 @@ define internal noundef range(i32 -19, 1) i32 @i9xx_setup_backlight(ptr noundef 
   %90 = load i32, ptr %89, align 8
   %91 = getelementptr inbounds i8, ptr %0, i64 96
   %92 = load ptr, ptr %91, align 8
-  call void (ptr, ptr, i32, ptr, ...) @__drm_dev_dbg(ptr noundef null, ptr noundef %88, i32 noundef 2, ptr noundef nonnull @.str.48, i32 noundef %90, ptr noundef %92) #10
+  call void (ptr, ptr, i32, ptr, ...) @__drm_dev_dbg(ptr noundef null, ptr noundef %88, i32 noundef 2, ptr noundef nonnull @.str.48, i32 noundef %90, ptr noundef %92) #9
   br label %93
 
 93:                                               ; preds = %87, %37
@@ -3901,12 +3901,12 @@ define internal void @i9xx_disable_backlight(ptr noundef %0, i32 noundef %1) #0 
   %12 = load i32, ptr %11, align 8
   %13 = getelementptr inbounds i8, ptr %3, i64 96
   %14 = load ptr, ptr %13, align 8
-  tail call void (ptr, ptr, i32, ptr, ...) @__drm_dev_dbg(ptr noundef null, ptr noundef %10, i32 noundef 2, ptr noundef nonnull @.str.3, i32 noundef %12, ptr noundef %14, i32 noundef %1) #10
+  tail call void (ptr, ptr, i32, ptr, ...) @__drm_dev_dbg(ptr noundef null, ptr noundef %10, i32 noundef 2, ptr noundef nonnull @.str.3, i32 noundef %12, ptr noundef %14, i32 noundef %1) #9
   %15 = getelementptr inbounds i8, ptr %3, i64 2112
   %16 = load ptr, ptr %15, align 8
   %17 = getelementptr inbounds i8, ptr %16, i64 16
   %18 = load ptr, ptr %17, align 8
-  tail call void %18(ptr noundef %0, i32 noundef %1) #10
+  tail call void %18(ptr noundef %0, i32 noundef %1) #9
   ret void
 }
 
@@ -3917,7 +3917,7 @@ define internal void @i9xx_enable_backlight(ptr nocapture readnone %0, ptr nound
   %6 = getelementptr inbounds i8, ptr %5, i64 7368
   %7 = getelementptr inbounds i8, ptr %5, i64 7512
   %8 = load ptr, ptr %7, align 8
-  %9 = tail call i32 %8(ptr noundef %6, i32 397908, i1 noundef zeroext true) #10
+  %9 = tail call i32 %8(ptr noundef %6, i32 397908, i1 noundef zeroext true) #9
   %10 = and i32 %9, 65534
   %11 = icmp eq i32 %10, 0
   br i1 %11, label %25, label %12
@@ -3937,10 +3937,10 @@ define internal void @i9xx_enable_backlight(ptr nocapture readnone %0, ptr nound
   %20 = load i32, ptr %19, align 8
   %21 = getelementptr inbounds i8, ptr %4, i64 96
   %22 = load ptr, ptr %21, align 8
-  tail call void (ptr, ptr, i32, ptr, ...) @__drm_dev_dbg(ptr noundef null, ptr noundef %18, i32 noundef 2, ptr noundef nonnull @.str.30, i32 noundef %20, ptr noundef %22) #10
+  tail call void (ptr, ptr, i32, ptr, ...) @__drm_dev_dbg(ptr noundef null, ptr noundef %18, i32 noundef 2, ptr noundef nonnull @.str.30, i32 noundef %20, ptr noundef %22) #9
   %23 = getelementptr inbounds i8, ptr %5, i64 7544
   %24 = load ptr, ptr %23, align 8
-  tail call void %24(ptr noundef %6, i32 397908, i32 noundef 0, i1 noundef zeroext true) #10
+  tail call void %24(ptr noundef %6, i32 397908, i32 noundef 0, i1 noundef zeroext true) #9
   br label %25
 
 25:                                               ; preds = %17, %3
@@ -3971,9 +3971,9 @@ define internal void @i9xx_enable_backlight(ptr nocapture readnone %0, ptr nound
   %46 = phi i32 [ %35, %25 ], [ %44, %40 ]
   %47 = getelementptr inbounds i8, ptr %5, i64 7544
   %48 = load ptr, ptr %47, align 8
-  tail call void %48(ptr noundef %6, i32 397908, i32 noundef %46, i1 noundef zeroext true) #10
+  tail call void %48(ptr noundef %6, i32 397908, i32 noundef %46, i1 noundef zeroext true) #9
   %49 = load ptr, ptr %7, align 8
-  %50 = tail call i32 %49(ptr noundef %6, i32 397908, i1 noundef zeroext false) #10
+  %50 = tail call i32 %49(ptr noundef %6, i32 397908, i1 noundef zeroext false) #9
   %51 = load ptr, ptr %1, align 8
   %52 = load ptr, ptr %51, align 8
   %53 = icmp eq ptr %52, null
@@ -3990,12 +3990,12 @@ define internal void @i9xx_enable_backlight(ptr nocapture readnone %0, ptr nound
   %60 = load i32, ptr %59, align 8
   %61 = getelementptr inbounds i8, ptr %51, i64 96
   %62 = load ptr, ptr %61, align 8
-  tail call void (ptr, ptr, i32, ptr, ...) @__drm_dev_dbg(ptr noundef null, ptr noundef %58, i32 noundef 2, ptr noundef nonnull @.str.3, i32 noundef %60, ptr noundef %62, i32 noundef %2) #10
+  tail call void (ptr, ptr, i32, ptr, ...) @__drm_dev_dbg(ptr noundef null, ptr noundef %58, i32 noundef 2, ptr noundef nonnull @.str.3, i32 noundef %60, ptr noundef %62, i32 noundef %2) #9
   %63 = getelementptr inbounds i8, ptr %51, i64 2112
   %64 = load ptr, ptr %63, align 8
   %65 = getelementptr inbounds i8, ptr %64, i64 16
   %66 = load ptr, ptr %65, align 8
-  tail call void %66(ptr noundef %1, i32 noundef %2) #10
+  tail call void %66(ptr noundef %1, i32 noundef %2) #9
   %67 = getelementptr inbounds i8, ptr %5, i64 2632
   %68 = load i16, ptr %67, align 8
   %69 = icmp eq i16 %68, 2
@@ -4003,7 +4003,7 @@ define internal void @i9xx_enable_backlight(ptr nocapture readnone %0, ptr nound
 
 70:                                               ; preds = %57
   %71 = load ptr, ptr %47, align 8
-  tail call void %71(ptr noundef %6, i32 397920, i32 noundef -2147483648, i1 noundef zeroext true) #10
+  tail call void %71(ptr noundef %6, i32 397920, i32 noundef -2147483648, i1 noundef zeroext true) #9
   br label %72
 
 72:                                               ; preds = %70, %57
@@ -4033,7 +4033,7 @@ define internal range(i32 -2147483648, 1) i32 @intel_pwm_setup_backlight(ptr nou
   %3 = getelementptr inbounds i8, ptr %0, i64 2112
   %4 = load ptr, ptr %3, align 8
   %5 = load ptr, ptr %4, align 8
-  %6 = tail call i32 %5(ptr noundef %0, i32 noundef %1) #10
+  %6 = tail call i32 %5(ptr noundef %0, i32 noundef %1) #9
   %7 = icmp slt i32 %6, 0
   br i1 %7, label %24, label %8
 
@@ -4049,7 +4049,7 @@ define internal range(i32 -2147483648, 1) i32 @intel_pwm_setup_backlight(ptr nou
   %15 = load ptr, ptr %3, align 8
   %16 = getelementptr inbounds i8, ptr %15, i64 8
   %17 = load ptr, ptr %16, align 8
-  %18 = tail call i32 %17(ptr noundef %0, i32 noundef %1) #10
+  %18 = tail call i32 %17(ptr noundef %0, i32 noundef %1) #9
   %19 = tail call i32 @intel_backlight_invert_pwm_level(ptr noundef %0, i32 noundef %18)
   %20 = getelementptr inbounds i8, ptr %0, i64 2028
   store i32 %19, ptr %20, align 4
@@ -4070,7 +4070,7 @@ define internal i32 @intel_pwm_get_backlight(ptr noundef %0, i32 noundef %1) #0 
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %4, i64 8
   %6 = load ptr, ptr %5, align 8
-  %7 = tail call i32 %6(ptr noundef %0, i32 noundef %1) #10
+  %7 = tail call i32 %6(ptr noundef %0, i32 noundef %1) #9
   %8 = tail call i32 @intel_backlight_invert_pwm_level(ptr noundef %0, i32 noundef %7)
   ret i32 %8
 }
@@ -4083,7 +4083,7 @@ define internal void @intel_pwm_set_backlight(ptr noundef %0, i32 noundef %1) #0
   %6 = getelementptr inbounds i8, ptr %5, i64 16
   %7 = load ptr, ptr %6, align 8
   %8 = tail call i32 @intel_backlight_invert_pwm_level(ptr noundef %3, i32 noundef %1)
-  tail call void %7(ptr noundef %0, i32 noundef %8) #10
+  tail call void %7(ptr noundef %0, i32 noundef %8) #9
   ret void
 }
 
@@ -4095,7 +4095,7 @@ define internal void @intel_pwm_disable_backlight(ptr noundef %0, i32 noundef %1
   %6 = getelementptr inbounds i8, ptr %5, i64 24
   %7 = load ptr, ptr %6, align 8
   %8 = tail call i32 @intel_backlight_invert_pwm_level(ptr noundef %3, i32 noundef %1)
-  tail call void %7(ptr noundef %0, i32 noundef %8) #10
+  tail call void %7(ptr noundef %0, i32 noundef %8) #9
   ret void
 }
 
@@ -4107,15 +4107,15 @@ define internal void @intel_pwm_enable_backlight(ptr noundef %0, ptr noundef %1,
   %7 = getelementptr inbounds i8, ptr %6, i64 32
   %8 = load ptr, ptr %7, align 8
   %9 = tail call i32 @intel_backlight_invert_pwm_level(ptr noundef %4, i32 noundef %2)
-  tail call void %8(ptr noundef %0, ptr noundef %1, i32 noundef %9) #10
+  tail call void %8(ptr noundef %0, ptr noundef %1, i32 noundef %9) #9
   ret void
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.umax.i32(i32, i32) #9
+declare i32 @llvm.umax.i32(i32, i32) #8
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.umin.i32(i32, i32) #9
+declare i32 @llvm.umin.i32(i32, i32) #8
 
 attributes #0 = { fn_ret_thunk_extern nounwind null_pointer_is_valid "min-legal-vector-width"="0" "no-jump-tables"="true" "no-trapping-math"="true" "patchable-function-entry"="0" "patchable-function-prefix"="16" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+retpoline-external-thunk,+retpoline-indirect-branches,+retpoline-indirect-calls,-3dnow,-3dnowa,-aes,-avx,-avx10.1-256,-avx10.1-512,-avx2,-avx512bf16,-avx512bitalg,-avx512bw,-avx512cd,-avx512dq,-avx512er,-avx512f,-avx512fp16,-avx512ifma,-avx512pf,-avx512vbmi,-avx512vbmi2,-avx512vl,-avx512vnni,-avx512vp2intersect,-avx512vpopcntdq,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-f16c,-fma,-fma4,-gfni,-kl,-mmx,-pclmul,-sha,-sha512,-sm3,-sm4,-sse,-sse2,-sse3,-sse4.1,-sse4.2,-sse4a,-ssse3,-vaes,-vpclmulqdq,-widekl,-x87,-xop" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
@@ -4125,10 +4125,9 @@ attributes #4 = { cold null_pointer_is_valid "no-trapping-math"="true" "stack-pr
 attributes #5 = { fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(none) "min-legal-vector-width"="0" "no-jump-tables"="true" "no-trapping-math"="true" "patchable-function-entry"="0" "patchable-function-prefix"="16" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+retpoline-external-thunk,+retpoline-indirect-branches,+retpoline-indirect-calls,-3dnow,-3dnowa,-aes,-avx,-avx10.1-256,-avx10.1-512,-avx2,-avx512bf16,-avx512bitalg,-avx512bw,-avx512cd,-avx512dq,-avx512er,-avx512f,-avx512fp16,-avx512ifma,-avx512pf,-avx512vbmi,-avx512vbmi2,-avx512vl,-avx512vnni,-avx512vp2intersect,-avx512vpopcntdq,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-f16c,-fma,-fma4,-gfni,-kl,-mmx,-pclmul,-sha,-sha512,-sm3,-sm4,-sse,-sse2,-sse3,-sse4.1,-sse4.2,-sse4a,-ssse3,-vaes,-vpclmulqdq,-widekl,-x87,-xop" "tune-cpu"="generic" }
 attributes #6 = { fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(read, inaccessiblemem: none) "min-legal-vector-width"="0" "no-jump-tables"="true" "no-trapping-math"="true" "patchable-function-entry"="0" "patchable-function-prefix"="16" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+retpoline-external-thunk,+retpoline-indirect-branches,+retpoline-indirect-calls,-3dnow,-3dnowa,-aes,-avx,-avx10.1-256,-avx10.1-512,-avx2,-avx512bf16,-avx512bitalg,-avx512bw,-avx512cd,-avx512dq,-avx512er,-avx512f,-avx512fp16,-avx512ifma,-avx512pf,-avx512vbmi,-avx512vbmi2,-avx512vl,-avx512vnni,-avx512vp2intersect,-avx512vpopcntdq,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-f16c,-fma,-fma4,-gfni,-kl,-mmx,-pclmul,-sha,-sha512,-sm3,-sm4,-sse,-sse2,-sse3,-sse4.1,-sse4.2,-sse4a,-ssse3,-vaes,-vpclmulqdq,-widekl,-x87,-xop" "tune-cpu"="generic" }
 attributes #7 = { fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: read) "min-legal-vector-width"="0" "no-jump-tables"="true" "no-trapping-math"="true" "patchable-function-entry"="0" "patchable-function-prefix"="16" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+retpoline-external-thunk,+retpoline-indirect-branches,+retpoline-indirect-calls,-3dnow,-3dnowa,-aes,-avx,-avx10.1-256,-avx10.1-512,-avx2,-avx512bf16,-avx512bitalg,-avx512bw,-avx512cd,-avx512dq,-avx512er,-avx512f,-avx512fp16,-avx512ifma,-avx512pf,-avx512vbmi,-avx512vbmi2,-avx512vl,-avx512vnni,-avx512vp2intersect,-avx512vpopcntdq,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-f16c,-fma,-fma4,-gfni,-kl,-mmx,-pclmul,-sha,-sha512,-sm3,-sm4,-sse,-sse2,-sse3,-sse4.1,-sse4.2,-sse4a,-ssse3,-vaes,-vpclmulqdq,-widekl,-x87,-xop" "tune-cpu"="generic" }
-attributes #8 = { cold fn_ret_thunk_extern nounwind null_pointer_is_valid "min-legal-vector-width"="0" "no-jump-tables"="true" "no-trapping-math"="true" "patchable-function-entry"="0" "patchable-function-prefix"="16" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+retpoline-external-thunk,+retpoline-indirect-branches,+retpoline-indirect-calls,-3dnow,-3dnowa,-aes,-avx,-avx10.1-256,-avx10.1-512,-avx2,-avx512bf16,-avx512bitalg,-avx512bw,-avx512cd,-avx512dq,-avx512er,-avx512f,-avx512fp16,-avx512ifma,-avx512pf,-avx512vbmi,-avx512vbmi2,-avx512vl,-avx512vnni,-avx512vp2intersect,-avx512vpopcntdq,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-f16c,-fma,-fma4,-gfni,-kl,-mmx,-pclmul,-sha,-sha512,-sm3,-sm4,-sse,-sse2,-sse3,-sse4.1,-sse4.2,-sse4a,-ssse3,-vaes,-vpclmulqdq,-widekl,-x87,-xop" "tune-cpu"="generic" }
-attributes #9 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #10 = { nounwind }
-attributes #11 = { cold nounwind }
+attributes #8 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #9 = { nounwind }
+attributes #10 = { cold nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3, !4}
 

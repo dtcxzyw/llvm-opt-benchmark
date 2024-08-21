@@ -102,9 +102,9 @@ module asm ".previous\09\09\09\09\09"
 
 ; Function Attrs: cold fn_ret_thunk_extern nounwind null_pointer_is_valid optsize
 define internal void @acpi_thermal_exit() #0 section ".exit.text" align 16 {
-  tail call void @acpi_bus_unregister_driver(ptr noundef nonnull @acpi_thermal_driver) #12
+  tail call void @acpi_bus_unregister_driver(ptr noundef nonnull @acpi_thermal_driver) #11
   %1 = load ptr, ptr @acpi_thermal_pm_queue, align 8
-  tail call void @destroy_workqueue(ptr noundef %1) #12
+  tail call void @destroy_workqueue(ptr noundef %1) #11
   ret void
 }
 
@@ -116,29 +116,29 @@ declare dso_local void @destroy_workqueue(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: cold fn_ret_thunk_extern nounwind null_pointer_is_valid optsize
 define internal noundef range(i32 -19, 1) i32 @acpi_thermal_init() #0 section ".init.text" align 16 {
-  %1 = tail call i32 @dmi_check_system(ptr noundef nonnull @thermal_dmi_table) #12
+  %1 = tail call i32 @dmi_check_system(ptr noundef nonnull @thermal_dmi_table) #11
   %2 = load i32, ptr @off, align 4
   %3 = icmp eq i32 %2, 0
   br i1 %3, label %6, label %4
 
 4:                                                ; preds = %0
-  %5 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.25) #13
+  %5 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.25) #12
   br label %14
 
 6:                                                ; preds = %0
-  %7 = tail call ptr (ptr, i32, i32, ...) @alloc_workqueue(ptr noundef nonnull @.str.26, i32 noundef 24, i32 noundef 0) #12
+  %7 = tail call ptr (ptr, i32, i32, ...) @alloc_workqueue(ptr noundef nonnull @.str.26, i32 noundef 24, i32 noundef 0) #11
   store ptr %7, ptr @acpi_thermal_pm_queue, align 8
   %8 = icmp eq ptr %7, null
   br i1 %8, label %14, label %9
 
 9:                                                ; preds = %6
-  %10 = tail call i32 @acpi_bus_register_driver(ptr noundef nonnull @acpi_thermal_driver) #12
+  %10 = tail call i32 @acpi_bus_register_driver(ptr noundef nonnull @acpi_thermal_driver) #11
   %11 = icmp slt i32 %10, 0
   br i1 %11, label %12, label %14
 
 12:                                               ; preds = %9
   %13 = load ptr, ptr @acpi_thermal_pm_queue, align 8
-  tail call void @destroy_workqueue(ptr noundef %13) #12
+  tail call void @destroy_workqueue(ptr noundef %13) #11
   br label %14
 
 14:                                               ; preds = %12, %9, %6, %4
@@ -159,7 +159,7 @@ define internal i32 @acpi_thermal_add(ptr noundef %0) #2 align 16 {
 
 9:                                                ; preds = %1
   %10 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 72), align 8
-  %11 = tail call noalias noundef align 8 dereferenceable_or_null(432) ptr @kmalloc_trace(ptr noundef %10, i32 noundef 3520, i64 noundef 432) #14
+  %11 = tail call noalias noundef align 8 dereferenceable_or_null(432) ptr @kmalloc_trace(ptr noundef %10, i32 noundef 3520, i64 noundef 432) #13
   %12 = icmp eq ptr %11, null
   br i1 %12, label %274, label %13
 
@@ -167,20 +167,20 @@ define internal i32 @acpi_thermal_add(ptr noundef %0) #2 align 16 {
   store ptr %0, ptr %11, align 8
   %14 = getelementptr inbounds i8, ptr %11, i64 8
   %15 = getelementptr inbounds i8, ptr %0, i64 120
-  %16 = tail call ptr @strcpy(ptr noundef %14, ptr noundef %15) #12
+  %16 = tail call ptr @strcpy(ptr noundef %14, ptr noundef %15) #11
   %17 = getelementptr inbounds i8, ptr %0, i64 168
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef align 1 dereferenceable(13) %17, ptr noundef nonnull align 1 dereferenceable(13) @.str, i64 13, i1 false) #12
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef align 1 dereferenceable(13) %17, ptr noundef nonnull align 1 dereferenceable(13) @.str, i64 13, i1 false) #11
   %18 = getelementptr inbounds i8, ptr %0, i64 208
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef align 1 dereferenceable(13) %18, ptr noundef nonnull align 1 dereferenceable(13) @.str.1, i64 13, i1 false) #12
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef align 1 dereferenceable(13) %18, ptr noundef nonnull align 1 dereferenceable(13) @.str.1, i64 13, i1 false) #11
   %19 = getelementptr inbounds i8, ptr %0, i64 608
   store ptr %11, ptr %19, align 8
   %20 = getelementptr inbounds i8, ptr %0, i64 8
   %21 = load ptr, ptr %20, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #12
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #11
   store i64 0, ptr %6, align 8, !annotation !5
-  %22 = call i32 @acpi_evaluate_integer(ptr noundef %21, ptr noundef nonnull @.str.8, ptr noundef null, ptr noundef nonnull %6) #12
-  %23 = call i32 @acpi_evaluate_integer(ptr noundef %21, ptr noundef nonnull @.str.9, ptr noundef null, ptr noundef nonnull %6) #12
-  %24 = call i32 @acpi_evaluate_integer(ptr noundef %21, ptr noundef nonnull @.str.10, ptr noundef null, ptr noundef nonnull %6) #12
+  %22 = call i32 @acpi_evaluate_integer(ptr noundef %21, ptr noundef nonnull @.str.8, ptr noundef null, ptr noundef nonnull %6) #11
+  %23 = call i32 @acpi_evaluate_integer(ptr noundef %21, ptr noundef nonnull @.str.9, ptr noundef null, ptr noundef nonnull %6) #11
+  %24 = call i32 @acpi_evaluate_integer(ptr noundef %21, ptr noundef nonnull @.str.10, ptr noundef null, ptr noundef nonnull %6) #11
   %25 = getelementptr inbounds i8, ptr %7, i64 1
   %26 = getelementptr inbounds i8, ptr %7, i64 2
   %27 = getelementptr inbounds i8, ptr %7, i64 3
@@ -189,7 +189,7 @@ define internal i32 @acpi_thermal_add(ptr noundef %0) #2 align 16 {
 
 29:                                               ; preds = %29, %13
   %30 = phi i32 [ 0, %13 ], [ %35, %29 ]
-  call void @llvm.lifetime.start.p0(i64 5, ptr nonnull %7) #12
+  call void @llvm.lifetime.start.p0(i64 5, ptr nonnull %7) #11
   store i8 95, ptr %7, align 1
   store i8 65, ptr %25, align 1
   store i8 67, ptr %26, align 1
@@ -197,17 +197,17 @@ define internal i32 @acpi_thermal_add(ptr noundef %0) #2 align 16 {
   %32 = or disjoint i8 %31, 48
   store i8 %32, ptr %27, align 1
   store i8 0, ptr %28, align 1
-  %33 = call i32 @acpi_evaluate_integer(ptr noundef %21, ptr noundef nonnull %7, ptr noundef null, ptr noundef nonnull %6) #12
+  %33 = call i32 @acpi_evaluate_integer(ptr noundef %21, ptr noundef nonnull %7, ptr noundef null, ptr noundef nonnull %6) #11
   %34 = icmp eq i32 %33, 5
-  call void @llvm.lifetime.end.p0(i64 5, ptr nonnull %7) #12
+  call void @llvm.lifetime.end.p0(i64 5, ptr nonnull %7) #11
   %35 = add nuw nsw i32 %30, 1
   %36 = icmp eq i32 %35, 10
   %37 = select i1 %34, i1 true, i1 %36
   br i1 %37, label %38, label %29, !llvm.loop !6
 
 38:                                               ; preds = %29
-  %39 = call i32 @acpi_evaluate_integer(ptr noundef %21, ptr noundef nonnull @.str.11, ptr noundef null, ptr noundef nonnull %6) #12
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #12
+  %39 = call i32 @acpi_evaluate_integer(ptr noundef %21, ptr noundef nonnull @.str.11, ptr noundef null, ptr noundef nonnull %6) #11
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #11
   %40 = call fastcc zeroext i1 @acpi_thermal_init_trip(ptr noundef %11, i32 noundef -1)
   %41 = zext i1 %40 to i32
   %42 = select i1 %40, i32 11, i32 10
@@ -245,7 +245,7 @@ define internal i32 @acpi_thermal_add(ptr noundef %0) #2 align 16 {
 
 .thread:                                          ; preds = %47, %57, %51
   %62 = phi i32 [ %45, %51 ], [ %45, %57 ], [ %42, %47 ]
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #12
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #11
   store i32 0, ptr %5, align 4, !annotation !5
   %63 = load i32, ptr @crt, align 4
   %64 = icmp sgt i32 %63, 0
@@ -265,7 +265,7 @@ define internal i32 @acpi_thermal_add(ptr noundef %0) #2 align 16 {
 
 73:                                               ; preds = %71
   %74 = load ptr, ptr %11, align 8
-  %75 = call i32 @acpi_critical_trip_temp(ptr noundef %74, ptr noundef nonnull %5) #12
+  %75 = call i32 @acpi_critical_trip_temp(ptr noundef %74, ptr noundef nonnull %5) #11
   %76 = icmp eq i32 %75, 0
   br i1 %76, label %77, label %82
 
@@ -275,23 +275,23 @@ define internal i32 @acpi_thermal_add(ptr noundef %0) #2 align 16 {
   br i1 %79, label %80, label %82
 
 80:                                               ; preds = %77
-  %81 = call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.20, i32 noundef %78) #13
+  %81 = call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.20, i32 noundef %78) #12
   br label %82
 
 82:                                               ; preds = %65, %77, %80, %73, %71
   %83 = phi i32 [ -274000, %80 ], [ -274000, %71 ], [ -274000, %73 ], [ %78, %77 ], [ %70, %65 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #12
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #11
   %84 = icmp ne i32 %83, -274000
   %85 = zext i1 %84 to i32
   %86 = add i32 %62, %85
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #12
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #11
   store i32 0, ptr %4, align 4, !annotation !5
   %87 = load ptr, ptr %11, align 8
-  %88 = call i32 @acpi_hot_trip_temp(ptr noundef %87, ptr noundef nonnull %4) #12
+  %88 = call i32 @acpi_hot_trip_temp(ptr noundef %87, ptr noundef nonnull %4) #11
   %89 = icmp eq i32 %88, 0
   %90 = load i32, ptr %4, align 4
   %91 = select i1 %89, i32 %90, i32 -274000
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #12
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #11
   %92 = icmp ne i32 %91, -274000
   %93 = zext i1 %92 to i32
   %94 = add i32 %86, %93
@@ -299,11 +299,11 @@ define internal i32 @acpi_thermal_add(ptr noundef %0) #2 align 16 {
   br i1 %95, label %96, label %98
 
 96:                                               ; preds = %82
-  %97 = call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.2) #13
+  %97 = call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.2) #12
   br label %264
 
 98:                                               ; preds = %82
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #12
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #11
   store i64 0, ptr %3, align 8, !annotation !5
   %99 = getelementptr inbounds i8, ptr %11, i64 16
   %100 = load i64, ptr %99, align 8
@@ -312,22 +312,22 @@ define internal i32 @acpi_thermal_add(ptr noundef %0) #2 align 16 {
   %102 = load ptr, ptr %11, align 8
   %103 = getelementptr inbounds i8, ptr %102, i64 8
   %104 = load ptr, ptr %103, align 8
-  %105 = call i32 @acpi_evaluate_integer(ptr noundef %104, ptr noundef nonnull @.str.11, ptr noundef null, ptr noundef nonnull %3) #12
+  %105 = call i32 @acpi_evaluate_integer(ptr noundef %104, ptr noundef nonnull @.str.11, ptr noundef null, ptr noundef nonnull %3) #11
   %106 = icmp eq i32 %105, 0
   br i1 %106, label %108, label %107
 
 107:                                              ; preds = %98
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #12
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #11
   br label %264
 
 108:                                              ; preds = %98
   %109 = load i64, ptr %3, align 8
   store i64 %109, ptr %99, align 8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #12
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #11
   %110 = load ptr, ptr %11, align 8
   %111 = getelementptr inbounds i8, ptr %110, i64 8
   %112 = load ptr, ptr %111, align 8
-  %113 = call i32 @acpi_execute_simple_method(ptr noundef %112, ptr noundef nonnull @.str.3, i64 noundef 0) #12
+  %113 = call i32 @acpi_execute_simple_method(ptr noundef %112, ptr noundef nonnull @.str.3, i64 noundef 0) #11
   %114 = load i32, ptr @tzp, align 4
   %115 = icmp eq i32 %114, 0
   br i1 %115, label %119, label %116
@@ -339,12 +339,12 @@ define internal i32 @acpi_thermal_add(ptr noundef %0) #2 align 16 {
   br label %129
 
 119:                                              ; preds = %108
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #12
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #11
   store i64 0, ptr %2, align 8, !annotation !5
   %120 = load ptr, ptr %11, align 8
   %121 = getelementptr inbounds i8, ptr %120, i64 8
   %122 = load ptr, ptr %121, align 8
-  %123 = call i32 @acpi_evaluate_integer(ptr noundef %122, ptr noundef nonnull @.str.21, ptr noundef null, ptr noundef nonnull %2) #12
+  %123 = call i32 @acpi_evaluate_integer(ptr noundef %122, ptr noundef nonnull @.str.21, ptr noundef null, ptr noundef nonnull %2) #11
   %124 = icmp eq i32 %123, 0
   br i1 %124, label %125, label %128
 
@@ -355,7 +355,7 @@ define internal i32 @acpi_thermal_add(ptr noundef %0) #2 align 16 {
   br label %128
 
 128:                                              ; preds = %125, %119
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #12
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #11
   br label %129
 
 129:                                              ; preds = %128, %116
@@ -366,7 +366,7 @@ define internal i32 @acpi_thermal_add(ptr noundef %0) #2 align 16 {
   store i32 %133, ptr %132, align 8
   %134 = zext i32 %94 to i64
   %135 = mul nuw nsw i64 %134, 24
-  %136 = call noalias align 8 ptr @__kmalloc(i64 noundef %135, i32 noundef 3520) #15
+  %136 = call noalias align 8 ptr @__kmalloc(i64 noundef %135, i32 noundef 3520) #14
   %137 = icmp eq ptr %136, null
   br i1 %137, label %264, label %138
 
@@ -475,36 +475,36 @@ define internal i32 @acpi_thermal_add(ptr noundef %0) #2 align 16 {
   %203 = load i64, ptr %202, align 8
   %204 = trunc i64 %203 to i32
   %205 = mul i32 %204, 100
-  %206 = call ptr @thermal_zone_device_register_with_trips(ptr noundef nonnull @.str.22, ptr noundef %201, i32 noundef %94, i32 noundef 0, ptr noundef %11, ptr noundef nonnull @acpi_thermal_zone_ops, ptr noundef null, i32 noundef %176, i32 noundef %205) #12
+  %206 = call ptr @thermal_zone_device_register_with_trips(ptr noundef nonnull @.str.22, ptr noundef %201, i32 noundef %94, i32 noundef 0, ptr noundef %11, ptr noundef nonnull @acpi_thermal_zone_ops, ptr noundef null, i32 noundef %176, i32 noundef %205) #11
   %207 = getelementptr inbounds i8, ptr %11, i64 344
   store ptr %206, ptr %207, align 8
   %208 = icmp ugt ptr %206, inttoptr (i64 -4096 to ptr)
   br i1 %208, label %238, label %209
 
 209:                                              ; preds = %200
-  %210 = call ptr @thermal_zone_device(ptr noundef %206) #12
+  %210 = call ptr @thermal_zone_device(ptr noundef %206) #11
   %211 = load ptr, ptr %11, align 8
   %212 = getelementptr inbounds i8, ptr %211, i64 616
-  %213 = call i32 @sysfs_create_link(ptr noundef %212, ptr noundef %210, ptr noundef nonnull @.str.1) #12
+  %213 = call i32 @sysfs_create_link(ptr noundef %212, ptr noundef %210, ptr noundef nonnull @.str.1) #11
   %214 = icmp eq i32 %213, 0
   br i1 %214, label %215, label %.thread26
 
 215:                                              ; preds = %209
   %216 = load ptr, ptr %11, align 8
   %217 = getelementptr inbounds i8, ptr %216, i64 616
-  %218 = call i32 @sysfs_create_link(ptr noundef %210, ptr noundef %217, ptr noundef nonnull @.str.19) #12
+  %218 = call i32 @sysfs_create_link(ptr noundef %210, ptr noundef %217, ptr noundef nonnull @.str.19) #11
   %219 = icmp eq i32 %218, 0
   br i1 %219, label %223, label %220
 
 220:                                              ; preds = %215
   %221 = load ptr, ptr %11, align 8
   %222 = getelementptr inbounds i8, ptr %221, i64 616
-  call void @sysfs_remove_link(ptr noundef %222, ptr noundef nonnull @.str.1) #12
+  call void @sysfs_remove_link(ptr noundef %222, ptr noundef nonnull @.str.1) #11
   br label %.thread26
 
 223:                                              ; preds = %215
   %224 = load ptr, ptr %207, align 8
-  %225 = call i32 @thermal_zone_device_enable(ptr noundef %224) #12
+  %225 = call i32 @thermal_zone_device_enable(ptr noundef %224) #11
   %226 = icmp eq i32 %225, 0
   br i1 %226, label %.thread25, label %231
 
@@ -512,23 +512,23 @@ define internal i32 @acpi_thermal_add(ptr noundef %0) #2 align 16 {
   %227 = load ptr, ptr %11, align 8
   %228 = getelementptr inbounds i8, ptr %227, i64 616
   %229 = load ptr, ptr %207, align 8
-  %230 = call i32 @thermal_zone_device_id(ptr noundef %229) #12
-  call void (ptr, ptr, ...) @_dev_info(ptr noundef %228, ptr noundef nonnull @.str.23, i32 noundef %230) #13
+  %230 = call i32 @thermal_zone_device_id(ptr noundef %229) #11
+  call void (ptr, ptr, ...) @_dev_info(ptr noundef %228, ptr noundef nonnull @.str.23, i32 noundef %230) #12
   br label %242
 
 231:                                              ; preds = %223
   %232 = load ptr, ptr %207, align 8
-  %233 = call ptr @thermal_zone_device(ptr noundef %232) #12
+  %233 = call ptr @thermal_zone_device(ptr noundef %232) #11
   %234 = load ptr, ptr %11, align 8
   %235 = getelementptr inbounds i8, ptr %234, i64 616
-  call void @sysfs_remove_link(ptr noundef %235, ptr noundef nonnull @.str.1) #12
-  call void @sysfs_remove_link(ptr noundef %233, ptr noundef nonnull @.str.19) #12
+  call void @sysfs_remove_link(ptr noundef %235, ptr noundef nonnull @.str.1) #11
+  call void @sysfs_remove_link(ptr noundef %233, ptr noundef nonnull @.str.19) #11
   br label %.thread26
 
 .thread26:                                        ; preds = %231, %209, %220
   %236 = phi i32 [ %225, %231 ], [ %218, %220 ], [ %213, %209 ]
   %237 = load ptr, ptr %207, align 8
-  call void @thermal_zone_device_unregister(ptr noundef %237) #12
+  call void @thermal_zone_device_unregister(ptr noundef %237) #11
   br label %261
 
 238:                                              ; preds = %200
@@ -541,7 +541,7 @@ define internal i32 @acpi_thermal_add(ptr noundef %0) #2 align 16 {
   %243 = getelementptr inbounds i8, ptr %11, i64 424
   store volatile i32 3, ptr %243, align 8
   %244 = getelementptr inbounds i8, ptr %11, i64 392
-  call void @__mutex_init(ptr noundef %244, ptr noundef nonnull @.str.4, ptr noundef nonnull @acpi_thermal_add.__key) #12
+  call void @__mutex_init(ptr noundef %244, ptr noundef nonnull @.str.4, ptr noundef nonnull @acpi_thermal_add.__key) #11
   %245 = getelementptr inbounds i8, ptr %11, i64 360
   store i64 68719476704, ptr %245, align 8
   %246 = getelementptr inbounds i8, ptr %11, i64 368
@@ -557,40 +557,40 @@ define internal i32 @acpi_thermal_add(ptr noundef %0) #2 align 16 {
   %253 = select i1 %252, i64 -272650, i64 -273650
   %254 = add i64 %253, %250
   %255 = sdiv i64 %254, 1000
-  %256 = call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.6, ptr noundef %17, ptr noundef %15, i64 noundef %255) #13
-  %257 = call i32 @acpi_dev_install_notify_handler(ptr noundef nonnull %0, i32 noundef 2, ptr noundef nonnull @acpi_thermal_notify, ptr noundef nonnull %0) #12
+  %256 = call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.6, ptr noundef %17, ptr noundef %15, i64 noundef %255) #12
+  %257 = call i32 @acpi_dev_install_notify_handler(ptr noundef nonnull %0, i32 noundef 2, ptr noundef nonnull @acpi_thermal_notify, ptr noundef nonnull %0) #11
   %258 = icmp eq i32 %257, 0
   br i1 %258, label %274, label %259
 
 259:                                              ; preds = %242
   %260 = load ptr, ptr @acpi_thermal_pm_queue, align 8
-  call void @__flush_workqueue(ptr noundef %260) #12
+  call void @__flush_workqueue(ptr noundef %260) #11
   call fastcc void @acpi_thermal_unregister_thermal_zone(ptr noundef %11)
   br label %261
 
 261:                                              ; preds = %.thread26, %259, %238
   %262 = phi i32 [ %240, %238 ], [ %257, %259 ], [ %236, %.thread26 ]
   %263 = load ptr, ptr %139, align 8
-  call void @kfree(ptr noundef %263) #12
+  call void @kfree(ptr noundef %263) #11
   br label %264
 
 264:                                              ; preds = %107, %261, %129, %96
   %265 = phi i32 [ -19, %107 ], [ %262, %261 ], [ -19, %96 ], [ -12, %129 ]
   %266 = getelementptr inbounds i8, ptr %11, i64 56
-  call void @acpi_handle_list_free(ptr noundef %266) #12
+  call void @acpi_handle_list_free(ptr noundef %266) #11
   %267 = getelementptr inbounds i8, ptr %11, i64 96
   br label %268
 
 268:                                              ; preds = %268, %264
   %269 = phi i64 [ 0, %264 ], [ %271, %268 ]
   %270 = getelementptr [10 x %struct.acpi_thermal_active], ptr %267, i64 0, i64 %269, i32 0, i32 1
-  call void @acpi_handle_list_free(ptr noundef %270) #12
+  call void @acpi_handle_list_free(ptr noundef %270) #11
   %271 = add nuw nsw i64 %269, 1
   %272 = icmp eq i64 %271, 10
   br i1 %272, label %273, label %268, !llvm.loop !12
 
 273:                                              ; preds = %268
-  call void @kfree(ptr noundef %11) #12
+  call void @kfree(ptr noundef %11) #11
   br label %274
 
 274:                                              ; preds = %273, %242, %9, %1
@@ -610,39 +610,39 @@ define internal void @acpi_thermal_remove(ptr noundef %0) #2 align 16 {
   br i1 %6, label %27, label %7
 
 7:                                                ; preds = %3
-  tail call void @acpi_dev_remove_notify_handler(ptr noundef nonnull %0, i32 noundef 2, ptr noundef nonnull @acpi_thermal_notify) #12
+  tail call void @acpi_dev_remove_notify_handler(ptr noundef nonnull %0, i32 noundef 2, ptr noundef nonnull @acpi_thermal_notify) #11
   %8 = load ptr, ptr @acpi_thermal_pm_queue, align 8
-  tail call void @__flush_workqueue(ptr noundef %8) #12
+  tail call void @__flush_workqueue(ptr noundef %8) #11
   %9 = getelementptr inbounds i8, ptr %5, i64 344
   %10 = load ptr, ptr %9, align 8
-  %11 = tail call i32 @thermal_zone_device_disable(ptr noundef %10) #12
+  %11 = tail call i32 @thermal_zone_device_disable(ptr noundef %10) #11
   %12 = load ptr, ptr %9, align 8
-  %13 = tail call ptr @thermal_zone_device(ptr noundef %12) #12
+  %13 = tail call ptr @thermal_zone_device(ptr noundef %12) #11
   %14 = load ptr, ptr %5, align 8
   %15 = getelementptr inbounds i8, ptr %14, i64 616
-  tail call void @sysfs_remove_link(ptr noundef %15, ptr noundef nonnull @.str.1) #12
-  tail call void @sysfs_remove_link(ptr noundef %13, ptr noundef nonnull @.str.19) #12
+  tail call void @sysfs_remove_link(ptr noundef %15, ptr noundef nonnull @.str.1) #11
+  tail call void @sysfs_remove_link(ptr noundef %13, ptr noundef nonnull @.str.19) #11
   %16 = load ptr, ptr %9, align 8
-  tail call void @thermal_zone_device_unregister(ptr noundef %16) #12
+  tail call void @thermal_zone_device_unregister(ptr noundef %16) #11
   store ptr null, ptr %9, align 8
   %17 = getelementptr inbounds i8, ptr %5, i64 336
   %18 = load ptr, ptr %17, align 8
-  tail call void @kfree(ptr noundef %18) #12
+  tail call void @kfree(ptr noundef %18) #11
   %19 = getelementptr inbounds i8, ptr %5, i64 56
-  tail call void @acpi_handle_list_free(ptr noundef %19) #12
+  tail call void @acpi_handle_list_free(ptr noundef %19) #11
   %20 = getelementptr inbounds i8, ptr %5, i64 96
   br label %21
 
 21:                                               ; preds = %21, %7
   %22 = phi i64 [ 0, %7 ], [ %24, %21 ]
   %23 = getelementptr [10 x %struct.acpi_thermal_active], ptr %20, i64 0, i64 %22, i32 0, i32 1
-  tail call void @acpi_handle_list_free(ptr noundef %23) #12
+  tail call void @acpi_handle_list_free(ptr noundef %23) #11
   %24 = add nuw nsw i64 %22, 1
   %25 = icmp eq i64 %24, 10
   br i1 %25, label %26, label %21, !llvm.loop !12
 
 26:                                               ; preds = %21
-  tail call void @kfree(ptr noundef nonnull %5) #12
+  tail call void @kfree(ptr noundef nonnull %5) #11
   br label %27
 
 27:                                               ; preds = %26, %3, %1
@@ -667,16 +667,16 @@ declare dso_local void @__mutex_init(ptr noundef, ptr noundef, ptr noundef) loca
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal void @acpi_thermal_check_fn(ptr noundef %0) #2 align 16 {
   %2 = getelementptr i8, ptr %0, i64 64
-  %3 = tail call zeroext i1 @refcount_dec_not_one(ptr noundef %2) #12
+  %3 = tail call zeroext i1 @refcount_dec_not_one(ptr noundef %2) #11
   br i1 %3, label %4, label %17
 
 4:                                                ; preds = %1
   %5 = getelementptr i8, ptr %0, i64 32
-  tail call void @mutex_lock(ptr noundef %5) #12
+  tail call void @mutex_lock(ptr noundef %5) #11
   %6 = getelementptr i8, ptr %0, i64 -16
   %7 = load ptr, ptr %6, align 8
-  tail call void @thermal_zone_device_update(ptr noundef %7, i32 noundef 0) #12
-  %8 = tail call i32 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; xaddl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %2, i32 1, ptr elementtype(i32) %2) #12, !srcloc !13
+  tail call void @thermal_zone_device_update(ptr noundef %7, i32 noundef 0) #11
+  %8 = tail call i32 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; xaddl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %2, i32 1, ptr elementtype(i32) %2) #11, !srcloc !13
   %9 = icmp eq i32 %8, 0
   br i1 %9, label %14, label %10, !prof !14
 
@@ -688,11 +688,11 @@ define internal void @acpi_thermal_check_fn(ptr noundef %0) #2 align 16 {
 
 14:                                               ; preds = %10, %4
   %15 = phi i32 [ 2, %4 ], [ 1, %10 ]
-  tail call void @refcount_warn_saturate(ptr noundef %2, i32 noundef %15) #12
+  tail call void @refcount_warn_saturate(ptr noundef %2, i32 noundef %15) #11
   br label %16
 
 16:                                               ; preds = %14, %10
-  tail call void @mutex_unlock(ptr noundef %5) #12
+  tail call void @mutex_unlock(ptr noundef %5) #11
   br label %17
 
 17:                                               ; preds = %16, %1
@@ -726,11 +726,11 @@ define internal void @acpi_thermal_notify(ptr nocapture readnone %0, i32 noundef
 
 14:                                               ; preds = %9
   %15 = load ptr, ptr @acpi_thermal_pm_queue, align 8
-  %16 = tail call zeroext i1 @queue_work_on(i32 noundef 64, ptr noundef %15, ptr noundef %10) #12
+  %16 = tail call zeroext i1 @queue_work_on(i32 noundef 64, ptr noundef %15, ptr noundef %10) #11
   br label %43
 
 17:                                               ; preds = %8, %8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #12
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #11
   %18 = getelementptr inbounds i8, ptr %4, i64 8
   store i64 0, ptr %18, align 8, !annotation !5
   store ptr %6, ptr %4, align 8
@@ -739,7 +739,7 @@ define internal void @acpi_thermal_notify(ptr nocapture readnone %0, i32 noundef
   %20 = load ptr, ptr %6, align 8
   %21 = getelementptr inbounds i8, ptr %6, i64 344
   %22 = load ptr, ptr %21, align 8
-  %23 = call i32 @thermal_zone_for_each_trip(ptr noundef %22, ptr noundef nonnull @acpi_thermal_adjust_trip, ptr noundef nonnull %4) #12
+  %23 = call i32 @thermal_zone_for_each_trip(ptr noundef %22, ptr noundef nonnull @acpi_thermal_adjust_trip, ptr noundef nonnull %4) #11
   %24 = getelementptr inbounds i8, ptr %6, i64 360
   %25 = load volatile i64, ptr %24, align 8
   %26 = and i64 %25, 1
@@ -748,7 +748,7 @@ define internal void @acpi_thermal_notify(ptr nocapture readnone %0, i32 noundef
 
 28:                                               ; preds = %17
   %29 = load ptr, ptr @acpi_thermal_pm_queue, align 8
-  %30 = call zeroext i1 @queue_work_on(i32 noundef 64, ptr noundef %29, ptr noundef %24) #12
+  %30 = call zeroext i1 @queue_work_on(i32 noundef 64, ptr noundef %29, ptr noundef %24) #11
   br label %31
 
 31:                                               ; preds = %28, %17
@@ -766,8 +766,8 @@ define internal void @acpi_thermal_notify(ptr nocapture readnone %0, i32 noundef
   %39 = phi ptr [ %37, %35 ], [ %33, %31 ]
   %40 = getelementptr inbounds i8, ptr %20, i64 208
   %41 = trunc i32 %1 to i8
-  %42 = call i32 @acpi_bus_generate_netlink_event(ptr noundef %40, ptr noundef %39, i8 noundef zeroext %41, i32 noundef 0) #12
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #12
+  %42 = call i32 @acpi_bus_generate_netlink_event(ptr noundef %40, ptr noundef %39, i8 noundef zeroext %41, i32 noundef 0) #11
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #11
   br label %43
 
 43:                                               ; preds = %38, %14, %9, %8, %3
@@ -784,15 +784,15 @@ declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #3
 define internal fastcc void @acpi_thermal_unregister_thermal_zone(ptr nocapture noundef %0) unnamed_addr #2 align 16 {
   %2 = getelementptr inbounds i8, ptr %0, i64 344
   %3 = load ptr, ptr %2, align 8
-  %4 = tail call i32 @thermal_zone_device_disable(ptr noundef %3) #12
+  %4 = tail call i32 @thermal_zone_device_disable(ptr noundef %3) #11
   %5 = load ptr, ptr %2, align 8
-  %6 = tail call ptr @thermal_zone_device(ptr noundef %5) #12
+  %6 = tail call ptr @thermal_zone_device(ptr noundef %5) #11
   %7 = load ptr, ptr %0, align 8
   %8 = getelementptr inbounds i8, ptr %7, i64 616
-  tail call void @sysfs_remove_link(ptr noundef %8, ptr noundef nonnull @.str.1) #12
-  tail call void @sysfs_remove_link(ptr noundef %6, ptr noundef nonnull @.str.19) #12
+  tail call void @sysfs_remove_link(ptr noundef %8, ptr noundef nonnull @.str.1) #11
+  tail call void @sysfs_remove_link(ptr noundef %6, ptr noundef nonnull @.str.19) #11
   %9 = load ptr, ptr %2, align 8
-  tail call void @thermal_zone_device_unregister(ptr noundef %9) #12
+  tail call void @thermal_zone_device_unregister(ptr noundef %9) #11
   store ptr null, ptr %2, align 8
   ret void
 }
@@ -827,12 +827,12 @@ define internal fastcc noundef zeroext i1 @acpi_thermal_init_trip(ptr noundef %0
   br i1 %10, label %91, label %11
 
 11:                                               ; preds = %7
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #12
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #11
   store i64 0, ptr %5, align 8, !annotation !5
   %12 = load ptr, ptr %0, align 8
   %13 = getelementptr inbounds i8, ptr %12, i64 8
   %14 = load ptr, ptr %13, align 8
-  %15 = call i32 @acpi_evaluate_integer(ptr noundef %14, ptr noundef nonnull @.str.12, ptr noundef null, ptr noundef nonnull %5) #12
+  %15 = call i32 @acpi_evaluate_integer(ptr noundef %14, ptr noundef nonnull @.str.12, ptr noundef null, ptr noundef nonnull %5) #11
   %16 = icmp eq i32 %15, 0
   br i1 %16, label %17, label %44
 
@@ -843,7 +843,7 @@ define internal fastcc noundef zeroext i1 @acpi_thermal_init_trip(ptr noundef %0
   %20 = load ptr, ptr %0, align 8
   %21 = getelementptr inbounds i8, ptr %20, i64 8
   %22 = load ptr, ptr %21, align 8
-  %23 = call i32 @acpi_evaluate_integer(ptr noundef %22, ptr noundef nonnull @.str.13, ptr noundef null, ptr noundef nonnull %5) #12
+  %23 = call i32 @acpi_evaluate_integer(ptr noundef %22, ptr noundef nonnull @.str.13, ptr noundef null, ptr noundef nonnull %5) #11
   %24 = icmp eq i32 %23, 0
   br i1 %24, label %25, label %44
 
@@ -854,7 +854,7 @@ define internal fastcc noundef zeroext i1 @acpi_thermal_init_trip(ptr noundef %0
   %28 = load ptr, ptr %0, align 8
   %29 = getelementptr inbounds i8, ptr %28, i64 8
   %30 = load ptr, ptr %29, align 8
-  %31 = call i32 @acpi_evaluate_integer(ptr noundef %30, ptr noundef nonnull @.str.14, ptr noundef null, ptr noundef nonnull %5) #12
+  %31 = call i32 @acpi_evaluate_integer(ptr noundef %30, ptr noundef nonnull @.str.14, ptr noundef null, ptr noundef nonnull %5) #11
   %32 = icmp eq i32 %31, 0
   br i1 %32, label %33, label %35
 
@@ -866,7 +866,7 @@ define internal fastcc noundef zeroext i1 @acpi_thermal_init_trip(ptr noundef %0
   %36 = load ptr, ptr %0, align 8
   %37 = getelementptr inbounds i8, ptr %36, i64 8
   %38 = load ptr, ptr %37, align 8
-  %39 = call i32 @acpi_evaluate_integer(ptr noundef %38, ptr noundef nonnull @.str.15, ptr noundef null, ptr noundef nonnull %5) #12
+  %39 = call i32 @acpi_evaluate_integer(ptr noundef %38, ptr noundef nonnull @.str.15, ptr noundef null, ptr noundef nonnull %5) #11
   %40 = icmp eq i32 %39, 0
   br i1 %40, label %41, label %44
 
@@ -876,14 +876,14 @@ define internal fastcc noundef zeroext i1 @acpi_thermal_init_trip(ptr noundef %0
   br label %45
 
 44:                                               ; preds = %35, %17, %11
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #12
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #11
   br label %91
 
 45:                                               ; preds = %41, %33
   %46 = phi i64 [ %34, %33 ], [ %43, %41 ]
   %47 = getelementptr inbounds i8, ptr %0, i64 88
   store i64 %46, ptr %47, align 8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #12
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #11
   %48 = load i32, ptr @psv, align 4
   %49 = icmp sgt i32 %48, 0
   br i1 %49, label %.thread, label %54
@@ -896,15 +896,15 @@ define internal fastcc noundef zeroext i1 @acpi_thermal_init_trip(ptr noundef %0
   br label %86
 
 54:                                               ; preds = %45
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #12
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #11
   store i32 0, ptr %4, align 4, !annotation !5
   %55 = load ptr, ptr %0, align 8
-  %56 = call i32 @acpi_passive_trip_temp(ptr noundef %55, ptr noundef nonnull %4) #12
+  %56 = call i32 @acpi_passive_trip_temp(ptr noundef %55, ptr noundef nonnull %4) #11
   %57 = icmp eq i32 %56, 0
   %58 = load i32, ptr %4, align 4
   %59 = select i1 %57, i32 %58, i32 -274000
   %60 = sext i32 %59 to i64
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #12
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #11
   br label %82
 
 61:                                               ; preds = %2
@@ -916,10 +916,10 @@ define internal fastcc noundef zeroext i1 @acpi_thermal_init_trip(ptr noundef %0
   br i1 %66, label %91, label %67
 
 67:                                               ; preds = %61
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3) #12
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3) #11
   store i32 0, ptr %3, align 4, !annotation !5
   %68 = load ptr, ptr %0, align 8
-  %69 = call i32 @acpi_active_trip_temp(ptr noundef %68, i32 noundef %1, ptr noundef nonnull %3) #12
+  %69 = call i32 @acpi_active_trip_temp(ptr noundef %68, i32 noundef %1, ptr noundef nonnull %3) #11
   %70 = icmp eq i32 %69, 0
   br i1 %70, label %71, label %80
 
@@ -944,7 +944,7 @@ define internal fastcc noundef zeroext i1 @acpi_thermal_init_trip(ptr noundef %0
 
 80:                                               ; preds = %74, %._crit_edge, %67
   %81 = phi i64 [ -274000, %67 ], [ %.pre5, %._crit_edge ], [ %spec.select, %74 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3) #12
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3) #11
   br label %82
 
 82:                                               ; preds = %80, %54
@@ -977,9 +977,9 @@ define internal fastcc noundef zeroext i1 @acpi_thermal_init_trip(ptr noundef %0
 define internal fastcc noundef zeroext i1 @update_trip_devices(ptr nocapture noundef readonly %0, ptr noundef %1, i32 noundef %2, i1 noundef zeroext %3) unnamed_addr #2 align 16 {
   %5 = alloca %struct.acpi_handle_list, align 8
   %6 = alloca [5 x i8], align 1
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #12
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #11
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %5, i8 0, i64 16, i1 false)
-  call void @llvm.lifetime.start.p0(i64 5, ptr nonnull %6) #12
+  call void @llvm.lifetime.start.p0(i64 5, ptr nonnull %6) #11
   store i8 95, ptr %6, align 1
   %7 = getelementptr inbounds i8, ptr %6, i64 1
   store i8 80, ptr %7, align 1
@@ -1004,23 +1004,23 @@ define internal fastcc noundef zeroext i1 @update_trip_devices(ptr nocapture nou
   %16 = load ptr, ptr %0, align 8
   %17 = getelementptr inbounds i8, ptr %16, i64 8
   %18 = load ptr, ptr %17, align 8
-  %19 = call zeroext i1 @acpi_evaluate_reference(ptr noundef %18, ptr noundef nonnull %6, ptr noundef null, ptr noundef nonnull %5) #12
+  %19 = call zeroext i1 @acpi_evaluate_reference(ptr noundef %18, ptr noundef nonnull %6, ptr noundef null, ptr noundef nonnull %5) #11
   br i1 %19, label %24, label %20
 
 20:                                               ; preds = %15
   %21 = load ptr, ptr %0, align 8
   %22 = getelementptr inbounds i8, ptr %21, i64 8
   %23 = load ptr, ptr %22, align 8
-  call void (ptr, ptr, ptr, ...) @acpi_handle_printk(ptr noundef nonnull @.str.16, ptr noundef %23, ptr noundef nonnull @.str.17, ptr noundef nonnull %6) #12
+  call void (ptr, ptr, ptr, ...) @acpi_handle_printk(ptr noundef nonnull @.str.16, ptr noundef %23, ptr noundef nonnull @.str.17, ptr noundef nonnull %6) #11
   br label %34
 
 24:                                               ; preds = %15
   %25 = getelementptr inbounds i8, ptr %1, i64 8
-  %26 = call zeroext i1 @acpi_handle_list_equal(ptr noundef %25, ptr noundef nonnull %5) #12
+  %26 = call zeroext i1 @acpi_handle_list_equal(ptr noundef %25, ptr noundef nonnull %5) #11
   br i1 %26, label %27, label %28
 
 27:                                               ; preds = %24
-  call void @acpi_handle_list_free(ptr noundef nonnull %5) #12
+  call void @acpi_handle_list_free(ptr noundef nonnull %5) #11
   br label %34
 
 28:                                               ; preds = %24
@@ -1030,16 +1030,16 @@ define internal fastcc noundef zeroext i1 @update_trip_devices(ptr nocapture nou
   %30 = load ptr, ptr %0, align 8
   %31 = getelementptr inbounds i8, ptr %30, i64 8
   %32 = load ptr, ptr %31, align 8
-  call void (ptr, ptr, ptr, ...) @acpi_handle_printk(ptr noundef nonnull @.str.16, ptr noundef %32, ptr noundef nonnull @.str.18, ptr noundef nonnull @.str.19) #12
+  call void (ptr, ptr, ptr, ...) @acpi_handle_printk(ptr noundef nonnull @.str.16, ptr noundef %32, ptr noundef nonnull @.str.18, ptr noundef nonnull @.str.19) #11
   br label %33
 
 33:                                               ; preds = %29, %28
-  call void @acpi_handle_list_replace(ptr noundef %25, ptr noundef nonnull %5) #12
+  call void @acpi_handle_list_replace(ptr noundef %25, ptr noundef nonnull %5) #11
   br label %34
 
 34:                                               ; preds = %33, %27, %20
-  call void @llvm.lifetime.end.p0(i64 5, ptr nonnull %6) #12
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #12
+  call void @llvm.lifetime.end.p0(i64 5, ptr nonnull %6) #11
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #11
   ret i1 %19
 }
 
@@ -1088,7 +1088,7 @@ declare dso_local void @thermal_zone_device_unregister(ptr noundef) local_unname
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal i32 @acpi_thermal_bind_cooling_device(ptr noundef %0, ptr noundef %1) #2 align 16 {
   %3 = alloca %struct.acpi_thermal_bind_data, align 8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3) #12
+  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3) #11
   %4 = getelementptr inbounds i8, ptr %3, i64 16
   store i64 0, ptr %4, align 8, !annotation !5
   store ptr %0, ptr %3, align 8
@@ -1096,34 +1096,34 @@ define internal i32 @acpi_thermal_bind_cooling_device(ptr noundef %0, ptr nounde
   store ptr %1, ptr %5, align 8
   %6 = getelementptr inbounds i8, ptr %3, i64 16
   store i8 1, ptr %6, align 8
-  %7 = call i32 @for_each_thermal_trip(ptr noundef %0, ptr noundef nonnull @bind_unbind_cdev_cb, ptr noundef nonnull %3) #12
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3) #12
+  %7 = call i32 @for_each_thermal_trip(ptr noundef %0, ptr noundef nonnull @bind_unbind_cdev_cb, ptr noundef nonnull %3) #11
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3) #11
   ret i32 %7
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal i32 @acpi_thermal_unbind_cooling_device(ptr noundef %0, ptr noundef %1) #2 align 16 {
   %3 = alloca %struct.acpi_thermal_bind_data, align 8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3) #12
+  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3) #11
   %4 = getelementptr inbounds i8, ptr %3, i64 16
   store i64 0, ptr %4, align 8, !annotation !5
   store ptr %0, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %3, i64 8
   store ptr %1, ptr %5, align 8
-  %6 = call i32 @for_each_thermal_trip(ptr noundef %0, ptr noundef nonnull @bind_unbind_cdev_cb, ptr noundef nonnull %3) #12
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3) #12
+  %6 = call i32 @for_each_thermal_trip(ptr noundef %0, ptr noundef nonnull @bind_unbind_cdev_cb, ptr noundef nonnull %3) #11
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3) #11
   ret i32 %6
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal noundef range(i32 -22, 1) i32 @thermal_get_temp(ptr noundef %0, ptr nocapture noundef writeonly %1) #2 align 16 {
   %3 = alloca i64, align 8
-  %4 = tail call ptr @thermal_zone_device_priv(ptr noundef %0) #12
+  %4 = tail call ptr @thermal_zone_device_priv(ptr noundef %0) #11
   %5 = icmp eq ptr %4, null
   br i1 %5, label %23, label %6
 
 6:                                                ; preds = %2
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #12
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #11
   store i64 0, ptr %3, align 8, !annotation !5
   %7 = getelementptr inbounds i8, ptr %4, i64 16
   %8 = load i64, ptr %7, align 8
@@ -1132,18 +1132,18 @@ define internal noundef range(i32 -22, 1) i32 @thermal_get_temp(ptr noundef %0, 
   %10 = load ptr, ptr %4, align 8
   %11 = getelementptr inbounds i8, ptr %10, i64 8
   %12 = load ptr, ptr %11, align 8
-  %13 = call i32 @acpi_evaluate_integer(ptr noundef %12, ptr noundef nonnull @.str.11, ptr noundef null, ptr noundef nonnull %3) #12
+  %13 = call i32 @acpi_evaluate_integer(ptr noundef %12, ptr noundef nonnull @.str.11, ptr noundef null, ptr noundef nonnull %3) #11
   %14 = icmp eq i32 %13, 0
   br i1 %14, label %16, label %15
 
 15:                                               ; preds = %6
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #12
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #11
   br label %23
 
 16:                                               ; preds = %6
   %17 = load i64, ptr %3, align 8
   store i64 %17, ptr %7, align 8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #12
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #11
   %18 = getelementptr inbounds i8, ptr %4, i64 352
   %19 = load i32, ptr %18, align 8
   %20 = trunc i64 %17 to i32
@@ -1159,7 +1159,7 @@ define internal noundef range(i32 -22, 1) i32 @thermal_get_temp(ptr noundef %0, 
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal noundef range(i32 -22, 1) i32 @thermal_get_trend(ptr noundef %0, ptr noundef readonly %1, ptr nocapture noundef writeonly %2) #2 align 16 {
-  %4 = tail call ptr @thermal_zone_device_priv(ptr noundef %0) #12
+  %4 = tail call ptr @thermal_zone_device_priv(ptr noundef %0) #11
   %5 = icmp ne ptr %4, null
   %6 = icmp ne ptr %1, null
   %7 = and i1 %6, %5
@@ -1239,7 +1239,7 @@ define internal noundef range(i32 -22, 1) i32 @thermal_get_trend(ptr noundef %0,
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal void @acpi_thermal_zone_device_hot(ptr noundef %0) #2 align 16 {
-  %2 = tail call ptr @thermal_zone_device_priv(ptr noundef %0) #12
+  %2 = tail call ptr @thermal_zone_device_priv(ptr noundef %0) #11
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 696
   %5 = load ptr, ptr %4, align 8
@@ -1254,13 +1254,13 @@ define internal void @acpi_thermal_zone_device_hot(ptr noundef %0) #2 align 16 {
 10:                                               ; preds = %7, %1
   %11 = phi ptr [ %9, %7 ], [ %5, %1 ]
   %12 = getelementptr inbounds i8, ptr %3, i64 208
-  %13 = tail call i32 @acpi_bus_generate_netlink_event(ptr noundef %12, ptr noundef %11, i8 noundef zeroext -15, i32 noundef 1) #12
+  %13 = tail call i32 @acpi_bus_generate_netlink_event(ptr noundef %12, ptr noundef %11, i8 noundef zeroext -15, i32 noundef 1) #11
   ret void
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal void @acpi_thermal_zone_device_critical(ptr noundef %0) #2 align 16 {
-  %2 = tail call ptr @thermal_zone_device_priv(ptr noundef %0) #12
+  %2 = tail call ptr @thermal_zone_device_priv(ptr noundef %0) #11
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 696
   %5 = load ptr, ptr %4, align 8
@@ -1275,8 +1275,8 @@ define internal void @acpi_thermal_zone_device_critical(ptr noundef %0) #2 align
 10:                                               ; preds = %7, %1
   %11 = phi ptr [ %9, %7 ], [ %5, %1 ]
   %12 = getelementptr inbounds i8, ptr %3, i64 208
-  %13 = tail call i32 @acpi_bus_generate_netlink_event(ptr noundef %12, ptr noundef %11, i8 noundef zeroext -16, i32 noundef 1) #12
-  tail call void @thermal_zone_device_critical(ptr noundef %0) #12
+  %13 = tail call i32 @acpi_bus_generate_netlink_event(ptr noundef %12, ptr noundef %11, i8 noundef zeroext -16, i32 noundef 1) #11
+  tail call void @thermal_zone_device_critical(ptr noundef %0) #11
   ret void
 }
 
@@ -1312,7 +1312,7 @@ define internal i32 @bind_unbind_cdev_cb(ptr noundef %0, ptr nocapture noundef r
   %21 = sext i32 %19 to i64
   %22 = getelementptr ptr, ptr %20, i64 %21
   %23 = load ptr, ptr %22, align 8
-  %24 = tail call ptr @acpi_fetch_acpi_dev(ptr noundef %23) #12
+  %24 = tail call ptr @acpi_fetch_acpi_dev(ptr noundef %23) #11
   %25 = icmp eq ptr %24, %9
   br i1 %25, label %26, label %.thread
 
@@ -1322,11 +1322,11 @@ define internal i32 @bind_unbind_cdev_cb(ptr noundef %0, ptr nocapture noundef r
   br i1 %28, label %29, label %31
 
 29:                                               ; preds = %26
-  %30 = tail call i32 @thermal_unbind_cdev_from_trip(ptr noundef %5, ptr noundef %0, ptr noundef %7) #12
+  %30 = tail call i32 @thermal_unbind_cdev_from_trip(ptr noundef %5, ptr noundef %0, ptr noundef %7) #11
   br label %.thread
 
 31:                                               ; preds = %26
-  %32 = tail call i32 @thermal_bind_cdev_to_trip(ptr noundef %5, ptr noundef %0, ptr noundef %7, i64 noundef 4294967295, i64 noundef 4294967295, i32 noundef 0) #12
+  %32 = tail call i32 @thermal_bind_cdev_to_trip(ptr noundef %5, ptr noundef %0, ptr noundef %7, i64 noundef 4294967295, i64 noundef 4294967295, i32 noundef 0) #11
   %.not = icmp eq i32 %32, 0
   br i1 %.not, label %.thread, label %.loopexit
 
@@ -1422,15 +1422,15 @@ define internal noundef i32 @acpi_thermal_adjust_trip(ptr noundef %0, ptr nocapt
   br i1 %22, label %thread-pre-split, label %23
 
 23:                                               ; preds = %20
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #12
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #11
   store i32 0, ptr %4, align 4, !annotation !5
   %24 = load ptr, ptr %7, align 8
-  %25 = call i32 @acpi_passive_trip_temp(ptr noundef %24, ptr noundef nonnull %4) #12
+  %25 = call i32 @acpi_passive_trip_temp(ptr noundef %24, ptr noundef nonnull %4) #11
   %26 = icmp eq i32 %25, 0
   %27 = load i32, ptr %4, align 4
   %28 = select i1 %26, i32 %27, i32 -274000
   %29 = sext i32 %28 to i64
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #12
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #11
   br label %51
 
 30:                                               ; preds = %19
@@ -1440,10 +1440,10 @@ define internal noundef i32 @acpi_thermal_adjust_trip(ptr noundef %0, ptr nocapt
   %34 = sub i64 %32, %33
   %35 = sdiv exact i64 %34, 24
   %36 = trunc i64 %35 to i32
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3) #12
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3) #11
   store i32 0, ptr %3, align 4, !annotation !5
   %37 = load ptr, ptr %7, align 8
-  %38 = call i32 @acpi_active_trip_temp(ptr noundef %37, i32 noundef %36, ptr noundef nonnull %3) #12
+  %38 = call i32 @acpi_active_trip_temp(ptr noundef %37, i32 noundef %36, ptr noundef nonnull %3) #11
   %39 = icmp eq i32 %38, 0
   br i1 %39, label %40, label %49
 
@@ -1468,7 +1468,7 @@ define internal noundef i32 @acpi_thermal_adjust_trip(ptr noundef %0, ptr nocapt
 
 49:                                               ; preds = %43, %._crit_edge, %30
   %50 = phi i64 [ -274000, %30 ], [ %.pre5, %._crit_edge ], [ %spec.select, %43 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3) #12
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3) #11
   br label %51
 
 51:                                               ; preds = %49, %23
@@ -1502,7 +1502,7 @@ define internal noundef i32 @acpi_thermal_adjust_trip(ptr noundef %0, ptr nocapt
   %67 = load ptr, ptr %7, align 8
   %68 = getelementptr inbounds i8, ptr %67, i64 8
   %69 = load ptr, ptr %68, align 8
-  call void (ptr, ptr, ptr, ...) @acpi_handle_printk(ptr noundef nonnull @.str.16, ptr noundef %69, ptr noundef nonnull @.str.18, ptr noundef nonnull @.str.24) #12
+  call void (ptr, ptr, ptr, ...) @acpi_handle_printk(ptr noundef nonnull @.str.16, ptr noundef %69, ptr noundef nonnull @.str.18, ptr noundef nonnull @.str.24) #11
   br label %thread-pre-split
 
 thread-pre-split:                                 ; preds = %20, %62, %66
@@ -1530,7 +1530,7 @@ thread-pre-split:                                 ; preds = %20, %62, %66
   %82 = phi i32 [ -274000, %70 ], [ %80, %76 ], [ -274000, %73 ]
   %83 = getelementptr inbounds i8, ptr %7, i64 344
   %84 = load ptr, ptr %83, align 8
-  call void @thermal_zone_set_trip_temp(ptr noundef %84, ptr noundef %0, i32 noundef %82) #12
+  call void @thermal_zone_set_trip_temp(ptr noundef %84, ptr noundef %0, i32 noundef %82) #11
   br label %85
 
 85:                                               ; preds = %81, %9, %2
@@ -1549,14 +1549,14 @@ declare dso_local void @acpi_dev_remove_notify_handler(ptr noundef, i32 noundef,
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal noundef i32 @acpi_thermal_suspend(ptr nocapture readnone %0) #2 align 16 {
   %2 = load ptr, ptr @acpi_thermal_pm_queue, align 8
-  tail call void @__flush_workqueue(ptr noundef %2) #12
+  tail call void @__flush_workqueue(ptr noundef %2) #11
   ret i32 0
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal noundef range(i32 -22, 1) i32 @acpi_thermal_resume(ptr noundef readonly %0) #2 align 16 {
   %2 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %2) #12
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %2) #11
   %3 = icmp eq ptr %0, null
   br i1 %3, label %41, label %4
 
@@ -1594,7 +1594,7 @@ define internal noundef range(i32 -22, 1) i32 @acpi_thermal_resume(ptr noundef r
   %24 = sext i32 %22 to i64
   %25 = getelementptr ptr, ptr %23, i64 %24
   %26 = load ptr, ptr %25, align 8
-  %27 = call i32 @acpi_bus_update_power(ptr noundef %26, ptr noundef nonnull %2) #12
+  %27 = call i32 @acpi_bus_update_power(ptr noundef %26, ptr noundef nonnull %2) #11
   %28 = add nuw i32 %22, 1
   %29 = load i32, ptr %16, align 8
   %30 = icmp ult i32 %28, %29
@@ -1614,12 +1614,12 @@ define internal noundef range(i32 -22, 1) i32 @acpi_thermal_resume(ptr noundef r
 
 38:                                               ; preds = %33
   %39 = load ptr, ptr @acpi_thermal_pm_queue, align 8
-  %40 = call zeroext i1 @queue_work_on(i32 noundef 64, ptr noundef %39, ptr noundef %34) #12
+  %40 = call zeroext i1 @queue_work_on(i32 noundef 64, ptr noundef %39, ptr noundef %34) #11
   br label %41
 
 41:                                               ; preds = %38, %33, %4, %1
   %42 = phi i32 [ -22, %1 ], [ -22, %4 ], [ 0, %33 ], [ 0, %38 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %2) #12
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %2) #11
   ret i32 %42
 }
 
@@ -1644,7 +1644,7 @@ define internal noundef i32 @thermal_act(ptr nocapture noundef readonly %0) #2 a
 4:                                                ; preds = %1
   %5 = getelementptr inbounds i8, ptr %0, i64 8
   %6 = load ptr, ptr %5, align 8
-  %7 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.29, ptr noundef %6) #13
+  %7 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.29, ptr noundef %6) #12
   store i32 -1, ptr @act, align 4
   br label %8
 
@@ -1661,7 +1661,7 @@ define internal noundef i32 @thermal_psv(ptr nocapture noundef readonly %0) #2 a
 4:                                                ; preds = %1
   %5 = getelementptr inbounds i8, ptr %0, i64 8
   %6 = load ptr, ptr %5, align 8
-  %7 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.30, ptr noundef %6) #13
+  %7 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.30, ptr noundef %6) #12
   store i32 -1, ptr @psv, align 4
   br label %8
 
@@ -1678,7 +1678,7 @@ define internal noundef i32 @thermal_tzp(ptr nocapture noundef readonly %0) #2 a
 4:                                                ; preds = %1
   %5 = getelementptr inbounds i8, ptr %0, i64 8
   %6 = load ptr, ptr %5, align 8
-  %7 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.31, ptr noundef %6) #13
+  %7 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.31, ptr noundef %6) #12
   store i32 300, ptr @tzp, align 4
   br label %8
 
@@ -1686,20 +1686,20 @@ define internal noundef i32 @thermal_tzp(ptr nocapture noundef readonly %0) #2 a
   ret i32 0
 }
 
-; Function Attrs: cold fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i32 @thermal_nocrt(ptr nocapture noundef readonly %0) #9 align 16 {
+; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
+define internal noundef i32 @thermal_nocrt(ptr nocapture noundef readonly %0) #2 align 16 {
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
-  %4 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.32, ptr noundef %3) #13
+  %4 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.32, ptr noundef %3) #12
   store i32 -1, ptr @crt, align 4
   ret i32 0
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #10
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #9
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.umin.i64(i64, i64) #11
+declare i64 @llvm.umin.i64(i64, i64) #10
 
 attributes #0 = { cold fn_ret_thunk_extern nounwind null_pointer_is_valid optsize "min-legal-vector-width"="0" "no-jump-tables"="true" "no-trapping-math"="true" "patchable-function-entry"="0" "patchable-function-prefix"="16" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+retpoline-external-thunk,+retpoline-indirect-branches,+retpoline-indirect-calls,-3dnow,-3dnowa,-aes,-avx,-avx10.1-256,-avx10.1-512,-avx2,-avx512bf16,-avx512bitalg,-avx512bw,-avx512cd,-avx512dq,-avx512er,-avx512f,-avx512fp16,-avx512ifma,-avx512pf,-avx512vbmi,-avx512vbmi2,-avx512vl,-avx512vnni,-avx512vp2intersect,-avx512vpopcntdq,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-f16c,-fma,-fma4,-gfni,-kl,-mmx,-pclmul,-sha,-sha512,-sm3,-sm4,-sse,-sse2,-sse3,-sse4.1,-sse4.2,-sse4a,-ssse3,-vaes,-vpclmulqdq,-widekl,-x87,-xop" "tune-cpu"="generic" }
 attributes #1 = { null_pointer_is_valid "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+retpoline-external-thunk,+retpoline-indirect-branches,+retpoline-indirect-calls,-3dnow,-3dnowa,-aes,-avx,-avx10.1-256,-avx10.1-512,-avx2,-avx512bf16,-avx512bitalg,-avx512bw,-avx512cd,-avx512dq,-avx512er,-avx512f,-avx512fp16,-avx512ifma,-avx512pf,-avx512vbmi,-avx512vbmi2,-avx512vl,-avx512vnni,-avx512vp2intersect,-avx512vpopcntdq,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-f16c,-fma,-fma4,-gfni,-kl,-mmx,-pclmul,-sha,-sha512,-sm3,-sm4,-sse,-sse2,-sse3,-sse4.1,-sse4.2,-sse4a,-ssse3,-vaes,-vpclmulqdq,-widekl,-x87,-xop" "tune-cpu"="generic" }
@@ -1710,13 +1710,12 @@ attributes #5 = { cold null_pointer_is_valid "no-trapping-math"="true" "stack-pr
 attributes #6 = { null_pointer_is_valid allocsize(2) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+retpoline-external-thunk,+retpoline-indirect-branches,+retpoline-indirect-calls,-3dnow,-3dnowa,-aes,-avx,-avx10.1-256,-avx10.1-512,-avx2,-avx512bf16,-avx512bitalg,-avx512bw,-avx512cd,-avx512dq,-avx512er,-avx512f,-avx512fp16,-avx512ifma,-avx512pf,-avx512vbmi,-avx512vbmi2,-avx512vl,-avx512vnni,-avx512vp2intersect,-avx512vpopcntdq,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-f16c,-fma,-fma4,-gfni,-kl,-mmx,-pclmul,-sha,-sha512,-sm3,-sm4,-sse,-sse2,-sse3,-sse4.1,-sse4.2,-sse4a,-ssse3,-vaes,-vpclmulqdq,-widekl,-x87,-xop" "tune-cpu"="generic" }
 attributes #7 = { null_pointer_is_valid allocsize(0) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+retpoline-external-thunk,+retpoline-indirect-branches,+retpoline-indirect-calls,-3dnow,-3dnowa,-aes,-avx,-avx10.1-256,-avx10.1-512,-avx2,-avx512bf16,-avx512bitalg,-avx512bw,-avx512cd,-avx512dq,-avx512er,-avx512f,-avx512fp16,-avx512ifma,-avx512pf,-avx512vbmi,-avx512vbmi2,-avx512vl,-avx512vnni,-avx512vp2intersect,-avx512vpopcntdq,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-f16c,-fma,-fma4,-gfni,-kl,-mmx,-pclmul,-sha,-sha512,-sm3,-sm4,-sse,-sse2,-sse3,-sse4.1,-sse4.2,-sse4a,-ssse3,-vaes,-vpclmulqdq,-widekl,-x87,-xop" "tune-cpu"="generic" }
 attributes #8 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #9 = { cold fn_ret_thunk_extern nounwind null_pointer_is_valid "min-legal-vector-width"="0" "no-jump-tables"="true" "no-trapping-math"="true" "patchable-function-entry"="0" "patchable-function-prefix"="16" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+retpoline-external-thunk,+retpoline-indirect-branches,+retpoline-indirect-calls,-3dnow,-3dnowa,-aes,-avx,-avx10.1-256,-avx10.1-512,-avx2,-avx512bf16,-avx512bitalg,-avx512bw,-avx512cd,-avx512dq,-avx512er,-avx512f,-avx512fp16,-avx512ifma,-avx512pf,-avx512vbmi,-avx512vbmi2,-avx512vl,-avx512vnni,-avx512vp2intersect,-avx512vpopcntdq,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-f16c,-fma,-fma4,-gfni,-kl,-mmx,-pclmul,-sha,-sha512,-sm3,-sm4,-sse,-sse2,-sse3,-sse4.1,-sse4.2,-sse4a,-ssse3,-vaes,-vpclmulqdq,-widekl,-x87,-xop" "tune-cpu"="generic" }
-attributes #10 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #11 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #12 = { nounwind }
-attributes #13 = { cold nounwind }
-attributes #14 = { nounwind allocsize(2) }
-attributes #15 = { nounwind allocsize(0) }
+attributes #9 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #10 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #11 = { nounwind }
+attributes #12 = { cold nounwind }
+attributes #13 = { nounwind allocsize(2) }
+attributes #14 = { nounwind allocsize(0) }
 
 !llvm.module.flags = !{!0, !1, !2, !3, !4}
 

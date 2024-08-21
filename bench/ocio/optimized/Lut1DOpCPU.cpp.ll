@@ -6582,7 +6582,7 @@ invoke.cont:                                      ; preds = %if.end12.sink.split
   ret void
 }
 
-; Function Attrs: cold mustprogress noreturn nounwind memory(inaccessiblemem: write) uwtable
+; Function Attrs: mustprogress noreturn nounwind memory(inaccessiblemem: write) uwtable
 define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_117BaseLut1DRendererILNS_8BitDepthE1ELS2_1EED0Ev(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #13 align 2 {
 entry:
   tail call void @llvm.trap() #29
@@ -13357,7 +13357,7 @@ invoke.cont:                                      ; preds = %if.end12.sink.split
   ret void
 }
 
-; Function Attrs: cold mustprogress noreturn nounwind memory(inaccessiblemem: write) uwtable
+; Function Attrs: mustprogress noreturn nounwind memory(inaccessiblemem: write) uwtable
 define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_117BaseLut1DRendererILNS_8BitDepthE1ELS2_2EED0Ev(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #13 align 2 {
 entry:
   tail call void @llvm.trap() #29
@@ -19780,7 +19780,7 @@ invoke.cont:                                      ; preds = %if.end12.sink.split
   ret void
 }
 
-; Function Attrs: cold mustprogress noreturn nounwind memory(inaccessiblemem: write) uwtable
+; Function Attrs: mustprogress noreturn nounwind memory(inaccessiblemem: write) uwtable
 define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_117BaseLut1DRendererILNS_8BitDepthE1ELS2_3EED0Ev(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #13 align 2 {
 entry:
   tail call void @llvm.trap() #29
@@ -26203,7 +26203,7 @@ invoke.cont:                                      ; preds = %if.end12.sink.split
   ret void
 }
 
-; Function Attrs: cold mustprogress noreturn nounwind memory(inaccessiblemem: write) uwtable
+; Function Attrs: mustprogress noreturn nounwind memory(inaccessiblemem: write) uwtable
 define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_117BaseLut1DRendererILNS_8BitDepthE1ELS2_5EED0Ev(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #13 align 2 {
 entry:
   tail call void @llvm.trap() #29
@@ -32703,7 +32703,7 @@ invoke.cont:                                      ; preds = %if.end12.sink.split
   ret void
 }
 
-; Function Attrs: cold mustprogress noreturn nounwind memory(inaccessiblemem: write) uwtable
+; Function Attrs: mustprogress noreturn nounwind memory(inaccessiblemem: write) uwtable
 define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_117BaseLut1DRendererILNS_8BitDepthE1ELS2_7EED0Ev(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #13 align 2 {
 entry:
   tail call void @llvm.trap() #29
@@ -40874,7 +40874,7 @@ invoke.cont:                                      ; preds = %if.end12.sink.split
   ret void
 }
 
-; Function Attrs: cold mustprogress noreturn nounwind memory(inaccessiblemem: write) uwtable
+; Function Attrs: mustprogress noreturn nounwind memory(inaccessiblemem: write) uwtable
 define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_117BaseLut1DRendererILNS_8BitDepthE1ELS2_8EED0Ev(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #13 align 2 {
 entry:
   tail call void @llvm.trap() #29
@@ -48932,7 +48932,7 @@ invoke.cont:                                      ; preds = %if.end12.sink.split
   ret void
 }
 
-; Function Attrs: cold mustprogress noreturn nounwind memory(inaccessiblemem: write) uwtable
+; Function Attrs: mustprogress noreturn nounwind memory(inaccessiblemem: write) uwtable
 define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_117BaseLut1DRendererILNS_8BitDepthE2ELS2_1EED0Ev(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #13 align 2 {
 entry:
   tail call void @llvm.trap() #29
@@ -55355,7 +55355,7 @@ invoke.cont:                                      ; preds = %if.end12.sink.split
   ret void
 }
 
-; Function Attrs: cold mustprogress noreturn nounwind memory(inaccessiblemem: write) uwtable
+; Function Attrs: mustprogress noreturn nounwind memory(inaccessiblemem: write) uwtable
 define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_117BaseLut1DRendererILNS_8BitDepthE2ELS2_2EED0Ev(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #13 align 2 {
 entry:
   tail call void @llvm.trap() #29
@@ -61778,7 +61778,7 @@ invoke.cont:                                      ; preds = %if.end12.sink.split
   ret void
 }
 
-; Function Attrs: cold mustprogress noreturn nounwind memory(inaccessiblemem: write) uwtable
+; Function Attrs: mustprogress noreturn nounwind memory(inaccessiblemem: write) uwtable
 define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_117BaseLut1DRendererILNS_8BitDepthE2ELS2_3EED0Ev(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #13 align 2 {
 entry:
   tail call void @llvm.trap() #29
@@ -68201,7 +68201,7 @@ invoke.cont:                                      ; preds = %if.end12.sink.split
   ret void
 }
 
-; Function Attrs: cold mustprogress noreturn nounwind memory(inaccessiblemem: write) uwtable
+; Function Attrs: mustprogress noreturn nounwind memory(inaccessiblemem: write) uwtable
 define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_117BaseLut1DRendererILNS_8BitDepthE2ELS2_5EED0Ev(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #13 align 2 {
 entry:
   tail call void @llvm.trap() #29
@@ -74701,7 +74701,7 @@ invoke.cont:                                      ; preds = %if.end12.sink.split
   ret void
 }
 
-; Function Attrs: cold mustprogress noreturn nounwind memory(inaccessiblemem: write) uwtable
+; Function Attrs: mustprogress noreturn nounwind memory(inaccessiblemem: write) uwtable
 define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_117BaseLut1DRendererILNS_8BitDepthE2ELS2_7EED0Ev(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #13 align 2 {
 entry:
   tail call void @llvm.trap() #29
@@ -82872,7 +82872,7 @@ invoke.cont:                                      ; preds = %if.end12.sink.split
   ret void
 }
 
-; Function Attrs: cold mustprogress noreturn nounwind memory(inaccessiblemem: write) uwtable
+; Function Attrs: mustprogress noreturn nounwind memory(inaccessiblemem: write) uwtable
 define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_117BaseLut1DRendererILNS_8BitDepthE2ELS2_8EED0Ev(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #13 align 2 {
 entry:
   tail call void @llvm.trap() #29
@@ -90930,7 +90930,7 @@ invoke.cont:                                      ; preds = %if.end12.sink.split
   ret void
 }
 
-; Function Attrs: cold mustprogress noreturn nounwind memory(inaccessiblemem: write) uwtable
+; Function Attrs: mustprogress noreturn nounwind memory(inaccessiblemem: write) uwtable
 define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_117BaseLut1DRendererILNS_8BitDepthE3ELS2_1EED0Ev(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #13 align 2 {
 entry:
   tail call void @llvm.trap() #29
@@ -97353,7 +97353,7 @@ invoke.cont:                                      ; preds = %if.end12.sink.split
   ret void
 }
 
-; Function Attrs: cold mustprogress noreturn nounwind memory(inaccessiblemem: write) uwtable
+; Function Attrs: mustprogress noreturn nounwind memory(inaccessiblemem: write) uwtable
 define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_117BaseLut1DRendererILNS_8BitDepthE3ELS2_2EED0Ev(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #13 align 2 {
 entry:
   tail call void @llvm.trap() #29
@@ -103776,7 +103776,7 @@ invoke.cont:                                      ; preds = %if.end12.sink.split
   ret void
 }
 
-; Function Attrs: cold mustprogress noreturn nounwind memory(inaccessiblemem: write) uwtable
+; Function Attrs: mustprogress noreturn nounwind memory(inaccessiblemem: write) uwtable
 define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_117BaseLut1DRendererILNS_8BitDepthE3ELS2_3EED0Ev(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #13 align 2 {
 entry:
   tail call void @llvm.trap() #29
@@ -110199,7 +110199,7 @@ invoke.cont:                                      ; preds = %if.end12.sink.split
   ret void
 }
 
-; Function Attrs: cold mustprogress noreturn nounwind memory(inaccessiblemem: write) uwtable
+; Function Attrs: mustprogress noreturn nounwind memory(inaccessiblemem: write) uwtable
 define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_117BaseLut1DRendererILNS_8BitDepthE3ELS2_5EED0Ev(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #13 align 2 {
 entry:
   tail call void @llvm.trap() #29
@@ -116699,7 +116699,7 @@ invoke.cont:                                      ; preds = %if.end12.sink.split
   ret void
 }
 
-; Function Attrs: cold mustprogress noreturn nounwind memory(inaccessiblemem: write) uwtable
+; Function Attrs: mustprogress noreturn nounwind memory(inaccessiblemem: write) uwtable
 define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_117BaseLut1DRendererILNS_8BitDepthE3ELS2_7EED0Ev(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #13 align 2 {
 entry:
   tail call void @llvm.trap() #29
@@ -124870,7 +124870,7 @@ invoke.cont:                                      ; preds = %if.end12.sink.split
   ret void
 }
 
-; Function Attrs: cold mustprogress noreturn nounwind memory(inaccessiblemem: write) uwtable
+; Function Attrs: mustprogress noreturn nounwind memory(inaccessiblemem: write) uwtable
 define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_117BaseLut1DRendererILNS_8BitDepthE3ELS2_8EED0Ev(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #13 align 2 {
 entry:
   tail call void @llvm.trap() #29
@@ -132928,7 +132928,7 @@ invoke.cont:                                      ; preds = %if.end12.sink.split
   ret void
 }
 
-; Function Attrs: cold mustprogress noreturn nounwind memory(inaccessiblemem: write) uwtable
+; Function Attrs: mustprogress noreturn nounwind memory(inaccessiblemem: write) uwtable
 define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_117BaseLut1DRendererILNS_8BitDepthE5ELS2_1EED0Ev(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #13 align 2 {
 entry:
   tail call void @llvm.trap() #29
@@ -139351,7 +139351,7 @@ invoke.cont:                                      ; preds = %if.end12.sink.split
   ret void
 }
 
-; Function Attrs: cold mustprogress noreturn nounwind memory(inaccessiblemem: write) uwtable
+; Function Attrs: mustprogress noreturn nounwind memory(inaccessiblemem: write) uwtable
 define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_117BaseLut1DRendererILNS_8BitDepthE5ELS2_2EED0Ev(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #13 align 2 {
 entry:
   tail call void @llvm.trap() #29
@@ -145774,7 +145774,7 @@ invoke.cont:                                      ; preds = %if.end12.sink.split
   ret void
 }
 
-; Function Attrs: cold mustprogress noreturn nounwind memory(inaccessiblemem: write) uwtable
+; Function Attrs: mustprogress noreturn nounwind memory(inaccessiblemem: write) uwtable
 define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_117BaseLut1DRendererILNS_8BitDepthE5ELS2_3EED0Ev(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #13 align 2 {
 entry:
   tail call void @llvm.trap() #29
@@ -152197,7 +152197,7 @@ invoke.cont:                                      ; preds = %if.end12.sink.split
   ret void
 }
 
-; Function Attrs: cold mustprogress noreturn nounwind memory(inaccessiblemem: write) uwtable
+; Function Attrs: mustprogress noreturn nounwind memory(inaccessiblemem: write) uwtable
 define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_117BaseLut1DRendererILNS_8BitDepthE5ELS2_5EED0Ev(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #13 align 2 {
 entry:
   tail call void @llvm.trap() #29
@@ -158697,7 +158697,7 @@ invoke.cont:                                      ; preds = %if.end12.sink.split
   ret void
 }
 
-; Function Attrs: cold mustprogress noreturn nounwind memory(inaccessiblemem: write) uwtable
+; Function Attrs: mustprogress noreturn nounwind memory(inaccessiblemem: write) uwtable
 define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_117BaseLut1DRendererILNS_8BitDepthE5ELS2_7EED0Ev(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #13 align 2 {
 entry:
   tail call void @llvm.trap() #29
@@ -166868,7 +166868,7 @@ invoke.cont:                                      ; preds = %if.end12.sink.split
   ret void
 }
 
-; Function Attrs: cold mustprogress noreturn nounwind memory(inaccessiblemem: write) uwtable
+; Function Attrs: mustprogress noreturn nounwind memory(inaccessiblemem: write) uwtable
 define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_117BaseLut1DRendererILNS_8BitDepthE5ELS2_8EED0Ev(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #13 align 2 {
 entry:
   tail call void @llvm.trap() #29
@@ -174963,7 +174963,7 @@ invoke.cont:                                      ; preds = %if.end12.sink.split
   ret void
 }
 
-; Function Attrs: cold mustprogress noreturn nounwind memory(inaccessiblemem: write) uwtable
+; Function Attrs: mustprogress noreturn nounwind memory(inaccessiblemem: write) uwtable
 define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_117BaseLut1DRendererILNS_8BitDepthE7ELS2_1EED0Ev(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #13 align 2 {
 entry:
   tail call void @llvm.trap() #29
@@ -182348,7 +182348,7 @@ invoke.cont:                                      ; preds = %if.end12.sink.split
   ret void
 }
 
-; Function Attrs: cold mustprogress noreturn nounwind memory(inaccessiblemem: write) uwtable
+; Function Attrs: mustprogress noreturn nounwind memory(inaccessiblemem: write) uwtable
 define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_117BaseLut1DRendererILNS_8BitDepthE7ELS2_2EED0Ev(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #13 align 2 {
 entry:
   tail call void @llvm.trap() #29
@@ -189733,7 +189733,7 @@ invoke.cont:                                      ; preds = %if.end12.sink.split
   ret void
 }
 
-; Function Attrs: cold mustprogress noreturn nounwind memory(inaccessiblemem: write) uwtable
+; Function Attrs: mustprogress noreturn nounwind memory(inaccessiblemem: write) uwtable
 define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_117BaseLut1DRendererILNS_8BitDepthE7ELS2_3EED0Ev(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #13 align 2 {
 entry:
   tail call void @llvm.trap() #29
@@ -197118,7 +197118,7 @@ invoke.cont:                                      ; preds = %if.end12.sink.split
   ret void
 }
 
-; Function Attrs: cold mustprogress noreturn nounwind memory(inaccessiblemem: write) uwtable
+; Function Attrs: mustprogress noreturn nounwind memory(inaccessiblemem: write) uwtable
 define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_117BaseLut1DRendererILNS_8BitDepthE7ELS2_5EED0Ev(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #13 align 2 {
 entry:
   tail call void @llvm.trap() #29
@@ -204580,7 +204580,7 @@ invoke.cont:                                      ; preds = %if.end12.sink.split
   ret void
 }
 
-; Function Attrs: cold mustprogress noreturn nounwind memory(inaccessiblemem: write) uwtable
+; Function Attrs: mustprogress noreturn nounwind memory(inaccessiblemem: write) uwtable
 define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_117BaseLut1DRendererILNS_8BitDepthE7ELS2_7EED0Ev(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #13 align 2 {
 entry:
   tail call void @llvm.trap() #29
@@ -213713,7 +213713,7 @@ invoke.cont:                                      ; preds = %if.end12.sink.split
   ret void
 }
 
-; Function Attrs: cold mustprogress noreturn nounwind memory(inaccessiblemem: write) uwtable
+; Function Attrs: mustprogress noreturn nounwind memory(inaccessiblemem: write) uwtable
 define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_117BaseLut1DRendererILNS_8BitDepthE7ELS2_8EED0Ev(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #13 align 2 {
 entry:
   tail call void @llvm.trap() #29
@@ -221168,7 +221168,7 @@ invoke.cont:                                      ; preds = %_ZN19OpenColorIO_v2
   ret void
 }
 
-; Function Attrs: cold mustprogress noreturn nounwind memory(inaccessiblemem: write) uwtable
+; Function Attrs: mustprogress noreturn nounwind memory(inaccessiblemem: write) uwtable
 define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_117BaseLut1DRendererILNS_8BitDepthE8ELS2_1EED0Ev(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #13 align 2 {
 entry:
   tail call void @llvm.trap() #29
@@ -226417,7 +226417,7 @@ invoke.cont:                                      ; preds = %_ZN19OpenColorIO_v2
   ret void
 }
 
-; Function Attrs: cold mustprogress noreturn nounwind memory(inaccessiblemem: write) uwtable
+; Function Attrs: mustprogress noreturn nounwind memory(inaccessiblemem: write) uwtable
 define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_117BaseLut1DRendererILNS_8BitDepthE8ELS2_2EED0Ev(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #13 align 2 {
 entry:
   tail call void @llvm.trap() #29
@@ -231391,7 +231391,7 @@ invoke.cont:                                      ; preds = %_ZN19OpenColorIO_v2
   ret void
 }
 
-; Function Attrs: cold mustprogress noreturn nounwind memory(inaccessiblemem: write) uwtable
+; Function Attrs: mustprogress noreturn nounwind memory(inaccessiblemem: write) uwtable
 define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_117BaseLut1DRendererILNS_8BitDepthE8ELS2_3EED0Ev(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #13 align 2 {
 entry:
   tail call void @llvm.trap() #29
@@ -236365,7 +236365,7 @@ invoke.cont:                                      ; preds = %_ZN19OpenColorIO_v2
   ret void
 }
 
-; Function Attrs: cold mustprogress noreturn nounwind memory(inaccessiblemem: write) uwtable
+; Function Attrs: mustprogress noreturn nounwind memory(inaccessiblemem: write) uwtable
 define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_117BaseLut1DRendererILNS_8BitDepthE8ELS2_5EED0Ev(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #13 align 2 {
 entry:
   tail call void @llvm.trap() #29
@@ -241603,7 +241603,7 @@ invoke.cont:                                      ; preds = %_ZN19OpenColorIO_v2
   ret void
 }
 
-; Function Attrs: cold mustprogress noreturn nounwind memory(inaccessiblemem: write) uwtable
+; Function Attrs: mustprogress noreturn nounwind memory(inaccessiblemem: write) uwtable
 define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_117BaseLut1DRendererILNS_8BitDepthE8ELS2_7EED0Ev(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #13 align 2 {
 entry:
   tail call void @llvm.trap() #29
@@ -248377,7 +248377,7 @@ invoke.cont:                                      ; preds = %_ZN19OpenColorIO_v2
   ret void
 }
 
-; Function Attrs: cold mustprogress noreturn nounwind memory(inaccessiblemem: write) uwtable
+; Function Attrs: mustprogress noreturn nounwind memory(inaccessiblemem: write) uwtable
 define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_117BaseLut1DRendererILNS_8BitDepthE8ELS2_8EED0Ev(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #13 align 2 {
 entry:
   tail call void @llvm.trap() #29
@@ -252239,7 +252239,7 @@ attributes #9 = { mustprogress nofree nounwind willreturn memory(read, inaccessi
 attributes #10 = { cold noreturn nounwind memory(inaccessiblemem: write) }
 attributes #11 = { mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #12 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #13 = { cold mustprogress noreturn nounwind memory(inaccessiblemem: write) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #13 = { mustprogress noreturn nounwind memory(inaccessiblemem: write) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #14 = { nobuiltin nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #15 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #16 = { mustprogress nofree nounwind willreturn memory(argmem: read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

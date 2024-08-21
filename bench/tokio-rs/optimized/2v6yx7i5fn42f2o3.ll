@@ -2453,8 +2453,8 @@ define hidden void @_ZN5tokio7runtime4task3raw4poll17heec5af2f3a54d7e5E(ptr noun
   ret void
 }
 
-; Function Attrs: cold noreturn nonlazybind uwtable
-define hidden void @_ZN5tokio7runtime4task3raw8schedule17h1bc9a57e1dd4a5caE(ptr noundef nonnull %0) unnamed_addr #7 personality ptr @rust_eh_personality {
+; Function Attrs: noreturn nonlazybind uwtable
+define hidden void @_ZN5tokio7runtime4task3raw8schedule17h1bc9a57e1dd4a5caE(ptr noundef nonnull %0) unnamed_addr #5 personality ptr @rust_eh_personality {
   %2 = getelementptr inbounds i8, ptr %0, i64 16
   invoke void @_ZN4core9panicking5panic17hb837a5ebbbe5b188E(ptr noalias noundef nonnull readonly align 1 @anon.489e625cf0d9bafa89a816c128d01e73.4.llvm.18090272232049510573, i64 noundef 40, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.489e625cf0d9bafa89a816c128d01e73.113.llvm.18090272232049510573) #19
           to label %12 unwind label %3

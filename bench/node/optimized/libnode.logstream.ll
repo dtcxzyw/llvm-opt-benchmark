@@ -686,7 +686,7 @@ entry:
   ret i32 0
 }
 
-; Function Attrs: cold mustprogress noreturn nounwind uwtable
+; Function Attrs: mustprogress noreturn nounwind uwtable
 define dso_local noundef i32 @_ZN4node4quic9LogStream10DoShutdownEPNS_12ShutdownWrapE(ptr nocapture nonnull readnone align 8 %this, ptr nocapture readnone %req_wrap) unnamed_addr #7 align 2 {
 entry:
   tail call void @_ZN4node6AssertERKNS_13AssertionInfoE(ptr noundef nonnull align 8 dereferenceable(24) @_ZZN4node4quic9LogStream10DoShutdownEPNS_12ShutdownWrapEE4args) #18
@@ -699,7 +699,7 @@ declare void @_ZN4node6AssertERKNS_13AssertionInfoE(ptr noundef nonnull align 8 
 ; Function Attrs: cold nofree noreturn nounwind
 declare void @abort() local_unnamed_addr #8
 
-; Function Attrs: cold noreturn nounwind uwtable
+; Function Attrs: noreturn nounwind uwtable
 define dso_local noundef i32 @_ZThn56_N4node4quic9LogStream10DoShutdownEPNS_12ShutdownWrapE(ptr nocapture readnone %this, ptr nocapture readnone %req_wrap) unnamed_addr #9 align 2 {
 entry:
   tail call void @_ZN4node6AssertERKNS_13AssertionInfoE(ptr noundef nonnull align 8 dereferenceable(24) @_ZZN4node4quic9LogStream10DoShutdownEPNS_12ShutdownWrapEE4args) #18
@@ -707,7 +707,7 @@ entry:
   unreachable
 }
 
-; Function Attrs: cold mustprogress noreturn nounwind uwtable
+; Function Attrs: mustprogress noreturn nounwind uwtable
 define dso_local noundef i32 @_ZN4node4quic9LogStream7DoWriteEPNS_9WriteWrapEP8uv_buf_tmP11uv_stream_s(ptr nocapture nonnull readnone align 8 %this, ptr nocapture readnone %w, ptr nocapture readnone %bufs, i64 %count, ptr nocapture readnone %send_handle) unnamed_addr #7 align 2 {
 entry:
   tail call void @_ZN4node6AssertERKNS_13AssertionInfoE(ptr noundef nonnull align 8 dereferenceable(24) @_ZZN4node4quic9LogStream7DoWriteEPNS_9WriteWrapEP8uv_buf_tmP11uv_stream_sE4args) #18
@@ -715,7 +715,7 @@ entry:
   unreachable
 }
 
-; Function Attrs: cold noreturn nounwind uwtable
+; Function Attrs: noreturn nounwind uwtable
 define dso_local noundef i32 @_ZThn56_N4node4quic9LogStream7DoWriteEPNS_9WriteWrapEP8uv_buf_tmP11uv_stream_s(ptr nocapture readnone %this, ptr nocapture readnone %w, ptr nocapture readnone %bufs, i64 %count, ptr nocapture readnone %send_handle) unnamed_addr #9 align 2 {
 entry:
   tail call void @_ZN4node6AssertERKNS_13AssertionInfoE(ptr noundef nonnull align 8 dereferenceable(24) @_ZZN4node4quic9LogStream7DoWriteEPNS_9WriteWrapEP8uv_buf_tmP11uv_stream_sE4args) #18
@@ -1583,9 +1583,9 @@ attributes #3 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal
 attributes #4 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
 attributes #5 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #6 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { cold mustprogress noreturn nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { mustprogress noreturn nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #8 = { cold nofree noreturn nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #9 = { cold noreturn nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #9 = { noreturn nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #10 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #11 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #12 = { noreturn "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

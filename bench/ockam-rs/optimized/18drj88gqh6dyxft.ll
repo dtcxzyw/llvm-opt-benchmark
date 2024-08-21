@@ -433,8 +433,8 @@ define hidden noalias noundef nonnull align 8 ptr @_ZN10ockam_core5error5Error3n
   unreachable
 }
 
-; Function Attrs: cold nonlazybind uwtable
-define hidden noundef nonnull align 8 ptr @_ZN10ockam_core5error5Error7context17h939247fae68b3957E(ptr noalias noundef nonnull returned align 8 %0, ptr noalias noundef nonnull readonly align 1 %1, i64 noundef %2, ptr noalias nocapture noundef align 8 dereferenceable(232) %3) unnamed_addr #3 personality ptr @rust_eh_personality {
+; Function Attrs: nonlazybind uwtable
+define hidden noundef nonnull align 8 ptr @_ZN10ockam_core5error5Error7context17h939247fae68b3957E(ptr noalias noundef nonnull returned align 8 %0, ptr noalias noundef nonnull readonly align 1 %1, i64 noundef %2, ptr noalias nocapture noundef align 8 dereferenceable(232) %3) unnamed_addr #0 personality ptr @rust_eh_personality {
   %5 = alloca ptr, align 8
   store ptr %0, ptr %5, align 8
   invoke void @_ZN10ockam_core5error5inner9ErrorData11add_context17h6679dc6313a9af78E(ptr noalias noundef nonnull align 8 dereferenceable(104) %0, ptr noalias noundef nonnull readonly align 1 %1, i64 noundef %2, ptr noundef nonnull align 1 %3, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.de05196e861459032a255d939f01b64a.6.llvm.10085540174115877777)
@@ -464,8 +464,8 @@ define hidden noundef nonnull align 8 ptr @_ZN10ockam_core5error5Error7context17
           to label %10 unwind label %8
 }
 
-; Function Attrs: cold nonlazybind uwtable
-define hidden noundef nonnull align 8 ptr @_ZN10ockam_core5error5Error7context17hff14423f229843acE(ptr noalias noundef nonnull returned align 8 %0, ptr noalias noundef nonnull readonly align 1 %1, i64 noundef %2, ptr noalias nocapture noundef align 8 dereferenceable(88) %3) unnamed_addr #3 personality ptr @rust_eh_personality {
+; Function Attrs: nonlazybind uwtable
+define hidden noundef nonnull align 8 ptr @_ZN10ockam_core5error5Error7context17hff14423f229843acE(ptr noalias noundef nonnull returned align 8 %0, ptr noalias noundef nonnull readonly align 1 %1, i64 noundef %2, ptr noalias nocapture noundef align 8 dereferenceable(88) %3) unnamed_addr #0 personality ptr @rust_eh_personality {
   %5 = alloca ptr, align 8
   store ptr %0, ptr %5, align 8
   invoke void @_ZN10ockam_core5error5inner9ErrorData11add_context17h6679dc6313a9af78E(ptr noalias noundef nonnull align 8 dereferenceable(104) %0, ptr noalias noundef nonnull readonly align 1 %1, i64 noundef %2, ptr noundef nonnull align 1 %3, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.de05196e861459032a255d939f01b64a.7.llvm.10085540174115877777)
@@ -9279,8 +9279,8 @@ define hidden noundef ptr @_ZN9hashbrown3raw5alloc5inner8do_alloc17h8a0583ab3a40
   ret ptr %.sroa.0.0.i.i
 }
 
-; Function Attrs: cold nonlazybind uwtable
-define noalias noundef nonnull align 8 ptr @"_ZN25ockam_transport_websocket5error130_$LT$impl$u20$core..convert..From$LT$ockam_transport_websocket..error..WebSocketError$GT$$u20$for$u20$ockam_core..error..Error$GT$4from17hbd50ff788ca65640E"(i8 noundef %0, ptr noalias noundef readonly align 8 dereferenceable(24) %1) unnamed_addr #3 {
+; Function Attrs: nonlazybind uwtable
+define noalias noundef nonnull align 8 ptr @"_ZN25ockam_transport_websocket5error130_$LT$impl$u20$core..convert..From$LT$ockam_transport_websocket..error..WebSocketError$GT$$u20$for$u20$ockam_core..error..Error$GT$4from17hbd50ff788ca65640E"(i8 noundef %0, ptr noalias noundef readonly align 8 dereferenceable(24) %1) unnamed_addr #0 {
   %3 = add i8 %0, -19
   %4 = icmp ult i8 %3, -2
   %. = select i1 %4, i8 14, i8 15

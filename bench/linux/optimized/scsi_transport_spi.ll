@@ -230,8 +230,8 @@ define dso_local void @spi_dv_device(ptr noundef %0) #0 align 16 {
   %5 = alloca %struct.scsi_exec_args, align 8
   %6 = getelementptr inbounds i8, ptr %0, i64 312
   %7 = load ptr, ptr %6, align 8
-  %8 = tail call i32 @lock_system_sleep() #17
-  %9 = tail call i32 @scsi_autopm_get_device(ptr noundef %0) #17
+  %8 = tail call i32 @lock_system_sleep() #16
+  %9 = tail call i32 @scsi_autopm_get_device(ptr noundef %0) #16
   %10 = icmp eq i32 %9, 0
   br i1 %10, label %11, label %320
 
@@ -243,7 +243,7 @@ define dso_local void @spi_dv_device(ptr noundef %0) #0 align 16 {
   br i1 %15, label %16, label %319, !prof !5
 
 16:                                               ; preds = %11
-  %17 = tail call i32 @scsi_device_get(ptr noundef %0) #17
+  %17 = tail call i32 @scsi_device_get(ptr noundef %0) #16
   %18 = icmp eq i32 %17, 0
   br i1 %18, label %19, label %319, !prof !5
 
@@ -252,24 +252,24 @@ define dso_local void @spi_dv_device(ptr noundef %0) #0 align 16 {
   %21 = or i8 %20, 2
   store i8 %21, ptr %12, align 8
   %22 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 104), align 8
-  %23 = tail call noalias align 8 dereferenceable_or_null(8192) ptr @kmalloc_trace(ptr noundef %22, i32 noundef 3520, i64 noundef 8192) #18
+  %23 = tail call noalias align 8 dereferenceable_or_null(8192) ptr @kmalloc_trace(ptr noundef %22, i32 noundef 3520, i64 noundef 8192) #17
   %24 = icmp eq ptr %23, null
   br i1 %24, label %316, label %25, !prof !6
 
 25:                                               ; preds = %19
-  %26 = tail call i32 @scsi_device_quiesce(ptr noundef %0) #17
+  %26 = tail call i32 @scsi_device_quiesce(ptr noundef %0) #16
   %27 = icmp eq i32 %26, 0
   br i1 %27, label %28, label %315, !prof !5
 
 28:                                               ; preds = %25
-  tail call void @scsi_target_quiesce(ptr noundef %7) #17
+  tail call void @scsi_target_quiesce(ptr noundef %7) #16
   %29 = load i8, ptr %12, align 8
   %30 = or i8 %29, 1
   store i8 %30, ptr %12, align 8
   %31 = getelementptr inbounds i8, ptr %7, i64 872
-  tail call void @mutex_lock(ptr noundef %31) #17
+  tail call void @mutex_lock(ptr noundef %31) #16
   %32 = getelementptr inbounds i8, ptr %7, i64 40
-  tail call void (ptr, ptr, ptr, ...) @_dev_printk(ptr noundef nonnull @.str, ptr noundef %32, ptr noundef nonnull @.str.1) #19
+  tail call void (ptr, ptr, ptr, ...) @_dev_printk(ptr noundef nonnull @.str, ptr noundef %32, ptr noundef nonnull @.str.1) #18
   %33 = load ptr, ptr %0, align 8
   %34 = getelementptr inbounds i8, ptr %33, i64 176
   %35 = load ptr, ptr %34, align 8
@@ -291,7 +291,7 @@ define dso_local void @spi_dv_device(ptr noundef %0) #0 align 16 {
   br i1 %50, label %52, label %51
 
 51:                                               ; preds = %28
-  tail call void %49(ptr noundef %36, i32 noundef 0) #17
+  tail call void %49(ptr noundef %36, i32 noundef 0) #16
   %.pre = load ptr, ptr %46, align 8
   br label %52
 
@@ -304,7 +304,7 @@ define dso_local void @spi_dv_device(ptr noundef %0) #0 align 16 {
 
 57:                                               ; preds = %52
   %58 = load ptr, ptr %6, align 8
-  tail call void %55(ptr noundef %58, i32 noundef 0) #17
+  tail call void %55(ptr noundef %58, i32 noundef 0) #16
   br label %59
 
 59:                                               ; preds = %57, %52
@@ -314,7 +314,7 @@ define dso_local void @spi_dv_device(ptr noundef %0) #0 align 16 {
 
 62:                                               ; preds = %59
   %63 = getelementptr inbounds i8, ptr %36, i64 40
-  tail call void (ptr, ptr, ptr, ...) @_dev_printk(ptr noundef nonnull @.str.40, ptr noundef %63, ptr noundef nonnull @.str.41) #19
+  tail call void (ptr, ptr, ptr, ...) @_dev_printk(ptr noundef nonnull @.str.40, ptr noundef %63, ptr noundef nonnull @.str.41) #18
   br label %.loopexit
 
 64:                                               ; preds = %59
@@ -340,7 +340,7 @@ define dso_local void @spi_dv_device(ptr noundef %0) #0 align 16 {
   br i1 %77, label %78, label %89
 
 78:                                               ; preds = %71
-  tail call void %74(ptr noundef %36, i32 noundef 1) #17
+  tail call void %74(ptr noundef %36, i32 noundef 1) #16
   %79 = zext i8 %38 to i64
   %80 = getelementptr i8, ptr %23, i64 %79
   %81 = tail call i32 @spi_dv_device_compare_inquiry(ptr noundef %0, ptr noundef nonnull %23, ptr noundef %80, i32 noundef 3), !range !7
@@ -349,11 +349,11 @@ define dso_local void @spi_dv_device(ptr noundef %0) #0 align 16 {
 
 83:                                               ; preds = %78
   %84 = getelementptr inbounds i8, ptr %36, i64 40
-  tail call void (ptr, ptr, ptr, ...) @_dev_printk(ptr noundef nonnull @.str.40, ptr noundef %84, ptr noundef nonnull @.str.42) #19
+  tail call void (ptr, ptr, ptr, ...) @_dev_printk(ptr noundef nonnull @.str.40, ptr noundef %84, ptr noundef nonnull @.str.42) #18
   %85 = load ptr, ptr %46, align 8
   %86 = getelementptr inbounds i8, ptr %85, i64 40
   %87 = load ptr, ptr %86, align 8
-  tail call void %87(ptr noundef %36, i32 noundef 0) #17
+  tail call void %87(ptr noundef %36, i32 noundef 0) #16
   %88 = tail call i32 @llvm.smax.i32(i32 %40, i32 10)
   br label %89
 
@@ -405,7 +405,7 @@ define dso_local void @spi_dv_device(ptr noundef %0) #0 align 16 {
 126:                                              ; preds = %120
   %127 = load ptr, ptr %6, align 8
   %128 = load i32, ptr %101, align 4
-  call void %124(ptr noundef %127, i32 noundef %128) #17
+  call void %124(ptr noundef %127, i32 noundef %128) #16
   %.pre32 = load ptr, ptr %46, align 8
   br label %129
 
@@ -418,7 +418,7 @@ define dso_local void @spi_dv_device(ptr noundef %0) #0 align 16 {
 
 134:                                              ; preds = %129
   %135 = load ptr, ptr %6, align 8
-  call void %132(ptr noundef %135, i32 noundef %90) #17
+  call void %132(ptr noundef %135, i32 noundef %90) #16
   br label %136
 
 136:                                              ; preds = %134, %129
@@ -445,7 +445,7 @@ define dso_local void @spi_dv_device(ptr noundef %0) #0 align 16 {
 
 147:                                              ; preds = %143
   %148 = load ptr, ptr %6, align 8
-  call void %145(ptr noundef %148, i32 noundef 1) #17
+  call void %145(ptr noundef %148, i32 noundef 1) #16
   br label %156
 
 149:                                              ; preds = %._crit_edge, %139
@@ -457,7 +457,7 @@ define dso_local void @spi_dv_device(ptr noundef %0) #0 align 16 {
 
 154:                                              ; preds = %149
   %155 = load ptr, ptr %6, align 8
-  call void %152(ptr noundef %155, i32 noundef 0) #17
+  call void %152(ptr noundef %155, i32 noundef 0) #16
   br label %156
 
 156:                                              ; preds = %154, %149, %147, %143
@@ -485,7 +485,7 @@ define dso_local void @spi_dv_device(ptr noundef %0) #0 align 16 {
 
 168:                                              ; preds = %164
   %169 = load ptr, ptr %6, align 8
-  call void %166(ptr noundef %169, i32 noundef 1) #17
+  call void %166(ptr noundef %169, i32 noundef 1) #16
   %.pre35 = load ptr, ptr %46, align 8
   br label %170
 
@@ -498,7 +498,7 @@ define dso_local void @spi_dv_device(ptr noundef %0) #0 align 16 {
 
 175:                                              ; preds = %170
   %176 = load ptr, ptr %6, align 8
-  call void %173(ptr noundef %176, i32 noundef 1) #17
+  call void %173(ptr noundef %176, i32 noundef 1) #16
   %.pre36 = load ptr, ptr %46, align 8
   br label %177
 
@@ -511,7 +511,7 @@ define dso_local void @spi_dv_device(ptr noundef %0) #0 align 16 {
 
 182:                                              ; preds = %177
   %183 = load ptr, ptr %6, align 8
-  call void %180(ptr noundef %183, i32 noundef 1) #17
+  call void %180(ptr noundef %183, i32 noundef 1) #16
   %.pre37 = load ptr, ptr %46, align 8
   br label %184
 
@@ -524,7 +524,7 @@ define dso_local void @spi_dv_device(ptr noundef %0) #0 align 16 {
 
 189:                                              ; preds = %184
   %190 = load ptr, ptr %6, align 8
-  call void %187(ptr noundef %190, i32 noundef 1) #17
+  call void %187(ptr noundef %190, i32 noundef 1) #16
   br label %191
 
 191:                                              ; preds = %189, %184
@@ -539,7 +539,7 @@ define dso_local void @spi_dv_device(ptr noundef %0) #0 align 16 {
 
 197:                                              ; preds = %192
   %198 = load ptr, ptr %6, align 8
-  call void %195(ptr noundef %198, i32 noundef 1) #17
+  call void %195(ptr noundef %198, i32 noundef 1) #16
   br label %206
 
 199:                                              ; preds = %._crit_edge38, %159
@@ -551,7 +551,7 @@ define dso_local void @spi_dv_device(ptr noundef %0) #0 align 16 {
 
 204:                                              ; preds = %199
   %205 = load ptr, ptr %6, align 8
-  call void %202(ptr noundef %205, i32 noundef 0) #17
+  call void %202(ptr noundef %205, i32 noundef 0) #16
   br label %206
 
 206:                                              ; preds = %204, %199, %197, %192, %191
@@ -562,7 +562,7 @@ define dso_local void @spi_dv_device(ptr noundef %0) #0 align 16 {
   br i1 %210, label %212, label %211
 
 211:                                              ; preds = %206
-  call void %209(ptr noundef %33) #17
+  call void %209(ptr noundef %33) #16
   br label %212
 
 212:                                              ; preds = %211, %206
@@ -588,7 +588,7 @@ define dso_local void @spi_dv_device(ptr noundef %0) #0 align 16 {
 
 224:                                              ; preds = %219
   %225 = load ptr, ptr %6, align 8
-  call void %222(ptr noundef %225, i32 noundef 0) #17
+  call void %222(ptr noundef %225, i32 noundef 0) #16
   br label %233
 
 226:                                              ; preds = %215
@@ -600,7 +600,7 @@ define dso_local void @spi_dv_device(ptr noundef %0) #0 align 16 {
 
 231:                                              ; preds = %226
   %232 = load ptr, ptr %6, align 8
-  call void %229(ptr noundef %232, i32 noundef 1) #17
+  call void %229(ptr noundef %232, i32 noundef 1) #16
   br label %233
 
 233:                                              ; preds = %231, %226, %224, %219
@@ -612,7 +612,7 @@ define dso_local void @spi_dv_device(ptr noundef %0) #0 align 16 {
 
 238:                                              ; preds = %233
   %239 = load ptr, ptr %6, align 8
-  call void %236(ptr noundef %239, i32 noundef %91) #17
+  call void %236(ptr noundef %239, i32 noundef %91) #16
   br label %240
 
 240:                                              ; preds = %238, %233
@@ -627,7 +627,7 @@ define dso_local void @spi_dv_device(ptr noundef %0) #0 align 16 {
   br i1 %248, label %250, label %249
 
 249:                                              ; preds = %240
-  call void %247(ptr noundef %36) #17
+  call void %247(ptr noundef %36) #16
   br label %250
 
 250:                                              ; preds = %249, %240
@@ -641,9 +641,9 @@ define dso_local void @spi_dv_device(ptr noundef %0) #0 align 16 {
 
 .preheader:                                       ; preds = %251, %272
   %255 = phi i32 [ %273, %272 ], [ 0, %251 ]
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #17
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #16
   store i64 0, ptr %4, align 8, !annotation !8
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %5) #17
+  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %5) #16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %5, i8 0, i64 16, i1 false)
   store ptr %4, ptr %107, align 8
   store i32 4, ptr %108, align 8
@@ -653,13 +653,13 @@ define dso_local void @spi_dv_device(ptr noundef %0) #0 align 16 {
 
 256:                                              ; preds = %264, %.preheader
   %257 = phi i32 [ 0, %.preheader ], [ %267, %264 ]
-  %258 = call i32 @scsi_execute_cmd(ptr noundef %0, ptr noundef nonnull @spi_dv_device_get_echo_buffer.spi_test_unit_ready, i32 noundef 1826, ptr noundef null, i32 noundef 0, i32 noundef 10000, i32 noundef 1, ptr noundef nonnull %5) #17
+  %258 = call i32 @scsi_execute_cmd(ptr noundef %0, ptr noundef nonnull @spi_dv_device_get_echo_buffer.spi_test_unit_ready, i32 noundef 1826, ptr noundef null, i32 noundef 0, i32 noundef 10000, i32 noundef 1, ptr noundef nonnull %5) #16
   %259 = icmp slt i32 %258, 0
   br i1 %259, label %.thread23, label %260
 
 .thread23:                                        ; preds = %256
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %5) #17
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #17
+  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %5) #16
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #16
   br label %272
 
 260:                                              ; preds = %256
@@ -677,8 +677,8 @@ define dso_local void @spi_dv_device(ptr noundef %0) #0 align 16 {
   br i1 %269, label %270, label %256, !llvm.loop !9
 
 270:                                              ; preds = %264, %260
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %5) #17
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #17
+  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %5) #16
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #16
   %271 = icmp eq i32 %258, 0
   br i1 %271, label %275, label %272
 
@@ -688,9 +688,9 @@ define dso_local void @spi_dv_device(ptr noundef %0) #0 align 16 {
   br i1 %274, label %.thread25, label %.preheader, !llvm.loop !12
 
 275:                                              ; preds = %270
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #17
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #16
   store i64 0, ptr %2, align 8, !annotation !8
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %3) #17
+  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %3) #16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %3, i8 0, i64 16, i1 false)
   store ptr %2, ptr %112, align 8
   store i32 4, ptr %113, align 8
@@ -700,13 +700,13 @@ define dso_local void @spi_dv_device(ptr noundef %0) #0 align 16 {
 
 276:                                              ; preds = %284, %275
   %277 = phi i32 [ 0, %275 ], [ %287, %284 ]
-  %278 = call i32 @scsi_execute_cmd(ptr noundef %0, ptr noundef nonnull @spi_dv_device_get_echo_buffer.spi_read_buffer_descriptor, i32 noundef 1826, ptr noundef nonnull %23, i32 noundef 4, i32 noundef 10000, i32 noundef 1, ptr noundef nonnull %3) #17
+  %278 = call i32 @scsi_execute_cmd(ptr noundef %0, ptr noundef nonnull @spi_dv_device_get_echo_buffer.spi_read_buffer_descriptor, i32 noundef 1826, ptr noundef nonnull %23, i32 noundef 4, i32 noundef 10000, i32 noundef 1, ptr noundef nonnull %3) #16
   %279 = icmp slt i32 %278, 0
   br i1 %279, label %.thread24, label %280
 
 .thread24:                                        ; preds = %276
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %3) #17
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #17
+  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %3) #16
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #16
   br label %.thread25
 
 280:                                              ; preds = %276
@@ -724,8 +724,8 @@ define dso_local void @spi_dv_device(ptr noundef %0) #0 align 16 {
   br i1 %289, label %290, label %276, !llvm.loop !9
 
 290:                                              ; preds = %284, %280
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %3) #17
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #17
+  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %3) #16
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #16
   %291 = icmp eq i32 %278, 0
   br i1 %291, label %292, label %.thread25
 
@@ -741,7 +741,7 @@ define dso_local void @spi_dv_device(ptr noundef %0) #0 align 16 {
   br i1 %300, label %.thread25, label %301
 
 .thread25:                                        ; preds = %290, %250, %251, %292, %272, %.thread24
-  call void (ptr, ptr, ptr, ...) @_dev_printk(ptr noundef nonnull @.str, ptr noundef %119, ptr noundef nonnull @.str.43) #19
+  call void (ptr, ptr, ptr, ...) @_dev_printk(ptr noundef nonnull @.str, ptr noundef %119, ptr noundef nonnull @.str.43) #18
   br label %.loopexit
 
 301:                                              ; preds = %292
@@ -749,7 +749,7 @@ define dso_local void @spi_dv_device(ptr noundef %0) #0 align 16 {
   br i1 %302, label %303, label %304
 
 303:                                              ; preds = %301
-  call void (ptr, ptr, ptr, ...) @_dev_printk(ptr noundef nonnull @.str.44, ptr noundef %119, ptr noundef nonnull @.str.45, i32 noundef %299, i32 noundef 4096) #19
+  call void (ptr, ptr, ptr, ...) @_dev_printk(ptr noundef nonnull @.str.44, ptr noundef %119, ptr noundef nonnull @.str.45, i32 noundef %299, i32 noundef 4096) #18
   br label %304
 
 304:                                              ; preds = %303, %301
@@ -761,12 +761,12 @@ define dso_local void @spi_dv_device(ptr noundef %0) #0 align 16 {
   br i1 %309, label %120, label %.loopexit
 
 .loopexit:                                        ; preds = %304, %.thread25, %96, %89, %62
-  call void (ptr, ptr, ptr, ...) @_dev_printk(ptr noundef nonnull @.str, ptr noundef %32, ptr noundef nonnull @.str.2) #19
-  call void @mutex_unlock(ptr noundef %31) #17
+  call void (ptr, ptr, ptr, ...) @_dev_printk(ptr noundef nonnull @.str, ptr noundef %32, ptr noundef nonnull @.str.2) #18
+  call void @mutex_unlock(ptr noundef %31) #16
   %310 = load i8, ptr %12, align 8
   %311 = and i8 %310, -2
   store i8 %311, ptr %12, align 8
-  call void @scsi_target_resume(ptr noundef %7) #17
+  call void @scsi_target_resume(ptr noundef %7) #16
   %312 = getelementptr inbounds i8, ptr %7, i64 832
   %313 = load i16, ptr %312, align 8
   %314 = or i16 %313, 4096
@@ -774,22 +774,22 @@ define dso_local void @spi_dv_device(ptr noundef %0) #0 align 16 {
   br label %315
 
 315:                                              ; preds = %.loopexit, %25
-  call void @kfree(ptr noundef nonnull %23) #17
+  call void @kfree(ptr noundef nonnull %23) #16
   br label %316
 
 316:                                              ; preds = %315, %19
   %317 = load i8, ptr %12, align 8
   %318 = and i8 %317, -3
   store i8 %318, ptr %12, align 8
-  call void @scsi_device_put(ptr noundef %0) #17
+  call void @scsi_device_put(ptr noundef %0) #16
   br label %319
 
 319:                                              ; preds = %316, %16, %11
-  call void @scsi_autopm_put_device(ptr noundef %0) #17
+  call void @scsi_autopm_put_device(ptr noundef %0) #16
   br label %320
 
 320:                                              ; preds = %319, %1
-  call void @unlock_system_sleep(i32 noundef %8) #17
+  call void @unlock_system_sleep(i32 noundef %8) #16
   ret void
 }
 
@@ -841,7 +841,7 @@ declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #1
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local void @spi_schedule_dv_device(ptr noundef %0) #0 align 16 {
   %2 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 48), align 16
-  %3 = tail call noalias align 8 dereferenceable_or_null(40) ptr @kmalloc_trace(ptr noundef %2, i32 noundef 2080, i64 noundef 40) #18
+  %3 = tail call noalias align 8 dereferenceable_or_null(40) ptr @kmalloc_trace(ptr noundef %2, i32 noundef 2080, i64 noundef 40) #17
   %4 = icmp eq ptr %3, null
   br i1 %4, label %29, label %5, !prof !6
 
@@ -855,18 +855,18 @@ define dso_local void @spi_schedule_dv_device(ptr noundef %0) #0 align 16 {
   br i1 %11, label %13, label %12, !prof !5
 
 12:                                               ; preds = %5
-  tail call void @kfree(ptr noundef nonnull %3) #17
+  tail call void @kfree(ptr noundef nonnull %3) #16
   br label %29
 
 13:                                               ; preds = %5
   %14 = or disjoint i8 %9, 1
   store i8 %14, ptr %8, align 8
-  %15 = tail call i32 @scsi_device_get(ptr noundef %0) #17
+  %15 = tail call i32 @scsi_device_get(ptr noundef %0) #16
   %16 = icmp eq i32 %15, 0
   br i1 %16, label %22, label %17, !prof !5
 
 17:                                               ; preds = %13
-  tail call void @kfree(ptr noundef nonnull %3) #17
+  tail call void @kfree(ptr noundef nonnull %3) #16
   %18 = load ptr, ptr %6, align 8
   %19 = getelementptr inbounds i8, ptr %18, i64 864
   %20 = load i8, ptr %19, align 8
@@ -885,7 +885,7 @@ define dso_local void @spi_schedule_dv_device(ptr noundef %0) #0 align 16 {
   %26 = getelementptr inbounds i8, ptr %3, i64 32
   store ptr %0, ptr %26, align 8
   %27 = load ptr, ptr @system_wq, align 8
-  %28 = tail call zeroext i1 @queue_work_on(i32 noundef 64, ptr noundef %27, ptr noundef nonnull %3) #17
+  %28 = tail call zeroext i1 @queue_work_on(i32 noundef 64, ptr noundef %27, ptr noundef nonnull %3) #16
   br label %29
 
 29:                                               ; preds = %22, %17, %12, %1
@@ -896,7 +896,7 @@ define dso_local void @spi_schedule_dv_device(ptr noundef %0) #0 align 16 {
 define internal void @spi_dv_device_work_wrapper(ptr noundef %0) #0 align 16 {
   %2 = getelementptr inbounds i8, ptr %0, i64 32
   %3 = load ptr, ptr %2, align 8
-  tail call void @kfree(ptr noundef %0) #17
+  tail call void @kfree(ptr noundef %0) #16
   tail call void @spi_dv_device(ptr noundef %3)
   %4 = getelementptr inbounds i8, ptr %3, i64 312
   %5 = load ptr, ptr %4, align 8
@@ -904,7 +904,7 @@ define internal void @spi_dv_device_work_wrapper(ptr noundef %0) #0 align 16 {
   %7 = load i8, ptr %6, align 8
   %8 = and i8 %7, -2
   store i8 %8, ptr %6, align 8
-  tail call void @scsi_device_put(ptr noundef %3) #17
+  tail call void @scsi_device_put(ptr noundef %3) #16
   ret void
 }
 
@@ -923,7 +923,7 @@ define dso_local void @spi_display_xfer_agreement(ptr noundef %0) #0 align 16 {
   br i1 %9, label %10, label %94
 
 10:                                               ; preds = %6
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #17
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #16
   store i64 0, ptr %2, align 8, !annotation !8
   %11 = icmp ult i32 %8, 13
   br i1 %11, label %12, label %21
@@ -979,7 +979,7 @@ define dso_local void @spi_display_xfer_agreement(ptr noundef %0) #0 align 16 {
   %37 = shl i32 %32, %36
   %38 = srem i32 %28, 1000
   %39 = sdiv i32 %28, 1000
-  %40 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %2, ptr noundef nonnull dereferenceable(1) @.str.52, i32 noundef %39) #17
+  %40 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %2, ptr noundef nonnull dereferenceable(1) @.str.52, i32 noundef %39) #16
   %41 = icmp eq i32 %38, 0
   br i1 %41, label %61, label %42
 
@@ -998,7 +998,7 @@ define dso_local void @spi_display_xfer_agreement(ptr noundef %0) #0 align 16 {
   %51 = sext i32 %49 to i64
   %52 = getelementptr i8, ptr %2, i64 %51
   %53 = sdiv i32 %48, %50
-  %54 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef %52, ptr noundef nonnull dereferenceable(1) @.str.52, i32 noundef %53) #17
+  %54 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef %52, ptr noundef nonnull dereferenceable(1) @.str.52, i32 noundef %53) #16
   %55 = add i32 %49, 1
   %56 = srem i32 %48, %50
   %57 = icmp eq i32 %56, 0
@@ -1043,8 +1043,8 @@ define dso_local void @spi_display_xfer_agreement(ptr noundef %0) #0 align 16 {
   %91 = icmp eq i16 %90, 0
   %92 = select i1 %91, ptr @.str.13, ptr @.str.22
   %93 = load i32, ptr %3, align 8
-  call void (ptr, ptr, ...) @_dev_info(ptr noundef %62, ptr noundef nonnull @.str.11, ptr noundef nonnull %29, ptr noundef nonnull %66, i32 noundef %67, i32 noundef %68, ptr noundef nonnull %71, ptr noundef nonnull %74, ptr noundef nonnull %77, ptr noundef nonnull %80, ptr noundef nonnull %83, ptr noundef nonnull %86, ptr noundef nonnull %89, ptr noundef nonnull %92, ptr noundef nonnull %2, i32 noundef %93) #19
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #17
+  call void (ptr, ptr, ...) @_dev_info(ptr noundef %62, ptr noundef nonnull @.str.11, ptr noundef nonnull %29, ptr noundef nonnull %66, i32 noundef %67, i32 noundef %68, ptr noundef nonnull %71, ptr noundef nonnull %74, ptr noundef nonnull %77, ptr noundef nonnull %80, ptr noundef nonnull %83, ptr noundef nonnull %86, ptr noundef nonnull %89, ptr noundef nonnull %92, ptr noundef nonnull %2, i32 noundef %93) #18
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #16
   br label %101
 
 94:                                               ; preds = %6, %1
@@ -1054,7 +1054,7 @@ define dso_local void @spi_display_xfer_agreement(ptr noundef %0) #0 align 16 {
   %98 = and i16 %97, 1
   %99 = icmp eq i16 %98, 0
   %100 = select i1 %99, ptr @.str.13, ptr @.str.24
-  tail call void (ptr, ptr, ...) @_dev_info(ptr noundef %95, ptr noundef nonnull @.str.23, ptr noundef nonnull %100) #19
+  tail call void (ptr, ptr, ...) @_dev_info(ptr noundef %95, ptr noundef nonnull @.str.23, ptr noundef nonnull %100) #18
   br label %101
 
 101:                                              ; preds = %94, %61
@@ -1142,8 +1142,8 @@ define dso_local noundef range(i32 0, 3) i32 @spi_populate_tag_msg(ptr nocapture
   ret i32 %13
 }
 
-; Function Attrs: cold fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local range(i32 1, 259) i32 @spi_print_msg(ptr nocapture noundef readonly %0) #7 align 16 {
+; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
+define dso_local range(i32 1, 259) i32 @spi_print_msg(ptr nocapture noundef readonly %0) #0 align 16 {
   %2 = load i8, ptr %0, align 1
   %3 = zext i8 %2 to i32
   %4 = icmp eq i8 %2, 1
@@ -1165,12 +1165,12 @@ define dso_local range(i32 1, 259) i32 @spi_print_msg(ptr nocapture noundef read
   %16 = zext nneg i8 %13 to i64
   %17 = getelementptr [6 x ptr], ptr @extended_msgs, i64 0, i64 %16
   %18 = load ptr, ptr %17, align 8
-  %19 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.25, ptr noundef %18) #19
+  %19 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.25, ptr noundef %18) #18
   br label %23
 
 20:                                               ; preds = %5
   %21 = zext i8 %13 to i32
-  %22 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.26, i32 noundef %21) #19
+  %22 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.26, i32 noundef %21) #18
   br label %23
 
 23:                                               ; preds = %20, %15
@@ -1210,7 +1210,7 @@ define dso_local range(i32 1, 259) i32 @spi_print_msg(ptr nocapture noundef read
   %45 = load i8, ptr %44, align 1
   %46 = zext i8 %45 to i32
   %47 = or disjoint i32 %43, %46
-  %48 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.59, ptr noundef nonnull @.str.27, i32 noundef %47) #19
+  %48 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.59, ptr noundef nonnull @.str.27, i32 noundef %47) #18
   br label %.loopexit
 
 49:                                               ; preds = %23
@@ -1222,7 +1222,7 @@ define dso_local range(i32 1, 259) i32 @spi_print_msg(ptr nocapture noundef read
   %52 = load i8, ptr %51, align 1
   %53 = zext nneg i8 %52 to i32
   %54 = shl i32 8, %53
-  %55 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.62, i32 noundef %54) #19
+  %55 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.62, i32 noundef %54) #18
   br label %.loopexit
 
 56:                                               ; preds = %23
@@ -1248,7 +1248,7 @@ define dso_local range(i32 1, 259) i32 @spi_print_msg(ptr nocapture noundef read
   %73 = load i8, ptr %72, align 1
   %74 = zext i8 %73 to i32
   %75 = or disjoint i32 %71, %74
-  %76 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.59, ptr noundef nonnull @.str.28, i32 noundef %75) #19
+  %76 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.59, ptr noundef nonnull @.str.28, i32 noundef %75) #18
   %77 = getelementptr i8, ptr %0, i64 7
   %78 = load i8, ptr %77, align 1
   %79 = zext i8 %78 to i32
@@ -1267,7 +1267,7 @@ define dso_local range(i32 1, 259) i32 @spi_print_msg(ptr nocapture noundef read
   %92 = load i8, ptr %91, align 1
   %93 = zext i8 %92 to i32
   %94 = or disjoint i32 %90, %93
-  %95 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.59, ptr noundef nonnull @.str.29, i32 noundef %94) #19
+  %95 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.59, ptr noundef nonnull @.str.29, i32 noundef %94) #18
   br label %.loopexit
 
 96:                                               ; preds = %96, %27
@@ -1275,7 +1275,7 @@ define dso_local range(i32 1, 259) i32 @spi_print_msg(ptr nocapture noundef read
   %98 = getelementptr i8, ptr %0, i64 %97
   %99 = load i8, ptr %98, align 1
   %100 = zext i8 %99 to i32
-  %101 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.30, i32 noundef %100) #19
+  %101 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.30, i32 noundef %100) #18
   %102 = add nuw nsw i64 %97, 1
   %103 = icmp eq i64 %102, %28
   br i1 %103, label %.loopexit, label %96, !llvm.loop !14
@@ -1292,7 +1292,7 @@ define dso_local range(i32 1, 259) i32 @spi_print_msg(ptr nocapture noundef read
   %111 = icmp eq i32 %110, 0
   %112 = select i1 %111, ptr @.str.34, ptr @.str.33
   %113 = and i32 %3, 7
-  %114 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.31, ptr noundef nonnull %109, ptr noundef nonnull %112, i32 noundef %113) #19
+  %114 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.31, ptr noundef nonnull %109, ptr noundef nonnull %112, i32 noundef %113) #18
   br label %.loopexit
 
 115:                                              ; preds = %104
@@ -1313,11 +1313,11 @@ define dso_local range(i32 1, 259) i32 @spi_print_msg(ptr nocapture noundef read
 124:                                              ; preds = %119
   %125 = getelementptr [24 x ptr], ptr @one_byte_msgs, i64 0, i64 %120
   %126 = load ptr, ptr %125, align 8
-  %127 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.25, ptr noundef %126) #19
+  %127 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.25, ptr noundef %126) #18
   br label %.loopexit
 
 128:                                              ; preds = %119, %117
-  %129 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.35, i32 noundef %3) #19
+  %129 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.35, i32 noundef %3) #18
   br label %.loopexit
 
 130:                                              ; preds = %115
@@ -1325,7 +1325,7 @@ define dso_local range(i32 1, 259) i32 @spi_print_msg(ptr nocapture noundef read
   br i1 %131, label %132, label %134
 
 132:                                              ; preds = %130
-  %133 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.36) #19
+  %133 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.36) #18
   br label %.loopexit
 
 134:                                              ; preds = %130
@@ -1344,18 +1344,18 @@ define dso_local range(i32 1, 259) i32 @spi_print_msg(ptr nocapture noundef read
   %143 = getelementptr i8, ptr %0, i64 1
   %144 = load i8, ptr %143, align 1
   %145 = zext i8 %144 to i32
-  %146 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.37, ptr noundef %142, i32 noundef %145) #19
+  %146 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.37, ptr noundef %142, i32 noundef %145) #18
   br label %.loopexit
 
 147:                                              ; preds = %136
   %148 = getelementptr i8, ptr %0, i64 1
   %149 = load i8, ptr %148, align 1
   %150 = zext i8 %149 to i32
-  %151 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.38, i32 noundef %3, i32 noundef %150) #19
+  %151 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.38, i32 noundef %3, i32 noundef %150) #18
   br label %.loopexit
 
 152:                                              ; preds = %134
-  %153 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.39) #19
+  %153 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.39) #18
   br label %.loopexit
 
 .loopexit:                                        ; preds = %96, %152, %147, %139, %132, %128, %124, %106, %57, %56, %50, %49, %29, %25
@@ -1369,7 +1369,7 @@ declare dso_local i32 @_printk(ptr noundef, ...) local_unnamed_addr #3
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal fastcc void @print_nego(ptr nocapture noundef readonly %0, i32 noundef %1, i32 noundef %2) unnamed_addr #0 align 16 {
   %4 = alloca [20 x i8], align 16
-  call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %4) #17
+  call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %4) #16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(20) %4, i8 0, i64 20, i1 false), !annotation !8
   %5 = getelementptr i8, ptr %0, i64 3
   %6 = load i8, ptr %5, align 1
@@ -1396,7 +1396,7 @@ define internal fastcc void @print_nego(ptr nocapture noundef readonly %0, i32 n
   %17 = phi i32 [ %9, %.thread ], [ %13, %10 ]
   %18 = srem i32 %17, 1000
   %19 = sdiv i32 %17, 1000
-  %20 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %4, ptr noundef nonnull dereferenceable(1) @.str.52, i32 noundef %19) #17
+  %20 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %4, ptr noundef nonnull dereferenceable(1) @.str.52, i32 noundef %19) #16
   %21 = icmp eq i32 %18, 0
   br i1 %21, label %41, label %22
 
@@ -1415,7 +1415,7 @@ define internal fastcc void @print_nego(ptr nocapture noundef readonly %0, i32 n
   %31 = sext i32 %29 to i64
   %32 = getelementptr i8, ptr %4, i64 %31
   %33 = sdiv i32 %28, %30
-  %34 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef %32, ptr noundef nonnull dereferenceable(1) @.str.52, i32 noundef %33) #17
+  %34 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef %32, ptr noundef nonnull dereferenceable(1) @.str.52, i32 noundef %33) #16
   %35 = add i32 %29, 1
   %36 = srem i32 %28, %30
   %37 = icmp eq i32 %36, 0
@@ -1428,13 +1428,13 @@ define internal fastcc void @print_nego(ptr nocapture noundef readonly %0, i32 n
   br label %41
 
 41:                                               ; preds = %38, %16, %15
-  %42 = call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.60, ptr noundef nonnull %4) #19
-  call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %4) #17
+  %42 = call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.60, ptr noundef nonnull %4) #18
+  call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %4) #16
   %43 = zext nneg i32 %1 to i64
   %44 = getelementptr i8, ptr %0, i64 %43
   %45 = load i8, ptr %44, align 1
   %46 = zext i8 %45 to i32
-  %47 = call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.61, i32 noundef %46) #19
+  %47 = call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.61, i32 noundef %46) #18
   %48 = icmp eq i32 %2, 0
   br i1 %48, label %56, label %49
 
@@ -1444,7 +1444,7 @@ define internal fastcc void @print_nego(ptr nocapture noundef readonly %0, i32 n
   %52 = load i8, ptr %51, align 1
   %53 = zext nneg i8 %52 to i32
   %54 = shl i32 8, %53
-  %55 = call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.62, i32 noundef %54) #19
+  %55 = call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.62, i32 noundef %54) #18
   br label %56
 
 56:                                               ; preds = %49, %41
@@ -1454,7 +1454,7 @@ define internal fastcc void @print_nego(ptr nocapture noundef readonly %0, i32 n
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local noundef ptr @spi_attach_transport(ptr noundef %0) #0 align 16 {
   %2 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 72), align 8
-  %3 = tail call noalias align 8 dereferenceable_or_null(360) ptr @kmalloc_trace(ptr noundef %2, i32 noundef 3520, i64 noundef 360) #18
+  %3 = tail call noalias align 8 dereferenceable_or_null(360) ptr @kmalloc_trace(ptr noundef %2, i32 noundef 3520, i64 noundef 360) #17
   %4 = icmp eq ptr %3, null
   br i1 %4, label %18, label %5, !prof !6
 
@@ -1466,7 +1466,7 @@ define dso_local noundef ptr @spi_attach_transport(ptr noundef %0) #0 align 16 {
   store ptr @target_attribute_group, ptr %8, align 8
   %9 = getelementptr inbounds i8, ptr %3, i64 184
   store ptr @spi_target_match, ptr %9, align 8
-  %10 = tail call i32 @attribute_container_register(ptr noundef %6) #17
+  %10 = tail call i32 @attribute_container_register(ptr noundef %6) #16
   %11 = getelementptr inbounds i8, ptr %3, i64 328
   store i32 88, ptr %11, align 8
   %12 = getelementptr inbounds i8, ptr %3, i64 56
@@ -1475,7 +1475,7 @@ define dso_local noundef ptr @spi_attach_transport(ptr noundef %0) #0 align 16 {
   store ptr @host_attribute_group, ptr %13, align 8
   %14 = getelementptr inbounds i8, ptr %3, i64 80
   store ptr @spi_host_match, ptr %14, align 8
-  %15 = tail call i32 @attribute_container_register(ptr noundef nonnull %3) #17
+  %15 = tail call i32 @attribute_container_register(ptr noundef nonnull %3) #16
   %16 = getelementptr inbounds i8, ptr %3, i64 336
   store i32 4, ptr %16, align 8
   %17 = getelementptr inbounds i8, ptr %3, i64 352
@@ -1488,7 +1488,7 @@ define dso_local noundef ptr @spi_attach_transport(ptr noundef %0) #0 align 16 {
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal range(i32 0, 2) i32 @spi_target_match(ptr noundef readnone %0, ptr noundef %1) #0 align 16 {
-  %3 = tail call i32 @scsi_is_target_device(ptr noundef %1) #17
+  %3 = tail call i32 @scsi_is_target_device(ptr noundef %1) #16
   %4 = icmp eq i32 %3, 0
   br i1 %4, label %40, label %5
 
@@ -1499,7 +1499,7 @@ define internal range(i32 0, 2) i32 @spi_target_match(ptr noundef readnone %0, p
 
 8:                                                ; preds = %12, %5
   %9 = phi ptr [ %7, %5 ], [ %14, %12 ]
-  %10 = tail call i32 @scsi_is_host_device(ptr noundef %9) #17
+  %10 = tail call i32 @scsi_is_host_device(ptr noundef %9) #16
   %11 = icmp eq i32 %10, 0
   br i1 %11, label %12, label %16
 
@@ -1536,7 +1536,7 @@ define internal range(i32 0, 2) i32 @spi_target_match(ptr noundef readnone %0, p
 
 32:                                               ; preds = %26
   %33 = getelementptr i8, ptr %1, i64 -40
-  %34 = tail call i32 %30(ptr noundef %33) #17
+  %34 = tail call i32 %30(ptr noundef %33) #16
   %35 = icmp eq i32 %34, 0
   br i1 %35, label %36, label %40
 
@@ -1553,13 +1553,13 @@ define internal range(i32 0, 2) i32 @spi_target_match(ptr noundef readnone %0, p
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal range(i32 0, 2) i32 @spi_host_match(ptr noundef readnone %0, ptr noundef %1) #0 align 16 {
-  %3 = tail call i32 @scsi_is_host_device(ptr noundef %1) #17
+  %3 = tail call i32 @scsi_is_host_device(ptr noundef %1) #16
   %4 = icmp eq i32 %3, 0
   br i1 %4, label %25, label %.preheader
 
 .preheader:                                       ; preds = %2, %8
   %5 = phi ptr [ %10, %8 ], [ %1, %2 ]
-  %6 = tail call i32 @scsi_is_host_device(ptr noundef %5) #17
+  %6 = tail call i32 @scsi_is_host_device(ptr noundef %5) #16
   %7 = icmp eq i32 %6, 0
   br i1 %7, label %8, label %12
 
@@ -1599,36 +1599,36 @@ define internal range(i32 0, 2) i32 @spi_host_match(ptr noundef readnone %0, ptr
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local void @spi_release_transport(ptr noundef %0) #0 align 16 {
   %2 = getelementptr inbounds i8, ptr %0, i64 104
-  %3 = tail call i32 @attribute_container_unregister(ptr noundef %2) #17
+  %3 = tail call i32 @attribute_container_unregister(ptr noundef %2) #16
   %4 = icmp eq i32 %3, 0
   br i1 %4, label %6, label %5, !prof !5
 
 5:                                                ; preds = %1
-  tail call void asm sideeffect "450: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 450b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 450) #17, !srcloc !16
-  tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.121, i32 98, i32 0, i64 12) #17, !srcloc !17
+  tail call void asm sideeffect "450: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 450b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 450) #16, !srcloc !16
+  tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.121, i32 98, i32 0, i64 12) #16, !srcloc !17
   unreachable
 
 6:                                                ; preds = %1
-  %7 = tail call i32 @attribute_container_unregister(ptr noundef %0) #17
+  %7 = tail call i32 @attribute_container_unregister(ptr noundef %0) #16
   %8 = icmp eq i32 %7, 0
   br i1 %8, label %10, label %9, !prof !5
 
 9:                                                ; preds = %6
-  tail call void asm sideeffect "450: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 450b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 450) #17, !srcloc !16
-  tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.121, i32 98, i32 0, i64 12) #17, !srcloc !17
+  tail call void asm sideeffect "450: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 450b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 450) #16, !srcloc !16
+  tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.121, i32 98, i32 0, i64 12) #16, !srcloc !17
   unreachable
 
 10:                                               ; preds = %6
-  tail call void @kfree(ptr noundef %0) #17
+  tail call void @kfree(ptr noundef %0) #16
   ret void
 }
 
 ; Function Attrs: cold fn_ret_thunk_extern nounwind null_pointer_is_valid optsize
-define internal void @spi_transport_exit() #8 section ".exit.text" align 16 {
-  tail call void @transport_class_unregister(ptr noundef nonnull @spi_transport_class) #17
-  tail call void @anon_transport_class_unregister(ptr noundef nonnull @spi_device_class) #17
-  tail call void @transport_class_unregister(ptr noundef nonnull @spi_host_class) #17
-  %1 = tail call i32 @scsi_dev_info_remove_list(i32 noundef 1) #17
+define internal void @spi_transport_exit() #7 section ".exit.text" align 16 {
+  tail call void @transport_class_unregister(ptr noundef nonnull @spi_transport_class) #16
+  tail call void @anon_transport_class_unregister(ptr noundef nonnull @spi_device_class) #16
+  tail call void @transport_class_unregister(ptr noundef nonnull @spi_host_class) #16
+  %1 = tail call i32 @scsi_dev_info_remove_list(i32 noundef 1) #16
   ret void
 }
 
@@ -1642,8 +1642,8 @@ declare dso_local void @anon_transport_class_unregister(ptr noundef) local_unnam
 declare dso_local i32 @scsi_dev_info_remove_list(i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: cold fn_ret_thunk_extern nounwind null_pointer_is_valid optsize
-define internal i32 @spi_transport_init() #8 section ".init.text" align 16 {
-  %1 = tail call i32 @scsi_dev_info_add_list(i32 noundef 1, ptr noundef nonnull @.str.123) #17
+define internal i32 @spi_transport_init() #7 section ".init.text" align 16 {
+  %1 = tail call i32 @scsi_dev_info_add_list(i32 noundef 1, ptr noundef nonnull @.str.123) #16
   %2 = icmp eq i32 %1, 0
   br i1 %2, label %.preheader, label %.loopexit
 
@@ -1655,7 +1655,7 @@ define internal i32 @spi_transport_init() #8 section ".init.text" align 16 {
   %7 = load ptr, ptr %6, align 8
   %8 = getelementptr inbounds i8, ptr %5, i64 16
   %9 = load i64, ptr %8, align 8
-  %10 = tail call i32 @scsi_dev_info_list_add_keyed(i32 noundef 1, ptr noundef nonnull %4, ptr noundef %7, ptr noundef null, i64 noundef %9, i32 noundef 1) #17
+  %10 = tail call i32 @scsi_dev_info_list_add_keyed(i32 noundef 1, ptr noundef nonnull %4, ptr noundef %7, ptr noundef null, i64 noundef %9, i32 noundef 1) #16
   %11 = add nuw nsw i64 %3, 1
   %12 = getelementptr [3 x %struct.anon.8], ptr @spi_static_device_list, i64 0, i64 %11
   %13 = load ptr, ptr %12, align 8
@@ -1663,13 +1663,13 @@ define internal i32 @spi_transport_init() #8 section ".init.text" align 16 {
   br i1 %14, label %.loopexit, label %.preheader, !llvm.loop !18
 
 .loopexit:                                        ; preds = %.preheader, %0
-  %15 = tail call i32 @transport_class_register(ptr noundef nonnull @spi_transport_class) #17
+  %15 = tail call i32 @transport_class_register(ptr noundef nonnull @spi_transport_class) #16
   %16 = icmp eq i32 %15, 0
   br i1 %16, label %17, label %20
 
 17:                                               ; preds = %.loopexit
-  %18 = tail call i32 @anon_transport_class_register(ptr noundef nonnull @spi_device_class) #17
-  %19 = tail call i32 @transport_class_register(ptr noundef nonnull @spi_host_class) #17
+  %18 = tail call i32 @anon_transport_class_register(ptr noundef nonnull @spi_device_class) #16
+  %19 = tail call i32 @transport_class_register(ptr noundef nonnull @spi_host_class) #16
   br label %20
 
 20:                                               ; preds = %17, %.loopexit
@@ -1685,7 +1685,7 @@ define internal noundef range(i32 0, 2) i32 @spi_dv_device_compare_inquiry(ptr n
   %8 = getelementptr inbounds i8, ptr %0, i64 216
   %9 = load i8, ptr %8, align 8
   %10 = zext i8 %9 to i32
-  call void @llvm.lifetime.start.p0(i64 6, ptr nonnull %7) #17
+  call void @llvm.lifetime.start.p0(i64 6, ptr nonnull %7) #16
   store i8 18, ptr %7, align 1
   %11 = getelementptr inbounds i8, ptr %7, i64 1
   store i8 0, ptr %11, align 1
@@ -1714,9 +1714,9 @@ define internal noundef range(i32 0, 2) i32 @spi_dv_device_compare_inquiry(ptr n
   %26 = phi i32 [ 0, %17 ], [ %58, %55 ]
   %27 = phi ptr [ %2, %17 ], [ %56, %55 ]
   call void @llvm.memset.p0.i64(ptr align 1 %27, i8 0, i64 %18, i1 false)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #17
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #16
   store i64 0, ptr %5, align 8, !annotation !8
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %6) #17
+  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %6) #16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %6, i8 0, i64 16, i1 false)
   store ptr %5, ptr %19, align 8
   store i32 4, ptr %20, align 8
@@ -1726,13 +1726,13 @@ define internal noundef range(i32 0, 2) i32 @spi_dv_device_compare_inquiry(ptr n
 
 28:                                               ; preds = %36, %25
   %29 = phi i32 [ 0, %25 ], [ %39, %36 ]
-  %30 = call i32 @scsi_execute_cmd(ptr noundef %0, ptr noundef nonnull %7, i32 noundef 1826, ptr noundef %27, i32 noundef %10, i32 noundef 10000, i32 noundef 1, ptr noundef nonnull %6) #17
+  %30 = call i32 @scsi_execute_cmd(ptr noundef %0, ptr noundef nonnull %7, i32 noundef 1826, ptr noundef %27, i32 noundef %10, i32 noundef 10000, i32 noundef 1, ptr noundef nonnull %6) #16
   %31 = icmp slt i32 %30, 0
   br i1 %31, label %.thread, label %32
 
 .thread:                                          ; preds = %28
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %6) #17
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #17
+  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %6) #16
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #16
   br label %.loopexit
 
 32:                                               ; preds = %28
@@ -1750,8 +1750,8 @@ define internal noundef range(i32 0, 2) i32 @spi_dv_device_compare_inquiry(ptr n
   br i1 %41, label %42, label %28, !llvm.loop !9
 
 42:                                               ; preds = %36, %32
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %6) #17
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #17
+  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %6) #16
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #16
   %43 = icmp eq i32 %30, 0
   br i1 %43, label %44, label %.loopexit
 
@@ -1764,7 +1764,7 @@ define internal noundef range(i32 0, 2) i32 @spi_dv_device_compare_inquiry(ptr n
   ]
 
 .loopexit:                                        ; preds = %44, %44, %44, %42, %.thread
-  %46 = call i32 @scsi_device_set_state(ptr noundef %0, i32 noundef 5) #17
+  %46 = call i32 @scsi_device_set_state(ptr noundef %0, i32 noundef 5) #16
   br label %.loopexit5
 
 47:                                               ; preds = %44
@@ -1790,7 +1790,7 @@ define internal noundef range(i32 0, 2) i32 @spi_dv_device_compare_inquiry(ptr n
 
 .loopexit5:                                       ; preds = %55, %52, %.loopexit, %4
   %60 = phi i32 [ 1, %.loopexit ], [ 0, %4 ], [ 1, %52 ], [ 0, %55 ]
-  call void @llvm.lifetime.end.p0(i64 6, ptr nonnull %7) #17
+  call void @llvm.lifetime.end.p0(i64 6, ptr nonnull %7) #16
   ret i32 %60
 }
 
@@ -1805,7 +1805,7 @@ define internal fastcc i32 @spi_dv_retrain(ptr noundef %0, ptr noundef %1, ptr n
   %11 = getelementptr inbounds i8, ptr %9, i64 832
   %12 = getelementptr inbounds i8, ptr %9, i64 40
   %13 = getelementptr inbounds i8, ptr %9, i64 816
-  %14 = tail call i32 %3(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef 3) #17, !callees !20
+  %14 = tail call i32 %3(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef 3) #16, !callees !20
   %15 = and i32 %14, -3
   %16 = icmp eq i32 %15, 0
   br i1 %16, label %.thread, label %.lr.ph
@@ -1820,7 +1820,7 @@ define internal fastcc i32 @spi_dv_retrain(ptr noundef %0, ptr noundef %1, ptr n
   br i1 %22, label %24, label %23
 
 23:                                               ; preds = %.lr.ph
-  tail call void %21(ptr noundef %9) #17
+  tail call void %21(ptr noundef %9) #16
   %.pre = load ptr, ptr %10, align 8
   br label %24
 
@@ -1832,7 +1832,7 @@ define internal fastcc i32 @spi_dv_retrain(ptr noundef %0, ptr noundef %1, ptr n
   br i1 %28, label %30, label %29
 
 29:                                               ; preds = %24
-  tail call void %27(ptr noundef %9) #17
+  tail call void %27(ptr noundef %9) #16
   %.pre10 = load ptr, ptr %10, align 8
   br label %30
 
@@ -1844,7 +1844,7 @@ define internal fastcc i32 @spi_dv_retrain(ptr noundef %0, ptr noundef %1, ptr n
 
 34:                                               ; preds = %30
   %35 = load ptr, ptr %8, align 8
-  tail call void %32(ptr noundef %35) #17
+  tail call void %32(ptr noundef %35) #16
   %.pre11 = load ptr, ptr %10, align 8
   br label %36
 
@@ -1862,7 +1862,7 @@ define internal fastcc i32 @spi_dv_retrain(ptr noundef %0, ptr noundef %1, ptr n
   br i1 %44, label %52, label %45
 
 45:                                               ; preds = %41
-  tail call void (ptr, ptr, ptr, ...) @_dev_printk(ptr noundef nonnull @.str.40, ptr noundef %12, ptr noundef nonnull @.str.46) #19
+  tail call void (ptr, ptr, ptr, ...) @_dev_printk(ptr noundef nonnull @.str.40, ptr noundef %12, ptr noundef nonnull @.str.46) #18
   %46 = load ptr, ptr %10, align 8
   %47 = getelementptr inbounds i8, ptr %46, i64 56
   %48 = load ptr, ptr %47, align 8
@@ -1871,7 +1871,7 @@ define internal fastcc i32 @spi_dv_retrain(ptr noundef %0, ptr noundef %1, ptr n
 
 50:                                               ; preds = %45
   %51 = load ptr, ptr %8, align 8
-  tail call void %48(ptr noundef %51, i32 noundef 0) #17
+  tail call void %48(ptr noundef %51, i32 noundef 0) #16
   br label %91
 
 52:                                               ; preds = %41, %36
@@ -1887,7 +1887,7 @@ define internal fastcc i32 @spi_dv_retrain(ptr noundef %0, ptr noundef %1, ptr n
   br i1 %59, label %67, label %60
 
 60:                                               ; preds = %56
-  tail call void (ptr, ptr, ptr, ...) @_dev_printk(ptr noundef nonnull @.str.40, ptr noundef %12, ptr noundef nonnull @.str.47) #19
+  tail call void (ptr, ptr, ptr, ...) @_dev_printk(ptr noundef nonnull @.str.40, ptr noundef %12, ptr noundef nonnull @.str.47) #18
   %61 = load ptr, ptr %10, align 8
   %62 = getelementptr inbounds i8, ptr %61, i64 88
   %63 = load ptr, ptr %62, align 8
@@ -1896,7 +1896,7 @@ define internal fastcc i32 @spi_dv_retrain(ptr noundef %0, ptr noundef %1, ptr n
 
 65:                                               ; preds = %60
   %66 = load ptr, ptr %8, align 8
-  tail call void %63(ptr noundef %66, i32 noundef 0) #17
+  tail call void %63(ptr noundef %66, i32 noundef 0) #16
   br label %91
 
 67:                                               ; preds = %56, %52
@@ -1912,7 +1912,7 @@ define internal fastcc i32 @spi_dv_retrain(ptr noundef %0, ptr noundef %1, ptr n
   br i1 %76, label %77, label %84, !prof !6
 
 77:                                               ; preds = %67
-  tail call void (ptr, ptr, ptr, ...) @_dev_printk(ptr noundef nonnull @.str.40, ptr noundef %12, ptr noundef nonnull @.str.48) #19
+  tail call void (ptr, ptr, ptr, ...) @_dev_printk(ptr noundef nonnull @.str.40, ptr noundef %12, ptr noundef nonnull @.str.48) #18
   %78 = load ptr, ptr %10, align 8
   %79 = getelementptr inbounds i8, ptr %78, i64 24
   %80 = load ptr, ptr %79, align 8
@@ -1921,11 +1921,11 @@ define internal fastcc i32 @spi_dv_retrain(ptr noundef %0, ptr noundef %1, ptr n
 
 82:                                               ; preds = %77
   %83 = load ptr, ptr %8, align 8
-  tail call void %80(ptr noundef %83, i32 noundef 0) #17
+  tail call void %80(ptr noundef %83, i32 noundef 0) #16
   br label %.thread
 
 84:                                               ; preds = %67
-  tail call void (ptr, ptr, ptr, ...) @_dev_printk(ptr noundef nonnull @.str.40, ptr noundef %12, ptr noundef nonnull @.str.49) #19
+  tail call void (ptr, ptr, ptr, ...) @_dev_printk(ptr noundef nonnull @.str.40, ptr noundef %12, ptr noundef nonnull @.str.49) #18
   %85 = load ptr, ptr %10, align 8
   %86 = getelementptr inbounds i8, ptr %85, i64 8
   %87 = load ptr, ptr %86, align 8
@@ -1934,13 +1934,13 @@ define internal fastcc i32 @spi_dv_retrain(ptr noundef %0, ptr noundef %1, ptr n
 
 89:                                               ; preds = %84
   %90 = load ptr, ptr %8, align 8
-  tail call void %87(ptr noundef %90, i32 noundef %73) #17
+  tail call void %87(ptr noundef %90, i32 noundef %73) #16
   br label %91
 
 91:                                               ; preds = %89, %84, %65, %60, %50, %45
   %92 = phi i32 [ %18, %50 ], [ %18, %45 ], [ %18, %65 ], [ %18, %60 ], [ %73, %89 ], [ %73, %84 ]
   %93 = phi i32 [ %17, %50 ], [ %17, %45 ], [ %17, %65 ], [ %17, %60 ], [ %73, %89 ], [ %73, %84 ]
-  %94 = tail call i32 %3(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef 3) #17, !callees !20
+  %94 = tail call i32 %3(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef 3) #16, !callees !20
   %95 = and i32 %94, -3
   %96 = icmp eq i32 %95, 0
   br i1 %96, label %.thread, label %.lr.ph
@@ -1962,9 +1962,9 @@ define internal noundef range(i32 0, 3) i32 @spi_dv_device_echo_buffer(ptr nound
   %12 = ptrtoint ptr %1 to i64
   %13 = sub i64 %11, %12
   %14 = trunc i64 %13 to i32
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #17
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #16
   store i64 0, ptr %8, align 8, !annotation !8
-  call void @llvm.lifetime.start.p0(i64 10, ptr nonnull %9) #17
+  call void @llvm.lifetime.start.p0(i64 10, ptr nonnull %9) #16
   store i8 59, ptr %9, align 1
   %15 = getelementptr inbounds i8, ptr %9, i64 1
   store i8 10, ptr %15, align 1
@@ -1979,7 +1979,7 @@ define internal noundef range(i32 0, 3) i32 @spi_dv_device_echo_buffer(ptr nound
   store i8 %21, ptr %20, align 1
   %22 = getelementptr inbounds i8, ptr %9, i64 9
   store i8 0, ptr %22, align 1
-  call void @llvm.lifetime.start.p0(i64 10, ptr nonnull %10) #17
+  call void @llvm.lifetime.start.p0(i64 10, ptr nonnull %10) #16
   store i8 60, ptr %10, align 1
   %23 = getelementptr inbounds i8, ptr %10, i64 1
   store i8 10, ptr %23, align 1
@@ -2116,7 +2116,7 @@ define internal noundef range(i32 0, 3) i32 @spi_dv_device_echo_buffer(ptr nound
 
 97:                                               ; preds = %94, %42
   %98 = phi i32 [ 0, %42 ], [ %95, %94 ]
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %7) #17
+  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %7) #16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %7, i8 0, i64 16, i1 false)
   store ptr %8, ptr %43, align 8
   store i32 4, ptr %44, align 8
@@ -2126,12 +2126,12 @@ define internal noundef range(i32 0, 3) i32 @spi_dv_device_echo_buffer(ptr nound
 
 99:                                               ; preds = %107, %97
   %100 = phi i32 [ 0, %97 ], [ %110, %107 ]
-  %101 = call i32 @scsi_execute_cmd(ptr noundef %0, ptr noundef nonnull %9, i32 noundef 1827, ptr noundef %1, i32 noundef %14, i32 noundef 10000, i32 noundef 1, ptr noundef nonnull %7) #17
+  %101 = call i32 @scsi_execute_cmd(ptr noundef %0, ptr noundef nonnull %9, i32 noundef 1827, ptr noundef %1, i32 noundef %14, i32 noundef 10000, i32 noundef 1, ptr noundef nonnull %7) #16
   %102 = icmp slt i32 %101, 0
   br i1 %102, label %.thread, label %103
 
 .thread:                                          ; preds = %99
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %7) #17
+  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %7) #16
   br label %.thread17
 
 103:                                              ; preds = %99
@@ -2149,7 +2149,7 @@ define internal noundef range(i32 0, 3) i32 @spi_dv_device_echo_buffer(ptr nound
   br i1 %112, label %113, label %99, !llvm.loop !9
 
 113:                                              ; preds = %107, %103
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %7) #17
+  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %7) #16
   %114 = icmp eq i32 %101, 0
   br i1 %114, label %115, label %118
 
@@ -2162,11 +2162,11 @@ define internal noundef range(i32 0, 3) i32 @spi_dv_device_echo_buffer(ptr nound
   ]
 
 .thread17:                                        ; preds = %115, %115, %115, %.thread
-  %117 = call i32 @scsi_device_set_state(ptr noundef %0, i32 noundef 5) #17
+  %117 = call i32 @scsi_device_set_state(ptr noundef %0, i32 noundef 5) #16
   br label %134
 
 118:                                              ; preds = %113
-  %119 = call i32 @scsi_device_set_state(ptr noundef %0, i32 noundef 5) #17
+  %119 = call i32 @scsi_device_set_state(ptr noundef %0, i32 noundef 5) #16
   %120 = load i8, ptr %8, align 8
   %121 = and i8 %120, 112
   %122 = icmp eq i8 %121, 112
@@ -2184,14 +2184,14 @@ define internal noundef range(i32 0, 3) i32 @spi_dv_device_echo_buffer(ptr nound
   br i1 %133, label %.loopexit, label %134
 
 134:                                              ; preds = %.thread17, %118
-  call void (ptr, ptr, ptr, ptr, ...) @sdev_prefix_printk(ptr noundef nonnull @.str.40, ptr noundef %0, ptr noundef null, ptr noundef nonnull @.str.50, i32 noundef %101) #17
+  call void (ptr, ptr, ptr, ptr, ...) @sdev_prefix_printk(ptr noundef nonnull @.str.40, ptr noundef %0, ptr noundef null, ptr noundef nonnull @.str.50, i32 noundef %101) #16
   br label %.loopexit
 
 135:                                              ; preds = %115
   call void @llvm.memset.p0.i64(ptr align 1 %2, i8 0, i64 %50, i1 false)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #17
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #16
   store i64 0, ptr %5, align 8, !annotation !8
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %6) #17
+  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %6) #16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %6, i8 0, i64 16, i1 false)
   store ptr %5, ptr %51, align 8
   store i32 4, ptr %52, align 8
@@ -2201,7 +2201,7 @@ define internal noundef range(i32 0, 3) i32 @spi_dv_device_echo_buffer(ptr nound
 
 136:                                              ; preds = %144, %135
   %137 = phi i32 [ 0, %135 ], [ %147, %144 ]
-  %138 = call i32 @scsi_execute_cmd(ptr noundef %0, ptr noundef nonnull %10, i32 noundef 1826, ptr noundef %2, i32 noundef %14, i32 noundef 10000, i32 noundef 1, ptr noundef nonnull %6) #17
+  %138 = call i32 @scsi_execute_cmd(ptr noundef %0, ptr noundef nonnull %10, i32 noundef 1826, ptr noundef %2, i32 noundef %14, i32 noundef 10000, i32 noundef 1, ptr noundef nonnull %6) #16
   %139 = icmp slt i32 %138, 0
   br i1 %139, label %150, label %140
 
@@ -2220,18 +2220,18 @@ define internal noundef range(i32 0, 3) i32 @spi_dv_device_echo_buffer(ptr nound
   br i1 %149, label %150, label %136, !llvm.loop !9
 
 150:                                              ; preds = %144, %140, %136
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %6) #17
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #17
-  %151 = call i32 @scsi_device_set_state(ptr noundef %0, i32 noundef 5) #17
+  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %6) #16
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #16
+  %151 = call i32 @scsi_device_set_state(ptr noundef %0, i32 noundef 5) #16
   %152 = call i32 @bcmp(ptr %1, ptr %2, i64 %50)
   %153 = icmp eq i32 %152, 0
   br i1 %153, label %94, label %.loopexit
 
 .loopexit:                                        ; preds = %150, %94, %134, %118, %.loopexit23
   %154 = phi i32 [ 1, %134 ], [ 2, %118 ], [ 0, %.loopexit23 ], [ 1, %150 ], [ 0, %94 ]
-  call void @llvm.lifetime.end.p0(i64 10, ptr nonnull %10) #17
-  call void @llvm.lifetime.end.p0(i64 10, ptr nonnull %9) #17
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #17
+  call void @llvm.lifetime.end.p0(i64 10, ptr nonnull %10) #16
+  call void @llvm.lifetime.end.p0(i64 10, ptr nonnull %9) #16
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #16
   ret i32 %154
 }
 
@@ -2245,13 +2245,13 @@ declare dso_local i32 @scsi_execute_cmd(ptr noundef, ptr noundef, i32 noundef, p
 declare dso_local void @sdev_prefix_printk(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ...) local_unnamed_addr #2
 
 ; Function Attrs: null_pointer_is_valid allocsize(2)
-declare dso_local noalias ptr @kmalloc_trace(ptr noundef, i32 noundef, i64 noundef) local_unnamed_addr #9
+declare dso_local noalias ptr @kmalloc_trace(ptr noundef, i32 noundef, i64 noundef) local_unnamed_addr #8
 
 ; Function Attrs: null_pointer_is_valid
 declare dso_local zeroext i1 @queue_work_on(i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nofree nounwind null_pointer_is_valid
-declare dso_local noundef i32 @sprintf(ptr noalias nocapture noundef writeonly, ptr nocapture noundef readonly, ...) local_unnamed_addr #10
+declare dso_local noundef i32 @sprintf(ptr noalias nocapture noundef writeonly, ptr nocapture noundef readonly, ...) local_unnamed_addr #9
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal noundef i32 @spi_setup_transport_attrs(ptr nocapture readnone %0, ptr noundef %1, ptr nocapture readnone %2) #0 align 16 {
@@ -2273,13 +2273,13 @@ define internal noundef i32 @spi_setup_transport_attrs(ptr nocapture readnone %0
   %14 = or disjoint i16 %13, 74
   store i16 %14, ptr %8, align 8
   %15 = getelementptr i8, ptr %1, i64 832
-  tail call void @__mutex_init(ptr noundef %15, ptr noundef nonnull @.str.91, ptr noundef nonnull @spi_setup_transport_attrs.__key) #17
+  tail call void @__mutex_init(ptr noundef %15, ptr noundef nonnull @.str.91, ptr noundef nonnull @spi_setup_transport_attrs.__key) #16
   ret i32 0
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal noundef i32 @spi_target_configure(ptr nocapture readnone %0, ptr nocapture readnone %1, ptr noundef %2) #0 align 16 {
-  %4 = tail call i32 @sysfs_update_group(ptr noundef %2, ptr noundef nonnull @target_attribute_group) #17
+  %4 = tail call i32 @sysfs_update_group(ptr noundef %2, ptr noundef nonnull @target_attribute_group) #16
   ret i32 0
 }
 
@@ -2297,7 +2297,7 @@ define internal zeroext range(i16 0, 512) i16 @target_attribute_is_visible(ptr n
 
 6:                                                ; preds = %10, %3
   %7 = phi ptr [ %5, %3 ], [ %12, %10 ]
-  %8 = tail call i32 @scsi_is_host_device(ptr noundef %7) #17
+  %8 = tail call i32 @scsi_is_host_device(ptr noundef %7) #16
   %9 = icmp eq i32 %8, 0
   br i1 %9, label %10, label %14
 
@@ -2744,7 +2744,7 @@ define internal range(i64 -2147483648, 2147483648) i64 @show_spi_transport_perio
 
 8:                                                ; preds = %12, %3
   %9 = phi ptr [ %7, %3 ], [ %14, %12 ]
-  %10 = tail call i32 @scsi_is_host_device(ptr noundef %9) #17
+  %10 = tail call i32 @scsi_is_host_device(ptr noundef %9) #16
   %11 = icmp eq i32 %10, 0
   br i1 %11, label %12, label %16
 
@@ -2770,7 +2770,7 @@ define internal range(i64 -2147483648, 2147483648) i64 @show_spi_transport_perio
 
 25:                                               ; preds = %.loopexit
   %26 = getelementptr i8, ptr %5, i64 -40
-  tail call void %23(ptr noundef %26) #17
+  tail call void %23(ptr noundef %26) #16
   br label %27
 
 27:                                               ; preds = %25, %.loopexit
@@ -2802,7 +2802,7 @@ define internal range(i64 -2147483648, 2147483648) i64 @show_spi_transport_perio
   %40 = phi i32 [ %33, %.thread5 ], [ %37, %34 ]
   %41 = srem i32 %40, 1000
   %42 = sdiv i32 %40, 1000
-  %43 = tail call i32 (ptr, ptr, ...) @sprintf(ptr noundef %2, ptr noundef nonnull dereferenceable(1) @.str.52, i32 noundef %42) #17
+  %43 = tail call i32 (ptr, ptr, ...) @sprintf(ptr noundef %2, ptr noundef nonnull dereferenceable(1) @.str.52, i32 noundef %42) #16
   %44 = icmp eq i32 %41, 0
   br i1 %44, label %65, label %45
 
@@ -2821,7 +2821,7 @@ define internal range(i64 -2147483648, 2147483648) i64 @show_spi_transport_perio
   %54 = sext i32 %52 to i64
   %55 = getelementptr i8, ptr %2, i64 %54
   %56 = sdiv i32 %51, %53
-  %57 = tail call i32 (ptr, ptr, ...) @sprintf(ptr noundef %55, ptr noundef nonnull dereferenceable(1) @.str.52, i32 noundef %56) #17
+  %57 = tail call i32 (ptr, ptr, ...) @sprintf(ptr noundef %55, ptr noundef nonnull dereferenceable(1) @.str.52, i32 noundef %56) #16
   %58 = add i32 %52, 1
   %59 = srem i32 %51, %53
   %60 = icmp eq i32 %59, 0
@@ -2858,7 +2858,7 @@ define internal range(i64 -2147483648, 2147483648) i64 @store_spi_transport_peri
 
 11:                                               ; preds = %15, %4
   %12 = phi ptr [ %10, %4 ], [ %17, %15 ]
-  %13 = tail call i32 @scsi_is_host_device(ptr noundef %12) #17
+  %13 = tail call i32 @scsi_is_host_device(ptr noundef %12) #16
   %14 = icmp eq i32 %13, 0
   br i1 %14, label %15, label %19
 
@@ -2884,9 +2884,9 @@ define internal range(i64 -2147483648, 2147483648) i64 @store_spi_transport_peri
   br i1 %28, label %74, label %29
 
 29:                                               ; preds = %.loopexit5
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #17
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #16
   store ptr null, ptr %5, align 8, !annotation !8
-  %30 = call i64 @simple_strtoul(ptr noundef %2, ptr noundef nonnull %5, i32 noundef 10) #17
+  %30 = call i64 @simple_strtoul(ptr noundef %2, ptr noundef nonnull %5, i32 noundef 10) #16
   %31 = trunc i64 %30 to i32
   %32 = mul i32 %31, 1000
   %33 = load ptr, ptr %5, align 8
@@ -2943,14 +2943,14 @@ define internal range(i64 -2147483648, 2147483648) i64 @store_spi_transport_peri
 63:                                               ; preds = %59, %.thread
   %64 = phi i32 [ %58, %.thread ], [ %spec.select, %59 ]
   %65 = call i32 @llvm.smin.i32(i32 %64, i32 255)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #17
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #16
   %66 = getelementptr i8, ptr %7, i64 780
   %67 = load i32, ptr %66, align 4
   %68 = call i32 @llvm.smax.i32(i32 %65, i32 %67)
   %69 = load ptr, ptr %24, align 8
   %70 = getelementptr inbounds i8, ptr %69, i64 8
   %71 = load ptr, ptr %70, align 8
-  call void %71(ptr noundef %8, i32 noundef %68) #17
+  call void %71(ptr noundef %8, i32 noundef %68) #16
   %72 = shl i64 %3, 32
   %73 = ashr exact i64 %72, 32
   br label %74
@@ -2973,7 +2973,7 @@ define internal range(i64 -2147483648, 2147483648) i64 @show_spi_transport_min_p
 
 8:                                                ; preds = %12, %3
   %9 = phi ptr [ %7, %3 ], [ %14, %12 ]
-  %10 = tail call i32 @scsi_is_host_device(ptr noundef %9) #17
+  %10 = tail call i32 @scsi_is_host_device(ptr noundef %9) #16
   %11 = icmp eq i32 %10, 0
   br i1 %11, label %12, label %16
 
@@ -3027,7 +3027,7 @@ define internal range(i64 -2147483648, 2147483648) i64 @show_spi_transport_min_p
   %39 = phi i32 [ %32, %.thread4 ], [ %36, %33 ]
   %40 = srem i32 %39, 1000
   %41 = sdiv i32 %39, 1000
-  %42 = tail call i32 (ptr, ptr, ...) @sprintf(ptr noundef %2, ptr noundef nonnull dereferenceable(1) @.str.52, i32 noundef %41) #17
+  %42 = tail call i32 (ptr, ptr, ...) @sprintf(ptr noundef %2, ptr noundef nonnull dereferenceable(1) @.str.52, i32 noundef %41) #16
   %43 = icmp eq i32 %40, 0
   br i1 %43, label %64, label %44
 
@@ -3046,7 +3046,7 @@ define internal range(i64 -2147483648, 2147483648) i64 @show_spi_transport_min_p
   %53 = sext i32 %51 to i64
   %54 = getelementptr i8, ptr %2, i64 %53
   %55 = sdiv i32 %50, %52
-  %56 = tail call i32 (ptr, ptr, ...) @sprintf(ptr noundef %54, ptr noundef nonnull dereferenceable(1) @.str.52, i32 noundef %55) #17
+  %56 = tail call i32 (ptr, ptr, ...) @sprintf(ptr noundef %54, ptr noundef nonnull dereferenceable(1) @.str.52, i32 noundef %55) #16
   %57 = add i32 %51, 1
   %58 = srem i32 %50, %52
   %59 = icmp eq i32 %58, 0
@@ -3080,9 +3080,9 @@ define internal noundef i64 @store_spi_transport_min_period(ptr nocapture nounde
   %5 = alloca ptr, align 8
   %6 = getelementptr inbounds i8, ptr %0, i64 64
   %7 = load ptr, ptr %6, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #17
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #16
   store ptr null, ptr %5, align 8, !annotation !8
-  %8 = call i64 @simple_strtoul(ptr noundef %2, ptr noundef nonnull %5, i32 noundef 10) #17
+  %8 = call i64 @simple_strtoul(ptr noundef %2, ptr noundef nonnull %5, i32 noundef 10) #16
   %9 = trunc i64 %8 to i32
   %10 = mul i32 %9, 1000
   %11 = load ptr, ptr %5, align 8
@@ -3141,7 +3141,7 @@ define internal noundef i64 @store_spi_transport_min_period(ptr nocapture nounde
   %43 = getelementptr i8, ptr %7, i64 780
   %44 = call i32 @llvm.smin.i32(i32 %42, i32 255)
   store i32 %44, ptr %43, align 4
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #17
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #16
   ret i64 %3
 }
 
@@ -3155,7 +3155,7 @@ define internal noundef range(i64 -2147483648, 2147483648) i64 @show_spi_transpo
 
 8:                                                ; preds = %12, %3
   %9 = phi ptr [ %7, %3 ], [ %14, %12 ]
-  %10 = tail call i32 @scsi_is_host_device(ptr noundef %9) #17
+  %10 = tail call i32 @scsi_is_host_device(ptr noundef %9) #16
   %11 = icmp eq i32 %10, 0
   br i1 %11, label %12, label %16
 
@@ -3182,13 +3182,13 @@ define internal noundef range(i64 -2147483648, 2147483648) i64 @show_spi_transpo
 
 26:                                               ; preds = %.loopexit
   %27 = getelementptr i8, ptr %5, i64 -40
-  tail call void %24(ptr noundef %27) #17
+  tail call void %24(ptr noundef %27) #16
   br label %28
 
 28:                                               ; preds = %26, %.loopexit
   %29 = getelementptr i8, ptr %5, i64 784
   %30 = load i32, ptr %29, align 8
-  %31 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %2, i64 noundef 20, ptr noundef nonnull @.str.95, i32 noundef %30) #17
+  %31 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %2, i64 noundef 20, ptr noundef nonnull @.str.95, i32 noundef %30) #16
   %32 = sext i32 %31 to i64
   ret i64 %32
 }
@@ -3204,7 +3204,7 @@ define internal noundef i64 @store_spi_transport_offset(ptr nocapture noundef re
 
 10:                                               ; preds = %14, %4
   %11 = phi ptr [ %9, %4 ], [ %16, %14 ]
-  %12 = tail call i32 @scsi_is_host_device(ptr noundef %11) #17
+  %12 = tail call i32 @scsi_is_host_device(ptr noundef %11) #16
   %13 = icmp eq i32 %12, 0
   br i1 %13, label %14, label %18
 
@@ -3230,7 +3230,7 @@ define internal noundef i64 @store_spi_transport_offset(ptr nocapture noundef re
   br i1 %27, label %37, label %28
 
 28:                                               ; preds = %.loopexit
-  %29 = tail call i64 @simple_strtoul(ptr noundef %2, ptr noundef null, i32 noundef 0) #17
+  %29 = tail call i64 @simple_strtoul(ptr noundef %2, ptr noundef null, i32 noundef 0) #16
   %30 = trunc i64 %29 to i32
   %31 = getelementptr i8, ptr %6, i64 788
   %32 = load i32, ptr %31, align 4
@@ -3238,7 +3238,7 @@ define internal noundef i64 @store_spi_transport_offset(ptr nocapture noundef re
   %34 = load ptr, ptr %23, align 8
   %35 = getelementptr inbounds i8, ptr %34, i64 24
   %36 = load ptr, ptr %35, align 8
-  tail call void %36(ptr noundef %7, i32 noundef %33) #17
+  tail call void %36(ptr noundef %7, i32 noundef %33) #16
   br label %37
 
 37:                                               ; preds = %28, %.loopexit
@@ -3247,15 +3247,15 @@ define internal noundef i64 @store_spi_transport_offset(ptr nocapture noundef re
 }
 
 ; Function Attrs: nofree nounwind null_pointer_is_valid
-declare dso_local noundef i32 @snprintf(ptr noalias nocapture noundef writeonly, i64 noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #10
+declare dso_local noundef i32 @snprintf(ptr noalias nocapture noundef writeonly, i64 noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #9
 
 ; Function Attrs: fn_ret_thunk_extern nofree nounwind null_pointer_is_valid
-define internal noundef range(i64 -2147483648, 2147483648) i64 @show_spi_transport_max_offset(ptr nocapture noundef readonly %0, ptr nocapture readnone %1, ptr nocapture noundef writeonly %2) #11 align 16 {
+define internal noundef range(i64 -2147483648, 2147483648) i64 @show_spi_transport_max_offset(ptr nocapture noundef readonly %0, ptr nocapture readnone %1, ptr nocapture noundef writeonly %2) #10 align 16 {
   %4 = getelementptr inbounds i8, ptr %0, i64 64
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr i8, ptr %5, i64 788
   %7 = load i32, ptr %6, align 4
-  %8 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %2, i64 noundef 20, ptr noundef nonnull @.str.95, i32 noundef %7) #17
+  %8 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %2, i64 noundef 20, ptr noundef nonnull @.str.95, i32 noundef %7) #16
   %9 = sext i32 %8 to i64
   ret i64 %9
 }
@@ -3264,7 +3264,7 @@ define internal noundef range(i64 -2147483648, 2147483648) i64 @show_spi_transpo
 define internal noundef i64 @store_spi_transport_max_offset(ptr nocapture noundef readonly %0, ptr nocapture readnone %1, ptr noundef %2, i64 noundef returned %3) #0 align 16 {
   %5 = getelementptr inbounds i8, ptr %0, i64 64
   %6 = load ptr, ptr %5, align 8
-  %7 = tail call i64 @simple_strtoul(ptr noundef %2, ptr noundef null, i32 noundef 0) #17
+  %7 = tail call i64 @simple_strtoul(ptr noundef %2, ptr noundef null, i32 noundef 0) #16
   %8 = trunc i64 %7 to i32
   %9 = getelementptr i8, ptr %6, i64 788
   store i32 %8, ptr %9, align 4
@@ -3281,7 +3281,7 @@ define internal noundef range(i64 -2147483648, 2147483648) i64 @show_spi_transpo
 
 8:                                                ; preds = %12, %3
   %9 = phi ptr [ %7, %3 ], [ %14, %12 ]
-  %10 = tail call i32 @scsi_is_host_device(ptr noundef %9) #17
+  %10 = tail call i32 @scsi_is_host_device(ptr noundef %9) #16
   %11 = icmp eq i32 %10, 0
   br i1 %11, label %12, label %16
 
@@ -3308,7 +3308,7 @@ define internal noundef range(i64 -2147483648, 2147483648) i64 @show_spi_transpo
 
 26:                                               ; preds = %.loopexit
   %27 = getelementptr i8, ptr %5, i64 -40
-  tail call void %24(ptr noundef %27) #17
+  tail call void %24(ptr noundef %27) #16
   br label %28
 
 28:                                               ; preds = %26, %.loopexit
@@ -3316,7 +3316,7 @@ define internal noundef range(i64 -2147483648, 2147483648) i64 @show_spi_transpo
   %30 = load i16, ptr %29, align 8
   %31 = and i16 %30, 1
   %32 = zext nneg i16 %31 to i32
-  %33 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %2, i64 noundef 20, ptr noundef nonnull @.str.95, i32 noundef %32) #17
+  %33 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %2, i64 noundef 20, ptr noundef nonnull @.str.95, i32 noundef %32) #16
   %34 = sext i32 %33 to i64
   ret i64 %34
 }
@@ -3332,7 +3332,7 @@ define internal noundef i64 @store_spi_transport_width(ptr nocapture noundef rea
 
 10:                                               ; preds = %14, %4
   %11 = phi ptr [ %9, %4 ], [ %16, %14 ]
-  %12 = tail call i32 @scsi_is_host_device(ptr noundef %11) #17
+  %12 = tail call i32 @scsi_is_host_device(ptr noundef %11) #16
   %13 = icmp eq i32 %12, 0
   br i1 %13, label %14, label %18
 
@@ -3358,7 +3358,7 @@ define internal noundef i64 @store_spi_transport_width(ptr nocapture noundef rea
   br i1 %27, label %40, label %28
 
 28:                                               ; preds = %.loopexit
-  %29 = tail call i64 @simple_strtoul(ptr noundef %2, ptr noundef null, i32 noundef 0) #17
+  %29 = tail call i64 @simple_strtoul(ptr noundef %2, ptr noundef null, i32 noundef 0) #16
   %30 = trunc i64 %29 to i32
   %31 = getelementptr i8, ptr %6, i64 792
   %32 = load i16, ptr %31, align 8
@@ -3369,7 +3369,7 @@ define internal noundef i64 @store_spi_transport_width(ptr nocapture noundef rea
   %37 = load ptr, ptr %23, align 8
   %38 = getelementptr inbounds i8, ptr %37, i64 40
   %39 = load ptr, ptr %38, align 8
-  tail call void %39(ptr noundef %7, i32 noundef %36) #17
+  tail call void %39(ptr noundef %7, i32 noundef %36) #16
   br label %40
 
 40:                                               ; preds = %28, %.loopexit
@@ -3378,7 +3378,7 @@ define internal noundef i64 @store_spi_transport_width(ptr nocapture noundef rea
 }
 
 ; Function Attrs: fn_ret_thunk_extern nofree nounwind null_pointer_is_valid
-define internal noundef range(i64 -2147483648, 2147483648) i64 @show_spi_transport_max_width(ptr nocapture noundef readonly %0, ptr nocapture readnone %1, ptr nocapture noundef writeonly %2) #11 align 16 {
+define internal noundef range(i64 -2147483648, 2147483648) i64 @show_spi_transport_max_width(ptr nocapture noundef readonly %0, ptr nocapture readnone %1, ptr nocapture noundef writeonly %2) #10 align 16 {
   %4 = getelementptr inbounds i8, ptr %0, i64 64
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr i8, ptr %5, i64 792
@@ -3386,7 +3386,7 @@ define internal noundef range(i64 -2147483648, 2147483648) i64 @show_spi_transpo
   %8 = lshr i16 %7, 1
   %9 = and i16 %8, 1
   %10 = zext nneg i16 %9 to i32
-  %11 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %2, i64 noundef 20, ptr noundef nonnull @.str.95, i32 noundef %10) #17
+  %11 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %2, i64 noundef 20, ptr noundef nonnull @.str.95, i32 noundef %10) #16
   %12 = sext i32 %11 to i64
   ret i64 %12
 }
@@ -3395,7 +3395,7 @@ define internal noundef range(i64 -2147483648, 2147483648) i64 @show_spi_transpo
 define internal noundef i64 @store_spi_transport_max_width(ptr nocapture noundef readonly %0, ptr nocapture readnone %1, ptr noundef %2, i64 noundef returned %3) #0 align 16 {
   %5 = getelementptr inbounds i8, ptr %0, i64 64
   %6 = load ptr, ptr %5, align 8
-  %7 = tail call i64 @simple_strtoul(ptr noundef %2, ptr noundef null, i32 noundef 0) #17
+  %7 = tail call i64 @simple_strtoul(ptr noundef %2, ptr noundef null, i32 noundef 0) #16
   %8 = getelementptr i8, ptr %6, i64 792
   %9 = trunc i64 %7 to i16
   %10 = load i16, ptr %8, align 8
@@ -3417,7 +3417,7 @@ define internal noundef range(i64 -2147483648, 2147483648) i64 @show_spi_transpo
 
 8:                                                ; preds = %12, %3
   %9 = phi ptr [ %7, %3 ], [ %14, %12 ]
-  %10 = tail call i32 @scsi_is_host_device(ptr noundef %9) #17
+  %10 = tail call i32 @scsi_is_host_device(ptr noundef %9) #16
   %11 = icmp eq i32 %10, 0
   br i1 %11, label %12, label %16
 
@@ -3444,7 +3444,7 @@ define internal noundef range(i64 -2147483648, 2147483648) i64 @show_spi_transpo
 
 26:                                               ; preds = %.loopexit
   %27 = getelementptr i8, ptr %5, i64 -40
-  tail call void %24(ptr noundef %27) #17
+  tail call void %24(ptr noundef %27) #16
   br label %28
 
 28:                                               ; preds = %26, %.loopexit
@@ -3453,7 +3453,7 @@ define internal noundef range(i64 -2147483648, 2147483648) i64 @show_spi_transpo
   %31 = lshr i16 %30, 2
   %32 = and i16 %31, 1
   %33 = zext nneg i16 %32 to i32
-  %34 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %2, i64 noundef 20, ptr noundef nonnull @.str.95, i32 noundef %33) #17
+  %34 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %2, i64 noundef 20, ptr noundef nonnull @.str.95, i32 noundef %33) #16
   %35 = sext i32 %34 to i64
   ret i64 %35
 }
@@ -3469,7 +3469,7 @@ define internal noundef i64 @store_spi_transport_iu(ptr nocapture noundef readon
 
 10:                                               ; preds = %14, %4
   %11 = phi ptr [ %9, %4 ], [ %16, %14 ]
-  %12 = tail call i32 @scsi_is_host_device(ptr noundef %11) #17
+  %12 = tail call i32 @scsi_is_host_device(ptr noundef %11) #16
   %13 = icmp eq i32 %12, 0
   br i1 %13, label %14, label %18
 
@@ -3495,7 +3495,7 @@ define internal noundef i64 @store_spi_transport_iu(ptr nocapture noundef readon
   br i1 %27, label %40, label %28
 
 28:                                               ; preds = %.loopexit
-  %29 = tail call i64 @simple_strtoul(ptr noundef %2, ptr noundef null, i32 noundef 0) #17
+  %29 = tail call i64 @simple_strtoul(ptr noundef %2, ptr noundef null, i32 noundef 0) #16
   %30 = trunc i64 %29 to i32
   %31 = getelementptr i8, ptr %6, i64 792
   %32 = load i16, ptr %31, align 8
@@ -3506,7 +3506,7 @@ define internal noundef i64 @store_spi_transport_iu(ptr nocapture noundef readon
   %37 = load ptr, ptr %23, align 8
   %38 = getelementptr inbounds i8, ptr %37, i64 56
   %39 = load ptr, ptr %38, align 8
-  tail call void %39(ptr noundef %7, i32 noundef %36) #17
+  tail call void %39(ptr noundef %7, i32 noundef %36) #16
   br label %40
 
 40:                                               ; preds = %28, %.loopexit
@@ -3515,7 +3515,7 @@ define internal noundef i64 @store_spi_transport_iu(ptr nocapture noundef readon
 }
 
 ; Function Attrs: fn_ret_thunk_extern nofree nounwind null_pointer_is_valid
-define internal noundef range(i64 -2147483648, 2147483648) i64 @show_spi_transport_max_iu(ptr nocapture noundef readonly %0, ptr nocapture readnone %1, ptr nocapture noundef writeonly %2) #11 align 16 {
+define internal noundef range(i64 -2147483648, 2147483648) i64 @show_spi_transport_max_iu(ptr nocapture noundef readonly %0, ptr nocapture readnone %1, ptr nocapture noundef writeonly %2) #10 align 16 {
   %4 = getelementptr inbounds i8, ptr %0, i64 64
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr i8, ptr %5, i64 792
@@ -3523,7 +3523,7 @@ define internal noundef range(i64 -2147483648, 2147483648) i64 @show_spi_transpo
   %8 = lshr i16 %7, 3
   %9 = and i16 %8, 1
   %10 = zext nneg i16 %9 to i32
-  %11 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %2, i64 noundef 20, ptr noundef nonnull @.str.95, i32 noundef %10) #17
+  %11 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %2, i64 noundef 20, ptr noundef nonnull @.str.95, i32 noundef %10) #16
   %12 = sext i32 %11 to i64
   ret i64 %12
 }
@@ -3532,7 +3532,7 @@ define internal noundef range(i64 -2147483648, 2147483648) i64 @show_spi_transpo
 define internal noundef i64 @store_spi_transport_max_iu(ptr nocapture noundef readonly %0, ptr nocapture readnone %1, ptr noundef %2, i64 noundef returned %3) #0 align 16 {
   %5 = getelementptr inbounds i8, ptr %0, i64 64
   %6 = load ptr, ptr %5, align 8
-  %7 = tail call i64 @simple_strtoul(ptr noundef %2, ptr noundef null, i32 noundef 0) #17
+  %7 = tail call i64 @simple_strtoul(ptr noundef %2, ptr noundef null, i32 noundef 0) #16
   %8 = getelementptr i8, ptr %6, i64 792
   %9 = trunc i64 %7 to i16
   %10 = load i16, ptr %8, align 8
@@ -3554,7 +3554,7 @@ define internal noundef range(i64 -2147483648, 2147483648) i64 @show_spi_transpo
 
 8:                                                ; preds = %12, %3
   %9 = phi ptr [ %7, %3 ], [ %14, %12 ]
-  %10 = tail call i32 @scsi_is_host_device(ptr noundef %9) #17
+  %10 = tail call i32 @scsi_is_host_device(ptr noundef %9) #16
   %11 = icmp eq i32 %10, 0
   br i1 %11, label %12, label %16
 
@@ -3581,7 +3581,7 @@ define internal noundef range(i64 -2147483648, 2147483648) i64 @show_spi_transpo
 
 26:                                               ; preds = %.loopexit
   %27 = getelementptr i8, ptr %5, i64 -40
-  tail call void %24(ptr noundef %27) #17
+  tail call void %24(ptr noundef %27) #16
   br label %28
 
 28:                                               ; preds = %26, %.loopexit
@@ -3590,7 +3590,7 @@ define internal noundef range(i64 -2147483648, 2147483648) i64 @show_spi_transpo
   %31 = lshr i16 %30, 4
   %32 = and i16 %31, 1
   %33 = zext nneg i16 %32 to i32
-  %34 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %2, i64 noundef 20, ptr noundef nonnull @.str.95, i32 noundef %33) #17
+  %34 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %2, i64 noundef 20, ptr noundef nonnull @.str.95, i32 noundef %33) #16
   %35 = sext i32 %34 to i64
   ret i64 %35
 }
@@ -3605,7 +3605,7 @@ define internal noundef i64 @store_spi_transport_dt(ptr nocapture noundef readon
 
 9:                                                ; preds = %13, %4
   %10 = phi ptr [ %8, %4 ], [ %15, %13 ]
-  %11 = tail call i32 @scsi_is_host_device(ptr noundef %10) #17
+  %11 = tail call i32 @scsi_is_host_device(ptr noundef %10) #16
   %12 = icmp eq i32 %11, 0
   br i1 %12, label %13, label %17
 
@@ -3632,12 +3632,12 @@ define internal noundef i64 @store_spi_transport_dt(ptr nocapture noundef readon
 
 27:                                               ; preds = %.loopexit
   %28 = getelementptr i8, ptr %6, i64 -40
-  %29 = tail call i64 @simple_strtoul(ptr noundef %2, ptr noundef null, i32 noundef 0) #17
+  %29 = tail call i64 @simple_strtoul(ptr noundef %2, ptr noundef null, i32 noundef 0) #16
   %30 = trunc i64 %29 to i32
   %31 = load ptr, ptr %22, align 8
   %32 = getelementptr inbounds i8, ptr %31, i64 72
   %33 = load ptr, ptr %32, align 8
-  tail call void %33(ptr noundef %28, i32 noundef %30) #17
+  tail call void %33(ptr noundef %28, i32 noundef %30) #16
   br label %34
 
 34:                                               ; preds = %27, %.loopexit
@@ -3655,7 +3655,7 @@ define internal noundef range(i64 -2147483648, 2147483648) i64 @show_spi_transpo
 
 8:                                                ; preds = %12, %3
   %9 = phi ptr [ %7, %3 ], [ %14, %12 ]
-  %10 = tail call i32 @scsi_is_host_device(ptr noundef %9) #17
+  %10 = tail call i32 @scsi_is_host_device(ptr noundef %9) #16
   %11 = icmp eq i32 %10, 0
   br i1 %11, label %12, label %16
 
@@ -3682,7 +3682,7 @@ define internal noundef range(i64 -2147483648, 2147483648) i64 @show_spi_transpo
 
 26:                                               ; preds = %.loopexit
   %27 = getelementptr i8, ptr %5, i64 -40
-  tail call void %24(ptr noundef %27) #17
+  tail call void %24(ptr noundef %27) #16
   br label %28
 
 28:                                               ; preds = %26, %.loopexit
@@ -3691,7 +3691,7 @@ define internal noundef range(i64 -2147483648, 2147483648) i64 @show_spi_transpo
   %31 = lshr i16 %30, 5
   %32 = and i16 %31, 1
   %33 = zext nneg i16 %32 to i32
-  %34 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %2, i64 noundef 20, ptr noundef nonnull @.str.95, i32 noundef %33) #17
+  %34 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %2, i64 noundef 20, ptr noundef nonnull @.str.95, i32 noundef %33) #16
   %35 = sext i32 %34 to i64
   ret i64 %35
 }
@@ -3707,7 +3707,7 @@ define internal noundef i64 @store_spi_transport_qas(ptr nocapture noundef reado
 
 10:                                               ; preds = %14, %4
   %11 = phi ptr [ %9, %4 ], [ %16, %14 ]
-  %12 = tail call i32 @scsi_is_host_device(ptr noundef %11) #17
+  %12 = tail call i32 @scsi_is_host_device(ptr noundef %11) #16
   %13 = icmp eq i32 %12, 0
   br i1 %13, label %14, label %18
 
@@ -3733,7 +3733,7 @@ define internal noundef i64 @store_spi_transport_qas(ptr nocapture noundef reado
   br i1 %27, label %40, label %28
 
 28:                                               ; preds = %.loopexit
-  %29 = tail call i64 @simple_strtoul(ptr noundef %2, ptr noundef null, i32 noundef 0) #17
+  %29 = tail call i64 @simple_strtoul(ptr noundef %2, ptr noundef null, i32 noundef 0) #16
   %30 = trunc i64 %29 to i32
   %31 = getelementptr i8, ptr %6, i64 792
   %32 = load i16, ptr %31, align 8
@@ -3744,7 +3744,7 @@ define internal noundef i64 @store_spi_transport_qas(ptr nocapture noundef reado
   %37 = load ptr, ptr %23, align 8
   %38 = getelementptr inbounds i8, ptr %37, i64 88
   %39 = load ptr, ptr %38, align 8
-  tail call void %39(ptr noundef %7, i32 noundef %36) #17
+  tail call void %39(ptr noundef %7, i32 noundef %36) #16
   br label %40
 
 40:                                               ; preds = %28, %.loopexit
@@ -3753,7 +3753,7 @@ define internal noundef i64 @store_spi_transport_qas(ptr nocapture noundef reado
 }
 
 ; Function Attrs: fn_ret_thunk_extern nofree nounwind null_pointer_is_valid
-define internal noundef range(i64 -2147483648, 2147483648) i64 @show_spi_transport_max_qas(ptr nocapture noundef readonly %0, ptr nocapture readnone %1, ptr nocapture noundef writeonly %2) #11 align 16 {
+define internal noundef range(i64 -2147483648, 2147483648) i64 @show_spi_transport_max_qas(ptr nocapture noundef readonly %0, ptr nocapture readnone %1, ptr nocapture noundef writeonly %2) #10 align 16 {
   %4 = getelementptr inbounds i8, ptr %0, i64 64
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr i8, ptr %5, i64 792
@@ -3761,7 +3761,7 @@ define internal noundef range(i64 -2147483648, 2147483648) i64 @show_spi_transpo
   %8 = lshr i16 %7, 6
   %9 = and i16 %8, 1
   %10 = zext nneg i16 %9 to i32
-  %11 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %2, i64 noundef 20, ptr noundef nonnull @.str.95, i32 noundef %10) #17
+  %11 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %2, i64 noundef 20, ptr noundef nonnull @.str.95, i32 noundef %10) #16
   %12 = sext i32 %11 to i64
   ret i64 %12
 }
@@ -3770,7 +3770,7 @@ define internal noundef range(i64 -2147483648, 2147483648) i64 @show_spi_transpo
 define internal noundef i64 @store_spi_transport_max_qas(ptr nocapture noundef readonly %0, ptr nocapture readnone %1, ptr noundef %2, i64 noundef returned %3) #0 align 16 {
   %5 = getelementptr inbounds i8, ptr %0, i64 64
   %6 = load ptr, ptr %5, align 8
-  %7 = tail call i64 @simple_strtoul(ptr noundef %2, ptr noundef null, i32 noundef 0) #17
+  %7 = tail call i64 @simple_strtoul(ptr noundef %2, ptr noundef null, i32 noundef 0) #16
   %8 = getelementptr i8, ptr %6, i64 792
   %9 = trunc i64 %7 to i16
   %10 = load i16, ptr %8, align 8
@@ -3792,7 +3792,7 @@ define internal noundef range(i64 -2147483648, 2147483648) i64 @show_spi_transpo
 
 8:                                                ; preds = %12, %3
   %9 = phi ptr [ %7, %3 ], [ %14, %12 ]
-  %10 = tail call i32 @scsi_is_host_device(ptr noundef %9) #17
+  %10 = tail call i32 @scsi_is_host_device(ptr noundef %9) #16
   %11 = icmp eq i32 %10, 0
   br i1 %11, label %12, label %16
 
@@ -3819,7 +3819,7 @@ define internal noundef range(i64 -2147483648, 2147483648) i64 @show_spi_transpo
 
 26:                                               ; preds = %.loopexit
   %27 = getelementptr i8, ptr %5, i64 -40
-  tail call void %24(ptr noundef %27) #17
+  tail call void %24(ptr noundef %27) #16
   br label %28
 
 28:                                               ; preds = %26, %.loopexit
@@ -3828,7 +3828,7 @@ define internal noundef range(i64 -2147483648, 2147483648) i64 @show_spi_transpo
   %31 = lshr i16 %30, 7
   %32 = and i16 %31, 1
   %33 = zext nneg i16 %32 to i32
-  %34 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %2, i64 noundef 20, ptr noundef nonnull @.str.95, i32 noundef %33) #17
+  %34 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %2, i64 noundef 20, ptr noundef nonnull @.str.95, i32 noundef %33) #16
   %35 = sext i32 %34 to i64
   ret i64 %35
 }
@@ -3843,7 +3843,7 @@ define internal noundef i64 @store_spi_transport_wr_flow(ptr nocapture noundef r
 
 9:                                                ; preds = %13, %4
   %10 = phi ptr [ %8, %4 ], [ %15, %13 ]
-  %11 = tail call i32 @scsi_is_host_device(ptr noundef %10) #17
+  %11 = tail call i32 @scsi_is_host_device(ptr noundef %10) #16
   %12 = icmp eq i32 %11, 0
   br i1 %12, label %13, label %17
 
@@ -3870,12 +3870,12 @@ define internal noundef i64 @store_spi_transport_wr_flow(ptr nocapture noundef r
 
 27:                                               ; preds = %.loopexit
   %28 = getelementptr i8, ptr %6, i64 -40
-  %29 = tail call i64 @simple_strtoul(ptr noundef %2, ptr noundef null, i32 noundef 0) #17
+  %29 = tail call i64 @simple_strtoul(ptr noundef %2, ptr noundef null, i32 noundef 0) #16
   %30 = trunc i64 %29 to i32
   %31 = load ptr, ptr %22, align 8
   %32 = getelementptr inbounds i8, ptr %31, i64 104
   %33 = load ptr, ptr %32, align 8
-  tail call void %33(ptr noundef %28, i32 noundef %30) #17
+  tail call void %33(ptr noundef %28, i32 noundef %30) #16
   br label %34
 
 34:                                               ; preds = %27, %.loopexit
@@ -3893,7 +3893,7 @@ define internal noundef range(i64 -2147483648, 2147483648) i64 @show_spi_transpo
 
 8:                                                ; preds = %12, %3
   %9 = phi ptr [ %7, %3 ], [ %14, %12 ]
-  %10 = tail call i32 @scsi_is_host_device(ptr noundef %9) #17
+  %10 = tail call i32 @scsi_is_host_device(ptr noundef %9) #16
   %11 = icmp eq i32 %10, 0
   br i1 %11, label %12, label %16
 
@@ -3920,7 +3920,7 @@ define internal noundef range(i64 -2147483648, 2147483648) i64 @show_spi_transpo
 
 26:                                               ; preds = %.loopexit
   %27 = getelementptr i8, ptr %5, i64 -40
-  tail call void %24(ptr noundef %27) #17
+  tail call void %24(ptr noundef %27) #16
   br label %28
 
 28:                                               ; preds = %26, %.loopexit
@@ -3929,7 +3929,7 @@ define internal noundef range(i64 -2147483648, 2147483648) i64 @show_spi_transpo
   %31 = lshr i16 %30, 8
   %32 = and i16 %31, 1
   %33 = zext nneg i16 %32 to i32
-  %34 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %2, i64 noundef 20, ptr noundef nonnull @.str.95, i32 noundef %33) #17
+  %34 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %2, i64 noundef 20, ptr noundef nonnull @.str.95, i32 noundef %33) #16
   %35 = sext i32 %34 to i64
   ret i64 %35
 }
@@ -3944,7 +3944,7 @@ define internal noundef i64 @store_spi_transport_rd_strm(ptr nocapture noundef r
 
 9:                                                ; preds = %13, %4
   %10 = phi ptr [ %8, %4 ], [ %15, %13 ]
-  %11 = tail call i32 @scsi_is_host_device(ptr noundef %10) #17
+  %11 = tail call i32 @scsi_is_host_device(ptr noundef %10) #16
   %12 = icmp eq i32 %11, 0
   br i1 %12, label %13, label %17
 
@@ -3971,12 +3971,12 @@ define internal noundef i64 @store_spi_transport_rd_strm(ptr nocapture noundef r
 
 27:                                               ; preds = %.loopexit
   %28 = getelementptr i8, ptr %6, i64 -40
-  %29 = tail call i64 @simple_strtoul(ptr noundef %2, ptr noundef null, i32 noundef 0) #17
+  %29 = tail call i64 @simple_strtoul(ptr noundef %2, ptr noundef null, i32 noundef 0) #16
   %30 = trunc i64 %29 to i32
   %31 = load ptr, ptr %22, align 8
   %32 = getelementptr inbounds i8, ptr %31, i64 120
   %33 = load ptr, ptr %32, align 8
-  tail call void %33(ptr noundef %28, i32 noundef %30) #17
+  tail call void %33(ptr noundef %28, i32 noundef %30) #16
   br label %34
 
 34:                                               ; preds = %27, %.loopexit
@@ -3994,7 +3994,7 @@ define internal noundef range(i64 -2147483648, 2147483648) i64 @show_spi_transpo
 
 8:                                                ; preds = %12, %3
   %9 = phi ptr [ %7, %3 ], [ %14, %12 ]
-  %10 = tail call i32 @scsi_is_host_device(ptr noundef %9) #17
+  %10 = tail call i32 @scsi_is_host_device(ptr noundef %9) #16
   %11 = icmp eq i32 %10, 0
   br i1 %11, label %12, label %16
 
@@ -4021,7 +4021,7 @@ define internal noundef range(i64 -2147483648, 2147483648) i64 @show_spi_transpo
 
 26:                                               ; preds = %.loopexit
   %27 = getelementptr i8, ptr %5, i64 -40
-  tail call void %24(ptr noundef %27) #17
+  tail call void %24(ptr noundef %27) #16
   br label %28
 
 28:                                               ; preds = %26, %.loopexit
@@ -4030,7 +4030,7 @@ define internal noundef range(i64 -2147483648, 2147483648) i64 @show_spi_transpo
   %31 = lshr i16 %30, 9
   %32 = and i16 %31, 1
   %33 = zext nneg i16 %32 to i32
-  %34 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %2, i64 noundef 20, ptr noundef nonnull @.str.95, i32 noundef %33) #17
+  %34 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %2, i64 noundef 20, ptr noundef nonnull @.str.95, i32 noundef %33) #16
   %35 = sext i32 %34 to i64
   ret i64 %35
 }
@@ -4045,7 +4045,7 @@ define internal noundef i64 @store_spi_transport_rti(ptr nocapture noundef reado
 
 9:                                                ; preds = %13, %4
   %10 = phi ptr [ %8, %4 ], [ %15, %13 ]
-  %11 = tail call i32 @scsi_is_host_device(ptr noundef %10) #17
+  %11 = tail call i32 @scsi_is_host_device(ptr noundef %10) #16
   %12 = icmp eq i32 %11, 0
   br i1 %12, label %13, label %17
 
@@ -4072,12 +4072,12 @@ define internal noundef i64 @store_spi_transport_rti(ptr nocapture noundef reado
 
 27:                                               ; preds = %.loopexit
   %28 = getelementptr i8, ptr %6, i64 -40
-  %29 = tail call i64 @simple_strtoul(ptr noundef %2, ptr noundef null, i32 noundef 0) #17
+  %29 = tail call i64 @simple_strtoul(ptr noundef %2, ptr noundef null, i32 noundef 0) #16
   %30 = trunc i64 %29 to i32
   %31 = load ptr, ptr %22, align 8
   %32 = getelementptr inbounds i8, ptr %31, i64 136
   %33 = load ptr, ptr %32, align 8
-  tail call void %33(ptr noundef %28, i32 noundef %30) #17
+  tail call void %33(ptr noundef %28, i32 noundef %30) #16
   br label %34
 
 34:                                               ; preds = %27, %.loopexit
@@ -4095,7 +4095,7 @@ define internal noundef range(i64 -2147483648, 2147483648) i64 @show_spi_transpo
 
 8:                                                ; preds = %12, %3
   %9 = phi ptr [ %7, %3 ], [ %14, %12 ]
-  %10 = tail call i32 @scsi_is_host_device(ptr noundef %9) #17
+  %10 = tail call i32 @scsi_is_host_device(ptr noundef %9) #16
   %11 = icmp eq i32 %10, 0
   br i1 %11, label %12, label %16
 
@@ -4122,7 +4122,7 @@ define internal noundef range(i64 -2147483648, 2147483648) i64 @show_spi_transpo
 
 26:                                               ; preds = %.loopexit
   %27 = getelementptr i8, ptr %5, i64 -40
-  tail call void %24(ptr noundef %27) #17
+  tail call void %24(ptr noundef %27) #16
   br label %28
 
 28:                                               ; preds = %26, %.loopexit
@@ -4131,7 +4131,7 @@ define internal noundef range(i64 -2147483648, 2147483648) i64 @show_spi_transpo
   %31 = lshr i16 %30, 10
   %32 = and i16 %31, 1
   %33 = zext nneg i16 %32 to i32
-  %34 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %2, i64 noundef 20, ptr noundef nonnull @.str.95, i32 noundef %33) #17
+  %34 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %2, i64 noundef 20, ptr noundef nonnull @.str.95, i32 noundef %33) #16
   %35 = sext i32 %34 to i64
   ret i64 %35
 }
@@ -4146,7 +4146,7 @@ define internal noundef i64 @store_spi_transport_pcomp_en(ptr nocapture noundef 
 
 9:                                                ; preds = %13, %4
   %10 = phi ptr [ %8, %4 ], [ %15, %13 ]
-  %11 = tail call i32 @scsi_is_host_device(ptr noundef %10) #17
+  %11 = tail call i32 @scsi_is_host_device(ptr noundef %10) #16
   %12 = icmp eq i32 %11, 0
   br i1 %12, label %13, label %17
 
@@ -4173,12 +4173,12 @@ define internal noundef i64 @store_spi_transport_pcomp_en(ptr nocapture noundef 
 
 27:                                               ; preds = %.loopexit
   %28 = getelementptr i8, ptr %6, i64 -40
-  %29 = tail call i64 @simple_strtoul(ptr noundef %2, ptr noundef null, i32 noundef 0) #17
+  %29 = tail call i64 @simple_strtoul(ptr noundef %2, ptr noundef null, i32 noundef 0) #16
   %30 = trunc i64 %29 to i32
   %31 = load ptr, ptr %22, align 8
   %32 = getelementptr inbounds i8, ptr %31, i64 152
   %33 = load ptr, ptr %32, align 8
-  tail call void %33(ptr noundef %28, i32 noundef %30) #17
+  tail call void %33(ptr noundef %28, i32 noundef %30) #16
   br label %34
 
 34:                                               ; preds = %27, %.loopexit
@@ -4196,7 +4196,7 @@ define internal noundef range(i64 -2147483648, 2147483648) i64 @show_spi_transpo
 
 8:                                                ; preds = %12, %3
   %9 = phi ptr [ %7, %3 ], [ %14, %12 ]
-  %10 = tail call i32 @scsi_is_host_device(ptr noundef %9) #17
+  %10 = tail call i32 @scsi_is_host_device(ptr noundef %9) #16
   %11 = icmp eq i32 %10, 0
   br i1 %11, label %12, label %16
 
@@ -4223,7 +4223,7 @@ define internal noundef range(i64 -2147483648, 2147483648) i64 @show_spi_transpo
 
 26:                                               ; preds = %.loopexit
   %27 = getelementptr i8, ptr %5, i64 -40
-  tail call void %24(ptr noundef %27) #17
+  tail call void %24(ptr noundef %27) #16
   br label %28
 
 28:                                               ; preds = %26, %.loopexit
@@ -4232,7 +4232,7 @@ define internal noundef range(i64 -2147483648, 2147483648) i64 @show_spi_transpo
   %31 = lshr i16 %30, 11
   %32 = and i16 %31, 1
   %33 = zext nneg i16 %32 to i32
-  %34 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %2, i64 noundef 20, ptr noundef nonnull @.str.95, i32 noundef %33) #17
+  %34 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %2, i64 noundef 20, ptr noundef nonnull @.str.95, i32 noundef %33) #16
   %35 = sext i32 %34 to i64
   ret i64 %35
 }
@@ -4247,7 +4247,7 @@ define internal noundef i64 @store_spi_transport_hold_mcs(ptr nocapture noundef 
 
 9:                                                ; preds = %13, %4
   %10 = phi ptr [ %8, %4 ], [ %15, %13 ]
-  %11 = tail call i32 @scsi_is_host_device(ptr noundef %10) #17
+  %11 = tail call i32 @scsi_is_host_device(ptr noundef %10) #16
   %12 = icmp eq i32 %11, 0
   br i1 %12, label %13, label %17
 
@@ -4274,12 +4274,12 @@ define internal noundef i64 @store_spi_transport_hold_mcs(ptr nocapture noundef 
 
 27:                                               ; preds = %.loopexit
   %28 = getelementptr i8, ptr %6, i64 -40
-  %29 = tail call i64 @simple_strtoul(ptr noundef %2, ptr noundef null, i32 noundef 0) #17
+  %29 = tail call i64 @simple_strtoul(ptr noundef %2, ptr noundef null, i32 noundef 0) #16
   %30 = trunc i64 %29 to i32
   %31 = load ptr, ptr %22, align 8
   %32 = getelementptr inbounds i8, ptr %31, i64 168
   %33 = load ptr, ptr %32, align 8
-  tail call void %33(ptr noundef %28, i32 noundef %30) #17
+  tail call void %33(ptr noundef %28, i32 noundef %30) #16
   br label %34
 
 34:                                               ; preds = %27, %.loopexit
@@ -4291,7 +4291,7 @@ define internal noundef i64 @store_spi_transport_hold_mcs(ptr nocapture noundef 
 define internal noundef i64 @store_spi_revalidate(ptr nocapture noundef readonly %0, ptr nocapture readnone %1, ptr nocapture readnone %2, i64 noundef returned %3) #0 align 16 {
   %5 = getelementptr inbounds i8, ptr %0, i64 64
   %6 = load ptr, ptr %5, align 8
-  %7 = tail call i32 @device_for_each_child(ptr noundef %6, ptr noundef null, ptr noundef nonnull @child_iter) #17
+  %7 = tail call i32 @device_for_each_child(ptr noundef %6, ptr noundef null, ptr noundef nonnull @child_iter) #16
   ret i64 %3
 }
 
@@ -4300,7 +4300,7 @@ declare dso_local i32 @device_for_each_child(ptr noundef, ptr noundef, ptr nound
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal noundef range(i32 0, 2) i32 @child_iter(ptr noundef %0, ptr nocapture readnone %1) #0 align 16 {
-  %3 = tail call i32 @scsi_is_sdev_device(ptr noundef %0) #17
+  %3 = tail call i32 @scsi_is_sdev_device(ptr noundef %0) #16
   %4 = icmp eq i32 %3, 0
   br i1 %4, label %7, label %5
 
@@ -4329,7 +4329,7 @@ define internal noundef i32 @spi_host_setup(ptr nocapture readnone %0, ptr nound
 
 4:                                                ; preds = %8, %3
   %5 = phi ptr [ %1, %3 ], [ %10, %8 ]
-  %6 = tail call i32 @scsi_is_host_device(ptr noundef %5) #17
+  %6 = tail call i32 @scsi_is_host_device(ptr noundef %5) #16
   %7 = icmp eq i32 %6, 0
   br i1 %7, label %8, label %12
 
@@ -4359,7 +4359,7 @@ define internal i32 @spi_host_configure(ptr nocapture readnone %0, ptr nocapture
 
 6:                                                ; preds = %10, %3
   %7 = phi ptr [ %5, %3 ], [ %12, %10 ]
-  %8 = tail call i32 @scsi_is_host_device(ptr noundef %7) #17
+  %8 = tail call i32 @scsi_is_host_device(ptr noundef %7) #16
   %9 = icmp eq i32 %8, 0
   br i1 %9, label %10, label %14
 
@@ -4387,7 +4387,7 @@ define internal i32 @spi_host_configure(ptr nocapture readnone %0, ptr nocapture
 24:                                               ; preds = %.loopexit
   %25 = load i16, ptr getelementptr inbounds (i8, ptr @dev_attr_signalling, i64 8), align 8
   %26 = or i16 %25, 128
-  %27 = tail call i32 @sysfs_chmod_file(ptr noundef %2, ptr noundef nonnull @dev_attr_signalling, i16 noundef zeroext %26) #17
+  %27 = tail call i32 @sysfs_chmod_file(ptr noundef %2, ptr noundef nonnull @dev_attr_signalling, i16 noundef zeroext %26) #16
   br label %28
 
 28:                                               ; preds = %24, %.loopexit
@@ -4406,7 +4406,7 @@ define internal noundef range(i64 -2147483648, 2147483648) i64 @show_spi_host_si
 
 6:                                                ; preds = %10, %3
   %7 = phi ptr [ %5, %3 ], [ %12, %10 ]
-  %8 = tail call i32 @scsi_is_host_device(ptr noundef %7) #17
+  %8 = tail call i32 @scsi_is_host_device(ptr noundef %7) #16
   %9 = icmp eq i32 %8, 0
   br i1 %9, label %10, label %14
 
@@ -4432,7 +4432,7 @@ define internal noundef range(i64 -2147483648, 2147483648) i64 @show_spi_host_si
   br i1 %23, label %25, label %24
 
 24:                                               ; preds = %.loopexit3
-  tail call void %22(ptr noundef %16) #17
+  tail call void %22(ptr noundef %16) #16
   br label %25
 
 25:                                               ; preds = %24, %.loopexit3
@@ -4460,7 +4460,7 @@ define internal noundef range(i64 -2147483648, 2147483648) i64 @show_spi_host_si
 
 .loopexit:                                        ; preds = %29, %37
   %40 = phi ptr [ %39, %37 ], [ null, %29 ]
-  %41 = tail call i32 (ptr, ptr, ...) @sprintf(ptr noundef %2, ptr noundef nonnull dereferenceable(1) @.str.112, ptr noundef %40) #17
+  %41 = tail call i32 (ptr, ptr, ...) @sprintf(ptr noundef %2, ptr noundef nonnull dereferenceable(1) @.str.112, ptr noundef %40) #16
   %42 = sext i32 %41 to i64
   ret i64 %42
 }
@@ -4473,7 +4473,7 @@ define internal noundef i64 @store_spi_host_signalling(ptr nocapture noundef rea
 
 7:                                                ; preds = %11, %4
   %8 = phi ptr [ %6, %4 ], [ %13, %11 ]
-  %9 = tail call i32 @scsi_is_host_device(ptr noundef %8) #17
+  %9 = tail call i32 @scsi_is_host_device(ptr noundef %8) #16
   %10 = icmp eq i32 %9, 0
   br i1 %10, label %11, label %15
 
@@ -4498,10 +4498,10 @@ define internal noundef i64 @store_spi_host_signalling(ptr nocapture noundef rea
   %22 = getelementptr [4 x %struct.anon.7], ptr @signal_types, i64 0, i64 %21
   %23 = getelementptr inbounds i8, ptr %22, i64 8
   %24 = load ptr, ptr %23, align 8
-  %25 = tail call i64 @strlen(ptr noundef %24) #17
+  %25 = tail call i64 @strlen(ptr noundef %24) #16
   %26 = shl i64 %25, 32
   %27 = ashr exact i64 %26, 32
-  %28 = tail call i32 @strncmp(ptr noundef %2, ptr noundef %24, i64 noundef %27) #17
+  %28 = tail call i32 @strncmp(ptr noundef %2, ptr noundef %24, i64 noundef %27) #16
   %29 = icmp eq i32 %28, 0
   br i1 %29, label %30, label %33
 
@@ -4541,7 +4541,7 @@ define internal noundef i64 @store_spi_host_signalling(ptr nocapture noundef rea
   br i1 %49, label %.thread4, label %50
 
 50:                                               ; preds = %48
-  tail call void %41(ptr noundef %17, i32 noundef %37) #17
+  tail call void %41(ptr noundef %17, i32 noundef %37) #16
   br label %.thread4
 
 .thread4:                                         ; preds = %.thread, %50, %48, %36
@@ -4550,10 +4550,10 @@ define internal noundef i64 @store_spi_host_signalling(ptr nocapture noundef rea
 }
 
 ; Function Attrs: mustprogress nofree nounwind null_pointer_is_valid willreturn memory(argmem: read)
-declare dso_local i64 @strlen(ptr nocapture noundef) local_unnamed_addr #12
+declare dso_local i64 @strlen(ptr nocapture noundef) local_unnamed_addr #11
 
 ; Function Attrs: mustprogress nofree nounwind null_pointer_is_valid willreturn memory(argmem: read)
-declare dso_local i32 @strncmp(ptr nocapture noundef, ptr nocapture noundef, i64 noundef) local_unnamed_addr #12
+declare dso_local i32 @strncmp(ptr nocapture noundef, ptr nocapture noundef, i64 noundef) local_unnamed_addr #11
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal noundef range(i64 -2147483648, 2147483648) i64 @show_spi_host_width(ptr nocapture noundef readonly %0, ptr nocapture readnone %1, ptr nocapture noundef writeonly %2) #0 align 16 {
@@ -4563,7 +4563,7 @@ define internal noundef range(i64 -2147483648, 2147483648) i64 @show_spi_host_wi
 
 6:                                                ; preds = %10, %3
   %7 = phi ptr [ %5, %3 ], [ %12, %10 ]
-  %8 = tail call i32 @scsi_is_host_device(ptr noundef %7) #17
+  %8 = tail call i32 @scsi_is_host_device(ptr noundef %7) #16
   %9 = icmp eq i32 %8, 0
   br i1 %9, label %10, label %14
 
@@ -4583,7 +4583,7 @@ define internal noundef range(i64 -2147483648, 2147483648) i64 @show_spi_host_wi
   %18 = load i32, ptr %17, align 4
   %19 = icmp eq i32 %18, 16
   %20 = select i1 %19, ptr @.str.118, ptr @.str.119
-  %21 = tail call i32 (ptr, ptr, ...) @sprintf(ptr noundef %2, ptr noundef nonnull dereferenceable(1) @.str.112, ptr noundef nonnull %20) #17
+  %21 = tail call i32 (ptr, ptr, ...) @sprintf(ptr noundef %2, ptr noundef nonnull dereferenceable(1) @.str.112, ptr noundef nonnull %20) #16
   %22 = sext i32 %21 to i64
   ret i64 %22
 }
@@ -4596,7 +4596,7 @@ define internal noundef range(i64 -2147483648, 2147483648) i64 @show_spi_host_hb
 
 6:                                                ; preds = %10, %3
   %7 = phi ptr [ %5, %3 ], [ %12, %10 ]
-  %8 = tail call i32 @scsi_is_host_device(ptr noundef %7) #17
+  %8 = tail call i32 @scsi_is_host_device(ptr noundef %7) #16
   %9 = icmp eq i32 %8, 0
   br i1 %9, label %10, label %14
 
@@ -4614,7 +4614,7 @@ define internal noundef range(i64 -2147483648, 2147483648) i64 @show_spi_host_hb
   %16 = phi ptr [ %15, %14 ], [ null, %10 ]
   %17 = getelementptr inbounds i8, ptr %16, i64 448
   %18 = load i32, ptr %17, align 8
-  %19 = tail call i32 (ptr, ptr, ...) @sprintf(ptr noundef %2, ptr noundef nonnull dereferenceable(1) @.str.95, i32 noundef %18) #17
+  %19 = tail call i32 (ptr, ptr, ...) @sprintf(ptr noundef %2, ptr noundef nonnull dereferenceable(1) @.str.95, i32 noundef %18) #16
   %20 = sext i32 %19 to i64
   ret i64 %20
 }
@@ -4631,7 +4631,7 @@ define internal noundef i32 @spi_device_configure(ptr nocapture readnone %0, ptr
   %8 = load ptr, ptr %7, align 8
   %9 = getelementptr i8, ptr %8, i64 8
   %10 = getelementptr i8, ptr %8, i64 16
-  %11 = tail call i64 @scsi_get_device_flags_keyed(ptr noundef %4, ptr noundef %9, ptr noundef %10, i32 noundef 1) #17
+  %11 = tail call i64 @scsi_get_device_flags_keyed(ptr noundef %4, ptr noundef %9, ptr noundef %10, i32 noundef 1) #16
   %12 = getelementptr i8, ptr %1, i64 -108
   %13 = load i64, ptr %12, align 4
   %14 = getelementptr inbounds i8, ptr %6, i64 848
@@ -4695,7 +4695,7 @@ define internal noundef i32 @spi_device_configure(ptr nocapture readnone %0, ptr
   br i1 %58, label %60, label %59
 
 59:                                               ; preds = %54
-  tail call void (ptr, ptr, ...) @_dev_info(ptr noundef %1, ptr noundef nonnull @.str.122) #19
+  tail call void (ptr, ptr, ...) @_dev_info(ptr noundef %1, ptr noundef nonnull @.str.122) #18
   store i32 0, ptr %56, align 8
   br label %60
 
@@ -4721,7 +4721,7 @@ define internal noundef i32 @spi_device_configure(ptr nocapture readnone %0, ptr
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal noundef range(i32 0, 2) i32 @spi_device_match(ptr nocapture readnone %0, ptr noundef %1) #0 align 16 {
-  %3 = tail call i32 @scsi_is_sdev_device(ptr noundef %1) #17
+  %3 = tail call i32 @scsi_is_sdev_device(ptr noundef %1) #16
   %4 = icmp eq i32 %3, 0
   br i1 %4, label %27, label %5
 
@@ -4750,7 +4750,7 @@ define internal noundef range(i32 0, 2) i32 @spi_device_match(ptr nocapture read
 21:                                               ; preds = %15
   %22 = getelementptr i8, ptr %1, i64 -128
   %23 = load ptr, ptr %22, align 8
-  %24 = tail call i32 %19(ptr noundef %23) #17
+  %24 = tail call i32 %19(ptr noundef %23) #16
   %25 = icmp eq i32 %24, 0
   br i1 %25, label %26, label %27
 
@@ -4778,22 +4778,22 @@ declare dso_local i32 @transport_class_register(ptr noundef) local_unnamed_addr 
 declare dso_local i32 @anon_transport_class_register(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.smax.i32(i32, i32) #13
+declare i32 @llvm.smax.i32(i32, i32) #12
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #14
+declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #13
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.smin.i32(i32, i32) #13
+declare i32 @llvm.smin.i32(i32, i32) #12
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.fshl.i32(i32, i32, i32) #13
+declare i32 @llvm.fshl.i32(i32, i32, i32) #12
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #15
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #14
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.umin.i32(i32, i32) #16
+declare i32 @llvm.umin.i32(i32, i32) #15
 
 attributes #0 = { fn_ret_thunk_extern nounwind null_pointer_is_valid "min-legal-vector-width"="0" "no-jump-tables"="true" "no-trapping-math"="true" "patchable-function-entry"="0" "patchable-function-prefix"="16" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+retpoline-external-thunk,+retpoline-indirect-branches,+retpoline-indirect-calls,-3dnow,-3dnowa,-aes,-avx,-avx10.1-256,-avx10.1-512,-avx2,-avx512bf16,-avx512bitalg,-avx512bw,-avx512cd,-avx512dq,-avx512er,-avx512f,-avx512fp16,-avx512ifma,-avx512pf,-avx512vbmi,-avx512vbmi2,-avx512vl,-avx512vnni,-avx512vp2intersect,-avx512vpopcntdq,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-f16c,-fma,-fma4,-gfni,-kl,-mmx,-pclmul,-sha,-sha512,-sm3,-sm4,-sse,-sse2,-sse3,-sse4.1,-sse4.2,-sse4a,-ssse3,-vaes,-vpclmulqdq,-widekl,-x87,-xop" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
@@ -4802,19 +4802,18 @@ attributes #3 = { cold null_pointer_is_valid "no-trapping-math"="true" "stack-pr
 attributes #4 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
 attributes #5 = { fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: write) "min-legal-vector-width"="0" "no-jump-tables"="true" "no-trapping-math"="true" "patchable-function-entry"="0" "patchable-function-prefix"="16" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+retpoline-external-thunk,+retpoline-indirect-branches,+retpoline-indirect-calls,-3dnow,-3dnowa,-aes,-avx,-avx10.1-256,-avx10.1-512,-avx2,-avx512bf16,-avx512bitalg,-avx512bw,-avx512cd,-avx512dq,-avx512er,-avx512f,-avx512fp16,-avx512ifma,-avx512pf,-avx512vbmi,-avx512vbmi2,-avx512vl,-avx512vnni,-avx512vp2intersect,-avx512vpopcntdq,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-f16c,-fma,-fma4,-gfni,-kl,-mmx,-pclmul,-sha,-sha512,-sm3,-sm4,-sse,-sse2,-sse3,-sse4.1,-sse4.2,-sse4a,-ssse3,-vaes,-vpclmulqdq,-widekl,-x87,-xop" "tune-cpu"="generic" }
 attributes #6 = { fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: readwrite) "min-legal-vector-width"="0" "no-jump-tables"="true" "no-trapping-math"="true" "patchable-function-entry"="0" "patchable-function-prefix"="16" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+retpoline-external-thunk,+retpoline-indirect-branches,+retpoline-indirect-calls,-3dnow,-3dnowa,-aes,-avx,-avx10.1-256,-avx10.1-512,-avx2,-avx512bf16,-avx512bitalg,-avx512bw,-avx512cd,-avx512dq,-avx512er,-avx512f,-avx512fp16,-avx512ifma,-avx512pf,-avx512vbmi,-avx512vbmi2,-avx512vl,-avx512vnni,-avx512vp2intersect,-avx512vpopcntdq,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-f16c,-fma,-fma4,-gfni,-kl,-mmx,-pclmul,-sha,-sha512,-sm3,-sm4,-sse,-sse2,-sse3,-sse4.1,-sse4.2,-sse4a,-ssse3,-vaes,-vpclmulqdq,-widekl,-x87,-xop" "tune-cpu"="generic" }
-attributes #7 = { cold fn_ret_thunk_extern nounwind null_pointer_is_valid "min-legal-vector-width"="0" "no-jump-tables"="true" "no-trapping-math"="true" "patchable-function-entry"="0" "patchable-function-prefix"="16" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+retpoline-external-thunk,+retpoline-indirect-branches,+retpoline-indirect-calls,-3dnow,-3dnowa,-aes,-avx,-avx10.1-256,-avx10.1-512,-avx2,-avx512bf16,-avx512bitalg,-avx512bw,-avx512cd,-avx512dq,-avx512er,-avx512f,-avx512fp16,-avx512ifma,-avx512pf,-avx512vbmi,-avx512vbmi2,-avx512vl,-avx512vnni,-avx512vp2intersect,-avx512vpopcntdq,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-f16c,-fma,-fma4,-gfni,-kl,-mmx,-pclmul,-sha,-sha512,-sm3,-sm4,-sse,-sse2,-sse3,-sse4.1,-sse4.2,-sse4a,-ssse3,-vaes,-vpclmulqdq,-widekl,-x87,-xop" "tune-cpu"="generic" }
-attributes #8 = { cold fn_ret_thunk_extern nounwind null_pointer_is_valid optsize "min-legal-vector-width"="0" "no-jump-tables"="true" "no-trapping-math"="true" "patchable-function-entry"="0" "patchable-function-prefix"="16" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+retpoline-external-thunk,+retpoline-indirect-branches,+retpoline-indirect-calls,-3dnow,-3dnowa,-aes,-avx,-avx10.1-256,-avx10.1-512,-avx2,-avx512bf16,-avx512bitalg,-avx512bw,-avx512cd,-avx512dq,-avx512er,-avx512f,-avx512fp16,-avx512ifma,-avx512pf,-avx512vbmi,-avx512vbmi2,-avx512vl,-avx512vnni,-avx512vp2intersect,-avx512vpopcntdq,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-f16c,-fma,-fma4,-gfni,-kl,-mmx,-pclmul,-sha,-sha512,-sm3,-sm4,-sse,-sse2,-sse3,-sse4.1,-sse4.2,-sse4a,-ssse3,-vaes,-vpclmulqdq,-widekl,-x87,-xop" "tune-cpu"="generic" }
-attributes #9 = { null_pointer_is_valid allocsize(2) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+retpoline-external-thunk,+retpoline-indirect-branches,+retpoline-indirect-calls,-3dnow,-3dnowa,-aes,-avx,-avx10.1-256,-avx10.1-512,-avx2,-avx512bf16,-avx512bitalg,-avx512bw,-avx512cd,-avx512dq,-avx512er,-avx512f,-avx512fp16,-avx512ifma,-avx512pf,-avx512vbmi,-avx512vbmi2,-avx512vl,-avx512vnni,-avx512vp2intersect,-avx512vpopcntdq,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-f16c,-fma,-fma4,-gfni,-kl,-mmx,-pclmul,-sha,-sha512,-sm3,-sm4,-sse,-sse2,-sse3,-sse4.1,-sse4.2,-sse4a,-ssse3,-vaes,-vpclmulqdq,-widekl,-x87,-xop" "tune-cpu"="generic" }
-attributes #10 = { nofree nounwind null_pointer_is_valid "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+retpoline-external-thunk,+retpoline-indirect-branches,+retpoline-indirect-calls,-3dnow,-3dnowa,-aes,-avx,-avx10.1-256,-avx10.1-512,-avx2,-avx512bf16,-avx512bitalg,-avx512bw,-avx512cd,-avx512dq,-avx512er,-avx512f,-avx512fp16,-avx512ifma,-avx512pf,-avx512vbmi,-avx512vbmi2,-avx512vl,-avx512vnni,-avx512vp2intersect,-avx512vpopcntdq,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-f16c,-fma,-fma4,-gfni,-kl,-mmx,-pclmul,-sha,-sha512,-sm3,-sm4,-sse,-sse2,-sse3,-sse4.1,-sse4.2,-sse4a,-ssse3,-vaes,-vpclmulqdq,-widekl,-x87,-xop" "tune-cpu"="generic" }
-attributes #11 = { fn_ret_thunk_extern nofree nounwind null_pointer_is_valid "min-legal-vector-width"="0" "no-jump-tables"="true" "no-trapping-math"="true" "patchable-function-entry"="0" "patchable-function-prefix"="16" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+retpoline-external-thunk,+retpoline-indirect-branches,+retpoline-indirect-calls,-3dnow,-3dnowa,-aes,-avx,-avx10.1-256,-avx10.1-512,-avx2,-avx512bf16,-avx512bitalg,-avx512bw,-avx512cd,-avx512dq,-avx512er,-avx512f,-avx512fp16,-avx512ifma,-avx512pf,-avx512vbmi,-avx512vbmi2,-avx512vl,-avx512vnni,-avx512vp2intersect,-avx512vpopcntdq,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-f16c,-fma,-fma4,-gfni,-kl,-mmx,-pclmul,-sha,-sha512,-sm3,-sm4,-sse,-sse2,-sse3,-sse4.1,-sse4.2,-sse4a,-ssse3,-vaes,-vpclmulqdq,-widekl,-x87,-xop" "tune-cpu"="generic" }
-attributes #12 = { mustprogress nofree nounwind null_pointer_is_valid willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+retpoline-external-thunk,+retpoline-indirect-branches,+retpoline-indirect-calls,-3dnow,-3dnowa,-aes,-avx,-avx10.1-256,-avx10.1-512,-avx2,-avx512bf16,-avx512bitalg,-avx512bw,-avx512cd,-avx512dq,-avx512er,-avx512f,-avx512fp16,-avx512ifma,-avx512pf,-avx512vbmi,-avx512vbmi2,-avx512vl,-avx512vnni,-avx512vp2intersect,-avx512vpopcntdq,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-f16c,-fma,-fma4,-gfni,-kl,-mmx,-pclmul,-sha,-sha512,-sm3,-sm4,-sse,-sse2,-sse3,-sse4.1,-sse4.2,-sse4a,-ssse3,-vaes,-vpclmulqdq,-widekl,-x87,-xop" "tune-cpu"="generic" }
-attributes #13 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #14 = { mustprogress nofree nounwind willreturn memory(argmem: read) }
-attributes #15 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #16 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #17 = { nounwind }
-attributes #18 = { nounwind allocsize(2) }
-attributes #19 = { cold nounwind }
+attributes #7 = { cold fn_ret_thunk_extern nounwind null_pointer_is_valid optsize "min-legal-vector-width"="0" "no-jump-tables"="true" "no-trapping-math"="true" "patchable-function-entry"="0" "patchable-function-prefix"="16" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+retpoline-external-thunk,+retpoline-indirect-branches,+retpoline-indirect-calls,-3dnow,-3dnowa,-aes,-avx,-avx10.1-256,-avx10.1-512,-avx2,-avx512bf16,-avx512bitalg,-avx512bw,-avx512cd,-avx512dq,-avx512er,-avx512f,-avx512fp16,-avx512ifma,-avx512pf,-avx512vbmi,-avx512vbmi2,-avx512vl,-avx512vnni,-avx512vp2intersect,-avx512vpopcntdq,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-f16c,-fma,-fma4,-gfni,-kl,-mmx,-pclmul,-sha,-sha512,-sm3,-sm4,-sse,-sse2,-sse3,-sse4.1,-sse4.2,-sse4a,-ssse3,-vaes,-vpclmulqdq,-widekl,-x87,-xop" "tune-cpu"="generic" }
+attributes #8 = { null_pointer_is_valid allocsize(2) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+retpoline-external-thunk,+retpoline-indirect-branches,+retpoline-indirect-calls,-3dnow,-3dnowa,-aes,-avx,-avx10.1-256,-avx10.1-512,-avx2,-avx512bf16,-avx512bitalg,-avx512bw,-avx512cd,-avx512dq,-avx512er,-avx512f,-avx512fp16,-avx512ifma,-avx512pf,-avx512vbmi,-avx512vbmi2,-avx512vl,-avx512vnni,-avx512vp2intersect,-avx512vpopcntdq,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-f16c,-fma,-fma4,-gfni,-kl,-mmx,-pclmul,-sha,-sha512,-sm3,-sm4,-sse,-sse2,-sse3,-sse4.1,-sse4.2,-sse4a,-ssse3,-vaes,-vpclmulqdq,-widekl,-x87,-xop" "tune-cpu"="generic" }
+attributes #9 = { nofree nounwind null_pointer_is_valid "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+retpoline-external-thunk,+retpoline-indirect-branches,+retpoline-indirect-calls,-3dnow,-3dnowa,-aes,-avx,-avx10.1-256,-avx10.1-512,-avx2,-avx512bf16,-avx512bitalg,-avx512bw,-avx512cd,-avx512dq,-avx512er,-avx512f,-avx512fp16,-avx512ifma,-avx512pf,-avx512vbmi,-avx512vbmi2,-avx512vl,-avx512vnni,-avx512vp2intersect,-avx512vpopcntdq,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-f16c,-fma,-fma4,-gfni,-kl,-mmx,-pclmul,-sha,-sha512,-sm3,-sm4,-sse,-sse2,-sse3,-sse4.1,-sse4.2,-sse4a,-ssse3,-vaes,-vpclmulqdq,-widekl,-x87,-xop" "tune-cpu"="generic" }
+attributes #10 = { fn_ret_thunk_extern nofree nounwind null_pointer_is_valid "min-legal-vector-width"="0" "no-jump-tables"="true" "no-trapping-math"="true" "patchable-function-entry"="0" "patchable-function-prefix"="16" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+retpoline-external-thunk,+retpoline-indirect-branches,+retpoline-indirect-calls,-3dnow,-3dnowa,-aes,-avx,-avx10.1-256,-avx10.1-512,-avx2,-avx512bf16,-avx512bitalg,-avx512bw,-avx512cd,-avx512dq,-avx512er,-avx512f,-avx512fp16,-avx512ifma,-avx512pf,-avx512vbmi,-avx512vbmi2,-avx512vl,-avx512vnni,-avx512vp2intersect,-avx512vpopcntdq,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-f16c,-fma,-fma4,-gfni,-kl,-mmx,-pclmul,-sha,-sha512,-sm3,-sm4,-sse,-sse2,-sse3,-sse4.1,-sse4.2,-sse4a,-ssse3,-vaes,-vpclmulqdq,-widekl,-x87,-xop" "tune-cpu"="generic" }
+attributes #11 = { mustprogress nofree nounwind null_pointer_is_valid willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+retpoline-external-thunk,+retpoline-indirect-branches,+retpoline-indirect-calls,-3dnow,-3dnowa,-aes,-avx,-avx10.1-256,-avx10.1-512,-avx2,-avx512bf16,-avx512bitalg,-avx512bw,-avx512cd,-avx512dq,-avx512er,-avx512f,-avx512fp16,-avx512ifma,-avx512pf,-avx512vbmi,-avx512vbmi2,-avx512vl,-avx512vnni,-avx512vp2intersect,-avx512vpopcntdq,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-f16c,-fma,-fma4,-gfni,-kl,-mmx,-pclmul,-sha,-sha512,-sm3,-sm4,-sse,-sse2,-sse3,-sse4.1,-sse4.2,-sse4a,-ssse3,-vaes,-vpclmulqdq,-widekl,-x87,-xop" "tune-cpu"="generic" }
+attributes #12 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #13 = { mustprogress nofree nounwind willreturn memory(argmem: read) }
+attributes #14 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #15 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #16 = { nounwind }
+attributes #17 = { nounwind allocsize(2) }
+attributes #18 = { cold nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3, !4}
 

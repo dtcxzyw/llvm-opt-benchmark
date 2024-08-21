@@ -32,31 +32,31 @@ define hidden range(i32 0, 3) i32 @main(i32 noundef %0, ptr noundef %1) local_un
   %4 = alloca i32, align 4
   %5 = alloca ptr, align 8
   store i32 %0, ptr %3, align 4
-  %6 = tail call ptr @setlocale(i32 noundef 6, ptr noundef nonnull @.str.2) #8
-  tail call void @cmdarg_err_init(ptr noundef nonnull @captype_cmdarg_err, ptr noundef nonnull @captype_cmdarg_err_cont) #8
-  tail call void @ws_log_init(ptr noundef nonnull @.str.3, ptr noundef nonnull @vcmdarg_err) #8
-  %7 = call i32 @ws_log_parse_args(ptr noundef nonnull %3, ptr noundef %1, ptr noundef nonnull @vcmdarg_err, i32 noundef 1) #8
-  call void @ws_init_version_info(ptr noundef nonnull @.str.4, ptr noundef null, ptr noundef null) #8
-  call void @init_process_policies() #8
+  %6 = tail call ptr @setlocale(i32 noundef 6, ptr noundef nonnull @.str.2) #7
+  tail call void @cmdarg_err_init(ptr noundef nonnull @captype_cmdarg_err, ptr noundef nonnull @captype_cmdarg_err_cont) #7
+  tail call void @ws_log_init(ptr noundef nonnull @.str.3, ptr noundef nonnull @vcmdarg_err) #7
+  %7 = call i32 @ws_log_parse_args(ptr noundef nonnull %3, ptr noundef %1, ptr noundef nonnull @vcmdarg_err, i32 noundef 1) #7
+  call void @ws_init_version_info(ptr noundef nonnull @.str.4, ptr noundef null, ptr noundef null) #7
+  call void @init_process_policies() #7
   %8 = load ptr, ptr %1, align 8
-  %9 = call ptr @configuration_init(ptr noundef %8, ptr noundef null) #8
+  %9 = call ptr @configuration_init(ptr noundef %8, ptr noundef null) #7
   %.not = icmp eq ptr %9, null
   br i1 %.not, label %13, label %10
 
 10:                                               ; preds = %2
   %11 = load ptr, ptr @stderr, align 8
-  %12 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %11, ptr noundef nonnull @.str.5, ptr noundef nonnull %9) #9
-  call void @g_free(ptr noundef nonnull %9) #8
+  %12 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %11, ptr noundef nonnull @.str.5, ptr noundef nonnull %9) #8
+  call void @g_free(ptr noundef nonnull %9) #7
   br label %13
 
 13:                                               ; preds = %10, %2
-  call void @init_report_message(ptr noundef nonnull @.str.3, ptr noundef nonnull @main.captype_report_routines) #8
-  call void @wtap_init(i32 noundef 1) #8
+  call void @init_report_message(ptr noundef nonnull @.str.3, ptr noundef nonnull @main.captype_report_routines) #7
+  call void @wtap_init(i32 noundef 1) #7
   br label %14
 
 14:                                               ; preds = %14, %13
   %15 = load i32, ptr %3, align 4
-  %16 = call i32 @ws_getopt_long(i32 noundef %15, ptr noundef nonnull %1, ptr noundef nonnull @.str.6, ptr noundef nonnull @main.long_options, ptr noundef null) #8
+  %16 = call i32 @ws_getopt_long(i32 noundef %15, ptr noundef nonnull %1, ptr noundef nonnull @.str.6, ptr noundef nonnull @main.long_options, ptr noundef null) #7
   switch i32 %16, label %14 [
     i32 -1, label %22
     i32 104, label %17
@@ -65,21 +65,21 @@ define hidden range(i32 0, 3) i32 @main(i32 noundef %0, ptr noundef %1) local_un
   ]
 
 17:                                               ; preds = %14
-  call void @show_help_header(ptr noundef nonnull @.str.7) #8
+  call void @show_help_header(ptr noundef nonnull @.str.7) #7
   %18 = load ptr, ptr @stdout, align 8
   call fastcc void @print_usage(ptr noundef %18)
-  call void @exit(i32 noundef 0) #10
+  call void @exit(i32 noundef 0) #9
   unreachable
 
 19:                                               ; preds = %14
-  call void @show_version() #8
-  call void @exit(i32 noundef 0) #10
+  call void @show_version() #7
+  call void @exit(i32 noundef 0) #9
   unreachable
 
 20:                                               ; preds = %14
   %21 = load ptr, ptr @stderr, align 8
   call fastcc void @print_usage(ptr noundef %21)
-  call void @exit(i32 noundef 1) #11
+  call void @exit(i32 noundef 1) #10
   unreachable
 
 22:                                               ; preds = %14
@@ -90,11 +90,11 @@ define hidden range(i32 0, 3) i32 @main(i32 noundef %0, ptr noundef %1) local_un
 25:                                               ; preds = %22
   %26 = load ptr, ptr @stderr, align 8
   %fputc.i = call i32 @fputc(i32 10, ptr %26)
-  %27 = call i64 @fwrite(ptr nonnull @.str.12, i64 38, i64 1, ptr %26) #12
+  %27 = call i64 @fwrite(ptr nonnull @.str.12, i64 38, i64 1, ptr %26) #11
   %fputc6.i = call i32 @fputc(i32 10, ptr %26)
-  %28 = call i64 @fwrite(ptr nonnull @.str.13, i64 15, i64 1, ptr %26) #12
-  %29 = call i64 @fwrite(ptr nonnull @.str.14, i64 54, i64 1, ptr %26) #12
-  %30 = call i64 @fwrite(ptr nonnull @.str.15, i64 57, i64 1, ptr %26) #12
+  %28 = call i64 @fwrite(ptr nonnull @.str.13, i64 15, i64 1, ptr %26) #11
+  %29 = call i64 @fwrite(ptr nonnull @.str.14, i64 54, i64 1, ptr %26) #11
+  %30 = call i64 @fwrite(ptr nonnull @.str.15, i64 57, i64 1, ptr %26) #11
   br label %51
 
 .lr.ph:                                           ; preds = %22, %47
@@ -102,16 +102,16 @@ define hidden range(i32 0, 3) i32 @main(i32 noundef %0, ptr noundef %1) local_un
   %.030 = phi i32 [ %.1, %47 ], [ 0, %22 ]
   %31 = getelementptr ptr, ptr %1, i64 %indvars.iv
   %32 = load ptr, ptr %31, align 8
-  %33 = call ptr @wtap_open_offline(ptr noundef %32, i32 noundef 0, ptr noundef nonnull %4, ptr noundef nonnull %5, i32 noundef 0) #8
+  %33 = call ptr @wtap_open_offline(ptr noundef %32, i32 noundef 0, ptr noundef nonnull %4, ptr noundef nonnull %5, i32 noundef 0) #7
   %.not28 = icmp eq ptr %33, null
   br i1 %.not28, label %39, label %34
 
 34:                                               ; preds = %.lr.ph
   %35 = load ptr, ptr %31, align 8
-  %36 = call i32 @wtap_file_type_subtype(ptr noundef nonnull %33) #8
-  %37 = call ptr @wtap_file_type_subtype_name(i32 noundef %36) #8
+  %36 = call i32 @wtap_file_type_subtype(ptr noundef nonnull %33) #7
+  %37 = call ptr @wtap_file_type_subtype_name(i32 noundef %36) #7
   %38 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.8, ptr noundef %35, ptr noundef %37)
-  call void @wtap_close(ptr noundef nonnull %33) #8
+  call void @wtap_close(ptr noundef nonnull %33) #7
   br label %47
 
 39:                                               ; preds = %.lr.ph
@@ -126,7 +126,7 @@ define hidden range(i32 0, 3) i32 @main(i32 noundef %0, ptr noundef %1) local_un
 
 45:                                               ; preds = %39
   %46 = load ptr, ptr %5, align 8
-  call void @cfile_open_failure_message(ptr noundef %42, i32 noundef %40, ptr noundef %46) #8
+  call void @cfile_open_failure_message(ptr noundef %42, i32 noundef %40, ptr noundef %46) #7
   br label %47
 
 47:                                               ; preds = %34, %45, %43
@@ -138,8 +138,8 @@ define hidden range(i32 0, 3) i32 @main(i32 noundef %0, ptr noundef %1) local_un
   br i1 %50, label %.lr.ph, label %._crit_edge, !llvm.loop !5
 
 ._crit_edge:                                      ; preds = %47
-  call void @wtap_cleanup() #8
-  call void @free_progdirs() #8
+  call void @wtap_cleanup() #7
+  call void @free_progdirs() #7
   br label %51
 
 51:                                               ; preds = %._crit_edge, %25
@@ -170,21 +170,21 @@ declare ptr @setlocale(i32 noundef, ptr noundef) local_unnamed_addr #2
 
 declare void @cmdarg_err_init(ptr noundef, ptr noundef) local_unnamed_addr #1
 
-; Function Attrs: cold nofree nounwind uwtable
+; Function Attrs: nofree nounwind uwtable
 define internal void @captype_cmdarg_err(ptr nocapture noundef readonly %0, ptr noundef %1) #3 {
   %3 = load ptr, ptr @stderr, align 8
-  %4 = tail call i64 @fwrite(ptr nonnull @.str.10, i64 9, i64 1, ptr %3) #12
+  %4 = tail call i64 @fwrite(ptr nonnull @.str.10, i64 9, i64 1, ptr %3) #11
   %5 = load ptr, ptr @stderr, align 8
-  %6 = tail call i32 @vfprintf(ptr noundef %5, ptr noundef %0, ptr noundef %1) #9
+  %6 = tail call i32 @vfprintf(ptr noundef %5, ptr noundef %0, ptr noundef %1) #8
   %7 = load ptr, ptr @stderr, align 8
   %fputc = tail call i32 @fputc(i32 10, ptr %7)
   ret void
 }
 
-; Function Attrs: cold nofree nounwind uwtable
+; Function Attrs: nofree nounwind uwtable
 define internal void @captype_cmdarg_err_cont(ptr nocapture noundef readonly %0, ptr noundef %1) #3 {
   %3 = load ptr, ptr @stderr, align 8
-  %4 = tail call i32 @vfprintf(ptr noundef %3, ptr noundef %0, ptr noundef %1) #9
+  %4 = tail call i32 @vfprintf(ptr noundef %3, ptr noundef %0, ptr noundef %1) #8
   %5 = load ptr, ptr @stderr, align 8
   %fputc = tail call i32 @fputc(i32 10, ptr %5)
   ret void
@@ -216,7 +216,7 @@ declare i32 @ws_getopt_long(i32 noundef, ptr noundef, ptr noundef, ptr noundef, 
 declare void @show_help_header(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind uwtable
-define internal fastcc void @print_usage(ptr nocapture noundef %0) unnamed_addr #5 {
+define internal fastcc void @print_usage(ptr nocapture noundef %0) unnamed_addr #3 {
   %fputc = tail call i32 @fputc(i32 10, ptr %0)
   %2 = tail call i64 @fwrite(ptr nonnull @.str.12, i64 38, i64 1, ptr %0)
   %fputc6 = tail call i32 @fputc(i32 10, ptr %0)
@@ -227,7 +227,7 @@ define internal fastcc void @print_usage(ptr nocapture noundef %0) unnamed_addr 
 }
 
 ; Function Attrs: nofree noreturn nounwind
-declare void @exit(i32 noundef) local_unnamed_addr #6
+declare void @exit(i32 noundef) local_unnamed_addr #5
 
 declare void @show_version() local_unnamed_addr #1
 
@@ -250,24 +250,23 @@ declare void @free_progdirs() local_unnamed_addr #1
 declare noundef i32 @vfprintf(ptr nocapture noundef, ptr nocapture noundef readonly, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nofree nounwind
-declare noundef i64 @fwrite(ptr nocapture noundef, i64 noundef, i64 noundef, ptr nocapture noundef) local_unnamed_addr #7
+declare noundef i64 @fwrite(ptr nocapture noundef, i64 noundef, i64 noundef, ptr nocapture noundef) local_unnamed_addr #6
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fputc(i32 noundef, ptr nocapture noundef) local_unnamed_addr #7
+declare noundef i32 @fputc(i32 noundef, ptr nocapture noundef) local_unnamed_addr #6
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { cold nofree nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { nofree nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #4 = { nofree nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { nofree nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { nofree noreturn nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { nofree nounwind }
-attributes #8 = { nounwind }
-attributes #9 = { cold nounwind }
-attributes #10 = { noreturn nounwind }
-attributes #11 = { cold noreturn nounwind }
-attributes #12 = { cold }
+attributes #5 = { nofree noreturn nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { nofree nounwind }
+attributes #7 = { nounwind }
+attributes #8 = { cold nounwind }
+attributes #9 = { noreturn nounwind }
+attributes #10 = { cold noreturn nounwind }
+attributes #11 = { cold }
 
 !llvm.module.flags = !{!0, !1, !2, !3, !4}
 

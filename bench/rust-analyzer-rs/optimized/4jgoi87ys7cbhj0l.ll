@@ -18,7 +18,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @anon.d93180882ff7a1921298da0e7de554a2.17 = private unnamed_addr constant <{ [49 x i8] }> <{ [49 x i8] c"Invalid COFF bigobj file header size or alignment" }>, align 1
 @anon.d93180882ff7a1921298da0e7de554a2.19 = private unnamed_addr constant <{ [33 x i8] }> <{ [33 x i8] c"Invalid COFF bigobj header values" }>, align 1
 
-; Function Attrs: cold nonlazybind uwtable
+; Function Attrs: nonlazybind uwtable
 define hidden void @"_ZN114_$LT$serde..__private..de..missing_field..MissingFieldDeserializer$LT$E$GT$$u20$as$u20$serde..de..Deserializer$GT$15deserialize_any17h4753a243380ba687E"(ptr noalias nocapture noundef writeonly sret({ i64, [2 x i64] }) align 8 dereferenceable(24) %0, ptr noalias noundef nonnull readonly align 1 %1, i64 noundef %2) unnamed_addr #0 personality ptr @rust_eh_personality {
   %4 = tail call noundef nonnull align 8 ptr @_ZN5serde2de5Error13missing_field17h53e6f67c91801e3dE(ptr noalias noundef nonnull readonly align 1 %1, i64 noundef %2)
   %5 = getelementptr inbounds i8, ptr %0, i64 8
@@ -27,7 +27,7 @@ define hidden void @"_ZN114_$LT$serde..__private..de..missing_field..MissingFiel
   ret void
 }
 
-; Function Attrs: cold nonlazybind uwtable
+; Function Attrs: nonlazybind uwtable
 define hidden void @"_ZN114_$LT$serde..__private..de..missing_field..MissingFieldDeserializer$LT$E$GT$$u20$as$u20$serde..de..Deserializer$GT$15deserialize_any17hdb0f9dd538ba69f2E"(ptr noalias nocapture noundef writeonly sret({ i64, [17 x i64] }) align 8 dereferenceable(144) %0, ptr noalias noundef nonnull readonly align 1 %1, i64 noundef %2) unnamed_addr #0 personality ptr @rust_eh_personality {
   %4 = tail call noundef nonnull align 8 ptr @_ZN5serde2de5Error13missing_field17h53e6f67c91801e3dE(ptr noalias noundef nonnull readonly align 1 %1, i64 noundef %2)
   %5 = getelementptr inbounds i8, ptr %0, i64 8
@@ -36,7 +36,7 @@ define hidden void @"_ZN114_$LT$serde..__private..de..missing_field..MissingFiel
   ret void
 }
 
-; Function Attrs: cold nonlazybind uwtable
+; Function Attrs: nonlazybind uwtable
 define hidden void @"_ZN114_$LT$serde..__private..de..missing_field..MissingFieldDeserializer$LT$E$GT$$u20$as$u20$serde..de..Deserializer$GT$15deserialize_any17hec6db8b463881a76E"(ptr noalias nocapture noundef writeonly sret({ i64, [2 x i64] }) align 8 dereferenceable(24) %0, ptr noalias noundef nonnull readonly align 1 %1, i64 noundef %2) unnamed_addr #0 personality ptr @rust_eh_personality {
   %4 = tail call noundef nonnull align 8 ptr @_ZN5serde2de5Error13missing_field17h53e6f67c91801e3dE(ptr noalias noundef nonnull readonly align 1 %1, i64 noundef %2)
   %5 = getelementptr inbounds i8, ptr %0, i64 8
@@ -84,7 +84,7 @@ define hidden void @"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17h2481c890856c
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden void @_ZN6object4read2pe4file14ImageNtHeaders5parse17h8f2d4dd5ab100441E(ptr noalias nocapture noundef writeonly sret({ ptr, [2 x i64] }) align 8 dereferenceable(24) %0, ptr noalias noundef nonnull readonly align 1 %1, i64 noundef %2, ptr noalias nocapture noundef align 8 dereferenceable(8) %3) unnamed_addr #3 {
+define hidden void @_ZN6object4read2pe4file14ImageNtHeaders5parse17h8f2d4dd5ab100441E(ptr noalias nocapture noundef writeonly sret({ ptr, [2 x i64] }) align 8 dereferenceable(24) %0, ptr noalias noundef nonnull readonly align 1 %1, i64 noundef %2, ptr noalias nocapture noundef align 8 dereferenceable(8) %3) unnamed_addr #0 {
   %5 = alloca { i64, [2 x i64] }, align 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !6)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !9)
@@ -211,7 +211,7 @@ _ZN6object4read8read_ref7ReadRef4read17hf937dd614759f5e2E.exit.thread: ; preds =
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden void @_ZN6object4read2pe4file14ImageNtHeaders5parse17h9aaa57779956851cE(ptr noalias nocapture noundef writeonly sret({ ptr, [2 x i64] }) align 8 dereferenceable(24) %0, ptr noalias noundef nonnull readonly align 1 %1, i64 noundef %2, ptr noalias nocapture noundef align 8 dereferenceable(8) %3) unnamed_addr #3 {
+define hidden void @_ZN6object4read2pe4file14ImageNtHeaders5parse17h9aaa57779956851cE(ptr noalias nocapture noundef writeonly sret({ ptr, [2 x i64] }) align 8 dereferenceable(24) %0, ptr noalias noundef nonnull readonly align 1 %1, i64 noundef %2, ptr noalias nocapture noundef align 8 dereferenceable(8) %3) unnamed_addr #0 {
   %5 = alloca { i64, [2 x i64] }, align 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !22)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !25)
@@ -338,7 +338,7 @@ _ZN6object4read8read_ref7ReadRef4read17hd4f78736b92d3ddeE.llvm.16556925844696330
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden void @"_ZN6object4read2pe4file44_$LT$impl$u20$object..pe..ImageDosHeader$GT$5parse17hb0ca509b4b636584E"(ptr noalias nocapture noundef writeonly sret({ ptr, [1 x i64] }) align 8 dereferenceable(16) %0, ptr noalias noundef nonnull readonly align 1 %1, i64 noundef %2) unnamed_addr #3 {
+define hidden void @"_ZN6object4read2pe4file44_$LT$impl$u20$object..pe..ImageDosHeader$GT$5parse17hb0ca509b4b636584E"(ptr noalias nocapture noundef writeonly sret({ ptr, [1 x i64] }) align 8 dereferenceable(16) %0, ptr noalias noundef nonnull readonly align 1 %1, i64 noundef %2) unnamed_addr #0 {
   %4 = tail call { ptr, i64 } @"_ZN68_$LT$$RF$$u5b$u8$u5d$$u20$as$u20$object..read..read_ref..ReadRef$GT$13read_bytes_at17hb5861fd5c56fe37cE"(ptr noalias noundef nonnull readonly align 1 %1, i64 noundef %2, i64 noundef 0, i64 noundef 64), !noalias !37
   %5 = extractvalue { ptr, i64 } %4, 0
   %6 = icmp eq ptr %5, null
@@ -383,7 +383,7 @@ _ZN6object4read8read_ref7ReadRef7read_at17hb80828e7c54106e7E.llvm.16556925844696
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden void @"_ZN6object4read2pe7section48_$LT$impl$u20$object..pe..ImageSectionHeader$GT$7pe_data17h35fd6cc0e693ef38E"(ptr noalias nocapture noundef writeonly sret({ i64, [2 x i64] }) align 8 dereferenceable(24) %0, ptr noalias noundef readonly align 4 dereferenceable(40) %1, ptr noalias noundef nonnull readonly align 1 %2, i64 noundef %3) unnamed_addr #3 {
+define hidden void @"_ZN6object4read2pe7section48_$LT$impl$u20$object..pe..ImageSectionHeader$GT$7pe_data17h35fd6cc0e693ef38E"(ptr noalias nocapture noundef writeonly sret({ i64, [2 x i64] }) align 8 dereferenceable(24) %0, ptr noalias noundef readonly align 4 dereferenceable(40) %1, ptr noalias noundef nonnull readonly align 1 %2, i64 noundef %3) unnamed_addr #0 {
   %5 = tail call { i32, i32 } @"_ZN6object4read2pe7section48_$LT$impl$u20$object..pe..ImageSectionHeader$GT$13pe_file_range17h999a54f0f491ce59E"(ptr noalias noundef nonnull readonly align 4 dereferenceable(40) %1)
   %6 = extractvalue { i32, i32 } %5, 0
   %7 = extractvalue { i32, i32 } %5, 1
@@ -405,7 +405,7 @@ define hidden void @"_ZN6object4read2pe7section48_$LT$impl$u20$object..pe..Image
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden void @"_ZN6object4read4coff7section48_$LT$impl$u20$object..pe..ImageSectionHeader$GT$4name17hd27a6302c4b147e6E"(ptr noalias nocapture noundef writeonly sret({ i64, [2 x i64] }) align 8 dereferenceable(24) %0, ptr noalias noundef readonly align 4 dereferenceable(40) %1, ptr noalias nocapture noundef readonly align 8 dereferenceable(32) %2) unnamed_addr #3 {
+define hidden void @"_ZN6object4read4coff7section48_$LT$impl$u20$object..pe..ImageSectionHeader$GT$4name17hd27a6302c4b147e6E"(ptr noalias nocapture noundef writeonly sret({ i64, [2 x i64] }) align 8 dereferenceable(24) %0, ptr noalias noundef readonly align 4 dereferenceable(40) %1, ptr noalias nocapture noundef readonly align 8 dereferenceable(32) %2) unnamed_addr #0 {
   %4 = alloca { ptr, [1 x i64] }, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4)
   call void @"_ZN6object4read4coff7section48_$LT$impl$u20$object..pe..ImageSectionHeader$GT$11name_offset17hb9951dc80704ebc3E"(ptr noalias nocapture noundef nonnull sret({ ptr, [1 x i64] }) align 8 dereferenceable(16) %4, ptr noalias noundef nonnull readonly align 4 dereferenceable(40) %1)
@@ -480,7 +480,7 @@ define hidden void @"_ZN6object4read4coff7section48_$LT$impl$u20$object..pe..Ima
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden { ptr, i64 } @"_ZN6object4read4coff7section48_$LT$impl$u20$object..pe..ImageSectionHeader$GT$9coff_data17hd1b8fe6c5ae6b37bE"(ptr noalias nocapture noundef readonly align 4 dereferenceable(40) %0, ptr noalias noundef nonnull readonly align 1 %1, i64 noundef %2) unnamed_addr #3 {
+define hidden { ptr, i64 } @"_ZN6object4read4coff7section48_$LT$impl$u20$object..pe..ImageSectionHeader$GT$9coff_data17hd1b8fe6c5ae6b37bE"(ptr noalias nocapture noundef readonly align 4 dereferenceable(40) %0, ptr noalias noundef nonnull readonly align 1 %1, i64 noundef %2) unnamed_addr #0 {
   %4 = getelementptr inbounds i8, ptr %0, i64 36
   %5 = load i32, ptr %4, align 4, !noundef !4
   %6 = and i32 %5, 128
@@ -508,7 +508,7 @@ define hidden { ptr, i64 } @"_ZN6object4read4coff7section48_$LT$impl$u20$object.
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden { ptr, i64 } @"_ZN6object4read4util20StringTable$LT$R$GT$3get17h329f0992bec9c315E"(ptr noalias nocapture noundef readonly align 8 dereferenceable(32) %0, i32 noundef %1) unnamed_addr #3 {
+define hidden { ptr, i64 } @"_ZN6object4read4util20StringTable$LT$R$GT$3get17h329f0992bec9c315E"(ptr noalias nocapture noundef readonly align 8 dereferenceable(32) %0, i32 noundef %1) unnamed_addr #0 {
   %3 = load ptr, ptr %0, align 8, !noundef !4
   %4 = icmp eq ptr %3, null
   br i1 %4, label %11, label %5
@@ -541,7 +541,7 @@ define hidden { ptr, i64 } @"_ZN6object4read4util20StringTable$LT$R$GT$3get17h32
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden { ptr, i64 } @_ZN6object4read8read_ref7ReadRef10read_slice17h336095696dcc11c1E.llvm.1655692584469633042(ptr noalias noundef nonnull readonly align 1 %0, i64 noundef %1, ptr noalias nocapture noundef align 8 dereferenceable(8) %2, i64 noundef %3) unnamed_addr #3 {
+define hidden { ptr, i64 } @_ZN6object4read8read_ref7ReadRef10read_slice17h336095696dcc11c1E.llvm.1655692584469633042(ptr noalias noundef nonnull readonly align 1 %0, i64 noundef %1, ptr noalias nocapture noundef align 8 dereferenceable(8) %2, i64 noundef %3) unnamed_addr #0 {
   %5 = tail call { i64, i1 } @llvm.umul.with.overflow.i64(i64 %3, i64 40)
   %6 = extractvalue { i64, i1 } %5, 0
   %7 = extractvalue { i64, i1 } %5, 1
@@ -575,7 +575,7 @@ _ZN6object4read8read_ref7ReadRef10read_bytes17h480aa599d9dd1975E.exit.thread: ; 
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden { ptr, i64 } @_ZN6object4read8read_ref7ReadRef10read_slice17h3eb7a54b7cc0aafeE.llvm.1655692584469633042(ptr noalias noundef nonnull readonly align 1 %0, i64 noundef %1, ptr noalias nocapture noundef align 8 dereferenceable(8) %2, i64 noundef %3) unnamed_addr #3 {
+define hidden { ptr, i64 } @_ZN6object4read8read_ref7ReadRef10read_slice17h3eb7a54b7cc0aafeE.llvm.1655692584469633042(ptr noalias noundef nonnull readonly align 1 %0, i64 noundef %1, ptr noalias nocapture noundef align 8 dereferenceable(8) %2, i64 noundef %3) unnamed_addr #0 {
   %5 = tail call { i64, i1 } @llvm.umul.with.overflow.i64(i64 %3, i64 80)
   %6 = extractvalue { i64, i1 } %5, 0
   %7 = extractvalue { i64, i1 } %5, 1
@@ -609,7 +609,7 @@ _ZN6object4read8read_ref7ReadRef10read_bytes17h480aa599d9dd1975E.exit.thread: ; 
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden { ptr, i64 } @_ZN6object4read8read_ref7ReadRef10read_slice17h447a9f5b662eb41dE.llvm.1655692584469633042(ptr noalias noundef nonnull readonly align 1 %0, i64 noundef %1, ptr noalias nocapture noundef align 8 dereferenceable(8) %2, i64 noundef %3) unnamed_addr #3 {
+define hidden { ptr, i64 } @_ZN6object4read8read_ref7ReadRef10read_slice17h447a9f5b662eb41dE.llvm.1655692584469633042(ptr noalias noundef nonnull readonly align 1 %0, i64 noundef %1, ptr noalias nocapture noundef align 8 dereferenceable(8) %2, i64 noundef %3) unnamed_addr #0 {
   %5 = shl i64 %3, 6
   %6 = icmp ult i64 %3, 288230376151711744
   br i1 %6, label %7, label %_ZN6object4read8read_ref7ReadRef10read_bytes17h480aa599d9dd1975E.exit.thread
@@ -642,7 +642,7 @@ _ZN6object4read8read_ref7ReadRef10read_bytes17h480aa599d9dd1975E.exit.thread: ; 
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden { ptr, i64 } @_ZN6object4read8read_ref7ReadRef10read_slice17h640ff3e02db74db3E.llvm.1655692584469633042(ptr noalias noundef nonnull readonly align 1 %0, i64 noundef %1, ptr noalias nocapture noundef align 8 dereferenceable(8) %2, i64 noundef %3) unnamed_addr #3 {
+define hidden { ptr, i64 } @_ZN6object4read8read_ref7ReadRef10read_slice17h640ff3e02db74db3E.llvm.1655692584469633042(ptr noalias noundef nonnull readonly align 1 %0, i64 noundef %1, ptr noalias nocapture noundef align 8 dereferenceable(8) %2, i64 noundef %3) unnamed_addr #0 {
   %5 = tail call { i64, i1 } @llvm.umul.with.overflow.i64(i64 %3, i64 68)
   %6 = extractvalue { i64, i1 } %5, 0
   %7 = extractvalue { i64, i1 } %5, 1
@@ -676,7 +676,7 @@ _ZN6object4read8read_ref7ReadRef10read_bytes17h480aa599d9dd1975E.exit.thread: ; 
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden { ptr, i64 } @_ZN6object4read8read_ref7ReadRef10read_slice17h6fdd46137a9469d8E.llvm.1655692584469633042(ptr noalias noundef nonnull readonly align 1 %0, i64 noundef %1, ptr noalias nocapture noundef align 8 dereferenceable(8) %2, i64 noundef %3) unnamed_addr #3 {
+define hidden { ptr, i64 } @_ZN6object4read8read_ref7ReadRef10read_slice17h6fdd46137a9469d8E.llvm.1655692584469633042(ptr noalias noundef nonnull readonly align 1 %0, i64 noundef %1, ptr noalias nocapture noundef align 8 dereferenceable(8) %2, i64 noundef %3) unnamed_addr #0 {
   %5 = shl i64 %3, 5
   %6 = icmp ult i64 %3, 576460752303423488
   br i1 %6, label %7, label %_ZN6object4read8read_ref7ReadRef10read_bytes17h480aa599d9dd1975E.exit.thread
@@ -709,7 +709,7 @@ _ZN6object4read8read_ref7ReadRef10read_bytes17h480aa599d9dd1975E.exit.thread: ; 
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden { ptr, i64 } @_ZN6object4read8read_ref7ReadRef10read_slice17h861df101664e3e79E(ptr noalias noundef nonnull readonly align 1 %0, i64 noundef %1, ptr noalias nocapture noundef align 8 dereferenceable(8) %2, i64 noundef %3) unnamed_addr #3 {
+define hidden { ptr, i64 } @_ZN6object4read8read_ref7ReadRef10read_slice17h861df101664e3e79E(ptr noalias noundef nonnull readonly align 1 %0, i64 noundef %1, ptr noalias nocapture noundef align 8 dereferenceable(8) %2, i64 noundef %3) unnamed_addr #0 {
   %5 = tail call { i64, i1 } @llvm.umul.with.overflow.i64(i64 %3, i64 18)
   %6 = extractvalue { i64, i1 } %5, 0
   %7 = extractvalue { i64, i1 } %5, 1
@@ -739,7 +739,7 @@ _ZN6object4read8read_ref7ReadRef10read_bytes17h480aa599d9dd1975E.exit.thread: ; 
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden { ptr, i64 } @_ZN6object4read8read_ref7ReadRef10read_slice17haa1bced46011c431E.llvm.1655692584469633042(ptr noalias noundef nonnull readonly align 1 %0, i64 noundef %1, ptr noalias nocapture noundef align 8 dereferenceable(8) %2, i64 noundef %3) unnamed_addr #3 {
+define hidden { ptr, i64 } @_ZN6object4read8read_ref7ReadRef10read_slice17haa1bced46011c431E.llvm.1655692584469633042(ptr noalias noundef nonnull readonly align 1 %0, i64 noundef %1, ptr noalias nocapture noundef align 8 dereferenceable(8) %2, i64 noundef %3) unnamed_addr #0 {
   %5 = shl i64 %3, 4
   %6 = icmp ult i64 %3, 1152921504606846976
   br i1 %6, label %7, label %_ZN6object4read8read_ref7ReadRef10read_bytes17h480aa599d9dd1975E.exit.thread
@@ -772,7 +772,7 @@ _ZN6object4read8read_ref7ReadRef10read_bytes17h480aa599d9dd1975E.exit.thread: ; 
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden { ptr, i64 } @_ZN6object4read8read_ref7ReadRef10read_slice17hb8eac6abbe167d48E.llvm.1655692584469633042(ptr noalias noundef nonnull readonly align 1 %0, i64 noundef %1, ptr noalias nocapture noundef align 8 dereferenceable(8) %2, i64 noundef %3) unnamed_addr #3 {
+define hidden { ptr, i64 } @_ZN6object4read8read_ref7ReadRef10read_slice17hb8eac6abbe167d48E.llvm.1655692584469633042(ptr noalias noundef nonnull readonly align 1 %0, i64 noundef %1, ptr noalias nocapture noundef align 8 dereferenceable(8) %2, i64 noundef %3) unnamed_addr #0 {
   %5 = tail call { i64, i1 } @llvm.umul.with.overflow.i64(i64 %3, i64 12)
   %6 = extractvalue { i64, i1 } %5, 0
   %7 = extractvalue { i64, i1 } %5, 1
@@ -806,7 +806,7 @@ _ZN6object4read8read_ref7ReadRef10read_bytes17h480aa599d9dd1975E.exit.thread: ; 
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden { ptr, i64 } @_ZN6object4read8read_ref7ReadRef10read_slice17hc2d6f951a94038bbE.llvm.1655692584469633042(ptr noalias noundef nonnull readonly align 1 %0, i64 noundef %1, ptr noalias nocapture noundef align 8 dereferenceable(8) %2, i64 noundef %3) unnamed_addr #3 {
+define hidden { ptr, i64 } @_ZN6object4read8read_ref7ReadRef10read_slice17hc2d6f951a94038bbE.llvm.1655692584469633042(ptr noalias noundef nonnull readonly align 1 %0, i64 noundef %1, ptr noalias nocapture noundef align 8 dereferenceable(8) %2, i64 noundef %3) unnamed_addr #0 {
   %5 = tail call { i64, i1 } @llvm.umul.with.overflow.i64(i64 %3, i64 56)
   %6 = extractvalue { i64, i1 } %5, 0
   %7 = extractvalue { i64, i1 } %5, 1
@@ -840,7 +840,7 @@ _ZN6object4read8read_ref7ReadRef10read_bytes17h480aa599d9dd1975E.exit.thread: ; 
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden { ptr, i64 } @_ZN6object4read8read_ref7ReadRef10read_slice17hdb4039cebd8d7362E(ptr noalias noundef nonnull readonly align 1 %0, i64 noundef %1, ptr noalias nocapture noundef align 8 dereferenceable(8) %2, i64 noundef %3) unnamed_addr #3 {
+define hidden { ptr, i64 } @_ZN6object4read8read_ref7ReadRef10read_slice17hdb4039cebd8d7362E(ptr noalias noundef nonnull readonly align 1 %0, i64 noundef %1, ptr noalias nocapture noundef align 8 dereferenceable(8) %2, i64 noundef %3) unnamed_addr #0 {
   %5 = tail call { i64, i1 } @llvm.umul.with.overflow.i64(i64 %3, i64 20)
   %6 = extractvalue { i64, i1 } %5, 0
   %7 = extractvalue { i64, i1 } %5, 1
@@ -870,7 +870,7 @@ _ZN6object4read8read_ref7ReadRef10read_bytes17h480aa599d9dd1975E.exit.thread: ; 
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden { ptr, i64 } @_ZN6object4read8read_ref7ReadRef10read_slice17hff0eec0433129923E.llvm.1655692584469633042(ptr noalias noundef nonnull readonly align 1 %0, i64 noundef %1, ptr noalias nocapture noundef align 8 dereferenceable(8) %2, i64 noundef %3) unnamed_addr #3 {
+define hidden { ptr, i64 } @_ZN6object4read8read_ref7ReadRef10read_slice17hff0eec0433129923E.llvm.1655692584469633042(ptr noalias noundef nonnull readonly align 1 %0, i64 noundef %1, ptr noalias nocapture noundef align 8 dereferenceable(8) %2, i64 noundef %3) unnamed_addr #0 {
   %5 = tail call { i64, i1 } @llvm.umul.with.overflow.i64(i64 %3, i64 40)
   %6 = extractvalue { i64, i1 } %5, 0
   %7 = extractvalue { i64, i1 } %5, 1
@@ -904,7 +904,7 @@ _ZN6object4read8read_ref7ReadRef10read_bytes17h480aa599d9dd1975E.exit.thread: ; 
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden { ptr, i64 } @_ZN6object4read8read_ref7ReadRef13read_slice_at17h07d40b70c123d8ecE(ptr noalias noundef nonnull readonly align 1 %0, i64 noundef %1, i64 noundef %2, i64 noundef %3) unnamed_addr #3 {
+define hidden { ptr, i64 } @_ZN6object4read8read_ref7ReadRef13read_slice_at17h07d40b70c123d8ecE(ptr noalias noundef nonnull readonly align 1 %0, i64 noundef %1, i64 noundef %2, i64 noundef %3) unnamed_addr #0 {
   %5 = shl i64 %3, 6
   %6 = icmp ult i64 %3, 288230376151711744
   br i1 %6, label %7, label %_ZN6object4read8read_ref7ReadRef10read_slice17h447a9f5b662eb41dE.llvm.1655692584469633042.exit
@@ -933,7 +933,7 @@ _ZN6object4read8read_ref7ReadRef10read_slice17h447a9f5b662eb41dE.llvm.1655692584
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden { ptr, i64 } @_ZN6object4read8read_ref7ReadRef13read_slice_at17h0a0e383f2c971483E(ptr noalias noundef nonnull readonly align 1 %0, i64 noundef %1, i64 noundef %2, i64 noundef %3) unnamed_addr #3 {
+define hidden { ptr, i64 } @_ZN6object4read8read_ref7ReadRef13read_slice_at17h0a0e383f2c971483E(ptr noalias noundef nonnull readonly align 1 %0, i64 noundef %1, i64 noundef %2, i64 noundef %3) unnamed_addr #0 {
   %5 = tail call { i64, i1 } @llvm.umul.with.overflow.i64(i64 %3, i64 80)
   %6 = extractvalue { i64, i1 } %5, 0
   %7 = extractvalue { i64, i1 } %5, 1
@@ -963,7 +963,7 @@ _ZN6object4read8read_ref7ReadRef10read_slice17h3eb7a54b7cc0aafeE.llvm.1655692584
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden { ptr, i64 } @_ZN6object4read8read_ref7ReadRef13read_slice_at17h2483a63580ee5d61E(ptr noalias noundef nonnull readonly align 1 %0, i64 noundef %1, i64 noundef %2, i64 noundef %3) unnamed_addr #3 {
+define hidden { ptr, i64 } @_ZN6object4read8read_ref7ReadRef13read_slice_at17h2483a63580ee5d61E(ptr noalias noundef nonnull readonly align 1 %0, i64 noundef %1, i64 noundef %2, i64 noundef %3) unnamed_addr #0 {
   %5 = tail call { i64, i1 } @llvm.umul.with.overflow.i64(i64 %3, i64 40)
   %6 = extractvalue { i64, i1 } %5, 0
   %7 = extractvalue { i64, i1 } %5, 1
@@ -993,7 +993,7 @@ _ZN6object4read8read_ref7ReadRef10read_slice17hff0eec0433129923E.llvm.1655692584
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden { ptr, i64 } @_ZN6object4read8read_ref7ReadRef13read_slice_at17h2a13db53b1dd607fE(ptr noalias noundef nonnull readonly align 1 %0, i64 noundef %1, i64 noundef %2, i64 noundef %3) unnamed_addr #3 {
+define hidden { ptr, i64 } @_ZN6object4read8read_ref7ReadRef13read_slice_at17h2a13db53b1dd607fE(ptr noalias noundef nonnull readonly align 1 %0, i64 noundef %1, i64 noundef %2, i64 noundef %3) unnamed_addr #0 {
   %5 = shl i64 %3, 5
   %6 = icmp ult i64 %3, 576460752303423488
   br i1 %6, label %7, label %_ZN6object4read8read_ref7ReadRef10read_slice17h6fdd46137a9469d8E.llvm.1655692584469633042.exit
@@ -1022,7 +1022,7 @@ _ZN6object4read8read_ref7ReadRef10read_slice17h6fdd46137a9469d8E.llvm.1655692584
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden { ptr, i64 } @_ZN6object4read8read_ref7ReadRef13read_slice_at17h38aea4cd41b39e30E(ptr noalias noundef nonnull readonly align 1 %0, i64 noundef %1, i64 noundef %2, i64 noundef %3) unnamed_addr #3 {
+define hidden { ptr, i64 } @_ZN6object4read8read_ref7ReadRef13read_slice_at17h38aea4cd41b39e30E(ptr noalias noundef nonnull readonly align 1 %0, i64 noundef %1, i64 noundef %2, i64 noundef %3) unnamed_addr #0 {
   %5 = tail call { i64, i1 } @llvm.umul.with.overflow.i64(i64 %3, i64 12)
   %6 = extractvalue { i64, i1 } %5, 0
   %7 = extractvalue { i64, i1 } %5, 1
@@ -1052,7 +1052,7 @@ _ZN6object4read8read_ref7ReadRef10read_slice17hb8eac6abbe167d48E.llvm.1655692584
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden { ptr, i64 } @_ZN6object4read8read_ref7ReadRef13read_slice_at17h42868afa12cb0740E(ptr noalias noundef nonnull readonly align 1 %0, i64 noundef %1, i64 noundef %2, i64 noundef %3) unnamed_addr #3 {
+define hidden { ptr, i64 } @_ZN6object4read8read_ref7ReadRef13read_slice_at17h42868afa12cb0740E(ptr noalias noundef nonnull readonly align 1 %0, i64 noundef %1, i64 noundef %2, i64 noundef %3) unnamed_addr #0 {
   %5 = tail call { i64, i1 } @llvm.umul.with.overflow.i64(i64 %3, i64 68)
   %6 = extractvalue { i64, i1 } %5, 0
   %7 = extractvalue { i64, i1 } %5, 1
@@ -1082,7 +1082,7 @@ _ZN6object4read8read_ref7ReadRef10read_slice17h640ff3e02db74db3E.llvm.1655692584
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden { ptr, i64 } @_ZN6object4read8read_ref7ReadRef13read_slice_at17h6b7b420d26b302a1E(ptr noalias noundef nonnull readonly align 1 %0, i64 noundef %1, i64 noundef %2, i64 noundef %3) unnamed_addr #3 {
+define hidden { ptr, i64 } @_ZN6object4read8read_ref7ReadRef13read_slice_at17h6b7b420d26b302a1E(ptr noalias noundef nonnull readonly align 1 %0, i64 noundef %1, i64 noundef %2, i64 noundef %3) unnamed_addr #0 {
   %5 = shl i64 %3, 4
   %6 = icmp ult i64 %3, 1152921504606846976
   br i1 %6, label %7, label %_ZN6object4read8read_ref7ReadRef10read_slice17haa1bced46011c431E.llvm.1655692584469633042.exit
@@ -1111,7 +1111,7 @@ _ZN6object4read8read_ref7ReadRef10read_slice17haa1bced46011c431E.llvm.1655692584
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden { ptr, i64 } @_ZN6object4read8read_ref7ReadRef13read_slice_at17h98736ebae9f6a966E(ptr noalias noundef nonnull readonly align 1 %0, i64 noundef %1, i64 noundef %2, i64 noundef %3) unnamed_addr #3 {
+define hidden { ptr, i64 } @_ZN6object4read8read_ref7ReadRef13read_slice_at17h98736ebae9f6a966E(ptr noalias noundef nonnull readonly align 1 %0, i64 noundef %1, i64 noundef %2, i64 noundef %3) unnamed_addr #0 {
   %5 = tail call { i64, i1 } @llvm.umul.with.overflow.i64(i64 %3, i64 40)
   %6 = extractvalue { i64, i1 } %5, 0
   %7 = extractvalue { i64, i1 } %5, 1
@@ -1141,7 +1141,7 @@ _ZN6object4read8read_ref7ReadRef10read_slice17h336095696dcc11c1E.llvm.1655692584
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden { ptr, i64 } @_ZN6object4read8read_ref7ReadRef13read_slice_at17haa18030780274c03E(ptr noalias noundef nonnull readonly align 1 %0, i64 noundef %1, i64 noundef %2, i64 noundef %3) unnamed_addr #3 {
+define hidden { ptr, i64 } @_ZN6object4read8read_ref7ReadRef13read_slice_at17haa18030780274c03E(ptr noalias noundef nonnull readonly align 1 %0, i64 noundef %1, i64 noundef %2, i64 noundef %3) unnamed_addr #0 {
   %5 = tail call { i64, i1 } @llvm.umul.with.overflow.i64(i64 %3, i64 56)
   %6 = extractvalue { i64, i1 } %5, 0
   %7 = extractvalue { i64, i1 } %5, 1
@@ -1171,7 +1171,7 @@ _ZN6object4read8read_ref7ReadRef10read_slice17hc2d6f951a94038bbE.llvm.1655692584
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noundef align 8 dereferenceable_or_null(64) ptr @_ZN6object4read8read_ref7ReadRef4read17h188bb1c4c4ef776dE.llvm.1655692584469633042(ptr noalias noundef nonnull readonly align 1 %0, i64 noundef %1, ptr noalias nocapture noundef align 8 dereferenceable(8) %2) unnamed_addr #3 {
+define hidden noundef align 8 dereferenceable_or_null(64) ptr @_ZN6object4read8read_ref7ReadRef4read17h188bb1c4c4ef776dE.llvm.1655692584469633042(ptr noalias noundef nonnull readonly align 1 %0, i64 noundef %1, ptr noalias nocapture noundef align 8 dereferenceable(8) %2) unnamed_addr #0 {
   tail call void @llvm.experimental.noalias.scope.decl(metadata !152)
   %4 = load i64, ptr %2, align 8, !alias.scope !152, !noalias !155, !noundef !4
   %5 = tail call { ptr, i64 } @"_ZN68_$LT$$RF$$u5b$u8$u5d$$u20$as$u20$object..read..read_ref..ReadRef$GT$13read_bytes_at17hb5861fd5c56fe37cE"(ptr noalias noundef nonnull readonly align 1 %0, i64 noundef %1, i64 noundef %4, i64 noundef 64), !noalias !152
@@ -1197,7 +1197,7 @@ _ZN6object4read8read_ref7ReadRef10read_bytes17h480aa599d9dd1975E.exit.thread: ; 
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noundef align 4 dereferenceable_or_null(32) ptr @_ZN6object4read8read_ref7ReadRef4read17h226f7740a22bbc80E.llvm.1655692584469633042(ptr noalias noundef nonnull readonly align 1 %0, i64 noundef %1, ptr noalias nocapture noundef align 8 dereferenceable(8) %2) unnamed_addr #3 {
+define hidden noundef align 4 dereferenceable_or_null(32) ptr @_ZN6object4read8read_ref7ReadRef4read17h226f7740a22bbc80E.llvm.1655692584469633042(ptr noalias noundef nonnull readonly align 1 %0, i64 noundef %1, ptr noalias nocapture noundef align 8 dereferenceable(8) %2) unnamed_addr #0 {
   tail call void @llvm.experimental.noalias.scope.decl(metadata !157)
   %4 = load i64, ptr %2, align 8, !alias.scope !157, !noalias !160, !noundef !4
   %5 = tail call { ptr, i64 } @"_ZN68_$LT$$RF$$u5b$u8$u5d$$u20$as$u20$object..read..read_ref..ReadRef$GT$13read_bytes_at17hb5861fd5c56fe37cE"(ptr noalias noundef nonnull readonly align 1 %0, i64 noundef %1, i64 noundef %4, i64 noundef 32), !noalias !157
@@ -1223,7 +1223,7 @@ _ZN6object4read8read_ref7ReadRef10read_bytes17h480aa599d9dd1975E.exit.thread: ; 
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noundef align 8 dereferenceable_or_null(64) ptr @_ZN6object4read8read_ref7ReadRef4read17h41931d68f2494f71E.llvm.1655692584469633042(ptr noalias noundef nonnull readonly align 1 %0, i64 noundef %1, ptr noalias nocapture noundef align 8 dereferenceable(8) %2) unnamed_addr #3 {
+define hidden noundef align 8 dereferenceable_or_null(64) ptr @_ZN6object4read8read_ref7ReadRef4read17h41931d68f2494f71E.llvm.1655692584469633042(ptr noalias noundef nonnull readonly align 1 %0, i64 noundef %1, ptr noalias nocapture noundef align 8 dereferenceable(8) %2) unnamed_addr #0 {
   tail call void @llvm.experimental.noalias.scope.decl(metadata !162)
   %4 = load i64, ptr %2, align 8, !alias.scope !162, !noalias !165, !noundef !4
   %5 = tail call { ptr, i64 } @"_ZN68_$LT$$RF$$u5b$u8$u5d$$u20$as$u20$object..read..read_ref..ReadRef$GT$13read_bytes_at17hb5861fd5c56fe37cE"(ptr noalias noundef nonnull readonly align 1 %0, i64 noundef %1, i64 noundef %4, i64 noundef 64), !noalias !162
@@ -1249,7 +1249,7 @@ _ZN6object4read8read_ref7ReadRef10read_bytes17h480aa599d9dd1975E.exit.thread: ; 
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noundef align 4 dereferenceable_or_null(52) ptr @_ZN6object4read8read_ref7ReadRef4read17h43bf4884b6702ae2E.llvm.1655692584469633042(ptr noalias noundef nonnull readonly align 1 %0, i64 noundef %1, ptr noalias nocapture noundef align 8 dereferenceable(8) %2) unnamed_addr #3 {
+define hidden noundef align 4 dereferenceable_or_null(52) ptr @_ZN6object4read8read_ref7ReadRef4read17h43bf4884b6702ae2E.llvm.1655692584469633042(ptr noalias noundef nonnull readonly align 1 %0, i64 noundef %1, ptr noalias nocapture noundef align 8 dereferenceable(8) %2) unnamed_addr #0 {
   tail call void @llvm.experimental.noalias.scope.decl(metadata !167)
   %4 = load i64, ptr %2, align 8, !alias.scope !167, !noalias !170, !noundef !4
   %5 = tail call { ptr, i64 } @"_ZN68_$LT$$RF$$u5b$u8$u5d$$u20$as$u20$object..read..read_ref..ReadRef$GT$13read_bytes_at17hb5861fd5c56fe37cE"(ptr noalias noundef nonnull readonly align 1 %0, i64 noundef %1, i64 noundef %4, i64 noundef 52), !noalias !167
@@ -1275,7 +1275,7 @@ _ZN6object4read8read_ref7ReadRef10read_bytes17h480aa599d9dd1975E.exit.thread: ; 
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noundef align 4 dereferenceable_or_null(40) ptr @_ZN6object4read8read_ref7ReadRef4read17h4f8ccd93a310bb2eE.llvm.1655692584469633042(ptr noalias noundef nonnull readonly align 1 %0, i64 noundef %1, ptr noalias nocapture noundef align 8 dereferenceable(8) %2) unnamed_addr #3 {
+define hidden noundef align 4 dereferenceable_or_null(40) ptr @_ZN6object4read8read_ref7ReadRef4read17h4f8ccd93a310bb2eE.llvm.1655692584469633042(ptr noalias noundef nonnull readonly align 1 %0, i64 noundef %1, ptr noalias nocapture noundef align 8 dereferenceable(8) %2) unnamed_addr #0 {
   tail call void @llvm.experimental.noalias.scope.decl(metadata !172)
   %4 = load i64, ptr %2, align 8, !alias.scope !172, !noalias !175, !noundef !4
   %5 = tail call { ptr, i64 } @"_ZN68_$LT$$RF$$u5b$u8$u5d$$u20$as$u20$object..read..read_ref..ReadRef$GT$13read_bytes_at17hb5861fd5c56fe37cE"(ptr noalias noundef nonnull readonly align 1 %0, i64 noundef %1, i64 noundef %4, i64 noundef 40), !noalias !172
@@ -1301,7 +1301,7 @@ _ZN6object4read8read_ref7ReadRef10read_bytes17h480aa599d9dd1975E.exit.thread: ; 
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noundef align 1 dereferenceable_or_null(4) ptr @_ZN6object4read8read_ref7ReadRef4read17h5f5787a12f805378E.llvm.1655692584469633042(ptr noalias noundef nonnull readonly align 1 %0, i64 noundef %1, ptr noalias nocapture noundef align 8 dereferenceable(8) %2) unnamed_addr #3 {
+define hidden noundef align 1 dereferenceable_or_null(4) ptr @_ZN6object4read8read_ref7ReadRef4read17h5f5787a12f805378E.llvm.1655692584469633042(ptr noalias noundef nonnull readonly align 1 %0, i64 noundef %1, ptr noalias nocapture noundef align 8 dereferenceable(8) %2) unnamed_addr #0 {
   tail call void @llvm.experimental.noalias.scope.decl(metadata !177)
   %4 = load i64, ptr %2, align 8, !alias.scope !177, !noalias !180, !noundef !4
   %5 = tail call { ptr, i64 } @"_ZN68_$LT$$RF$$u5b$u8$u5d$$u20$as$u20$object..read..read_ref..ReadRef$GT$13read_bytes_at17hb5861fd5c56fe37cE"(ptr noalias noundef nonnull readonly align 1 %0, i64 noundef %1, i64 noundef %4, i64 noundef 4), !noalias !177
@@ -1323,7 +1323,7 @@ _ZN6object4read8read_ref7ReadRef10read_bytes17h480aa599d9dd1975E.exit.thread: ; 
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noundef align 4 dereferenceable_or_null(28) ptr @_ZN6object4read8read_ref7ReadRef4read17h79fba1a78f44caedE.llvm.1655692584469633042(ptr noalias noundef nonnull readonly align 1 %0, i64 noundef %1, ptr noalias nocapture noundef align 8 dereferenceable(8) %2) unnamed_addr #3 {
+define hidden noundef align 4 dereferenceable_or_null(28) ptr @_ZN6object4read8read_ref7ReadRef4read17h79fba1a78f44caedE.llvm.1655692584469633042(ptr noalias noundef nonnull readonly align 1 %0, i64 noundef %1, ptr noalias nocapture noundef align 8 dereferenceable(8) %2) unnamed_addr #0 {
   tail call void @llvm.experimental.noalias.scope.decl(metadata !182)
   %4 = load i64, ptr %2, align 8, !alias.scope !182, !noalias !185, !noundef !4
   %5 = tail call { ptr, i64 } @"_ZN68_$LT$$RF$$u5b$u8$u5d$$u20$as$u20$object..read..read_ref..ReadRef$GT$13read_bytes_at17hb5861fd5c56fe37cE"(ptr noalias noundef nonnull readonly align 1 %0, i64 noundef %1, i64 noundef %4, i64 noundef 28), !noalias !182
@@ -1349,7 +1349,7 @@ _ZN6object4read8read_ref7ReadRef10read_bytes17h480aa599d9dd1975E.exit.thread: ; 
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noundef align 4 dereferenceable_or_null(32) ptr @_ZN6object4read8read_ref7ReadRef4read17ha64c8063aa5da23dE.llvm.1655692584469633042(ptr noalias noundef nonnull readonly align 1 %0, i64 noundef %1, ptr noalias nocapture noundef align 8 dereferenceable(8) %2) unnamed_addr #3 {
+define hidden noundef align 4 dereferenceable_or_null(32) ptr @_ZN6object4read8read_ref7ReadRef4read17ha64c8063aa5da23dE.llvm.1655692584469633042(ptr noalias noundef nonnull readonly align 1 %0, i64 noundef %1, ptr noalias nocapture noundef align 8 dereferenceable(8) %2) unnamed_addr #0 {
   tail call void @llvm.experimental.noalias.scope.decl(metadata !187)
   %4 = load i64, ptr %2, align 8, !alias.scope !187, !noalias !190, !noundef !4
   %5 = tail call { ptr, i64 } @"_ZN68_$LT$$RF$$u5b$u8$u5d$$u20$as$u20$object..read..read_ref..ReadRef$GT$13read_bytes_at17hb5861fd5c56fe37cE"(ptr noalias noundef nonnull readonly align 1 %0, i64 noundef %1, i64 noundef %4, i64 noundef 32), !noalias !187
@@ -1375,7 +1375,7 @@ _ZN6object4read8read_ref7ReadRef10read_bytes17h480aa599d9dd1975E.exit.thread: ; 
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noundef align 4 dereferenceable_or_null(120) ptr @_ZN6object4read8read_ref7ReadRef4read17hd4f78736b92d3ddeE.llvm.1655692584469633042(ptr noalias noundef nonnull readonly align 1 %0, i64 noundef %1, ptr noalias nocapture noundef align 8 dereferenceable(8) %2) unnamed_addr #3 {
+define hidden noundef align 4 dereferenceable_or_null(120) ptr @_ZN6object4read8read_ref7ReadRef4read17hd4f78736b92d3ddeE.llvm.1655692584469633042(ptr noalias noundef nonnull readonly align 1 %0, i64 noundef %1, ptr noalias nocapture noundef align 8 dereferenceable(8) %2) unnamed_addr #0 {
   tail call void @llvm.experimental.noalias.scope.decl(metadata !192)
   %4 = load i64, ptr %2, align 8, !alias.scope !192, !noalias !195, !noundef !4
   %5 = tail call { ptr, i64 } @"_ZN68_$LT$$RF$$u5b$u8$u5d$$u20$as$u20$object..read..read_ref..ReadRef$GT$13read_bytes_at17hb5861fd5c56fe37cE"(ptr noalias noundef nonnull readonly align 1 %0, i64 noundef %1, i64 noundef %4, i64 noundef 120), !noalias !192
@@ -1401,7 +1401,7 @@ _ZN6object4read8read_ref7ReadRef10read_bytes17h480aa599d9dd1975E.exit.thread: ; 
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noundef align 4 dereferenceable_or_null(64) ptr @_ZN6object4read8read_ref7ReadRef4read17he9d5af677a74dc99E.llvm.1655692584469633042(ptr noalias noundef nonnull readonly align 1 %0, i64 noundef %1, ptr noalias nocapture noundef align 8 dereferenceable(8) %2) unnamed_addr #3 {
+define hidden noundef align 4 dereferenceable_or_null(64) ptr @_ZN6object4read8read_ref7ReadRef4read17he9d5af677a74dc99E.llvm.1655692584469633042(ptr noalias noundef nonnull readonly align 1 %0, i64 noundef %1, ptr noalias nocapture noundef align 8 dereferenceable(8) %2) unnamed_addr #0 {
   tail call void @llvm.experimental.noalias.scope.decl(metadata !197)
   %4 = load i64, ptr %2, align 8, !alias.scope !197, !noalias !200, !noundef !4
   %5 = tail call { ptr, i64 } @"_ZN68_$LT$$RF$$u5b$u8$u5d$$u20$as$u20$object..read..read_ref..ReadRef$GT$13read_bytes_at17hb5861fd5c56fe37cE"(ptr noalias noundef nonnull readonly align 1 %0, i64 noundef %1, i64 noundef %4, i64 noundef 64), !noalias !197
@@ -1427,7 +1427,7 @@ _ZN6object4read8read_ref7ReadRef10read_bytes17h480aa599d9dd1975E.exit.thread: ; 
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noundef align 4 dereferenceable_or_null(52) ptr @_ZN6object4read8read_ref7ReadRef7read_at17h4186b4b7e74b874fE(ptr noalias noundef nonnull readonly align 1 %0, i64 noundef %1, i64 noundef %2) unnamed_addr #3 {
+define hidden noundef align 4 dereferenceable_or_null(52) ptr @_ZN6object4read8read_ref7ReadRef7read_at17h4186b4b7e74b874fE(ptr noalias noundef nonnull readonly align 1 %0, i64 noundef %1, i64 noundef %2) unnamed_addr #0 {
   %4 = tail call { ptr, i64 } @"_ZN68_$LT$$RF$$u5b$u8$u5d$$u20$as$u20$object..read..read_ref..ReadRef$GT$13read_bytes_at17hb5861fd5c56fe37cE"(ptr noalias noundef nonnull readonly align 1 %0, i64 noundef %1, i64 noundef %2, i64 noundef 52), !noalias !202
   %5 = extractvalue { ptr, i64 } %4, 0
   %6 = icmp eq ptr %5, null
@@ -1449,7 +1449,7 @@ _ZN6object4read8read_ref7ReadRef4read17h43bf4884b6702ae2E.llvm.16556925844696330
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noundef align 4 dereferenceable_or_null(40) ptr @_ZN6object4read8read_ref7ReadRef7read_at17h6371400ef8389033E(ptr noalias noundef nonnull readonly align 1 %0, i64 noundef %1, i64 noundef %2) unnamed_addr #3 {
+define hidden noundef align 4 dereferenceable_or_null(40) ptr @_ZN6object4read8read_ref7ReadRef7read_at17h6371400ef8389033E(ptr noalias noundef nonnull readonly align 1 %0, i64 noundef %1, i64 noundef %2) unnamed_addr #0 {
   %4 = tail call { ptr, i64 } @"_ZN68_$LT$$RF$$u5b$u8$u5d$$u20$as$u20$object..read..read_ref..ReadRef$GT$13read_bytes_at17hb5861fd5c56fe37cE"(ptr noalias noundef nonnull readonly align 1 %0, i64 noundef %1, i64 noundef %2, i64 noundef 40), !noalias !207
   %5 = extractvalue { ptr, i64 } %4, 0
   %6 = icmp eq ptr %5, null
@@ -1471,7 +1471,7 @@ _ZN6object4read8read_ref7ReadRef4read17h4f8ccd93a310bb2eE.llvm.16556925844696330
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noundef align 8 dereferenceable_or_null(64) ptr @_ZN6object4read8read_ref7ReadRef7read_at17h7b4fb86bf96f48f2E(ptr noalias noundef nonnull readonly align 1 %0, i64 noundef %1, i64 noundef %2) unnamed_addr #3 {
+define hidden noundef align 8 dereferenceable_or_null(64) ptr @_ZN6object4read8read_ref7ReadRef7read_at17h7b4fb86bf96f48f2E(ptr noalias noundef nonnull readonly align 1 %0, i64 noundef %1, i64 noundef %2) unnamed_addr #0 {
   %4 = tail call { ptr, i64 } @"_ZN68_$LT$$RF$$u5b$u8$u5d$$u20$as$u20$object..read..read_ref..ReadRef$GT$13read_bytes_at17hb5861fd5c56fe37cE"(ptr noalias noundef nonnull readonly align 1 %0, i64 noundef %1, i64 noundef %2, i64 noundef 64), !noalias !212
   %5 = extractvalue { ptr, i64 } %4, 0
   %6 = icmp eq ptr %5, null
@@ -1493,7 +1493,7 @@ _ZN6object4read8read_ref7ReadRef4read17h188bb1c4c4ef776dE.llvm.16556925844696330
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noundef align 8 dereferenceable_or_null(64) ptr @_ZN6object4read8read_ref7ReadRef7read_at17h90db67429c6b3210E(ptr noalias noundef nonnull readonly align 1 %0, i64 noundef %1, i64 noundef %2) unnamed_addr #3 {
+define hidden noundef align 8 dereferenceable_or_null(64) ptr @_ZN6object4read8read_ref7ReadRef7read_at17h90db67429c6b3210E(ptr noalias noundef nonnull readonly align 1 %0, i64 noundef %1, i64 noundef %2) unnamed_addr #0 {
   %4 = tail call { ptr, i64 } @"_ZN68_$LT$$RF$$u5b$u8$u5d$$u20$as$u20$object..read..read_ref..ReadRef$GT$13read_bytes_at17hb5861fd5c56fe37cE"(ptr noalias noundef nonnull readonly align 1 %0, i64 noundef %1, i64 noundef %2, i64 noundef 64), !noalias !217
   %5 = extractvalue { ptr, i64 } %4, 0
   %6 = icmp eq ptr %5, null
@@ -1515,7 +1515,7 @@ _ZN6object4read8read_ref7ReadRef4read17h41931d68f2494f71E.llvm.16556925844696330
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noundef align 4 dereferenceable_or_null(120) ptr @_ZN6object4read8read_ref7ReadRef7read_at17h96868bad3e4df192E(ptr noalias noundef nonnull readonly align 1 %0, i64 noundef %1, i64 noundef %2) unnamed_addr #3 {
+define hidden noundef align 4 dereferenceable_or_null(120) ptr @_ZN6object4read8read_ref7ReadRef7read_at17h96868bad3e4df192E(ptr noalias noundef nonnull readonly align 1 %0, i64 noundef %1, i64 noundef %2) unnamed_addr #0 {
   %4 = tail call { ptr, i64 } @"_ZN68_$LT$$RF$$u5b$u8$u5d$$u20$as$u20$object..read..read_ref..ReadRef$GT$13read_bytes_at17hb5861fd5c56fe37cE"(ptr noalias noundef nonnull readonly align 1 %0, i64 noundef %1, i64 noundef %2, i64 noundef 120), !noalias !222
   %5 = extractvalue { ptr, i64 } %4, 0
   %6 = icmp eq ptr %5, null
@@ -1537,7 +1537,7 @@ _ZN6object4read8read_ref7ReadRef4read17hd4f78736b92d3ddeE.llvm.16556925844696330
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noundef align 1 dereferenceable_or_null(4) ptr @_ZN6object4read8read_ref7ReadRef7read_at17ha2dc5561d6608366E(ptr noalias noundef nonnull readonly align 1 %0, i64 noundef %1, i64 noundef %2) unnamed_addr #3 {
+define hidden noundef align 1 dereferenceable_or_null(4) ptr @_ZN6object4read8read_ref7ReadRef7read_at17ha2dc5561d6608366E(ptr noalias noundef nonnull readonly align 1 %0, i64 noundef %1, i64 noundef %2) unnamed_addr #0 {
 _ZN6object4read8read_ref7ReadRef4read17h5f5787a12f805378E.llvm.1655692584469633042.exit:
   %3 = tail call { ptr, i64 } @"_ZN68_$LT$$RF$$u5b$u8$u5d$$u20$as$u20$object..read..read_ref..ReadRef$GT$13read_bytes_at17hb5861fd5c56fe37cE"(ptr noalias noundef nonnull readonly align 1 %0, i64 noundef %1, i64 noundef %2, i64 noundef 4), !noalias !227
   %4 = extractvalue { ptr, i64 } %3, 0
@@ -1550,7 +1550,7 @@ _ZN6object4read8read_ref7ReadRef4read17h5f5787a12f805378E.llvm.16556925844696330
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noundef align 4 dereferenceable_or_null(64) ptr @_ZN6object4read8read_ref7ReadRef7read_at17hb80828e7c54106e7E.llvm.1655692584469633042(ptr noalias noundef nonnull readonly align 1 %0, i64 noundef %1, i64 noundef %2) unnamed_addr #3 {
+define hidden noundef align 4 dereferenceable_or_null(64) ptr @_ZN6object4read8read_ref7ReadRef7read_at17hb80828e7c54106e7E.llvm.1655692584469633042(ptr noalias noundef nonnull readonly align 1 %0, i64 noundef %1, i64 noundef %2) unnamed_addr #0 {
   %4 = tail call { ptr, i64 } @"_ZN68_$LT$$RF$$u5b$u8$u5d$$u20$as$u20$object..read..read_ref..ReadRef$GT$13read_bytes_at17hb5861fd5c56fe37cE"(ptr noalias noundef nonnull readonly align 1 %0, i64 noundef %1, i64 noundef %2, i64 noundef 64), !noalias !232
   %5 = extractvalue { ptr, i64 } %4, 0
   %6 = icmp eq ptr %5, null
@@ -1572,7 +1572,7 @@ _ZN6object4read8read_ref7ReadRef4read17he9d5af677a74dc99E.llvm.16556925844696330
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noundef align 4 dereferenceable_or_null(32) ptr @_ZN6object4read8read_ref7ReadRef7read_at17hc9a178284b007869E(ptr noalias noundef nonnull readonly align 1 %0, i64 noundef %1, i64 noundef %2) unnamed_addr #3 {
+define hidden noundef align 4 dereferenceable_or_null(32) ptr @_ZN6object4read8read_ref7ReadRef7read_at17hc9a178284b007869E(ptr noalias noundef nonnull readonly align 1 %0, i64 noundef %1, i64 noundef %2) unnamed_addr #0 {
   %4 = tail call { ptr, i64 } @"_ZN68_$LT$$RF$$u5b$u8$u5d$$u20$as$u20$object..read..read_ref..ReadRef$GT$13read_bytes_at17hb5861fd5c56fe37cE"(ptr noalias noundef nonnull readonly align 1 %0, i64 noundef %1, i64 noundef %2, i64 noundef 32), !noalias !237
   %5 = extractvalue { ptr, i64 } %4, 0
   %6 = icmp eq ptr %5, null
@@ -1594,7 +1594,7 @@ _ZN6object4read8read_ref7ReadRef4read17ha64c8063aa5da23dE.llvm.16556925844696330
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noundef align 4 dereferenceable_or_null(28) ptr @_ZN6object4read8read_ref7ReadRef7read_at17hd245e23efec1d56bE(ptr noalias noundef nonnull readonly align 1 %0, i64 noundef %1, i64 noundef %2) unnamed_addr #3 {
+define hidden noundef align 4 dereferenceable_or_null(28) ptr @_ZN6object4read8read_ref7ReadRef7read_at17hd245e23efec1d56bE(ptr noalias noundef nonnull readonly align 1 %0, i64 noundef %1, i64 noundef %2) unnamed_addr #0 {
   %4 = tail call { ptr, i64 } @"_ZN68_$LT$$RF$$u5b$u8$u5d$$u20$as$u20$object..read..read_ref..ReadRef$GT$13read_bytes_at17hb5861fd5c56fe37cE"(ptr noalias noundef nonnull readonly align 1 %0, i64 noundef %1, i64 noundef %2, i64 noundef 28), !noalias !242
   %5 = extractvalue { ptr, i64 } %4, 0
   %6 = icmp eq ptr %5, null
@@ -1616,7 +1616,7 @@ _ZN6object4read8read_ref7ReadRef4read17h79fba1a78f44caedE.llvm.16556925844696330
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noundef align 4 dereferenceable_or_null(32) ptr @_ZN6object4read8read_ref7ReadRef7read_at17hd5e22f4e0062ad33E(ptr noalias noundef nonnull readonly align 1 %0, i64 noundef %1, i64 noundef %2) unnamed_addr #3 {
+define hidden noundef align 4 dereferenceable_or_null(32) ptr @_ZN6object4read8read_ref7ReadRef7read_at17hd5e22f4e0062ad33E(ptr noalias noundef nonnull readonly align 1 %0, i64 noundef %1, i64 noundef %2) unnamed_addr #0 {
   %4 = tail call { ptr, i64 } @"_ZN68_$LT$$RF$$u5b$u8$u5d$$u20$as$u20$object..read..read_ref..ReadRef$GT$13read_bytes_at17hb5861fd5c56fe37cE"(ptr noalias noundef nonnull readonly align 1 %0, i64 noundef %1, i64 noundef %2, i64 noundef 32), !noalias !247
   %5 = extractvalue { ptr, i64 } %4, 0
   %6 = icmp eq ptr %5, null
@@ -1638,7 +1638,7 @@ _ZN6object4read8read_ref7ReadRef4read17h226f7740a22bbc80E.llvm.16556925844696330
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden void @"_ZN84_$LT$object..pe..ImageFileHeader$u20$as$u20$object..read..coff..file..CoffHeader$GT$5parse17h0b5ba12c3f00fba0E"(ptr noalias nocapture noundef writeonly sret({ ptr, [1 x i64] }) align 8 dereferenceable(16) %0, ptr noalias noundef nonnull readonly align 1 %1, i64 noundef %2, ptr noalias nocapture noundef align 8 dereferenceable(8) %3) unnamed_addr #3 {
+define hidden void @"_ZN84_$LT$object..pe..ImageFileHeader$u20$as$u20$object..read..coff..file..CoffHeader$GT$5parse17h0b5ba12c3f00fba0E"(ptr noalias nocapture noundef writeonly sret({ ptr, [1 x i64] }) align 8 dereferenceable(16) %0, ptr noalias noundef nonnull readonly align 1 %1, i64 noundef %2, ptr noalias nocapture noundef align 8 dereferenceable(8) %3) unnamed_addr #0 {
   tail call void @llvm.experimental.noalias.scope.decl(metadata !252)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !255)
   %5 = load i64, ptr %3, align 8, !noundef !4
@@ -1692,7 +1692,7 @@ _ZN6object4read8read_ref7ReadRef4read17h4375711d2807dc34E.exit.thread: ; preds =
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden void @"_ZN91_$LT$object..pe..AnonObjectHeaderBigobj$u20$as$u20$object..read..coff..file..CoffHeader$GT$5parse17hc938668a8a2626edE"(ptr noalias nocapture noundef writeonly sret({ ptr, [1 x i64] }) align 8 dereferenceable(16) %0, ptr noalias noundef nonnull readonly align 1 %1, i64 noundef %2, ptr noalias nocapture noundef align 8 dereferenceable(8) %3) unnamed_addr #3 {
+define hidden void @"_ZN91_$LT$object..pe..AnonObjectHeaderBigobj$u20$as$u20$object..read..coff..file..CoffHeader$GT$5parse17hc938668a8a2626edE"(ptr noalias nocapture noundef writeonly sret({ ptr, [1 x i64] }) align 8 dereferenceable(16) %0, ptr noalias noundef nonnull readonly align 1 %1, i64 noundef %2, ptr noalias nocapture noundef align 8 dereferenceable(8) %3) unnamed_addr #0 {
   tail call void @llvm.experimental.noalias.scope.decl(metadata !262)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !265)
   %5 = load i64, ptr %3, align 8, !alias.scope !268, !noalias !269, !noundef !4
@@ -1760,7 +1760,7 @@ _ZN6object4read8read_ref7ReadRef4read17hf55c8d5ff0a948efE.exit.thread: ; preds =
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
-define hidden { ptr, i64 } @"_ZN93_$LT$core..result..Result$LT$T$C$$LP$$RP$$GT$$u20$as$u20$object..read..ReadError$LT$T$GT$$GT$10read_error28_$u7b$$u7b$closure$u7d$$u7d$17h29a8700cebde3508E.llvm.1655692584469633042"(ptr noalias nocapture noundef readonly align 8 dereferenceable(16) %0) unnamed_addr #4 {
+define hidden { ptr, i64 } @"_ZN93_$LT$core..result..Result$LT$T$C$$LP$$RP$$GT$$u20$as$u20$object..read..ReadError$LT$T$GT$$GT$10read_error28_$u7b$$u7b$closure$u7d$$u7d$17h29a8700cebde3508E.llvm.1655692584469633042"(ptr noalias nocapture noundef readonly align 8 dereferenceable(16) %0) unnamed_addr #3 {
   %2 = load ptr, ptr %0, align 8, !nonnull !4, !align !5, !noundef !4
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   %4 = load i64, ptr %3, align 8, !noundef !4
@@ -1770,7 +1770,7 @@ define hidden { ptr, i64 } @"_ZN93_$LT$core..result..Result$LT$T$C$$LP$$RP$$GT$$
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
-define hidden { ptr, i64 } @"_ZN93_$LT$core..result..Result$LT$T$C$$LP$$RP$$GT$$u20$as$u20$object..read..ReadError$LT$T$GT$$GT$10read_error28_$u7b$$u7b$closure$u7d$$u7d$17h9ec88ddb599d36eeE.llvm.1655692584469633042"(ptr noalias nocapture noundef readonly align 8 dereferenceable(16) %0) unnamed_addr #4 {
+define hidden { ptr, i64 } @"_ZN93_$LT$core..result..Result$LT$T$C$$LP$$RP$$GT$$u20$as$u20$object..read..ReadError$LT$T$GT$$GT$10read_error28_$u7b$$u7b$closure$u7d$$u7d$17h9ec88ddb599d36eeE.llvm.1655692584469633042"(ptr noalias nocapture noundef readonly align 8 dereferenceable(16) %0) unnamed_addr #3 {
   %2 = load ptr, ptr %0, align 8, !nonnull !4, !align !5, !noundef !4
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   %4 = load i64, ptr %3, align 8, !noundef !4
@@ -1780,51 +1780,51 @@ define hidden { ptr, i64 } @"_ZN93_$LT$core..result..Result$LT$T$C$$LP$$RP$$GT$$
 }
 
 ; Function Attrs: nonlazybind uwtable
-declare noundef i32 @rust_eh_personality(i32 noundef, i32 noundef, i64 noundef, ptr noundef, ptr noundef) unnamed_addr #3
+declare noundef i32 @rust_eh_personality(i32 noundef, i32 noundef, i64 noundef, ptr noundef, ptr noundef) unnamed_addr #0
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare { i64, i1 } @llvm.uadd.with.overflow.i64(i64, i64) #5
+declare { i64, i1 } @llvm.uadd.with.overflow.i64(i64, i64) #4
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare { i64, i1 } @llvm.umul.with.overflow.i64(i64, i64) #5
+declare { i64, i1 } @llvm.umul.with.overflow.i64(i64, i64) #4
 
 ; Function Attrs: nonlazybind uwtable
-declare void @_ZN6object4read2pe14data_directory15DataDirectories5parse17h1ec60064e8a6c886E(ptr noalias nocapture noundef sret({ i64, [2 x i64] }) align 8 dereferenceable(24), ptr noalias noundef nonnull readonly align 1, i64 noundef, i32 noundef) unnamed_addr #3
+declare void @_ZN6object4read2pe14data_directory15DataDirectories5parse17h1ec60064e8a6c886E(ptr noalias nocapture noundef sret({ i64, [2 x i64] }) align 8 dereferenceable(24), ptr noalias noundef nonnull readonly align 1, i64 noundef, i32 noundef) unnamed_addr #0
 
 ; Function Attrs: nonlazybind uwtable
-declare { i32, i32 } @"_ZN6object4read2pe7section48_$LT$impl$u20$object..pe..ImageSectionHeader$GT$13pe_file_range17h999a54f0f491ce59E"(ptr noalias noundef readonly align 4 dereferenceable(40)) unnamed_addr #3
+declare { i32, i32 } @"_ZN6object4read2pe7section48_$LT$impl$u20$object..pe..ImageSectionHeader$GT$13pe_file_range17h999a54f0f491ce59E"(ptr noalias noundef readonly align 4 dereferenceable(40)) unnamed_addr #0
 
 ; Function Attrs: nonlazybind uwtable
-declare { ptr, i64 } @"_ZN68_$LT$$RF$$u5b$u8$u5d$$u20$as$u20$object..read..read_ref..ReadRef$GT$13read_bytes_at17hb5861fd5c56fe37cE"(ptr noalias noundef nonnull readonly align 1, i64 noundef, i64 noundef, i64 noundef) unnamed_addr #3
+declare { ptr, i64 } @"_ZN68_$LT$$RF$$u5b$u8$u5d$$u20$as$u20$object..read..read_ref..ReadRef$GT$13read_bytes_at17hb5861fd5c56fe37cE"(ptr noalias noundef nonnull readonly align 1, i64 noundef, i64 noundef, i64 noundef) unnamed_addr #0
 
 ; Function Attrs: nonlazybind uwtable
-declare void @"_ZN6object4read4coff7section48_$LT$impl$u20$object..pe..ImageSectionHeader$GT$11name_offset17hb9951dc80704ebc3E"(ptr noalias nocapture noundef sret({ ptr, [1 x i64] }) align 8 dereferenceable(16), ptr noalias noundef readonly align 4 dereferenceable(40)) unnamed_addr #3
+declare void @"_ZN6object4read4coff7section48_$LT$impl$u20$object..pe..ImageSectionHeader$GT$11name_offset17hb9951dc80704ebc3E"(ptr noalias nocapture noundef sret({ ptr, [1 x i64] }) align 8 dereferenceable(16), ptr noalias noundef readonly align 4 dereferenceable(40)) unnamed_addr #0
 
 ; Function Attrs: nonlazybind uwtable
-declare { ptr, i64 } @"_ZN6object4read4coff7section48_$LT$impl$u20$object..pe..ImageSectionHeader$GT$8raw_name17ha9703572a952e4c2E"(ptr noalias noundef readonly align 4 dereferenceable(40)) unnamed_addr #3
+declare { ptr, i64 } @"_ZN6object4read4coff7section48_$LT$impl$u20$object..pe..ImageSectionHeader$GT$8raw_name17ha9703572a952e4c2E"(ptr noalias noundef readonly align 4 dereferenceable(40)) unnamed_addr #0
 
 ; Function Attrs: nonlazybind uwtable
-declare { ptr, i64 } @"_ZN68_$LT$$RF$$u5b$u8$u5d$$u20$as$u20$object..read..read_ref..ReadRef$GT$19read_bytes_at_until17hfe8f3bbd18c1bce5E"(ptr noalias noundef nonnull readonly align 1, i64 noundef, i64 noundef, i64 noundef, i8 noundef) unnamed_addr #3
+declare { ptr, i64 } @"_ZN68_$LT$$RF$$u5b$u8$u5d$$u20$as$u20$object..read..read_ref..ReadRef$GT$19read_bytes_at_until17hfe8f3bbd18c1bce5E"(ptr noalias noundef nonnull readonly align 1, i64 noundef, i64 noundef, i64 noundef, i8 noundef) unnamed_addr #0
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #6
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #5
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #6
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #5
 
 ; Function Attrs: cold nonlazybind uwtable
-declare hidden noundef nonnull align 8 ptr @_ZN5serde2de5Error13missing_field17h53e6f67c91801e3dE(ptr noalias noundef nonnull readonly align 1, i64 noundef) unnamed_addr #0
+declare hidden noundef nonnull align 8 ptr @_ZN5serde2de5Error13missing_field17h53e6f67c91801e3dE(ptr noalias noundef nonnull readonly align 1, i64 noundef) unnamed_addr #6
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite)
 declare void @llvm.experimental.noalias.scope.decl(metadata) #7
 
-attributes #0 = { cold nonlazybind uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
+attributes #0 = { nonlazybind uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
 attributes #1 = { mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
 attributes #2 = { inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
-attributes #3 = { nonlazybind uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
-attributes #4 = { inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
-attributes #5 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #6 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #3 = { inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
+attributes #4 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #5 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #6 = { cold nonlazybind uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
 attributes #7 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite) }
 
 !llvm.module.flags = !{!0, !1, !2}

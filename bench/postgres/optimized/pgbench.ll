@@ -721,7 +721,7 @@ declare ptr @__errno_location() local_unnamed_addr #1
 ; Function Attrs: mustprogress nofree nounwind willreturn
 declare double @strtod(ptr noundef readonly, ptr nocapture noundef) local_unnamed_addr #3
 
-; Function Attrs: cold noreturn nounwind uwtable
+; Function Attrs: noreturn nounwind uwtable
 define dso_local void @syntax_error(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6) local_unnamed_addr #4 {
   %8 = alloca %struct.PQExpBufferData, align 8
   call void @initPQExpBuffer(ptr noundef nonnull %8) #25
@@ -7979,12 +7979,12 @@ free_command.exit:                                ; preds = %.lr.ph.i59, %265
 302:                                              ; preds = %298
   %303 = call ptr @conditional_stack_create() #25
   %304 = load ptr, ptr %.sroa.1069.1, align 8
-  %.not33.i.i = icmp eq ptr %304, null
-  br i1 %.not33.i.i, label %._crit_edge.i.i, label %.lr.ph.i.i
+  %.not38.i.i = icmp eq ptr %304, null
+  br i1 %.not38.i.i, label %._crit_edge.i.i, label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %302, %337
   %305 = phi ptr [ %341, %337 ], [ %304, %302 ]
-  %.034.i.i = phi i32 [ %338, %337 ], [ 0, %302 ]
+  %.039.i.i = phi i32 [ %338, %337 ], [ 0, %302 ]
   %306 = getelementptr inbounds i8, ptr %305, i64 32
   %307 = load i32, ptr %306, align 8
   %308 = icmp eq i32 %307, 2
@@ -8009,8 +8009,9 @@ free_command.exit:                                ; preds = %.lr.ph.i59, %265
   br i1 %314, label %315, label %317
 
 315:                                              ; preds = %313
-  %316 = add i32 %.034.i.i, 1
-  call fastcc void @ConditionError(ptr noundef %1, i32 noundef %316, ptr noundef nonnull @.str.175)
+  %316 = add i32 %.039.i.i, 1
+  call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 4, i32 noundef 0, ptr noundef nonnull @.str.181, ptr noundef %1, i32 noundef %316, ptr noundef nonnull @.str.175) #25
+  call void @exit(i32 noundef 1) #26
   unreachable
 
 317:                                              ; preds = %313
@@ -8019,8 +8020,9 @@ free_command.exit:                                ; preds = %.lr.ph.i59, %265
   br i1 %319, label %320, label %337
 
 320:                                              ; preds = %317
-  %321 = add i32 %.034.i.i, 1
-  call fastcc void @ConditionError(ptr noundef %1, i32 noundef %321, ptr noundef nonnull @.str.176)
+  %321 = add i32 %.039.i.i, 1
+  call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 4, i32 noundef 0, ptr noundef nonnull @.str.181, ptr noundef %1, i32 noundef %321, ptr noundef nonnull @.str.176) #25
+  call void @exit(i32 noundef 1) #26
   unreachable
 
 322:                                              ; preds = %309
@@ -8028,8 +8030,9 @@ free_command.exit:                                ; preds = %.lr.ph.i59, %265
   br i1 %323, label %324, label %326
 
 324:                                              ; preds = %322
-  %325 = add i32 %.034.i.i, 1
-  call fastcc void @ConditionError(ptr noundef %1, i32 noundef %325, ptr noundef nonnull @.str.177)
+  %325 = add i32 %.039.i.i, 1
+  call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 4, i32 noundef 0, ptr noundef nonnull @.str.181, ptr noundef %1, i32 noundef %325, ptr noundef nonnull @.str.177) #25
+  call void @exit(i32 noundef 1) #26
   unreachable
 
 326:                                              ; preds = %322
@@ -8038,8 +8041,9 @@ free_command.exit:                                ; preds = %.lr.ph.i59, %265
   br i1 %328, label %329, label %331
 
 329:                                              ; preds = %326
-  %330 = add i32 %.034.i.i, 1
-  call fastcc void @ConditionError(ptr noundef %1, i32 noundef %330, ptr noundef nonnull @.str.178)
+  %330 = add i32 %.039.i.i, 1
+  call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 4, i32 noundef 0, ptr noundef nonnull @.str.181, ptr noundef %1, i32 noundef %330, ptr noundef nonnull @.str.178) #25
+  call void @exit(i32 noundef 1) #26
   unreachable
 
 331:                                              ; preds = %326
@@ -8051,12 +8055,13 @@ free_command.exit:                                ; preds = %.lr.ph.i59, %265
   br i1 %334, label %337, label %335
 
 335:                                              ; preds = %333
-  %336 = add i32 %.034.i.i, 1
-  call fastcc void @ConditionError(ptr noundef %1, i32 noundef %336, ptr noundef nonnull @.str.179)
+  %336 = add i32 %.039.i.i, 1
+  call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 4, i32 noundef 0, ptr noundef nonnull @.str.181, ptr noundef %1, i32 noundef %336, ptr noundef nonnull @.str.179) #25
+  call void @exit(i32 noundef 1) #26
   unreachable
 
 337:                                              ; preds = %333, %331, %317, %312, %309, %.lr.ph.i.i
-  %338 = add i32 %.034.i.i, 1
+  %338 = add i32 %.039.i.i, 1
   %339 = sext i32 %338 to i64
   %340 = getelementptr ptr, ptr %.sroa.1069.1, i64 %339
   %341 = load ptr, ptr %340, align 8
@@ -8064,7 +8069,7 @@ free_command.exit:                                ; preds = %.lr.ph.i59, %265
   br i1 %.not.i.i62, label %._crit_edge.loopexit.i.i, label %.lr.ph.i.i, !llvm.loop !62
 
 ._crit_edge.loopexit.i.i:                         ; preds = %337
-  %342 = add i32 %.034.i.i, 2
+  %342 = add i32 %.039.i.i, 2
   br label %._crit_edge.i.i
 
 ._crit_edge.i.i:                                  ; preds = %._crit_edge.loopexit.i.i, %302
@@ -8073,7 +8078,8 @@ free_command.exit:                                ; preds = %.lr.ph.i59, %265
   br i1 %343, label %addScript.exit, label %344
 
 344:                                              ; preds = %._crit_edge.i.i
-  call fastcc void @ConditionError(ptr noundef %1, i32 noundef %.0.lcssa.i.i, ptr noundef nonnull @.str.180)
+  call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 4, i32 noundef 0, ptr noundef nonnull @.str.181, ptr noundef %1, i32 noundef %.0.lcssa.i.i, ptr noundef nonnull @.str.180) #25
+  call void @exit(i32 noundef 1) #26
   unreachable
 
 addScript.exit:                                   ; preds = %._crit_edge.i.i
@@ -8132,13 +8138,6 @@ declare void @expr_scanner_finish(ptr noundef) local_unnamed_addr #2
 declare void @conditional_stack_push(ptr noundef, i32 noundef) local_unnamed_addr #2
 
 declare zeroext i1 @conditional_stack_empty(ptr noundef) local_unnamed_addr #2
-
-; Function Attrs: cold noreturn nounwind uwtable
-define internal fastcc void @ConditionError(ptr noundef %0, i32 noundef %1, ptr noundef %2) unnamed_addr #4 {
-  tail call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 4, i32 noundef 0, ptr noundef nonnull @.str.181, ptr noundef %0, i32 noundef %1, ptr noundef %2) #25
-  tail call void @exit(i32 noundef 1) #26
-  unreachable
-}
 
 declare i32 @conditional_stack_peek(ptr noundef) local_unnamed_addr #2
 
@@ -11659,7 +11658,7 @@ attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width
 attributes #1 = { mustprogress nofree nosync nounwind willreturn memory(none) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #3 = { mustprogress nofree nounwind willreturn "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { cold noreturn nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { noreturn nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #5 = { nofree noreturn nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #6 = { nofree nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #7 = { mustprogress nofree nounwind willreturn memory(argmem: read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

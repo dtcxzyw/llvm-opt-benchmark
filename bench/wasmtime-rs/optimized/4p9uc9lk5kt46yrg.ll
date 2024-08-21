@@ -4667,8 +4667,8 @@ define noundef align 1 dereferenceable_or_null(1) ptr @_ZN13wasmtime_wasi8previe
   ret ptr %6
 }
 
-; Function Attrs: cold nonlazybind uwtable
-define noundef nonnull ptr @"_ZN122_$LT$wasmtime_wasi..preview0..types..Error$u20$as$u20$core..convert..From$LT$wasmtime_wasi..preview0..types..Errno$GT$$GT$4from17h23b3cf00ae6abd11E"(i8 noundef %0) unnamed_addr #5 {
+; Function Attrs: nonlazybind uwtable
+define noundef nonnull ptr @"_ZN122_$LT$wasmtime_wasi..preview0..types..Error$u20$as$u20$core..convert..From$LT$wasmtime_wasi..preview0..types..Errno$GT$$GT$4from17h23b3cf00ae6abd11E"(i8 noundef %0) unnamed_addr #0 {
   %2 = tail call noundef nonnull ptr @"_ZN6anyhow5error72_$LT$impl$u20$core..convert..From$LT$E$GT$$u20$for$u20$anyhow..Error$GT$4from17h6b27e2a9e539bf17E"(i8 noundef %0)
   ret ptr %2
 }
@@ -18882,7 +18882,7 @@ define void @"_ZN89_$LT$wasmtime_wasi..preview0..types..Prestat$u20$as$u20$wiggl
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
-define noundef i64 @"_ZN82_$LT$wasmtime_wasi..preview0..types..Rights$u20$as$u20$bitflags..traits..Flags$GT$4bits17h6638b10441900ffbE"(ptr noalias nocapture noundef readonly align 8 dereferenceable(8) %0) unnamed_addr #6 {
+define noundef i64 @"_ZN82_$LT$wasmtime_wasi..preview0..types..Rights$u20$as$u20$bitflags..traits..Flags$GT$4bits17h6638b10441900ffbE"(ptr noalias nocapture noundef readonly align 8 dereferenceable(8) %0) unnamed_addr #5 {
   %2 = load i64, ptr %0, align 8, !noundef !5
   ret i64 %2
 }
@@ -19023,7 +19023,7 @@ define noundef zeroext i1 @"_ZN91_$LT$wasmtime_wasi..preview0..types.._..Interna
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
-define void @"_ZN113_$LT$wasmtime_wasi..preview0..types.._..InternalBitFlags$u20$as$u20$core..iter..traits..collect..IntoIterator$GT$9into_iter17he640df13e45ba13fE"(ptr noalias nocapture noundef writeonly sret({ { { ptr, i64 }, i64, i64, i64 }, i8, [7 x i8] }) align 8 dereferenceable(48) %0, i64 noundef %1) unnamed_addr #7 {
+define void @"_ZN113_$LT$wasmtime_wasi..preview0..types.._..InternalBitFlags$u20$as$u20$core..iter..traits..collect..IntoIterator$GT$9into_iter17he640df13e45ba13fE"(ptr noalias nocapture noundef writeonly sret({ { { ptr, i64 }, i64, i64, i64 }, i8, [7 x i8] }) align 8 dereferenceable(48) %0, i64 noundef %1) unnamed_addr #6 {
   store ptr @anon.8b4729588241e2262fbb8a9598519a27.93, ptr %0, align 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 8
   store i64 29, ptr %.sroa.4.0..sroa_idx, align 8
@@ -19063,7 +19063,7 @@ define noundef zeroext i1 @"_ZN13wasmtime_wasi8preview05types1_88_$LT$impl$u20$c
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
-define void @"_ZN13wasmtime_wasi8preview05types1_110_$LT$impl$u20$core..iter..traits..collect..IntoIterator$u20$for$u20$wasmtime_wasi..preview0..types..Rights$GT$9into_iter17h1da092f6ce5cb26cE"(ptr noalias nocapture noundef writeonly sret({ { { ptr, i64 }, i64, i64, i64 }, i8, [7 x i8] }) align 8 dereferenceable(48) %0, i64 noundef %1) unnamed_addr #7 {
+define void @"_ZN13wasmtime_wasi8preview05types1_110_$LT$impl$u20$core..iter..traits..collect..IntoIterator$u20$for$u20$wasmtime_wasi..preview0..types..Rights$GT$9into_iter17h1da092f6ce5cb26cE"(ptr noalias nocapture noundef writeonly sret({ { { ptr, i64 }, i64, i64, i64 }, i8, [7 x i8] }) align 8 dereferenceable(48) %0, i64 noundef %1) unnamed_addr #6 {
   store ptr @anon.8b4729588241e2262fbb8a9598519a27.93, ptr %0, align 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 8
   store i64 29, ptr %.sroa.4.0..sroa_idx, align 8
@@ -19079,7 +19079,7 @@ define void @"_ZN13wasmtime_wasi8preview05types1_110_$LT$impl$u20$core..iter..tr
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
-define noundef i16 @"_ZN83_$LT$wasmtime_wasi..preview0..types..Fdflags$u20$as$u20$bitflags..traits..Flags$GT$4bits17hc7b7dd0877fb4d35E"(ptr noalias nocapture noundef readonly align 2 dereferenceable(2) %0) unnamed_addr #6 {
+define noundef i16 @"_ZN83_$LT$wasmtime_wasi..preview0..types..Fdflags$u20$as$u20$bitflags..traits..Flags$GT$4bits17hc7b7dd0877fb4d35E"(ptr noalias nocapture noundef readonly align 2 dereferenceable(2) %0) unnamed_addr #5 {
   %2 = load i16, ptr %0, align 2, !noundef !5
   ret i16 %2
 }
@@ -19220,7 +19220,7 @@ define noundef zeroext i1 @"_ZN91_$LT$wasmtime_wasi..preview0..types.._..Interna
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
-define void @"_ZN113_$LT$wasmtime_wasi..preview0..types.._..InternalBitFlags$u20$as$u20$core..iter..traits..collect..IntoIterator$GT$9into_iter17hf824ce50a63d5302E"(ptr noalias nocapture noundef writeonly sret({ { { ptr, i64 }, i64, i16, i16, [2 x i16] }, i8, [7 x i8] }) align 8 dereferenceable(40) %0, i16 noundef %1) unnamed_addr #7 {
+define void @"_ZN113_$LT$wasmtime_wasi..preview0..types.._..InternalBitFlags$u20$as$u20$core..iter..traits..collect..IntoIterator$GT$9into_iter17hf824ce50a63d5302E"(ptr noalias nocapture noundef writeonly sret({ { { ptr, i64 }, i64, i16, i16, [2 x i16] }, i8, [7 x i8] }) align 8 dereferenceable(40) %0, i16 noundef %1) unnamed_addr #6 {
   store ptr @anon.8b4729588241e2262fbb8a9598519a27.100, ptr %0, align 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 8
   store i64 5, ptr %.sroa.4.0..sroa_idx, align 8
@@ -19260,7 +19260,7 @@ define noundef zeroext i1 @"_ZN13wasmtime_wasi8preview05types1_89_$LT$impl$u20$c
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
-define void @"_ZN13wasmtime_wasi8preview05types1_111_$LT$impl$u20$core..iter..traits..collect..IntoIterator$u20$for$u20$wasmtime_wasi..preview0..types..Fdflags$GT$9into_iter17hb45456fdb33043d1E"(ptr noalias nocapture noundef writeonly sret({ { { ptr, i64 }, i64, i16, i16, [2 x i16] }, i8, [7 x i8] }) align 8 dereferenceable(40) %0, i16 noundef %1) unnamed_addr #7 {
+define void @"_ZN13wasmtime_wasi8preview05types1_111_$LT$impl$u20$core..iter..traits..collect..IntoIterator$u20$for$u20$wasmtime_wasi..preview0..types..Fdflags$GT$9into_iter17hb45456fdb33043d1E"(ptr noalias nocapture noundef writeonly sret({ { { ptr, i64 }, i64, i16, i16, [2 x i16] }, i8, [7 x i8] }) align 8 dereferenceable(40) %0, i16 noundef %1) unnamed_addr #6 {
   store ptr @anon.8b4729588241e2262fbb8a9598519a27.100, ptr %0, align 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 8
   store i64 5, ptr %.sroa.4.0..sroa_idx, align 8
@@ -19276,7 +19276,7 @@ define void @"_ZN13wasmtime_wasi8preview05types1_111_$LT$impl$u20$core..iter..tr
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
-define noundef i16 @"_ZN84_$LT$wasmtime_wasi..preview0..types..Fstflags$u20$as$u20$bitflags..traits..Flags$GT$4bits17h7813d9dbee24adfdE"(ptr noalias nocapture noundef readonly align 2 dereferenceable(2) %0) unnamed_addr #6 {
+define noundef i16 @"_ZN84_$LT$wasmtime_wasi..preview0..types..Fstflags$u20$as$u20$bitflags..traits..Flags$GT$4bits17h7813d9dbee24adfdE"(ptr noalias nocapture noundef readonly align 2 dereferenceable(2) %0) unnamed_addr #5 {
   %2 = load i16, ptr %0, align 2, !noundef !5
   ret i16 %2
 }
@@ -19417,7 +19417,7 @@ define noundef zeroext i1 @"_ZN91_$LT$wasmtime_wasi..preview0..types.._..Interna
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
-define void @"_ZN113_$LT$wasmtime_wasi..preview0..types.._..InternalBitFlags$u20$as$u20$core..iter..traits..collect..IntoIterator$GT$9into_iter17h6ee18e16f02a0ca2E"(ptr noalias nocapture noundef writeonly sret({ { { ptr, i64 }, i64, i16, i16, [2 x i16] }, i8, [7 x i8] }) align 8 dereferenceable(40) %0, i16 noundef %1) unnamed_addr #7 {
+define void @"_ZN113_$LT$wasmtime_wasi..preview0..types.._..InternalBitFlags$u20$as$u20$core..iter..traits..collect..IntoIterator$GT$9into_iter17h6ee18e16f02a0ca2E"(ptr noalias nocapture noundef writeonly sret({ { { ptr, i64 }, i64, i16, i16, [2 x i16] }, i8, [7 x i8] }) align 8 dereferenceable(40) %0, i16 noundef %1) unnamed_addr #6 {
   store ptr @anon.8b4729588241e2262fbb8a9598519a27.105, ptr %0, align 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 8
   store i64 4, ptr %.sroa.4.0..sroa_idx, align 8
@@ -19457,7 +19457,7 @@ define noundef zeroext i1 @"_ZN13wasmtime_wasi8preview05types1_90_$LT$impl$u20$c
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
-define void @"_ZN13wasmtime_wasi8preview05types1_112_$LT$impl$u20$core..iter..traits..collect..IntoIterator$u20$for$u20$wasmtime_wasi..preview0..types..Fstflags$GT$9into_iter17hbf4da1d48847fe95E"(ptr noalias nocapture noundef writeonly sret({ { { ptr, i64 }, i64, i16, i16, [2 x i16] }, i8, [7 x i8] }) align 8 dereferenceable(40) %0, i16 noundef %1) unnamed_addr #7 {
+define void @"_ZN13wasmtime_wasi8preview05types1_112_$LT$impl$u20$core..iter..traits..collect..IntoIterator$u20$for$u20$wasmtime_wasi..preview0..types..Fstflags$GT$9into_iter17hbf4da1d48847fe95E"(ptr noalias nocapture noundef writeonly sret({ { { ptr, i64 }, i64, i16, i16, [2 x i16] }, i8, [7 x i8] }) align 8 dereferenceable(40) %0, i16 noundef %1) unnamed_addr #6 {
   store ptr @anon.8b4729588241e2262fbb8a9598519a27.105, ptr %0, align 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 8
   store i64 4, ptr %.sroa.4.0..sroa_idx, align 8
@@ -19473,7 +19473,7 @@ define void @"_ZN13wasmtime_wasi8preview05types1_112_$LT$impl$u20$core..iter..tr
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
-define noundef i32 @"_ZN87_$LT$wasmtime_wasi..preview0..types..Lookupflags$u20$as$u20$bitflags..traits..Flags$GT$4bits17h51e258c35b54c489E"(ptr noalias nocapture noundef readonly align 4 dereferenceable(4) %0) unnamed_addr #6 {
+define noundef i32 @"_ZN87_$LT$wasmtime_wasi..preview0..types..Lookupflags$u20$as$u20$bitflags..traits..Flags$GT$4bits17h51e258c35b54c489E"(ptr noalias nocapture noundef readonly align 4 dereferenceable(4) %0) unnamed_addr #5 {
   %2 = load i32, ptr %0, align 4, !noundef !5
   ret i32 %2
 }
@@ -19614,7 +19614,7 @@ define noundef zeroext i1 @"_ZN91_$LT$wasmtime_wasi..preview0..types.._..Interna
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
-define void @"_ZN113_$LT$wasmtime_wasi..preview0..types.._..InternalBitFlags$u20$as$u20$core..iter..traits..collect..IntoIterator$GT$9into_iter17h33bececa0fc455cbE"(ptr noalias nocapture noundef writeonly sret({ { { ptr, i64 }, i64, i32, i32 }, i8, [7 x i8] }) align 8 dereferenceable(40) %0, i32 noundef %1) unnamed_addr #7 {
+define void @"_ZN113_$LT$wasmtime_wasi..preview0..types.._..InternalBitFlags$u20$as$u20$core..iter..traits..collect..IntoIterator$GT$9into_iter17h33bececa0fc455cbE"(ptr noalias nocapture noundef writeonly sret({ { { ptr, i64 }, i64, i32, i32 }, i8, [7 x i8] }) align 8 dereferenceable(40) %0, i32 noundef %1) unnamed_addr #6 {
   store ptr @anon.8b4729588241e2262fbb8a9598519a27.108, ptr %0, align 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 8
   store i64 1, ptr %.sroa.4.0..sroa_idx, align 8
@@ -19654,7 +19654,7 @@ define noundef zeroext i1 @"_ZN13wasmtime_wasi8preview05types1_93_$LT$impl$u20$c
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
-define void @"_ZN13wasmtime_wasi8preview05types1_115_$LT$impl$u20$core..iter..traits..collect..IntoIterator$u20$for$u20$wasmtime_wasi..preview0..types..Lookupflags$GT$9into_iter17h23277ef3bb0f28a1E"(ptr noalias nocapture noundef writeonly sret({ { { ptr, i64 }, i64, i32, i32 }, i8, [7 x i8] }) align 8 dereferenceable(40) %0, i32 noundef %1) unnamed_addr #7 {
+define void @"_ZN13wasmtime_wasi8preview05types1_115_$LT$impl$u20$core..iter..traits..collect..IntoIterator$u20$for$u20$wasmtime_wasi..preview0..types..Lookupflags$GT$9into_iter17h23277ef3bb0f28a1E"(ptr noalias nocapture noundef writeonly sret({ { { ptr, i64 }, i64, i32, i32 }, i8, [7 x i8] }) align 8 dereferenceable(40) %0, i32 noundef %1) unnamed_addr #6 {
   store ptr @anon.8b4729588241e2262fbb8a9598519a27.108, ptr %0, align 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 8
   store i64 1, ptr %.sroa.4.0..sroa_idx, align 8
@@ -19670,7 +19670,7 @@ define void @"_ZN13wasmtime_wasi8preview05types1_115_$LT$impl$u20$core..iter..tr
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
-define noundef i16 @"_ZN82_$LT$wasmtime_wasi..preview0..types..Oflags$u20$as$u20$bitflags..traits..Flags$GT$4bits17ha5492b451a4617fdE"(ptr noalias nocapture noundef readonly align 2 dereferenceable(2) %0) unnamed_addr #6 {
+define noundef i16 @"_ZN82_$LT$wasmtime_wasi..preview0..types..Oflags$u20$as$u20$bitflags..traits..Flags$GT$4bits17ha5492b451a4617fdE"(ptr noalias nocapture noundef readonly align 2 dereferenceable(2) %0) unnamed_addr #5 {
   %2 = load i16, ptr %0, align 2, !noundef !5
   ret i16 %2
 }
@@ -19811,7 +19811,7 @@ define noundef zeroext i1 @"_ZN91_$LT$wasmtime_wasi..preview0..types.._..Interna
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
-define void @"_ZN113_$LT$wasmtime_wasi..preview0..types.._..InternalBitFlags$u20$as$u20$core..iter..traits..collect..IntoIterator$GT$9into_iter17hfb7c84361c5449cfE"(ptr noalias nocapture noundef writeonly sret({ { { ptr, i64 }, i64, i16, i16, [2 x i16] }, i8, [7 x i8] }) align 8 dereferenceable(40) %0, i16 noundef %1) unnamed_addr #7 {
+define void @"_ZN113_$LT$wasmtime_wasi..preview0..types.._..InternalBitFlags$u20$as$u20$core..iter..traits..collect..IntoIterator$GT$9into_iter17hfb7c84361c5449cfE"(ptr noalias nocapture noundef writeonly sret({ { { ptr, i64 }, i64, i16, i16, [2 x i16] }, i8, [7 x i8] }) align 8 dereferenceable(40) %0, i16 noundef %1) unnamed_addr #6 {
   store ptr @anon.8b4729588241e2262fbb8a9598519a27.114, ptr %0, align 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 8
   store i64 4, ptr %.sroa.4.0..sroa_idx, align 8
@@ -19851,7 +19851,7 @@ define noundef zeroext i1 @"_ZN13wasmtime_wasi8preview05types1_88_$LT$impl$u20$c
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
-define void @"_ZN13wasmtime_wasi8preview05types1_110_$LT$impl$u20$core..iter..traits..collect..IntoIterator$u20$for$u20$wasmtime_wasi..preview0..types..Oflags$GT$9into_iter17h501d96ecf1a20b81E"(ptr noalias nocapture noundef writeonly sret({ { { ptr, i64 }, i64, i16, i16, [2 x i16] }, i8, [7 x i8] }) align 8 dereferenceable(40) %0, i16 noundef %1) unnamed_addr #7 {
+define void @"_ZN13wasmtime_wasi8preview05types1_110_$LT$impl$u20$core..iter..traits..collect..IntoIterator$u20$for$u20$wasmtime_wasi..preview0..types..Oflags$GT$9into_iter17h501d96ecf1a20b81E"(ptr noalias nocapture noundef writeonly sret({ { { ptr, i64 }, i64, i16, i16, [2 x i16] }, i8, [7 x i8] }) align 8 dereferenceable(40) %0, i16 noundef %1) unnamed_addr #6 {
   store ptr @anon.8b4729588241e2262fbb8a9598519a27.114, ptr %0, align 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 8
   store i64 4, ptr %.sroa.4.0..sroa_idx, align 8
@@ -19867,7 +19867,7 @@ define void @"_ZN13wasmtime_wasi8preview05types1_110_$LT$impl$u20$core..iter..tr
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
-define noundef i16 @"_ZN88_$LT$wasmtime_wasi..preview0..types..Eventrwflags$u20$as$u20$bitflags..traits..Flags$GT$4bits17h8fe40f25c97bbc55E"(ptr noalias nocapture noundef readonly align 2 dereferenceable(2) %0) unnamed_addr #6 {
+define noundef i16 @"_ZN88_$LT$wasmtime_wasi..preview0..types..Eventrwflags$u20$as$u20$bitflags..traits..Flags$GT$4bits17h8fe40f25c97bbc55E"(ptr noalias nocapture noundef readonly align 2 dereferenceable(2) %0) unnamed_addr #5 {
   %2 = load i16, ptr %0, align 2, !noundef !5
   ret i16 %2
 }
@@ -20008,7 +20008,7 @@ define noundef zeroext i1 @"_ZN91_$LT$wasmtime_wasi..preview0..types.._..Interna
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
-define void @"_ZN113_$LT$wasmtime_wasi..preview0..types.._..InternalBitFlags$u20$as$u20$core..iter..traits..collect..IntoIterator$GT$9into_iter17h905f7c2c7cc8a874E"(ptr noalias nocapture noundef writeonly sret({ { { ptr, i64 }, i64, i16, i16, [2 x i16] }, i8, [7 x i8] }) align 8 dereferenceable(40) %0, i16 noundef %1) unnamed_addr #7 {
+define void @"_ZN113_$LT$wasmtime_wasi..preview0..types.._..InternalBitFlags$u20$as$u20$core..iter..traits..collect..IntoIterator$GT$9into_iter17h905f7c2c7cc8a874E"(ptr noalias nocapture noundef writeonly sret({ { { ptr, i64 }, i64, i16, i16, [2 x i16] }, i8, [7 x i8] }) align 8 dereferenceable(40) %0, i16 noundef %1) unnamed_addr #6 {
   store ptr @anon.8b4729588241e2262fbb8a9598519a27.116, ptr %0, align 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 8
   store i64 1, ptr %.sroa.4.0..sroa_idx, align 8
@@ -20048,7 +20048,7 @@ define noundef zeroext i1 @"_ZN13wasmtime_wasi8preview05types1_94_$LT$impl$u20$c
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
-define void @"_ZN13wasmtime_wasi8preview05types1_116_$LT$impl$u20$core..iter..traits..collect..IntoIterator$u20$for$u20$wasmtime_wasi..preview0..types..Eventrwflags$GT$9into_iter17ha4b04512c26dca21E"(ptr noalias nocapture noundef writeonly sret({ { { ptr, i64 }, i64, i16, i16, [2 x i16] }, i8, [7 x i8] }) align 8 dereferenceable(40) %0, i16 noundef %1) unnamed_addr #7 {
+define void @"_ZN13wasmtime_wasi8preview05types1_116_$LT$impl$u20$core..iter..traits..collect..IntoIterator$u20$for$u20$wasmtime_wasi..preview0..types..Eventrwflags$GT$9into_iter17ha4b04512c26dca21E"(ptr noalias nocapture noundef writeonly sret({ { { ptr, i64 }, i64, i16, i16, [2 x i16] }, i8, [7 x i8] }) align 8 dereferenceable(40) %0, i16 noundef %1) unnamed_addr #6 {
   store ptr @anon.8b4729588241e2262fbb8a9598519a27.116, ptr %0, align 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 8
   store i64 1, ptr %.sroa.4.0..sroa_idx, align 8
@@ -20064,7 +20064,7 @@ define void @"_ZN13wasmtime_wasi8preview05types1_116_$LT$impl$u20$core..iter..tr
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
-define noundef i16 @"_ZN89_$LT$wasmtime_wasi..preview0..types..Subclockflags$u20$as$u20$bitflags..traits..Flags$GT$4bits17h9329bb4cf8c9814cE"(ptr noalias nocapture noundef readonly align 2 dereferenceable(2) %0) unnamed_addr #6 {
+define noundef i16 @"_ZN89_$LT$wasmtime_wasi..preview0..types..Subclockflags$u20$as$u20$bitflags..traits..Flags$GT$4bits17h9329bb4cf8c9814cE"(ptr noalias nocapture noundef readonly align 2 dereferenceable(2) %0) unnamed_addr #5 {
   %2 = load i16, ptr %0, align 2, !noundef !5
   ret i16 %2
 }
@@ -20205,7 +20205,7 @@ define noundef zeroext i1 @"_ZN91_$LT$wasmtime_wasi..preview0..types.._..Interna
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
-define void @"_ZN113_$LT$wasmtime_wasi..preview0..types.._..InternalBitFlags$u20$as$u20$core..iter..traits..collect..IntoIterator$GT$9into_iter17hf4489ab45e0e2382E"(ptr noalias nocapture noundef writeonly sret({ { { ptr, i64 }, i64, i16, i16, [2 x i16] }, i8, [7 x i8] }) align 8 dereferenceable(40) %0, i16 noundef %1) unnamed_addr #7 {
+define void @"_ZN113_$LT$wasmtime_wasi..preview0..types.._..InternalBitFlags$u20$as$u20$core..iter..traits..collect..IntoIterator$GT$9into_iter17hf4489ab45e0e2382E"(ptr noalias nocapture noundef writeonly sret({ { { ptr, i64 }, i64, i16, i16, [2 x i16] }, i8, [7 x i8] }) align 8 dereferenceable(40) %0, i16 noundef %1) unnamed_addr #6 {
   store ptr @anon.8b4729588241e2262fbb8a9598519a27.118, ptr %0, align 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 8
   store i64 1, ptr %.sroa.4.0..sroa_idx, align 8
@@ -20245,7 +20245,7 @@ define noundef zeroext i1 @"_ZN13wasmtime_wasi8preview05types1_95_$LT$impl$u20$c
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
-define void @"_ZN13wasmtime_wasi8preview05types1_117_$LT$impl$u20$core..iter..traits..collect..IntoIterator$u20$for$u20$wasmtime_wasi..preview0..types..Subclockflags$GT$9into_iter17h560bbe8ba5179282E"(ptr noalias nocapture noundef writeonly sret({ { { ptr, i64 }, i64, i16, i16, [2 x i16] }, i8, [7 x i8] }) align 8 dereferenceable(40) %0, i16 noundef %1) unnamed_addr #7 {
+define void @"_ZN13wasmtime_wasi8preview05types1_117_$LT$impl$u20$core..iter..traits..collect..IntoIterator$u20$for$u20$wasmtime_wasi..preview0..types..Subclockflags$GT$9into_iter17h560bbe8ba5179282E"(ptr noalias nocapture noundef writeonly sret({ { { ptr, i64 }, i64, i16, i16, [2 x i16] }, i8, [7 x i8] }) align 8 dereferenceable(40) %0, i16 noundef %1) unnamed_addr #6 {
   store ptr @anon.8b4729588241e2262fbb8a9598519a27.118, ptr %0, align 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 8
   store i64 1, ptr %.sroa.4.0..sroa_idx, align 8
@@ -20261,7 +20261,7 @@ define void @"_ZN13wasmtime_wasi8preview05types1_117_$LT$impl$u20$core..iter..tr
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
-define noundef i16 @"_ZN83_$LT$wasmtime_wasi..preview0..types..Riflags$u20$as$u20$bitflags..traits..Flags$GT$4bits17h44dd878815f7b4b2E"(ptr noalias nocapture noundef readonly align 2 dereferenceable(2) %0) unnamed_addr #6 {
+define noundef i16 @"_ZN83_$LT$wasmtime_wasi..preview0..types..Riflags$u20$as$u20$bitflags..traits..Flags$GT$4bits17h44dd878815f7b4b2E"(ptr noalias nocapture noundef readonly align 2 dereferenceable(2) %0) unnamed_addr #5 {
   %2 = load i16, ptr %0, align 2, !noundef !5
   ret i16 %2
 }
@@ -20402,7 +20402,7 @@ define noundef zeroext i1 @"_ZN91_$LT$wasmtime_wasi..preview0..types.._..Interna
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
-define void @"_ZN113_$LT$wasmtime_wasi..preview0..types.._..InternalBitFlags$u20$as$u20$core..iter..traits..collect..IntoIterator$GT$9into_iter17h6afe13ded2e21897E"(ptr noalias nocapture noundef writeonly sret({ { { ptr, i64 }, i64, i16, i16, [2 x i16] }, i8, [7 x i8] }) align 8 dereferenceable(40) %0, i16 noundef %1) unnamed_addr #7 {
+define void @"_ZN113_$LT$wasmtime_wasi..preview0..types.._..InternalBitFlags$u20$as$u20$core..iter..traits..collect..IntoIterator$GT$9into_iter17h6afe13ded2e21897E"(ptr noalias nocapture noundef writeonly sret({ { { ptr, i64 }, i64, i16, i16, [2 x i16] }, i8, [7 x i8] }) align 8 dereferenceable(40) %0, i16 noundef %1) unnamed_addr #6 {
   store ptr @anon.8b4729588241e2262fbb8a9598519a27.121, ptr %0, align 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 8
   store i64 2, ptr %.sroa.4.0..sroa_idx, align 8
@@ -20442,7 +20442,7 @@ define noundef zeroext i1 @"_ZN13wasmtime_wasi8preview05types1_89_$LT$impl$u20$c
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
-define void @"_ZN13wasmtime_wasi8preview05types1_111_$LT$impl$u20$core..iter..traits..collect..IntoIterator$u20$for$u20$wasmtime_wasi..preview0..types..Riflags$GT$9into_iter17h452dd552a1997358E"(ptr noalias nocapture noundef writeonly sret({ { { ptr, i64 }, i64, i16, i16, [2 x i16] }, i8, [7 x i8] }) align 8 dereferenceable(40) %0, i16 noundef %1) unnamed_addr #7 {
+define void @"_ZN13wasmtime_wasi8preview05types1_111_$LT$impl$u20$core..iter..traits..collect..IntoIterator$u20$for$u20$wasmtime_wasi..preview0..types..Riflags$GT$9into_iter17h452dd552a1997358E"(ptr noalias nocapture noundef writeonly sret({ { { ptr, i64 }, i64, i16, i16, [2 x i16] }, i8, [7 x i8] }) align 8 dereferenceable(40) %0, i16 noundef %1) unnamed_addr #6 {
   store ptr @anon.8b4729588241e2262fbb8a9598519a27.121, ptr %0, align 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 8
   store i64 2, ptr %.sroa.4.0..sroa_idx, align 8
@@ -20458,7 +20458,7 @@ define void @"_ZN13wasmtime_wasi8preview05types1_111_$LT$impl$u20$core..iter..tr
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
-define noundef i16 @"_ZN83_$LT$wasmtime_wasi..preview0..types..Roflags$u20$as$u20$bitflags..traits..Flags$GT$4bits17h8b60e02b703525b5E"(ptr noalias nocapture noundef readonly align 2 dereferenceable(2) %0) unnamed_addr #6 {
+define noundef i16 @"_ZN83_$LT$wasmtime_wasi..preview0..types..Roflags$u20$as$u20$bitflags..traits..Flags$GT$4bits17h8b60e02b703525b5E"(ptr noalias nocapture noundef readonly align 2 dereferenceable(2) %0) unnamed_addr #5 {
   %2 = load i16, ptr %0, align 2, !noundef !5
   ret i16 %2
 }
@@ -20599,7 +20599,7 @@ define noundef zeroext i1 @"_ZN91_$LT$wasmtime_wasi..preview0..types.._..Interna
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
-define void @"_ZN113_$LT$wasmtime_wasi..preview0..types.._..InternalBitFlags$u20$as$u20$core..iter..traits..collect..IntoIterator$GT$9into_iter17hc2bdd06d4c55f396E"(ptr noalias nocapture noundef writeonly sret({ { { ptr, i64 }, i64, i16, i16, [2 x i16] }, i8, [7 x i8] }) align 8 dereferenceable(40) %0, i16 noundef %1) unnamed_addr #7 {
+define void @"_ZN113_$LT$wasmtime_wasi..preview0..types.._..InternalBitFlags$u20$as$u20$core..iter..traits..collect..IntoIterator$GT$9into_iter17hc2bdd06d4c55f396E"(ptr noalias nocapture noundef writeonly sret({ { { ptr, i64 }, i64, i16, i16, [2 x i16] }, i8, [7 x i8] }) align 8 dereferenceable(40) %0, i16 noundef %1) unnamed_addr #6 {
   store ptr @anon.8b4729588241e2262fbb8a9598519a27.123, ptr %0, align 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 8
   store i64 1, ptr %.sroa.4.0..sroa_idx, align 8
@@ -20639,7 +20639,7 @@ define noundef zeroext i1 @"_ZN13wasmtime_wasi8preview05types1_89_$LT$impl$u20$c
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
-define void @"_ZN13wasmtime_wasi8preview05types1_111_$LT$impl$u20$core..iter..traits..collect..IntoIterator$u20$for$u20$wasmtime_wasi..preview0..types..Roflags$GT$9into_iter17hfbccb6dac2d34c09E"(ptr noalias nocapture noundef writeonly sret({ { { ptr, i64 }, i64, i16, i16, [2 x i16] }, i8, [7 x i8] }) align 8 dereferenceable(40) %0, i16 noundef %1) unnamed_addr #7 {
+define void @"_ZN13wasmtime_wasi8preview05types1_111_$LT$impl$u20$core..iter..traits..collect..IntoIterator$u20$for$u20$wasmtime_wasi..preview0..types..Roflags$GT$9into_iter17hfbccb6dac2d34c09E"(ptr noalias nocapture noundef writeonly sret({ { { ptr, i64 }, i64, i16, i16, [2 x i16] }, i8, [7 x i8] }) align 8 dereferenceable(40) %0, i16 noundef %1) unnamed_addr #6 {
   store ptr @anon.8b4729588241e2262fbb8a9598519a27.123, ptr %0, align 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 8
   store i64 1, ptr %.sroa.4.0..sroa_idx, align 8
@@ -20655,7 +20655,7 @@ define void @"_ZN13wasmtime_wasi8preview05types1_111_$LT$impl$u20$core..iter..tr
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
-define noundef i8 @"_ZN83_$LT$wasmtime_wasi..preview0..types..Sdflags$u20$as$u20$bitflags..traits..Flags$GT$4bits17h75858dc798d7162eE"(ptr noalias nocapture noundef readonly align 1 dereferenceable(1) %0) unnamed_addr #6 {
+define noundef i8 @"_ZN83_$LT$wasmtime_wasi..preview0..types..Sdflags$u20$as$u20$bitflags..traits..Flags$GT$4bits17h75858dc798d7162eE"(ptr noalias nocapture noundef readonly align 1 dereferenceable(1) %0) unnamed_addr #5 {
   %2 = load i8, ptr %0, align 1, !noundef !5
   ret i8 %2
 }
@@ -20796,7 +20796,7 @@ define noundef zeroext i1 @"_ZN91_$LT$wasmtime_wasi..preview0..types.._..Interna
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
-define void @"_ZN113_$LT$wasmtime_wasi..preview0..types.._..InternalBitFlags$u20$as$u20$core..iter..traits..collect..IntoIterator$GT$9into_iter17hfadd6a78f6b7739bE"(ptr noalias nocapture noundef writeonly sret({ { { ptr, i64 }, i64, i8, i8, [6 x i8] }, i8, [7 x i8] }) align 8 dereferenceable(40) %0, i8 noundef %1) unnamed_addr #7 {
+define void @"_ZN113_$LT$wasmtime_wasi..preview0..types.._..InternalBitFlags$u20$as$u20$core..iter..traits..collect..IntoIterator$GT$9into_iter17hfadd6a78f6b7739bE"(ptr noalias nocapture noundef writeonly sret({ { { ptr, i64 }, i64, i8, i8, [6 x i8] }, i8, [7 x i8] }) align 8 dereferenceable(40) %0, i8 noundef %1) unnamed_addr #6 {
   store ptr @anon.8b4729588241e2262fbb8a9598519a27.127, ptr %0, align 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 8
   store i64 2, ptr %.sroa.4.0..sroa_idx, align 8
@@ -20836,7 +20836,7 @@ define noundef zeroext i1 @"_ZN13wasmtime_wasi8preview05types1_89_$LT$impl$u20$c
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
-define void @"_ZN13wasmtime_wasi8preview05types1_111_$LT$impl$u20$core..iter..traits..collect..IntoIterator$u20$for$u20$wasmtime_wasi..preview0..types..Sdflags$GT$9into_iter17h542b7161888bea5bE"(ptr noalias nocapture noundef writeonly sret({ { { ptr, i64 }, i64, i8, i8, [6 x i8] }, i8, [7 x i8] }) align 8 dereferenceable(40) %0, i8 noundef %1) unnamed_addr #7 {
+define void @"_ZN13wasmtime_wasi8preview05types1_111_$LT$impl$u20$core..iter..traits..collect..IntoIterator$u20$for$u20$wasmtime_wasi..preview0..types..Sdflags$GT$9into_iter17h542b7161888bea5bE"(ptr noalias nocapture noundef writeonly sret({ { { ptr, i64 }, i64, i8, i8, [6 x i8] }, i8, [7 x i8] }) align 8 dereferenceable(40) %0, i8 noundef %1) unnamed_addr #6 {
   store ptr @anon.8b4729588241e2262fbb8a9598519a27.127, ptr %0, align 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 8
   store i64 2, ptr %.sroa.4.0..sroa_idx, align 8
@@ -20904,16 +20904,16 @@ define noundef range(i64 0, 536870912) i64 @"_ZN13wasmtime_wasi8preview0134_$LT$
 declare noundef i32 @rust_eh_personality(i32 noundef, i32 noundef, i64 noundef, ptr noundef, ptr noundef) unnamed_addr #0
 
 ; Function Attrs: cold noreturn nounwind nonlazybind uwtable
-declare void @_ZN4core9panicking16panic_in_cleanup17hbacfddf1bcf21a1eE() unnamed_addr #8
+declare void @_ZN4core9panicking16panic_in_cleanup17hbacfddf1bcf21a1eE() unnamed_addr #7
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #9
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #8
 
 ; Function Attrs: nonlazybind uwtable
 declare hidden void @_ZN6wiggle19validate_size_align17h495fb483d538125dE(ptr noalias nocapture noundef sret({ i32, [15 x i32] }) align 8 dereferenceable(64), ptr noundef nonnull align 1, ptr noalias noundef readonly align 8 dereferenceable(24), i32 noundef, i32 noundef) unnamed_addr #0
 
 ; Function Attrs: cold noreturn nonlazybind uwtable
-declare void @_ZN4core9panicking18panic_bounds_check17h5aa5e8a957e001f9E(i64 noundef, i64 noundef, ptr noalias noundef readonly align 8 dereferenceable(24)) unnamed_addr #10
+declare void @_ZN4core9panicking18panic_bounds_check17h5aa5e8a957e001f9E(i64 noundef, i64 noundef, ptr noalias noundef readonly align 8 dereferenceable(24)) unnamed_addr #9
 
 ; Function Attrs: nonlazybind uwtable
 declare hidden void @_ZN6wiggle19validate_size_align17h69b2e60738568642E(ptr noalias nocapture noundef sret({ i32, [15 x i32] }) align 8 dereferenceable(64), ptr noundef nonnull align 1, ptr noalias noundef readonly align 8 dereferenceable(24), i32 noundef, i32 noundef) unnamed_addr #0
@@ -20925,7 +20925,7 @@ declare hidden void @_ZN6wiggle19validate_size_align17hf2cd7a7f4bf4ac97E(ptr noa
 declare hidden void @_ZN6wiggle19validate_size_align17hc5ec65dbd100716dE(ptr noalias nocapture noundef sret({ i32, [15 x i32] }) align 8 dereferenceable(64), ptr noundef nonnull align 1, ptr noalias noundef readonly align 8 dereferenceable(24), i32 noundef, i32 noundef) unnamed_addr #0
 
 ; Function Attrs: nounwind nonlazybind allockind("free") uwtable
-declare void @__rust_dealloc(ptr allocptr noundef, i64 noundef, i64 noundef) unnamed_addr #11
+declare void @__rust_dealloc(ptr allocptr noundef, i64 noundef, i64 noundef) unnamed_addr #10
 
 ; Function Attrs: nonlazybind uwtable
 declare hidden noundef zeroext i1 @"_ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$GT$3fmt17h032fee0f2d205807E"(ptr noalias noundef readonly align 8 dereferenceable(8), ptr noalias noundef align 8 dereferenceable(64)) unnamed_addr #0
@@ -21087,10 +21087,10 @@ declare noundef zeroext i1 @"_ZN4core3fmt3num49_$LT$impl$u20$core..fmt..Octal$u2
 declare noundef zeroext i1 @"_ZN4core3fmt3num52_$LT$impl$u20$core..fmt..UpperHex$u20$for$u20$u8$GT$3fmt17h0226473b45a1bd94E"(ptr noalias noundef readonly align 1 dereferenceable(1), ptr noalias noundef align 8 dereferenceable(64)) unnamed_addr #0
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #12
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #11
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #12
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #11
 
 ; Function Attrs: nonlazybind uwtable
 declare void @"_ZN6anyhow5error65_$LT$impl$u20$core..ops..drop..Drop$u20$for$u20$anyhow..Error$GT$4drop17h46ef38ad7866ea91E"(ptr noalias noundef align 8 dereferenceable(8)) unnamed_addr #0
@@ -21102,13 +21102,13 @@ declare noundef nonnull ptr @"_ZN13wasmtime_wasi8preview1120_$LT$impl$u20$core..
 declare hidden void @"_ZN6anyhow5error31_$LT$impl$u20$anyhow..Error$GT$8downcast17hd9ab500619d15fccE"(ptr noalias nocapture noundef sret({ i8, [15 x i8] }) align 8 dereferenceable(16), ptr noundef nonnull) unnamed_addr #0
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare { i32, i1 } @llvm.uadd.with.overflow.i32(i32, i32) #13
+declare { i32, i1 } @llvm.uadd.with.overflow.i32(i32, i32) #12
 
 ; Function Attrs: inlinehint nonlazybind uwtable
 declare hidden void @"_ZN53_$LT$u32$u20$as$u20$wiggle..guest_type..GuestType$GT$4read17h33f606294a43f9ddE.llvm.10298849200982743166"(ptr noalias nocapture noundef sret({ i32, [15 x i32] }) align 8 dereferenceable(64), ptr noalias noundef readonly align 8 dereferenceable(24)) unnamed_addr #2
 
 ; Function Attrs: cold nonlazybind uwtable
-declare hidden noundef nonnull ptr @"_ZN6anyhow5error72_$LT$impl$u20$core..convert..From$LT$E$GT$$u20$for$u20$anyhow..Error$GT$4from17h6b27e2a9e539bf17E"(i8 noundef) unnamed_addr #5
+declare hidden noundef nonnull ptr @"_ZN6anyhow5error72_$LT$impl$u20$core..convert..From$LT$E$GT$$u20$for$u20$anyhow..Error$GT$4from17h6b27e2a9e539bf17E"(i8 noundef) unnamed_addr #13
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite)
 declare void @llvm.experimental.noalias.scope.decl(metadata) #14
@@ -21118,15 +21118,15 @@ attributes #1 = { inlinehint mustprogress nofree norecurse nosync nounwind nonla
 attributes #2 = { inlinehint nonlazybind uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
 attributes #3 = { mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
 attributes #4 = { mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
-attributes #5 = { cold nonlazybind uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
-attributes #6 = { mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
-attributes #7 = { mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
-attributes #8 = { cold noreturn nounwind nonlazybind uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
-attributes #9 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #10 = { cold noreturn nonlazybind uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
-attributes #11 = { nounwind nonlazybind allockind("free") uwtable "alloc-family"="__rust_alloc" "probe-stack"="inline-asm" "target-cpu"="x86-64" }
-attributes #12 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #13 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #5 = { mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
+attributes #6 = { mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
+attributes #7 = { cold noreturn nounwind nonlazybind uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
+attributes #8 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #9 = { cold noreturn nonlazybind uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
+attributes #10 = { nounwind nonlazybind allockind("free") uwtable "alloc-family"="__rust_alloc" "probe-stack"="inline-asm" "target-cpu"="x86-64" }
+attributes #11 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #12 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #13 = { cold nonlazybind uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
 attributes #14 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite) }
 attributes #15 = { nounwind }
 attributes #16 = { noreturn }

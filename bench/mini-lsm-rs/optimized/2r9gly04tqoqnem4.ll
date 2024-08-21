@@ -100,7 +100,7 @@ define hidden noundef zeroext i1 @"_ZN76_$LT$std..sync..poison..PoisonError$LT$T
   ret i1 %4
 }
 
-; Function Attrs: cold noreturn nonlazybind uwtable
+; Function Attrs: noreturn nonlazybind uwtable
 define hidden noalias noundef nonnull ptr @"_ZN16mini_lsm_starter7compact64_$LT$impl$u20$mini_lsm_starter..lsm_storage..LsmStorageInner$GT$18trigger_compaction17hbf11ffae803784b8E"(ptr nocapture noundef nonnull readnone align 8 %0) unnamed_addr #3 {
   tail call void @_ZN4core9panicking5panic17hb837a5ebbbe5b188E(ptr noalias noundef nonnull readonly align 1 @anon.8bf14e9603843e181ebf39e1dd12cfe8.23.llvm.2931523923349400112, i64 noundef 15, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.8bf14e9603843e181ebf39e1dd12cfe8.26.llvm.2931523923349400112) #20
   unreachable
@@ -462,7 +462,7 @@ _ZN11parking_lot10raw_rwlock9RawRwLock20try_lock_shared_fast17h0a014631f851c40cE
 }
 
 ; Function Attrs: noreturn nonlazybind uwtable
-define void @_ZN16mini_lsm_starter11lsm_storage15LsmStorageState6create17h93b591a8104fe3a8E(ptr noalias nocapture noundef readnone sret({ { { i64, ptr }, i64 }, { { i64, ptr }, i64 }, { { i64, ptr }, i64 }, ptr, { { { { ptr, i64, i64, i64 }, {}, {} }, { i64, i64 } } } }) align 8 dereferenceable(128) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(72) %1) unnamed_addr #5 personality ptr @rust_eh_personality {
+define void @_ZN16mini_lsm_starter11lsm_storage15LsmStorageState6create17h93b591a8104fe3a8E(ptr noalias nocapture noundef readnone sret({ { { i64, ptr }, i64 }, { { i64, ptr }, i64 }, { { i64, ptr }, i64 }, ptr, { { { { ptr, i64, i64, i64 }, {}, {} }, { i64, i64 } } } }) align 8 dereferenceable(128) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(72) %1) unnamed_addr #3 personality ptr @rust_eh_personality {
   %3 = alloca { { i64, i64, i8, [7 x i8] }, {} }, align 8
   %4 = alloca { { i64, ptr }, i64 }, align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4)
@@ -577,7 +577,7 @@ define void @_ZN16mini_lsm_starter11lsm_storage17LsmStorageOptions27default_for_
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define void @_ZN16mini_lsm_starter11lsm_storage17LsmStorageOptions22default_for_week2_test17hd8b4856d4c30474fE(ptr noalias nocapture noundef writeonly sret({ { i64, [4 x i64] }, i64, i64, i64, i8, i8, [6 x i8] }) align 8 dereferenceable(72) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(40) %1) unnamed_addr #6 {
+define void @_ZN16mini_lsm_starter11lsm_storage17LsmStorageOptions22default_for_week2_test17hd8b4856d4c30474fE(ptr noalias nocapture noundef writeonly sret({ { i64, [4 x i64] }, i64, i64, i64, i8, i8, [6 x i8] }) align 8 dereferenceable(72) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(40) %1) unnamed_addr #5 {
   %3 = getelementptr inbounds i8, ptr %0, i64 40
   store i64 4096, ptr %3, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 48
@@ -592,7 +592,7 @@ define void @_ZN16mini_lsm_starter11lsm_storage17LsmStorageOptions22default_for_
   ret void
 }
 
-; Function Attrs: cold noreturn nonlazybind uwtable
+; Function Attrs: noreturn nonlazybind uwtable
 define noalias noundef nonnull ptr @_ZN16mini_lsm_starter11lsm_storage7MiniLsm5close17h11b437808c4d54b2E(ptr nocapture noundef nonnull readnone align 8 %0) unnamed_addr #3 {
   tail call void @_ZN4core9panicking5panic17hb837a5ebbbe5b188E(ptr noalias noundef nonnull readonly align 1 @anon.8bf14e9603843e181ebf39e1dd12cfe8.23.llvm.2931523923349400112, i64 noundef 15, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.8bf14e9603843e181ebf39e1dd12cfe8.41) #20
   unreachable
@@ -725,31 +725,31 @@ _ZN16mini_lsm_starter11lsm_storage15LsmStorageInner21add_compaction_filter17h84d
   ret void
 }
 
-; Function Attrs: cold noreturn nonlazybind uwtable
+; Function Attrs: noreturn nonlazybind uwtable
 define void @_ZN16mini_lsm_starter11lsm_storage7MiniLsm3get17hd5648993f82a167fE(ptr noalias nocapture noundef readnone sret({ i64, [4 x i64] }) align 8 dereferenceable(40) %0, ptr nocapture noundef nonnull readnone align 8 %1, ptr noalias nocapture noundef nonnull readonly align 1 %2, i64 noundef %3) unnamed_addr #3 {
   tail call void @_ZN4core9panicking5panic17hb837a5ebbbe5b188E(ptr noalias noundef nonnull readonly align 1 @anon.8bf14e9603843e181ebf39e1dd12cfe8.23.llvm.2931523923349400112, i64 noundef 15, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.8bf14e9603843e181ebf39e1dd12cfe8.43) #20
   unreachable
 }
 
-; Function Attrs: cold noreturn nonlazybind uwtable
+; Function Attrs: noreturn nonlazybind uwtable
 define noalias noundef nonnull ptr @_ZN16mini_lsm_starter11lsm_storage7MiniLsm3put17h3954b9fe23ba40e0E(ptr nocapture noundef nonnull readnone align 8 %0, ptr noalias nocapture noundef nonnull readonly align 1 %1, i64 noundef %2, ptr noalias nocapture noundef nonnull readonly align 1 %3, i64 noundef %4) unnamed_addr #3 {
   tail call void @_ZN4core9panicking5panic17hb837a5ebbbe5b188E(ptr noalias noundef nonnull readonly align 1 @anon.8bf14e9603843e181ebf39e1dd12cfe8.23.llvm.2931523923349400112, i64 noundef 15, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.8bf14e9603843e181ebf39e1dd12cfe8.44) #20
   unreachable
 }
 
-; Function Attrs: cold noreturn nonlazybind uwtable
+; Function Attrs: noreturn nonlazybind uwtable
 define noalias noundef nonnull ptr @_ZN16mini_lsm_starter11lsm_storage7MiniLsm6delete17h19449b531871c275E(ptr nocapture noundef nonnull readnone align 8 %0, ptr noalias nocapture noundef nonnull readonly align 1 %1, i64 noundef %2) unnamed_addr #3 {
   tail call void @_ZN4core9panicking5panic17hb837a5ebbbe5b188E(ptr noalias noundef nonnull readonly align 1 @anon.8bf14e9603843e181ebf39e1dd12cfe8.23.llvm.2931523923349400112, i64 noundef 15, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.8bf14e9603843e181ebf39e1dd12cfe8.45) #20
   unreachable
 }
 
-; Function Attrs: cold noreturn nonlazybind uwtable
+; Function Attrs: noreturn nonlazybind uwtable
 define noalias noundef nonnull ptr @_ZN16mini_lsm_starter11lsm_storage7MiniLsm4sync17h79287faa19899e38E(ptr nocapture noundef nonnull readnone align 8 %0) unnamed_addr #3 {
   tail call void @_ZN4core9panicking5panic17hb837a5ebbbe5b188E(ptr noalias noundef nonnull readonly align 1 @anon.8bf14e9603843e181ebf39e1dd12cfe8.23.llvm.2931523923349400112, i64 noundef 15, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.8bf14e9603843e181ebf39e1dd12cfe8.42) #20
   unreachable
 }
 
-; Function Attrs: cold noreturn nonlazybind uwtable
+; Function Attrs: noreturn nonlazybind uwtable
 define void @_ZN16mini_lsm_starter11lsm_storage7MiniLsm4scan17h20f9519a29af27c9E(ptr noalias nocapture noundef readnone sret({ i64, [5 x i64] }) align 8 dereferenceable(48) %0, ptr nocapture noundef nonnull readnone align 8 %1, ptr noalias nocapture noundef readnone align 8 dereferenceable(24) %2, ptr noalias nocapture noundef readnone align 8 dereferenceable(24) %3) unnamed_addr #3 {
   tail call void @_ZN4core9panicking5panic17hb837a5ebbbe5b188E(ptr noalias noundef nonnull readonly align 1 @anon.8bf14e9603843e181ebf39e1dd12cfe8.23.llvm.2931523923349400112, i64 noundef 15, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.8bf14e9603843e181ebf39e1dd12cfe8.48) #20
   unreachable
@@ -923,13 +923,13 @@ _ZN11parking_lot10raw_rwlock9RawRwLock20try_lock_shared_fast17h0a014631f851c40cE
   unreachable
 }
 
-; Function Attrs: cold noreturn nonlazybind uwtable
+; Function Attrs: noreturn nonlazybind uwtable
 define noalias noundef nonnull ptr @_ZN16mini_lsm_starter11lsm_storage7MiniLsm21force_full_compaction17h9f0e6c02a006f538E(ptr nocapture noundef nonnull readnone align 8 %0) unnamed_addr #3 {
   tail call void @_ZN4core9panicking5panic17hb837a5ebbbe5b188E(ptr noalias noundef nonnull readonly align 1 @anon.8bf14e9603843e181ebf39e1dd12cfe8.23.llvm.2931523923349400112, i64 noundef 15, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.8bf14e9603843e181ebf39e1dd12cfe8.25) #20
   unreachable
 }
 
-; Function Attrs: cold noreturn nonlazybind uwtable
+; Function Attrs: noreturn nonlazybind uwtable
 define void @_ZN16mini_lsm_starter5table9BlockMeta17encode_block_meta17h5f33bf105590b439E(ptr nocapture noundef nonnull readnone align 8 %0, i64 noundef %1, ptr noalias nocapture noundef readnone align 8 dereferenceable(24) %2) unnamed_addr #3 {
   tail call void @_ZN4core9panicking5panic17hb837a5ebbbe5b188E(ptr noalias noundef nonnull readonly align 1 @anon.8bf14e9603843e181ebf39e1dd12cfe8.23.llvm.2931523923349400112, i64 noundef 15, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.8bf14e9603843e181ebf39e1dd12cfe8.50) #20
   unreachable
@@ -1020,7 +1020,7 @@ define void @_ZN16mini_lsm_starter5table10FileObject4read17h31179e23291ff7acE(pt
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
-define noundef i64 @_ZN16mini_lsm_starter5table10FileObject4size17h73c87a25c02acfd6E(ptr noalias nocapture noundef readonly align 8 dereferenceable(16) %0) unnamed_addr #7 {
+define noundef i64 @_ZN16mini_lsm_starter5table10FileObject4size17h73c87a25c02acfd6E(ptr noalias nocapture noundef readonly align 8 dereferenceable(16) %0) unnamed_addr #6 {
   %2 = load i64, ptr %0, align 8, !noundef !4
   ret i64 %2
 }
@@ -1323,7 +1323,7 @@ define void @_ZN16mini_lsm_starter5table10FileObject4open17h9c8721e136a50174E(pt
   resume { ptr, i32 } %18
 }
 
-; Function Attrs: cold noreturn nonlazybind uwtable
+; Function Attrs: noreturn nonlazybind uwtable
 define void @_ZN16mini_lsm_starter5table7SsTable4open17hf9349a4d1e8e7842E(ptr noalias nocapture noundef readnone sret({ i64, [21 x i64] }) align 8 dereferenceable(176) %0, i64 noundef %1, ptr noundef %2, i64 noundef %3, i32 noundef %4) unnamed_addr #3 personality ptr @rust_eh_personality {
   %6 = alloca ptr, align 8
   store ptr %2, ptr %6, align 8
@@ -1368,7 +1368,7 @@ define void @_ZN16mini_lsm_starter5table7SsTable4open17hf9349a4d1e8e7842E(ptr no
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define void @_ZN16mini_lsm_starter5table7SsTable16create_meta_only17h08fbd24ecadc8c5bE(ptr noalias nocapture noundef writeonly sret({ { { i64, ptr }, i64 }, { { ptr, ptr, i64, { ptr } } }, { { ptr, ptr, i64, { ptr } } }, { i64, i32 }, i64, i64, ptr, { ptr, [4 x i64] }, i64 }) align 8 dereferenceable(176) %0, i64 noundef %1, i64 noundef %2, ptr noalias nocapture noundef readonly align 8 dereferenceable(32) %3, ptr noalias nocapture noundef readonly align 8 dereferenceable(32) %4) unnamed_addr #6 {
+define void @_ZN16mini_lsm_starter5table7SsTable16create_meta_only17h08fbd24ecadc8c5bE(ptr noalias nocapture noundef writeonly sret({ { { i64, ptr }, i64 }, { { ptr, ptr, i64, { ptr } } }, { { ptr, ptr, i64, { ptr } } }, { i64, i32 }, i64, i64, ptr, { ptr, [4 x i64] }, i64 }) align 8 dereferenceable(176) %0, i64 noundef %1, i64 noundef %2, ptr noalias nocapture noundef readonly align 8 dereferenceable(32) %3, ptr noalias nocapture noundef readonly align 8 dereferenceable(32) %4) unnamed_addr #5 {
   %6 = getelementptr inbounds i8, ptr %0, i64 88
   store i64 %2, ptr %6, align 8
   %7 = getelementptr inbounds i8, ptr %0, i64 96
@@ -1395,26 +1395,26 @@ define void @_ZN16mini_lsm_starter5table7SsTable16create_meta_only17h08fbd24ecad
   ret void
 }
 
-; Function Attrs: cold noreturn nonlazybind uwtable
+; Function Attrs: noreturn nonlazybind uwtable
 define noundef { i64, ptr } @_ZN16mini_lsm_starter5table7SsTable10read_block17he01c9da35b272c22E(ptr nocapture noundef nonnull readnone align 8 %0, i64 noundef %1) unnamed_addr #3 {
   tail call void @_ZN4core9panicking5panic17hb837a5ebbbe5b188E(ptr noalias noundef nonnull readonly align 1 @anon.8bf14e9603843e181ebf39e1dd12cfe8.23.llvm.2931523923349400112, i64 noundef 15, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.8bf14e9603843e181ebf39e1dd12cfe8.55) #20
   unreachable
 }
 
-; Function Attrs: cold noreturn nonlazybind uwtable
+; Function Attrs: noreturn nonlazybind uwtable
 define noundef { i64, ptr } @_ZN16mini_lsm_starter5table7SsTable17read_block_cached17h3733e31ab64a5ac4E(ptr nocapture noundef nonnull readnone align 8 %0, i64 noundef %1) unnamed_addr #3 {
   tail call void @_ZN4core9panicking5panic17hb837a5ebbbe5b188E(ptr noalias noundef nonnull readonly align 1 @anon.8bf14e9603843e181ebf39e1dd12cfe8.23.llvm.2931523923349400112, i64 noundef 15, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.8bf14e9603843e181ebf39e1dd12cfe8.56) #20
   unreachable
 }
 
-; Function Attrs: cold noreturn nonlazybind uwtable
+; Function Attrs: noreturn nonlazybind uwtable
 define noundef i64 @_ZN16mini_lsm_starter5table7SsTable14find_block_idx17h464d523ba48e5a11E(ptr nocapture noundef nonnull readnone align 8 %0, ptr noalias nocapture noundef nonnull readonly align 1 %1, i64 noundef %2) unnamed_addr #3 {
   tail call void @_ZN4core9panicking5panic17hb837a5ebbbe5b188E(ptr noalias noundef nonnull readonly align 1 @anon.8bf14e9603843e181ebf39e1dd12cfe8.23.llvm.2931523923349400112, i64 noundef 15, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.8bf14e9603843e181ebf39e1dd12cfe8.57) #20
   unreachable
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
-define noundef i64 @_ZN16mini_lsm_starter5table7SsTable13num_of_blocks17h2312633ec98d2f83E(ptr nocapture noundef nonnull readonly align 8 %0) unnamed_addr #7 {
+define noundef i64 @_ZN16mini_lsm_starter5table7SsTable13num_of_blocks17h2312633ec98d2f83E(ptr nocapture noundef nonnull readonly align 8 %0) unnamed_addr #6 {
   %2 = getelementptr inbounds i8, ptr %0, i64 16
   %3 = load i64, ptr %2, align 8, !noundef !4
   ret i64 %3
@@ -1433,34 +1433,34 @@ define noundef nonnull align 8 ptr @_ZN16mini_lsm_starter5table7SsTable8last_key
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
-define noundef i64 @_ZN16mini_lsm_starter5table7SsTable10table_size17ha030d44784393be5E(ptr nocapture noundef nonnull readonly align 8 %0) unnamed_addr #7 {
+define noundef i64 @_ZN16mini_lsm_starter5table7SsTable10table_size17ha030d44784393be5E(ptr nocapture noundef nonnull readonly align 8 %0) unnamed_addr #6 {
   %2 = getelementptr inbounds i8, ptr %0, i64 88
   %3 = load i64, ptr %2, align 8, !noundef !4
   ret i64 %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
-define noundef i64 @_ZN16mini_lsm_starter5table7SsTable6sst_id17h727c1801ba722131E(ptr nocapture noundef nonnull readonly align 8 %0) unnamed_addr #7 {
+define noundef i64 @_ZN16mini_lsm_starter5table7SsTable6sst_id17h727c1801ba722131E(ptr nocapture noundef nonnull readonly align 8 %0) unnamed_addr #6 {
   %2 = getelementptr inbounds i8, ptr %0, i64 112
   %3 = load i64, ptr %2, align 8, !noundef !4
   ret i64 %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
-define noundef i64 @_ZN16mini_lsm_starter5table7SsTable6max_ts17h9f157767345e1dbfE(ptr nocapture noundef nonnull readonly align 8 %0) unnamed_addr #7 {
+define noundef i64 @_ZN16mini_lsm_starter5table7SsTable6max_ts17h9f157767345e1dbfE(ptr nocapture noundef nonnull readonly align 8 %0) unnamed_addr #6 {
   %2 = getelementptr inbounds i8, ptr %0, i64 168
   %3 = load i64, ptr %2, align 8, !noundef !4
   ret i64 %3
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare { i64, i1 } @llvm.uadd.with.overflow.i64(i64, i64) #8
+declare { i64, i1 } @llvm.uadd.with.overflow.i64(i64, i64) #7
 
 ; Function Attrs: nonlazybind uwtable
 declare noundef i32 @rust_eh_personality(i32 noundef, i32 noundef, i64 noundef, ptr noundef, ptr noundef) unnamed_addr #2
 
 ; Function Attrs: cold noreturn nonlazybind uwtable
-declare void @_ZN4core6result13unwrap_failed17h03d8a5018196e1cdE(ptr noalias noundef nonnull readonly align 1, i64 noundef, ptr noundef nonnull align 1, ptr noalias noundef readonly align 8 dereferenceable(24), ptr noalias noundef readonly align 8 dereferenceable(24)) unnamed_addr #3
+declare void @_ZN4core6result13unwrap_failed17h03d8a5018196e1cdE(ptr noalias noundef nonnull readonly align 1, i64 noundef, ptr noundef nonnull align 1, ptr noalias noundef readonly align 8 dereferenceable(24), ptr noalias noundef readonly align 8 dereferenceable(24)) unnamed_addr #8
 
 ; Function Attrs: nonlazybind uwtable
 declare hidden void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$16reserve_for_push17hae6157c6c61adb99E"(ptr noalias noundef align 8 dereferenceable(16), i64 noundef) unnamed_addr #2
@@ -1475,7 +1475,7 @@ declare void @_ZN4core9panicking16panic_in_cleanup17h55eb1d85cadde1a1E() unnamed
 declare void @llvm.assume(i1 noundef) #11
 
 ; Function Attrs: cold noreturn nonlazybind uwtable
-declare void @_ZN5alloc5alloc18handle_alloc_error17h81706c48453a6249E(i64 noundef, i64 noundef) unnamed_addr #3
+declare void @_ZN5alloc5alloc18handle_alloc_error17h81706c48453a6249E(i64 noundef, i64 noundef) unnamed_addr #8
 
 ; Function Attrs: nounwind nonlazybind allockind("alloc,uninitialized,aligned") allocsize(0) uwtable
 declare noalias noundef ptr @__rust_alloc(i64 noundef, i64 allocalign noundef) unnamed_addr #12
@@ -1505,7 +1505,7 @@ declare void @_ZN11parking_lot9raw_mutex8RawMutex11unlock_slow17h4f1db2d09399a6d
 declare void @_ZN11parking_lot10raw_rwlock9RawRwLock18unlock_shared_slow17h5a1a4b72c31f3cb5E(ptr noundef nonnull align 8) unnamed_addr #14
 
 ; Function Attrs: cold noreturn nonlazybind uwtable
-declare void @_ZN4core9panicking5panic17hb837a5ebbbe5b188E(ptr noalias noundef nonnull readonly align 1, i64 noundef, ptr noalias noundef readonly align 8 dereferenceable(24)) unnamed_addr #3
+declare void @_ZN4core9panicking5panic17hb837a5ebbbe5b188E(ptr noalias noundef nonnull readonly align 1, i64 noundef, ptr noalias noundef readonly align 8 dereferenceable(24)) unnamed_addr #8
 
 ; Function Attrs: cold nonlazybind uwtable
 declare noundef zeroext i1 @_ZN11parking_lot10raw_rwlock9RawRwLock16lock_shared_slow17h906b53de30f3cd73E(ptr noundef nonnull align 8, i1 noundef zeroext, i64, i32 noundef) unnamed_addr #14
@@ -1594,12 +1594,12 @@ declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture read
 attributes #0 = { inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
 attributes #1 = { mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
 attributes #2 = { nonlazybind uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
-attributes #3 = { cold noreturn nonlazybind uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
+attributes #3 = { noreturn nonlazybind uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
 attributes #4 = { mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
-attributes #5 = { noreturn nonlazybind uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
-attributes #6 = { mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
-attributes #7 = { mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
-attributes #8 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #5 = { mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
+attributes #6 = { mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
+attributes #7 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #8 = { cold noreturn nonlazybind uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
 attributes #9 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
 attributes #10 = { cold noreturn nounwind nonlazybind uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
 attributes #11 = { mustprogress nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }

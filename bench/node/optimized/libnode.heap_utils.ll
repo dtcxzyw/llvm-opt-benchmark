@@ -4237,7 +4237,7 @@ entry:
   ret i32 0
 }
 
-; Function Attrs: cold mustprogress noreturn nounwind uwtable
+; Function Attrs: mustprogress noreturn nounwind uwtable
 define internal noundef i32 @_ZN4node4heap12_GLOBAL__N_118HeapSnapshotStream10DoShutdownEPNS_12ShutdownWrapE(ptr nocapture nonnull readnone align 8 %this, ptr nocapture readnone %req_wrap) unnamed_addr #14 align 2 {
 entry:
   tail call void @_ZN4node6AssertERKNS_13AssertionInfoE(ptr noundef nonnull align 8 dereferenceable(24) @_ZZN4node4heap12_GLOBAL__N_118HeapSnapshotStream10DoShutdownEPNS_12ShutdownWrapEE4args) #22
@@ -4245,7 +4245,7 @@ entry:
   unreachable
 }
 
-; Function Attrs: cold mustprogress noreturn nounwind uwtable
+; Function Attrs: mustprogress noreturn nounwind uwtable
 define internal noundef i32 @_ZN4node4heap12_GLOBAL__N_118HeapSnapshotStream7DoWriteEPNS_9WriteWrapEP8uv_buf_tmP11uv_stream_s(ptr nocapture nonnull readnone align 8 %this, ptr nocapture readnone %w, ptr nocapture readnone %bufs, i64 %count, ptr nocapture readnone %send_handle) unnamed_addr #14 align 2 {
 entry:
   tail call void @_ZN4node6AssertERKNS_13AssertionInfoE(ptr noundef nonnull align 8 dereferenceable(24) @_ZZN4node4heap12_GLOBAL__N_118HeapSnapshotStream7DoWriteEPNS_9WriteWrapEP8uv_buf_tmP11uv_stream_sE4args) #22
@@ -4357,7 +4357,7 @@ entry:
   ret i32 0
 }
 
-; Function Attrs: cold noreturn nounwind uwtable
+; Function Attrs: noreturn nounwind uwtable
 define internal noundef i32 @_ZThn56_N4node4heap12_GLOBAL__N_118HeapSnapshotStream10DoShutdownEPNS_12ShutdownWrapE(ptr nocapture readnone %this, ptr nocapture readnone %req_wrap) unnamed_addr #17 align 2 {
 entry:
   tail call void @_ZN4node6AssertERKNS_13AssertionInfoE(ptr noundef nonnull align 8 dereferenceable(24) @_ZZN4node4heap12_GLOBAL__N_118HeapSnapshotStream10DoShutdownEPNS_12ShutdownWrapEE4args) #22
@@ -4367,7 +4367,7 @@ entry:
 
 declare noundef i32 @_ZN4node14StreamResource10DoTryWriteEPP8uv_buf_tPm(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef, ptr noundef) unnamed_addr #0
 
-; Function Attrs: cold noreturn nounwind uwtable
+; Function Attrs: noreturn nounwind uwtable
 define internal noundef i32 @_ZThn56_N4node4heap12_GLOBAL__N_118HeapSnapshotStream7DoWriteEPNS_9WriteWrapEP8uv_buf_tmP11uv_stream_s(ptr nocapture readnone %this, ptr nocapture readnone %w, ptr nocapture readnone %bufs, i64 %count, ptr nocapture readnone %send_handle) unnamed_addr #17 align 2 {
 entry:
   tail call void @_ZN4node6AssertERKNS_13AssertionInfoE(ptr noundef nonnull align 8 dereferenceable(24) @_ZZN4node4heap12_GLOBAL__N_118HeapSnapshotStream7DoWriteEPNS_9WriteWrapEP8uv_buf_tmP11uv_stream_sE4args) #22
@@ -4718,10 +4718,10 @@ attributes #10 = { noreturn "frame-pointer"="all" "no-trapping-math"="true" "sta
 attributes #11 = { mustprogress nofree nounwind willreturn memory(read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #12 = { cold mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #13 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #14 = { cold mustprogress noreturn nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #14 = { mustprogress noreturn nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #15 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #16 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #17 = { cold noreturn nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #17 = { noreturn nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #18 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #19 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite) }
 attributes #20 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }

@@ -244,7 +244,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.234 = private unnamed_addr constant [78 x i8] c"                      changes.  Use this option to tell metaflac to not take\0A\00", align 1
 @.str.235 = private unnamed_addr constant [54 x i8] c"                      advantage of padding this way.\0A\00", align 1
 
-; Function Attrs: cold nofree nounwind sspstrong uwtable
+; Function Attrs: nofree nounwind sspstrong uwtable
 define dso_local range(i32 0, 2) i32 @short_usage(ptr noundef readonly %message, ...) local_unnamed_addr #0 {
 entry:
   %args = alloca [1 x %struct.__va_list_tag], align 16
@@ -254,7 +254,7 @@ entry:
 if.then:                                          ; preds = %entry
   call void @llvm.va_start.p0(ptr nonnull %args)
   %0 = load ptr, ptr @stderr, align 8
-  %call = call i32 @vfprintf(ptr noundef %0, ptr noundef nonnull %message, ptr noundef nonnull %args) #5
+  %call = call i32 @vfprintf(ptr noundef %0, ptr noundef nonnull %message, ptr noundef nonnull %args) #4
   call void @llvm.va_end.p0(ptr nonnull %args)
   br label %if.end
 
@@ -264,7 +264,7 @@ if.end:                                           ; preds = %if.then, %entry
   %2 = load ptr, ptr @stderr, align 8
   %fputc = call i32 @fputc(i32 10, ptr %2)
   %3 = load ptr, ptr @stderr, align 8
-  %4 = call i64 @fwrite(ptr nonnull @.str.1, i64 60, i64 1, ptr %3) #5
+  %4 = call i64 @fwrite(ptr nonnull @.str.1, i64 60, i64 1, ptr %3) #4
   %5 = load ptr, ptr @stderr, align 8
   %fputc3 = call i32 @fputc(i32 10, ptr %5)
   %6 = load ptr, ptr @stderr, align 8
@@ -277,7 +277,7 @@ if.end:                                           ; preds = %if.then, %entry
 declare noundef i32 @vfprintf(ptr nocapture noundef, ptr nocapture noundef readonly, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind sspstrong uwtable
-define internal fastcc void @usage_header(ptr nocapture noundef %out) unnamed_addr #2 {
+define internal fastcc void @usage_header(ptr nocapture noundef %out) unnamed_addr #0 {
 entry:
   %0 = tail call i64 @fwrite(ptr nonnull @.str.202, i64 79, i64 1, ptr %out)
   %1 = load ptr, ptr @FLAC__VERSION_STRING, align 8
@@ -306,7 +306,7 @@ entry:
 declare noundef i32 @fprintf(ptr nocapture noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind sspstrong uwtable
-define internal fastcc void @usage_summary(ptr nocapture noundef %out) unnamed_addr #2 {
+define internal fastcc void @usage_summary(ptr nocapture noundef %out) unnamed_addr #0 {
 entry:
   %0 = tail call i64 @fwrite(ptr nonnull @.str.217, i64 7, i64 1, ptr %out)
   %1 = tail call i64 @fwrite(ptr nonnull @.str.218, i64 58, i64 1, ptr %out)
@@ -333,7 +333,7 @@ entry:
 }
 
 ; Function Attrs: nofree nounwind sspstrong uwtable
-define dso_local range(i32 0, 2) i32 @long_usage(ptr noundef readonly %message, ...) local_unnamed_addr #2 {
+define dso_local range(i32 0, 2) i32 @long_usage(ptr noundef readonly %message, ...) local_unnamed_addr #0 {
 entry:
   %args = alloca [1 x %struct.__va_list_tag], align 16
   %tobool.not = icmp ne ptr %message, null
@@ -345,7 +345,7 @@ entry:
 if.then:                                          ; preds = %entry
   call void @llvm.va_start.p0(ptr nonnull %args)
   %2 = load ptr, ptr @stderr, align 8
-  %call = call i32 @vfprintf(ptr noundef %2, ptr noundef nonnull %message, ptr noundef nonnull %args) #5
+  %call = call i32 @vfprintf(ptr noundef %2, ptr noundef nonnull %message, ptr noundef nonnull %args) #4
   call void @llvm.va_end.p0(ptr nonnull %args)
   br label %if.end
 
@@ -579,23 +579,22 @@ if.end:                                           ; preds = %if.then, %entry
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_start.p0(ptr) #3
+declare void @llvm.va_start.p0(ptr) #2
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_end.p0(ptr) #3
+declare void @llvm.va_end.p0(ptr) #2
 
 ; Function Attrs: nofree nounwind
-declare noundef i64 @fwrite(ptr nocapture noundef, i64 noundef, i64 noundef, ptr nocapture noundef) local_unnamed_addr #4
+declare noundef i64 @fwrite(ptr nocapture noundef, i64 noundef, i64 noundef, ptr nocapture noundef) local_unnamed_addr #3
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fputc(i32 noundef, ptr nocapture noundef) local_unnamed_addr #4
+declare noundef i32 @fputc(i32 noundef, ptr nocapture noundef) local_unnamed_addr #3
 
-attributes #0 = { cold nofree nounwind sspstrong uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #0 = { nofree nounwind sspstrong uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nofree nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { nofree nounwind sspstrong uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { mustprogress nocallback nofree nosync nounwind willreturn }
-attributes #4 = { nofree nounwind }
-attributes #5 = { cold }
+attributes #2 = { mustprogress nocallback nofree nosync nounwind willreturn }
+attributes #3 = { nofree nounwind }
+attributes #4 = { cold }
 
 !llvm.module.flags = !{!0, !1, !2, !3, !4}
 

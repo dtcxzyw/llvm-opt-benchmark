@@ -1603,7 +1603,7 @@ declare ptr @text_to_cstring(ptr noundef) local_unnamed_addr #3
 ; Function Attrs: nounwind
 declare ptr @newlocale(i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
-; Function Attrs: cold noreturn nounwind uwtable
+; Function Attrs: noreturn nounwind uwtable
 define internal fastcc void @report_newlocale_failure(ptr noundef %0) unnamed_addr #15 {
   %2 = tail call ptr @__errno_location() #27
   %3 = load i32, ptr %2, align 4
@@ -2022,46 +2022,40 @@ define dso_local noundef zeroext i1 @pg_strxfrm_enabled(ptr noundef readonly %0)
 ; Function Attrs: nounwind uwtable
 define dso_local i64 @pg_strxfrm(ptr noundef %0, ptr noundef %1, i64 noundef %2, ptr noundef readonly %3) local_unnamed_addr #0 {
   %.not = icmp eq ptr %3, null
-  br i1 %.not, label %.split, label %5
+  br i1 %.not, label %.split, label %6
 
 .split:                                           ; preds = %4
-  tail call fastcc void @pg_strxfrm_libc(ptr noundef null)
+  %5 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #23
   unreachable
 
-5:                                                ; preds = %4
-  %6 = load i8, ptr %3, align 8
-  switch i8 %6, label %10 [
+6:                                                ; preds = %4
+  %7 = load i8, ptr %3, align 8
+  switch i8 %7, label %15 [
     i8 99, label %.split12
-    i8 105, label %7
+    i8 105, label %12
   ]
 
-.split12:                                         ; preds = %5
-  tail call fastcc void @pg_strxfrm_libc(ptr noundef nonnull %3)
-  unreachable
-
-7:                                                ; preds = %5
-  %8 = trunc i64 %2 to i32
-  %9 = tail call fastcc i64 @pg_strnxfrm_icu(ptr noundef %0, ptr noundef %1, i32 noundef -1, i32 noundef %8, ptr noundef nonnull %3)
-  ret i64 %9
-
-10:                                               ; preds = %5
-  %11 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #23
-  tail call void @llvm.assume(i1 %11)
-  %12 = load i8, ptr %3, align 8
-  %13 = sext i8 %12 to i32
-  %14 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.31, ptr noundef nonnull @__func__.pg_strxfrm, i32 noundef %13) #22
-  tail call void @errfinish(ptr noundef nonnull @.str.7, i32 noundef 2321, ptr noundef nonnull @__func__.pg_strxfrm) #22
-  unreachable
-}
-
-; Function Attrs: cold noreturn nounwind uwtable
-define internal fastcc void @pg_strxfrm_libc(ptr nocapture noundef readonly %0) unnamed_addr #15 {
-  %2 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #23
-  tail call void @llvm.assume(i1 %2)
-  %3 = load i8, ptr %0, align 8
-  %4 = sext i8 %3 to i32
-  %5 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.31, ptr noundef nonnull @__func__.pg_strxfrm_libc, i32 noundef %4) #22
+.split12:                                         ; preds = %6
+  %8 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #23
+  tail call void @llvm.assume(i1 %8)
+  %9 = load i8, ptr %3, align 8
+  %10 = sext i8 %9 to i32
+  %11 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.31, ptr noundef nonnull @__func__.pg_strxfrm_libc, i32 noundef %10) #22
   tail call void @errfinish(ptr noundef nonnull @.str.7, i32 noundef 2093, ptr noundef nonnull @__func__.pg_strxfrm_libc) #22
+  unreachable
+
+12:                                               ; preds = %6
+  %13 = trunc i64 %2 to i32
+  %14 = tail call fastcc i64 @pg_strnxfrm_icu(ptr noundef %0, ptr noundef %1, i32 noundef -1, i32 noundef %13, ptr noundef nonnull %3)
+  ret i64 %14
+
+15:                                               ; preds = %6
+  %16 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #23
+  tail call void @llvm.assume(i1 %16)
+  %17 = load i8, ptr %3, align 8
+  %18 = sext i8 %17 to i32
+  %19 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.31, ptr noundef nonnull @__func__.pg_strxfrm, i32 noundef %18) #22
+  tail call void @errfinish(ptr noundef nonnull @.str.7, i32 noundef 2321, ptr noundef nonnull @__func__.pg_strxfrm) #22
   unreachable
 }
 
@@ -2141,57 +2135,72 @@ uchar_convert.exit:                               ; preds = %25
 
 ; Function Attrs: nounwind uwtable
 define dso_local i64 @pg_strnxfrm(ptr noundef %0, i64 noundef %1, ptr noundef %2, i64 noundef %3, ptr noundef readonly %4) local_unnamed_addr #0 {
+  %6 = alloca [1024 x i8], align 16
+  %7 = alloca [1024 x i8], align 16
   %.not = icmp eq ptr %4, null
-  br i1 %.not, label %.split, label %6
+  br i1 %.not, label %.split, label %15
 
 .split:                                           ; preds = %5
-  tail call fastcc void @pg_strnxfrm_libc(ptr noundef %2, i64 noundef %3, ptr noundef null)
+  call void @llvm.lifetime.start.p0(i64 1024, ptr nonnull %7)
+  %8 = add i64 %3, 1
+  %9 = icmp ugt i64 %8, 1024
+  br i1 %9, label %10, label %12
+
+10:                                               ; preds = %.split
+  %11 = tail call ptr @palloc(i64 noundef %8) #22
+  br label %12
+
+12:                                               ; preds = %10, %.split
+  %.0.i = phi ptr [ %11, %10 ], [ %7, %.split ]
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %.0.i, ptr readonly align 1 %2, i64 %3, i1 false)
+  %13 = getelementptr i8, ptr %.0.i, i64 %3
+  store i8 0, ptr %13, align 1
+  %14 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #23
   unreachable
 
-6:                                                ; preds = %5
-  %7 = load i8, ptr %4, align 8
-  switch i8 %7, label %12 [
+15:                                               ; preds = %5
+  %16 = load i8, ptr %4, align 8
+  switch i8 %16, label %31 [
     i8 99, label %.split14
-    i8 105, label %8
+    i8 105, label %27
   ]
 
-.split14:                                         ; preds = %6
-  tail call fastcc void @pg_strnxfrm_libc(ptr noundef %2, i64 noundef %3, ptr noundef nonnull %4)
+.split14:                                         ; preds = %15
+  call void @llvm.lifetime.start.p0(i64 1024, ptr nonnull %6)
+  %17 = add i64 %3, 1
+  %18 = icmp ugt i64 %17, 1024
+  br i1 %18, label %19, label %21
+
+19:                                               ; preds = %.split14
+  %20 = tail call ptr @palloc(i64 noundef %17) #22
+  br label %21
+
+21:                                               ; preds = %19, %.split14
+  %.0.i17 = phi ptr [ %20, %19 ], [ %6, %.split14 ]
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %.0.i17, ptr readonly align 1 %2, i64 %3, i1 false)
+  %22 = getelementptr i8, ptr %.0.i17, i64 %3
+  store i8 0, ptr %22, align 1
+  %23 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #23
+  tail call void @llvm.assume(i1 %23)
+  %24 = load i8, ptr %4, align 8
+  %25 = sext i8 %24 to i32
+  %26 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.31, ptr noundef nonnull @__func__.pg_strxfrm_libc, i32 noundef %25) #22
+  tail call void @errfinish(ptr noundef nonnull @.str.7, i32 noundef 2093, ptr noundef nonnull @__func__.pg_strxfrm_libc) #22
   unreachable
 
-8:                                                ; preds = %6
-  %9 = trunc i64 %3 to i32
-  %10 = trunc i64 %1 to i32
-  %11 = tail call fastcc i64 @pg_strnxfrm_icu(ptr noundef %0, ptr noundef %2, i32 noundef %9, i32 noundef %10, ptr noundef nonnull %4)
-  ret i64 %11
+27:                                               ; preds = %15
+  %28 = trunc i64 %3 to i32
+  %29 = trunc i64 %1 to i32
+  %30 = tail call fastcc i64 @pg_strnxfrm_icu(ptr noundef %0, ptr noundef %2, i32 noundef %28, i32 noundef %29, ptr noundef nonnull %4)
+  ret i64 %30
 
-12:                                               ; preds = %6
-  %13 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #23
-  tail call void @llvm.assume(i1 %13)
-  %14 = load i8, ptr %4, align 8
-  %15 = sext i8 %14 to i32
-  %16 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.31, ptr noundef nonnull @__func__.pg_strnxfrm, i32 noundef %15) #22
+31:                                               ; preds = %15
+  %32 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #23
+  tail call void @llvm.assume(i1 %32)
+  %33 = load i8, ptr %4, align 8
+  %34 = sext i8 %33 to i32
+  %35 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.31, ptr noundef nonnull @__func__.pg_strnxfrm, i32 noundef %34) #22
   tail call void @errfinish(ptr noundef nonnull @.str.7, i32 noundef 2358, ptr noundef nonnull @__func__.pg_strnxfrm) #22
-  unreachable
-}
-
-; Function Attrs: cold noreturn nounwind uwtable
-define internal fastcc void @pg_strnxfrm_libc(ptr nocapture noundef readonly %0, i64 noundef %1, ptr nocapture noundef readonly %2) unnamed_addr #15 {
-  %4 = alloca [1024 x i8], align 16
-  %5 = add i64 %1, 1
-  %6 = icmp ugt i64 %5, 1024
-  br i1 %6, label %7, label %9
-
-7:                                                ; preds = %3
-  %8 = tail call ptr @palloc(i64 noundef %5) #22
-  br label %9
-
-9:                                                ; preds = %7, %3
-  %.0 = phi ptr [ %8, %7 ], [ %4, %3 ]
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %.0, ptr align 1 %0, i64 %1, i1 false)
-  %10 = getelementptr i8, ptr %.0, i64 %1
-  store i8 0, ptr %10, align 1
-  tail call fastcc void @pg_strxfrm_libc(ptr noundef %2)
   unreachable
 }
 
@@ -2835,7 +2844,7 @@ attributes #11 = { mustprogress nocallback nofree nounwind willreturn memory(arg
 attributes #12 = { mustprogress nofree nosync nounwind willreturn memory(none) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #13 = { mustprogress nofree nounwind willreturn memory(argmem: read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #14 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #15 = { cold noreturn nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #15 = { noreturn nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #16 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #17 = { mustprogress nofree nounwind willreturn memory(read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #18 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }

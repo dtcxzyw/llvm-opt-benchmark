@@ -44,10 +44,10 @@ define dso_local noundef i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed
   %6 = alloca i32, align 4
   %7 = alloca i32, align 4
   %8 = load ptr, ptr %1, align 8
-  tail call void @pg_logging_init(ptr noundef %8) #9
+  tail call void @pg_logging_init(ptr noundef %8) #8
   %9 = load ptr, ptr %1, align 8
-  %10 = tail call ptr @get_progname(ptr noundef %9) #9
-  tail call void @handle_help_version_opts(i32 noundef %0, ptr noundef nonnull %1, ptr noundef %10, ptr noundef nonnull @help) #9
+  %10 = tail call ptr @get_progname(ptr noundef %9) #8
+  tail call void @handle_help_version_opts(i32 noundef %0, ptr noundef nonnull %1, ptr noundef %10, ptr noundef nonnull @help) #8
   br label %.outer
 
 .outer:                                           ; preds = %13, %2
@@ -57,7 +57,7 @@ define dso_local noundef i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed
 
 11:                                               ; preds = %.outer, %11
   %.sroa.0.0 = phi i1 [ true, %11 ], [ %.sroa.0.0.ph, %.outer ]
-  %12 = call i32 @getopt_long(i32 noundef %0, ptr noundef nonnull %1, ptr noundef nonnull @.str.2, ptr noundef nonnull @main.long_options, ptr noundef nonnull %3) #9
+  %12 = call i32 @getopt_long(i32 noundef %0, ptr noundef nonnull %1, ptr noundef nonnull @.str.2, ptr noundef nonnull @main.long_options, ptr noundef nonnull %3) #8
   switch i32 %12, label %14 [
     i32 -1, label %15
     i32 105, label %11
@@ -68,8 +68,8 @@ define dso_local noundef i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed
   br label %.outer, !llvm.loop !5
 
 14:                                               ; preds = %11
-  call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 4, i32 noundef 2, ptr noundef nonnull @.str.3, ptr noundef %10) #9
-  call void @exit(i32 noundef 1) #10
+  call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 4, i32 noundef 2, ptr noundef nonnull @.str.3, ptr noundef %10) #8
+  call void @exit(i32 noundef 1) #9
   unreachable
 
 15:                                               ; preds = %11
@@ -84,9 +84,9 @@ define dso_local noundef i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed
   br label %21
 
 20:                                               ; preds = %15
-  call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 4, i32 noundef 0, ptr noundef nonnull @.str.4, ptr noundef %10) #9
-  call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 4, i32 noundef 2, ptr noundef nonnull @.str.3, ptr noundef %10) #9
-  call void @exit(i32 noundef 1) #10
+  call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 4, i32 noundef 0, ptr noundef nonnull @.str.4, ptr noundef %10) #8
+  call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 4, i32 noundef 2, ptr noundef nonnull @.str.3, ptr noundef %10) #8
+  call void @exit(i32 noundef 1) #9
   unreachable
 
 21:                                               ; preds = %.lr.ph21, %._crit_edge
@@ -97,20 +97,20 @@ define dso_local noundef i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed
   %25 = getelementptr ptr, ptr %1, i64 %24
   %26 = load ptr, ptr %25, align 8
   store ptr %26, ptr %17, align 8
-  %27 = call i32 (ptr, i32, ...) @open(ptr noundef %26, i32 noundef 0, i32 noundef 0) #9
+  %27 = call i32 (ptr, i32, ...) @open(ptr noundef %26, i32 noundef 0, i32 noundef 0) #8
   store i32 %27, ptr %4, align 8
   %28 = icmp slt i32 %27, 0
   %29 = load ptr, ptr %17, align 8
   br i1 %28, label %30, label %31
 
 30:                                               ; preds = %21
-  call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 4, i32 noundef 0, ptr noundef nonnull @.str.5, ptr noundef %29) #9
-  call void @exit(i32 noundef 1) #10
+  call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 4, i32 noundef 0, ptr noundef nonnull @.str.5, ptr noundef %29) #8
+  call void @exit(i32 noundef 1) #9
   unreachable
 
 31:                                               ; preds = %21
-  %32 = call ptr @CreateBlockRefTableReader(ptr noundef nonnull @walsummary_read_callback, ptr noundef nonnull %4, ptr noundef %29, ptr noundef nonnull @walsummary_error_callback, ptr noundef null) #9
-  %33 = call zeroext i1 @BlockRefTableReaderNextRelation(ptr noundef %32, ptr noundef nonnull %5, ptr noundef nonnull %6, ptr noundef nonnull %7) #9
+  %32 = call ptr @CreateBlockRefTableReader(ptr noundef nonnull @walsummary_read_callback, ptr noundef nonnull %4, ptr noundef %29, ptr noundef nonnull @walsummary_error_callback, ptr noundef null) #8
+  %33 = call zeroext i1 @BlockRefTableReaderNextRelation(ptr noundef %32, ptr noundef nonnull %5, ptr noundef nonnull %6, ptr noundef nonnull %7) #8
   br i1 %33, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %31, %dump_one_relation.exit
@@ -126,7 +126,7 @@ define dso_local noundef i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed
   %40 = sext i32 %34 to i64
   %41 = getelementptr [0 x ptr], ptr @forkNames, i64 0, i64 %40
   %42 = load ptr, ptr %41, align 8
-  %43 = call i32 (ptr, ...) @pg_printf(ptr noundef nonnull @.str.6, i32 noundef %37, i32 noundef %38, i32 noundef %39, ptr noundef %42, i32 noundef %35) #9
+  %43 = call i32 (ptr, ...) @pg_printf(ptr noundef nonnull @.str.6, i32 noundef %37, i32 noundef %38, i32 noundef %39, ptr noundef %42, i32 noundef %35) #8
   br label %44
 
 44:                                               ; preds = %36, %.lr.ph
@@ -138,14 +138,14 @@ define dso_local noundef i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed
   %48 = load i32, ptr @block_buffer_size, align 4
   %49 = zext i32 %48 to i64
   %50 = shl nuw nsw i64 %49, 2
-  %51 = call ptr @palloc(i64 noundef %50) #9
+  %51 = call ptr @palloc(i64 noundef %50) #8
   store ptr %51, ptr @block_buffer, align 8
   br label %52
 
 52:                                               ; preds = %47, %44
   %53 = phi ptr [ %51, %47 ], [ %45, %44 ]
   %54 = load i32, ptr @block_buffer_size, align 4
-  %55 = call i32 @BlockRefTableReaderGetBlocks(ptr noundef %32, ptr noundef %53, i32 noundef %54) #9
+  %55 = call i32 @BlockRefTableReaderGetBlocks(ptr noundef %32, ptr noundef %53, i32 noundef %54) #8
   %56 = load i32, ptr @block_buffer_size, align 4
   %.not4651.i = icmp ult i32 %55, %56
   br i1 %.not4651.i, label %._crit_edge.i, label %.lr.ph.i
@@ -159,13 +159,13 @@ define dso_local noundef i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed
   %59 = load ptr, ptr @block_buffer, align 8
   %60 = zext i32 %spec.store.select.i to i64
   %61 = shl nuw nsw i64 %60, 2
-  %62 = call ptr @repalloc(ptr noundef %59, i64 noundef %61) #9
+  %62 = call ptr @repalloc(ptr noundef %59, i64 noundef %61) #8
   store ptr %62, ptr @block_buffer, align 8
   %63 = load i32, ptr @block_buffer_size, align 4
   %64 = zext i32 %63 to i64
   %65 = getelementptr i32, ptr %62, i64 %64
   %66 = sub i32 %spec.store.select.i, %63
-  %67 = call i32 @BlockRefTableReaderGetBlocks(ptr noundef %32, ptr noundef %65, i32 noundef %66) #9
+  %67 = call i32 @BlockRefTableReaderGetBlocks(ptr noundef %32, ptr noundef %65, i32 noundef %66) #8
   %68 = add i32 %67, %.04052.i
   store i32 %spec.store.select.i, ptr @block_buffer_size, align 4
   %.not46.i = icmp ult i32 %68, %spec.store.select.i
@@ -178,7 +178,7 @@ define dso_local noundef i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed
 69:                                               ; preds = %._crit_edge.i
   %70 = load ptr, ptr @block_buffer, align 8
   %71 = zext i32 %.040.lcssa.i to i64
-  call void @pg_qsort(ptr noundef %70, i64 noundef %71, i64 noundef 4, ptr noundef nonnull @compare_block_numbers) #9
+  call void @pg_qsort(ptr noundef %70, i64 noundef %71, i64 noundef 4, ptr noundef nonnull @compare_block_numbers) #8
   %.not64.i = icmp eq i32 %.040.lcssa.i, 0
   br i1 %.not64.i, label %dump_one_relation.exit, label %.lr.ph63.i
 
@@ -200,7 +200,7 @@ define dso_local noundef i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed
   %77 = load i32, ptr %5, align 4
   %78 = load i32, ptr %18, align 4
   %79 = load i32, ptr %19, align 4
-  %80 = call i32 (ptr, ...) @pg_printf(ptr noundef nonnull @.str.7, i32 noundef %77, i32 noundef %78, i32 noundef %79, ptr noundef %.pre6569.i.us, i32 noundef %76) #9
+  %80 = call i32 (ptr, ...) @pg_printf(ptr noundef nonnull @.str.7, i32 noundef %77, i32 noundef %78, i32 noundef %79, ptr noundef %.pre6569.i.us, i32 noundef %76) #8
   %exitcond.not = icmp eq i64 %indvars.iv.next28, %71
   br i1 %exitcond.not, label %dump_one_relation.exit, label %.critedge.thread.sink.split.i.us, !llvm.loop !8
 
@@ -256,14 +256,14 @@ define dso_local noundef i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed
   %98 = load i32, ptr %5, align 4
   %99 = load i32, ptr %18, align 4
   %100 = load i32, ptr %19, align 4
-  %101 = call i32 (ptr, ...) @pg_printf(ptr noundef nonnull @.str.7, i32 noundef %98, i32 noundef %99, i32 noundef %100, ptr noundef %97, i32 noundef %85) #9
+  %101 = call i32 (ptr, ...) @pg_printf(ptr noundef nonnull @.str.7, i32 noundef %98, i32 noundef %99, i32 noundef %100, ptr noundef %97, i32 noundef %85) #8
   br label %107
 
 102:                                              ; preds = %.critedge.i
   %103 = load i32, ptr %5, align 4
   %104 = load i32, ptr %18, align 4
   %105 = load i32, ptr %19, align 4
-  %106 = call i32 (ptr, ...) @pg_printf(ptr noundef nonnull @.str.8, i32 noundef %103, i32 noundef %104, i32 noundef %105, ptr noundef %.pre65.i, i32 noundef %85, i32 noundef %.139.lcssa.i) #9
+  %106 = call i32 (ptr, ...) @pg_printf(ptr noundef nonnull @.str.8, i32 noundef %103, i32 noundef %104, i32 noundef %105, ptr noundef %.pre65.i, i32 noundef %85, i32 noundef %.139.lcssa.i) #8
   br label %107
 
 107:                                              ; preds = %102, %.critedge.thread.i
@@ -272,19 +272,19 @@ define dso_local noundef i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed
   br i1 %108, label %.lr.ph63.i.split, label %dump_one_relation.exit, !llvm.loop !8
 
 dump_one_relation.exit:                           ; preds = %107, %.critedge.thread.sink.split.i.us, %._crit_edge.i, %69
-  %109 = call zeroext i1 @BlockRefTableReaderNextRelation(ptr noundef %32, ptr noundef nonnull %5, ptr noundef nonnull %6, ptr noundef nonnull %7) #9
+  %109 = call zeroext i1 @BlockRefTableReaderNextRelation(ptr noundef %32, ptr noundef nonnull %5, ptr noundef nonnull %6, ptr noundef nonnull %7) #8
   br i1 %109, label %.lr.ph, label %._crit_edge, !llvm.loop !10
 
 ._crit_edge:                                      ; preds = %dump_one_relation.exit, %31
-  call void @DestroyBlockRefTableReader(ptr noundef %32) #9
+  call void @DestroyBlockRefTableReader(ptr noundef %32) #8
   %110 = load i32, ptr %4, align 8
-  %111 = call i32 @close(i32 noundef %110) #9
+  %111 = call i32 @close(i32 noundef %110) #8
   %112 = load i32, ptr @optind, align 4
   %113 = icmp slt i32 %112, %0
   br i1 %113, label %21, label %._crit_edge22, !llvm.loop !11
 
 ._crit_edge22:                                    ; preds = %._crit_edge
-  call void @exit(i32 noundef 0) #11
+  call void @exit(i32 noundef 0) #10
   unreachable
 }
 
@@ -296,15 +296,15 @@ declare void @handle_help_version_opts(i32 noundef, ptr noundef, ptr noundef, pt
 
 ; Function Attrs: nounwind uwtable
 define internal void @help(ptr noundef %0) #2 {
-  %2 = tail call i32 (ptr, ...) @pg_printf(ptr noundef nonnull @.str.10, ptr noundef %0) #9
-  %3 = tail call i32 (ptr, ...) @pg_printf(ptr noundef nonnull @.str.11) #9
-  %4 = tail call i32 (ptr, ...) @pg_printf(ptr noundef nonnull @.str.12, ptr noundef %0) #9
-  %5 = tail call i32 (ptr, ...) @pg_printf(ptr noundef nonnull @.str.13) #9
-  %6 = tail call i32 (ptr, ...) @pg_printf(ptr noundef nonnull @.str.14) #9
-  %7 = tail call i32 (ptr, ...) @pg_printf(ptr noundef nonnull @.str.15) #9
-  %8 = tail call i32 (ptr, ...) @pg_printf(ptr noundef nonnull @.str.16) #9
-  %9 = tail call i32 (ptr, ...) @pg_printf(ptr noundef nonnull @.str.17, ptr noundef nonnull @.str.18) #9
-  %10 = tail call i32 (ptr, ...) @pg_printf(ptr noundef nonnull @.str.19, ptr noundef nonnull @.str.20, ptr noundef nonnull @.str.21) #9
+  %2 = tail call i32 (ptr, ...) @pg_printf(ptr noundef nonnull @.str.10, ptr noundef %0) #8
+  %3 = tail call i32 (ptr, ...) @pg_printf(ptr noundef nonnull @.str.11) #8
+  %4 = tail call i32 (ptr, ...) @pg_printf(ptr noundef nonnull @.str.12, ptr noundef %0) #8
+  %5 = tail call i32 (ptr, ...) @pg_printf(ptr noundef nonnull @.str.13) #8
+  %6 = tail call i32 (ptr, ...) @pg_printf(ptr noundef nonnull @.str.14) #8
+  %7 = tail call i32 (ptr, ...) @pg_printf(ptr noundef nonnull @.str.15) #8
+  %8 = tail call i32 (ptr, ...) @pg_printf(ptr noundef nonnull @.str.16) #8
+  %9 = tail call i32 (ptr, ...) @pg_printf(ptr noundef nonnull @.str.17, ptr noundef nonnull @.str.18) #8
+  %10 = tail call i32 (ptr, ...) @pg_printf(ptr noundef nonnull @.str.19, ptr noundef nonnull @.str.20, ptr noundef nonnull @.str.21) #8
   ret void
 }
 
@@ -325,7 +325,7 @@ declare ptr @CreateBlockRefTableReader(ptr noundef, ptr noundef, ptr noundef, pt
 define internal range(i32 0, -2147483648) i32 @walsummary_read_callback(ptr nocapture noundef readonly %0, ptr nocapture noundef %1, i32 noundef %2) #2 {
   %4 = load i32, ptr %0, align 8
   %5 = sext i32 %2 to i64
-  %6 = tail call i64 @read(i32 noundef %4, ptr noundef %1, i64 noundef %5) #9
+  %6 = tail call i64 @read(i32 noundef %4, ptr noundef %1, i64 noundef %5) #8
   %7 = trunc i64 %6 to i32
   %8 = icmp slt i32 %7, 0
   br i1 %8, label %9, label %12
@@ -333,21 +333,21 @@ define internal range(i32 0, -2147483648) i32 @walsummary_read_callback(ptr noca
 9:                                                ; preds = %3
   %10 = getelementptr inbounds i8, ptr %0, i64 8
   %11 = load ptr, ptr %10, align 8
-  tail call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 4, i32 noundef 0, ptr noundef nonnull @.str.9, ptr noundef %11) #9
-  tail call void @exit(i32 noundef 1) #10
+  tail call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 4, i32 noundef 0, ptr noundef nonnull @.str.9, ptr noundef %11) #8
+  tail call void @exit(i32 noundef 1) #9
   unreachable
 
 12:                                               ; preds = %3
   ret i32 %7
 }
 
-; Function Attrs: cold noreturn nounwind uwtable
-define internal void @walsummary_error_callback(ptr nocapture readnone %0, ptr noundef %1, ...) #6 {
+; Function Attrs: noreturn nounwind uwtable
+define internal void @walsummary_error_callback(ptr nocapture readnone %0, ptr noundef %1, ...) #0 {
   %3 = alloca [1 x %struct.__va_list_tag], align 16
   call void @llvm.va_start.p0(ptr nonnull %3)
-  call void @pg_log_generic_v(i32 noundef 4, i32 noundef 0, ptr noundef %1, ptr noundef nonnull %3) #9
+  call void @pg_log_generic_v(i32 noundef 4, i32 noundef 0, ptr noundef %1, ptr noundef nonnull %3) #8
   call void @llvm.va_end.p0(ptr nonnull %3)
-  call void @exit(i32 noundef 1) #10
+  call void @exit(i32 noundef 1) #9
   unreachable
 }
 
@@ -368,7 +368,7 @@ declare ptr @repalloc(ptr noundef, i64 noundef) local_unnamed_addr #1
 declare void @pg_qsort(ptr noundef, i64 noundef, i64 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal range(i32 -1, 2) i32 @compare_block_numbers(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #7 {
+define internal range(i32 -1, 2) i32 @compare_block_numbers(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #6 {
   %3 = load i32, ptr %0, align 4
   %4 = load i32, ptr %1, align 4
   %5 = icmp ugt i32 %3, %4
@@ -385,10 +385,10 @@ declare void @pg_log_generic_v(i32 noundef, i32 noundef, ptr noundef, ptr nounde
 declare noundef i64 @read(i32 noundef, ptr nocapture noundef, i64 noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_start.p0(ptr) #8
+declare void @llvm.va_start.p0(ptr) #7
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_end.p0(ptr) #8
+declare void @llvm.va_end.p0(ptr) #7
 
 attributes #0 = { noreturn nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -396,12 +396,11 @@ attributes #2 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width
 attributes #3 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #4 = { nofree noreturn nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #5 = { nofree "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { cold noreturn nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #8 = { mustprogress nocallback nofree nosync nounwind willreturn }
-attributes #9 = { nounwind }
-attributes #10 = { cold noreturn nounwind }
-attributes #11 = { noreturn nounwind }
+attributes #6 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { mustprogress nocallback nofree nosync nounwind willreturn }
+attributes #8 = { nounwind }
+attributes #9 = { cold noreturn nounwind }
+attributes #10 = { noreturn nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3, !4}
 

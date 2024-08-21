@@ -107,13 +107,13 @@ define dso_local noundef i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %10, ptr noundef nonnull align 8 dereferenceable(20) @__const._parse_args.logopt, i64 20, i1 false)
   store i32 0, ptr %11, align 4
   %13 = load ptr, ptr %1, align 8
-  %14 = tail call ptr @xbasename(ptr noundef %13) #14
-  %15 = tail call i32 @log_init(ptr noundef %14, ptr noundef nonnull byval(%struct.log_options_t) align 8 @__const._parse_args.logopt, i32 noundef 0, ptr noundef null) #14
+  %14 = tail call ptr @xbasename(ptr noundef %13) #13
+  %15 = tail call i32 @log_init(ptr noundef %14, ptr noundef nonnull byval(%struct.log_options_t) align 8 @__const._parse_args.logopt, i32 noundef 0, ptr noundef null) #13
   store i32 0, ptr @opterr, align 4
   br label %16
 
 16:                                               ; preds = %.backedge, %2
-  %17 = call i32 @getopt_long(i32 noundef %0, ptr noundef nonnull %1, ptr noundef nonnull @.str.11, ptr noundef nonnull @_parse_args.long_options, ptr noundef nonnull %11) #14
+  %17 = call i32 @getopt_long(i32 noundef %0, ptr noundef nonnull %1, ptr noundef nonnull @.str.11, ptr noundef nonnull @_parse_args.long_options, ptr noundef nonnull %11) #13
   switch i32 %17, label %31 [
     i32 -1, label %32
     i32 68, label %18
@@ -129,28 +129,28 @@ define dso_local noundef i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed
   br label %.backedge
 
 19:                                               ; preds = %16
-  call void @slurm_xfree(ptr noundef nonnull @conf_file) #14
+  call void @slurm_xfree(ptr noundef nonnull @conf_file) #13
   %20 = load ptr, ptr @optarg, align 8
-  %21 = call ptr @xstrdup(ptr noundef %20) #14
+  %21 = call ptr @xstrdup(ptr noundef %20) #13
   store ptr %21, ptr @conf_file, align 8
   br label %.backedge
 
 22:                                               ; preds = %16
   call fastcc void @_usage()
-  call void @exit(i32 noundef 0) #15
+  call void @exit(i32 noundef 0) #14
   unreachable
 
 23:                                               ; preds = %16
   %24 = load i32, ptr %10, align 8
   %25 = add i32 %24, 1
   store i32 %25, ptr %10, align 8
-  %26 = call i32 @log_alter(ptr noundef nonnull byval(%struct.log_options_t) align 8 %10, i32 noundef 0, ptr noundef null) #14
+  %26 = call i32 @log_alter(ptr noundef nonnull byval(%struct.log_options_t) align 8 %10, i32 noundef 0, ptr noundef null) #13
   br label %.backedge
 
 27:                                               ; preds = %16
-  call void @slurm_xfree(ptr noundef nonnull @conf_server) #14
+  call void @slurm_xfree(ptr noundef nonnull @conf_server) #13
   %28 = load ptr, ptr @optarg, align 8
-  %29 = call ptr @xstrdup(ptr noundef %28) #14
+  %29 = call ptr @xstrdup(ptr noundef %28) #13
   store ptr %29, ptr @conf_server, align 8
   br label %.backedge
 
@@ -163,7 +163,7 @@ define dso_local noundef i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed
 
 31:                                               ; preds = %16
   call fastcc void @_usage()
-  call void @exit(i32 noundef 1) #16
+  call void @exit(i32 noundef 1) #15
   unreachable
 
 32:                                               ; preds = %16
@@ -175,16 +175,16 @@ define dso_local noundef i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed
   br i1 %.b.i, label %34, label %35
 
 34:                                               ; preds = %33
-  call void (ptr, ...) @fatal(ptr noundef nonnull @.str.12) #15
+  call void (ptr, ...) @fatal(ptr noundef nonnull @.str.12) #14
   unreachable
 
 35:                                               ; preds = %33
-  %36 = call ptr @getenv(ptr noundef nonnull @.str.13) #14
+  %36 = call ptr @getenv(ptr noundef nonnull @.str.13) #13
   %.not7.i = icmp eq ptr %36, null
   br i1 %.not7.i, label %37, label %38
 
 37:                                               ; preds = %35
-  call void (ptr, ...) @fatal(ptr noundef nonnull @.str.14) #15
+  call void (ptr, ...) @fatal(ptr noundef nonnull @.str.14) #14
   unreachable
 
 38:                                               ; preds = %35
@@ -194,7 +194,7 @@ define dso_local noundef i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed
 _parse_args.exit:                                 ; preds = %32, %38
   call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %10)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %11)
-  %39 = call ptr @getenv(ptr noundef nonnull @.str) #14
+  %39 = call ptr @getenv(ptr noundef nonnull @.str) #13
   %.not = icmp eq ptr %39, null
   br i1 %.not, label %40, label %.thread
 
@@ -211,19 +211,19 @@ _parse_args.exit:                                 ; preds = %32, %38
   br i1 %.b3, label %46, label %42
 
 42:                                               ; preds = %41
-  %43 = call i32 @xdaemon() #14
+  %43 = call i32 @xdaemon() #13
   %.not7 = icmp eq i32 %43, 0
   br i1 %.not7, label %46, label %44
 
 44:                                               ; preds = %42
-  %45 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.1) #14
+  %45 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.1) #13
   br label %46
 
 46:                                               ; preds = %.thread, %42, %44, %41, %40
-  call void @init_conmgr(i32 noundef 0, i32 noundef 0, ptr null, ptr null) #14
-  call void @conmgr_add_signal_work(i32 noundef 2, ptr noundef nonnull @_on_sigint, ptr noundef null, ptr noundef nonnull @.str.2) #14
-  call void @conmgr_add_signal_work(i32 noundef 1, ptr noundef nonnull @_on_sighup, ptr noundef null, ptr noundef nonnull @.str.3) #14
-  call void @conmgr_add_signal_work(i32 noundef 12, ptr noundef nonnull @_on_sigusr2, ptr noundef null, ptr noundef nonnull @.str.4) #14
+  call void @init_conmgr(i32 noundef 0, i32 noundef 0, ptr null, ptr null) #13
+  call void @conmgr_add_signal_work(i32 noundef 2, ptr noundef nonnull @_on_sigint, ptr noundef null, ptr noundef nonnull @.str.2) #13
+  call void @conmgr_add_signal_work(i32 noundef 1, ptr noundef nonnull @_on_sighup, ptr noundef null, ptr noundef nonnull @.str.3) #13
+  call void @conmgr_add_signal_work(i32 noundef 12, ptr noundef nonnull @_on_sigusr2, ptr noundef null, ptr noundef nonnull @.str.4) #13
   %47 = load ptr, ptr @conf_server, align 8
   %.not.i = icmp eq ptr %47, null
   br i1 %.not.i, label %48, label %63
@@ -235,21 +235,21 @@ _parse_args.exit:                                 ; preds = %32, %38
   br i1 %.not.i.i, label %50, label %59
 
 50:                                               ; preds = %48
-  %51 = call ptr @getenv(ptr noundef nonnull @.str.26) #14
-  %52 = call ptr @xstrdup(ptr noundef %51) #14
+  %51 = call ptr @getenv(ptr noundef nonnull @.str.26) #13
+  %52 = call ptr @xstrdup(ptr noundef %51) #13
   store ptr %52, ptr @conf_file, align 8
   %.not1.i.i = icmp eq ptr %52, null
   br i1 %.not1.i.i, label %53, label %59
 
 53:                                               ; preds = %50
   %54 = load ptr, ptr @default_slurm_config_file, align 8
-  %55 = call i32 @stat(ptr noundef %54, ptr noundef nonnull %9) #14
+  %55 = call i32 @stat(ptr noundef %54, ptr noundef nonnull %9) #13
   %.not2.i.i = icmp eq i32 %55, 0
   br i1 %.not2.i.i, label %56, label %_slurm_conf_file_exists.exit.i
 
 56:                                               ; preds = %53
   %57 = load ptr, ptr @default_slurm_config_file, align 8
-  %58 = call ptr @xstrdup(ptr noundef %57) #14
+  %58 = call ptr @xstrdup(ptr noundef %57) #13
   store ptr %58, ptr @conf_file, align 8
   br label %59
 
@@ -259,97 +259,97 @@ _slurm_conf_file_exists.exit.i:                   ; preds = %53
 
 59:                                               ; preds = %56, %50, %48
   call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %9)
-  %60 = call i32 @get_log_level() #14
+  %60 = call i32 @get_log_level() #13
   %61 = icmp sgt i32 %60, 4
   br i1 %61, label %62, label %_establish_config_source.exit
 
 62:                                               ; preds = %59
-  call void (i32, ptr, ...) @log_var(i32 noundef 5, ptr noundef nonnull @.str.20, ptr noundef nonnull @__func__._establish_config_source) #14
+  call void (i32, ptr, ...) @log_var(i32 noundef 5, ptr noundef nonnull @.str.20, ptr noundef nonnull @__func__._establish_config_source) #13
   br label %_establish_config_source.exit
 
 63:                                               ; preds = %_slurm_conf_file_exists.exit.i, %46
-  %64 = call ptr @getenv(ptr noundef nonnull @.str.21) #14
+  %64 = call ptr @getenv(ptr noundef nonnull @.str.21) #13
   %.not2.i = icmp eq ptr %64, null
   br i1 %.not2.i, label %66, label %65
 
 65:                                               ; preds = %63
-  call void (ptr, ptr, ...) @_xstrfmtcat(ptr noundef nonnull @conf_file, ptr noundef nonnull @.str.22, ptr noundef nonnull @.str.27) #14
+  call void (ptr, ptr, ...) @_xstrfmtcat(ptr noundef nonnull @conf_file, ptr noundef nonnull @.str.22, ptr noundef nonnull @.str.27) #13
   store i1 true, ptr @registered, align 1
   br label %_establish_config_source.exit
 
 66:                                               ; preds = %63
-  %67 = call i32 @mkdir(ptr noundef nonnull @.str.27, i32 noundef 493) #14
+  %67 = call i32 @mkdir(ptr noundef nonnull @.str.27, i32 noundef 493) #13
   %68 = icmp slt i32 %67, 0
   br i1 %68, label %69, label %74
 
 69:                                               ; preds = %66
-  %70 = call i32 @rmdir_recursive(ptr noundef nonnull @.str.27, i1 noundef zeroext true) #14
-  %71 = call i32 @mkdir(ptr noundef nonnull @.str.27, i32 noundef 493) #14
+  %70 = call i32 @rmdir_recursive(ptr noundef nonnull @.str.27, i1 noundef zeroext true) #13
+  %71 = call i32 @mkdir(ptr noundef nonnull @.str.27, i32 noundef 493) #13
   %72 = icmp slt i32 %71, 0
   br i1 %72, label %73, label %74
 
 73:                                               ; preds = %69
-  call void (ptr, ...) @fatal(ptr noundef nonnull @.str.23, ptr noundef nonnull @__func__._establish_config_source, ptr noundef nonnull @.str.27) #15
+  call void (ptr, ...) @fatal(ptr noundef nonnull @.str.23, ptr noundef nonnull @__func__._establish_config_source, ptr noundef nonnull @.str.27) #14
   unreachable
 
 74:                                               ; preds = %69, %66
   %75 = load ptr, ptr @conf_server, align 8
-  %76 = call ptr @fetch_config(ptr noundef %75, i32 noundef 2) #14
+  %76 = call ptr @fetch_config(ptr noundef %75, i32 noundef 2) #13
   %.not3.i = icmp eq ptr %76, null
   br i1 %.not3.i, label %77, label %78
 
 77:                                               ; preds = %74
-  call void (ptr, ...) @fatal(ptr noundef nonnull @.str.24, ptr noundef nonnull @__func__._establish_config_source) #15
+  call void (ptr, ...) @fatal(ptr noundef nonnull @.str.24, ptr noundef nonnull @__func__._establish_config_source) #14
   unreachable
 
 78:                                               ; preds = %74
   store i1 true, ptr @registered, align 1
-  %79 = call i32 @write_configs_to_conf_cache(ptr noundef nonnull %76, ptr noundef nonnull @.str.27) #14
+  %79 = call i32 @write_configs_to_conf_cache(ptr noundef nonnull %76, ptr noundef nonnull @.str.27) #13
   %.not4.i = icmp eq i32 %79, 0
   br i1 %.not4.i, label %81, label %80
 
 80:                                               ; preds = %78
-  call void (ptr, ...) @fatal(ptr noundef nonnull @.str.25, ptr noundef nonnull @__func__._establish_config_source) #15
+  call void (ptr, ...) @fatal(ptr noundef nonnull @.str.25, ptr noundef nonnull @__func__._establish_config_source) #14
   unreachable
 
 81:                                               ; preds = %78
-  call void @slurm_free_config_response_msg(ptr noundef nonnull %76) #14
-  call void (ptr, ptr, ...) @_xstrfmtcat(ptr noundef nonnull @conf_file, ptr noundef nonnull @.str.22, ptr noundef nonnull @.str.27) #14
+  call void @slurm_free_config_response_msg(ptr noundef nonnull %76) #13
+  call void (ptr, ptr, ...) @_xstrfmtcat(ptr noundef nonnull @conf_file, ptr noundef nonnull @.str.22, ptr noundef nonnull @.str.27) #13
   br label %_establish_config_source.exit
 
 _establish_config_source.exit:                    ; preds = %59, %62, %65, %81
   %82 = load ptr, ptr @conf_file, align 8
-  %83 = call i32 @slurm_conf_init(ptr noundef %82) #14
-  %84 = call i32 @getuid() #14
+  %83 = call i32 @slurm_conf_init(ptr noundef %82) #13
+  %84 = call i32 @getuid() #13
   %85 = load i32, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 1152), align 8
   %.not8 = icmp eq i32 %84, %85
   br i1 %.not8, label %90, label %86
 
 86:                                               ; preds = %_establish_config_source.exit
-  %87 = call i32 @getuid() #14
-  %88 = call ptr @uid_to_string(i32 noundef %87) #14
+  %87 = call i32 @getuid() #13
+  %88 = call ptr @uid_to_string(i32 noundef %87) #13
   store ptr %88, ptr %12, align 8
   %89 = load ptr, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 1160), align 8
-  call void (ptr, ...) @warning(ptr noundef nonnull @.str.5, ptr noundef %88, ptr noundef %89) #14
-  call void @slurm_xfree(ptr noundef nonnull %12) #14
+  call void (ptr, ...) @warning(ptr noundef nonnull @.str.5, ptr noundef %88, ptr noundef %89) #13
+  call void @slurm_xfree(ptr noundef nonnull %12) #13
   br label %90
 
 90:                                               ; preds = %86, %_establish_config_source.exit
-  %91 = call i32 @auth_g_init() #14
+  %91 = call i32 @auth_g_init() #13
   %.not9 = icmp eq i32 %91, 0
   br i1 %.not9, label %93, label %92
 
 92:                                               ; preds = %90
-  call void (ptr, ...) @fatal(ptr noundef nonnull @.str.6) #15
+  call void (ptr, ...) @fatal(ptr noundef nonnull @.str.6) #14
   unreachable
 
 93:                                               ; preds = %90
-  %94 = call i32 @hash_g_init() #14
+  %94 = call i32 @hash_g_init() #13
   %.not10 = icmp eq i32 %94, 0
   br i1 %.not10, label %96, label %95
 
 95:                                               ; preds = %93
-  call void (ptr, ...) @fatal(ptr noundef nonnull @.str.7) #15
+  call void (ptr, ...) @fatal(ptr noundef nonnull @.str.7) #14
   unreachable
 
 96:                                               ; preds = %93
@@ -357,37 +357,37 @@ _establish_config_source.exit:                    ; preds = %59, %62, %65, %81
   br i1 %.b411, label %97, label %_listen_for_reconf.exit
 
 97:                                               ; preds = %96
-  %98 = call ptr @getenv(ptr noundef nonnull @.str.21) #14
+  %98 = call ptr @getenv(ptr noundef nonnull @.str.21) #13
   %.not.i14 = icmp eq ptr %98, null
   br i1 %.not.i14, label %101, label %99
 
 99:                                               ; preds = %97
-  %100 = call i32 @atoi(ptr nocapture noundef nonnull %98) #17
+  %100 = call i32 @atoi(ptr nocapture noundef nonnull %98) #16
   store i32 %100, ptr @listen_fd, align 4
   br label %108
 
 101:                                              ; preds = %97
   %102 = load i32, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 1288), align 8
   %103 = trunc i32 %102 to i16
-  %104 = call i32 @slurm_init_msg_engine_port(i16 noundef zeroext %103) #14
+  %104 = call i32 @slurm_init_msg_engine_port(i16 noundef zeroext %103) #13
   store i32 %104, ptr @listen_fd, align 4
   %105 = icmp slt i32 %104, 0
   br i1 %105, label %106, label %108
 
 106:                                              ; preds = %101
-  %107 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.28, ptr noundef nonnull @__func__._listen_for_reconf) #14
+  %107 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.28, ptr noundef nonnull @__func__._listen_for_reconf) #13
   br label %_listen_for_reconf.exit
 
 108:                                              ; preds = %101, %99
   %109 = phi i32 [ %104, %101 ], [ %100, %99 ]
-  %110 = call i32 @conmgr_process_fd_listen(i32 noundef %109, i32 noundef 2, ptr noundef nonnull byval(%struct.conmgr_events_t) align 8 @__const._listen_for_reconf.events, ptr noundef null, i32 noundef 0, ptr noundef null) #14
+  %110 = call i32 @conmgr_process_fd_listen(i32 noundef %109, i32 noundef 2, ptr noundef nonnull byval(%struct.conmgr_events_t) align 8 @__const._listen_for_reconf.events, ptr noundef null, i32 noundef 0, ptr noundef null) #13
   %.not2.i15 = icmp eq i32 %110, 0
   br i1 %.not2.i15, label %_listen_for_reconf.exit, label %111
 
 111:                                              ; preds = %108
   %112 = load i32, ptr @listen_fd, align 4
-  %113 = call ptr @slurm_strerror(i32 noundef %110) #14
-  call void (ptr, ...) @fatal(ptr noundef nonnull @.str.29, ptr noundef nonnull @__func__._listen_for_reconf, i32 noundef %112, ptr noundef %113) #15
+  %113 = call ptr @slurm_strerror(i32 noundef %110) #13
+  call void (ptr, ...) @fatal(ptr noundef nonnull @.str.29, ptr noundef nonnull @__func__._listen_for_reconf, i32 noundef %112, ptr noundef %113) #14
   unreachable
 
 _listen_for_reconf.exit:                          ; preds = %108, %106, %96
@@ -396,21 +396,21 @@ _listen_for_reconf.exit:                          ; preds = %108, %106, %96
 
 114:                                              ; preds = %_listen_for_reconf.exit
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8)
-  %115 = call ptr @getenv(ptr noundef nonnull @.str.34) #14
-  %116 = call i32 @getpid() #14
+  %115 = call ptr @getenv(ptr noundef nonnull @.str.34) #13
+  %116 = call i32 @getpid() #13
   store i32 %116, ptr %8, align 4
   %.not.i16 = icmp eq ptr %115, null
   br i1 %.not.i16, label %_notify_parent_of_success.exit, label %117
 
 117:                                              ; preds = %114
-  %118 = call ptr @getenv(ptr noundef nonnull @.str.34) #14
-  %119 = call i32 @atoi(ptr nocapture noundef %118) #17
-  %120 = call i32 @get_log_level() #14
+  %118 = call ptr @getenv(ptr noundef nonnull @.str.34) #13
+  %119 = call i32 @atoi(ptr nocapture noundef %118) #16
+  %120 = call i32 @get_log_level() #13
   %121 = icmp sgt i32 %120, 2
   br i1 %121, label %122, label %.lr.ph.split.us.i.preheader
 
 122:                                              ; preds = %117
-  call void (i32, ptr, ...) @log_var(i32 noundef 3, ptr noundef nonnull @.str.35) #14
+  call void (i32, ptr, ...) @log_var(i32 noundef 3, ptr noundef nonnull @.str.35) #13
   br label %.lr.ph.split.us.i.preheader
 
 .lr.ph.split.us.i.preheader:                      ; preds = %122, %117
@@ -420,13 +420,13 @@ _listen_for_reconf.exit:                          ; preds = %108, %106, %96
   %.0.ph33.i = phi ptr [ %8, %.lr.ph.split.us.i.preheader ], [ %138, %.lr.ph.split.us.i.backedge ]
   %.014.ph31.i = phi i32 [ 4, %.lr.ph.split.us.i.preheader ], [ %139, %.lr.ph.split.us.i.backedge ]
   %123 = zext nneg i32 %.014.ph31.i to i64
-  %124 = call i64 @write(i32 noundef %119, ptr noundef %.0.ph33.i, i64 noundef %123) #14
+  %124 = call i64 @write(i32 noundef %119, ptr noundef %.0.ph33.i, i64 noundef %123) #13
   %125 = trunc i64 %124 to i32
   %126 = icmp slt i32 %125, 0
   br i1 %126, label %.lr.ph29.i, label %.split.us.i
 
 .lr.ph29.i:                                       ; preds = %.lr.ph.split.us.i
-  %127 = tail call ptr @__errno_location() #18
+  %127 = tail call ptr @__errno_location() #17
   br label %128
 
 128:                                              ; preds = %130, %.lr.ph29.i
@@ -437,18 +437,18 @@ _listen_for_reconf.exit:                          ; preds = %108, %106, %96
   ]
 
 130:                                              ; preds = %128, %128
-  %131 = call i64 @write(i32 noundef %119, ptr noundef %.0.ph33.i, i64 noundef %123) #14
+  %131 = call i64 @write(i32 noundef %119, ptr noundef %.0.ph33.i, i64 noundef %123) #13
   %132 = trunc i64 %131 to i32
   %133 = icmp slt i32 %132, 0
   br i1 %133, label %128, label %.split.us.i
 
 .split24.us.i:                                    ; preds = %128
-  %134 = call i32 @get_log_level() #14
+  %134 = call i32 @get_log_level() #13
   %135 = icmp sgt i32 %134, 4
   br i1 %135, label %136, label %145
 
 136:                                              ; preds = %.split24.us.i
-  call void (i32, ptr, ...) @log_var(i32 noundef 5, ptr noundef nonnull @.str.36, ptr noundef nonnull @.str.15, i32 noundef 378, ptr noundef nonnull @__func__._notify_parent_of_success, i32 noundef %.014.ph31.i, i32 noundef 4) #14
+  call void (i32, ptr, ...) @log_var(i32 noundef 5, ptr noundef nonnull @.str.36, ptr noundef nonnull @.str.15, i32 noundef 378, ptr noundef nonnull @__func__._notify_parent_of_success, i32 noundef %.014.ph31.i, i32 noundef 4) #13
   br label %145
 
 .split.us.i:                                      ; preds = %130, %.lr.ph.split.us.i
@@ -461,23 +461,23 @@ _listen_for_reconf.exit:                          ; preds = %108, %106, %96
   br i1 %140, label %141, label %.sink.split.i
 
 141:                                              ; preds = %.split.us.i
-  %142 = call i32 @get_log_level() #14
+  %142 = call i32 @get_log_level() #13
   %143 = icmp sgt i32 %142, 6
   br i1 %143, label %144, label %.lr.ph.split.us.i.backedge
 
 144:                                              ; preds = %141
-  call void (i32, ptr, ...) @log_var(i32 noundef 7, ptr noundef nonnull @.str.37, ptr noundef nonnull @.str.15, i32 noundef 378, ptr noundef nonnull @__func__._notify_parent_of_success, i32 noundef %139, i32 noundef 4) #14
+  call void (i32, ptr, ...) @log_var(i32 noundef 7, ptr noundef nonnull @.str.37, ptr noundef nonnull @.str.15, i32 noundef 378, ptr noundef nonnull @__func__._notify_parent_of_success, i32 noundef %139, i32 noundef 4) #13
   br label %.lr.ph.split.us.i.backedge
 
 .lr.ph.split.us.i.backedge:                       ; preds = %144, %141
   br label %.lr.ph.split.us.i, !llvm.loop !9
 
 145:                                              ; preds = %136, %.split24.us.i
-  %146 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.38) #14
+  %146 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.38) #13
   br label %.sink.split.i
 
 .sink.split.i:                                    ; preds = %.split.us.i, %145
-  %147 = call i32 @close(i32 noundef %119) #14
+  %147 = call i32 @close(i32 noundef %119) #13
   br label %_notify_parent_of_success.exit
 
 _notify_parent_of_success.exit:                   ; preds = %114, %.sink.split.i
@@ -489,21 +489,21 @@ _notify_parent_of_success.exit:                   ; preds = %114, %.sink.split.i
   br i1 %.b512, label %149, label %151
 
 149:                                              ; preds = %148
-  %150 = call i32 @getpid() #14
-  call void @xsystemd_change_mainpid(i32 noundef %150) #14
+  %150 = call i32 @getpid() #13
+  call void @xsystemd_change_mainpid(i32 noundef %150) #13
   br label %151
 
 151:                                              ; preds = %148, %149, %_notify_parent_of_success.exit
-  %152 = call i32 @get_log_level() #14
+  %152 = call i32 @get_log_level() #13
   %153 = icmp sgt i32 %152, 2
   br i1 %153, label %154, label %155
 
 154:                                              ; preds = %151
-  call void (i32, ptr, ...) @log_var(i32 noundef 3, ptr noundef nonnull @.str.8) #14
+  call void (i32, ptr, ...) @log_var(i32 noundef 3, ptr noundef nonnull @.str.8) #13
   br label %155
 
 155:                                              ; preds = %154, %151
-  %156 = call i32 @conmgr_run(i1 noundef zeroext true) #14
+  %156 = call i32 @conmgr_run(i1 noundef zeroext true) #13
   %.b61353 = load i1, ptr @reconfig, align 1
   br i1 %.b61353, label %.lr.ph54, label %._crit_edge
 
@@ -519,28 +519,28 @@ _notify_parent_of_success.exit:                   ; preds = %114, %.sink.split.i
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7)
   store i64 -1, ptr %5, align 8
-  %159 = call i32 @getrlimit(i32 noundef 7, ptr noundef nonnull %3) #14
+  %159 = call i32 @getrlimit(i32 noundef 7, ptr noundef nonnull %3) #13
   %160 = icmp slt i32 %159, 0
   br i1 %160, label %161, label %163
 
 161:                                              ; preds = %158
-  %162 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.39) #14
+  %162 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.39) #13
   store i64 4096, ptr %3, align 8
   br label %163
 
 163:                                              ; preds = %161, %158
   %164 = load ptr, ptr @environ, align 8
-  %165 = call ptr @env_array_copy(ptr noundef %164) #14
+  %165 = call ptr @env_array_copy(ptr noundef %164) #13
   store ptr %165, ptr %4, align 8
-  %166 = call i32 (ptr, ptr, ptr, ...) @setenvf(ptr noundef nonnull %4, ptr noundef nonnull @.str, ptr noundef nonnull @.str.40) #14
+  %166 = call i32 (ptr, ptr, ptr, ...) @setenvf(ptr noundef nonnull %4, ptr noundef nonnull @.str, ptr noundef nonnull @.str.40) #13
   %167 = load i32, ptr @listen_fd, align 4
   %.not.i17 = icmp eq i32 %167, -1
   br i1 %.not.i17, label %171, label %168
 
 168:                                              ; preds = %163
-  %169 = call i32 (ptr, ptr, ptr, ...) @setenvf(ptr noundef nonnull %4, ptr noundef nonnull @.str.21, ptr noundef nonnull @.str.41, i32 noundef %167) #14
+  %169 = call i32 (ptr, ptr, ptr, ...) @setenvf(ptr noundef nonnull %4, ptr noundef nonnull @.str.21, ptr noundef nonnull @.str.41, i32 noundef %167) #13
   %170 = load i32, ptr @listen_fd, align 4
-  call void @fd_set_noclose_on_exec(i32 noundef %170) #14
+  call void @fd_set_noclose_on_exec(i32 noundef %170) #13
   br label %171
 
 171:                                              ; preds = %168, %163
@@ -552,23 +552,23 @@ _notify_parent_of_success.exit:                   ; preds = %114, %.sink.split.i
   br i1 %.b3536.i, label %173, label %247
 
 173:                                              ; preds = %172, %171
-  %174 = call i32 @pipe(ptr noundef nonnull %5) #14
+  %174 = call i32 @pipe(ptr noundef nonnull %5) #13
   %175 = icmp slt i32 %174, 0
   br i1 %175, label %176, label %178
 
 176:                                              ; preds = %173
-  %177 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.42, ptr noundef nonnull @__func__._try_to_reconfig) #14
+  %177 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.42, ptr noundef nonnull @__func__._try_to_reconfig) #13
   br label %_try_to_reconfig.exit
 
 178:                                              ; preds = %173
   %179 = load i32, ptr %157, align 4
-  %180 = call i32 (ptr, ptr, ptr, ...) @setenvf(ptr noundef nonnull %4, ptr noundef nonnull @.str.34, ptr noundef nonnull @.str.41, i32 noundef %179) #14
-  %181 = call i32 @fork() #14
+  %180 = call i32 (ptr, ptr, ptr, ...) @setenvf(ptr noundef nonnull %4, ptr noundef nonnull @.str.34, ptr noundef nonnull @.str.41, i32 noundef %179) #13
+  %181 = call i32 @fork() #13
   %182 = icmp slt i32 %181, 0
   br i1 %182, label %183, label %185
 
 183:                                              ; preds = %178
-  %184 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.43, ptr noundef nonnull @__func__._try_to_reconfig) #14
+  %184 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.43, ptr noundef nonnull @__func__._try_to_reconfig) #13
   br label %_try_to_reconfig.exit
 
 185:                                              ; preds = %178
@@ -577,7 +577,7 @@ _notify_parent_of_success.exit:                   ; preds = %114, %.sink.split.i
 
 186:                                              ; preds = %185
   %187 = load i32, ptr %157, align 4
-  %188 = call i32 @close(i32 noundef %187) #14
+  %188 = call i32 @close(i32 noundef %187) #13
   br label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i.backedge, %186
@@ -586,7 +586,7 @@ _notify_parent_of_success.exit:                   ; preds = %114, %.sink.split.i
   %189 = zext nneg i32 %.026.ph98.i to i64
   %190 = icmp eq i32 %.026.ph98.i, 4
   %191 = load i32, ptr %5, align 8
-  %192 = call i64 @read(i32 noundef %191, ptr noundef %.025.ph100.i, i64 noundef %189) #14
+  %192 = call i64 @read(i32 noundef %191, ptr noundef %.025.ph100.i, i64 noundef %189) #13
   %193 = trunc i64 %192 to i32
   %194 = icmp eq i32 %193, 0
   br i1 %190, label %.lr.ph.split.split.us.i, label %.lr.ph.split.us.split.us.i
@@ -599,7 +599,7 @@ _notify_parent_of_success.exit:                   ; preds = %114, %.sink.split.i
   br i1 %195, label %.lr.ph, label %.split55.us.i
 
 .lr.ph:                                           ; preds = %.lr.ph96.i.preheader
-  %196 = tail call ptr @__errno_location() #18
+  %196 = tail call ptr @__errno_location() #17
   br label %198
 
 .lr.ph96.i:                                       ; preds = %200
@@ -615,7 +615,7 @@ _notify_parent_of_success.exit:                   ; preds = %114, %.sink.split.i
 
 200:                                              ; preds = %198, %198
   %201 = load i32, ptr %5, align 8
-  %202 = call i64 @read(i32 noundef %201, ptr noundef %.025.ph100.i, i64 noundef %189) #14
+  %202 = call i64 @read(i32 noundef %201, ptr noundef %.025.ph100.i, i64 noundef %189) #13
   %203 = trunc i64 %202 to i32
   %204 = icmp eq i32 %203, 0
   br i1 %204, label %.split.us.i20, label %.lr.ph96.i
@@ -628,7 +628,7 @@ _notify_parent_of_success.exit:                   ; preds = %114, %.sink.split.i
   br i1 %205, label %.lr.ph50, label %.split55.us.i
 
 .lr.ph50:                                         ; preds = %.lr.ph80.preheader.i.preheader
-  %206 = tail call ptr @__errno_location() #18
+  %206 = tail call ptr @__errno_location() #17
   br label %208
 
 .lr.ph80.preheader.i:                             ; preds = %210
@@ -644,37 +644,37 @@ _notify_parent_of_success.exit:                   ; preds = %114, %.sink.split.i
 
 210:                                              ; preds = %208, %208
   %211 = load i32, ptr %5, align 8
-  %212 = call i64 @read(i32 noundef %211, ptr noundef %.025.ph100.i, i64 noundef %189) #14
+  %212 = call i64 @read(i32 noundef %211, ptr noundef %.025.ph100.i, i64 noundef %189) #13
   %213 = trunc i64 %212 to i32
   %214 = icmp eq i32 %213, 0
   br i1 %214, label %.split62.us.i, label %.lr.ph80.preheader.i
 
 .split62.us.i:                                    ; preds = %.lr.ph.split.split.us.i, %210
-  %215 = call i32 @get_log_level() #14
+  %215 = call i32 @get_log_level() #13
   %216 = icmp sgt i32 %215, 4
   br i1 %216, label %217, label %239
 
 217:                                              ; preds = %.split62.us.i
-  call void (i32, ptr, ...) @log_var(i32 noundef 5, ptr noundef nonnull @.str.44, ptr noundef nonnull @.str.15, i32 noundef 324, ptr noundef nonnull @__func__._try_to_reconfig) #14
+  call void (i32, ptr, ...) @log_var(i32 noundef 5, ptr noundef nonnull @.str.44, ptr noundef nonnull @.str.15, i32 noundef 324, ptr noundef nonnull @__func__._try_to_reconfig) #13
   br label %239
 
 .split.us.i20:                                    ; preds = %.lr.ph.split.us.split.us.i, %200
-  %218 = call i32 @get_log_level() #14
+  %218 = call i32 @get_log_level() #13
   %219 = icmp sgt i32 %218, 4
   br i1 %219, label %220, label %239
 
 220:                                              ; preds = %.split.us.i20
-  call void (i32, ptr, ...) @log_var(i32 noundef 5, ptr noundef nonnull @.str.45, ptr noundef nonnull @.str.15, i32 noundef 324, ptr noundef nonnull @__func__._try_to_reconfig, i32 noundef %.026.ph98.i, i32 noundef 4) #14
+  call void (i32, ptr, ...) @log_var(i32 noundef 5, ptr noundef nonnull @.str.45, ptr noundef nonnull @.str.15, i32 noundef 324, ptr noundef nonnull @__func__._try_to_reconfig, i32 noundef %.026.ph98.i, i32 noundef 4) #13
   br label %239
 
 .split59.us.i:                                    ; preds = %198, %208
   %.026.ph98134.i = phi i32 [ 4, %208 ], [ %.026.ph98.i, %198 ]
-  %221 = call i32 @get_log_level() #14
+  %221 = call i32 @get_log_level() #13
   %222 = icmp sgt i32 %221, 4
   br i1 %222, label %223, label %239
 
 223:                                              ; preds = %.split59.us.i
-  call void (i32, ptr, ...) @log_var(i32 noundef 5, ptr noundef nonnull @.str.46, ptr noundef nonnull @.str.15, i32 noundef 324, ptr noundef nonnull @__func__._try_to_reconfig, i32 noundef %.026.ph98134.i, i32 noundef 4) #14
+  call void (i32, ptr, ...) @log_var(i32 noundef 5, ptr noundef nonnull @.str.46, ptr noundef nonnull @.str.15, i32 noundef 324, ptr noundef nonnull @__func__._try_to_reconfig, i32 noundef %.026.ph98134.i, i32 noundef 4) #13
   br label %239
 
 .split55.us.i:                                    ; preds = %.lr.ph96.i, %.lr.ph80.preheader.i, %.lr.ph96.i.preheader, %.lr.ph80.preheader.i.preheader
@@ -684,7 +684,7 @@ _notify_parent_of_success.exit:                   ; preds = %114, %.sink.split.i
   %225 = getelementptr inbounds i8, ptr %.025.ph100.i, i64 %224
   %226 = sub i32 %.026.ph98.i, %.us-phi57.i
   %227 = icmp sgt i32 %226, 0
-  %228 = call i32 @get_log_level() #14
+  %228 = call i32 @get_log_level() #13
   br i1 %227, label %229, label %.outer._crit_edge.i
 
 229:                                              ; preds = %.split55.us.i
@@ -692,7 +692,7 @@ _notify_parent_of_success.exit:                   ; preds = %114, %.sink.split.i
   br i1 %230, label %231, label %.lr.ph.i.backedge
 
 231:                                              ; preds = %229
-  call void (i32, ptr, ...) @log_var(i32 noundef 7, ptr noundef nonnull @.str.47, ptr noundef nonnull @.str.15, i32 noundef 324, ptr noundef nonnull @__func__._try_to_reconfig, i32 noundef %226, i32 noundef 4) #14
+  call void (i32, ptr, ...) @log_var(i32 noundef 7, ptr noundef nonnull @.str.47, ptr noundef nonnull @.str.15, i32 noundef 324, ptr noundef nonnull @__func__._try_to_reconfig, i32 noundef %226, i32 noundef 4) #13
   br label %.lr.ph.i.backedge
 
 .lr.ph.i.backedge:                                ; preds = %231, %229
@@ -703,7 +703,7 @@ _notify_parent_of_success.exit:                   ; preds = %114, %.sink.split.i
   br i1 %232, label %233, label %234
 
 233:                                              ; preds = %.outer._crit_edge.i
-  call void (i32, ptr, ...) @log_var(i32 noundef 3, ptr noundef nonnull @.str.48) #14
+  call void (i32, ptr, ...) @log_var(i32 noundef 3, ptr noundef nonnull @.str.48) #13
   br label %234
 
 234:                                              ; preds = %233, %.outer._crit_edge.i
@@ -711,27 +711,27 @@ _notify_parent_of_success.exit:                   ; preds = %114, %.sink.split.i
   br i1 %.b3442.i, label %235, label %238
 
 235:                                              ; preds = %234
-  %236 = call i32 @waitpid(i32 noundef %181, ptr noundef nonnull %7, i32 noundef 0) #14
+  %236 = call i32 @waitpid(i32 noundef %181, ptr noundef nonnull %7, i32 noundef 0) #13
   %237 = load i32, ptr %6, align 4
-  call void @xsystemd_change_mainpid(i32 noundef %237) #14
+  call void @xsystemd_change_mainpid(i32 noundef %237) #13
   br label %238
 
 238:                                              ; preds = %235, %234
-  call void @_exit(i32 noundef 0) #15
+  call void @_exit(i32 noundef 0) #14
   unreachable
 
 239:                                              ; preds = %223, %.split59.us.i, %220, %.split.us.i20, %217, %.split62.us.i
   %240 = load i32, ptr %5, align 8
-  %241 = call i32 @close(i32 noundef %240) #14
+  %241 = call i32 @close(i32 noundef %240) #13
   %242 = load ptr, ptr %4, align 8
-  call void @env_array_free(ptr noundef %242) #14
-  %243 = call i32 @waitpid(i32 noundef %181, ptr noundef nonnull %7, i32 noundef 0) #14
-  %244 = call i32 @get_log_level() #14
+  call void @env_array_free(ptr noundef %242) #13
+  %243 = call i32 @waitpid(i32 noundef %181, ptr noundef nonnull %7, i32 noundef 0) #13
+  %244 = call i32 @get_log_level() #13
   %245 = icmp sgt i32 %244, 2
   br i1 %245, label %246, label %_try_to_reconfig.exit
 
 246:                                              ; preds = %239
-  call void (i32, ptr, ...) @log_var(i32 noundef 3, ptr noundef nonnull @.str.49) #14
+  call void (i32, ptr, ...) @log_var(i32 noundef 3, ptr noundef nonnull @.str.49) #13
   br label %_try_to_reconfig.exit
 
 247:                                              ; preds = %185, %172
@@ -757,7 +757,7 @@ _notify_parent_of_success.exit:                   ; preds = %114, %.sink.split.i
 
 256:                                              ; preds = %250
   %257 = trunc nuw nsw i64 %indvars.iv.i to i32
-  %258 = call i32 @close(i32 noundef %257) #14
+  %258 = call i32 @close(i32 noundef %257) #13
   %.pre.i = load i32, ptr @listen_fd, align 4
   %.pre137.i = load i64, ptr %3, align 8
   br label %259
@@ -774,12 +774,12 @@ _notify_parent_of_success.exit:                   ; preds = %114, %.sink.split.i
   br i1 %.b3338.i, label %263, label %269
 
 263:                                              ; preds = %._crit_edge105.i
-  %264 = call i32 @fork() #14
+  %264 = call i32 @fork() #13
   %265 = icmp slt i32 %264, 0
   br i1 %265, label %266, label %267
 
 266:                                              ; preds = %263
-  call void (ptr, ...) @fatal(ptr noundef nonnull @.str.50) #15
+  call void (ptr, ...) @fatal(ptr noundef nonnull @.str.50) #14
   unreachable
 
 267:                                              ; preds = %263
@@ -787,15 +787,15 @@ _notify_parent_of_success.exit:                   ; preds = %114, %.sink.split.i
   br i1 %.not39.i, label %269, label %268
 
 268:                                              ; preds = %267
-  call void @exit(i32 noundef 0) #15
+  call void @exit(i32 noundef 0) #14
   unreachable
 
 269:                                              ; preds = %267, %._crit_edge105.i
   %270 = load ptr, ptr @main_argv, align 8
   %271 = load ptr, ptr %270, align 8
   %272 = load ptr, ptr %4, align 8
-  %273 = call i32 @execve(ptr noundef %271, ptr noundef nonnull %270, ptr noundef %272) #14
-  call void (ptr, ...) @fatal(ptr noundef nonnull @.str.51) #15
+  %273 = call i32 @execve(ptr noundef %271, ptr noundef nonnull %270, ptr noundef %272) #13
+  call void (ptr, ...) @fatal(ptr noundef nonnull @.str.51) #14
   unreachable
 
 _try_to_reconfig.exit:                            ; preds = %176, %183, %239, %246
@@ -804,13 +804,13 @@ _try_to_reconfig.exit:                            ; preds = %176, %183, %239, %2
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7)
-  %274 = call i32 @conmgr_run(i1 noundef zeroext true) #14
+  %274 = call i32 @conmgr_run(i1 noundef zeroext true) #13
   %.b613 = load i1, ptr @reconfig, align 1
   br i1 %.b613, label %158, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %_try_to_reconfig.exit, %155
-  call void @slurm_xfree(ptr noundef nonnull @conf_file) #14
-  call void @slurm_xfree(ptr noundef nonnull @conf_server) #14
+  call void @slurm_xfree(ptr noundef nonnull @conf_file) #13
+  call void @slurm_xfree(ptr noundef nonnull @conf_server) #13
   ret i32 0
 }
 
@@ -827,44 +827,44 @@ declare void @conmgr_add_signal_work(i32 noundef, ptr noundef, ptr noundef, ptr 
 
 ; Function Attrs: nounwind uwtable
 define internal void @_on_sigint(ptr nocapture readnone %0, i32 %1, i32 %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #0 {
-  %6 = tail call i32 @get_log_level() #14
+  %6 = tail call i32 @get_log_level() #13
   %7 = icmp sgt i32 %6, 2
   br i1 %7, label %8, label %9
 
 8:                                                ; preds = %5
-  tail call void (i32, ptr, ...) @log_var(i32 noundef 3, ptr noundef nonnull @.str.17) #14
+  tail call void (i32, ptr, ...) @log_var(i32 noundef 3, ptr noundef nonnull @.str.17) #13
   br label %9
 
 9:                                                ; preds = %8, %5
   store i1 false, ptr @reconfig, align 1
-  tail call void @conmgr_request_shutdown() #14
+  tail call void @conmgr_request_shutdown() #13
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
 define internal void @_on_sighup(ptr nocapture readnone %0, i32 %1, i32 %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #0 {
-  %6 = tail call i32 @get_log_level() #14
+  %6 = tail call i32 @get_log_level() #13
   %7 = icmp sgt i32 %6, 2
   br i1 %7, label %8, label %9
 
 8:                                                ; preds = %5
-  tail call void (i32, ptr, ...) @log_var(i32 noundef 3, ptr noundef nonnull @.str.18) #14
+  tail call void (i32, ptr, ...) @log_var(i32 noundef 3, ptr noundef nonnull @.str.18) #13
   br label %9
 
 9:                                                ; preds = %8, %5
   store i1 true, ptr @reconfig, align 1
-  tail call void @conmgr_quiesce(i1 noundef zeroext false) #14
+  tail call void @conmgr_quiesce(i1 noundef zeroext false) #13
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
 define internal void @_on_sigusr2(ptr nocapture readnone %0, i32 %1, i32 %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #0 {
-  %6 = tail call i32 @get_log_level() #14
+  %6 = tail call i32 @get_log_level() #13
   %7 = icmp sgt i32 %6, 2
   br i1 %7, label %8, label %9
 
 8:                                                ; preds = %5
-  tail call void (i32, ptr, ...) @log_var(i32 noundef 3, ptr noundef nonnull @.str.19) #14
+  tail call void (i32, ptr, ...) @log_var(i32 noundef 3, ptr noundef nonnull @.str.19) #13
   br label %9
 
 9:                                                ; preds = %8, %5
@@ -912,22 +912,22 @@ declare i32 @getopt_long(i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr
 
 declare ptr @xstrdup(ptr noundef) local_unnamed_addr #2
 
-; Function Attrs: cold nounwind uwtable
-define internal fastcc void @_usage() unnamed_addr #6 {
+; Function Attrs: nounwind uwtable
+define internal fastcc void @_usage() unnamed_addr #0 {
   %1 = alloca ptr, align 8
-  %2 = tail call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef add (i64 sub (i64 ptrtoint (ptr @_binary_usage_txt_end to i64), i64 ptrtoint (ptr @_binary_usage_txt_start to i64)), i64 1), i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.15, i32 noundef 74, ptr noundef nonnull @__func__._usage) #14
+  %2 = tail call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef add (i64 sub (i64 ptrtoint (ptr @_binary_usage_txt_end to i64), i64 ptrtoint (ptr @_binary_usage_txt_start to i64)), i64 1), i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.15, i32 noundef 74, ptr noundef nonnull @__func__._usage) #13
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %2, ptr nonnull align 8 @_binary_usage_txt_start, i64 sub (i64 ptrtoint (ptr @_binary_usage_txt_end to i64), i64 ptrtoint (ptr @_binary_usage_txt_start to i64)), i1 false)
   %3 = getelementptr inbounds i8, ptr %2, i64 sub (i64 ptrtoint (ptr @_binary_usage_txt_end to i64), i64 ptrtoint (ptr @_binary_usage_txt_start to i64))
   store i8 0, ptr %3, align 1
   store ptr %2, ptr %1, align 8
   %4 = load ptr, ptr @stderr, align 8
-  %fputs = tail call i32 @fputs(ptr %2, ptr %4) #19
-  call void @slurm_xfree(ptr noundef nonnull %1) #14
+  %fputs = tail call i32 @fputs(ptr %2, ptr %4) #18
+  call void @slurm_xfree(ptr noundef nonnull %1) #13
   ret void
 }
 
 ; Function Attrs: nofree noreturn nounwind
-declare void @exit(i32 noundef) local_unnamed_addr #7
+declare void @exit(i32 noundef) local_unnamed_addr #6
 
 declare i32 @log_alter(ptr noundef byval(%struct.log_options_t) align 8, i32 noundef, ptr noundef) local_unnamed_addr #2
 
@@ -940,7 +940,7 @@ declare void @conmgr_quiesce(i1 noundef zeroext) local_unnamed_addr #2
 declare void @_xstrfmtcat(ptr noundef, ptr noundef, ...) local_unnamed_addr #2
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @mkdir(ptr nocapture noundef readonly, i32 noundef) local_unnamed_addr #8
+declare noundef i32 @mkdir(ptr nocapture noundef readonly, i32 noundef) local_unnamed_addr #7
 
 declare i32 @rmdir_recursive(ptr noundef, i1 noundef zeroext) local_unnamed_addr #2
 
@@ -951,7 +951,7 @@ declare i32 @write_configs_to_conf_cache(ptr noundef, ptr noundef) local_unnamed
 declare void @slurm_free_config_response_msg(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @stat(ptr nocapture noundef readonly, ptr nocapture noundef) local_unnamed_addr #8
+declare noundef i32 @stat(ptr nocapture noundef readonly, ptr nocapture noundef) local_unnamed_addr #7
 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 0, 1008) i32 @_on_msg(ptr noundef %0, ptr noundef %1, ptr nocapture readnone %2) #0 {
@@ -961,11 +961,11 @@ define internal range(i32 0, 1008) i32 @_on_msg(ptr noundef %0, ptr noundef %1, 
   br i1 %6, label %13, label %7
 
 7:                                                ; preds = %3
-  %8 = tail call ptr @conmgr_fd_get_name(ptr noundef %0) #14
+  %8 = tail call ptr @conmgr_fd_get_name(ptr noundef %0) #13
   %9 = getelementptr inbounds i8, ptr %1, i64 204
   %10 = load i16, ptr %9, align 4
-  %11 = tail call ptr @rpc_num2string(i16 noundef zeroext %10) #14
-  %12 = tail call i32 (ptr, ...) @error(ptr noundef nonnull @.str.30, ptr noundef nonnull @__func__._on_msg, ptr noundef %8, ptr noundef %11) #14
+  %11 = tail call ptr @rpc_num2string(i16 noundef zeroext %10) #13
+  %12 = tail call i32 (ptr, ...) @error(ptr noundef nonnull @.str.30, ptr noundef nonnull @__func__._on_msg, ptr noundef %8, ptr noundef %11) #13
   br label %45
 
 13:                                               ; preds = %3
@@ -976,13 +976,13 @@ define internal range(i32 0, 1008) i32 @_on_msg(ptr noundef %0, ptr noundef %1, 
   br i1 %.not, label %25, label %17
 
 17:                                               ; preds = %13
-  %18 = tail call ptr @conmgr_fd_get_name(ptr noundef %0) #14
+  %18 = tail call ptr @conmgr_fd_get_name(ptr noundef %0) #13
   %19 = getelementptr inbounds i8, ptr %1, i64 204
   %20 = load i16, ptr %19, align 4
-  %21 = tail call ptr @rpc_num2string(i16 noundef zeroext %20) #14
+  %21 = tail call ptr @rpc_num2string(i16 noundef zeroext %20) #13
   %22 = load i32, ptr %14, align 4
   %23 = load i32, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 1152), align 8
-  %24 = tail call i32 (ptr, ...) @error(ptr noundef nonnull @.str.31, ptr noundef nonnull @__func__._on_msg, ptr noundef %18, ptr noundef %21, i32 noundef %22, i32 noundef %23) #14
+  %24 = tail call i32 (ptr, ...) @error(ptr noundef nonnull @.str.31, ptr noundef nonnull @__func__._on_msg, ptr noundef %18, ptr noundef %21, i32 noundef %22, i32 noundef %23) #13
   br label %45
 
 25:                                               ; preds = %13
@@ -992,40 +992,40 @@ define internal range(i32 0, 1008) i32 @_on_msg(ptr noundef %0, ptr noundef %1, 
   br i1 %cond, label %28, label %39
 
 28:                                               ; preds = %25
-  %29 = tail call i32 @get_log_level() #14
+  %29 = tail call i32 @get_log_level() #13
   %30 = icmp sgt i32 %29, 2
   br i1 %30, label %31, label %32
 
 31:                                               ; preds = %28
-  tail call void (i32, ptr, ...) @log_var(i32 noundef 3, ptr noundef nonnull @.str.32) #14
+  tail call void (i32, ptr, ...) @log_var(i32 noundef 3, ptr noundef nonnull @.str.32) #13
   br label %32
 
 32:                                               ; preds = %31, %28
   %33 = getelementptr inbounds i8, ptr %1, i64 192
   %34 = load ptr, ptr %33, align 8
-  %35 = tail call i32 @write_configs_to_conf_cache(ptr noundef %34, ptr noundef nonnull @.str.27) #14
+  %35 = tail call i32 @write_configs_to_conf_cache(ptr noundef %34, ptr noundef nonnull @.str.27) #13
   %.not13 = icmp eq i32 %35, 0
   br i1 %.not13, label %38, label %36
 
 36:                                               ; preds = %32
-  %37 = tail call i32 (ptr, ...) @error(ptr noundef nonnull @.str.25, ptr noundef nonnull @__func__._on_msg) #14
+  %37 = tail call i32 (ptr, ...) @error(ptr noundef nonnull @.str.25, ptr noundef nonnull @__func__._on_msg) #13
   br label %38
 
 38:                                               ; preds = %36, %32
   store i1 true, ptr @reconfig, align 1
-  tail call void @conmgr_quiesce(i1 noundef zeroext false) #14
+  tail call void @conmgr_quiesce(i1 noundef zeroext false) #13
   br label %44
 
 39:                                               ; preds = %25
-  %40 = tail call ptr @conmgr_fd_get_name(ptr noundef %0) #14
+  %40 = tail call ptr @conmgr_fd_get_name(ptr noundef %0) #13
   %41 = load i16, ptr %26, align 4
   %42 = zext i16 %41 to i32
-  %43 = tail call i32 (ptr, ...) @error(ptr noundef nonnull @.str.33, ptr noundef nonnull @__func__._on_msg, ptr noundef %40, i32 noundef %42) #14
+  %43 = tail call i32 (ptr, ...) @error(ptr noundef nonnull @.str.33, ptr noundef nonnull @__func__._on_msg, ptr noundef %40, i32 noundef %42) #13
   br label %44
 
 44:                                               ; preds = %39, %38
-  tail call void @slurm_free_msg(ptr noundef nonnull %1) #14
-  tail call void @conmgr_queue_close_fd(ptr noundef %0) #14
+  tail call void @slurm_free_msg(ptr noundef nonnull %1) #13
+  tail call void @conmgr_queue_close_fd(ptr noundef %0) #13
   br label %45
 
 45:                                               ; preds = %44, %17, %7
@@ -1034,7 +1034,7 @@ define internal range(i32 0, 1008) i32 @_on_msg(ptr noundef %0, ptr noundef %1, 
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read)
-declare i32 @atoi(ptr nocapture noundef) local_unnamed_addr #9
+declare i32 @atoi(ptr nocapture noundef) local_unnamed_addr #8
 
 declare i32 @slurm_init_msg_engine_port(i16 noundef zeroext) local_unnamed_addr #2
 
@@ -1051,10 +1051,10 @@ declare void @slurm_free_msg(ptr noundef) local_unnamed_addr #2
 declare void @conmgr_queue_close_fd(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nofree
-declare noundef i64 @write(i32 noundef, ptr nocapture noundef readonly, i64 noundef) local_unnamed_addr #10
+declare noundef i64 @write(i32 noundef, ptr nocapture noundef readonly, i64 noundef) local_unnamed_addr #9
 
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(none)
-declare ptr @__errno_location() local_unnamed_addr #11
+declare ptr @__errno_location() local_unnamed_addr #10
 
 declare i32 @close(i32 noundef) local_unnamed_addr #2
 
@@ -1071,10 +1071,10 @@ declare void @fd_set_noclose_on_exec(i32 noundef) local_unnamed_addr #2
 declare i32 @pipe(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nofree nounwind
-declare i32 @fork() local_unnamed_addr #8
+declare i32 @fork() local_unnamed_addr #7
 
 ; Function Attrs: nofree
-declare noundef i64 @read(i32 noundef, ptr nocapture noundef, i64 noundef) local_unnamed_addr #10
+declare noundef i64 @read(i32 noundef, ptr nocapture noundef, i64 noundef) local_unnamed_addr #9
 
 declare i32 @waitpid(i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
@@ -1084,16 +1084,16 @@ declare void @_exit(i32 noundef) local_unnamed_addr #4
 declare void @env_array_free(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nofree nounwind
-declare i32 @execve(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #8
+declare i32 @execve(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #7
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fputs(ptr nocapture noundef readonly, ptr nocapture noundef) local_unnamed_addr #12
+declare noundef i32 @fputs(ptr nocapture noundef readonly, ptr nocapture noundef) local_unnamed_addr #11
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #13
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #12
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #13
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #12
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nofree nounwind memory(read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -1101,20 +1101,19 @@ attributes #2 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protect
 attributes #3 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #4 = { noreturn "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #5 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #6 = { cold nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { nofree noreturn nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #8 = { nofree nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #9 = { mustprogress nofree nounwind willreturn memory(read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #10 = { nofree "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #11 = { mustprogress nofree nosync nounwind willreturn memory(none) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #12 = { nofree nounwind }
-attributes #13 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #14 = { nounwind }
-attributes #15 = { noreturn nounwind }
-attributes #16 = { cold noreturn nounwind }
-attributes #17 = { nounwind willreturn memory(read) }
-attributes #18 = { nounwind willreturn memory(none) }
-attributes #19 = { cold }
+attributes #6 = { nofree noreturn nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { nofree nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #8 = { mustprogress nofree nounwind willreturn memory(read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #9 = { nofree "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #10 = { mustprogress nofree nosync nounwind willreturn memory(none) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #11 = { nofree nounwind }
+attributes #12 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #13 = { nounwind }
+attributes #14 = { noreturn nounwind }
+attributes #15 = { cold noreturn nounwind }
+attributes #16 = { nounwind willreturn memory(read) }
+attributes #17 = { nounwind willreturn memory(none) }
+attributes #18 = { cold }
 
 !llvm.module.flags = !{!0, !1, !2, !3, !4, !5, !6}
 

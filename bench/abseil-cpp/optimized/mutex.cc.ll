@@ -4089,8 +4089,8 @@ if.end:                                           ; preds = %entry
   ret void
 }
 
-; Function Attrs: cold mustprogress uwtable
-define dso_local void @_ZN4absl5Mutex5TransEPKNS_6MuHowSE(ptr noundef nonnull align 8 dereferenceable(8) %this, ptr noundef %how) local_unnamed_addr #9 align 2 {
+; Function Attrs: mustprogress uwtable
+define dso_local void @_ZN4absl5Mutex5TransEPKNS_6MuHowSE(ptr noundef nonnull align 8 dereferenceable(8) %this, ptr noundef %how) local_unnamed_addr #0 align 2 {
 entry:
   tail call void @_ZN4absl5Mutex8LockSlowEPKNS_6MuHowSEPKNS_9ConditionEi(ptr noundef nonnull align 8 dereferenceable(8) %this, ptr noundef %how, ptr noundef null, i32 noundef 3) #26
   ret void
@@ -4587,8 +4587,8 @@ invoke.cont:                                      ; preds = %if.else5.i, %invoke
   br label %for.cond, !llvm.loop !33
 }
 
-; Function Attrs: cold mustprogress uwtable
-define dso_local noundef zeroext i1 @_ZN4absl7CondVar10WaitCommonEPNS_5MutexENS_24synchronization_internal13KernelTimeoutE(ptr noundef nonnull align 8 dereferenceable(8) %this, ptr noundef %mutex, i64 %t.coerce) local_unnamed_addr #9 align 2 {
+; Function Attrs: mustprogress uwtable
+define dso_local noundef zeroext i1 @_ZN4absl7CondVar10WaitCommonEPNS_5MutexENS_24synchronization_internal13KernelTimeoutE(ptr noundef nonnull align 8 dereferenceable(8) %this, ptr noundef %mutex, i64 %t.coerce) local_unnamed_addr #0 align 2 {
 entry:
   %waitp = alloca %"struct.absl::SynchWaitParams", align 8
   %0 = load atomic i64, ptr %mutex monotonic, align 8

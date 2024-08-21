@@ -39489,7 +39489,7 @@ define hidden noundef range(i64 0, 768614336404564651) i64 @"_ZN4core3ptr9const_
   ret i64 %6
 }
 
-; Function Attrs: cold inlinehint noreturn nounwind nonlazybind uwtable
+; Function Attrs: inlinehint noreturn nounwind nonlazybind uwtable
 define hidden void @_ZN4core4hint21unreachable_unchecked18precondition_check17ha7c5e37feaf47f85E.llvm.1287153784043347726() unnamed_addr #13 {
   tail call void @_ZN4core9panicking14panic_nounwind17h6cf0e2fad305eb86E(ptr noalias noundef nonnull readonly align 1 @anon.cc3f4e4b77d95411c10dc1945529338b.26.llvm.1287153784043347726, i64 noundef 82) #40
   unreachable
@@ -52128,7 +52128,7 @@ attributes #9 = { inlinehint nounwind nonlazybind uwtable "probe-stack"="inline-
 attributes #10 = { mustprogress nofree norecurse nosync nounwind nonlazybind willreturn uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
 attributes #11 = { inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
 attributes #12 = { mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite, inaccessiblemem: write) uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
-attributes #13 = { cold inlinehint noreturn nounwind nonlazybind uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
+attributes #13 = { inlinehint noreturn nounwind nonlazybind uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
 attributes #14 = { inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
 attributes #15 = { inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
 attributes #16 = { inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(inaccessiblemem: write) uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }

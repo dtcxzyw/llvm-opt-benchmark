@@ -684,7 +684,7 @@ for.end:                                          ; preds = %for.body, %for.cond
 err:                                              ; preds = %for.end, %lua_rawseti.exit
   %43 = load ptr, ptr @stderr, align 8
   %call10 = call fastcc ptr @lua_tolstring(ptr noundef nonnull %retval.0.i6.i, i32 noundef -1, ptr noundef null)
-  %call11 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %43, ptr noundef nonnull @.str.2, ptr noundef %call10) #35
+  %call11 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %43, ptr noundef nonnull @.str.2, ptr noundef %call10) #34
   br label %return
 
 if.end12:                                         ; preds = %for.end
@@ -756,7 +756,7 @@ libsize.exit.i:                                   ; preds = %for.body.i.i, %if.t
   %top6.i.i.i = getelementptr inbounds i8, ptr %L, i64 16
   %2 = load ptr, ptr %top6.i.i.i, align 8
   %add.ptr8.i.i.i = getelementptr inbounds i8, ptr %2, i64 -16
-  %call1.i.i = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %libname) #36
+  %call1.i.i = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %libname) #35
   %call2.i.i = tail call fastcc ptr @luaS_newlstr(ptr noundef %L, ptr noundef nonnull readonly %libname, i64 noundef %call1.i.i)
   store ptr %call2.i.i, ptr %key.i.i, align 8
   %tt.i.i = getelementptr inbounds i8, ptr %key.i.i, i64 8
@@ -800,7 +800,7 @@ if.end.i:                                         ; preds = %if.then3.i
   store ptr %incdec.ptr.i37.i, ptr %top6.i.i.i, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %key.i38.i)
   %add.ptr8.i.i40.i = getelementptr inbounds i8, ptr %9, i64 -32
-  %call1.i41.i = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %libname) #36
+  %call1.i41.i = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %libname) #35
   %call2.i42.i = tail call fastcc ptr @luaS_newlstr(ptr noundef nonnull %L, ptr noundef nonnull readonly %libname, i64 noundef %call1.i41.i)
   store ptr %call2.i42.i, ptr %key.i38.i, align 8
   %tt.i43.i = getelementptr inbounds i8, ptr %key.i38.i, i64 8
@@ -871,7 +871,7 @@ for.end.i:                                        ; preds = %for.end.i, %for.end
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %key.i61.i)
   %23 = load ptr, ptr %top6.i.i62.i, align 8
   %add.ptr8.i.i63.i = getelementptr inbounds i8, ptr %23, i64 -32
-  %call1.i64.i = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %22) #36
+  %call1.i64.i = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %22) #35
   %call2.i65.i = tail call fastcc ptr @luaS_newlstr(ptr noundef %L, ptr noundef readonly %22, i64 noundef %call1.i64.i)
   store ptr %call2.i65.i, ptr %key.i61.i, align 8
   store i32 4, ptr %tt.i66.i, align 8
@@ -903,7 +903,7 @@ if.then:                                          ; preds = %entry
   br label %if.end
 
 if.else:                                          ; preds = %entry
-  %call = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %s) #36
+  %call = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %s) #35
   %l_G.i = getelementptr inbounds i8, ptr %L, i64 32
   %1 = load ptr, ptr %l_G.i, align 8
   %totalbytes.i = getelementptr inbounds i8, ptr %1, i64 120
@@ -1359,7 +1359,7 @@ if.end23:                                         ; preds = %if.then19, %if.end8
   br i1 %or.cond, label %if.then26, label %if.end49
 
 if.then26:                                        ; preds = %if.end23
-  %call28 = tail call ptr @freopen(ptr noundef nonnull %filename, ptr noundef nonnull @.str.274, ptr noundef %16) #37
+  %call28 = tail call ptr @freopen(ptr noundef nonnull %filename, ptr noundef nonnull @.str.274, ptr noundef %16) #36
   store ptr %call28, ptr %f9, align 8
   %cmp31 = icmp eq ptr %call28, null
   br i1 %cmp31, label %if.then33, label %while.cond36
@@ -1420,7 +1420,7 @@ if.end49:                                         ; preds = %if.end23.thread, %w
   %24 = load ptr, ptr %frealloc.i.i.i, align 8
   %ud.i.i.i = getelementptr inbounds i8, ptr %23, i64 24
   %25 = load ptr, ptr %ud.i.i.i, align 8
-  %call.i.i.i = call ptr %24(ptr noundef %25, ptr noundef %21, i64 noundef %22, i64 noundef 0) #37
+  %call.i.i.i = call ptr %24(ptr noundef %25, ptr noundef %21, i64 noundef %22, i64 noundef 0) #36
   %totalbytes.i.i.i = getelementptr inbounds i8, ptr %23, i64 120
   %26 = load i64, ptr %totalbytes.i.i.i, align 8
   %add.i.i.i = sub i64 %26, %22
@@ -1428,7 +1428,7 @@ if.end49:                                         ; preds = %if.end23.thread, %w
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %p.i.i)
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %z.i)
   %27 = load ptr, ptr %f9, align 8
-  %call55 = call i32 @ferror(ptr noundef %27) #37
+  %call55 = call i32 @ferror(ptr noundef %27) #36
   br i1 %tobool43, label %if.then57, label %if.end60
 
 if.then57:                                        ; preds = %if.end49
@@ -1685,8 +1685,8 @@ if.then4:                                         ; preds = %if.then2
 
 if.end5:                                          ; preds = %if.then
   %15 = load double, ptr %retval.0.i, align 8
-  %call.i = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %s.i, ptr noundef nonnull dereferenceable(1) @.str.16, double noundef %15) #37
-  %call3.i = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %s.i) #36
+  %call.i = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %s.i, ptr noundef nonnull dereferenceable(1) @.str.16, double noundef %15) #36
+  %call3.i = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %s.i) #35
   %call4.i = call fastcc ptr @luaS_newlstr(ptr noundef %L, ptr noundef nonnull %s.i, i64 noundef %call3.i)
   store ptr %call4.i, ptr %retval.0.i, align 8
   store i32 4, ptr %tt, align 8
@@ -1863,11 +1863,11 @@ entry:
   br i1 %cmp, label %if.then, label %if.else
 
 if.then:                                          ; preds = %entry
-  tail call void @free(ptr noundef %ptr) #37
+  tail call void @free(ptr noundef %ptr) #36
   br label %return
 
 if.else:                                          ; preds = %entry
-  %call = tail call ptr @realloc(ptr noundef %ptr, i64 noundef %nsize) #38
+  %call = tail call ptr @realloc(ptr noundef %ptr, i64 noundef %nsize) #37
   br label %return
 
 return:                                           ; preds = %if.else, %if.then
@@ -1875,12 +1875,12 @@ return:                                           ; preds = %if.else, %if.then
   ret ptr %retval.0
 }
 
-; Function Attrs: cold nounwind uwtable
-define internal noundef i32 @panic(ptr noundef %L) #3 {
+; Function Attrs: nounwind uwtable
+define internal noundef i32 @panic(ptr noundef %L) #0 {
 entry:
   %0 = load ptr, ptr @stderr, align 8
   %call = tail call fastcc ptr @lua_tolstring(ptr noundef %L, i32 noundef -1, ptr noundef null)
-  %call1 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.91, ptr noundef %call) #35
+  %call1 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.91, ptr noundef %call) #34
   ret i32 0
 }
 
@@ -1895,12 +1895,12 @@ entry:
   store ptr %0, ptr %lj, align 8
   store ptr %lj, ptr %errorJmp, align 8
   %b = getelementptr inbounds i8, ptr %lj, i64 8
-  %call = call i32 @_setjmp(ptr noundef nonnull %b) #39
+  %call = call i32 @_setjmp(ptr noundef nonnull %b) #38
   %cmp = icmp eq i32 %call, 0
   br i1 %cmp, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
-  call void %f(ptr noundef nonnull %L, ptr noundef %ud) #37, !callees !14
+  call void %f(ptr noundef nonnull %L, ptr noundef %ud) #36, !callees !14
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry
@@ -1919,7 +1919,7 @@ entry:
   %1 = load ptr, ptr %frealloc.i.i, align 8
   %ud.i.i = getelementptr inbounds i8, ptr %0, i64 24
   %2 = load ptr, ptr %ud.i.i, align 8
-  %call.i.i = tail call ptr %1(ptr noundef %2, ptr noundef null, i64 noundef 0, i64 noundef 320) #37
+  %call.i.i = tail call ptr %1(ptr noundef %2, ptr noundef null, i64 noundef 0, i64 noundef 320) #36
   %cmp.i.i = icmp eq ptr %call.i.i, null
   br i1 %cmp.i.i, label %if.then.i.i, label %luaM_realloc_.exit.i
 
@@ -1934,7 +1934,7 @@ if.then.i.i.i:                                    ; preds = %if.then.i.i
   store volatile i32 4, ptr %status.i.i.i, align 8
   %4 = load ptr, ptr %errorJmp.i.i.i, align 8
   %b.i.i.i = getelementptr inbounds i8, ptr %4, i64 8
-  tail call void @longjmp(ptr noundef nonnull %b.i.i.i, i32 noundef 1) #40
+  tail call void @longjmp(ptr noundef nonnull %b.i.i.i, i32 noundef 1) #39
   unreachable
 
 if.else.i.i.i:                                    ; preds = %if.then.i.i
@@ -1951,11 +1951,11 @@ if.then5.i.i.i:                                   ; preds = %if.else.i.i.i
   %7 = load ptr, ptr %l_G, align 8
   %panic7.i.i.i = getelementptr inbounds i8, ptr %7, i64 152
   %8 = load ptr, ptr %panic7.i.i.i, align 8
-  %call.i.i.i = tail call i32 %8(ptr noundef nonnull %L) #37
+  %call.i.i.i = tail call i32 %8(ptr noundef nonnull %L) #36
   br label %if.end.i.i.i
 
 if.end.i.i.i:                                     ; preds = %if.then5.i.i.i, %if.else.i.i.i
-  tail call void @exit(i32 noundef 1) #41
+  tail call void @exit(i32 noundef 1) #40
   unreachable
 
 luaM_realloc_.exit.i:                             ; preds = %entry
@@ -1977,7 +1977,7 @@ luaM_realloc_.exit.i:                             ; preds = %entry
   %11 = load ptr, ptr %frealloc.i24.i, align 8
   %ud.i25.i = getelementptr inbounds i8, ptr %10, i64 24
   %12 = load ptr, ptr %ud.i25.i, align 8
-  %call.i26.i = tail call ptr %11(ptr noundef %12, ptr noundef null, i64 noundef 0, i64 noundef 720) #37
+  %call.i26.i = tail call ptr %11(ptr noundef %12, ptr noundef null, i64 noundef 0, i64 noundef 720) #36
   %cmp.i27.i = icmp eq ptr %call.i26.i, null
   br i1 %cmp.i27.i, label %if.then.i30.i, label %stack_init.exit
 
@@ -1992,7 +1992,7 @@ if.then.i.i33.i:                                  ; preds = %if.then.i30.i
   store volatile i32 4, ptr %status.i.i34.i, align 8
   %14 = load ptr, ptr %errorJmp.i.i31.i, align 8
   %b.i.i35.i = getelementptr inbounds i8, ptr %14, i64 8
-  tail call void @longjmp(ptr noundef nonnull %b.i.i35.i, i32 noundef 1) #40
+  tail call void @longjmp(ptr noundef nonnull %b.i.i35.i, i32 noundef 1) #39
   unreachable
 
 if.else.i.i36.i:                                  ; preds = %if.then.i30.i
@@ -2009,11 +2009,11 @@ if.then5.i.i40.i:                                 ; preds = %if.else.i.i36.i
   %17 = load ptr, ptr %l_G, align 8
   %panic7.i.i41.i = getelementptr inbounds i8, ptr %17, i64 152
   %18 = load ptr, ptr %panic7.i.i41.i, align 8
-  %call.i.i42.i = tail call i32 %18(ptr noundef nonnull %L) #37
+  %call.i.i42.i = tail call i32 %18(ptr noundef nonnull %L) #36
   br label %if.end.i.i43.i
 
 if.end.i.i43.i:                                   ; preds = %if.then5.i.i40.i, %if.else.i.i36.i
-  tail call void @exit(i32 noundef 1) #41
+  tail call void @exit(i32 noundef 1) #40
   unreachable
 
 stack_init.exit:                                  ; preds = %luaM_realloc_.exit.i
@@ -2065,7 +2065,7 @@ for.body.i:                                       ; preds = %for.body.i, %stack_
   %indvars.iv.i = phi i64 [ 0, %stack_init.exit ], [ %indvars.iv.next.i, %for.body.i ]
   %arrayidx.i = getelementptr inbounds [17 x ptr], ptr @luaT_init.luaT_eventname, i64 0, i64 %indvars.iv.i
   %26 = load ptr, ptr %arrayidx.i, align 8
-  %call.i = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %26) #36
+  %call.i = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %26) #35
   %call3.i = tail call fastcc ptr @luaS_newlstr(ptr noundef nonnull %L, ptr noundef %26, i64 noundef %call.i)
   %27 = load ptr, ptr %l_G, align 8
   %tmname.i = getelementptr inbounds i8, ptr %27, i64 296
@@ -2087,7 +2087,7 @@ for.body.i14:                                     ; preds = %for.body.i, %for.bo
   %indvars.iv.i15 = phi i64 [ %indvars.iv.next.i20, %for.body.i14 ], [ 0, %for.body.i ]
   %arrayidx.i16 = getelementptr inbounds [32 x ptr], ptr @luaX_tokens, i64 0, i64 %indvars.iv.i15
   %32 = load ptr, ptr %arrayidx.i16, align 8
-  %call.i17 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %32) #36
+  %call.i17 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %32) #35
   %call3.i18 = tail call fastcc ptr @luaS_newlstr(ptr noundef %L, ptr noundef %32, i64 noundef %call.i17)
   %marked.i19 = getelementptr inbounds i8, ptr %call3.i18, i64 9
   %33 = load i8, ptr %marked.i19, align 1
@@ -2153,7 +2153,7 @@ luaC_freeall.exit:                                ; preds = %for.body.i, %entry
   %10 = load ptr, ptr %frealloc.i, align 8
   %ud.i = getelementptr inbounds i8, ptr %7, i64 24
   %11 = load ptr, ptr %ud.i, align 8
-  %call.i17 = tail call ptr %10(ptr noundef %11, ptr noundef %8, i64 noundef %mul, i64 noundef 0) #37
+  %call.i17 = tail call ptr %10(ptr noundef %11, ptr noundef %8, i64 noundef %mul, i64 noundef 0) #36
   %totalbytes.i = getelementptr inbounds i8, ptr %7, i64 120
   %12 = load i64, ptr %totalbytes.i, align 8
   %add.i = sub i64 %12, %mul
@@ -2167,7 +2167,7 @@ luaC_freeall.exit:                                ; preds = %for.body.i, %entry
   %16 = load ptr, ptr %frealloc.i20, align 8
   %ud.i21 = getelementptr inbounds i8, ptr %15, i64 24
   %17 = load ptr, ptr %ud.i21, align 8
-  %call.i22 = tail call ptr %16(ptr noundef %17, ptr noundef %13, i64 noundef %14, i64 noundef 0) #37
+  %call.i22 = tail call ptr %16(ptr noundef %17, ptr noundef %13, i64 noundef %14, i64 noundef 0) #36
   %totalbytes.i24 = getelementptr inbounds i8, ptr %15, i64 120
   %18 = load i64, ptr %totalbytes.i24, align 8
   %add.i26 = sub i64 %18, %14
@@ -2185,7 +2185,7 @@ luaC_freeall.exit:                                ; preds = %for.body.i, %entry
   %22 = load ptr, ptr %frealloc.i.i, align 8
   %ud.i.i = getelementptr inbounds i8, ptr %21, i64 24
   %23 = load ptr, ptr %ud.i.i, align 8
-  %call.i.i = tail call ptr %22(ptr noundef %23, ptr noundef %19, i64 noundef %mul.i, i64 noundef 0) #37
+  %call.i.i = tail call ptr %22(ptr noundef %23, ptr noundef %19, i64 noundef %mul.i, i64 noundef 0) #36
   %totalbytes.i.i = getelementptr inbounds i8, ptr %21, i64 120
   %24 = load i64, ptr %totalbytes.i.i, align 8
   %sub.i.i = sub i64 %24, %mul.i
@@ -2200,7 +2200,7 @@ luaC_freeall.exit:                                ; preds = %for.body.i, %entry
   %28 = load ptr, ptr %frealloc.i6.i, align 8
   %ud.i7.i = getelementptr inbounds i8, ptr %27, i64 24
   %29 = load ptr, ptr %ud.i7.i, align 8
-  %call.i8.i = tail call ptr %28(ptr noundef %29, ptr noundef %25, i64 noundef %mul2.i, i64 noundef 0) #37
+  %call.i8.i = tail call ptr %28(ptr noundef %29, ptr noundef %25, i64 noundef %mul2.i, i64 noundef 0) #36
   %totalbytes.i10.i = getelementptr inbounds i8, ptr %27, i64 120
   %30 = load i64, ptr %totalbytes.i10.i, align 8
   %sub.i11.i = sub i64 %30, %mul2.i
@@ -2209,12 +2209,12 @@ luaC_freeall.exit:                                ; preds = %for.body.i, %entry
   %31 = load ptr, ptr %frealloc, align 8
   %ud = getelementptr inbounds i8, ptr %0, i64 24
   %32 = load ptr, ptr %ud, align 8
-  %call11 = tail call ptr %31(ptr noundef %32, ptr noundef %L, i64 noundef 616, i64 noundef 0) #37
+  %call11 = tail call ptr %31(ptr noundef %32, ptr noundef %L, i64 noundef 616, i64 noundef 0) #36
   ret void
 }
 
 ; Function Attrs: nounwind returns_twice
-declare i32 @_setjmp(ptr noundef) local_unnamed_addr #4
+declare i32 @_setjmp(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc ptr @luaH_new(ptr noundef %L, i32 noundef %narray, i32 noundef %nhash) unnamed_addr #0 {
@@ -2225,7 +2225,7 @@ entry:
   %1 = load ptr, ptr %frealloc.i, align 8
   %ud.i = getelementptr inbounds i8, ptr %0, i64 24
   %2 = load ptr, ptr %ud.i, align 8
-  %call.i = tail call ptr %1(ptr noundef %2, ptr noundef null, i64 noundef 0, i64 noundef 64) #37
+  %call.i = tail call ptr %1(ptr noundef %2, ptr noundef null, i64 noundef 0, i64 noundef 64) #36
   %cmp.i = icmp eq ptr %call.i, null
   br i1 %cmp.i, label %if.then.i, label %luaM_realloc_.exit
 
@@ -2240,7 +2240,7 @@ if.then.i.i:                                      ; preds = %if.then.i
   store volatile i32 4, ptr %status.i.i, align 8
   %4 = load ptr, ptr %errorJmp.i.i, align 8
   %b.i.i = getelementptr inbounds i8, ptr %4, i64 8
-  tail call void @longjmp(ptr noundef nonnull %b.i.i, i32 noundef 1) #40
+  tail call void @longjmp(ptr noundef nonnull %b.i.i, i32 noundef 1) #39
   unreachable
 
 if.else.i.i:                                      ; preds = %if.then.i
@@ -2257,11 +2257,11 @@ if.then5.i.i:                                     ; preds = %if.else.i.i
   %7 = load ptr, ptr %l_G.i, align 8
   %panic7.i.i = getelementptr inbounds i8, ptr %7, i64 152
   %8 = load ptr, ptr %panic7.i.i, align 8
-  %call.i.i = tail call i32 %8(ptr noundef nonnull %L) #37
+  %call.i.i = tail call i32 %8(ptr noundef nonnull %L) #36
   br label %if.end.i.i
 
 if.end.i.i:                                       ; preds = %if.then5.i.i, %if.else.i.i
-  tail call void @exit(i32 noundef 1) #41
+  tail call void @exit(i32 noundef 1) #40
   unreachable
 
 luaM_realloc_.exit:                               ; preds = %entry
@@ -2319,7 +2319,7 @@ cond.true:                                        ; preds = %if.end
   %2 = load ptr, ptr %frealloc.i, align 8
   %ud.i = getelementptr inbounds i8, ptr %0, i64 24
   %3 = load ptr, ptr %ud.i, align 8
-  %call.i = tail call ptr %2(ptr noundef %3, ptr noundef null, i64 noundef 0, i64 noundef %mul) #37
+  %call.i = tail call ptr %2(ptr noundef %3, ptr noundef null, i64 noundef 0, i64 noundef %mul) #36
   %cmp.i = icmp eq ptr %call.i, null
   %cmp1.i = icmp ne i32 %newsize, 0
   %or.cond.i = and i1 %cmp1.i, %cmp.i
@@ -2336,7 +2336,7 @@ if.then.i.i:                                      ; preds = %if.then.i
   store volatile i32 4, ptr %status.i.i, align 8
   %5 = load ptr, ptr %errorJmp.i.i, align 8
   %b.i.i = getelementptr inbounds i8, ptr %5, i64 8
-  tail call void @longjmp(ptr noundef nonnull %b.i.i, i32 noundef 1) #40
+  tail call void @longjmp(ptr noundef nonnull %b.i.i, i32 noundef 1) #39
   unreachable
 
 if.else.i.i:                                      ; preds = %if.then.i
@@ -2353,11 +2353,11 @@ if.then5.i.i:                                     ; preds = %if.else.i.i
   %8 = load ptr, ptr %l_G, align 8
   %panic7.i.i = getelementptr inbounds i8, ptr %8, i64 152
   %9 = load ptr, ptr %panic7.i.i, align 8
-  %call.i.i = tail call i32 %9(ptr noundef nonnull %L) #37
+  %call.i.i = tail call i32 %9(ptr noundef nonnull %L) #36
   br label %if.end.i.i
 
 if.end.i.i:                                       ; preds = %if.then5.i.i, %if.else.i.i
-  tail call void @exit(i32 noundef 1) #41
+  tail call void @exit(i32 noundef 1) #40
   unreachable
 
 cond.end.thread:                                  ; preds = %if.end
@@ -2436,7 +2436,7 @@ for.end25:                                        ; preds = %for.inc23, %for.con
   %25 = load ptr, ptr %frealloc.i28, align 8
   %ud.i29 = getelementptr inbounds i8, ptr %24, i64 24
   %26 = load ptr, ptr %ud.i29, align 8
-  %call.i30 = tail call ptr %25(ptr noundef %26, ptr noundef %23, i64 noundef %mul29, i64 noundef 0) #37
+  %call.i30 = tail call ptr %25(ptr noundef %26, ptr noundef %23, i64 noundef %mul29, i64 noundef 0) #36
   %totalbytes.i33 = getelementptr inbounds i8, ptr %24, i64 120
   %27 = load i64, ptr %totalbytes.i33, align 8
   %sub.i = sub i64 %27, %mul29
@@ -2541,7 +2541,7 @@ if.end.i:                                         ; preds = %for.end32
   %11 = load ptr, ptr %frealloc.i.i, align 8
   %ud.i.i = getelementptr inbounds i8, ptr %1, i64 24
   %12 = load ptr, ptr %ud.i.i, align 8
-  %call.i.i = tail call ptr %11(ptr noundef %12, ptr noundef null, i64 noundef 0, i64 noundef %add2.i) #37
+  %call.i.i = tail call ptr %11(ptr noundef %12, ptr noundef null, i64 noundef 0, i64 noundef %add2.i) #36
   %cmp.i.i = icmp eq ptr %call.i.i, null
   %cmp1.i.i = icmp ne i64 %add2.i, 0
   %or.cond.i.i = and i1 %cmp1.i.i, %cmp.i.i
@@ -2558,7 +2558,7 @@ if.then.i.i.i:                                    ; preds = %if.then.i.i
   store volatile i32 4, ptr %status.i.i.i, align 8
   %14 = load ptr, ptr %errorJmp.i.i.i, align 8
   %b.i.i.i = getelementptr inbounds i8, ptr %14, i64 8
-  tail call void @longjmp(ptr noundef nonnull %b.i.i.i, i32 noundef 1) #40
+  tail call void @longjmp(ptr noundef nonnull %b.i.i.i, i32 noundef 1) #39
   unreachable
 
 if.else.i.i.i:                                    ; preds = %if.then.i.i
@@ -2575,11 +2575,11 @@ if.then5.i.i.i:                                   ; preds = %if.else.i.i.i
   %17 = load ptr, ptr %l_G, align 8
   %panic7.i.i.i = getelementptr inbounds i8, ptr %17, i64 152
   %18 = load ptr, ptr %panic7.i.i.i, align 8
-  %call.i.i.i = tail call i32 %18(ptr noundef nonnull %L) #37
+  %call.i.i.i = tail call i32 %18(ptr noundef nonnull %L) #36
   br label %if.end.i.i.i
 
 if.end.i.i.i:                                     ; preds = %if.then5.i.i.i, %if.else.i.i.i
-  tail call void @exit(i32 noundef 1) #41
+  tail call void @exit(i32 noundef 1) #40
   unreachable
 
 luaM_realloc_.exit.i:                             ; preds = %if.end.i
@@ -2639,7 +2639,7 @@ return:                                           ; preds = %if.then21.i, %luaM_
 }
 
 ; Function Attrs: noreturn nounwind
-declare void @longjmp(ptr noundef, i32 noundef) local_unnamed_addr #5
+declare void @longjmp(ptr noundef, i32 noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @resetstack(ptr noundef %L, i32 noundef %status) unnamed_addr #0 {
@@ -2723,7 +2723,7 @@ restore_stack_limit.exit:                         ; preds = %luaD_seterrorobj.ex
 }
 
 ; Function Attrs: nofree noreturn nounwind
-declare void @exit(i32 noundef) local_unnamed_addr #6
+declare void @exit(i32 noundef) local_unnamed_addr #5
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @luaF_close(ptr nocapture noundef %L, ptr noundef readnone %level) unnamed_addr #0 {
@@ -2781,7 +2781,7 @@ luaF_freeupval.exit:                              ; preds = %if.then, %if.then.i
   %14 = load ptr, ptr %frealloc.i, align 8
   %ud.i = getelementptr inbounds i8, ptr %13, i64 24
   %15 = load ptr, ptr %ud.i, align 8
-  %call.i25 = tail call ptr %14(ptr noundef %15, ptr noundef nonnull %2, i64 noundef 40, i64 noundef 0) #37
+  %call.i25 = tail call ptr %14(ptr noundef %15, ptr noundef nonnull %2, i64 noundef 40, i64 noundef 0) #36
   %totalbytes.i = getelementptr inbounds i8, ptr %13, i64 120
   %16 = load i64, ptr %totalbytes.i, align 8
   %sub.i = add i64 %16, -40
@@ -2875,10 +2875,10 @@ while.end:                                        ; preds = %land.rhs, %if.end, 
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #7
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #6
 
 ; Function Attrs: nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @reallymarkobject(ptr noundef %g, ptr noundef %o) unnamed_addr #8 {
+define internal fastcc void @reallymarkobject(ptr noundef %g, ptr noundef %o) unnamed_addr #7 {
 entry:
   %marked.phi.trans.insert = getelementptr inbounds i8, ptr %o, i64 9
   %.pre = load i8, ptr %marked.phi.trans.insert, align 1
@@ -3019,7 +3019,7 @@ cond.true:                                        ; preds = %entry
   %3 = load ptr, ptr %frealloc.i, align 8
   %ud.i = getelementptr inbounds i8, ptr %2, i64 24
   %4 = load ptr, ptr %ud.i, align 8
-  %call.i = tail call ptr %3(ptr noundef %4, ptr noundef %0, i64 noundef %mul, i64 noundef %mul5) #37
+  %call.i = tail call ptr %3(ptr noundef %4, ptr noundef %0, i64 noundef %mul, i64 noundef %mul5) #36
   %cmp.i = icmp eq ptr %call.i, null
   %cmp1.i = icmp ne i32 %newsize, 0
   %or.cond.i = and i1 %cmp1.i, %cmp.i
@@ -3036,7 +3036,7 @@ if.then.i.i:                                      ; preds = %if.then.i
   store volatile i32 4, ptr %status.i.i, align 8
   %6 = load ptr, ptr %errorJmp.i.i, align 8
   %b.i.i = getelementptr inbounds i8, ptr %6, i64 8
-  tail call void @longjmp(ptr noundef nonnull %b.i.i, i32 noundef 1) #40
+  tail call void @longjmp(ptr noundef nonnull %b.i.i, i32 noundef 1) #39
   unreachable
 
 if.else.i.i:                                      ; preds = %if.then.i
@@ -3053,11 +3053,11 @@ if.then5.i.i:                                     ; preds = %if.else.i.i
   %9 = load ptr, ptr %l_G.i, align 8
   %panic7.i.i = getelementptr inbounds i8, ptr %9, i64 152
   %10 = load ptr, ptr %panic7.i.i, align 8
-  %call.i.i = tail call i32 %10(ptr noundef nonnull %L) #37
+  %call.i.i = tail call i32 %10(ptr noundef nonnull %L) #36
   br label %if.end.i.i
 
 if.end.i.i:                                       ; preds = %if.then5.i.i, %if.else.i.i
-  tail call void @exit(i32 noundef 1) #41
+  tail call void @exit(i32 noundef 1) #40
   unreachable
 
 luaM_realloc_.exit:                               ; preds = %cond.true
@@ -3088,7 +3088,7 @@ cond.false:                                       ; preds = %entry
 }
 
 ; Function Attrs: noreturn nounwind uwtable
-define internal void @luaG_runerror(ptr noundef %L, ptr noundef %fmt, ...) unnamed_addr #9 {
+define internal void @luaG_runerror(ptr noundef %L, ptr noundef %fmt, ...) unnamed_addr #8 {
 entry:
   %buff.i = alloca [60 x i8], align 16
   %argp = alloca [1 x %struct.__va_list_tag], align 16
@@ -3200,7 +3200,7 @@ pushstr.exit:                                     ; preds = %if.then.i, %entry
   %4 = load ptr, ptr %top.i, align 8
   %incdec.ptr.i = getelementptr inbounds i8, ptr %4, i64 16
   store ptr %incdec.ptr.i, ptr %top.i, align 8
-  %call174 = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %fmt, i32 noundef 37) #36
+  %call174 = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %fmt, i32 noundef 37) #35
   %cmp175 = icmp eq ptr %call174, null
   br i1 %cmp175, label %for.end, label %if.end.lr.ph
 
@@ -3283,7 +3283,7 @@ vaarg.end:                                        ; preds = %vaarg.in_mem, %vaar
   %cmp10 = icmp eq ptr %15, null
   %spec.store.select = select i1 %cmp10, ptr @.str.12, ptr %15
   %16 = load ptr, ptr %top.i, align 8
-  %call.i47 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %spec.store.select) #36
+  %call.i47 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %spec.store.select) #35
   %call1.i48 = tail call fastcc ptr @luaS_newlstr(ptr noundef nonnull %L, ptr noundef nonnull %spec.store.select, i64 noundef %call.i47)
   store ptr %call1.i48, ptr %16, align 8
   %tt.i49 = getelementptr inbounds i8, ptr %16, i64 8
@@ -3330,7 +3330,7 @@ vaarg.end24:                                      ; preds = %vaarg.in_mem20, %va
   store i8 %conv26, ptr %buff, align 1
   store i8 0, ptr %arrayidx27, align 1
   %24 = load ptr, ptr %top.i, align 8
-  %call.i66 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %buff) #36
+  %call.i66 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %buff) #35
   %call1.i67 = call fastcc ptr @luaS_newlstr(ptr noundef nonnull %L, ptr noundef nonnull %buff, i64 noundef %call.i66)
   store ptr %call1.i67, ptr %24, align 8
   %tt.i68 = getelementptr inbounds i8, ptr %24, i64 8
@@ -3456,9 +3456,9 @@ vaarg.in_mem90:                                   ; preds = %sw.bb82
 vaarg.end94:                                      ; preds = %vaarg.in_mem90, %vaarg.in_reg88
   %vaarg.addr95 = phi ptr [ %43, %vaarg.in_reg88 ], [ %overflow_arg_area92, %vaarg.in_mem90 ]
   %45 = load ptr, ptr %vaarg.addr95, align 8
-  %call96 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %buff83, ptr noundef nonnull dereferenceable(1) @.str.13, ptr noundef %45) #37
+  %call96 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %buff83, ptr noundef nonnull dereferenceable(1) @.str.13, ptr noundef %45) #36
   %46 = load ptr, ptr %top.i, align 8
-  %call.i99 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %buff83) #36
+  %call.i99 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %buff83) #35
   %call1.i100 = call fastcc ptr @luaS_newlstr(ptr noundef nonnull %L, ptr noundef nonnull %buff83, i64 noundef %call.i99)
   store ptr %call1.i100, ptr %46, align 8
   %tt.i101 = getelementptr inbounds i8, ptr %46, i64 8
@@ -3504,7 +3504,7 @@ sw.default:                                       ; preds = %if.end8
   store i8 37, ptr %buff99, align 1
   store i8 %11, ptr %arrayidx102, align 1
   store i8 0, ptr %arrayidx103, align 1
-  %call.i137 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %buff99) #36
+  %call.i137 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %buff99) #35
   %call1.i138 = call fastcc ptr @luaS_newlstr(ptr noundef nonnull %L, ptr noundef nonnull %buff99, i64 noundef %call.i137)
   store ptr %call1.i138, ptr %incdec.ptr, align 8
   %tt.i139 = getelementptr inbounds i8, ptr %10, i64 24
@@ -3536,7 +3536,7 @@ sw.epilog:                                        ; preds = %sw.epilog.sink.spli
   store ptr %incdec.ptr.i145, ptr %top.i, align 8
   %add = add nuw nsw i32 %n.0176, 2
   %add.ptr105 = getelementptr inbounds i8, ptr %call178, i64 2
-  %call = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %add.ptr105, i32 noundef 37) #36
+  %call = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %add.ptr105, i32 noundef 37) #35
   %cmp = icmp eq ptr %call, null
   br i1 %cmp, label %for.end, label %if.end
 
@@ -3544,7 +3544,7 @@ for.end:                                          ; preds = %sw.epilog, %pushstr
   %57 = phi ptr [ %incdec.ptr.i, %pushstr.exit ], [ %incdec.ptr.i145, %sw.epilog ]
   %n.0.lcssa = phi i32 [ 1, %pushstr.exit ], [ %add, %sw.epilog ]
   %fmt.addr.0.lcssa = phi ptr [ %fmt, %pushstr.exit ], [ %add.ptr105, %sw.epilog ]
-  %call.i156 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %fmt.addr.0.lcssa) #36
+  %call.i156 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %fmt.addr.0.lcssa) #35
   %call1.i157 = tail call fastcc ptr @luaS_newlstr(ptr noundef nonnull %L, ptr noundef %fmt.addr.0.lcssa, i64 noundef %call.i156)
   store ptr %call1.i157, ptr %57, align 8
   %tt.i158 = getelementptr inbounds i8, ptr %57, i64 8
@@ -3593,7 +3593,7 @@ pushstr.exit173:                                  ; preds = %if.then.i165, %for.
 }
 
 ; Function Attrs: noreturn nounwind uwtable
-define internal fastcc void @luaG_errormsg(ptr noundef %L) unnamed_addr #9 {
+define internal fastcc void @luaG_errormsg(ptr noundef %L) unnamed_addr #8 {
 entry:
   %errfunc = getelementptr inbounds i8, ptr %L, i64 176
   %0 = load i64, ptr %errfunc, align 8
@@ -3620,7 +3620,7 @@ if.then.i:                                        ; preds = %if.then4
   store volatile i32 5, ptr %status.i, align 8
   %4 = load ptr, ptr %errorJmp.i, align 8
   %b.i = getelementptr inbounds i8, ptr %4, i64 8
-  tail call void @longjmp(ptr noundef nonnull %b.i, i32 noundef 1) #40
+  tail call void @longjmp(ptr noundef nonnull %b.i, i32 noundef 1) #39
   unreachable
 
 if.else.i:                                        ; preds = %if.then4
@@ -3681,11 +3681,11 @@ resetstack.exit:                                  ; preds = %if.then5.i, %if.the
   %14 = load ptr, ptr %l_G.i, align 8
   %panic7.i = getelementptr inbounds i8, ptr %14, i64 152
   %15 = load ptr, ptr %panic7.i, align 8
-  %call.i = tail call i32 %15(ptr noundef nonnull %L) #37
+  %call.i = tail call i32 %15(ptr noundef nonnull %L) #36
   br label %if.end.i
 
 if.end.i:                                         ; preds = %resetstack.exit, %if.else.i
-  tail call void @exit(i32 noundef 1) #41
+  tail call void @exit(i32 noundef 1) #40
   unreachable
 
 if.end:                                           ; preds = %if.then
@@ -3743,7 +3743,7 @@ if.then.i24:                                      ; preds = %if.end25
   store volatile i32 2, ptr %status.i25, align 8
   %27 = load ptr, ptr %errorJmp.i22, align 8
   %b.i26 = getelementptr inbounds i8, ptr %27, i64 8
-  tail call void @longjmp(ptr noundef nonnull %b.i26, i32 noundef 1) #40
+  tail call void @longjmp(ptr noundef nonnull %b.i26, i32 noundef 1) #39
   unreachable
 
 if.else.i27:                                      ; preds = %if.end25
@@ -3808,16 +3808,16 @@ resetstack.exit60:                                ; preds = %if.then5.i32, %if.t
   %40 = load ptr, ptr %l_G.i29, align 8
   %panic7.i33 = getelementptr inbounds i8, ptr %40, i64 152
   %41 = load ptr, ptr %panic7.i33, align 8
-  %call.i34 = tail call i32 %41(ptr noundef nonnull %L) #37
+  %call.i34 = tail call i32 %41(ptr noundef nonnull %L) #36
   br label %if.end.i35
 
 if.end.i35:                                       ; preds = %resetstack.exit60, %if.else.i27
-  tail call void @exit(i32 noundef 1) #41
+  tail call void @exit(i32 noundef 1) #40
   unreachable
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: readwrite) uwtable
-define internal fastcc void @luaO_chunkid(ptr noundef %out, ptr nocapture noundef readonly %source, i64 noundef %bufflen) unnamed_addr #10 {
+define internal fastcc void @luaO_chunkid(ptr noundef %out, ptr nocapture noundef readonly %source, i64 noundef %bufflen) unnamed_addr #9 {
 entry:
   %0 = load i8, ptr %source, align 1
   switch i8 %0, label %if.else16 [
@@ -3827,7 +3827,7 @@ entry:
 
 if.then:                                          ; preds = %entry
   %add.ptr = getelementptr inbounds i8, ptr %source, i64 1
-  %call = tail call ptr @strncpy(ptr noundef %out, ptr noundef nonnull %add.ptr, i64 noundef %bufflen) #37
+  %call = tail call ptr @strncpy(ptr noundef %out, ptr noundef nonnull %add.ptr, i64 noundef %bufflen) #36
   %1 = getelementptr i8, ptr %out, i64 %bufflen
   %arrayidx = getelementptr i8, ptr %1, i64 -1
   store i8 0, ptr %arrayidx, align 1
@@ -3836,7 +3836,7 @@ if.then:                                          ; preds = %entry
 if.then5:                                         ; preds = %entry
   %incdec.ptr = getelementptr inbounds i8, ptr %source, i64 1
   %sub6 = add nsw i64 %bufflen, -8
-  %call7 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %incdec.ptr) #36
+  %call7 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %incdec.ptr) #35
   store i8 0, ptr %out, align 1
   %cmp9 = icmp ugt i64 %call7, %sub6
   br i1 %cmp9, label %if.then11, label %if.end
@@ -3851,28 +3851,28 @@ if.then11:                                        ; preds = %if.then5
 
 if.end:                                           ; preds = %if.then11, %if.then5
   %source.addr.0 = phi ptr [ %add.ptr13, %if.then11 ], [ %incdec.ptr, %if.then5 ]
-  %call15 = tail call ptr @strcat(ptr noundef nonnull dereferenceable(1) %out, ptr noundef nonnull dereferenceable(1) %source.addr.0) #37
+  %call15 = tail call ptr @strcat(ptr noundef nonnull dereferenceable(1) %out, ptr noundef nonnull dereferenceable(1) %source.addr.0) #36
   br label %if.end36
 
 if.else16:                                        ; preds = %entry
-  %call17 = tail call i64 @strcspn(ptr noundef nonnull %source, ptr noundef nonnull @.str.9) #36
+  %call17 = tail call i64 @strcspn(ptr noundef nonnull %source, ptr noundef nonnull @.str.9) #35
   %sub18 = add nsw i64 %bufflen, -17
   %spec.select = tail call i64 @llvm.umin.i64(i64 %call17, i64 %sub18)
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(10) %out, ptr noundef nonnull align 1 dereferenceable(10) @.str.10, i64 10, i1 false) #37
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(10) %out, ptr noundef nonnull align 1 dereferenceable(10) @.str.10, i64 10, i1 false) #36
   %arrayidx24 = getelementptr inbounds i8, ptr %source, i64 %spec.select
   %2 = load i8, ptr %arrayidx24, align 1
   %cmp26.not = icmp eq i8 %2, 0
   br i1 %cmp26.not, label %if.else31, label %if.then28
 
 if.then28:                                        ; preds = %if.else16
-  %call29 = tail call ptr @strncat(ptr noundef nonnull dereferenceable(1) %out, ptr noundef nonnull %source, i64 noundef %spec.select) #37
+  %call29 = tail call ptr @strncat(ptr noundef nonnull dereferenceable(1) %out, ptr noundef nonnull %source, i64 noundef %spec.select) #36
   %strlen = tail call i64 @strlen(ptr nonnull dereferenceable(1) %out)
   %endptr = getelementptr inbounds i8, ptr %out, i64 %strlen
   store i32 3026478, ptr %endptr, align 1
   br label %if.end33
 
 if.else31:                                        ; preds = %if.else16
-  %call32 = tail call ptr @strcat(ptr noundef nonnull dereferenceable(1) %out, ptr noundef nonnull dereferenceable(1) %source) #37
+  %call32 = tail call ptr @strcat(ptr noundef nonnull dereferenceable(1) %out, ptr noundef nonnull dereferenceable(1) %source) #36
   br label %if.end33
 
 if.end33:                                         ; preds = %if.else31, %if.then28
@@ -3896,22 +3896,22 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: readwrite)
-declare ptr @strncpy(ptr noalias noundef returned writeonly, ptr noalias nocapture noundef readonly, i64 noundef) local_unnamed_addr #11
+declare ptr @strncpy(ptr noalias noundef returned writeonly, ptr noalias nocapture noundef readonly, i64 noundef) local_unnamed_addr #10
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #12
+declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #11
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: readwrite)
-declare ptr @strcat(ptr noalias noundef returned, ptr noalias nocapture noundef readonly) local_unnamed_addr #11
+declare ptr @strcat(ptr noalias noundef returned, ptr noalias nocapture noundef readonly) local_unnamed_addr #10
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strcspn(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #12
+declare i64 @strcspn(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #11
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: readwrite)
-declare ptr @strncat(ptr noalias noundef returned, ptr noalias nocapture noundef readonly, i64 noundef) local_unnamed_addr #11
+declare ptr @strncat(ptr noalias noundef returned, ptr noalias nocapture noundef readonly, i64 noundef) local_unnamed_addr #10
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare ptr @strchr(ptr noundef, i32 noundef) local_unnamed_addr #12
+declare ptr @strchr(ptr noundef, i32 noundef) local_unnamed_addr #11
 
 ; Function Attrs: nofree nounwind
 declare noundef i32 @sprintf(ptr noalias nocapture noundef writeonly, ptr nocapture noundef readonly, ...) local_unnamed_addr #1
@@ -3961,8 +3961,8 @@ luaV_tostring.exit.thread:                        ; preds = %lor.lhs.false10
 
 luaV_tostring.exit:                               ; preds = %lor.lhs.false10
   %3 = load double, ptr %add.ptr, align 8
-  %call.i = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %s.i, ptr noundef nonnull dereferenceable(1) @.str.16, double noundef %3) #37
-  %call3.i = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %s.i) #36
+  %call.i = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %s.i, ptr noundef nonnull dereferenceable(1) @.str.16, double noundef %3) #36
+  %call3.i = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %s.i) #35
   %call4.i = call fastcc ptr @luaS_newlstr(ptr noundef nonnull %L, ptr noundef nonnull %s.i, i64 noundef %call3.i)
   store ptr %call4.i, ptr %add.ptr, align 8
   store i32 4, ptr %tt8, align 8
@@ -4014,8 +4014,8 @@ lor.rhs:                                          ; preds = %if.then22
 
 if.else.i57:                                      ; preds = %lor.rhs
   %11 = load double, ptr %add.ptr2, align 8
-  %call.i58 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %s.i53, ptr noundef nonnull dereferenceable(1) @.str.16, double noundef %11) #37
-  %call3.i59 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %s.i53) #36
+  %call.i58 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %s.i53, ptr noundef nonnull dereferenceable(1) @.str.16, double noundef %11) #36
+  %call3.i59 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %s.i53) #35
   %call4.i60 = call fastcc ptr @luaS_newlstr(ptr noundef nonnull %L, ptr noundef nonnull %s.i53, i64 noundef %call3.i59)
   store ptr %call4.i60, ptr %add.ptr2, align 8
   store i32 4, ptr %tt, align 8
@@ -4052,8 +4052,8 @@ luaV_tostring.exit70.thread:                      ; preds = %lor.rhs39
 
 luaV_tostring.exit70:                             ; preds = %lor.rhs39
   %14 = load double, ptr %add.ptr36, align 8
-  %call.i67 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %s.i62, ptr noundef nonnull dereferenceable(1) @.str.16, double noundef %14) #37
-  %call3.i68 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %s.i62) #36
+  %call.i67 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %s.i62, ptr noundef nonnull dereferenceable(1) @.str.16, double noundef %14) #36
+  %call3.i68 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %s.i62) #35
   %call4.i69 = call fastcc ptr @luaS_newlstr(ptr noundef %L, ptr noundef nonnull %s.i62, i64 noundef %call3.i68)
   store ptr %call4.i69, ptr %add.ptr36, align 8
   store i32 4, ptr %tt37, align 8
@@ -4104,7 +4104,7 @@ cond.true.i:                                      ; preds = %if.then.i
   %20 = load ptr, ptr %frealloc.i, align 8
   %ud.i = getelementptr inbounds i8, ptr %17, i64 24
   %21 = load ptr, ptr %ud.i, align 8
-  %call.i74 = tail call ptr %20(ptr noundef %21, ptr noundef %19, i64 noundef %18, i64 noundef %spec.store.select.i) #37
+  %call.i74 = tail call ptr %20(ptr noundef %21, ptr noundef %19, i64 noundef %18, i64 noundef %spec.store.select.i) #36
   %cmp.i75 = icmp eq ptr %call.i74, null
   br i1 %cmp.i75, label %if.then.i77, label %luaM_realloc_.exit
 
@@ -4119,7 +4119,7 @@ if.then.i.i:                                      ; preds = %if.then.i77
   store volatile i32 4, ptr %status.i.i, align 8
   %23 = load ptr, ptr %errorJmp.i.i, align 8
   %b.i.i = getelementptr inbounds i8, ptr %23, i64 8
-  tail call void @longjmp(ptr noundef nonnull %b.i.i, i32 noundef 1) #40
+  tail call void @longjmp(ptr noundef nonnull %b.i.i, i32 noundef 1) #39
   unreachable
 
 if.else.i.i:                                      ; preds = %if.then.i77
@@ -4136,11 +4136,11 @@ if.then5.i.i:                                     ; preds = %if.else.i.i
   %26 = load ptr, ptr %l_G, align 8
   %panic7.i.i = getelementptr inbounds i8, ptr %26, i64 152
   %27 = load ptr, ptr %panic7.i.i, align 8
-  %call.i.i = tail call i32 %27(ptr noundef nonnull %L) #37
+  %call.i.i = tail call i32 %27(ptr noundef nonnull %L) #36
   br label %if.end.i.i
 
 if.end.i.i:                                       ; preds = %if.then5.i.i, %if.else.i.i
-  tail call void @exit(i32 noundef 1) #41
+  tail call void @exit(i32 noundef 1) #40
   unreachable
 
 luaM_realloc_.exit:                               ; preds = %cond.true.i
@@ -4221,7 +4221,7 @@ cond.true:                                        ; preds = %entry
   %3 = load ptr, ptr %frealloc.i, align 8
   %ud.i = getelementptr inbounds i8, ptr %2, i64 24
   %4 = load ptr, ptr %ud.i, align 8
-  %call.i = tail call ptr %3(ptr noundef %4, ptr noundef %0, i64 noundef %mul, i64 noundef %mul7) #37
+  %call.i = tail call ptr %3(ptr noundef %4, ptr noundef %0, i64 noundef %mul, i64 noundef %mul7) #36
   %cmp.i = icmp eq ptr %call.i, null
   %cmp1.i = icmp ne i32 %add1, 0
   %or.cond.i = and i1 %cmp1.i, %cmp.i
@@ -4238,7 +4238,7 @@ if.then.i.i:                                      ; preds = %if.then.i
   store volatile i32 4, ptr %status.i.i, align 8
   %6 = load ptr, ptr %errorJmp.i.i, align 8
   %b.i.i = getelementptr inbounds i8, ptr %6, i64 8
-  tail call void @longjmp(ptr noundef nonnull %b.i.i, i32 noundef 1) #40
+  tail call void @longjmp(ptr noundef nonnull %b.i.i, i32 noundef 1) #39
   unreachable
 
 if.else.i.i:                                      ; preds = %if.then.i
@@ -4255,11 +4255,11 @@ if.then5.i.i:                                     ; preds = %if.else.i.i
   %9 = load ptr, ptr %l_G.i, align 8
   %panic7.i.i = getelementptr inbounds i8, ptr %9, i64 152
   %10 = load ptr, ptr %panic7.i.i, align 8
-  %call.i.i = tail call i32 %10(ptr noundef nonnull %L) #37
+  %call.i.i = tail call i32 %10(ptr noundef nonnull %L) #36
   br label %if.end.i.i
 
 if.end.i.i:                                       ; preds = %if.then5.i.i, %if.else.i.i
-  tail call void @exit(i32 noundef 1) #41
+  tail call void @exit(i32 noundef 1) #40
   unreachable
 
 luaM_realloc_.exit:                               ; preds = %cond.true
@@ -4622,7 +4622,7 @@ if.then.i:                                        ; preds = %if.then11
   store volatile i32 5, ptr %status.i, align 8
   %2 = load ptr, ptr %errorJmp.i, align 8
   %b.i = getelementptr inbounds i8, ptr %2, i64 8
-  tail call void @longjmp(ptr noundef nonnull %b.i, i32 noundef 1) #40
+  tail call void @longjmp(ptr noundef nonnull %b.i, i32 noundef 1) #39
   unreachable
 
 if.else.i:                                        ; preds = %if.then11
@@ -4640,11 +4640,11 @@ if.then5.i:                                       ; preds = %if.else.i
   %5 = load ptr, ptr %l_G.i, align 8
   %panic7.i = getelementptr inbounds i8, ptr %5, i64 152
   %6 = load ptr, ptr %panic7.i, align 8
-  %call.i = tail call i32 %6(ptr noundef nonnull %L) #37
+  %call.i = tail call i32 %6(ptr noundef nonnull %L) #36
   br label %if.end.i
 
 if.end.i:                                         ; preds = %if.then5.i, %if.else.i
-  tail call void @exit(i32 noundef 1) #41
+  tail call void @exit(i32 noundef 1) #40
   unreachable
 
 if.end13:                                         ; preds = %if.else, %entry
@@ -5283,7 +5283,7 @@ land.lhs.true521.i:                               ; preds = %sw.bb481.i
 if.then525.i:                                     ; preds = %land.lhs.true521.i
   %96 = load double, ptr %cond499.i, align 8
   %97 = load double, ptr %cond517.i, align 8
-  %call531.i = tail call double @pow(double noundef %96, double noundef %97) #37
+  %call531.i = tail call double @pow(double noundef %96, double noundef %97) #36
   store double %call531.i, ptr %add.ptr.i, align 8
   %tt533.i = getelementptr inbounds i8, ptr %add.ptr.i, i64 8
   store i32 3, ptr %tt533.i, align 8
@@ -5921,7 +5921,7 @@ if.then11.i:                                      ; preds = %if.else.i131
   %217 = load ptr, ptr %cond789.i, align 8
   %add.ptr.i.i = getelementptr inbounds i8, ptr %216, i64 24
   %add.ptr1.i.i = getelementptr inbounds i8, ptr %217, i64 24
-  %call18.i.i = tail call i32 @strcoll(ptr noundef nonnull readonly %add.ptr.i.i, ptr noundef nonnull readonly %add.ptr1.i.i) #36
+  %call18.i.i = tail call i32 @strcoll(ptr noundef nonnull readonly %add.ptr.i.i, ptr noundef nonnull readonly %add.ptr1.i.i) #35
   %cmp.not19.i.i = icmp eq i32 %call18.i.i, 0
   br i1 %cmp.not19.i.i, label %if.else.preheader.i.i, label %l_strcmp.exit.i
 
@@ -5937,7 +5937,7 @@ if.else.i19.i:                                    ; preds = %if.end11.i.i, %if.e
   %r.022.i.i = phi ptr [ %add.ptr13.i.i, %if.end11.i.i ], [ %add.ptr1.i.i, %if.else.preheader.i.i ]
   %ll.021.i.i = phi i64 [ %sub.i.i, %if.end11.i.i ], [ %219, %if.else.preheader.i.i ]
   %l.020.i.i = phi ptr [ %add.ptr12.i.i, %if.end11.i.i ], [ %add.ptr.i.i, %if.else.preheader.i.i ]
-  %call4.i.i = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %l.020.i.i) #36
+  %call4.i.i = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %l.020.i.i) #35
   %cmp5.i.i = icmp eq i64 %call4.i.i, %lr.023.i.i
   br i1 %cmp5.i.i, label %if.then6.i.i, label %if.else8.i.i
 
@@ -5956,7 +5956,7 @@ if.end11.i.i:                                     ; preds = %if.else8.i.i
   %sub.i.i = sub i64 %ll.021.i.i, %inc.i.i
   %add.ptr13.i.i = getelementptr inbounds i8, ptr %r.022.i.i, i64 %inc.i.i
   %sub14.i.i = sub i64 %lr.023.i.i, %inc.i.i
-  %call.i.i = tail call i32 @strcoll(ptr noundef %add.ptr12.i.i, ptr noundef %add.ptr13.i.i) #36
+  %call.i.i = tail call i32 @strcoll(ptr noundef %add.ptr12.i.i, ptr noundef %add.ptr13.i.i) #35
   %cmp.not.i.i = icmp eq i32 %call.i.i, 0
   br i1 %cmp.not.i.i, label %if.else.i19.i, label %l_strcmp.exit.i
 
@@ -6865,7 +6865,7 @@ land.lhs.true.i150:                               ; preds = %sw.bb1014.i
   %389 = load ptr, ptr %add.ptr.i, align 8
   %add.ptr.i151 = getelementptr inbounds i8, ptr %389, i64 24
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %endptr.i.i)
-  %call.i.i152 = call double @strtod(ptr noundef nonnull %add.ptr.i151, ptr noundef nonnull %endptr.i.i) #37
+  %call.i.i152 = call double @strtod(ptr noundef nonnull %add.ptr.i151, ptr noundef nonnull %endptr.i.i) #36
   %390 = load ptr, ptr %endptr.i.i, align 8
   %cmp.i.i153 = icmp eq ptr %390, %add.ptr.i151
   br i1 %cmp.i.i153, label %luaO_str2d.exit.thread.i, label %if.end.i.i154
@@ -6882,7 +6882,7 @@ if.end.i.i154:                                    ; preds = %land.lhs.true.i150
   ]
 
 if.then6.i.i155:                                  ; preds = %if.end.i.i154, %if.end.i.i154
-  %call7.i.i = call i64 @strtoul(ptr noundef nonnull %add.ptr.i151, ptr noundef nonnull %endptr.i.i, i32 noundef 16) #37
+  %call7.i.i = call i64 @strtoul(ptr noundef nonnull %add.ptr.i151, ptr noundef nonnull %endptr.i.i, i32 noundef 16) #36
   %conv8.i.i = uitofp i64 %call7.i.i to double
   %.pre.i.i = load ptr, ptr %endptr.i.i, align 8
   %.pre5.i.i = load i8, ptr %.pre.i.i, align 1
@@ -6900,7 +6900,7 @@ luaO_str2d.exit.thread9.i:                        ; preds = %if.end9.i.i
   br label %if.then3.i
 
 while.cond.preheader.i.i:                         ; preds = %if.end9.i.i
-  %call15.i.i = tail call ptr @__ctype_b_loc() #42
+  %call15.i.i = tail call ptr @__ctype_b_loc() #41
   %393 = load ptr, ptr %call15.i.i, align 8
   br label %while.cond.i.i
 
@@ -6941,7 +6941,7 @@ land.lhs.true.i164:                               ; preds = %if.else1025.i
   %398 = load ptr, ptr %add.ptr1015.i, align 8
   %add.ptr.i165 = getelementptr inbounds i8, ptr %398, i64 24
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %endptr.i.i162)
-  %call.i.i166 = call double @strtod(ptr noundef nonnull %add.ptr.i165, ptr noundef nonnull %endptr.i.i162) #37
+  %call.i.i166 = call double @strtod(ptr noundef nonnull %add.ptr.i165, ptr noundef nonnull %endptr.i.i162) #36
   %399 = load ptr, ptr %endptr.i.i162, align 8
   %cmp.i.i167 = icmp eq ptr %399, %add.ptr.i165
   br i1 %cmp.i.i167, label %luaO_str2d.exit.thread.i193, label %if.end.i.i168
@@ -6958,7 +6958,7 @@ if.end.i.i168:                                    ; preds = %land.lhs.true.i164
   ]
 
 if.then6.i.i169:                                  ; preds = %if.end.i.i168, %if.end.i.i168
-  %call7.i.i170 = call i64 @strtoul(ptr noundef nonnull %add.ptr.i165, ptr noundef nonnull %endptr.i.i162, i32 noundef 16) #37
+  %call7.i.i170 = call i64 @strtoul(ptr noundef nonnull %add.ptr.i165, ptr noundef nonnull %endptr.i.i162, i32 noundef 16) #36
   %conv8.i.i171 = uitofp i64 %call7.i.i170 to double
   %.pre.i.i172 = load ptr, ptr %endptr.i.i162, align 8
   %.pre5.i.i173 = load i8, ptr %.pre.i.i172, align 1
@@ -6976,7 +6976,7 @@ luaO_str2d.exit.thread9.i192:                     ; preds = %if.end9.i.i174
   br label %if.then3.i190
 
 while.cond.preheader.i.i178:                      ; preds = %if.end9.i.i174
-  %call15.i.i179 = tail call ptr @__ctype_b_loc() #42
+  %call15.i.i179 = tail call ptr @__ctype_b_loc() #41
   %402 = load ptr, ptr %call15.i.i179, align 8
   br label %while.cond.i.i180
 
@@ -7021,7 +7021,7 @@ land.lhs.true.i197:                               ; preds = %if.else1035.i
   %407 = load ptr, ptr %add.ptr1016.i, align 8
   %add.ptr.i198 = getelementptr inbounds i8, ptr %407, i64 24
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %endptr.i.i195)
-  %call.i.i199 = call double @strtod(ptr noundef nonnull %add.ptr.i198, ptr noundef nonnull %endptr.i.i195) #37
+  %call.i.i199 = call double @strtod(ptr noundef nonnull %add.ptr.i198, ptr noundef nonnull %endptr.i.i195) #36
   %408 = load ptr, ptr %endptr.i.i195, align 8
   %cmp.i.i200 = icmp eq ptr %408, %add.ptr.i198
   br i1 %cmp.i.i200, label %luaO_str2d.exit.thread.i226, label %if.end.i.i201
@@ -7038,7 +7038,7 @@ if.end.i.i201:                                    ; preds = %land.lhs.true.i197
   ]
 
 if.then6.i.i202:                                  ; preds = %if.end.i.i201, %if.end.i.i201
-  %call7.i.i203 = call i64 @strtoul(ptr noundef nonnull %add.ptr.i198, ptr noundef nonnull %endptr.i.i195, i32 noundef 16) #37
+  %call7.i.i203 = call i64 @strtoul(ptr noundef nonnull %add.ptr.i198, ptr noundef nonnull %endptr.i.i195, i32 noundef 16) #36
   %conv8.i.i204 = uitofp i64 %call7.i.i203 to double
   %.pre.i.i205 = load ptr, ptr %endptr.i.i195, align 8
   %.pre5.i.i206 = load i8, ptr %.pre.i.i205, align 1
@@ -7056,7 +7056,7 @@ luaO_str2d.exit.thread9.i225:                     ; preds = %if.end9.i.i207
   br label %if.then3.i223
 
 while.cond.preheader.i.i211:                      ; preds = %if.end9.i.i207
-  %call15.i.i212 = tail call ptr @__ctype_b_loc() #42
+  %call15.i.i212 = tail call ptr @__ctype_b_loc() #41
   %411 = load ptr, ptr %call15.i.i212, align 8
   br label %while.cond.i.i213
 
@@ -7382,7 +7382,7 @@ sw.bb1187.i:                                      ; preds = %for.cond.i
   %469 = load ptr, ptr %frealloc.i, align 8
   %ud.i = getelementptr inbounds i8, ptr %468, i64 24
   %470 = load ptr, ptr %ud.i, align 8
-  %call.i475 = tail call ptr %469(ptr noundef %470, ptr noundef null, i64 noundef 0, i64 noundef %conv2.i) #37
+  %call.i475 = tail call ptr %469(ptr noundef %470, ptr noundef null, i64 noundef 0, i64 noundef %conv2.i) #36
   %cmp.i476 = icmp eq ptr %call.i475, null
   br i1 %cmp.i476, label %if.then.i482, label %luaM_realloc_.exit
 
@@ -7397,7 +7397,7 @@ if.then.i.i484:                                   ; preds = %if.then.i482
   store volatile i32 4, ptr %status.i.i, align 8
   %472 = load ptr, ptr %errorJmp.i.i, align 8
   %b.i.i = getelementptr inbounds i8, ptr %472, i64 8
-  tail call void @longjmp(ptr noundef nonnull %b.i.i, i32 noundef 1) #40
+  tail call void @longjmp(ptr noundef nonnull %b.i.i, i32 noundef 1) #39
   unreachable
 
 if.else.i.i485:                                   ; preds = %if.then.i482
@@ -7414,11 +7414,11 @@ if.then5.i.i:                                     ; preds = %if.else.i.i485
   %475 = load ptr, ptr %l_G.i474, align 8
   %panic7.i.i = getelementptr inbounds i8, ptr %475, i64 152
   %476 = load ptr, ptr %panic7.i.i, align 8
-  %call.i.i486 = tail call i32 %476(ptr noundef nonnull %L) #37
+  %call.i.i486 = tail call i32 %476(ptr noundef nonnull %L) #36
   br label %if.end.i.i487
 
 if.end.i.i487:                                    ; preds = %if.then5.i.i, %if.else.i.i485
-  tail call void @exit(i32 noundef 1) #41
+  tail call void @exit(i32 noundef 1) #40
   unreachable
 
 luaM_realloc_.exit:                               ; preds = %sw.bb1187.i
@@ -7522,7 +7522,7 @@ while.end.i:                                      ; preds = %land.rhs.i263, %whi
   %497 = load ptr, ptr %frealloc.i489, align 8
   %ud.i490 = getelementptr inbounds i8, ptr %489, i64 24
   %498 = load ptr, ptr %ud.i490, align 8
-  %call.i491 = tail call ptr %497(ptr noundef %498, ptr noundef null, i64 noundef 0, i64 noundef 40) #37
+  %call.i491 = tail call ptr %497(ptr noundef %498, ptr noundef null, i64 noundef 0, i64 noundef 40) #36
   %cmp.i492 = icmp eq ptr %call.i491, null
   br i1 %cmp.i492, label %if.then.i498, label %luaM_realloc_.exit513
 
@@ -7537,7 +7537,7 @@ if.then.i.i501:                                   ; preds = %if.then.i498
   store volatile i32 4, ptr %status.i.i502, align 8
   %500 = load ptr, ptr %errorJmp.i.i499, align 8
   %b.i.i503 = getelementptr inbounds i8, ptr %500, i64 8
-  tail call void @longjmp(ptr noundef nonnull %b.i.i503, i32 noundef 1) #40
+  tail call void @longjmp(ptr noundef nonnull %b.i.i503, i32 noundef 1) #39
   unreachable
 
 if.else.i.i504:                                   ; preds = %if.then.i498
@@ -7554,11 +7554,11 @@ if.then5.i.i509:                                  ; preds = %if.else.i.i504
   %503 = load ptr, ptr %l_G.i474, align 8
   %panic7.i.i510 = getelementptr inbounds i8, ptr %503, i64 152
   %504 = load ptr, ptr %panic7.i.i510, align 8
-  %call.i.i511 = tail call i32 %504(ptr noundef nonnull %L) #37
+  %call.i.i511 = tail call i32 %504(ptr noundef nonnull %L) #36
   br label %if.end.i.i512
 
 if.end.i.i512:                                    ; preds = %if.then5.i.i509, %if.else.i.i504
-  tail call void @exit(i32 noundef 1) #41
+  tail call void @exit(i32 noundef 1) #40
   unreachable
 
 luaM_realloc_.exit513:                            ; preds = %while.end.i
@@ -8251,7 +8251,7 @@ cond.end91:                                       ; preds = %cond.false88, %cond
   %66 = load ptr, ptr %65, align 8
   %f = getelementptr inbounds i8, ptr %66, i64 32
   %67 = load ptr, ptr %f, align 8
-  %call107 = tail call i32 %67(ptr noundef nonnull %L) #37
+  %call107 = tail call i32 %67(ptr noundef nonnull %L) #36
   %cmp108 = icmp slt i32 %call107, 0
   br i1 %cmp108, label %return, label %if.else111
 
@@ -8342,7 +8342,7 @@ if.then.i:                                        ; preds = %if.then
   store volatile i32 5, ptr %status.i, align 8
   %2 = load ptr, ptr %errorJmp.i, align 8
   %b.i = getelementptr inbounds i8, ptr %2, i64 8
-  tail call void @longjmp(ptr noundef nonnull %b.i, i32 noundef 1) #40
+  tail call void @longjmp(ptr noundef nonnull %b.i, i32 noundef 1) #39
   unreachable
 
 if.else.i:                                        ; preds = %if.then
@@ -8360,11 +8360,11 @@ if.then5.i:                                       ; preds = %if.else.i
   %5 = load ptr, ptr %l_G.i, align 8
   %panic7.i = getelementptr inbounds i8, ptr %5, i64 152
   %6 = load ptr, ptr %panic7.i, align 8
-  %call.i = tail call i32 %6(ptr noundef nonnull %L) #37
+  %call.i = tail call i32 %6(ptr noundef nonnull %L) #36
   br label %if.end.i
 
 if.end.i:                                         ; preds = %if.then5.i, %if.else.i
-  tail call void @exit(i32 noundef 1) #41
+  tail call void @exit(i32 noundef 1) #40
   unreachable
 
 if.else:                                          ; preds = %entry
@@ -8969,7 +8969,7 @@ land.lhs.true.i:                                  ; preds = %entry
   %1 = load ptr, ptr %rb, align 8
   %add.ptr.i = getelementptr inbounds i8, ptr %1, i64 24
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %endptr.i.i)
-  %call.i.i = call double @strtod(ptr noundef nonnull %add.ptr.i, ptr noundef nonnull %endptr.i.i) #37
+  %call.i.i = call double @strtod(ptr noundef nonnull %add.ptr.i, ptr noundef nonnull %endptr.i.i) #36
   %2 = load ptr, ptr %endptr.i.i, align 8
   %cmp.i.i = icmp eq ptr %2, %add.ptr.i
   br i1 %cmp.i.i, label %luaO_str2d.exit.thread.i, label %if.end.i.i
@@ -8986,7 +8986,7 @@ if.end.i.i:                                       ; preds = %land.lhs.true.i
   ]
 
 if.then6.i.i:                                     ; preds = %if.end.i.i, %if.end.i.i
-  %call7.i.i = call i64 @strtoul(ptr noundef nonnull %add.ptr.i, ptr noundef nonnull %endptr.i.i, i32 noundef 16) #37
+  %call7.i.i = call i64 @strtoul(ptr noundef nonnull %add.ptr.i, ptr noundef nonnull %endptr.i.i, i32 noundef 16) #36
   %conv8.i.i = uitofp i64 %call7.i.i to double
   %.pre.i.i = load ptr, ptr %endptr.i.i, align 8
   %.pre5.i.i = load i8, ptr %.pre.i.i, align 1
@@ -9004,7 +9004,7 @@ luaO_str2d.exit.thread9.i:                        ; preds = %if.end9.i.i
   br label %if.then3.i
 
 while.cond.preheader.i.i:                         ; preds = %if.end9.i.i
-  %call15.i.i = tail call ptr @__ctype_b_loc() #42
+  %call15.i.i = tail call ptr @__ctype_b_loc() #41
   %5 = load ptr, ptr %call15.i.i, align 8
   br label %while.cond.i.i
 
@@ -9045,7 +9045,7 @@ land.lhs.true.i36:                                ; preds = %land.lhs.true
   %10 = load ptr, ptr %rc, align 8
   %add.ptr.i37 = getelementptr inbounds i8, ptr %10, i64 24
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %endptr.i.i34)
-  %call.i.i38 = call double @strtod(ptr noundef nonnull %add.ptr.i37, ptr noundef nonnull %endptr.i.i34) #37
+  %call.i.i38 = call double @strtod(ptr noundef nonnull %add.ptr.i37, ptr noundef nonnull %endptr.i.i34) #36
   %11 = load ptr, ptr %endptr.i.i34, align 8
   %cmp.i.i39 = icmp eq ptr %11, %add.ptr.i37
   br i1 %cmp.i.i39, label %luaO_str2d.exit.thread.i65, label %if.end.i.i40
@@ -9062,7 +9062,7 @@ if.end.i.i40:                                     ; preds = %land.lhs.true.i36
   ]
 
 if.then6.i.i41:                                   ; preds = %if.end.i.i40, %if.end.i.i40
-  %call7.i.i42 = call i64 @strtoul(ptr noundef nonnull %add.ptr.i37, ptr noundef nonnull %endptr.i.i34, i32 noundef 16) #37
+  %call7.i.i42 = call i64 @strtoul(ptr noundef nonnull %add.ptr.i37, ptr noundef nonnull %endptr.i.i34, i32 noundef 16) #36
   %conv8.i.i43 = uitofp i64 %call7.i.i42 to double
   %.pre.i.i44 = load ptr, ptr %endptr.i.i34, align 8
   %.pre5.i.i45 = load i8, ptr %.pre.i.i44, align 1
@@ -9080,7 +9080,7 @@ luaO_str2d.exit.thread9.i64:                      ; preds = %if.end9.i.i46
   br label %if.then
 
 while.cond.preheader.i.i50:                       ; preds = %if.end9.i.i46
-  %call15.i.i51 = tail call ptr @__ctype_b_loc() #42
+  %call15.i.i51 = tail call ptr @__ctype_b_loc() #41
   %14 = load ptr, ptr %call15.i.i51, align 8
   br label %while.cond.i.i52
 
@@ -9137,7 +9137,7 @@ sw.bb17:                                          ; preds = %if.then
   br label %if.end34.sink.split
 
 sw.bb23:                                          ; preds = %if.then
-  %call25 = tail call double @pow(double noundef %19, double noundef %18) #37
+  %call25 = tail call double @pow(double noundef %19, double noundef %18) #36
   br label %if.end34.sink.split
 
 sw.bb28:                                          ; preds = %if.then
@@ -9161,7 +9161,7 @@ land.lhs.true.i69:                                ; preds = %if.then33
   %23 = load ptr, ptr %rb, align 8
   %add.ptr.i70 = getelementptr inbounds i8, ptr %23, i64 24
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %endptr.i.i67)
-  %call.i.i71 = call double @strtod(ptr noundef nonnull %add.ptr.i70, ptr noundef nonnull %endptr.i.i67) #37
+  %call.i.i71 = call double @strtod(ptr noundef nonnull %add.ptr.i70, ptr noundef nonnull %endptr.i.i67) #36
   %24 = load ptr, ptr %endptr.i.i67, align 8
   %cmp.i.i72 = icmp eq ptr %24, %add.ptr.i70
   br i1 %cmp.i.i72, label %luaO_str2d.exit.thread.i98, label %if.end.i.i73
@@ -9178,7 +9178,7 @@ if.end.i.i73:                                     ; preds = %land.lhs.true.i69
   ]
 
 if.then6.i.i74:                                   ; preds = %if.end.i.i73, %if.end.i.i73
-  %call7.i.i75 = call i64 @strtoul(ptr noundef nonnull %add.ptr.i70, ptr noundef nonnull %endptr.i.i67, i32 noundef 16) #37
+  %call7.i.i75 = call i64 @strtoul(ptr noundef nonnull %add.ptr.i70, ptr noundef nonnull %endptr.i.i67, i32 noundef 16) #36
   %conv8.i.i76 = uitofp i64 %call7.i.i75 to double
   %.pre.i.i77 = load ptr, ptr %endptr.i.i67, align 8
   %.pre5.i.i78 = load i8, ptr %.pre.i.i77, align 1
@@ -9196,7 +9196,7 @@ luaO_str2d.exit.thread9.i97:                      ; preds = %if.end9.i.i79
   br label %if.then3.i95
 
 while.cond.preheader.i.i83:                       ; preds = %if.end9.i.i79
-  %call15.i.i84 = tail call ptr @__ctype_b_loc() #42
+  %call15.i.i84 = tail call ptr @__ctype_b_loc() #41
   %27 = load ptr, ptr %call15.i.i84, align 8
   br label %while.cond.i.i85
 
@@ -9252,16 +9252,16 @@ if.end34:                                         ; preds = %if.end34.sink.split
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare double @llvm.floor.f64(double) #13
+declare double @llvm.floor.f64(double) #12
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare double @llvm.fmuladd.f64(double, double, double) #13
+declare double @llvm.fmuladd.f64(double, double, double) #12
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(write)
-declare double @pow(double noundef, double noundef) local_unnamed_addr #14
+declare double @pow(double noundef, double noundef) local_unnamed_addr #13
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define internal fastcc i32 @luaH_getn(ptr nocapture noundef readonly %t) unnamed_addr #15 {
+define internal fastcc i32 @luaH_getn(ptr nocapture noundef readonly %t) unnamed_addr #14 {
 entry:
   %sizearray = getelementptr inbounds i8, ptr %t, i64 56
   %0 = load i32, ptr %sizearray, align 8
@@ -9569,7 +9569,7 @@ if.then11:                                        ; preds = %if.else
   %9 = load ptr, ptr %r, align 8
   %add.ptr.i = getelementptr inbounds i8, ptr %8, i64 24
   %add.ptr1.i = getelementptr inbounds i8, ptr %9, i64 24
-  %call18.i = tail call i32 @strcoll(ptr noundef nonnull readonly %add.ptr.i, ptr noundef nonnull readonly %add.ptr1.i) #36
+  %call18.i = tail call i32 @strcoll(ptr noundef nonnull readonly %add.ptr.i, ptr noundef nonnull readonly %add.ptr1.i) #35
   %cmp.not19.i = icmp eq i32 %call18.i, 0
   br i1 %cmp.not19.i, label %if.else.preheader.i, label %l_strcmp.exit
 
@@ -9585,7 +9585,7 @@ if.else.i15:                                      ; preds = %if.end11.i, %if.els
   %r.022.i = phi ptr [ %add.ptr13.i, %if.end11.i ], [ %add.ptr1.i, %if.else.preheader.i ]
   %ll.021.i = phi i64 [ %sub.i, %if.end11.i ], [ %11, %if.else.preheader.i ]
   %l.020.i = phi ptr [ %add.ptr12.i, %if.end11.i ], [ %add.ptr.i, %if.else.preheader.i ]
-  %call4.i = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %l.020.i) #36
+  %call4.i = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %l.020.i) #35
   %cmp5.i = icmp eq i64 %call4.i, %lr.023.i
   br i1 %cmp5.i, label %l_strcmp.exit, label %if.else8.i
 
@@ -9599,7 +9599,7 @@ if.end11.i:                                       ; preds = %if.else8.i
   %sub.i = sub i64 %ll.021.i, %inc.i
   %add.ptr13.i = getelementptr inbounds i8, ptr %r.022.i, i64 %inc.i
   %sub14.i = sub i64 %lr.023.i, %inc.i
-  %call.i = tail call i32 @strcoll(ptr noundef %add.ptr12.i, ptr noundef %add.ptr13.i) #36
+  %call.i = tail call i32 @strcoll(ptr noundef %add.ptr12.i, ptr noundef %add.ptr13.i) #35
   %cmp.not.i = icmp eq i32 %call.i, 0
   br i1 %cmp.not.i, label %if.else.i15, label %l_strcmp.exit
 
@@ -9879,7 +9879,7 @@ return:                                           ; preds = %lor.end.fold.split.
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define internal fastcc ptr @luaH_get(ptr nocapture noundef readonly %t, ptr nocapture noundef readonly %key) unnamed_addr #15 {
+define internal fastcc ptr @luaH_get(ptr nocapture noundef readonly %t, ptr nocapture noundef readonly %key) unnamed_addr #14 {
 entry:
   %tt = getelementptr inbounds i8, ptr %key, i64 8
   %0 = load i32, ptr %tt, align 8
@@ -10814,7 +10814,7 @@ cond.true:                                        ; preds = %for.end
   %20 = load ptr, ptr %frealloc.i, align 8
   %ud.i = getelementptr inbounds i8, ptr %19, i64 24
   %21 = load ptr, ptr %ud.i, align 8
-  %call.i45 = tail call ptr %20(ptr noundef %21, ptr noundef %18, i64 noundef %mul, i64 noundef %mul25) #37
+  %call.i45 = tail call ptr %20(ptr noundef %21, ptr noundef %18, i64 noundef %mul, i64 noundef %mul25) #36
   %cmp.i = icmp eq ptr %call.i45, null
   %cmp1.i = icmp ne i32 %nasize, 0
   %or.cond.i = and i1 %cmp1.i, %cmp.i
@@ -10831,7 +10831,7 @@ if.then.i.i:                                      ; preds = %if.then.i
   store volatile i32 4, ptr %status.i.i, align 8
   %23 = load ptr, ptr %errorJmp.i.i, align 8
   %b.i.i = getelementptr inbounds i8, ptr %23, i64 8
-  tail call void @longjmp(ptr noundef nonnull %b.i.i, i32 noundef 1) #40
+  tail call void @longjmp(ptr noundef nonnull %b.i.i, i32 noundef 1) #39
   unreachable
 
 if.else.i.i:                                      ; preds = %if.then.i
@@ -10848,11 +10848,11 @@ if.then5.i.i:                                     ; preds = %if.else.i.i
   %26 = load ptr, ptr %l_G.i, align 8
   %panic7.i.i = getelementptr inbounds i8, ptr %26, i64 152
   %27 = load ptr, ptr %panic7.i.i, align 8
-  %call.i.i = tail call i32 %27(ptr noundef nonnull %L) #37
+  %call.i.i = tail call i32 %27(ptr noundef nonnull %L) #36
   br label %if.end.i.i
 
 if.end.i.i:                                       ; preds = %if.then5.i.i, %if.else.i.i
-  tail call void @exit(i32 noundef 1) #41
+  tail call void @exit(i32 noundef 1) #40
   unreachable
 
 luaM_realloc_.exit:                               ; preds = %cond.true
@@ -10944,7 +10944,7 @@ if.then52:                                        ; preds = %for.end49
   %37 = load ptr, ptr %frealloc.i52, align 8
   %ud.i53 = getelementptr inbounds i8, ptr %36, i64 24
   %38 = load ptr, ptr %ud.i53, align 8
-  %call.i54 = tail call ptr %37(ptr noundef %38, ptr noundef %2, i64 noundef %mul5544, i64 noundef 0) #37
+  %call.i54 = tail call ptr %37(ptr noundef %38, ptr noundef %2, i64 noundef %mul5544, i64 noundef 0) #36
   %totalbytes.i57 = getelementptr inbounds i8, ptr %36, i64 120
   %39 = load i64, ptr %totalbytes.i57, align 8
   %sub.i58 = sub i64 %39, %mul5544
@@ -10976,7 +10976,7 @@ cond.true:                                        ; preds = %entry
   %3 = load ptr, ptr %frealloc.i, align 8
   %ud.i = getelementptr inbounds i8, ptr %2, i64 24
   %4 = load ptr, ptr %ud.i, align 8
-  %call.i = tail call ptr %3(ptr noundef %4, ptr noundef %0, i64 noundef %mul, i64 noundef %mul4) #37
+  %call.i = tail call ptr %3(ptr noundef %4, ptr noundef %0, i64 noundef %mul, i64 noundef %mul4) #36
   %cmp.i = icmp eq ptr %call.i, null
   %cmp1.i = icmp ne i32 %size, 0
   %or.cond.i = and i1 %cmp1.i, %cmp.i
@@ -10993,7 +10993,7 @@ if.then.i.i:                                      ; preds = %if.then.i
   store volatile i32 4, ptr %status.i.i, align 8
   %6 = load ptr, ptr %errorJmp.i.i, align 8
   %b.i.i = getelementptr inbounds i8, ptr %6, i64 8
-  tail call void @longjmp(ptr noundef nonnull %b.i.i, i32 noundef 1) #40
+  tail call void @longjmp(ptr noundef nonnull %b.i.i, i32 noundef 1) #39
   unreachable
 
 if.else.i.i:                                      ; preds = %if.then.i
@@ -11010,11 +11010,11 @@ if.then5.i.i:                                     ; preds = %if.else.i.i
   %9 = load ptr, ptr %l_G.i, align 8
   %panic7.i.i = getelementptr inbounds i8, ptr %9, i64 152
   %10 = load ptr, ptr %panic7.i.i, align 8
-  %call.i.i = tail call i32 %10(ptr noundef nonnull %L) #37
+  %call.i.i = tail call i32 %10(ptr noundef nonnull %L) #36
   br label %if.end.i.i
 
 if.end.i.i:                                       ; preds = %if.then5.i.i, %if.else.i.i
-  tail call void @exit(i32 noundef 1) #41
+  tail call void @exit(i32 noundef 1) #40
   unreachable
 
 luaM_realloc_.exit:                               ; preds = %cond.true
@@ -11111,7 +11111,7 @@ cond.true:                                        ; preds = %if.end
   %2 = load ptr, ptr %frealloc.i, align 8
   %ud.i = getelementptr inbounds i8, ptr %1, i64 24
   %3 = load ptr, ptr %ud.i, align 8
-  %call.i = tail call ptr %2(ptr noundef %3, ptr noundef null, i64 noundef 0, i64 noundef %mul) #37
+  %call.i = tail call ptr %2(ptr noundef %3, ptr noundef null, i64 noundef 0, i64 noundef %mul) #36
   %cmp.i21 = icmp eq ptr %call.i, null
   %cmp1.i = icmp ult i32 %add, 32
   %or.cond.i = and i1 %cmp1.i, %cmp.i21
@@ -11128,7 +11128,7 @@ if.then.i.i:                                      ; preds = %if.then.i
   store volatile i32 4, ptr %status.i.i, align 8
   %5 = load ptr, ptr %errorJmp.i.i, align 8
   %b.i.i = getelementptr inbounds i8, ptr %5, i64 8
-  tail call void @longjmp(ptr noundef nonnull %b.i.i, i32 noundef 1) #40
+  tail call void @longjmp(ptr noundef nonnull %b.i.i, i32 noundef 1) #39
   unreachable
 
 if.else.i.i:                                      ; preds = %if.then.i
@@ -11145,11 +11145,11 @@ if.then5.i.i:                                     ; preds = %if.else.i.i
   %8 = load ptr, ptr %l_G.i, align 8
   %panic7.i.i = getelementptr inbounds i8, ptr %8, i64 152
   %9 = load ptr, ptr %panic7.i.i, align 8
-  %call.i.i = tail call i32 %9(ptr noundef nonnull %L) #37
+  %call.i.i = tail call i32 %9(ptr noundef nonnull %L) #36
   br label %if.end.i.i
 
 if.end.i.i:                                       ; preds = %if.then5.i.i, %if.else.i.i
-  tail call void @exit(i32 noundef 1) #41
+  tail call void @exit(i32 noundef 1) #40
   unreachable
 
 luaM_realloc_.exit:                               ; preds = %cond.true
@@ -11204,16 +11204,16 @@ if.end16:                                         ; preds = %if.end16.loopexit, 
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read)
-declare i32 @strcoll(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #16
+declare i32 @strcoll(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #15
 
 ; Function Attrs: mustprogress nofree nounwind willreturn
-declare double @strtod(ptr noundef readonly, ptr nocapture noundef) local_unnamed_addr #17
+declare double @strtod(ptr noundef readonly, ptr nocapture noundef) local_unnamed_addr #16
 
 ; Function Attrs: mustprogress nofree nounwind willreturn
-declare i64 @strtoul(ptr noundef readonly, ptr nocapture noundef, i32 noundef) local_unnamed_addr #17
+declare i64 @strtoul(ptr noundef readonly, ptr nocapture noundef, i32 noundef) local_unnamed_addr #16
 
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(none)
-declare ptr @__ctype_b_loc() local_unnamed_addr #18
+declare ptr @__ctype_b_loc() local_unnamed_addr #17
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc i64 @singlestep(ptr noundef %L) unnamed_addr #0 {
@@ -11743,7 +11743,7 @@ if.then9.i:                                       ; preds = %if.end.i50
   %94 = load ptr, ptr %frealloc.i, align 8
   %ud.i = getelementptr inbounds i8, ptr %93, i64 24
   %95 = load ptr, ptr %ud.i, align 8
-  %call.i53 = tail call ptr %94(ptr noundef %95, ptr noundef %92, i64 noundef %91, i64 noundef %div1217.i) #37
+  %call.i53 = tail call ptr %94(ptr noundef %95, ptr noundef %92, i64 noundef %91, i64 noundef %div1217.i) #36
   %cmp.i54 = icmp eq ptr %call.i53, null
   br i1 %cmp.i54, label %if.then.i60, label %luaM_realloc_.exit
 
@@ -11758,7 +11758,7 @@ if.then.i.i62:                                    ; preds = %if.then.i60
   store volatile i32 4, ptr %status.i.i, align 8
   %97 = load ptr, ptr %errorJmp.i.i, align 8
   %b.i.i = getelementptr inbounds i8, ptr %97, i64 8
-  tail call void @longjmp(ptr noundef nonnull %b.i.i, i32 noundef 1) #40
+  tail call void @longjmp(ptr noundef nonnull %b.i.i, i32 noundef 1) #39
   unreachable
 
 if.else.i.i:                                      ; preds = %if.then.i60
@@ -11775,11 +11775,11 @@ if.then5.i.i64:                                   ; preds = %if.else.i.i
   %100 = load ptr, ptr %l_G, align 8
   %panic7.i.i = getelementptr inbounds i8, ptr %100, i64 152
   %101 = load ptr, ptr %panic7.i.i, align 8
-  %call.i.i65 = tail call i32 %101(ptr noundef nonnull %L) #37
+  %call.i.i65 = tail call i32 %101(ptr noundef nonnull %L) #36
   br label %if.end.i.i66
 
 if.end.i.i66:                                     ; preds = %if.then5.i.i64, %if.else.i.i
-  tail call void @exit(i32 noundef 1) #41
+  tail call void @exit(i32 noundef 1) #40
   unreachable
 
 luaM_realloc_.exit:                               ; preds = %if.then9.i
@@ -11936,9 +11936,9 @@ if.then.i.i:                                      ; preds = %luaH_getstr.exit.i.
 if.then20.i:                                      ; preds = %luaH_getstr.exit.i.i
   %20 = load ptr, ptr %retval.0.i.i.i, align 8
   %add.ptr.i = getelementptr inbounds i8, ptr %20, i64 24
-  %call21.i = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %add.ptr.i, i32 noundef 107) #36
+  %call21.i = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %add.ptr.i, i32 noundef 107) #35
   %cmp22.i = icmp ne ptr %call21.i, null
-  %call26.i = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %add.ptr.i, i32 noundef 118) #36
+  %call26.i = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %add.ptr.i, i32 noundef 118) #35
   %cmp27.i = icmp ne ptr %call26.i, null
   %or.cond.i = select i1 %cmp22.i, i1 true, i1 %cmp27.i
   br i1 %or.cond.i, label %if.end45.i, label %if.then52.i
@@ -12724,7 +12724,7 @@ sw.bb.i:                                          ; preds = %if.end26
   %16 = load ptr, ptr %frealloc.i.i.i, align 8
   %ud.i.i.i = getelementptr inbounds i8, ptr %15, i64 24
   %17 = load ptr, ptr %ud.i.i.i, align 8
-  %call.i.i.i = tail call ptr %16(ptr noundef %17, ptr noundef %13, i64 noundef %mul.i.i, i64 noundef 0) #37
+  %call.i.i.i = tail call ptr %16(ptr noundef %17, ptr noundef %13, i64 noundef %mul.i.i, i64 noundef 0) #36
   %totalbytes.i.i.i = getelementptr inbounds i8, ptr %15, i64 120
   %18 = load i64, ptr %totalbytes.i.i.i, align 8
   %sub.i.i.i = sub i64 %18, %mul.i.i
@@ -12740,7 +12740,7 @@ sw.bb.i:                                          ; preds = %if.end26
   %22 = load ptr, ptr %frealloc.i20.i.i, align 8
   %ud.i21.i.i = getelementptr inbounds i8, ptr %21, i64 24
   %23 = load ptr, ptr %ud.i21.i.i, align 8
-  %call.i22.i.i = tail call ptr %22(ptr noundef %23, ptr noundef %19, i64 noundef %mul2.i.i, i64 noundef 0) #37
+  %call.i22.i.i = tail call ptr %22(ptr noundef %23, ptr noundef %19, i64 noundef %mul2.i.i, i64 noundef 0) #36
   %totalbytes.i24.i.i = getelementptr inbounds i8, ptr %21, i64 120
   %24 = load i64, ptr %totalbytes.i24.i.i, align 8
   %sub.i25.i.i = sub i64 %24, %mul2.i.i
@@ -12756,7 +12756,7 @@ sw.bb.i:                                          ; preds = %if.end26
   %28 = load ptr, ptr %frealloc.i27.i.i, align 8
   %ud.i28.i.i = getelementptr inbounds i8, ptr %27, i64 24
   %29 = load ptr, ptr %ud.i28.i.i, align 8
-  %call.i29.i.i = tail call ptr %28(ptr noundef %29, ptr noundef %25, i64 noundef %mul5.i.i, i64 noundef 0) #37
+  %call.i29.i.i = tail call ptr %28(ptr noundef %29, ptr noundef %25, i64 noundef %mul5.i.i, i64 noundef 0) #36
   %totalbytes.i31.i.i = getelementptr inbounds i8, ptr %27, i64 120
   %30 = load i64, ptr %totalbytes.i31.i.i, align 8
   %sub.i32.i.i = sub i64 %30, %mul5.i.i
@@ -12772,7 +12772,7 @@ sw.bb.i:                                          ; preds = %if.end26
   %34 = load ptr, ptr %frealloc.i34.i.i, align 8
   %ud.i35.i.i = getelementptr inbounds i8, ptr %33, i64 24
   %35 = load ptr, ptr %ud.i35.i.i, align 8
-  %call.i36.i.i = tail call ptr %34(ptr noundef %35, ptr noundef %31, i64 noundef %mul8.i.i, i64 noundef 0) #37
+  %call.i36.i.i = tail call ptr %34(ptr noundef %35, ptr noundef %31, i64 noundef %mul8.i.i, i64 noundef 0) #36
   %totalbytes.i38.i.i = getelementptr inbounds i8, ptr %33, i64 120
   %36 = load i64, ptr %totalbytes.i38.i.i, align 8
   %sub.i39.i.i = sub i64 %36, %mul8.i.i
@@ -12788,7 +12788,7 @@ sw.bb.i:                                          ; preds = %if.end26
   %40 = load ptr, ptr %frealloc.i41.i.i, align 8
   %ud.i42.i.i = getelementptr inbounds i8, ptr %39, i64 24
   %41 = load ptr, ptr %ud.i42.i.i, align 8
-  %call.i43.i.i = tail call ptr %40(ptr noundef %41, ptr noundef %37, i64 noundef %mul11.i.i, i64 noundef 0) #37
+  %call.i43.i.i = tail call ptr %40(ptr noundef %41, ptr noundef %37, i64 noundef %mul11.i.i, i64 noundef 0) #36
   %totalbytes.i45.i.i = getelementptr inbounds i8, ptr %39, i64 120
   %42 = load i64, ptr %totalbytes.i45.i.i, align 8
   %sub.i46.i.i = sub i64 %42, %mul11.i.i
@@ -12804,7 +12804,7 @@ sw.bb.i:                                          ; preds = %if.end26
   %46 = load ptr, ptr %frealloc.i48.i.i, align 8
   %ud.i49.i.i = getelementptr inbounds i8, ptr %45, i64 24
   %47 = load ptr, ptr %ud.i49.i.i, align 8
-  %call.i50.i.i = tail call ptr %46(ptr noundef %47, ptr noundef %43, i64 noundef %mul14.i.i, i64 noundef 0) #37
+  %call.i50.i.i = tail call ptr %46(ptr noundef %47, ptr noundef %43, i64 noundef %mul14.i.i, i64 noundef 0) #36
   %totalbytes.i52.i.i = getelementptr inbounds i8, ptr %45, i64 120
   %48 = load i64, ptr %totalbytes.i52.i.i, align 8
   %sub.i53.i.i = sub i64 %48, %mul14.i.i
@@ -12814,7 +12814,7 @@ sw.bb.i:                                          ; preds = %if.end26
   %50 = load ptr, ptr %frealloc.i55.i.i, align 8
   %ud.i56.i.i = getelementptr inbounds i8, ptr %49, i64 24
   %51 = load ptr, ptr %ud.i56.i.i, align 8
-  %call.i57.i.i = tail call ptr %50(ptr noundef %51, ptr noundef nonnull %4, i64 noundef 120, i64 noundef 0) #37
+  %call.i57.i.i = tail call ptr %50(ptr noundef %51, ptr noundef nonnull %4, i64 noundef 120, i64 noundef 0) #36
   %totalbytes.i59.i.i = getelementptr inbounds i8, ptr %49, i64 120
   %52 = load i64, ptr %totalbytes.i59.i.i, align 8
   %sub.i60.i.i = add i64 %52, -120
@@ -12837,7 +12837,7 @@ sw.bb1.i:                                         ; preds = %if.end26
   %55 = load ptr, ptr %frealloc.i.i17.i, align 8
   %ud.i.i18.i = getelementptr inbounds i8, ptr %L.val.i, i64 24
   %56 = load ptr, ptr %ud.i.i18.i, align 8
-  %call.i.i19.i = tail call ptr %55(ptr noundef %56, ptr noundef nonnull %4, i64 noundef %conv11.i.i, i64 noundef 0) #37
+  %call.i.i19.i = tail call ptr %55(ptr noundef %56, ptr noundef nonnull %4, i64 noundef %conv11.i.i, i64 noundef 0) #36
   %totalbytes.i.i20.i = getelementptr inbounds i8, ptr %L.val.i, i64 120
   %57 = load i64, ptr %totalbytes.i.i20.i, align 8
   %sub.i.i21.i = sub i64 %57, %conv11.i.i
@@ -12868,7 +12868,7 @@ luaF_freeupval.exit.i:                            ; preds = %if.then.i.i, %sw.bb
   %63 = load ptr, ptr %frealloc.i.i23.i, align 8
   %ud.i.i24.i = getelementptr inbounds i8, ptr %62, i64 24
   %64 = load ptr, ptr %ud.i.i24.i, align 8
-  %call.i.i25.i = tail call ptr %63(ptr noundef %64, ptr noundef nonnull %4, i64 noundef 40, i64 noundef 0) #37
+  %call.i.i25.i = tail call ptr %63(ptr noundef %64, ptr noundef nonnull %4, i64 noundef 40, i64 noundef 0) #36
   %totalbytes.i.i26.i = getelementptr inbounds i8, ptr %62, i64 120
   %65 = load i64, ptr %totalbytes.i.i26.i, align 8
   %sub.i.i27.i = add i64 %65, -40
@@ -12891,7 +12891,7 @@ if.then.i29.i:                                    ; preds = %sw.bb3.i
   %69 = load ptr, ptr %frealloc.i.i32.i, align 8
   %ud.i.i33.i = getelementptr inbounds i8, ptr %68, i64 24
   %70 = load ptr, ptr %ud.i.i33.i, align 8
-  %call.i.i34.i = tail call ptr %69(ptr noundef %70, ptr noundef %66, i64 noundef %mul8.i30.i, i64 noundef 0) #37
+  %call.i.i34.i = tail call ptr %69(ptr noundef %70, ptr noundef %66, i64 noundef %mul8.i30.i, i64 noundef 0) #36
   %totalbytes.i.i35.i = getelementptr inbounds i8, ptr %68, i64 120
   %71 = load i64, ptr %totalbytes.i.i35.i, align 8
   %sub.i.i36.i = sub i64 %71, %mul8.i30.i
@@ -12910,7 +12910,7 @@ luaH_free.exit.i:                                 ; preds = %if.then.i29.i, %sw.
   %75 = load ptr, ptr %frealloc.i10.i.i, align 8
   %ud.i11.i.i = getelementptr inbounds i8, ptr %74, i64 24
   %76 = load ptr, ptr %ud.i11.i.i, align 8
-  %call.i12.i.i = tail call ptr %75(ptr noundef %76, ptr noundef %72, i64 noundef %mul3.i.i, i64 noundef 0) #37
+  %call.i12.i.i = tail call ptr %75(ptr noundef %76, ptr noundef %72, i64 noundef %mul3.i.i, i64 noundef 0) #36
   %totalbytes.i14.i.i = getelementptr inbounds i8, ptr %74, i64 120
   %77 = load i64, ptr %totalbytes.i14.i.i, align 8
   %sub.i15.i.i = sub i64 %77, %mul3.i.i
@@ -12920,7 +12920,7 @@ luaH_free.exit.i:                                 ; preds = %if.then.i29.i, %sw.
   %79 = load ptr, ptr %frealloc.i17.i.i, align 8
   %ud.i18.i.i = getelementptr inbounds i8, ptr %78, i64 24
   %80 = load ptr, ptr %ud.i18.i.i, align 8
-  %call.i19.i.i = tail call ptr %79(ptr noundef %80, ptr noundef nonnull %4, i64 noundef 64, i64 noundef 0) #37
+  %call.i19.i.i = tail call ptr %79(ptr noundef %80, ptr noundef nonnull %4, i64 noundef 64, i64 noundef 0) #36
   %totalbytes.i21.i.i = getelementptr inbounds i8, ptr %78, i64 120
   %81 = load i64, ptr %totalbytes.i21.i.i, align 8
   %sub.i22.i.i = add i64 %81, -64
@@ -12942,7 +12942,7 @@ sw.bb4.i:                                         ; preds = %if.end26
   %86 = load ptr, ptr %frealloc.i.i.i.i, align 8
   %ud.i.i.i.i = getelementptr inbounds i8, ptr %85, i64 24
   %87 = load ptr, ptr %ud.i.i.i.i, align 8
-  %call.i.i.i.i = tail call ptr %86(ptr noundef %87, ptr noundef %83, i64 noundef %mul.i.i.i, i64 noundef 0) #37
+  %call.i.i.i.i = tail call ptr %86(ptr noundef %87, ptr noundef %83, i64 noundef %mul.i.i.i, i64 noundef 0) #36
   %totalbytes.i.i.i.i = getelementptr inbounds i8, ptr %85, i64 120
   %88 = load i64, ptr %totalbytes.i.i.i.i, align 8
   %sub.i.i.i.i = sub i64 %88, %mul.i.i.i
@@ -12957,7 +12957,7 @@ sw.bb4.i:                                         ; preds = %if.end26
   %92 = load ptr, ptr %frealloc.i6.i.i.i, align 8
   %ud.i7.i.i.i = getelementptr inbounds i8, ptr %91, i64 24
   %93 = load ptr, ptr %ud.i7.i.i.i, align 8
-  %call.i8.i.i.i = tail call ptr %92(ptr noundef %93, ptr noundef %89, i64 noundef %mul2.i.i.i, i64 noundef 0) #37
+  %call.i8.i.i.i = tail call ptr %92(ptr noundef %93, ptr noundef %89, i64 noundef %mul2.i.i.i, i64 noundef 0) #36
   %totalbytes.i10.i.i.i = getelementptr inbounds i8, ptr %91, i64 120
   %94 = load i64, ptr %totalbytes.i10.i.i.i, align 8
   %sub.i11.i.i.i = sub i64 %94, %mul2.i.i.i
@@ -12967,7 +12967,7 @@ sw.bb4.i:                                         ; preds = %if.end26
   %96 = load ptr, ptr %frealloc.i.i37.i, align 8
   %ud.i.i38.i = getelementptr inbounds i8, ptr %95, i64 24
   %97 = load ptr, ptr %ud.i.i38.i, align 8
-  %call.i.i39.i = tail call ptr %96(ptr noundef %97, ptr noundef nonnull %4, i64 noundef 184, i64 noundef 0) #37
+  %call.i.i39.i = tail call ptr %96(ptr noundef %97, ptr noundef nonnull %4, i64 noundef 184, i64 noundef 0) #36
   %totalbytes.i.i40.i = getelementptr inbounds i8, ptr %95, i64 120
   %98 = load i64, ptr %totalbytes.i.i40.i, align 8
   %sub.i.i41.i = add i64 %98, -184
@@ -12988,7 +12988,7 @@ sw.bb5.i:                                         ; preds = %if.end26
   %103 = load ptr, ptr %frealloc.i.i, align 8
   %ud.i.i = getelementptr inbounds i8, ptr %102, i64 24
   %104 = load ptr, ptr %ud.i.i, align 8
-  %call.i.i = tail call ptr %103(ptr noundef %104, ptr noundef nonnull %4, i64 noundef %add6.i, i64 noundef 0) #37
+  %call.i.i = tail call ptr %103(ptr noundef %104, ptr noundef nonnull %4, i64 noundef %add6.i, i64 noundef 0) #36
   %totalbytes.i.i = getelementptr inbounds i8, ptr %102, i64 120
   %105 = load i64, ptr %totalbytes.i.i, align 8
   %sub.i.i = sub i64 %105, %add6.i
@@ -13004,7 +13004,7 @@ sw.bb7.i:                                         ; preds = %if.end26
   %108 = load ptr, ptr %frealloc.i46.i, align 8
   %ud.i47.i = getelementptr inbounds i8, ptr %107, i64 24
   %109 = load ptr, ptr %ud.i47.i, align 8
-  %call.i48.i = tail call ptr %108(ptr noundef %109, ptr noundef nonnull %4, i64 noundef %add9.i, i64 noundef 0) #37
+  %call.i48.i = tail call ptr %108(ptr noundef %109, ptr noundef nonnull %4, i64 noundef %add9.i, i64 noundef 0) #36
   %totalbytes.i50.i = getelementptr inbounds i8, ptr %107, i64 120
   %110 = load i64, ptr %totalbytes.i50.i, align 8
   %sub.i51.i = sub i64 %110, %add9.i
@@ -13154,7 +13154,7 @@ if.end43:                                         ; preds = %if.then.i, %cond.fa
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc i64 @luaC_separateudata(ptr nocapture noundef readonly %L, i32 noundef %all) unnamed_addr #19 {
+define internal fastcc i64 @luaC_separateudata(ptr nocapture noundef readonly %L, i32 noundef %all) unnamed_addr #18 {
 entry:
   %l_G = getelementptr inbounds i8, ptr %L, i64 32
   %0 = load ptr, ptr %l_G, align 8
@@ -13292,10 +13292,10 @@ while.end:                                        ; preds = %if.end47, %entry
 }
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #20
+declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #19
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("realloc") allocsize(1) memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare noalias noundef ptr @realloc(ptr allocptr nocapture noundef, i64 noundef) local_unnamed_addr #21
+declare noalias noundef ptr @realloc(ptr allocptr nocapture noundef, i64 noundef) local_unnamed_addr #20
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @lua_pushcclosure(ptr noundef %L, ptr noundef %fn, i32 noundef %n) unnamed_addr #0 {
@@ -13398,7 +13398,7 @@ getcurrenv.exit:                                  ; preds = %if.then.i, %if.else
   %16 = load ptr, ptr %frealloc.i.i, align 8
   %ud.i.i = getelementptr inbounds i8, ptr %15, i64 24
   %17 = load ptr, ptr %ud.i.i, align 8
-  %call.i.i = tail call ptr %16(ptr noundef %17, ptr noundef null, i64 noundef 0, i64 noundef %conv2.i) #37
+  %call.i.i = tail call ptr %16(ptr noundef %17, ptr noundef null, i64 noundef 0, i64 noundef %conv2.i) #36
   %cmp.i.i = icmp eq ptr %call.i.i, null
   br i1 %cmp.i.i, label %if.then.i.i, label %luaF_newCclosure.exit
 
@@ -13413,7 +13413,7 @@ if.then.i.i.i:                                    ; preds = %if.then.i.i
   store volatile i32 4, ptr %status.i.i.i, align 8
   %19 = load ptr, ptr %errorJmp.i.i.i, align 8
   %b.i.i.i = getelementptr inbounds i8, ptr %19, i64 8
-  tail call void @longjmp(ptr noundef nonnull %b.i.i.i, i32 noundef 1) #40
+  tail call void @longjmp(ptr noundef nonnull %b.i.i.i, i32 noundef 1) #39
   unreachable
 
 if.else.i.i.i:                                    ; preds = %if.then.i.i
@@ -13430,11 +13430,11 @@ if.then5.i.i.i:                                   ; preds = %if.else.i.i.i
   %22 = load ptr, ptr %l_G, align 8
   %panic7.i.i.i = getelementptr inbounds i8, ptr %22, i64 152
   %23 = load ptr, ptr %panic7.i.i.i, align 8
-  %call.i.i.i = tail call i32 %23(ptr noundef nonnull %L) #37
+  %call.i.i.i = tail call i32 %23(ptr noundef nonnull %L) #36
   br label %if.end.i.i.i
 
 if.end.i.i.i:                                     ; preds = %if.then5.i.i.i, %if.else.i.i.i
-  tail call void @exit(i32 noundef 1) #41
+  tail call void @exit(i32 noundef 1) #40
   unreachable
 
 luaF_newCclosure.exit:                            ; preds = %getcurrenv.exit
@@ -14034,7 +14034,7 @@ for.end.i.i.i:                                    ; preds = %for.end.i.i.i, %lua
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %key.i61.i.i.i)
   %31 = load ptr, ptr %top.i.i.i, align 8
   %add.ptr8.i.i63.i.i.i = getelementptr inbounds i8, ptr %31, i64 -32
-  %call1.i64.i.i.i = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %30) #36
+  %call1.i64.i.i.i = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %30) #35
   %call2.i65.i.i.i = tail call fastcc ptr @luaS_newlstr(ptr noundef nonnull %L, ptr noundef readonly %30, i64 noundef %call1.i64.i.i.i)
   store ptr %call2.i65.i.i.i, ptr %key.i61.i.i.i, align 8
   store i32 4, ptr %tt.i66.i.i.i, align 8
@@ -14528,7 +14528,7 @@ land.lhs.true.i.i20:                              ; preds = %land.lhs.true.i
   %3 = load ptr, ptr %add.ptr.luaO_nilobject_.i.i18, align 8
   %add.ptr.i3.i = getelementptr inbounds i8, ptr %3, i64 24
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %endptr.i.i.i)
-  %call.i.i.i = call double @strtod(ptr noundef nonnull %add.ptr.i3.i, ptr noundef nonnull %endptr.i.i.i) #37
+  %call.i.i.i = call double @strtod(ptr noundef nonnull %add.ptr.i3.i, ptr noundef nonnull %endptr.i.i.i) #36
   %4 = load ptr, ptr %endptr.i.i.i, align 8
   %cmp.i.i.i21 = icmp eq ptr %4, %add.ptr.i3.i
   br i1 %cmp.i.i.i21, label %luaO_str2d.exit.thread.i.i, label %if.end.i.i.i22
@@ -14545,7 +14545,7 @@ if.end.i.i.i22:                                   ; preds = %land.lhs.true.i.i20
   ]
 
 if.then6.i.i.i:                                   ; preds = %if.end.i.i.i22, %if.end.i.i.i22
-  %call7.i.i.i = call i64 @strtoul(ptr noundef nonnull %add.ptr.i3.i, ptr noundef nonnull %endptr.i.i.i, i32 noundef 16) #37
+  %call7.i.i.i = call i64 @strtoul(ptr noundef nonnull %add.ptr.i3.i, ptr noundef nonnull %endptr.i.i.i, i32 noundef 16) #36
   %.pre.i.i.i = load ptr, ptr %endptr.i.i.i, align 8
   %.pre5.i.i.i = load i8, ptr %.pre.i.i.i, align 1
   br label %if.end9.i.i.i
@@ -14561,7 +14561,7 @@ luaO_str2d.exit.thread9.i.i:                      ; preds = %if.end9.i.i.i
   br label %luaL_checkinteger.exit
 
 while.cond.preheader.i.i.i:                       ; preds = %if.end9.i.i.i
-  %call15.i.i.i = tail call ptr @__ctype_b_loc() #42
+  %call15.i.i.i = tail call ptr @__ctype_b_loc() #41
   %7 = load ptr, ptr %call15.i.i.i, align 8
   br label %while.cond.i.i.i
 
@@ -15195,7 +15195,7 @@ return:                                           ; preds = %lua_next.exit, %if.
 }
 
 ; Function Attrs: nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @lua_setmetatable(ptr nocapture noundef %L, i32 noundef %objindex) unnamed_addr #8 {
+define internal fastcc void @lua_setmetatable(ptr nocapture noundef %L, i32 noundef %objindex) unnamed_addr #7 {
 entry:
   %cmp.i = icmp sgt i32 %objindex, 0
   br i1 %cmp.i, label %if.then.i, label %if.else3.i
@@ -15836,7 +15836,7 @@ if.end:                                           ; preds = %lua_type.exit.i, %l
 }
 
 ; Function Attrs: noreturn nounwind uwtable
-define internal noundef i32 @luaB_error(ptr noundef %L) #9 {
+define internal noundef i32 @luaB_error(ptr noundef %L) #8 {
 entry:
   %endptr.i.i.i = alloca ptr, align 8
   %base.i.i.i = getelementptr inbounds i8, ptr %L, i64 24
@@ -15877,7 +15877,7 @@ land.lhs.true.i.i32:                              ; preds = %land.lhs.true.i.i
   %6 = load ptr, ptr %add.ptr.luaO_nilobject_.i.i30, align 8
   %add.ptr.i3.i = getelementptr inbounds i8, ptr %6, i64 24
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %endptr.i.i.i)
-  %call.i.i.i = call double @strtod(ptr noundef nonnull %add.ptr.i3.i, ptr noundef nonnull %endptr.i.i.i) #37
+  %call.i.i.i = call double @strtod(ptr noundef nonnull %add.ptr.i3.i, ptr noundef nonnull %endptr.i.i.i) #36
   %7 = load ptr, ptr %endptr.i.i.i, align 8
   %cmp.i.i.i = icmp eq ptr %7, %add.ptr.i3.i
   br i1 %cmp.i.i.i, label %luaO_str2d.exit.thread.i.i, label %if.end.i.i.i
@@ -15894,7 +15894,7 @@ if.end.i.i.i:                                     ; preds = %land.lhs.true.i.i32
   ]
 
 if.then6.i.i.i:                                   ; preds = %if.end.i.i.i, %if.end.i.i.i
-  %call7.i.i.i = call i64 @strtoul(ptr noundef nonnull %add.ptr.i3.i, ptr noundef nonnull %endptr.i.i.i, i32 noundef 16) #37
+  %call7.i.i.i = call i64 @strtoul(ptr noundef nonnull %add.ptr.i3.i, ptr noundef nonnull %endptr.i.i.i, i32 noundef 16) #36
   %.pre.i.i.i = load ptr, ptr %endptr.i.i.i, align 8
   %.pre5.i.i.i = load i8, ptr %.pre.i.i.i, align 1
   br label %if.end9.i.i.i
@@ -15910,7 +15910,7 @@ luaO_str2d.exit.thread9.i.i:                      ; preds = %if.end9.i.i.i
   br label %luaL_optinteger.exit
 
 while.cond.preheader.i.i.i:                       ; preds = %if.end9.i.i.i
-  %call15.i.i.i = tail call ptr @__ctype_b_loc() #42
+  %call15.i.i.i = tail call ptr @__ctype_b_loc() #41
   %10 = load ptr, ptr %call15.i.i.i, align 8
   br label %while.cond.i.i.i
 
@@ -16232,7 +16232,7 @@ luaL_optlstring.exit:                             ; preds = %if.else.i.luaL_optl
   %10 = load ptr, ptr %frealloc.i.i.i.i, align 8
   %ud.i.i.i.i = getelementptr inbounds i8, ptr %9, i64 24
   %11 = load ptr, ptr %ud.i.i.i.i, align 8
-  %call.i.i.i.i = call ptr %10(ptr noundef %11, ptr noundef %7, i64 noundef %8, i64 noundef 0) #37
+  %call.i.i.i.i = call ptr %10(ptr noundef %11, ptr noundef %7, i64 noundef %8, i64 noundef 0) #36
   %totalbytes.i.i.i.i = getelementptr inbounds i8, ptr %9, i64 120
   %12 = load i64, ptr %totalbytes.i.i.i.i, align 8
   %add.i.i.i.i = sub i64 %12, %8
@@ -16529,7 +16529,7 @@ land.lhs.true.i.i.i:                              ; preds = %land.lhs.true.i.i
   %10 = load ptr, ptr %add.ptr.luaO_nilobject_.i.i34.i, align 8
   %add.ptr.i3.i.i = getelementptr inbounds i8, ptr %10, i64 24
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %endptr.i.i.i.i)
-  %call.i.i.i.i = call double @strtod(ptr noundef nonnull %add.ptr.i3.i.i, ptr noundef nonnull %endptr.i.i.i.i) #37
+  %call.i.i.i.i = call double @strtod(ptr noundef nonnull %add.ptr.i3.i.i, ptr noundef nonnull %endptr.i.i.i.i) #36
   %11 = load ptr, ptr %endptr.i.i.i.i, align 8
   %cmp.i.i.i.i = icmp eq ptr %11, %add.ptr.i3.i.i
   br i1 %cmp.i.i.i.i, label %luaO_str2d.exit.thread.i.i.i, label %if.end.i.i.i.i
@@ -16546,7 +16546,7 @@ if.end.i.i.i.i:                                   ; preds = %land.lhs.true.i.i.i
   ]
 
 if.then6.i.i.i.i:                                 ; preds = %if.end.i.i.i.i, %if.end.i.i.i.i
-  %call7.i.i.i.i = call i64 @strtoul(ptr noundef nonnull %add.ptr.i3.i.i, ptr noundef nonnull %endptr.i.i.i.i, i32 noundef 16) #37
+  %call7.i.i.i.i = call i64 @strtoul(ptr noundef nonnull %add.ptr.i3.i.i, ptr noundef nonnull %endptr.i.i.i.i, i32 noundef 16) #36
   %.pre.i.i.i.i = load ptr, ptr %endptr.i.i.i.i, align 8
   %.pre5.i.i.i.i = load i8, ptr %.pre.i.i.i.i, align 1
   br label %if.end9.i.i.i.i
@@ -16562,7 +16562,7 @@ lor.end.thread66.i:                               ; preds = %if.end9.i.i.i.i
   br label %land.lhs.true.i19.sink.split.i
 
 while.cond.preheader.i.i.i.i:                     ; preds = %if.end9.i.i.i.i
-  %call15.i.i.i.i = tail call ptr @__ctype_b_loc() #42
+  %call15.i.i.i.i = tail call ptr @__ctype_b_loc() #41
   %14 = load ptr, ptr %call15.i.i.i.i, align 8
   br label %while.cond.i.i.i.i
 
@@ -16714,7 +16714,7 @@ land.lhs.true.i.i26:                              ; preds = %getfunc.exit
   %36 = load ptr, ptr %add.ptr.luaO_nilobject_.i.i24, align 8
   %add.ptr.i3.i = getelementptr inbounds i8, ptr %36, i64 24
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %endptr.i.i.i)
-  %call.i.i.i = call double @strtod(ptr noundef nonnull %add.ptr.i3.i, ptr noundef nonnull %endptr.i.i.i) #37
+  %call.i.i.i = call double @strtod(ptr noundef nonnull %add.ptr.i3.i, ptr noundef nonnull %endptr.i.i.i) #36
   %37 = load ptr, ptr %endptr.i.i.i, align 8
   %cmp.i.i.i = icmp eq ptr %37, %add.ptr.i3.i
   br i1 %cmp.i.i.i, label %luaO_str2d.exit.thread.i.i, label %if.end.i.i.i
@@ -16731,7 +16731,7 @@ if.end.i.i.i:                                     ; preds = %land.lhs.true.i.i26
   ]
 
 if.then6.i.i.i:                                   ; preds = %if.end.i.i.i, %if.end.i.i.i
-  %call7.i.i.i = call i64 @strtoul(ptr noundef nonnull %add.ptr.i3.i, ptr noundef nonnull %endptr.i.i.i, i32 noundef 16) #37
+  %call7.i.i.i = call i64 @strtoul(ptr noundef nonnull %add.ptr.i3.i, ptr noundef nonnull %endptr.i.i.i, i32 noundef 16) #36
   %.pre.i.i.i = load ptr, ptr %endptr.i.i.i, align 8
   %.pre5.i.i.i = load i8, ptr %.pre.i.i.i, align 1
   br label %if.end9.i.i.i
@@ -16747,7 +16747,7 @@ luaO_str2d.exit.thread9.i.i:                      ; preds = %if.end9.i.i.i
   br label %land.lhs.true
 
 while.cond.preheader.i.i.i:                       ; preds = %if.end9.i.i.i
-  %call15.i.i.i = tail call ptr @__ctype_b_loc() #42
+  %call15.i.i.i = tail call ptr @__ctype_b_loc() #41
   %40 = load ptr, ptr %call15.i.i.i, align 8
   br label %while.cond.i.i.i
 
@@ -17043,7 +17043,7 @@ if.end.i:                                         ; preds = %lor.rhs
   call fastcc void @lua_getinfo(ptr noundef nonnull %L, ptr noundef nonnull @.str.117, ptr noundef nonnull %ar.i)
   %namewhat.i = getelementptr inbounds i8, ptr %ar.i, i64 16
   %6 = load ptr, ptr %namewhat.i, align 8
-  %call3.i = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %6, ptr noundef nonnull dereferenceable(7) @.str.118) #36
+  %call3.i = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %6, ptr noundef nonnull dereferenceable(7) @.str.118) #35
   %name10.i = getelementptr inbounds i8, ptr %ar.i, i64 8
   %7 = load ptr, ptr %name10.i, align 8
   %cmp11.i = icmp eq ptr %7, null
@@ -17197,7 +17197,7 @@ land.lhs.true.i.i44:                              ; preds = %land.lhs.true.i.i
   %6 = load ptr, ptr %add.ptr.luaO_nilobject_.i.i42, align 8
   %add.ptr.i3.i45 = getelementptr inbounds i8, ptr %6, i64 24
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %endptr.i.i.i36)
-  %call.i.i.i46 = call double @strtod(ptr noundef nonnull %add.ptr.i3.i45, ptr noundef nonnull %endptr.i.i.i36) #37
+  %call.i.i.i46 = call double @strtod(ptr noundef nonnull %add.ptr.i3.i45, ptr noundef nonnull %endptr.i.i.i36) #36
   %7 = load ptr, ptr %endptr.i.i.i36, align 8
   %cmp.i.i.i47 = icmp eq ptr %7, %add.ptr.i3.i45
   br i1 %cmp.i.i.i47, label %luaO_str2d.exit.thread.i.i69, label %if.end.i.i.i48
@@ -17214,7 +17214,7 @@ if.end.i.i.i48:                                   ; preds = %land.lhs.true.i.i44
   ]
 
 if.then6.i.i.i49:                                 ; preds = %if.end.i.i.i48, %if.end.i.i.i48
-  %call7.i.i.i50 = call i64 @strtoul(ptr noundef nonnull %add.ptr.i3.i45, ptr noundef nonnull %endptr.i.i.i36, i32 noundef 16) #37
+  %call7.i.i.i50 = call i64 @strtoul(ptr noundef nonnull %add.ptr.i3.i45, ptr noundef nonnull %endptr.i.i.i36, i32 noundef 16) #36
   %.pre.i.i.i51 = load ptr, ptr %endptr.i.i.i36, align 8
   %.pre5.i.i.i52 = load i8, ptr %.pre.i.i.i51, align 1
   br label %if.end9.i.i.i53
@@ -17230,7 +17230,7 @@ luaO_str2d.exit.thread9.i.i68:                    ; preds = %if.end9.i.i.i53
   br label %if.else
 
 while.cond.preheader.i.i.i56:                     ; preds = %if.end9.i.i.i53
-  %call15.i.i.i57 = tail call ptr @__ctype_b_loc() #42
+  %call15.i.i.i57 = tail call ptr @__ctype_b_loc() #41
   %10 = load ptr, ptr %call15.i.i.i57, align 8
   br label %while.cond.i.i.i58
 
@@ -17289,7 +17289,7 @@ land.lhs.true.i.i23:                              ; preds = %lua_type.exit.i19
   %17 = load ptr, ptr %15, align 8
   %add.ptr.i3.i = getelementptr inbounds i8, ptr %17, i64 24
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %endptr.i.i.i)
-  %call.i.i.i = call double @strtod(ptr noundef nonnull %add.ptr.i3.i, ptr noundef nonnull %endptr.i.i.i) #37
+  %call.i.i.i = call double @strtod(ptr noundef nonnull %add.ptr.i3.i, ptr noundef nonnull %endptr.i.i.i) #36
   %18 = load ptr, ptr %endptr.i.i.i, align 8
   %cmp.i.i.i = icmp eq ptr %18, %add.ptr.i3.i
   br i1 %cmp.i.i.i, label %luaO_str2d.exit.thread.i.i, label %if.end.i.i.i
@@ -17306,7 +17306,7 @@ if.end.i.i.i:                                     ; preds = %land.lhs.true.i.i23
   ]
 
 if.then6.i.i.i:                                   ; preds = %if.end.i.i.i, %if.end.i.i.i
-  %call7.i.i.i = call i64 @strtoul(ptr noundef nonnull %add.ptr.i3.i, ptr noundef nonnull %endptr.i.i.i, i32 noundef 16) #37
+  %call7.i.i.i = call i64 @strtoul(ptr noundef nonnull %add.ptr.i3.i, ptr noundef nonnull %endptr.i.i.i, i32 noundef 16) #36
   %.pre.i.i.i = load ptr, ptr %endptr.i.i.i, align 8
   %.pre5.i.i.i = load i8, ptr %.pre.i.i.i, align 1
   br label %if.end9.i.i.i
@@ -17322,7 +17322,7 @@ luaO_str2d.exit.thread9.i.i:                      ; preds = %if.end9.i.i.i
   br label %if.then3
 
 while.cond.preheader.i.i.i:                       ; preds = %if.end9.i.i.i
-  %call15.i.i.i = tail call ptr @__ctype_b_loc() #42
+  %call15.i.i.i = tail call ptr @__ctype_b_loc() #41
   %21 = load ptr, ptr %call15.i.i.i, align 8
   br label %while.cond.i.i.i
 
@@ -17387,7 +17387,7 @@ if.end.i:                                         ; preds = %lor.rhs
   call fastcc void @lua_getinfo(ptr noundef nonnull %L, ptr noundef nonnull @.str.117, ptr noundef nonnull %ar.i)
   %namewhat.i = getelementptr inbounds i8, ptr %ar.i, i64 16
   %29 = load ptr, ptr %namewhat.i, align 8
-  %call3.i = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %29, ptr noundef nonnull dereferenceable(7) @.str.118) #36
+  %call3.i = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %29, ptr noundef nonnull dereferenceable(7) @.str.118) #35
   %name10.i = getelementptr inbounds i8, ptr %ar.i, i64 8
   %30 = load ptr, ptr %name10.i, align 8
   %cmp11.i = icmp eq ptr %30, null
@@ -17405,13 +17405,13 @@ if.end14.i:                                       ; preds = %if.then12.i, %if.en
   unreachable
 
 lor.end:                                          ; preds = %luaL_checklstring.exit
-  %call12 = call i64 @strtoul(ptr noundef nonnull %call.i, ptr noundef nonnull %s2, i32 noundef %conv83) #37
+  %call12 = call i64 @strtoul(ptr noundef nonnull %call.i, ptr noundef nonnull %s2, i32 noundef %conv83) #36
   %32 = load ptr, ptr %s2, align 8
   %cmp13.not = icmp eq ptr %call.i, %32
   br i1 %cmp13.not, label %if.end27, label %while.cond.preheader
 
 while.cond.preheader:                             ; preds = %lor.end
-  %call16 = tail call ptr @__ctype_b_loc() #42
+  %call16 = tail call ptr @__ctype_b_loc() #41
   %33 = load ptr, ptr %call16, align 8
   br label %while.cond
 
@@ -17540,7 +17540,7 @@ land.lhs.true.i.i101:                             ; preds = %land.lhs.true.i.i
   %7 = load ptr, ptr %add.ptr.luaO_nilobject_.i.i98, align 8
   %add.ptr.i3.i = getelementptr inbounds i8, ptr %7, i64 24
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %endptr.i.i.i)
-  %call.i.i.i = call double @strtod(ptr noundef nonnull %add.ptr.i3.i, ptr noundef nonnull %endptr.i.i.i) #37
+  %call.i.i.i = call double @strtod(ptr noundef nonnull %add.ptr.i3.i, ptr noundef nonnull %endptr.i.i.i) #36
   %8 = load ptr, ptr %endptr.i.i.i, align 8
   %cmp.i.i.i102 = icmp eq ptr %8, %add.ptr.i3.i
   br i1 %cmp.i.i.i102, label %luaO_str2d.exit.thread.i.i, label %if.end.i.i.i103
@@ -17557,7 +17557,7 @@ if.end.i.i.i103:                                  ; preds = %land.lhs.true.i.i10
   ]
 
 if.then6.i.i.i:                                   ; preds = %if.end.i.i.i103, %if.end.i.i.i103
-  %call7.i.i.i = call i64 @strtoul(ptr noundef nonnull %add.ptr.i3.i, ptr noundef nonnull %endptr.i.i.i, i32 noundef 16) #37
+  %call7.i.i.i = call i64 @strtoul(ptr noundef nonnull %add.ptr.i3.i, ptr noundef nonnull %endptr.i.i.i, i32 noundef 16) #36
   %.pre.i.i.i = load ptr, ptr %endptr.i.i.i, align 8
   %.pre5.i.i.i = load i8, ptr %.pre.i.i.i, align 1
   br label %if.end9.i.i.i
@@ -17573,7 +17573,7 @@ luaO_str2d.exit.thread9.i.i:                      ; preds = %if.end9.i.i.i
   br label %luaL_optinteger.exit
 
 while.cond.preheader.i.i.i:                       ; preds = %if.end9.i.i.i
-  %call15.i.i.i = tail call ptr @__ctype_b_loc() #42
+  %call15.i.i.i = tail call ptr @__ctype_b_loc() #41
   %11 = load ptr, ptr %call15.i.i.i, align 8
   br label %while.cond.i.i.i
 
@@ -17640,7 +17640,7 @@ land.lhs.true.i.i113:                             ; preds = %land.lhs.true.i
   %21 = load ptr, ptr %add.ptr.luaO_nilobject_.i.i110, align 8
   %add.ptr.i3.i114 = getelementptr inbounds i8, ptr %21, i64 24
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %endptr.i.i.i104)
-  %call.i.i.i115 = call double @strtod(ptr noundef nonnull %add.ptr.i3.i114, ptr noundef nonnull %endptr.i.i.i104) #37
+  %call.i.i.i115 = call double @strtod(ptr noundef nonnull %add.ptr.i3.i114, ptr noundef nonnull %endptr.i.i.i104) #36
   %22 = load ptr, ptr %endptr.i.i.i104, align 8
   %cmp.i.i.i116 = icmp eq ptr %22, %add.ptr.i3.i114
   br i1 %cmp.i.i.i116, label %luaO_str2d.exit.thread.i.i138, label %if.end.i.i.i117
@@ -17657,7 +17657,7 @@ if.end.i.i.i117:                                  ; preds = %land.lhs.true.i.i11
   ]
 
 if.then6.i.i.i118:                                ; preds = %if.end.i.i.i117, %if.end.i.i.i117
-  %call7.i.i.i119 = call i64 @strtoul(ptr noundef nonnull %add.ptr.i3.i114, ptr noundef nonnull %endptr.i.i.i104, i32 noundef 16) #37
+  %call7.i.i.i119 = call i64 @strtoul(ptr noundef nonnull %add.ptr.i3.i114, ptr noundef nonnull %endptr.i.i.i104, i32 noundef 16) #36
   %.pre.i.i.i120 = load ptr, ptr %endptr.i.i.i104, align 8
   %.pre5.i.i.i121 = load i8, ptr %.pre.i.i.i120, align 1
   br label %if.end9.i.i.i122
@@ -17673,7 +17673,7 @@ luaO_str2d.exit.thread9.i.i137:                   ; preds = %if.end9.i.i.i122
   br label %cond.end
 
 while.cond.preheader.i.i.i125:                    ; preds = %if.end9.i.i.i122
-  %call15.i.i.i126 = tail call ptr @__ctype_b_loc() #42
+  %call15.i.i.i126 = tail call ptr @__ctype_b_loc() #41
   %25 = load ptr, ptr %call15.i.i.i126, align 8
   br label %while.cond.i.i.i127
 
@@ -17942,7 +17942,7 @@ return:                                           ; preds = %lua_rawgeti.exit92,
 }
 
 ; Function Attrs: noreturn nounwind uwtable
-define internal void @luaL_error(ptr noundef %L, ptr noundef %fmt, ...) unnamed_addr #9 {
+define internal void @luaL_error(ptr noundef %L, ptr noundef %fmt, ...) unnamed_addr #8 {
 entry:
   %argp = alloca [1 x %struct.__va_list_tag], align 16
   call void @llvm.va_start.p0(ptr nonnull %argp)
@@ -18105,7 +18105,7 @@ lua_concat.exit:                                  ; preds = %lua_pushvfstring.ex
 }
 
 ; Function Attrs: noreturn nounwind uwtable
-define internal fastcc void @luaL_argerror(ptr noundef %L, i32 noundef %narg, ptr noundef %extramsg) unnamed_addr #9 {
+define internal fastcc void @luaL_argerror(ptr noundef %L, i32 noundef %narg, ptr noundef %extramsg) unnamed_addr #8 {
 entry:
   %ar = alloca %struct.lua_Debug, align 8
   %ci1.i = getelementptr inbounds i8, ptr %L, i64 40
@@ -18130,7 +18130,7 @@ if.end:                                           ; preds = %entry
   call fastcc void @lua_getinfo(ptr noundef nonnull %L, ptr noundef nonnull @.str.117, ptr noundef nonnull %ar)
   %namewhat = getelementptr inbounds i8, ptr %ar, i64 16
   %2 = load ptr, ptr %namewhat, align 8
-  %call3 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %2, ptr noundef nonnull dereferenceable(7) @.str.118) #36
+  %call3 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %2, ptr noundef nonnull dereferenceable(7) @.str.118) #35
   %cmp = icmp eq i32 %call3, 0
   br i1 %cmp, label %if.then4, label %if.end9
 
@@ -18442,7 +18442,7 @@ for.inc.i:                                        ; preds = %sw.default.i, %sw.b
 auxgetinfo.exit:                                  ; preds = %for.cond.i, %for.cond.us.i
   %what.addr.040 = phi ptr [ %incdec.ptr, %for.cond.us.i ], [ %what, %for.cond.i ]
   %f.037 = phi ptr [ %6, %for.cond.us.i ], [ %4, %for.cond.i ]
-  %call12 = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %what.addr.040, i32 noundef 102) #36
+  %call12 = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %what.addr.040, i32 noundef 102) #35
   %tobool.not = icmp eq ptr %call12, null
   br i1 %tobool.not, label %if.end31.thread, label %if.else18
 
@@ -18466,7 +18466,7 @@ auxgetinfo.exit.thread:                           ; preds = %if.end11, %if.end11
   tail call fastcc void @luaO_chunkid(ptr noundef nonnull %short_src.i.i, ptr noundef nonnull @.str.123, i64 noundef 60)
   %nups.i.i = getelementptr inbounds i8, ptr %ar, i64 44
   store i32 0, ptr %nups.i.i, align 4
-  %call1293 = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %what.addr.041, i32 noundef 102) #36
+  %call1293 = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %what.addr.041, i32 noundef 102) #35
   %tobool.not94 = icmp eq ptr %call1293, null
   br i1 %tobool.not94, label %if.end31, label %if.then16
 
@@ -18520,12 +18520,12 @@ if.end31:                                         ; preds = %auxgetinfo.exit.thr
   %f.037100 = phi ptr [ null, %auxgetinfo.exit.thread ], [ %f.03799109, %if.end28 ]
   %what.addr.04098 = phi ptr [ %what.addr.041, %auxgetinfo.exit.thread ], [ %what.addr.04097111, %if.end28 ]
   %cmp.i4296 = phi i1 [ true, %auxgetinfo.exit.thread ], [ %cmp.i4295113, %if.end28 ]
-  %call32 = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %what.addr.04098, i32 noundef 76) #36
+  %call32 = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %what.addr.04098, i32 noundef 76) #35
   %tobool33.not = icmp eq ptr %call32, null
   br i1 %tobool33.not, label %if.end35, label %if.then34
 
 if.end31.thread:                                  ; preds = %auxgetinfo.exit
-  %call32119 = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %what.addr.040, i32 noundef 76) #36
+  %call32119 = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %what.addr.040, i32 noundef 76) #35
   %tobool33.not120 = icmp eq ptr %call32119, null
   br i1 %tobool33.not120, label %if.end35, label %lor.lhs.false.i
 
@@ -18699,7 +18699,7 @@ if.end35:                                         ; preds = %if.end31.thread, %c
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #12
+declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #11
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @luaL_where(ptr noundef %L, i32 noundef %level) unnamed_addr #0 {
@@ -19058,7 +19058,7 @@ if.end:                                           ; preds = %luaC_step.exit, %en
 }
 
 ; Function Attrs: noreturn nounwind uwtable
-define internal fastcc void @luaL_typerror(ptr noundef %L, i32 noundef %narg, ptr noundef %tname) unnamed_addr #9 {
+define internal fastcc void @luaL_typerror(ptr noundef %L, i32 noundef %narg, ptr noundef %tname) unnamed_addr #8 {
 entry:
   %cmp.i.i = icmp sgt i32 %narg, 0
   br i1 %cmp.i.i, label %if.then.i.i, label %if.else3.i.i
@@ -19264,7 +19264,7 @@ cond.end:                                         ; preds = %sw.default.i.i, %if
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define internal fastcc i64 @lua_tointeger(ptr nocapture noundef %L, i32 noundef %idx) unnamed_addr #22 {
+define internal fastcc i64 @lua_tointeger(ptr nocapture noundef %L, i32 noundef %idx) unnamed_addr #21 {
 entry:
   %endptr.i.i = alloca ptr, align 8
   %cmp.i = icmp sgt i32 %idx, 0
@@ -19359,7 +19359,7 @@ land.lhs.true.i:                                  ; preds = %index2adr.exit
   %15 = load ptr, ptr %retval.0.i, align 8
   %add.ptr.i4 = getelementptr inbounds i8, ptr %15, i64 24
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %endptr.i.i)
-  %call.i.i = call double @strtod(ptr noundef nonnull %add.ptr.i4, ptr noundef nonnull %endptr.i.i) #37
+  %call.i.i = call double @strtod(ptr noundef nonnull %add.ptr.i4, ptr noundef nonnull %endptr.i.i) #36
   %16 = load ptr, ptr %endptr.i.i, align 8
   %cmp.i.i = icmp eq ptr %16, %add.ptr.i4
   br i1 %cmp.i.i, label %luaO_str2d.exit.thread.i, label %if.end.i.i
@@ -19376,7 +19376,7 @@ if.end.i.i:                                       ; preds = %land.lhs.true.i
   ]
 
 if.then6.i.i:                                     ; preds = %if.end.i.i, %if.end.i.i
-  %call7.i.i = call i64 @strtoul(ptr noundef nonnull %add.ptr.i4, ptr noundef nonnull %endptr.i.i, i32 noundef 16) #37
+  %call7.i.i = call i64 @strtoul(ptr noundef nonnull %add.ptr.i4, ptr noundef nonnull %endptr.i.i, i32 noundef 16) #36
   %conv8.i.i = uitofp i64 %call7.i.i to double
   %.pre.i.i = load ptr, ptr %endptr.i.i, align 8
   %.pre5.i.i = load i8, ptr %.pre.i.i, align 1
@@ -19394,7 +19394,7 @@ luaO_str2d.exit.thread9.i:                        ; preds = %if.end9.i.i
   br label %if.then
 
 while.cond.preheader.i.i:                         ; preds = %if.end9.i.i
-  %call15.i.i = tail call ptr @__ctype_b_loc() #42
+  %call15.i.i = tail call ptr @__ctype_b_loc() #41
   %19 = load ptr, ptr %call15.i.i, align 8
   br label %while.cond.i.i
 
@@ -19425,7 +19425,7 @@ return:                                           ; preds = %index2adr.exit, %lu
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @lua_isnumber(ptr nocapture noundef %L, i32 noundef %idx) unnamed_addr #22 {
+define internal fastcc range(i32 0, 2) i32 @lua_isnumber(ptr nocapture noundef %L, i32 noundef %idx) unnamed_addr #21 {
 entry:
   %endptr.i.i = alloca ptr, align 8
   %cmp.i = icmp sgt i32 %idx, 0
@@ -19516,7 +19516,7 @@ land.lhs.true.i:                                  ; preds = %index2adr.exit
   %15 = load ptr, ptr %retval.0.i, align 8
   %add.ptr.i3 = getelementptr inbounds i8, ptr %15, i64 24
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %endptr.i.i)
-  %call.i.i = call double @strtod(ptr noundef nonnull %add.ptr.i3, ptr noundef nonnull %endptr.i.i) #37
+  %call.i.i = call double @strtod(ptr noundef nonnull %add.ptr.i3, ptr noundef nonnull %endptr.i.i) #36
   %16 = load ptr, ptr %endptr.i.i, align 8
   %cmp.i.i = icmp eq ptr %16, %add.ptr.i3
   br i1 %cmp.i.i, label %luaO_str2d.exit.thread.i, label %if.end.i.i
@@ -19533,7 +19533,7 @@ if.end.i.i:                                       ; preds = %land.lhs.true.i
   ]
 
 if.then6.i.i:                                     ; preds = %if.end.i.i, %if.end.i.i
-  %call7.i.i = call i64 @strtoul(ptr noundef nonnull %add.ptr.i3, ptr noundef nonnull %endptr.i.i, i32 noundef 16) #37
+  %call7.i.i = call i64 @strtoul(ptr noundef nonnull %add.ptr.i3, ptr noundef nonnull %endptr.i.i, i32 noundef 16) #36
   %.pre.i.i = load ptr, ptr %endptr.i.i, align 8
   %.pre5.i.i = load i8, ptr %.pre.i.i, align 1
   br label %if.end9.i.i
@@ -19549,7 +19549,7 @@ luaO_str2d.exit.thread9.i:                        ; preds = %if.end9.i.i
   br label %if.then3.i
 
 while.cond.preheader.i.i:                         ; preds = %if.end9.i.i
-  %call15.i.i = tail call ptr @__ctype_b_loc() #42
+  %call15.i.i = tail call ptr @__ctype_b_loc() #41
   %19 = load ptr, ptr %call15.i.i, align 8
   br label %while.cond.i.i
 
@@ -19581,7 +19581,7 @@ lor.end:                                          ; preds = %if.then3.i, %luaO_s
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal ptr @getS(ptr nocapture readnone %L, ptr nocapture noundef %ud, ptr nocapture noundef writeonly %size) #23 {
+define internal ptr @getS(ptr nocapture readnone %L, ptr nocapture noundef %ud, ptr nocapture noundef writeonly %size) #22 {
 entry:
   %size1 = getelementptr inbounds i8, ptr %ud, i64 8
   %0 = load i64, ptr %size1, align 8
@@ -19775,7 +19775,7 @@ if.end:                                           ; preds = %luaC_step.exit, %en
   call void @llvm.lifetime.start.p0(i64 600, ptr nonnull %funcstate.i)
   %buff1.i = getelementptr inbounds i8, ptr %lexstate.i, i64 72
   store ptr %buff, ptr %buff1.i, align 8
-  %call.i21 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %12) #36
+  %call.i21 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %12) #35
   %call2.i = tail call fastcc ptr @luaS_newlstr(ptr noundef %L, ptr noundef readonly %12, i64 noundef %call.i21)
   %decpoint.i.i = getelementptr inbounds i8, ptr %lexstate.i, i64 88
   store i8 46, ptr %decpoint.i.i, align 8
@@ -19801,7 +19801,7 @@ if.end:                                           ; preds = %luaC_step.exit, %en
   %16 = load ptr, ptr %frealloc.i.i.i, align 8
   %ud.i.i.i = getelementptr inbounds i8, ptr %15, i64 24
   %17 = load ptr, ptr %ud.i.i.i, align 8
-  %call.i.i.i = tail call ptr %16(ptr noundef %17, ptr noundef %13, i64 noundef %14, i64 noundef 32) #37
+  %call.i.i.i = tail call ptr %16(ptr noundef %17, ptr noundef %13, i64 noundef %14, i64 noundef 32) #36
   %cmp.i.i.i = icmp eq ptr %call.i.i.i, null
   br i1 %cmp.i.i.i, label %if.then.i.i.i, label %luaM_realloc_.exit.i.i
 
@@ -19816,7 +19816,7 @@ if.then.i.i.i.i:                                  ; preds = %if.then.i.i.i
   store volatile i32 4, ptr %status.i.i.i.i, align 8
   %19 = load ptr, ptr %errorJmp.i.i.i.i, align 8
   %b.i.i.i.i = getelementptr inbounds i8, ptr %19, i64 8
-  tail call void @longjmp(ptr noundef nonnull %b.i.i.i.i, i32 noundef 1) #40
+  tail call void @longjmp(ptr noundef nonnull %b.i.i.i.i, i32 noundef 1) #39
   unreachable
 
 if.else.i.i.i.i:                                  ; preds = %if.then.i.i.i
@@ -19833,11 +19833,11 @@ if.then5.i.i.i.i:                                 ; preds = %if.else.i.i.i.i
   %22 = load ptr, ptr %l_G, align 8
   %panic7.i.i.i.i = getelementptr inbounds i8, ptr %22, i64 152
   %23 = load ptr, ptr %panic7.i.i.i.i, align 8
-  %call.i.i.i.i = tail call i32 %23(ptr noundef nonnull %L) #37
+  %call.i.i.i.i = tail call i32 %23(ptr noundef nonnull %L) #36
   br label %if.end.i.i.i.i
 
 if.end.i.i.i.i:                                   ; preds = %if.then5.i.i.i.i, %if.else.i.i.i.i
-  tail call void @exit(i32 noundef 1) #41
+  tail call void @exit(i32 noundef 1) #40
   unreachable
 
 luaM_realloc_.exit.i.i:                           ; preds = %if.end
@@ -19871,7 +19871,7 @@ cond.false.i.i:                                   ; preds = %luaM_realloc_.exit.
   %29 = load ptr, ptr %reader.i.i.i, align 8
   %data.i.i.i = getelementptr inbounds i8, ptr %11, i64 24
   %30 = load ptr, ptr %data.i.i.i, align 8
-  %call.i17.i.i = call ptr %29(ptr noundef %28, ptr noundef %30, ptr noundef nonnull %size.i.i.i) #37
+  %call.i17.i.i = call ptr %29(ptr noundef %28, ptr noundef %30, ptr noundef nonnull %size.i.i.i) #36
   %cmp.i18.i.i = icmp eq ptr %call.i17.i.i, null
   %31 = load i64, ptr %size.i.i.i, align 8
   %cmp2.i.i.i = icmp eq i64 %31, 0
@@ -19948,7 +19948,7 @@ luaY_parser.exit:                                 ; preds = %luaX_next.exit.i
   %43 = load ptr, ptr %frealloc.i.i, align 8
   %ud.i.i = getelementptr inbounds i8, ptr %42, i64 24
   %44 = load ptr, ptr %ud.i.i, align 8
-  %call.i.i24 = call ptr %43(ptr noundef %44, ptr noundef null, i64 noundef 0, i64 noundef %add.i23) #37
+  %call.i.i24 = call ptr %43(ptr noundef %44, ptr noundef null, i64 noundef 0, i64 noundef %add.i23) #36
   %cmp.i.i = icmp eq ptr %call.i.i24, null
   br i1 %cmp.i.i, label %if.then.i.i25, label %luaM_realloc_.exit.i
 
@@ -19963,7 +19963,7 @@ if.then.i.i.i26:                                  ; preds = %if.then.i.i25
   store volatile i32 4, ptr %status.i.i.i, align 8
   %46 = load ptr, ptr %errorJmp.i.i.i, align 8
   %b.i.i.i = getelementptr inbounds i8, ptr %46, i64 8
-  call void @longjmp(ptr noundef nonnull %b.i.i.i, i32 noundef 1) #40
+  call void @longjmp(ptr noundef nonnull %b.i.i.i, i32 noundef 1) #39
   unreachable
 
 if.else.i.i.i:                                    ; preds = %if.then.i.i25
@@ -19980,11 +19980,11 @@ if.then5.i.i.i:                                   ; preds = %if.else.i.i.i
   %49 = load ptr, ptr %l_G, align 8
   %panic7.i.i.i = getelementptr inbounds i8, ptr %49, i64 152
   %50 = load ptr, ptr %panic7.i.i.i, align 8
-  %call.i.i.i27 = call i32 %50(ptr noundef nonnull %L) #37
+  %call.i.i.i27 = call i32 %50(ptr noundef nonnull %L) #36
   br label %if.end.i.i.i28
 
 if.end.i.i.i28:                                   ; preds = %if.then5.i.i.i, %if.else.i.i.i
-  call void @exit(i32 noundef 1) #41
+  call void @exit(i32 noundef 1) #40
   unreachable
 
 luaM_realloc_.exit.i:                             ; preds = %luaY_parser.exit
@@ -20038,7 +20038,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %lu
   %59 = load ptr, ptr %frealloc.i.i30, align 8
   %ud.i.i31 = getelementptr inbounds i8, ptr %58, i64 24
   %60 = load ptr, ptr %ud.i.i31, align 8
-  %call.i.i32 = call ptr %59(ptr noundef %60, ptr noundef null, i64 noundef 0, i64 noundef 40) #37
+  %call.i.i32 = call ptr %59(ptr noundef %60, ptr noundef null, i64 noundef 0, i64 noundef 40) #36
   %cmp.i.i33 = icmp eq ptr %call.i.i32, null
   br i1 %cmp.i.i33, label %if.then.i.i42, label %luaF_newupval.exit
 
@@ -20053,7 +20053,7 @@ if.then.i.i.i45:                                  ; preds = %if.then.i.i42
   store volatile i32 4, ptr %status.i.i.i46, align 8
   %62 = load ptr, ptr %errorJmp.i.i.i43, align 8
   %b.i.i.i47 = getelementptr inbounds i8, ptr %62, i64 8
-  call void @longjmp(ptr noundef nonnull %b.i.i.i47, i32 noundef 1) #40
+  call void @longjmp(ptr noundef nonnull %b.i.i.i47, i32 noundef 1) #39
   unreachable
 
 if.else.i.i.i48:                                  ; preds = %if.then.i.i42
@@ -20070,11 +20070,11 @@ if.then5.i.i.i52:                                 ; preds = %if.else.i.i.i48
   %65 = load ptr, ptr %l_G, align 8
   %panic7.i.i.i53 = getelementptr inbounds i8, ptr %65, i64 152
   %66 = load ptr, ptr %panic7.i.i.i53, align 8
-  %call.i.i.i54 = call i32 %66(ptr noundef nonnull %L) #37
+  %call.i.i.i54 = call i32 %66(ptr noundef nonnull %L) #36
   br label %if.end.i.i.i55
 
 if.end.i.i.i55:                                   ; preds = %if.then5.i.i.i52, %if.else.i.i.i48
-  call void @exit(i32 noundef 1) #41
+  call void @exit(i32 noundef 1) #40
   unreachable
 
 luaF_newupval.exit:                               ; preds = %for.body
@@ -20151,7 +20151,7 @@ entry:
   %2 = load ptr, ptr %frealloc.i.i, align 8
   %ud.i.i = getelementptr inbounds i8, ptr %1, i64 24
   %3 = load ptr, ptr %ud.i.i, align 8
-  %call.i.i = tail call ptr %2(ptr noundef %3, ptr noundef null, i64 noundef 0, i64 noundef 120) #37
+  %call.i.i = tail call ptr %2(ptr noundef %3, ptr noundef null, i64 noundef 0, i64 noundef 120) #36
   %cmp.i.i = icmp eq ptr %call.i.i, null
   br i1 %cmp.i.i, label %if.then.i.i, label %luaF_newproto.exit
 
@@ -20166,7 +20166,7 @@ if.then.i.i.i:                                    ; preds = %if.then.i.i
   store volatile i32 4, ptr %status.i.i.i, align 8
   %5 = load ptr, ptr %errorJmp.i.i.i, align 8
   %b.i.i.i = getelementptr inbounds i8, ptr %5, i64 8
-  tail call void @longjmp(ptr noundef nonnull %b.i.i.i, i32 noundef 1) #40
+  tail call void @longjmp(ptr noundef nonnull %b.i.i.i, i32 noundef 1) #39
   unreachable
 
 if.else.i.i.i:                                    ; preds = %if.then.i.i
@@ -20183,11 +20183,11 @@ if.then5.i.i.i:                                   ; preds = %if.else.i.i.i
   %8 = load ptr, ptr %l_G.i.i, align 8
   %panic7.i.i.i = getelementptr inbounds i8, ptr %8, i64 152
   %9 = load ptr, ptr %panic7.i.i.i, align 8
-  %call.i.i.i = tail call i32 %9(ptr noundef nonnull %0) #37
+  %call.i.i.i = tail call i32 %9(ptr noundef nonnull %0) #36
   br label %if.end.i.i.i
 
 if.end.i.i.i:                                     ; preds = %if.then5.i.i.i, %if.else.i.i.i
-  tail call void @exit(i32 noundef 1) #41
+  tail call void @exit(i32 noundef 1) #40
   unreachable
 
 luaF_newproto.exit:                               ; preds = %entry
@@ -23086,7 +23086,7 @@ cond.true:                                        ; preds = %removevars.exit
   %15 = load ptr, ptr %frealloc.i, align 8
   %ud.i = getelementptr inbounds i8, ptr %14, i64 24
   %16 = load ptr, ptr %ud.i, align 8
-  %call.i = tail call ptr %15(ptr noundef %16, ptr noundef %12, i64 noundef %mul, i64 noundef %mul8) #37
+  %call.i = tail call ptr %15(ptr noundef %16, ptr noundef %12, i64 noundef %mul, i64 noundef %mul8) #36
   %cmp.i61 = icmp eq ptr %call.i, null
   %cmp1.i = icmp ne i32 %11, 0
   %or.cond.i = and i1 %cmp1.i, %cmp.i61
@@ -23103,7 +23103,7 @@ if.then.i.i:                                      ; preds = %if.then.i
   store volatile i32 4, ptr %status.i.i, align 8
   %18 = load ptr, ptr %errorJmp.i.i, align 8
   %b.i.i = getelementptr inbounds i8, ptr %18, i64 8
-  tail call void @longjmp(ptr noundef nonnull %b.i.i, i32 noundef 1) #40
+  tail call void @longjmp(ptr noundef nonnull %b.i.i, i32 noundef 1) #39
   unreachable
 
 if.else.i.i:                                      ; preds = %if.then.i
@@ -23120,11 +23120,11 @@ if.then5.i.i:                                     ; preds = %if.else.i.i
   %21 = load ptr, ptr %l_G.i, align 8
   %panic7.i.i = getelementptr inbounds i8, ptr %21, i64 152
   %22 = load ptr, ptr %panic7.i.i, align 8
-  %call.i.i62 = tail call i32 %22(ptr noundef nonnull %0) #37
+  %call.i.i62 = tail call i32 %22(ptr noundef nonnull %0) #36
   br label %if.end.i.i
 
 if.end.i.i:                                       ; preds = %if.then5.i.i, %if.else.i.i
-  tail call void @exit(i32 noundef 1) #41
+  tail call void @exit(i32 noundef 1) #40
   unreachable
 
 luaM_realloc_.exit:                               ; preds = %cond.true
@@ -23157,7 +23157,7 @@ cond.true18:                                      ; preds = %luaM_realloc_.exit
   %28 = load ptr, ptr %frealloc.i64, align 8
   %ud.i65 = getelementptr inbounds i8, ptr %27, i64 24
   %29 = load ptr, ptr %ud.i65, align 8
-  %call.i66 = tail call ptr %28(ptr noundef %29, ptr noundef %25, i64 noundef %mul20, i64 noundef %mul23) #37
+  %call.i66 = tail call ptr %28(ptr noundef %29, ptr noundef %25, i64 noundef %mul20, i64 noundef %mul23) #36
   %cmp.i67 = icmp eq ptr %call.i66, null
   %cmp1.i68 = icmp ne i32 %24, 0
   %or.cond.i69 = and i1 %cmp1.i68, %cmp.i67
@@ -23174,7 +23174,7 @@ if.then.i.i76:                                    ; preds = %if.then.i73
   store volatile i32 4, ptr %status.i.i77, align 8
   %31 = load ptr, ptr %errorJmp.i.i74, align 8
   %b.i.i78 = getelementptr inbounds i8, ptr %31, i64 8
-  tail call void @longjmp(ptr noundef nonnull %b.i.i78, i32 noundef 1) #40
+  tail call void @longjmp(ptr noundef nonnull %b.i.i78, i32 noundef 1) #39
   unreachable
 
 if.else.i.i79:                                    ; preds = %if.then.i73
@@ -23191,11 +23191,11 @@ if.then5.i.i83:                                   ; preds = %if.else.i.i79
   %34 = load ptr, ptr %l_G.i, align 8
   %panic7.i.i84 = getelementptr inbounds i8, ptr %34, i64 152
   %35 = load ptr, ptr %panic7.i.i84, align 8
-  %call.i.i85 = tail call i32 %35(ptr noundef nonnull %0) #37
+  %call.i.i85 = tail call i32 %35(ptr noundef nonnull %0) #36
   br label %if.end.i.i86
 
 if.end.i.i86:                                     ; preds = %if.then5.i.i83, %if.else.i.i79
-  tail call void @exit(i32 noundef 1) #41
+  tail call void @exit(i32 noundef 1) #40
   unreachable
 
 luaM_realloc_.exit87:                             ; preds = %cond.true18
@@ -23230,7 +23230,7 @@ cond.true36:                                      ; preds = %luaM_realloc_.exit8
   %42 = load ptr, ptr %frealloc.i90, align 8
   %ud.i91 = getelementptr inbounds i8, ptr %41, i64 24
   %43 = load ptr, ptr %ud.i91, align 8
-  %call.i92 = tail call ptr %42(ptr noundef %43, ptr noundef %39, i64 noundef %mul38, i64 noundef %mul41) #37
+  %call.i92 = tail call ptr %42(ptr noundef %43, ptr noundef %39, i64 noundef %mul38, i64 noundef %mul41) #36
   %cmp.i93 = icmp eq ptr %call.i92, null
   %cmp1.i94 = icmp ne i32 %38, 0
   %or.cond.i95 = and i1 %cmp1.i94, %cmp.i93
@@ -23247,7 +23247,7 @@ if.then.i.i102:                                   ; preds = %if.then.i99
   store volatile i32 4, ptr %status.i.i103, align 8
   %45 = load ptr, ptr %errorJmp.i.i100, align 8
   %b.i.i104 = getelementptr inbounds i8, ptr %45, i64 8
-  tail call void @longjmp(ptr noundef nonnull %b.i.i104, i32 noundef 1) #40
+  tail call void @longjmp(ptr noundef nonnull %b.i.i104, i32 noundef 1) #39
   unreachable
 
 if.else.i.i105:                                   ; preds = %if.then.i99
@@ -23264,11 +23264,11 @@ if.then5.i.i109:                                  ; preds = %if.else.i.i105
   %48 = load ptr, ptr %l_G.i, align 8
   %panic7.i.i110 = getelementptr inbounds i8, ptr %48, i64 152
   %49 = load ptr, ptr %panic7.i.i110, align 8
-  %call.i.i111 = tail call i32 %49(ptr noundef nonnull %0) #37
+  %call.i.i111 = tail call i32 %49(ptr noundef nonnull %0) #36
   br label %if.end.i.i112
 
 if.end.i.i112:                                    ; preds = %if.then5.i.i109, %if.else.i.i105
-  tail call void @exit(i32 noundef 1) #41
+  tail call void @exit(i32 noundef 1) #40
   unreachable
 
 luaM_realloc_.exit113:                            ; preds = %cond.true36
@@ -23303,7 +23303,7 @@ cond.true54:                                      ; preds = %luaM_realloc_.exit1
   %56 = load ptr, ptr %frealloc.i116, align 8
   %ud.i117 = getelementptr inbounds i8, ptr %55, i64 24
   %57 = load ptr, ptr %ud.i117, align 8
-  %call.i118 = tail call ptr %56(ptr noundef %57, ptr noundef %53, i64 noundef %mul56, i64 noundef %mul59) #37
+  %call.i118 = tail call ptr %56(ptr noundef %57, ptr noundef %53, i64 noundef %mul56, i64 noundef %mul59) #36
   %cmp.i119 = icmp eq ptr %call.i118, null
   %cmp1.i120 = icmp ne i32 %52, 0
   %or.cond.i121 = and i1 %cmp1.i120, %cmp.i119
@@ -23320,7 +23320,7 @@ if.then.i.i128:                                   ; preds = %if.then.i125
   store volatile i32 4, ptr %status.i.i129, align 8
   %59 = load ptr, ptr %errorJmp.i.i126, align 8
   %b.i.i130 = getelementptr inbounds i8, ptr %59, i64 8
-  tail call void @longjmp(ptr noundef nonnull %b.i.i130, i32 noundef 1) #40
+  tail call void @longjmp(ptr noundef nonnull %b.i.i130, i32 noundef 1) #39
   unreachable
 
 if.else.i.i131:                                   ; preds = %if.then.i125
@@ -23337,11 +23337,11 @@ if.then5.i.i135:                                  ; preds = %if.else.i.i131
   %62 = load ptr, ptr %l_G.i, align 8
   %panic7.i.i136 = getelementptr inbounds i8, ptr %62, i64 152
   %63 = load ptr, ptr %panic7.i.i136, align 8
-  %call.i.i137 = tail call i32 %63(ptr noundef nonnull %0) #37
+  %call.i.i137 = tail call i32 %63(ptr noundef nonnull %0) #36
   br label %if.end.i.i138
 
 if.end.i.i138:                                    ; preds = %if.then5.i.i135, %if.else.i.i131
-  tail call void @exit(i32 noundef 1) #41
+  tail call void @exit(i32 noundef 1) #40
   unreachable
 
 luaM_realloc_.exit139:                            ; preds = %cond.true54
@@ -23377,7 +23377,7 @@ cond.true73:                                      ; preds = %luaM_realloc_.exit1
   %70 = load ptr, ptr %frealloc.i142, align 8
   %ud.i143 = getelementptr inbounds i8, ptr %69, i64 24
   %71 = load ptr, ptr %ud.i143, align 8
-  %call.i144 = tail call ptr %70(ptr noundef %71, ptr noundef %67, i64 noundef %mul75, i64 noundef %mul78) #37
+  %call.i144 = tail call ptr %70(ptr noundef %71, ptr noundef %67, i64 noundef %mul75, i64 noundef %mul78) #36
   %cmp.i145 = icmp eq ptr %call.i144, null
   %cmp1.i146 = icmp ne i16 %66, 0
   %or.cond.i147 = and i1 %cmp1.i146, %cmp.i145
@@ -23394,7 +23394,7 @@ if.then.i.i154:                                   ; preds = %if.then.i151
   store volatile i32 4, ptr %status.i.i155, align 8
   %73 = load ptr, ptr %errorJmp.i.i152, align 8
   %b.i.i156 = getelementptr inbounds i8, ptr %73, i64 8
-  tail call void @longjmp(ptr noundef nonnull %b.i.i156, i32 noundef 1) #40
+  tail call void @longjmp(ptr noundef nonnull %b.i.i156, i32 noundef 1) #39
   unreachable
 
 if.else.i.i157:                                   ; preds = %if.then.i151
@@ -23411,11 +23411,11 @@ if.then5.i.i161:                                  ; preds = %if.else.i.i157
   %76 = load ptr, ptr %l_G.i, align 8
   %panic7.i.i162 = getelementptr inbounds i8, ptr %76, i64 152
   %77 = load ptr, ptr %panic7.i.i162, align 8
-  %call.i.i163 = tail call i32 %77(ptr noundef nonnull %0) #37
+  %call.i.i163 = tail call i32 %77(ptr noundef nonnull %0) #36
   br label %if.end.i.i164
 
 if.end.i.i164:                                    ; preds = %if.then5.i.i161, %if.else.i.i157
-  tail call void @exit(i32 noundef 1) #41
+  tail call void @exit(i32 noundef 1) #40
   unreachable
 
 luaM_realloc_.exit165:                            ; preds = %cond.true73
@@ -23443,7 +23443,7 @@ luaM_realloc_.exit165:                            ; preds = %cond.true73
   %84 = load ptr, ptr %frealloc.i168, align 8
   %ud.i169 = getelementptr inbounds i8, ptr %83, i64 24
   %85 = load ptr, ptr %ud.i169, align 8
-  %call.i170 = tail call ptr %84(ptr noundef %85, ptr noundef %81, i64 noundef %mul95, i64 noundef %mul98) #37
+  %call.i170 = tail call ptr %84(ptr noundef %85, ptr noundef %81, i64 noundef %mul95, i64 noundef %mul98) #36
   %cmp.i171 = icmp eq ptr %call.i170, null
   %cmp1.i172 = icmp ne i8 %80, 0
   %or.cond.i173 = and i1 %cmp1.i172, %cmp.i171
@@ -23464,7 +23464,7 @@ if.then.i.i180:                                   ; preds = %if.then.i177
   store volatile i32 4, ptr %status.i.i181, align 8
   %87 = load ptr, ptr %errorJmp.i.i178, align 8
   %b.i.i182 = getelementptr inbounds i8, ptr %87, i64 8
-  tail call void @longjmp(ptr noundef nonnull %b.i.i182, i32 noundef 1) #40
+  tail call void @longjmp(ptr noundef nonnull %b.i.i182, i32 noundef 1) #39
   unreachable
 
 if.else.i.i183:                                   ; preds = %if.then.i177
@@ -23481,11 +23481,11 @@ if.then5.i.i187:                                  ; preds = %if.else.i.i183
   %90 = load ptr, ptr %l_G.i, align 8
   %panic7.i.i188 = getelementptr inbounds i8, ptr %90, i64 152
   %91 = load ptr, ptr %panic7.i.i188, align 8
-  %call.i.i189 = tail call i32 %91(ptr noundef nonnull %0) #37
+  %call.i.i189 = tail call i32 %91(ptr noundef nonnull %0) #36
   br label %if.end.i.i190
 
 if.end.i.i190:                                    ; preds = %if.then5.i.i187, %if.else.i.i183
-  tail call void @exit(i32 noundef 1) #41
+  tail call void @exit(i32 noundef 1) #40
   unreachable
 
 luaM_realloc_.exit191:                            ; preds = %luaM_realloc_.exit165
@@ -23534,7 +23534,7 @@ entry:
   %1 = load ptr, ptr %reader, align 8
   %data = getelementptr inbounds i8, ptr %z, i64 24
   %2 = load ptr, ptr %data, align 8
-  %call = call ptr %1(ptr noundef %0, ptr noundef %2, ptr noundef nonnull %size) #37
+  %call = call ptr %1(ptr noundef %0, ptr noundef %2, ptr noundef nonnull %size) #36
   %cmp = icmp eq ptr %call, null
   %3 = load i64, ptr %size, align 8
   %cmp2 = icmp eq i64 %3, 0
@@ -23636,7 +23636,7 @@ cond.false:                                       ; preds = %sw.bb1
   %8 = load ptr, ptr %reader.i, align 8
   %data.i = getelementptr inbounds i8, ptr %4, i64 24
   %9 = load ptr, ptr %data.i, align 8
-  %call.i = call ptr %8(ptr noundef %7, ptr noundef %9, ptr noundef nonnull %size.i) #37
+  %call.i = call ptr %8(ptr noundef %7, ptr noundef %9, ptr noundef nonnull %size.i) #36
   %cmp.i = icmp eq ptr %call.i, null
   %10 = load i64, ptr %size.i, align 8
   %cmp2.i = icmp eq i64 %10, 0
@@ -23690,7 +23690,7 @@ cond.false19:                                     ; preds = %if.end
   %18 = load ptr, ptr %reader.i113, align 8
   %data.i114 = getelementptr inbounds i8, ptr %14, i64 24
   %19 = load ptr, ptr %data.i114, align 8
-  %call.i115 = call ptr %18(ptr noundef %17, ptr noundef %19, ptr noundef nonnull %size.i111) #37
+  %call.i115 = call ptr %18(ptr noundef %17, ptr noundef %19, ptr noundef nonnull %size.i111) #36
   %cmp.i116 = icmp eq ptr %call.i115, null
   %20 = load i64, ptr %size.i111, align 8
   %cmp2.i117 = icmp eq i64 %20, 0
@@ -23778,7 +23778,7 @@ cond.false58:                                     ; preds = %while.body
   %31 = load ptr, ptr %reader.i128, align 8
   %data.i129 = getelementptr inbounds i8, ptr %27, i64 24
   %32 = load ptr, ptr %data.i129, align 8
-  %call.i130 = call ptr %31(ptr noundef %30, ptr noundef %32, ptr noundef nonnull %size.i126) #37
+  %call.i130 = call ptr %31(ptr noundef %30, ptr noundef %32, ptr noundef nonnull %size.i126) #36
   %cmp.i131 = icmp eq ptr %call.i130, null
   %33 = load i64, ptr %size.i126, align 8
   %cmp2.i132 = icmp eq i64 %33, 0
@@ -23848,7 +23848,7 @@ cond.false86:                                     ; preds = %sw.bb75
   %41 = load ptr, ptr %reader.i143, align 8
   %data.i144 = getelementptr inbounds i8, ptr %37, i64 24
   %42 = load ptr, ptr %data.i144, align 8
-  %call.i145 = call ptr %41(ptr noundef %40, ptr noundef %42, ptr noundef nonnull %size.i141) #37
+  %call.i145 = call ptr %41(ptr noundef %40, ptr noundef %42, ptr noundef nonnull %size.i141) #36
   %cmp.i146 = icmp eq ptr %call.i145, null
   %43 = load i64, ptr %size.i141, align 8
   %cmp2.i147 = icmp eq i64 %43, 0
@@ -23929,7 +23929,7 @@ cond.false124:                                    ; preds = %sw.bb113
   %56 = load ptr, ptr %reader.i158, align 8
   %data.i159 = getelementptr inbounds i8, ptr %52, i64 24
   %57 = load ptr, ptr %data.i159, align 8
-  %call.i160 = call ptr %56(ptr noundef %55, ptr noundef %57, ptr noundef nonnull %size.i156) #37
+  %call.i160 = call ptr %56(ptr noundef %55, ptr noundef %57, ptr noundef nonnull %size.i156) #36
   %cmp.i161 = icmp eq ptr %call.i160, null
   %58 = load i64, ptr %size.i156, align 8
   %cmp2.i162 = icmp eq i64 %58, 0
@@ -24010,7 +24010,7 @@ cond.false162:                                    ; preds = %sw.bb151
   %71 = load ptr, ptr %reader.i173, align 8
   %data.i174 = getelementptr inbounds i8, ptr %67, i64 24
   %72 = load ptr, ptr %data.i174, align 8
-  %call.i175 = call ptr %71(ptr noundef %70, ptr noundef %72, ptr noundef nonnull %size.i171) #37
+  %call.i175 = call ptr %71(ptr noundef %70, ptr noundef %72, ptr noundef nonnull %size.i171) #36
   %cmp.i176 = icmp eq ptr %call.i175, null
   %73 = load i64, ptr %size.i171, align 8
   %cmp2.i177 = icmp eq i64 %73, 0
@@ -24091,7 +24091,7 @@ cond.false200:                                    ; preds = %sw.bb189
   %86 = load ptr, ptr %reader.i188, align 8
   %data.i189 = getelementptr inbounds i8, ptr %82, i64 24
   %87 = load ptr, ptr %data.i189, align 8
-  %call.i190 = call ptr %86(ptr noundef %85, ptr noundef %87, ptr noundef nonnull %size.i186) #37
+  %call.i190 = call ptr %86(ptr noundef %85, ptr noundef %87, ptr noundef nonnull %size.i186) #36
   %cmp.i191 = icmp eq ptr %call.i190, null
   %88 = load i64, ptr %size.i186, align 8
   %cmp2.i192 = icmp eq i64 %88, 0
@@ -24173,7 +24173,7 @@ cond.false.i:                                     ; preds = %sw.bb227
   %101 = load ptr, ptr %reader.i.i, align 8
   %data.i.i = getelementptr inbounds i8, ptr %97, i64 24
   %102 = load ptr, ptr %data.i.i, align 8
-  %call.i.i = call ptr %101(ptr noundef %100, ptr noundef %102, ptr noundef nonnull %size.i.i) #37
+  %call.i.i = call ptr %101(ptr noundef %100, ptr noundef %102, ptr noundef nonnull %size.i.i) #36
   %cmp.i.i = icmp eq ptr %call.i.i, null
   %103 = load i64, ptr %size.i.i, align 8
   %cmp2.i.i = icmp eq i64 %103, 0
@@ -24248,7 +24248,7 @@ cond.false20.i:                                   ; preds = %sw.bb9.i
   %112 = load ptr, ptr %reader.i57.i, align 8
   %data.i58.i = getelementptr inbounds i8, ptr %108, i64 24
   %113 = load ptr, ptr %data.i58.i, align 8
-  %call.i59.i = call ptr %112(ptr noundef %111, ptr noundef %113, ptr noundef nonnull %size.i55.i) #37
+  %call.i59.i = call ptr %112(ptr noundef %111, ptr noundef %113, ptr noundef nonnull %size.i55.i) #36
   %cmp.i60.i = icmp eq ptr %call.i59.i, null
   %114 = load i64, ptr %size.i55.i, align 8
   %cmp2.i61.i = icmp eq i64 %114, 0
@@ -24310,7 +24310,7 @@ sw.bb34.i:                                        ; preds = %cond.end23.i, %cond
   br label %while.condthread-pre-split.i, !llvm.loop !101
 
 sw.default.i:                                     ; preds = %cond.end23.i
-  %call36.i = tail call ptr @__ctype_b_loc() #42
+  %call36.i = tail call ptr @__ctype_b_loc() #41
   %116 = load ptr, ptr %call36.i, align 8
   %idxprom.i = sext i32 %cond24.i to i64
   %arrayidx.i = getelementptr inbounds i16, ptr %116, i64 %idxprom.i
@@ -24346,7 +24346,7 @@ cond.false50.i:                                   ; preds = %if.then.i
   %125 = load ptr, ptr %reader.i72.i, align 8
   %data.i73.i = getelementptr inbounds i8, ptr %121, i64 24
   %126 = load ptr, ptr %data.i73.i, align 8
-  %call.i74.i = call ptr %125(ptr noundef %124, ptr noundef %126, ptr noundef nonnull %size.i70.i) #37
+  %call.i74.i = call ptr %125(ptr noundef %124, ptr noundef %126, ptr noundef nonnull %size.i70.i) #36
   %cmp.i75.i = icmp eq ptr %call.i74.i, null
   %127 = load i64, ptr %size.i70.i, align 8
   %cmp2.i76.i = icmp eq i64 %127, 0
@@ -24405,7 +24405,7 @@ cond.false67.i:                                   ; preds = %do.body.i
   %136 = load ptr, ptr %reader.i87.i, align 8
   %data.i88.i = getelementptr inbounds i8, ptr %132, i64 24
   %137 = load ptr, ptr %data.i88.i, align 8
-  %call.i89.i = call ptr %136(ptr noundef %135, ptr noundef %137, ptr noundef nonnull %size.i85.i) #37
+  %call.i89.i = call ptr %136(ptr noundef %135, ptr noundef %137, ptr noundef nonnull %size.i85.i) #36
   %cmp.i90.i = icmp eq ptr %call.i89.i, null
   %138 = load i64, ptr %size.i85.i, align 8
   %cmp2.i91.i = icmp eq i64 %138, 0
@@ -24483,7 +24483,7 @@ cond.false96.i:                                   ; preds = %sw.epilog.i
   %149 = load ptr, ptr %reader.i102.i, align 8
   %data.i103.i = getelementptr inbounds i8, ptr %145, i64 24
   %150 = load ptr, ptr %data.i103.i, align 8
-  %call.i104.i = call ptr %149(ptr noundef %148, ptr noundef %150, ptr noundef nonnull %size.i100.i) #37
+  %call.i104.i = call ptr %149(ptr noundef %148, ptr noundef %150, ptr noundef nonnull %size.i100.i) #36
   %cmp.i105.i = icmp eq ptr %call.i104.i, null
   %151 = load i64, ptr %size.i100.i, align 8
   %cmp2.i106.i = icmp eq i64 %151, 0
@@ -24542,7 +24542,7 @@ cond.false114.i:                                  ; preds = %sw.default102.i
   %159 = load ptr, ptr %reader.i117.i, align 8
   %data.i118.i = getelementptr inbounds i8, ptr %155, i64 24
   %160 = load ptr, ptr %data.i118.i, align 8
-  %call.i119.i = call ptr %159(ptr noundef %158, ptr noundef %160, ptr noundef nonnull %size.i115.i) #37
+  %call.i119.i = call ptr %159(ptr noundef %158, ptr noundef %160, ptr noundef nonnull %size.i115.i) #36
   %cmp.i120.i = icmp eq ptr %call.i119.i, null
   %161 = load i64, ptr %size.i115.i, align 8
   %cmp2.i121.i = icmp eq i64 %161, 0
@@ -24596,7 +24596,7 @@ cond.false132.i:                                  ; preds = %while.end.i
   %169 = load ptr, ptr %reader.i132.i, align 8
   %data.i133.i = getelementptr inbounds i8, ptr %165, i64 24
   %170 = load ptr, ptr %data.i133.i, align 8
-  %call.i134.i = call ptr %169(ptr noundef %168, ptr noundef %170, ptr noundef nonnull %size.i130.i) #37
+  %call.i134.i = call ptr %169(ptr noundef %168, ptr noundef %170, ptr noundef nonnull %size.i130.i) #36
   %cmp.i135.i = icmp eq ptr %call.i134.i, null
   %171 = load i64, ptr %size.i130.i, align 8
   %cmp2.i136.i = icmp eq i64 %171, 0
@@ -24658,7 +24658,7 @@ cond.false241:                                    ; preds = %sw.bb229
   %182 = load ptr, ptr %reader.i208, align 8
   %data.i209 = getelementptr inbounds i8, ptr %178, i64 24
   %183 = load ptr, ptr %data.i209, align 8
-  %call.i210 = call ptr %182(ptr noundef %181, ptr noundef %183, ptr noundef nonnull %size.i206) #37
+  %call.i210 = call ptr %182(ptr noundef %181, ptr noundef %183, ptr noundef nonnull %size.i206) #36
   %cmp.i211 = icmp eq ptr %call.i210, null
   %184 = load i64, ptr %size.i206, align 8
   %cmp2.i212 = icmp eq i64 %184, 0
@@ -24716,7 +24716,7 @@ cond.false.i235:                                  ; preds = %if.end.i224
   %194 = load ptr, ptr %reader.i.i237, align 8
   %data.i.i238 = getelementptr inbounds i8, ptr %190, i64 24
   %195 = load ptr, ptr %data.i.i238, align 8
-  %call.i.i239 = call ptr %194(ptr noundef %193, ptr noundef %195, ptr noundef nonnull %size.i.i221) #37
+  %call.i.i239 = call ptr %194(ptr noundef %193, ptr noundef %195, ptr noundef nonnull %size.i.i221) #36
   %cmp.i.i240 = icmp eq ptr %call.i.i239, null
   %196 = load i64, ptr %size.i.i221, align 8
   %cmp2.i.i241 = icmp eq i64 %196, 0
@@ -24774,7 +24774,7 @@ cond.false.i264:                                  ; preds = %if.end.i253
   %205 = load ptr, ptr %reader.i.i266, align 8
   %data.i.i267 = getelementptr inbounds i8, ptr %201, i64 24
   %206 = load ptr, ptr %data.i.i267, align 8
-  %call.i.i268 = call ptr %205(ptr noundef %204, ptr noundef %206, ptr noundef nonnull %size.i.i250) #37
+  %call.i.i268 = call ptr %205(ptr noundef %204, ptr noundef %206, ptr noundef nonnull %size.i.i250) #36
   %cmp.i.i269 = icmp eq ptr %call.i.i268, null
   %207 = load i64, ptr %size.i.i250, align 8
   %cmp2.i.i270 = icmp eq i64 %207, 0
@@ -24802,7 +24802,7 @@ check_next.exit279:                               ; preds = %cond.true.i257, %lu
   br label %return
 
 if.else253:                                       ; preds = %cond.end244
-  %call254 = tail call ptr @__ctype_b_loc() #42
+  %call254 = tail call ptr @__ctype_b_loc() #41
   %209 = load ptr, ptr %call254, align 8
   %idxprom = sext i32 %186 to i64
   %arrayidx = getelementptr inbounds i16, ptr %209, i64 %idxprom
@@ -24816,7 +24816,7 @@ if.else259:                                       ; preds = %if.else253
   br label %return
 
 sw.default:                                       ; preds = %for.cond
-  %call261 = tail call ptr @__ctype_b_loc() #42
+  %call261 = tail call ptr @__ctype_b_loc() #41
   %212 = load ptr, ptr %call261, align 8
   %idxprom263 = sext i32 %1 to i64
   %arrayidx264 = getelementptr inbounds i16, ptr %212, i64 %idxprom263
@@ -24852,7 +24852,7 @@ cond.false279:                                    ; preds = %if.then268
   %220 = load ptr, ptr %reader.i282, align 8
   %data.i283 = getelementptr inbounds i8, ptr %216, i64 24
   %221 = load ptr, ptr %data.i283, align 8
-  %call.i284 = call ptr %220(ptr noundef %219, ptr noundef %221, ptr noundef nonnull %size.i280) #37
+  %call.i284 = call ptr %220(ptr noundef %219, ptr noundef %221, ptr noundef nonnull %size.i280) #36
   %cmp.i285 = icmp eq ptr %call.i284, null
   %222 = load i64, ptr %size.i280, align 8
   %cmp2.i286 = icmp eq i64 %222, 0
@@ -24923,7 +24923,7 @@ cond.false318:                                    ; preds = %do.body
   %231 = load ptr, ptr %reader.i297, align 8
   %data.i298 = getelementptr inbounds i8, ptr %227, i64 24
   %232 = load ptr, ptr %data.i298, align 8
-  %call.i299 = call ptr %231(ptr noundef %230, ptr noundef %232, ptr noundef nonnull %size.i295) #37
+  %call.i299 = call ptr %231(ptr noundef %230, ptr noundef %232, ptr noundef nonnull %size.i295) #36
   %cmp.i300 = icmp eq ptr %call.i299, null
   %233 = load i64, ptr %size.i295, align 8
   %cmp2.i301 = icmp eq i64 %233, 0
@@ -25042,7 +25042,7 @@ cond.false:                                       ; preds = %entry
   %7 = load ptr, ptr %reader.i, align 8
   %data.i = getelementptr inbounds i8, ptr %3, i64 24
   %8 = load ptr, ptr %data.i, align 8
-  %call.i = call ptr %7(ptr noundef %6, ptr noundef %8, ptr noundef nonnull %size.i) #37
+  %call.i = call ptr %7(ptr noundef %6, ptr noundef %8, ptr noundef nonnull %size.i) #36
   %cmp.i = icmp eq ptr %call.i, null
   %9 = load i64, ptr %size.i, align 8
   %cmp2.i = icmp eq i64 %9, 0
@@ -25102,7 +25102,7 @@ cond.false23:                                     ; preds = %if.then
   %17 = load ptr, ptr %reader.i16, align 8
   %data.i17 = getelementptr inbounds i8, ptr %13, i64 24
   %18 = load ptr, ptr %data.i17, align 8
-  %call.i18 = call ptr %17(ptr noundef %16, ptr noundef %18, ptr noundef nonnull %size.i14) #37
+  %call.i18 = call ptr %17(ptr noundef %16, ptr noundef %18, ptr noundef nonnull %size.i14) #36
   %cmp.i19 = icmp eq ptr %call.i18, null
   %19 = load i64, ptr %size.i14, align 8
   %cmp2.i20 = icmp eq i64 %19, 0
@@ -25180,7 +25180,7 @@ cond.false:                                       ; preds = %entry
   %7 = load ptr, ptr %reader.i, align 8
   %data.i = getelementptr inbounds i8, ptr %3, i64 24
   %8 = load ptr, ptr %data.i, align 8
-  %call.i = call ptr %7(ptr noundef %6, ptr noundef %8, ptr noundef nonnull %size.i) #37
+  %call.i = call ptr %7(ptr noundef %6, ptr noundef %8, ptr noundef nonnull %size.i) #36
   %cmp.i = icmp eq ptr %call.i, null
   %9 = load i64, ptr %size.i, align 8
   %cmp2.i = icmp eq i64 %9, 0
@@ -25236,7 +25236,7 @@ cond.false19:                                     ; preds = %while.body
   %17 = load ptr, ptr %reader.i19, align 8
   %data.i20 = getelementptr inbounds i8, ptr %13, i64 24
   %18 = load ptr, ptr %data.i20, align 8
-  %call.i21 = call ptr %17(ptr noundef %16, ptr noundef %18, ptr noundef nonnull %size.i17) #37
+  %call.i21 = call ptr %17(ptr noundef %16, ptr noundef %18, ptr noundef nonnull %size.i17) #36
   %cmp.i22 = icmp eq ptr %call.i21, null
   %19 = load i64, ptr %size.i17, align 8
   %cmp2.i23 = icmp eq i64 %19, 0
@@ -25311,7 +25311,7 @@ cond.false:                                       ; preds = %entry
   %7 = load ptr, ptr %reader.i, align 8
   %data.i = getelementptr inbounds i8, ptr %3, i64 24
   %8 = load ptr, ptr %data.i, align 8
-  %call.i = call ptr %7(ptr noundef %6, ptr noundef %8, ptr noundef nonnull %size.i) #37
+  %call.i = call ptr %7(ptr noundef %6, ptr noundef %8, ptr noundef nonnull %size.i) #36
   %cmp.i = icmp eq ptr %call.i, null
   %9 = load i64, ptr %size.i, align 8
   %cmp2.i = icmp eq i64 %9, 0
@@ -25399,7 +25399,7 @@ cond.false28:                                     ; preds = %if.then16
   %19 = load ptr, ptr %reader.i42, align 8
   %data.i43 = getelementptr inbounds i8, ptr %15, i64 24
   %20 = load ptr, ptr %data.i43, align 8
-  %call.i44 = call ptr %19(ptr noundef %18, ptr noundef %20, ptr noundef nonnull %size.i40) #37
+  %call.i44 = call ptr %19(ptr noundef %18, ptr noundef %20, ptr noundef nonnull %size.i40) #36
   %cmp.i45 = icmp eq ptr %call.i44, null
   %21 = load i64, ptr %size.i40, align 8
   %cmp2.i46 = icmp eq i64 %21, 0
@@ -25445,7 +25445,7 @@ if.then.i:                                        ; preds = %sw.bb35
   br i1 %cmp2.i56, label %if.then3.i, label %cond.true.i
 
 if.then3.i:                                       ; preds = %if.then.i
-  call fastcc void @luaX_lexerror(ptr noundef nonnull readonly %ls, ptr noundef nonnull @.str.142, i32 noundef 0) #43
+  call fastcc void @luaX_lexerror(ptr noundef nonnull readonly %ls, ptr noundef nonnull @.str.142, i32 noundef 0) #42
   unreachable
 
 cond.true.i:                                      ; preds = %if.then.i
@@ -25458,7 +25458,7 @@ cond.true.i:                                      ; preds = %if.then.i
   %29 = load ptr, ptr %frealloc.i.i, align 8
   %ud.i.i = getelementptr inbounds i8, ptr %28, i64 24
   %30 = load ptr, ptr %ud.i.i, align 8
-  %call.i.i = call ptr %29(ptr noundef %30, ptr noundef %27, i64 noundef %25, i64 noundef %mul.i) #37
+  %call.i.i = call ptr %29(ptr noundef %30, ptr noundef %27, i64 noundef %25, i64 noundef %mul.i) #36
   %cmp.i.i = icmp eq ptr %call.i.i, null
   %cmp1.i.i = icmp ne i64 %25, 0
   %or.cond.i.i = and i1 %cmp1.i.i, %cmp.i.i
@@ -25476,7 +25476,7 @@ if.then.i.i.i:                                    ; preds = %if.then.i.i
   store volatile i32 4, ptr %status.i.i.i, align 8
   %32 = load ptr, ptr %errorJmp.i.i.i, align 8
   %b.i.i.i = getelementptr inbounds i8, ptr %32, i64 8
-  call void @longjmp(ptr noundef nonnull %b.i.i.i, i32 noundef 1) #40
+  call void @longjmp(ptr noundef nonnull %b.i.i.i, i32 noundef 1) #39
   unreachable
 
 if.else.i.i.i:                                    ; preds = %if.then.i.i
@@ -25493,11 +25493,11 @@ if.then5.i.i.i:                                   ; preds = %if.else.i.i.i
   %35 = load ptr, ptr %l_G.i.i.le, align 8
   %panic7.i.i.i = getelementptr inbounds i8, ptr %35, i64 152
   %36 = load ptr, ptr %panic7.i.i.i, align 8
-  %call.i.i.i = call i32 %36(ptr noundef nonnull %26) #37
+  %call.i.i.i = call i32 %36(ptr noundef nonnull %26) #36
   br label %if.end.i.i.i
 
 if.end.i.i.i:                                     ; preds = %if.then5.i.i.i, %if.else.i.i.i
-  call void @exit(i32 noundef 1) #41
+  call void @exit(i32 noundef 1) #40
   unreachable
 
 luaM_realloc_.exit.i:                             ; preds = %cond.true.i
@@ -25544,7 +25544,7 @@ cond.false.i:                                     ; preds = %save.exit
   %47 = load ptr, ptr %reader.i.i, align 8
   %data.i.i = getelementptr inbounds i8, ptr %43, i64 24
   %48 = load ptr, ptr %data.i.i, align 8
-  %call.i.i63 = call ptr %47(ptr noundef %46, ptr noundef %48, ptr noundef nonnull %size.i.i) #37
+  %call.i.i63 = call ptr %47(ptr noundef %46, ptr noundef %48, ptr noundef nonnull %size.i.i) #36
   %cmp.i.i64 = icmp eq ptr %call.i.i63, null
   %49 = load i64, ptr %size.i.i, align 8
   %cmp2.i.i = icmp eq i64 %49, 0
@@ -25604,7 +25604,7 @@ cond.false23.i:                                   ; preds = %if.then.i61
   %57 = load ptr, ptr %reader.i16.i, align 8
   %data.i17.i = getelementptr inbounds i8, ptr %53, i64 24
   %58 = load ptr, ptr %data.i17.i, align 8
-  %call.i18.i = call ptr %57(ptr noundef %56, ptr noundef %58, ptr noundef nonnull %size.i14.i) #37
+  %call.i18.i = call ptr %57(ptr noundef %56, ptr noundef %58, ptr noundef nonnull %size.i14.i) #36
   %cmp.i19.i = icmp eq ptr %call.i18.i, null
   %59 = load i64, ptr %size.i14.i, align 8
   %cmp2.i20.i = icmp eq i64 %59, 0
@@ -25683,7 +25683,7 @@ cond.false53:                                     ; preds = %if.then41
   %70 = load ptr, ptr %reader.i68, align 8
   %data.i69 = getelementptr inbounds i8, ptr %66, i64 24
   %71 = load ptr, ptr %data.i69, align 8
-  %call.i70 = call ptr %70(ptr noundef %69, ptr noundef %71, ptr noundef nonnull %size.i66) #37
+  %call.i70 = call ptr %70(ptr noundef %69, ptr noundef %71, ptr noundef nonnull %size.i66) #36
   %cmp.i71 = icmp eq ptr %call.i70, null
   %72 = load i64, ptr %size.i66, align 8
   %cmp2.i72 = icmp eq i64 %72, 0
@@ -25739,7 +25739,7 @@ cond.false69:                                     ; preds = %if.else
   %80 = load ptr, ptr %reader.i83, align 8
   %data.i84 = getelementptr inbounds i8, ptr %76, i64 24
   %81 = load ptr, ptr %data.i84, align 8
-  %call.i85 = call ptr %80(ptr noundef %79, ptr noundef %81, ptr noundef nonnull %size.i81) #37
+  %call.i85 = call ptr %80(ptr noundef %79, ptr noundef %81, ptr noundef nonnull %size.i81) #36
   %cmp.i86 = icmp eq ptr %call.i85, null
   %82 = load i64, ptr %size.i81, align 8
   %cmp2.i87 = icmp eq i64 %82, 0
@@ -25786,7 +25786,7 @@ if.end84:                                         ; preds = %if.then77, %cond.en
 }
 
 ; Function Attrs: noreturn nounwind uwtable
-define internal fastcc void @luaX_lexerror(ptr nocapture noundef readonly %ls, ptr noundef %msg, i32 noundef %token) unnamed_addr #9 {
+define internal fastcc void @luaX_lexerror(ptr nocapture noundef readonly %ls, ptr noundef %msg, i32 noundef %token) unnamed_addr #8 {
 entry:
   %buff = alloca [80 x i8], align 16
   %source = getelementptr inbounds i8, ptr %ls, i64 80
@@ -25819,7 +25819,7 @@ sw.default.i:                                     ; preds = %if.then
   br i1 %cmp.i, label %if.then.i11, label %if.else.i9
 
 if.then.i11:                                      ; preds = %sw.default.i
-  %call.i12 = tail call ptr @__ctype_b_loc() #42
+  %call.i12 = tail call ptr @__ctype_b_loc() #41
   %6 = load ptr, ptr %call.i12, align 8
   %idxprom.i = sext i32 %token to i64
   %arrayidx.i = getelementptr inbounds i16, ptr %6, i64 %idxprom.i
@@ -25860,7 +25860,7 @@ if.then.i:                                        ; preds = %if.end
   store volatile i32 3, ptr %status.i, align 8
   %12 = load ptr, ptr %errorJmp.i, align 8
   %b.i = getelementptr inbounds i8, ptr %12, i64 8
-  call void @longjmp(ptr noundef nonnull %b.i, i32 noundef 1) #40
+  call void @longjmp(ptr noundef nonnull %b.i, i32 noundef 1) #39
   unreachable
 
 if.else.i:                                        ; preds = %if.end
@@ -25917,7 +25917,7 @@ if.then.i.i:                                      ; preds = %if.then5.i
   br i1 %cmp1.i.i, label %if.then3.i.i, label %resetstack.exit
 
 if.then3.i.i:                                     ; preds = %if.then.i.i
-  call fastcc void @luaD_reallocCI(ptr noundef nonnull %10, i32 noundef 20000) #43
+  call fastcc void @luaD_reallocCI(ptr noundef nonnull %10, i32 noundef 20000) #42
   br label %resetstack.exit
 
 resetstack.exit:                                  ; preds = %if.then5.i, %if.then.i.i, %if.then3.i.i
@@ -25925,11 +25925,11 @@ resetstack.exit:                                  ; preds = %if.then5.i, %if.the
   %25 = load ptr, ptr %l_G.i, align 8
   %panic7.i = getelementptr inbounds i8, ptr %25, i64 152
   %26 = load ptr, ptr %panic7.i, align 8
-  %call.i8 = call i32 %26(ptr noundef nonnull %10) #37
+  %call.i8 = call i32 %26(ptr noundef nonnull %10) #36
   br label %if.end.i
 
 if.end.i:                                         ; preds = %resetstack.exit, %if.else.i
-  call void @exit(i32 noundef 1) #41
+  call void @exit(i32 noundef 1) #40
   unreachable
 }
 
@@ -25969,7 +25969,7 @@ cond.true:                                        ; preds = %if.then
   %6 = load ptr, ptr %frealloc.i, align 8
   %ud.i = getelementptr inbounds i8, ptr %5, i64 24
   %7 = load ptr, ptr %ud.i, align 8
-  %call.i = tail call ptr %6(ptr noundef %7, ptr noundef %4, i64 noundef %2, i64 noundef %mul) #37
+  %call.i = tail call ptr %6(ptr noundef %7, ptr noundef %4, i64 noundef %2, i64 noundef %mul) #36
   %cmp.i = icmp eq ptr %call.i, null
   %cmp1.i = icmp ne i64 %2, 0
   %or.cond.i = and i1 %cmp1.i, %cmp.i
@@ -25986,7 +25986,7 @@ if.then.i.i:                                      ; preds = %if.then.i
   store volatile i32 4, ptr %status.i.i, align 8
   %9 = load ptr, ptr %errorJmp.i.i, align 8
   %b.i.i = getelementptr inbounds i8, ptr %9, i64 8
-  tail call void @longjmp(ptr noundef nonnull %b.i.i, i32 noundef 1) #40
+  tail call void @longjmp(ptr noundef nonnull %b.i.i, i32 noundef 1) #39
   unreachable
 
 if.else.i.i:                                      ; preds = %if.then.i
@@ -26003,11 +26003,11 @@ if.then5.i.i:                                     ; preds = %if.else.i.i
   %12 = load ptr, ptr %l_G.i, align 8
   %panic7.i.i = getelementptr inbounds i8, ptr %12, i64 152
   %13 = load ptr, ptr %panic7.i.i, align 8
-  %call.i.i = tail call i32 %13(ptr noundef nonnull %3) #37
+  %call.i.i = tail call i32 %13(ptr noundef nonnull %3) #36
   br label %if.end.i.i
 
 if.end.i.i:                                       ; preds = %if.then5.i.i, %if.else.i.i
-  tail call void @exit(i32 noundef 1) #41
+  tail call void @exit(i32 noundef 1) #40
   unreachable
 
 luaM_realloc_.exit:                               ; preds = %cond.true
@@ -26072,7 +26072,7 @@ cond.false:                                       ; preds = %do.body
   %7 = load ptr, ptr %reader.i, align 8
   %data.i = getelementptr inbounds i8, ptr %3, i64 24
   %8 = load ptr, ptr %data.i, align 8
-  %call.i = call ptr %7(ptr noundef %6, ptr noundef %8, ptr noundef nonnull %size.i) #37
+  %call.i = call ptr %7(ptr noundef %6, ptr noundef %8, ptr noundef nonnull %size.i) #36
   %cmp.i = icmp eq ptr %call.i, null
   %9 = load i64, ptr %size.i, align 8
   %cmp2.i = icmp eq i64 %9, 0
@@ -26097,7 +26097,7 @@ luaZ_fill.exit:                                   ; preds = %cond.false, %if.end
 cond.end:                                         ; preds = %luaZ_fill.exit, %cond.true
   %cond = phi i32 [ %conv, %cond.true ], [ %retval.0.i, %luaZ_fill.exit ]
   store i32 %cond, ptr %ls, align 8
-  %call4 = tail call ptr @__ctype_b_loc() #42
+  %call4 = tail call ptr @__ctype_b_loc() #41
   %11 = load ptr, ptr %call4, align 8
   %idxprom = sext i32 %cond to i64
   %arrayidx = getelementptr inbounds i16, ptr %11, i64 %idxprom
@@ -26143,7 +26143,7 @@ cond.false.i:                                     ; preds = %if.end.i26
   %21 = load ptr, ptr %reader.i.i, align 8
   %data.i.i = getelementptr inbounds i8, ptr %17, i64 24
   %22 = load ptr, ptr %data.i.i, align 8
-  %call.i.i = call ptr %21(ptr noundef %20, ptr noundef %22, ptr noundef nonnull %size.i.i) #37
+  %call.i.i = call ptr %21(ptr noundef %20, ptr noundef %22, ptr noundef nonnull %size.i.i) #36
   %cmp.i.i = icmp eq ptr %call.i.i, null
   %23 = load i64, ptr %size.i.i, align 8
   %cmp2.i.i = icmp eq i64 %23, 0
@@ -26204,7 +26204,7 @@ cond.false.i45:                                   ; preds = %if.end.i34
   %35 = load ptr, ptr %reader.i.i47, align 8
   %data.i.i48 = getelementptr inbounds i8, ptr %31, i64 24
   %36 = load ptr, ptr %data.i.i48, align 8
-  %call.i.i49 = call ptr %35(ptr noundef %34, ptr noundef %36, ptr noundef nonnull %size.i.i31) #37
+  %call.i.i49 = call ptr %35(ptr noundef %34, ptr noundef %36, ptr noundef nonnull %size.i.i31) #36
   %cmp.i.i50 = icmp eq ptr %call.i.i49, null
   %37 = load i64, ptr %size.i.i31, align 8
   %cmp2.i.i51 = icmp eq i64 %37, 0
@@ -26271,7 +26271,7 @@ cond.false36:                                     ; preds = %while.body
   %50 = load ptr, ptr %reader.i63, align 8
   %data.i64 = getelementptr inbounds i8, ptr %46, i64 24
   %51 = load ptr, ptr %data.i64, align 8
-  %call.i65 = call ptr %50(ptr noundef %49, ptr noundef %51, ptr noundef nonnull %size.i61) #37
+  %call.i65 = call ptr %50(ptr noundef %49, ptr noundef %51, ptr noundef nonnull %size.i61) #36
   %cmp.i66 = icmp eq ptr %call.i65, null
   %52 = load i64, ptr %size.i61, align 8
   %cmp2.i67 = icmp eq i64 %52, 0
@@ -26342,7 +26342,7 @@ buffreplace.exit.loopexit:                        ; preds = %if.end.i77
 buffreplace.exit:                                 ; preds = %buffreplace.exit.loopexit, %while.end
   %61 = phi ptr [ %.pre104, %buffreplace.exit.loopexit ], [ %ls.val.val, %while.end ]
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %endptr.i)
-  %call.i79 = call double @strtod(ptr noundef %61, ptr noundef nonnull %endptr.i) #37
+  %call.i79 = call double @strtod(ptr noundef %61, ptr noundef nonnull %endptr.i) #36
   store double %call.i79, ptr %seminfo, align 8
   %62 = load ptr, ptr %endptr.i, align 8
   %cmp.i80 = icmp eq ptr %62, %61
@@ -26360,7 +26360,7 @@ if.end.i81:                                       ; preds = %buffreplace.exit
   ]
 
 if.then6.i:                                       ; preds = %if.end.i81, %if.end.i81
-  %call7.i = call i64 @strtoul(ptr noundef %61, ptr noundef nonnull %endptr.i, i32 noundef 16) #37
+  %call7.i = call i64 @strtoul(ptr noundef %61, ptr noundef nonnull %endptr.i, i32 noundef 16) #36
   %conv8.i = uitofp i64 %call7.i to double
   store double %conv8.i, ptr %seminfo, align 8
   %.pre.i = load ptr, ptr %endptr.i, align 8
@@ -26585,7 +26585,7 @@ if.then1:                                         ; preds = %if.then
   br i1 %cmp.i.i, label %if.then.i.i11, label %if.else.i.i10
 
 if.then.i.i11:                                    ; preds = %if.then1
-  %call.i.i12 = tail call ptr @__ctype_b_loc() #42
+  %call.i.i12 = tail call ptr @__ctype_b_loc() #41
   %4 = load ptr, ptr %call.i.i12, align 8
   %idxprom.i.i = sext i32 %what to i64
   %arrayidx.i.i = getelementptr inbounds i16, ptr %4, i64 %idxprom.i.i
@@ -26620,7 +26620,7 @@ if.else:                                          ; preds = %if.then
   br i1 %cmp.i.i, label %if.then.i15, label %if.else.i
 
 if.then.i15:                                      ; preds = %if.else
-  %call.i = tail call ptr @__ctype_b_loc() #42
+  %call.i = tail call ptr @__ctype_b_loc() #41
   %9 = load ptr, ptr %call.i, align 8
   %idxprom.i = sext i32 %what to i64
   %arrayidx.i = getelementptr inbounds i16, ptr %9, i64 %idxprom.i
@@ -26650,7 +26650,7 @@ luaX_token2str.exit:                              ; preds = %cond.true.i, %cond.
   br i1 %cmp.i17, label %if.then.i23, label %if.else.i18
 
 if.then.i23:                                      ; preds = %luaX_token2str.exit
-  %call.i24 = tail call ptr @__ctype_b_loc() #42
+  %call.i24 = tail call ptr @__ctype_b_loc() #41
   %13 = load ptr, ptr %call.i24, align 8
   %idxprom.i25 = sext i32 %who to i64
   %arrayidx.i26 = getelementptr inbounds i16, ptr %13, i64 %idxprom.i25
@@ -26872,7 +26872,7 @@ if.then.i:                                        ; preds = %entry
   br i1 %cmp.i.i.i, label %if.then.i.i.i, label %if.else.i.i.i
 
 if.then.i.i.i:                                    ; preds = %if.then.i
-  %call.i.i.i = tail call ptr @__ctype_b_loc() #42
+  %call.i.i.i = tail call ptr @__ctype_b_loc() #41
   %2 = load ptr, ptr %call.i.i.i, align 8
   %idxprom.i.i.i = sext i32 %c to i64
   %arrayidx.i.i.i = getelementptr inbounds i16, ptr %2, i64 %idxprom.i.i.i
@@ -28887,7 +28887,7 @@ if.end12.i:                                       ; preds = %sw.bb9.i
   br label %sw.epilog.i
 
 sw.bb15.i:                                        ; preds = %if.end.i
-  %call16.i = tail call double @pow(double noundef %6, double noundef %7) #37
+  %call16.i = tail call double @pow(double noundef %6, double noundef %7) #36
   br label %sw.epilog.i
 
 sw.bb17.i:                                        ; preds = %if.end.i
@@ -29620,7 +29620,7 @@ cond.true:                                        ; preds = %if.end6
   %2 = load ptr, ptr %frealloc.i, align 8
   %ud.i = getelementptr inbounds i8, ptr %1, i64 24
   %3 = load ptr, ptr %ud.i, align 8
-  %call.i = tail call ptr %2(ptr noundef %3, ptr noundef %block, i64 noundef %mul11, i64 noundef %mul13) #37
+  %call.i = tail call ptr %2(ptr noundef %3, ptr noundef %block, i64 noundef %mul11, i64 noundef %mul13) #36
   %cmp.i = icmp eq ptr %call.i, null
   br i1 %cmp.i, label %if.then.i, label %luaM_realloc_.exit
 
@@ -29635,7 +29635,7 @@ if.then.i.i:                                      ; preds = %if.then.i
   store volatile i32 4, ptr %status.i.i, align 8
   %5 = load ptr, ptr %errorJmp.i.i, align 8
   %b.i.i = getelementptr inbounds i8, ptr %5, i64 8
-  tail call void @longjmp(ptr noundef nonnull %b.i.i, i32 noundef 1) #40
+  tail call void @longjmp(ptr noundef nonnull %b.i.i, i32 noundef 1) #39
   unreachable
 
 if.else.i.i:                                      ; preds = %if.then.i
@@ -29652,11 +29652,11 @@ if.then5.i.i:                                     ; preds = %if.else.i.i
   %8 = load ptr, ptr %l_G.i, align 8
   %panic7.i.i = getelementptr inbounds i8, ptr %8, i64 152
   %9 = load ptr, ptr %panic7.i.i, align 8
-  %call.i.i = tail call i32 %9(ptr noundef nonnull %L) #37
+  %call.i.i = tail call i32 %9(ptr noundef nonnull %L) #36
   br label %if.end.i.i
 
 if.end.i.i:                                       ; preds = %if.then5.i.i, %if.else.i.i
-  tail call void @exit(i32 noundef 1) #41
+  tail call void @exit(i32 noundef 1) #40
   unreachable
 
 luaM_realloc_.exit:                               ; preds = %cond.true
@@ -29797,7 +29797,7 @@ while.end:                                        ; preds = %if.end, %entry
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.abs.i32(i32, i1 immarg) #13
+declare i32 @llvm.abs.i32(i32, i1 immarg) #12
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @discharge2reg(ptr nocapture noundef %fs, ptr nocapture noundef %e, i32 noundef %reg) unnamed_addr #0 {
@@ -34408,7 +34408,7 @@ return:                                           ; preds = %if.then6.i, %if.the
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define internal fastcc double @lua_tonumber(ptr nocapture noundef %L, i32 noundef %idx) unnamed_addr #22 {
+define internal fastcc double @lua_tonumber(ptr nocapture noundef %L, i32 noundef %idx) unnamed_addr #21 {
 entry:
   %endptr.i.i = alloca ptr, align 8
   %cmp.i = icmp sgt i32 %idx, 0
@@ -34503,7 +34503,7 @@ land.lhs.true.i:                                  ; preds = %index2adr.exit
   %15 = load ptr, ptr %retval.0.i, align 8
   %add.ptr.i4 = getelementptr inbounds i8, ptr %15, i64 24
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %endptr.i.i)
-  %call.i.i = call double @strtod(ptr noundef nonnull %add.ptr.i4, ptr noundef nonnull %endptr.i.i) #37
+  %call.i.i = call double @strtod(ptr noundef nonnull %add.ptr.i4, ptr noundef nonnull %endptr.i.i) #36
   %16 = load ptr, ptr %endptr.i.i, align 8
   %cmp.i.i = icmp eq ptr %16, %add.ptr.i4
   br i1 %cmp.i.i, label %luaO_str2d.exit.thread.i, label %if.end.i.i
@@ -34520,7 +34520,7 @@ if.end.i.i:                                       ; preds = %land.lhs.true.i
   ]
 
 if.then6.i.i:                                     ; preds = %if.end.i.i, %if.end.i.i
-  %call7.i.i = call i64 @strtoul(ptr noundef nonnull %add.ptr.i4, ptr noundef nonnull %endptr.i.i, i32 noundef 16) #37
+  %call7.i.i = call i64 @strtoul(ptr noundef nonnull %add.ptr.i4, ptr noundef nonnull %endptr.i.i, i32 noundef 16) #36
   %conv8.i.i = uitofp i64 %call7.i.i to double
   %.pre.i.i = load ptr, ptr %endptr.i.i, align 8
   %.pre5.i.i = load i8, ptr %.pre.i.i, align 1
@@ -34538,7 +34538,7 @@ luaO_str2d.exit.thread9.i:                        ; preds = %if.end9.i.i
   br label %return
 
 while.cond.preheader.i.i:                         ; preds = %if.end9.i.i
-  %call15.i.i = tail call ptr @__ctype_b_loc() #42
+  %call15.i.i = tail call ptr @__ctype_b_loc() #41
   %19 = load ptr, ptr %call15.i.i, align 8
   br label %while.cond.i.i
 
@@ -34677,8 +34677,8 @@ sw.bb4:                                           ; preds = %index2adr.exit
 cond.true:                                        ; preds = %index2adr.exit
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %s.i)
   %20 = load double, ptr %retval.0.i, align 8
-  %call.i = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %s.i, ptr noundef nonnull dereferenceable(1) @.str.16, double noundef %20) #37
-  %call3.i = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %s.i) #36
+  %call.i = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %s.i, ptr noundef nonnull dereferenceable(1) @.str.16, double noundef %20) #36
+  %call3.i = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %s.i) #35
   %call4.i = call fastcc ptr @luaS_newlstr(ptr noundef %L, ptr noundef nonnull %s.i, i64 noundef %call3.i)
   store ptr %call4.i, ptr %retval.0.i, align 8
   store i32 4, ptr %tt, align 8
@@ -34791,7 +34791,7 @@ getcurrenv.exit:                                  ; preds = %if.then.i, %if.else
   %16 = load ptr, ptr %frealloc.i.i, align 8
   %ud.i.i = getelementptr inbounds i8, ptr %15, i64 24
   %17 = load ptr, ptr %ud.i.i, align 8
-  %call.i.i = tail call ptr %16(ptr noundef %17, ptr noundef null, i64 noundef 0, i64 noundef %add.i11) #37
+  %call.i.i = tail call ptr %16(ptr noundef %17, ptr noundef null, i64 noundef 0, i64 noundef %add.i11) #36
   %cmp.i.i = icmp eq ptr %call.i.i, null
   br i1 %cmp.i.i, label %if.then.i.i, label %luaS_newudata.exit
 
@@ -34806,7 +34806,7 @@ if.then.i.i.i:                                    ; preds = %if.then.i.i
   store volatile i32 4, ptr %status.i.i.i, align 8
   %19 = load ptr, ptr %errorJmp.i.i.i, align 8
   %b.i.i.i = getelementptr inbounds i8, ptr %19, i64 8
-  tail call void @longjmp(ptr noundef nonnull %b.i.i.i, i32 noundef 1) #40
+  tail call void @longjmp(ptr noundef nonnull %b.i.i.i, i32 noundef 1) #39
   unreachable
 
 if.else.i.i.i:                                    ; preds = %if.then.i.i
@@ -34823,11 +34823,11 @@ if.then5.i.i.i:                                   ; preds = %if.else.i.i.i
   %22 = load ptr, ptr %l_G, align 8
   %panic7.i.i.i = getelementptr inbounds i8, ptr %22, i64 152
   %23 = load ptr, ptr %panic7.i.i.i, align 8
-  %call.i.i.i = tail call i32 %23(ptr noundef nonnull %L) #37
+  %call.i.i.i = tail call i32 %23(ptr noundef nonnull %L) #36
   br label %if.end.i.i.i
 
 if.end.i.i.i:                                     ; preds = %if.then5.i.i.i, %if.else.i.i.i
-  tail call void @exit(i32 noundef 1) #41
+  tail call void @exit(i32 noundef 1) #40
   unreachable
 
 luaS_newudata.exit:                               ; preds = %getcurrenv.exit
@@ -34967,7 +34967,7 @@ land.lhs.true.i.i58:                              ; preds = %land.lhs.true.i.i
   %10 = load ptr, ptr %add.ptr.luaO_nilobject_.i.i, align 8
   %add.ptr.i3.i = getelementptr inbounds i8, ptr %10, i64 24
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %endptr.i.i.i)
-  %call.i.i.i = call double @strtod(ptr noundef nonnull %add.ptr.i3.i, ptr noundef nonnull %endptr.i.i.i) #37
+  %call.i.i.i = call double @strtod(ptr noundef nonnull %add.ptr.i3.i, ptr noundef nonnull %endptr.i.i.i) #36
   %11 = load ptr, ptr %endptr.i.i.i, align 8
   %cmp.i.i.i = icmp eq ptr %11, %add.ptr.i3.i
   br i1 %cmp.i.i.i, label %luaO_str2d.exit.thread.i.i, label %if.end.i.i.i
@@ -34984,7 +34984,7 @@ if.end.i.i.i:                                     ; preds = %land.lhs.true.i.i58
   ]
 
 if.then6.i.i.i:                                   ; preds = %if.end.i.i.i, %if.end.i.i.i
-  %call7.i.i.i = call i64 @strtoul(ptr noundef nonnull %add.ptr.i3.i, ptr noundef nonnull %endptr.i.i.i, i32 noundef 16) #37
+  %call7.i.i.i = call i64 @strtoul(ptr noundef nonnull %add.ptr.i3.i, ptr noundef nonnull %endptr.i.i.i, i32 noundef 16) #36
   %.pre.i.i.i = load ptr, ptr %endptr.i.i.i, align 8
   %.pre5.i.i.i = load i8, ptr %.pre.i.i.i, align 1
   br label %if.end9.i.i.i
@@ -35000,7 +35000,7 @@ luaO_str2d.exit.thread9.i.i:                      ; preds = %if.end9.i.i.i
   br label %luaL_optinteger.exit
 
 while.cond.preheader.i.i.i:                       ; preds = %if.end9.i.i.i
-  %call15.i.i.i = tail call ptr @__ctype_b_loc() #42
+  %call15.i.i.i = tail call ptr @__ctype_b_loc() #41
   %14 = load ptr, ptr %call15.i.i.i, align 8
   br label %while.cond.i.i.i
 
@@ -35067,7 +35067,7 @@ land.lhs.true.i.i69:                              ; preds = %land.lhs.true.i
   %24 = load ptr, ptr %add.ptr.luaO_nilobject_.i.i66, align 8
   %add.ptr.i3.i70 = getelementptr inbounds i8, ptr %24, i64 24
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %endptr.i.i.i60)
-  %call.i.i.i71 = call double @strtod(ptr noundef nonnull %add.ptr.i3.i70, ptr noundef nonnull %endptr.i.i.i60) #37
+  %call.i.i.i71 = call double @strtod(ptr noundef nonnull %add.ptr.i3.i70, ptr noundef nonnull %endptr.i.i.i60) #36
   %25 = load ptr, ptr %endptr.i.i.i60, align 8
   %cmp.i.i.i72 = icmp eq ptr %25, %add.ptr.i3.i70
   br i1 %cmp.i.i.i72, label %luaO_str2d.exit.thread.i.i95, label %if.end.i.i.i73
@@ -35084,7 +35084,7 @@ if.end.i.i.i73:                                   ; preds = %land.lhs.true.i.i69
   ]
 
 if.then6.i.i.i74:                                 ; preds = %if.end.i.i.i73, %if.end.i.i.i73
-  %call7.i.i.i75 = call i64 @strtoul(ptr noundef nonnull %add.ptr.i3.i70, ptr noundef nonnull %endptr.i.i.i60, i32 noundef 16) #37
+  %call7.i.i.i75 = call i64 @strtoul(ptr noundef nonnull %add.ptr.i3.i70, ptr noundef nonnull %endptr.i.i.i60, i32 noundef 16) #36
   %.pre.i.i.i76 = load ptr, ptr %endptr.i.i.i60, align 8
   %.pre5.i.i.i77 = load i8, ptr %.pre.i.i.i76, align 1
   br label %if.end9.i.i.i78
@@ -35100,7 +35100,7 @@ luaO_str2d.exit.thread9.i.i94:                    ; preds = %if.end9.i.i.i78
   br label %cond.end
 
 while.cond.preheader.i.i.i81:                     ; preds = %if.end9.i.i.i78
-  %call15.i.i.i82 = tail call ptr @__ctype_b_loc() #42
+  %call15.i.i.i82 = tail call ptr @__ctype_b_loc() #41
   %28 = load ptr, ptr %call15.i.i.i82, align 8
   br label %while.cond.i.i.i83
 
@@ -35280,8 +35280,8 @@ sw.bb4.i.i:                                       ; preds = %if.then.i100
 cond.true.i.i:                                    ; preds = %if.then.i100
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %s.i.i.i)
   %57 = load double, ptr %add.ptr8.i.i.i, align 8
-  %call.i.i.i103 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %s.i.i.i, ptr noundef nonnull dereferenceable(1) @.str.16, double noundef %57) #37
-  %call3.i.i.i = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %s.i.i.i) #36
+  %call.i.i.i103 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %s.i.i.i, ptr noundef nonnull dereferenceable(1) @.str.16, double noundef %57) #36
+  %call3.i.i.i = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %s.i.i.i) #35
   %call4.i.i.i = call fastcc ptr @luaS_newlstr(ptr noundef nonnull %49, ptr noundef nonnull %s.i.i.i, i64 noundef %call3.i.i.i)
   store ptr %call4.i.i.i, ptr %add.ptr8.i.i.i, align 8
   store i32 4, ptr %tt.i.i102, align 8
@@ -35385,8 +35385,8 @@ sw.bb4.i:                                         ; preds = %index2adr.exit.i135
 cond.true.i:                                      ; preds = %index2adr.exit.i135
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %s.i.i)
   %80 = load double, ptr %retval.0.i.i136, align 8
-  %call.i.i138 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %s.i.i, ptr noundef nonnull dereferenceable(1) @.str.16, double noundef %80) #37
-  %call3.i.i = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %s.i.i) #36
+  %call.i.i138 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %s.i.i, ptr noundef nonnull dereferenceable(1) @.str.16, double noundef %80) #36
+  %call3.i.i = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %s.i.i) #35
   %call4.i.i = call fastcc ptr @luaS_newlstr(ptr noundef %49, ptr noundef nonnull %s.i.i, i64 noundef %call3.i.i)
   store ptr %call4.i.i, ptr %retval.0.i.i136, align 8
   store i32 4, ptr %tt.i137, align 8
@@ -35608,7 +35608,7 @@ land.lhs.true.i.i25:                              ; preds = %land.lhs.true.i
   %6 = load ptr, ptr %add.ptr.luaO_nilobject_.i.i23, align 8
   %add.ptr.i3.i = getelementptr inbounds i8, ptr %6, i64 24
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %endptr.i.i.i)
-  %call.i.i.i = call double @strtod(ptr noundef nonnull %add.ptr.i3.i, ptr noundef nonnull %endptr.i.i.i) #37
+  %call.i.i.i = call double @strtod(ptr noundef nonnull %add.ptr.i3.i, ptr noundef nonnull %endptr.i.i.i) #36
   %7 = load ptr, ptr %endptr.i.i.i, align 8
   %cmp.i.i.i26 = icmp eq ptr %7, %add.ptr.i3.i
   br i1 %cmp.i.i.i26, label %luaO_str2d.exit.thread.i.i, label %if.end.i.i.i27
@@ -35625,7 +35625,7 @@ if.end.i.i.i27:                                   ; preds = %land.lhs.true.i.i25
   ]
 
 if.then6.i.i.i:                                   ; preds = %if.end.i.i.i27, %if.end.i.i.i27
-  %call7.i.i.i = call i64 @strtoul(ptr noundef nonnull %add.ptr.i3.i, ptr noundef nonnull %endptr.i.i.i, i32 noundef 16) #37
+  %call7.i.i.i = call i64 @strtoul(ptr noundef nonnull %add.ptr.i3.i, ptr noundef nonnull %endptr.i.i.i, i32 noundef 16) #36
   %.pre.i.i.i = load ptr, ptr %endptr.i.i.i, align 8
   %.pre5.i.i.i = load i8, ptr %.pre.i.i.i, align 1
   br label %if.end9.i.i.i
@@ -35641,7 +35641,7 @@ luaO_str2d.exit.thread9.i.i:                      ; preds = %if.end9.i.i.i
   br label %luaL_checkinteger.exit
 
 while.cond.preheader.i.i.i:                       ; preds = %if.end9.i.i.i
-  %call15.i.i.i = tail call ptr @__ctype_b_loc() #42
+  %call15.i.i.i = tail call ptr @__ctype_b_loc() #41
   %10 = load ptr, ptr %call15.i.i.i, align 8
   br label %while.cond.i.i.i
 
@@ -35839,7 +35839,7 @@ land.lhs.true.i.i87:                              ; preds = %land.lhs.true.i.i
   %9 = load ptr, ptr %add.ptr.luaO_nilobject_.i.i85, align 8
   %add.ptr.i3.i = getelementptr inbounds i8, ptr %9, i64 24
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %endptr.i.i.i)
-  %call.i.i.i = call double @strtod(ptr noundef nonnull %add.ptr.i3.i, ptr noundef nonnull %endptr.i.i.i) #37
+  %call.i.i.i = call double @strtod(ptr noundef nonnull %add.ptr.i3.i, ptr noundef nonnull %endptr.i.i.i) #36
   %10 = load ptr, ptr %endptr.i.i.i, align 8
   %cmp.i.i.i88 = icmp eq ptr %10, %add.ptr.i3.i
   br i1 %cmp.i.i.i88, label %luaO_str2d.exit.thread.i.i, label %if.end.i.i.i89
@@ -35856,7 +35856,7 @@ if.end.i.i.i89:                                   ; preds = %land.lhs.true.i.i87
   ]
 
 if.then6.i.i.i:                                   ; preds = %if.end.i.i.i89, %if.end.i.i.i89
-  %call7.i.i.i = call i64 @strtoul(ptr noundef nonnull %add.ptr.i3.i, ptr noundef nonnull %endptr.i.i.i, i32 noundef 16) #37
+  %call7.i.i.i = call i64 @strtoul(ptr noundef nonnull %add.ptr.i3.i, ptr noundef nonnull %endptr.i.i.i, i32 noundef 16) #36
   %.pre.i.i.i = load ptr, ptr %endptr.i.i.i, align 8
   %.pre5.i.i.i = load i8, ptr %.pre.i.i.i, align 1
   br label %if.end9.i.i.i
@@ -35872,7 +35872,7 @@ luaO_str2d.exit.thread9.i.i:                      ; preds = %if.end9.i.i.i
   br label %return
 
 while.cond.preheader.i.i.i:                       ; preds = %if.end9.i.i.i
-  %call15.i.i.i = tail call ptr @__ctype_b_loc() #42
+  %call15.i.i.i = tail call ptr @__ctype_b_loc() #41
   %13 = load ptr, ptr %call15.i.i.i, align 8
   br label %while.cond.i.i.i
 
@@ -36523,8 +36523,8 @@ sw.bb4.i:                                         ; preds = %if.then
 cond.true.i:                                      ; preds = %if.then
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %s.i.i)
   %9 = load double, ptr %add.ptr8.i.i, align 8
-  %call.i.i = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %s.i.i, ptr noundef nonnull dereferenceable(1) @.str.16, double noundef %9) #37
-  %call3.i.i = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %s.i.i) #36
+  %call.i.i = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %s.i.i, ptr noundef nonnull dereferenceable(1) @.str.16, double noundef %9) #36
+  %call3.i.i = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %s.i.i) #35
   %call4.i.i = call fastcc ptr @luaS_newlstr(ptr noundef nonnull %1, ptr noundef nonnull %s.i.i, i64 noundef %call3.i.i)
   store ptr %call4.i.i, ptr %add.ptr8.i.i, align 8
   store i32 4, ptr %tt.i, align 8
@@ -38532,14 +38532,14 @@ if.then.i:                                        ; preds = %entry
   br label %pushresult.exit
 
 if.else.i:                                        ; preds = %entry
-  %call.i = tail call ptr @__errno_location() #42
+  %call.i = tail call ptr @__errno_location() #41
   %2 = load i32, ptr %call.i, align 4
   %tt.i9.i = getelementptr inbounds i8, ptr %1, i64 8
   store i32 0, ptr %tt.i9.i, align 8
   %3 = load ptr, ptr %top.i8.i, align 8
   %incdec.ptr.i10.i = getelementptr inbounds i8, ptr %3, i64 16
   store ptr %incdec.ptr.i10.i, ptr %top.i8.i, align 8
-  %call6.i = tail call ptr @strerror(i32 noundef %2) #37
+  %call6.i = tail call ptr @strerror(i32 noundef %2) #36
   %call7.i = tail call ptr (ptr, ptr, ...) @lua_pushfstring(ptr noundef nonnull %L, ptr noundef nonnull @.str.113, ptr noundef %call6.i)
   %4 = load ptr, ptr %top.i8.i, align 8
   %conv.i.i = sitofp i32 %2 to double
@@ -38778,7 +38778,7 @@ lua_setfenv.exit:                                 ; preds = %if.end, %if.then.i,
   store ptr %incdec.ptr.i16, ptr %top.i.i, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %key.i)
   %add.ptr8.i.i18 = getelementptr inbounds i8, ptr %29, i64 -64
-  %call1.i19 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %fname) #36
+  %call1.i19 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %fname) #35
   %call2.i = tail call fastcc ptr @luaS_newlstr(ptr noundef nonnull %L, ptr noundef readonly %fname, i64 noundef %call1.i19)
   store ptr %call2.i, ptr %key.i, align 8
   %tt.i20 = getelementptr inbounds i8, ptr %key.i, i64 8
@@ -38798,7 +38798,7 @@ define internal noundef range(i32 1, 4) i32 @io_pclose(ptr noundef %L) #0 {
 entry:
   %call = tail call fastcc ptr @luaL_checkudata(ptr noundef %L)
   store ptr null, ptr %call, align 8
-  %call.i = tail call ptr @__errno_location() #42
+  %call.i = tail call ptr @__errno_location() #41
   %0 = load i32, ptr %call.i, align 4
   %top.i8.i = getelementptr inbounds i8, ptr %L, i64 16
   %1 = load ptr, ptr %top.i8.i, align 8
@@ -38807,7 +38807,7 @@ entry:
   %2 = load ptr, ptr %top.i8.i, align 8
   %incdec.ptr.i10.i = getelementptr inbounds i8, ptr %2, i64 16
   store ptr %incdec.ptr.i10.i, ptr %top.i8.i, align 8
-  %call6.i = tail call ptr @strerror(i32 noundef %0) #37
+  %call6.i = tail call ptr @strerror(i32 noundef %0) #36
   %call7.i = tail call ptr (ptr, ptr, ...) @lua_pushfstring(ptr noundef nonnull %L, ptr noundef nonnull @.str.113, ptr noundef %call6.i)
   %3 = load ptr, ptr %top.i8.i, align 8
   %conv.i.i = sitofp i32 %0 to double
@@ -38982,7 +38982,7 @@ aux_close.exit:                                   ; preds = %tofile.exit, %sw.bb
   tail call void @llvm.assume(i1 %tobool.not.i.i8)
   %f.i.i = getelementptr inbounds i8, ptr %32, i64 32
   %34 = load ptr, ptr %f.i.i, align 8
-  %call1.i9 = tail call i32 %34(ptr noundef nonnull %L) #37
+  %call1.i9 = tail call i32 %34(ptr noundef nonnull %L) #36
   ret i32 %call1.i9
 }
 
@@ -39010,14 +39010,14 @@ if.then.i3:                                       ; preds = %tofile.exit
   br label %pushresult.exit
 
 if.else.i:                                        ; preds = %tofile.exit
-  %call.i2 = tail call ptr @__errno_location() #42
+  %call.i2 = tail call ptr @__errno_location() #41
   %2 = load i32, ptr %call.i2, align 4
   %tt.i9.i = getelementptr inbounds i8, ptr %1, i64 8
   store i32 0, ptr %tt.i9.i, align 8
   %3 = load ptr, ptr %top.i8.i, align 8
   %incdec.ptr.i10.i = getelementptr inbounds i8, ptr %3, i64 16
   store ptr %incdec.ptr.i10.i, ptr %top.i8.i, align 8
-  %call6.i = tail call ptr @strerror(i32 noundef %2) #37
+  %call6.i = tail call ptr @strerror(i32 noundef %2) #36
   %call7.i = tail call ptr (ptr, ptr, ...) @lua_pushfstring(ptr noundef nonnull %L, ptr noundef nonnull @.str.113, ptr noundef %call6.i)
   %4 = load ptr, ptr %top.i8.i, align 8
   %conv.i.i = sitofp i32 %2 to double
@@ -39183,7 +39183,7 @@ aux_close.exit:                                   ; preds = %if.then, %sw.bb.i.i
   tail call void @llvm.assume(i1 %tobool.not.i.i)
   %f.i.i = getelementptr inbounds i8, ptr %15, i64 32
   %17 = load ptr, ptr %f.i.i, align 8
-  %call1.i = tail call i32 %17(ptr noundef nonnull %L) #37
+  %call1.i = tail call i32 %17(ptr noundef nonnull %L) #36
   br label %if.end
 
 if.end:                                           ; preds = %aux_close.exit, %entry
@@ -39335,10 +39335,10 @@ lua_typename.exit.i:                              ; preds = %cond.false.i6.i, %l
 declare noundef i32 @fflush(ptr nocapture noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(none)
-declare ptr @__errno_location() local_unnamed_addr #18
+declare ptr @__errno_location() local_unnamed_addr #17
 
 ; Function Attrs: nounwind
-declare ptr @strerror(i32 noundef) local_unnamed_addr #24
+declare ptr @strerror(i32 noundef) local_unnamed_addr #23
 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 0, 2) i32 @io_readline(ptr noundef %L) #0 {
@@ -39366,7 +39366,7 @@ entry:
 
 entry.split:                                      ; preds = %entry
   %call210 = tail call fastcc i32 @read_line(ptr noundef nonnull %L, ptr noundef nonnull %6)
-  %call3 = tail call i32 @ferror(ptr noundef nonnull %6) #37
+  %call3 = tail call i32 @ferror(ptr noundef nonnull %6) #36
   %tobool.not = icmp eq i32 %call3, 0
   br i1 %tobool.not, label %if.end8, label %if.then4
 
@@ -39375,9 +39375,9 @@ if.then:                                          ; preds = %entry
   unreachable
 
 if.then4:                                         ; preds = %entry.split
-  %call5 = tail call ptr @__errno_location() #42
+  %call5 = tail call ptr @__errno_location() #41
   %7 = load i32, ptr %call5, align 4
-  %call6 = tail call ptr @strerror(i32 noundef %7) #37
+  %call6 = tail call ptr @strerror(i32 noundef %7) #36
   tail call void (ptr, ptr, ...) @luaL_error(ptr noundef nonnull %L, ptr noundef nonnull @.str.113, ptr noundef %call6)
   unreachable
 
@@ -39514,7 +39514,7 @@ aux_close.exit:                                   ; preds = %lua_settop.exit, %s
   tail call void @llvm.assume(i1 %tobool.not.i.i)
   %f.i.i = getelementptr inbounds i8, ptr %39, i64 32
   %41 = load ptr, ptr %f.i.i, align 8
-  %call1.i = tail call i32 %41(ptr noundef nonnull %L) #37
+  %call1.i = tail call i32 %41(ptr noundef nonnull %L) #36
   br label %return
 
 return:                                           ; preds = %if.else, %lua_toboolean.exit, %aux_close.exit, %if.end8
@@ -39588,8 +39588,8 @@ sw.bb4.i:                                         ; preds = %if.then
 cond.true.i:                                      ; preds = %if.then
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %s.i.i)
   %9 = load double, ptr %add.ptr8.i.i, align 8
-  %call.i.i = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %s.i.i, ptr noundef nonnull dereferenceable(1) @.str.16, double noundef %9) #37
-  %call3.i.i = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %s.i.i) #36
+  %call.i.i = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %s.i.i, ptr noundef nonnull dereferenceable(1) @.str.16, double noundef %9) #36
+  %call3.i.i = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %s.i.i) #35
   %call4.i.i = call fastcc ptr @luaS_newlstr(ptr noundef nonnull %L, ptr noundef nonnull %s.i.i, i64 noundef %call3.i.i)
   store ptr %call4.i.i, ptr %add.ptr8.i.i, align 8
   store i32 4, ptr %tt.i, align 8
@@ -39605,7 +39605,7 @@ lua_objlen.exit:                                  ; preds = %if.then, %sw.bb.i, 
   br label %return
 
 if.end:                                           ; preds = %luaL_prepbuffer.exit
-  %call4 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %buffer.i) #36
+  %call4 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %buffer.i) #35
   %cmp5 = icmp eq i64 %call4, 0
   br i1 %cmp5, label %if.then10, label %lor.lhs.false
 
@@ -39638,7 +39638,7 @@ return:                                           ; preds = %if.else, %lua_objle
 }
 
 ; Function Attrs: nofree nounwind memory(read)
-declare noundef i32 @ferror(ptr nocapture noundef) local_unnamed_addr #25
+declare noundef i32 @ferror(ptr nocapture noundef) local_unnamed_addr #24
 
 ; Function Attrs: nofree nounwind
 declare noundef ptr @fgets(ptr noundef, i32 noundef, ptr nocapture noundef) local_unnamed_addr #1
@@ -39656,7 +39656,7 @@ entry:
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
   %sub.ptr.div.i = lshr exact i64 %sub.ptr.sub.i, 4
   %conv.i = trunc i64 %sub.ptr.div.i to i32
-  tail call void @clearerr(ptr noundef %f) #37
+  tail call void @clearerr(ptr noundef %f) #36
   %cmp = icmp eq i32 %conv.i, 1
   br i1 %cmp, label %if.then, label %if.else
 
@@ -39928,7 +39928,7 @@ lor.end:                                          ; preds = %land.lhs.true
 
 sw.bb:                                            ; preds = %lor.end
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %d.i)
-  %call.i54 = call i32 (ptr, ptr, ...) @__isoc99_fscanf(ptr noundef %f, ptr noundef nonnull @.str.212, ptr noundef nonnull %d.i) #37
+  %call.i54 = call i32 (ptr, ptr, ...) @__isoc99_fscanf(ptr noundef %f, ptr noundef nonnull @.str.212, ptr noundef nonnull %d.i) #36
   %cmp.i55 = icmp eq i32 %call.i54, 1
   br i1 %cmp.i55, label %if.then.i56, label %if.else.i
 
@@ -39982,12 +39982,12 @@ if.end26.loopexit:                                ; preds = %for.inc
 if.end26:                                         ; preds = %if.end26.loopexit, %if.then
   %success.0 = phi i32 [ %call1, %if.then ], [ %success.2, %if.end26.loopexit ]
   %n.0 = phi i32 [ %add, %if.then ], [ %50, %if.end26.loopexit ]
-  %call27 = call i32 @ferror(ptr noundef %f) #37
+  %call27 = call i32 @ferror(ptr noundef %f) #36
   %tobool28.not = icmp eq i32 %call27, 0
   br i1 %tobool28.not, label %if.end31, label %if.then29
 
 if.then29:                                        ; preds = %if.end26
-  %call.i58 = tail call ptr @__errno_location() #42
+  %call.i58 = tail call ptr @__errno_location() #41
   %51 = load i32, ptr %call.i58, align 4
   %52 = load ptr, ptr %0, align 8
   %tt.i9.i = getelementptr inbounds i8, ptr %52, i64 8
@@ -39995,7 +39995,7 @@ if.then29:                                        ; preds = %if.end26
   %53 = load ptr, ptr %0, align 8
   %incdec.ptr.i10.i = getelementptr inbounds i8, ptr %53, i64 16
   store ptr %incdec.ptr.i10.i, ptr %0, align 8
-  %call6.i = call ptr @strerror(i32 noundef %51) #37
+  %call6.i = call ptr @strerror(i32 noundef %51) #36
   %call7.i = call ptr (ptr, ptr, ...) @lua_pushfstring(ptr noundef nonnull %L, ptr noundef nonnull @.str.113, ptr noundef %call6.i)
   %54 = load ptr, ptr %0, align 8
   %conv.i.i60 = sitofp i32 %51 to double
@@ -40113,8 +40113,8 @@ sw.bb4.i:                                         ; preds = %lor.rhs
 cond.true.i:                                      ; preds = %lor.rhs
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %s.i.i)
   %11 = load double, ptr %add.ptr8.i.i, align 8
-  %call.i.i = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %s.i.i, ptr noundef nonnull dereferenceable(1) @.str.16, double noundef %11) #37
-  %call3.i.i = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %s.i.i) #36
+  %call.i.i = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %s.i.i, ptr noundef nonnull dereferenceable(1) @.str.16, double noundef %11) #36
+  %call3.i.i = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %s.i.i) #35
   %call4.i.i = call fastcc ptr @luaS_newlstr(ptr noundef nonnull %L, ptr noundef nonnull %s.i.i, i64 noundef %call3.i.i)
   store ptr %call4.i.i, ptr %add.ptr8.i.i, align 8
   store i32 4, ptr %tt.i, align 8
@@ -40143,7 +40143,7 @@ declare noundef i32 @ungetc(i32 noundef, ptr nocapture noundef) local_unnamed_ad
 ; Function Attrs: nofree nounwind
 declare noundef i64 @fread(ptr nocapture noundef, i64 noundef, i64 noundef, ptr nocapture noundef) local_unnamed_addr #1
 
-declare i32 @__isoc99_fscanf(ptr noundef, ptr noundef, ...) local_unnamed_addr #26
+declare i32 @__isoc99_fscanf(ptr noundef, ptr noundef, ...) local_unnamed_addr #25
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc range(i32 1, 4) i32 @g_write(ptr noundef %L, ptr nocapture noundef %f, i32 noundef %arg) unnamed_addr #0 {
@@ -40296,14 +40296,14 @@ if.then.i14:                                      ; preds = %entry, %for.end
   br label %pushresult.exit
 
 if.else.i:                                        ; preds = %for.end
-  %call.i12 = tail call ptr @__errno_location() #42
+  %call.i12 = tail call ptr @__errno_location() #41
   %26 = load i32, ptr %call.i12, align 4
   %tt.i9.i = getelementptr inbounds i8, ptr %.pre, i64 8
   store i32 0, ptr %tt.i9.i, align 8
   %27 = load ptr, ptr %0, align 8
   %incdec.ptr.i10.i = getelementptr inbounds i8, ptr %27, i64 16
   store ptr %incdec.ptr.i10.i, ptr %0, align 8
-  %call6.i = call ptr @strerror(i32 noundef %26) #37
+  %call6.i = call ptr @strerror(i32 noundef %26) #36
   %call7.i = call ptr (ptr, ptr, ...) @lua_pushfstring(ptr noundef nonnull %L, ptr noundef nonnull @.str.113, ptr noundef %call6.i)
   %28 = load ptr, ptr %0, align 8
   %conv.i.i15 = sitofp i32 %26 to double
@@ -40422,14 +40422,14 @@ if.then.i2:                                       ; preds = %getiofile.exit
   br label %pushresult.exit
 
 if.else.i:                                        ; preds = %getiofile.exit
-  %call.i = tail call ptr @__errno_location() #42
+  %call.i = tail call ptr @__errno_location() #41
   %19 = load i32, ptr %call.i, align 4
   %tt.i9.i = getelementptr inbounds i8, ptr %18, i64 8
   store i32 0, ptr %tt.i9.i, align 8
   %20 = load ptr, ptr %top.i.i, align 8
   %incdec.ptr.i10.i = getelementptr inbounds i8, ptr %20, i64 16
   store ptr %incdec.ptr.i10.i, ptr %top.i.i, align 8
-  %call6.i = tail call ptr @strerror(i32 noundef %19) #37
+  %call6.i = tail call ptr @strerror(i32 noundef %19) #36
   %call7.i = tail call ptr (ptr, ptr, ...) @lua_pushfstring(ptr noundef nonnull %L, ptr noundef nonnull @.str.113, ptr noundef %call6.i)
   %21 = load ptr, ptr %top.i.i, align 8
   %conv.i.i = sitofp i32 %19 to double
@@ -40587,9 +40587,9 @@ luaL_checklstring.exit:                           ; preds = %if.else
   br i1 %cmp5, label %if.then6, label %if.end
 
 if.then6:                                         ; preds = %luaL_checklstring.exit
-  %call.i17 = tail call ptr @__errno_location() #42
+  %call.i17 = tail call ptr @__errno_location() #41
   %23 = load i32, ptr %call.i17, align 4
-  %call1.i18 = tail call ptr @strerror(i32 noundef %23) #37
+  %call1.i18 = tail call ptr @strerror(i32 noundef %23) #36
   %call2.i = tail call ptr (ptr, ptr, ...) @lua_pushfstring(ptr noundef nonnull %L, ptr noundef nonnull @.str.207, ptr noundef nonnull %call.i, ptr noundef %call1.i18)
   %call3.i = tail call fastcc ptr @lua_tolstring(ptr noundef nonnull %L, i32 noundef -1, ptr noundef null)
   tail call fastcc void @luaL_argerror(ptr noundef nonnull %L, i32 noundef 1, ptr noundef %call3.i)
@@ -40758,7 +40758,7 @@ luaL_optlstring.exit:                             ; preds = %luaL_checklstring.e
   br i1 %cmp, label %pushresult.exit, label %cond.end
 
 pushresult.exit:                                  ; preds = %luaL_optlstring.exit
-  %call.i9 = tail call ptr @__errno_location() #42
+  %call.i9 = tail call ptr @__errno_location() #41
   %6 = load i32, ptr %call.i9, align 4
   %7 = load ptr, ptr %top.i.i.i, align 8
   %tt.i9.i = getelementptr inbounds i8, ptr %7, i64 8
@@ -40766,7 +40766,7 @@ pushresult.exit:                                  ; preds = %luaL_optlstring.exi
   %8 = load ptr, ptr %top.i.i.i, align 8
   %incdec.ptr.i10.i = getelementptr inbounds i8, ptr %8, i64 16
   store ptr %incdec.ptr.i10.i, ptr %top.i.i.i, align 8
-  %call6.i = tail call ptr @strerror(i32 noundef %6) #37
+  %call6.i = tail call ptr @strerror(i32 noundef %6) #36
   %call4.i = tail call ptr (ptr, ptr, ...) @lua_pushfstring(ptr noundef nonnull %L, ptr noundef nonnull @.str.207, ptr noundef nonnull %call.i, ptr noundef %call6.i)
   %9 = load ptr, ptr %top.i.i.i, align 8
   %conv.i.i = sitofp i32 %6 to double
@@ -41316,9 +41316,9 @@ if.then2:                                         ; preds = %if.then
   br i1 %cmp5, label %if.then6, label %if.end8
 
 if.then6:                                         ; preds = %if.then2
-  %call.i13 = tail call ptr @__errno_location() #42
+  %call.i13 = tail call ptr @__errno_location() #41
   %6 = load i32, ptr %call.i13, align 4
-  %call1.i14 = tail call ptr @strerror(i32 noundef %6) #37
+  %call1.i14 = tail call ptr @strerror(i32 noundef %6) #36
   %call2.i = tail call ptr (ptr, ptr, ...) @lua_pushfstring(ptr noundef nonnull %L, ptr noundef nonnull @.str.207, ptr noundef nonnull %call1, ptr noundef %call1.i14)
   %call3.i = tail call fastcc ptr @lua_tolstring(ptr noundef nonnull %L, i32 noundef -1, ptr noundef null)
   tail call fastcc void @luaL_argerror(ptr noundef nonnull %L, i32 noundef 1, ptr noundef %call3.i)
@@ -41448,11 +41448,11 @@ lua_rawgeti.exit:                                 ; preds = %land.lhs.true.i.i, 
 declare noalias noundef ptr @fopen(ptr nocapture noundef readonly, ptr nocapture noundef readonly) local_unnamed_addr #1
 
 ; Function Attrs: noreturn nounwind uwtable
-define internal noundef i32 @os_exit(ptr noundef %L) #9 {
+define internal noundef i32 @os_exit(ptr noundef %L) #8 {
 entry:
   %call = tail call fastcc i64 @luaL_optinteger(ptr noundef %L, i32 noundef 1, i64 noundef 0)
   %conv = trunc i64 %call to i32
-  tail call void @exit(i32 noundef %conv) #40
+  tail call void @exit(i32 noundef %conv) #39
   unreachable
 }
 
@@ -41468,7 +41468,7 @@ if.then.i:                                        ; preds = %entry
   unreachable
 
 luaL_checklstring.exit:                           ; preds = %entry
-  %call1 = tail call i32 @remove(ptr noundef nonnull %call.i) #37
+  %call1 = tail call i32 @remove(ptr noundef nonnull %call.i) #36
   %cmp.not = icmp eq i32 %call1, 0
   br i1 %cmp.not, label %if.then.i4, label %if.else.i
 
@@ -41479,7 +41479,7 @@ if.then.i4:                                       ; preds = %luaL_checklstring.e
   br label %os_pushresult.exit
 
 if.else.i:                                        ; preds = %luaL_checklstring.exit
-  %call.i5 = tail call ptr @__errno_location() #42
+  %call.i5 = tail call ptr @__errno_location() #41
   %1 = load i32, ptr %call.i5, align 4
   %top.i5.i = getelementptr inbounds i8, ptr %L, i64 16
   %2 = load ptr, ptr %top.i5.i, align 8
@@ -41488,7 +41488,7 @@ if.else.i:                                        ; preds = %luaL_checklstring.e
   %3 = load ptr, ptr %top.i5.i, align 8
   %incdec.ptr.i7.i = getelementptr inbounds i8, ptr %3, i64 16
   store ptr %incdec.ptr.i7.i, ptr %top.i5.i, align 8
-  %call1.i = tail call ptr @strerror(i32 noundef %1) #37
+  %call1.i = tail call ptr @strerror(i32 noundef %1) #36
   %call2.i = tail call ptr (ptr, ptr, ...) @lua_pushfstring(ptr noundef %L, ptr noundef nonnull @.str.207, ptr noundef nonnull %call.i, ptr noundef %call1.i)
   %4 = load ptr, ptr %top.i5.i, align 8
   %conv.i.i = sitofp i32 %1 to double
@@ -41564,7 +41564,7 @@ land.lhs.true.i.i53:                              ; preds = %land.lhs.true.i.i
   %6 = load ptr, ptr %add.ptr.luaO_nilobject_.i.i, align 8
   %add.ptr.i3.i = getelementptr inbounds i8, ptr %6, i64 24
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %endptr.i.i.i)
-  %call.i.i.i = call double @strtod(ptr noundef nonnull %add.ptr.i3.i, ptr noundef nonnull %endptr.i.i.i) #37
+  %call.i.i.i = call double @strtod(ptr noundef nonnull %add.ptr.i3.i, ptr noundef nonnull %endptr.i.i.i) #36
   %7 = load ptr, ptr %endptr.i.i.i, align 8
   %cmp.i.i.i = icmp eq ptr %7, %add.ptr.i3.i
   br i1 %cmp.i.i.i, label %luaO_str2d.exit.thread.i.i, label %if.end.i.i.i
@@ -41581,7 +41581,7 @@ if.end.i.i.i:                                     ; preds = %land.lhs.true.i.i53
   ]
 
 if.then6.i.i.i:                                   ; preds = %if.end.i.i.i, %if.end.i.i.i
-  %call7.i.i.i = call i64 @strtoul(ptr noundef nonnull %add.ptr.i3.i, ptr noundef nonnull %endptr.i.i.i, i32 noundef 16) #37
+  %call7.i.i.i = call i64 @strtoul(ptr noundef nonnull %add.ptr.i3.i, ptr noundef nonnull %endptr.i.i.i, i32 noundef 16) #36
   %.pre.i.i.i = load ptr, ptr %endptr.i.i.i, align 8
   %.pre5.i.i.i = load i8, ptr %.pre.i.i.i, align 1
   br label %if.end9.i.i.i
@@ -41597,7 +41597,7 @@ luaO_str2d.exit.thread9.i.i:                      ; preds = %if.end9.i.i.i
   br label %luaL_optinteger.exit.thread
 
 while.cond.preheader.i.i.i:                       ; preds = %if.end9.i.i.i
-  %call15.i.i.i = tail call ptr @__ctype_b_loc() #42
+  %call15.i.i.i = tail call ptr @__ctype_b_loc() #41
   %10 = load ptr, ptr %call15.i.i.i, align 8
   br label %while.cond.i.i.i
 
@@ -41670,7 +41670,7 @@ land.lhs.true.i.i62:                              ; preds = %land.lhs.true.i.i35
   %22 = load ptr, ptr %add.ptr.luaO_nilobject_.i.i60, align 8
   %add.ptr.i3.i63 = getelementptr inbounds i8, ptr %22, i64 24
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %endptr.i.i.i54)
-  %call.i.i.i64 = call double @strtod(ptr noundef nonnull %add.ptr.i3.i63, ptr noundef nonnull %endptr.i.i.i54) #37
+  %call.i.i.i64 = call double @strtod(ptr noundef nonnull %add.ptr.i3.i63, ptr noundef nonnull %endptr.i.i.i54) #36
   %23 = load ptr, ptr %endptr.i.i.i54, align 8
   %cmp.i.i.i65 = icmp eq ptr %23, %add.ptr.i3.i63
   br i1 %cmp.i.i.i65, label %luaO_str2d.exit.thread.i.i87, label %if.end.i.i.i66
@@ -41687,7 +41687,7 @@ if.end.i.i.i66:                                   ; preds = %land.lhs.true.i.i62
   ]
 
 if.then6.i.i.i67:                                 ; preds = %if.end.i.i.i66, %if.end.i.i.i66
-  %call7.i.i.i68 = call i64 @strtoul(ptr noundef nonnull %add.ptr.i3.i63, ptr noundef nonnull %endptr.i.i.i54, i32 noundef 16) #37
+  %call7.i.i.i68 = call i64 @strtoul(ptr noundef nonnull %add.ptr.i3.i63, ptr noundef nonnull %endptr.i.i.i54, i32 noundef 16) #36
   %.pre.i.i.i69 = load ptr, ptr %endptr.i.i.i54, align 8
   %.pre5.i.i.i70 = load i8, ptr %.pre.i.i.i69, align 1
   br label %if.end9.i.i.i71
@@ -41703,7 +41703,7 @@ luaO_str2d.exit.thread9.i.i86:                    ; preds = %if.end9.i.i.i71
   br label %luaL_optinteger.exit40.thread
 
 while.cond.preheader.i.i.i74:                     ; preds = %if.end9.i.i.i71
-  %call15.i.i.i75 = tail call ptr @__ctype_b_loc() #42
+  %call15.i.i.i75 = tail call ptr @__ctype_b_loc() #41
   %26 = load ptr, ptr %call15.i.i.i75, align 8
   br label %while.cond.i.i.i76
 
@@ -42099,7 +42099,7 @@ if.then.i44:                                      ; preds = %while.end.i
   unreachable
 
 if.end.i:                                         ; preds = %while.end.i
-  %call8.i = tail call ptr @__ctype_b_loc() #42
+  %call8.i = tail call ptr @__ctype_b_loc() #41
   %17 = load ptr, ptr %call8.i, align 8
   %arrayidx.i = getelementptr inbounds i16, ptr %17, i64 %idxprom.i
   %18 = load i16, ptr %arrayidx.i, align 2
@@ -42159,7 +42159,7 @@ scanformat.exit:                                  ; preds = %if.end49.i
   %sub.ptr.lhs.cast61.i = ptrtoint ptr %p.3.i to i64
   %sub.ptr.sub63.i = sub i64 %sub.ptr.lhs.cast61.i, %sub.ptr.rhs.cast.i42
   %add.i = add nsw i64 %sub.ptr.sub63.i, 1
-  %call64.i = call ptr @strncpy(ptr noundef nonnull %incdec.ptr60.i, ptr noundef nonnull %incdec.ptr10, i64 noundef %add.i) #37
+  %call64.i = call ptr @strncpy(ptr noundef nonnull %incdec.ptr60.i, ptr noundef nonnull %incdec.ptr10, i64 noundef %add.i) #36
   %add.ptr.i = getelementptr inbounds i8, ptr %incdec.ptr60.i, i64 %add.i
   store i8 0, ptr %add.ptr.i, align 1
   %incdec.ptr36 = getelementptr inbounds i8, ptr %p.3.i, i64 1
@@ -42197,11 +42197,11 @@ if.then.i48:                                      ; preds = %land.lhs.true.i
 
 luaL_checknumber.exit:                            ; preds = %sw.bb, %land.lhs.true.i
   %conv41 = fptosi double %call.i45 to i32
-  %call42 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %buff, ptr noundef nonnull dereferenceable(1) %form, i32 noundef %conv41) #37
+  %call42 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %buff, ptr noundef nonnull dereferenceable(1) %form, i32 noundef %conv41) #36
   br label %sw.epilog
 
 sw.bb43:                                          ; preds = %scanformat.exit, %scanformat.exit
-  %call.i50 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %form) #36
+  %call.i50 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %form) #35
   %34 = getelementptr i8, ptr %form, i64 %call.i50
   %arrayidx.i51 = getelementptr i8, ptr %34, i64 -1
   %35 = load i8, ptr %arrayidx.i51, align 1
@@ -42224,11 +42224,11 @@ if.then.i58:                                      ; preds = %land.lhs.true.i55
 
 luaL_checknumber.exit60:                          ; preds = %sw.bb43, %land.lhs.true.i55
   %conv48 = fptosi double %call.i52 to i64
-  %call49 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %buff, ptr noundef nonnull dereferenceable(1) %form, i64 noundef %conv48) #37
+  %call49 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %buff, ptr noundef nonnull dereferenceable(1) %form, i64 noundef %conv48) #36
   br label %sw.epilog
 
 sw.bb50:                                          ; preds = %scanformat.exit, %scanformat.exit, %scanformat.exit, %scanformat.exit
-  %call.i61 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %form) #36
+  %call.i61 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %form) #35
   %36 = getelementptr i8, ptr %form, i64 %call.i61
   %arrayidx.i62 = getelementptr i8, ptr %36, i64 -1
   %37 = load i8, ptr %arrayidx.i62, align 1
@@ -42251,7 +42251,7 @@ if.then.i70:                                      ; preds = %land.lhs.true.i67
 
 luaL_checknumber.exit72:                          ; preds = %sw.bb50, %land.lhs.true.i67
   %conv55 = fptoui double %call.i64 to i64
-  %call56 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %buff, ptr noundef nonnull dereferenceable(1) %form, i64 noundef %conv55) #37
+  %call56 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %buff, ptr noundef nonnull dereferenceable(1) %form, i64 noundef %conv55) #36
   br label %sw.epilog
 
 sw.bb57:                                          ; preds = %scanformat.exit, %scanformat.exit, %scanformat.exit, %scanformat.exit, %scanformat.exit
@@ -42269,7 +42269,7 @@ if.then.i79:                                      ; preds = %land.lhs.true.i76
   unreachable
 
 luaL_checknumber.exit81:                          ; preds = %sw.bb57, %land.lhs.true.i76
-  %call61 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %buff, ptr noundef nonnull dereferenceable(1) %form, double noundef %call.i73) #37
+  %call61 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %buff, ptr noundef nonnull dereferenceable(1) %form, double noundef %call.i73) #36
   br label %sw.epilog
 
 sw.bb62:                                          ; preds = %scanformat.exit
@@ -42468,7 +42468,7 @@ if.then.i90:                                      ; preds = %sw.bb63
   unreachable
 
 luaL_checklstring.exit92:                         ; preds = %sw.bb63
-  %call66 = call ptr @strchr(ptr noundef nonnull dereferenceable(1) %form, i32 noundef 46) #36
+  %call66 = call ptr @strchr(ptr noundef nonnull dereferenceable(1) %form, i32 noundef 46) #35
   %tobool67 = icmp eq ptr %call66, null
   %57 = load i64, ptr %l, align 8
   %cmp68 = icmp ugt i64 %57, 99
@@ -42620,7 +42620,7 @@ luaL_addvalue.exit:                               ; preds = %if.then.i102, %if.e
   br label %while.cond.backedge
 
 if.else71:                                        ; preds = %luaL_checklstring.exit92
-  %call74 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %buff, ptr noundef nonnull dereferenceable(1) %form, ptr noundef nonnull %call.i87) #37
+  %call74 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %buff, ptr noundef nonnull dereferenceable(1) %form, ptr noundef nonnull %call.i87) #36
   br label %sw.epilog
 
 sw.default:                                       ; preds = %scanformat.exit
@@ -42629,7 +42629,7 @@ sw.default:                                       ; preds = %scanformat.exit
   unreachable
 
 sw.epilog:                                        ; preds = %if.else71, %luaL_checknumber.exit81, %luaL_checknumber.exit72, %luaL_checknumber.exit60, %luaL_checknumber.exit
-  %call80 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %buff) #36
+  %call80 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %buff) #35
   %tobool.not5.i = icmp eq i64 %call80, 0
   br i1 %tobool.not5.i, label %while.cond.backedge, label %while.body.i111
 
@@ -42887,7 +42887,7 @@ land.lhs.true.i.i79:                              ; preds = %land.lhs.true.i.i
   %10 = load ptr, ptr %add.ptr.luaO_nilobject_.i.i, align 8
   %add.ptr.i3.i = getelementptr inbounds i8, ptr %10, i64 24
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %endptr.i.i.i)
-  %call.i.i.i80 = call double @strtod(ptr noundef nonnull %add.ptr.i3.i, ptr noundef nonnull %endptr.i.i.i) #37
+  %call.i.i.i80 = call double @strtod(ptr noundef nonnull %add.ptr.i3.i, ptr noundef nonnull %endptr.i.i.i) #36
   %11 = load ptr, ptr %endptr.i.i.i, align 8
   %cmp.i.i.i81 = icmp eq ptr %11, %add.ptr.i3.i
   br i1 %cmp.i.i.i81, label %luaO_str2d.exit.thread.i.i, label %if.end.i.i.i82
@@ -42904,7 +42904,7 @@ if.end.i.i.i82:                                   ; preds = %land.lhs.true.i.i79
   ]
 
 if.then6.i.i.i:                                   ; preds = %if.end.i.i.i82, %if.end.i.i.i82
-  %call7.i.i.i = call i64 @strtoul(ptr noundef nonnull %add.ptr.i3.i, ptr noundef nonnull %endptr.i.i.i, i32 noundef 16) #37
+  %call7.i.i.i = call i64 @strtoul(ptr noundef nonnull %add.ptr.i3.i, ptr noundef nonnull %endptr.i.i.i, i32 noundef 16) #36
   %.pre.i.i.i83 = load ptr, ptr %endptr.i.i.i, align 8
   %.pre5.i.i.i = load i8, ptr %.pre.i.i.i83, align 1
   br label %if.end9.i.i.i
@@ -42920,7 +42920,7 @@ luaO_str2d.exit.thread9.i.i:                      ; preds = %if.end9.i.i.i
   br label %luaL_optinteger.exit
 
 while.cond.preheader.i.i.i:                       ; preds = %if.end9.i.i.i
-  %call15.i.i.i = tail call ptr @__ctype_b_loc() #42
+  %call15.i.i.i = tail call ptr @__ctype_b_loc() #41
   %14 = load ptr, ptr %call15.i.i.i, align 8
   br label %while.cond.i.i.i
 
@@ -42977,7 +42977,7 @@ if.end.i:                                         ; preds = %lor.rhs
   call fastcc void @lua_getinfo(ptr noundef nonnull %L, ptr noundef nonnull @.str.117, ptr noundef nonnull %ar.i)
   %namewhat.i = getelementptr inbounds i8, ptr %ar.i, i64 16
   %21 = load ptr, ptr %namewhat.i, align 8
-  %call3.i = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %21, ptr noundef nonnull dereferenceable(7) @.str.118) #36
+  %call3.i = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %21, ptr noundef nonnull dereferenceable(7) @.str.118) #35
   %name10.i = getelementptr inbounds i8, ptr %ar.i, i64 8
   %22 = load ptr, ptr %name10.i, align 8
   %cmp11.i = icmp eq ptr %22, null
@@ -43094,7 +43094,7 @@ lor.end.i.i:                                      ; preds = %if.then.i.i.i, %lor
 
 if.else.i.i:                                      ; preds = %for.body.i.i
   %inc.i.i = add nuw i64 %i.039.i.i, 1
-  %call8.i.i = tail call ptr @__ctype_b_loc() #42
+  %call8.i.i = tail call ptr @__ctype_b_loc() #41
   %34 = load ptr, ptr %call8.i.i, align 8
   %arrayidx9.i.i = getelementptr inbounds i8, ptr %call.i.i51, i64 %inc.i.i
   %35 = load i8, ptr %arrayidx9.i.i, align 1
@@ -43603,7 +43603,7 @@ lor.end:                                          ; preds = %if.then.i6, %lor.rh
   %arrayidx = getelementptr inbounds i8, ptr %call.i, i64 %i.011
   %2 = load i8, ptr %arrayidx, align 1
   %conv = zext i8 %2 to i32
-  %call3 = call i32 @tolower(i32 noundef %conv) #36
+  %call3 = call i32 @tolower(i32 noundef %conv) #35
   %conv4 = trunc i32 %call3 to i8
   %3 = load ptr, ptr %b, align 8
   %incdec.ptr = getelementptr inbounds i8, ptr %3, i64 1
@@ -43669,7 +43669,7 @@ land.lhs.true.i.i:                                ; preds = %land.lhs.true.i
   %3 = load ptr, ptr %add.ptr.luaO_nilobject_.i.i, align 8
   %add.ptr.i3.i = getelementptr inbounds i8, ptr %3, i64 24
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %endptr.i.i.i)
-  %call.i.i.i = call double @strtod(ptr noundef nonnull %add.ptr.i3.i, ptr noundef nonnull %endptr.i.i.i) #37
+  %call.i.i.i = call double @strtod(ptr noundef nonnull %add.ptr.i3.i, ptr noundef nonnull %endptr.i.i.i) #36
   %4 = load ptr, ptr %endptr.i.i.i, align 8
   %cmp.i.i.i = icmp eq ptr %4, %add.ptr.i3.i
   br i1 %cmp.i.i.i, label %luaO_str2d.exit.thread.i.i, label %if.end.i.i.i
@@ -43686,7 +43686,7 @@ if.end.i.i.i:                                     ; preds = %land.lhs.true.i.i
   ]
 
 if.then6.i.i.i:                                   ; preds = %if.end.i.i.i, %if.end.i.i.i
-  %call7.i.i.i = call i64 @strtoul(ptr noundef nonnull %add.ptr.i3.i, ptr noundef nonnull %endptr.i.i.i, i32 noundef 16) #37
+  %call7.i.i.i = call i64 @strtoul(ptr noundef nonnull %add.ptr.i3.i, ptr noundef nonnull %endptr.i.i.i, i32 noundef 16) #36
   %.pre.i.i.i = load ptr, ptr %endptr.i.i.i, align 8
   %.pre5.i.i.i = load i8, ptr %.pre.i.i.i, align 1
   br label %if.end9.i.i.i
@@ -43702,7 +43702,7 @@ luaO_str2d.exit.thread9.i.i:                      ; preds = %if.end9.i.i.i
   br label %luaL_checkinteger.exit.thread
 
 while.cond.preheader.i.i.i:                       ; preds = %if.end9.i.i.i
-  %call15.i.i.i = tail call ptr @__ctype_b_loc() #42
+  %call15.i.i.i = tail call ptr @__ctype_b_loc() #41
   %7 = load ptr, ptr %call15.i.i.i, align 8
   br label %while.cond.i.i.i
 
@@ -43896,8 +43896,8 @@ sw.bb4.i.i:                                       ; preds = %if.then.i15
 cond.true.i.i:                                    ; preds = %if.then.i15
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %s.i.i.i)
   %38 = load double, ptr %add.ptr8.i.i.i, align 8
-  %call.i.i.i17 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %s.i.i.i, ptr noundef nonnull dereferenceable(1) @.str.16, double noundef %38) #37
-  %call3.i.i.i = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %s.i.i.i) #36
+  %call.i.i.i17 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %s.i.i.i, ptr noundef nonnull dereferenceable(1) @.str.16, double noundef %38) #36
+  %call3.i.i.i = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %s.i.i.i) #35
   %call4.i.i.i = call fastcc ptr @luaS_newlstr(ptr noundef nonnull %30, ptr noundef nonnull %s.i.i.i, i64 noundef %call3.i.i.i)
   store ptr %call4.i.i.i, ptr %add.ptr8.i.i.i, align 8
   store i32 4, ptr %tt.i.i, align 8
@@ -44001,8 +44001,8 @@ sw.bb4.i:                                         ; preds = %index2adr.exit.i
 cond.true.i:                                      ; preds = %index2adr.exit.i
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %s.i.i)
   %61 = load double, ptr %retval.0.i.i45, align 8
-  %call.i.i47 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %s.i.i, ptr noundef nonnull dereferenceable(1) @.str.16, double noundef %61) #37
-  %call3.i.i = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %s.i.i) #36
+  %call.i.i47 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %s.i.i, ptr noundef nonnull dereferenceable(1) @.str.16, double noundef %61) #36
+  %call3.i.i = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %s.i.i) #35
   %call4.i.i = call fastcc ptr @luaS_newlstr(ptr noundef %30, ptr noundef nonnull %s.i.i, i64 noundef %call3.i.i)
   store ptr %call4.i.i, ptr %retval.0.i.i45, align 8
   store i32 4, ptr %tt.i46, align 8
@@ -44195,7 +44195,7 @@ land.lhs.true.i.i70:                              ; preds = %land.lhs.true.i
   %3 = load ptr, ptr %add.ptr.luaO_nilobject_.i.i, align 8
   %add.ptr.i3.i = getelementptr inbounds i8, ptr %3, i64 24
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %endptr.i.i.i)
-  %call.i.i.i = call double @strtod(ptr noundef nonnull %add.ptr.i3.i, ptr noundef nonnull %endptr.i.i.i) #37
+  %call.i.i.i = call double @strtod(ptr noundef nonnull %add.ptr.i3.i, ptr noundef nonnull %endptr.i.i.i) #36
   %4 = load ptr, ptr %endptr.i.i.i, align 8
   %cmp.i.i.i = icmp eq ptr %4, %add.ptr.i3.i
   br i1 %cmp.i.i.i, label %luaO_str2d.exit.thread.i.i, label %if.end.i.i.i
@@ -44212,7 +44212,7 @@ if.end.i.i.i:                                     ; preds = %land.lhs.true.i.i70
   ]
 
 if.then6.i.i.i:                                   ; preds = %if.end.i.i.i, %if.end.i.i.i
-  %call7.i.i.i = call i64 @strtoul(ptr noundef nonnull %add.ptr.i3.i, ptr noundef nonnull %endptr.i.i.i, i32 noundef 16) #37
+  %call7.i.i.i = call i64 @strtoul(ptr noundef nonnull %add.ptr.i3.i, ptr noundef nonnull %endptr.i.i.i, i32 noundef 16) #36
   %.pre.i.i.i = load ptr, ptr %endptr.i.i.i, align 8
   %.pre5.i.i.i = load i8, ptr %.pre.i.i.i, align 1
   br label %if.end9.i.i.i
@@ -44228,7 +44228,7 @@ luaO_str2d.exit.thread9.i.i:                      ; preds = %if.end9.i.i.i
   br label %luaL_checkinteger.exit
 
 while.cond.preheader.i.i.i:                       ; preds = %if.end9.i.i.i
-  %call15.i.i.i = tail call ptr @__ctype_b_loc() #42
+  %call15.i.i.i = tail call ptr @__ctype_b_loc() #41
   %7 = load ptr, ptr %call15.i.i.i, align 8
   br label %while.cond.i.i.i
 
@@ -44297,7 +44297,7 @@ land.lhs.true.i.i79:                              ; preds = %land.lhs.true.i.i
   %18 = load ptr, ptr %add.ptr.luaO_nilobject_.i.i77, align 8
   %add.ptr.i3.i80 = getelementptr inbounds i8, ptr %18, i64 24
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %endptr.i.i.i71)
-  %call.i.i.i81 = call double @strtod(ptr noundef nonnull %add.ptr.i3.i80, ptr noundef nonnull %endptr.i.i.i71) #37
+  %call.i.i.i81 = call double @strtod(ptr noundef nonnull %add.ptr.i3.i80, ptr noundef nonnull %endptr.i.i.i71) #36
   %19 = load ptr, ptr %endptr.i.i.i71, align 8
   %cmp.i.i.i82 = icmp eq ptr %19, %add.ptr.i3.i80
   br i1 %cmp.i.i.i82, label %luaO_str2d.exit.thread.i.i104, label %if.end.i.i.i83
@@ -44314,7 +44314,7 @@ if.end.i.i.i83:                                   ; preds = %land.lhs.true.i.i79
   ]
 
 if.then6.i.i.i84:                                 ; preds = %if.end.i.i.i83, %if.end.i.i.i83
-  %call7.i.i.i85 = call i64 @strtoul(ptr noundef nonnull %add.ptr.i3.i80, ptr noundef nonnull %endptr.i.i.i71, i32 noundef 16) #37
+  %call7.i.i.i85 = call i64 @strtoul(ptr noundef nonnull %add.ptr.i3.i80, ptr noundef nonnull %endptr.i.i.i71, i32 noundef 16) #36
   %.pre.i.i.i86 = load ptr, ptr %endptr.i.i.i71, align 8
   %.pre5.i.i.i87 = load i8, ptr %.pre.i.i.i86, align 1
   br label %if.end9.i.i.i88
@@ -44330,7 +44330,7 @@ luaO_str2d.exit.thread9.i.i103:                   ; preds = %if.end9.i.i.i88
   br label %luaL_optinteger.exit.thread119
 
 while.cond.preheader.i.i.i91:                     ; preds = %if.end9.i.i.i88
-  %call15.i.i.i92 = tail call ptr @__ctype_b_loc() #42
+  %call15.i.i.i92 = tail call ptr @__ctype_b_loc() #41
   %22 = load ptr, ptr %call15.i.i.i92, align 8
   br label %while.cond.i.i.i93
 
@@ -44587,7 +44587,7 @@ lor.end:                                          ; preds = %if.then.i6, %lor.rh
   %arrayidx = getelementptr inbounds i8, ptr %call.i, i64 %i.011
   %2 = load i8, ptr %arrayidx, align 1
   %conv = zext i8 %2 to i32
-  %call3 = call i32 @toupper(i32 noundef %conv) #36
+  %call3 = call i32 @toupper(i32 noundef %conv) #35
   %conv4 = trunc i32 %call3 to i8
   %3 = load ptr, ptr %b, align 8
   %incdec.ptr = getelementptr inbounds i8, ptr %3, i64 1
@@ -44670,7 +44670,7 @@ land.lhs.true.i.i70:                              ; preds = %land.lhs.true.i.i
   %6 = load ptr, ptr %add.ptr.luaO_nilobject_.i.i68, align 8
   %add.ptr.i3.i = getelementptr inbounds i8, ptr %6, i64 24
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %endptr.i.i.i)
-  %call.i.i.i = call double @strtod(ptr noundef nonnull %add.ptr.i3.i, ptr noundef nonnull %endptr.i.i.i) #37
+  %call.i.i.i = call double @strtod(ptr noundef nonnull %add.ptr.i3.i, ptr noundef nonnull %endptr.i.i.i) #36
   %7 = load ptr, ptr %endptr.i.i.i, align 8
   %cmp.i.i.i = icmp eq ptr %7, %add.ptr.i3.i
   br i1 %cmp.i.i.i, label %luaO_str2d.exit.thread.i.i, label %if.end.i.i.i
@@ -44687,7 +44687,7 @@ if.end.i.i.i:                                     ; preds = %land.lhs.true.i.i70
   ]
 
 if.then6.i.i.i:                                   ; preds = %if.end.i.i.i, %if.end.i.i.i
-  %call7.i.i.i = call i64 @strtoul(ptr noundef nonnull %add.ptr.i3.i, ptr noundef nonnull %endptr.i.i.i, i32 noundef 16) #37
+  %call7.i.i.i = call i64 @strtoul(ptr noundef nonnull %add.ptr.i3.i, ptr noundef nonnull %endptr.i.i.i, i32 noundef 16) #36
   %.pre.i.i.i = load ptr, ptr %endptr.i.i.i, align 8
   %.pre5.i.i.i = load i8, ptr %.pre.i.i.i, align 1
   br label %if.end9.i.i.i
@@ -44703,7 +44703,7 @@ luaO_str2d.exit.thread9.i.i:                      ; preds = %if.end9.i.i.i
   br label %luaL_optinteger.exit.thread
 
 while.cond.preheader.i.i.i:                       ; preds = %if.end9.i.i.i
-  %call15.i.i.i = tail call ptr @__ctype_b_loc() #42
+  %call15.i.i.i = tail call ptr @__ctype_b_loc() #41
   %10 = load ptr, ptr %call15.i.i.i, align 8
   br label %while.cond.i.i.i
 
@@ -44771,7 +44771,7 @@ lua_toboolean.exit:                               ; preds = %land.lhs.true
   br i1 %cmp3.i.not, label %lor.lhs.false, label %if.then11
 
 lor.lhs.false:                                    ; preds = %land.lhs.true, %lua_toboolean.exit
-  %call9 = call ptr @strpbrk(ptr noundef nonnull %call.i33, ptr noundef nonnull @.str.237) #36
+  %call9 = call ptr @strpbrk(ptr noundef nonnull %call.i33, ptr noundef nonnull @.str.237) #35
   %cmp10 = icmp eq ptr %call9, null
   br i1 %cmp10, label %if.then11, label %if.else21
 
@@ -44801,7 +44801,7 @@ land.rhs.lr.ph.i:                                 ; preds = %if.else3.i
 land.rhs.i43:                                     ; preds = %if.else12.i, %land.rhs.lr.ph.i
   %l1.addr.018.i = phi i64 [ %sub.i, %land.rhs.lr.ph.i ], [ %sub13.i, %if.else12.i ]
   %s1.addr.017.i = phi ptr [ %add.ptr, %land.rhs.lr.ph.i ], [ %incdec.ptr.i, %if.else12.i ]
-  %call.i44 = call ptr @memchr(ptr noundef %s1.addr.017.i, i32 noundef %conv.i, i64 noundef %l1.addr.018.i) #36
+  %call.i44 = call ptr @memchr(ptr noundef %s1.addr.017.i, i32 noundef %conv.i, i64 noundef %l1.addr.018.i) #35
   %cmp5.not.i = icmp eq ptr %call.i44, null
   br i1 %cmp5.not.i, label %if.end50, label %while.body.i
 
@@ -44928,7 +44928,7 @@ return:                                           ; preds = %if.end50, %if.else4
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare ptr @strpbrk(ptr noundef, ptr nocapture noundef) local_unnamed_addr #12
+declare ptr @strpbrk(ptr noundef, ptr nocapture noundef) local_unnamed_addr #11
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc ptr @match(ptr noundef %ms, ptr noundef %s, ptr noundef %p) unnamed_addr #0 {
@@ -45304,7 +45304,7 @@ initthread-pre-split.backedge:                    ; preds = %matchbracketclass.e
   br label %initthread-pre-split
 
 sw.default:                                       ; preds = %sw.bb9
-  %call42 = tail call ptr @__ctype_b_loc() #42
+  %call42 = tail call ptr @__ctype_b_loc() #41
   %37 = load ptr, ptr %call42, align 8
   %idxprom = zext i8 %14 to i64
   %arrayidx = getelementptr inbounds i16, ptr %37, i64 %idxprom
@@ -45992,12 +45992,12 @@ for.end:                                          ; preds = %for.body, %if.else.
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare ptr @memchr(ptr noundef, i32 noundef, i64 noundef) local_unnamed_addr #12
+declare ptr @memchr(ptr noundef, i32 noundef, i64 noundef) local_unnamed_addr #11
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read) uwtable
-define internal fastcc range(i32 0, 8193) i32 @match_class(i32 noundef %c, i32 noundef %cl) unnamed_addr #27 {
+define internal fastcc range(i32 0, 8193) i32 @match_class(i32 noundef %c, i32 noundef %cl) unnamed_addr #26 {
 entry:
-  %call = tail call i32 @tolower(i32 noundef %cl) #36
+  %call = tail call i32 @tolower(i32 noundef %cl) #35
   switch i32 %call, label %sw.default [
     i32 97, label %sw.bb
     i32 99, label %sw.bb2
@@ -46012,7 +46012,7 @@ entry:
   ]
 
 sw.bb:                                            ; preds = %entry
-  %call1 = tail call ptr @__ctype_b_loc() #42
+  %call1 = tail call ptr @__ctype_b_loc() #41
   %0 = load ptr, ptr %call1, align 8
   %idxprom = zext nneg i32 %c to i64
   %arrayidx = getelementptr inbounds i16, ptr %0, i64 %idxprom
@@ -46022,7 +46022,7 @@ sw.bb:                                            ; preds = %entry
   br label %sw.epilog
 
 sw.bb2:                                           ; preds = %entry
-  %call3 = tail call ptr @__ctype_b_loc() #42
+  %call3 = tail call ptr @__ctype_b_loc() #41
   %3 = load ptr, ptr %call3, align 8
   %idxprom4 = zext nneg i32 %c to i64
   %arrayidx5 = getelementptr inbounds i16, ptr %3, i64 %idxprom4
@@ -46032,7 +46032,7 @@ sw.bb2:                                           ; preds = %entry
   br label %sw.epilog
 
 sw.bb8:                                           ; preds = %entry
-  %call9 = tail call ptr @__ctype_b_loc() #42
+  %call9 = tail call ptr @__ctype_b_loc() #41
   %6 = load ptr, ptr %call9, align 8
   %idxprom10 = zext nneg i32 %c to i64
   %arrayidx11 = getelementptr inbounds i16, ptr %6, i64 %idxprom10
@@ -46042,7 +46042,7 @@ sw.bb8:                                           ; preds = %entry
   br label %sw.epilog
 
 sw.bb14:                                          ; preds = %entry
-  %call15 = tail call ptr @__ctype_b_loc() #42
+  %call15 = tail call ptr @__ctype_b_loc() #41
   %9 = load ptr, ptr %call15, align 8
   %idxprom16 = zext nneg i32 %c to i64
   %arrayidx17 = getelementptr inbounds i16, ptr %9, i64 %idxprom16
@@ -46052,7 +46052,7 @@ sw.bb14:                                          ; preds = %entry
   br label %sw.epilog
 
 sw.bb20:                                          ; preds = %entry
-  %call21 = tail call ptr @__ctype_b_loc() #42
+  %call21 = tail call ptr @__ctype_b_loc() #41
   %12 = load ptr, ptr %call21, align 8
   %idxprom22 = zext nneg i32 %c to i64
   %arrayidx23 = getelementptr inbounds i16, ptr %12, i64 %idxprom22
@@ -46062,7 +46062,7 @@ sw.bb20:                                          ; preds = %entry
   br label %sw.epilog
 
 sw.bb26:                                          ; preds = %entry
-  %call27 = tail call ptr @__ctype_b_loc() #42
+  %call27 = tail call ptr @__ctype_b_loc() #41
   %15 = load ptr, ptr %call27, align 8
   %idxprom28 = zext nneg i32 %c to i64
   %arrayidx29 = getelementptr inbounds i16, ptr %15, i64 %idxprom28
@@ -46072,7 +46072,7 @@ sw.bb26:                                          ; preds = %entry
   br label %sw.epilog
 
 sw.bb32:                                          ; preds = %entry
-  %call33 = tail call ptr @__ctype_b_loc() #42
+  %call33 = tail call ptr @__ctype_b_loc() #41
   %18 = load ptr, ptr %call33, align 8
   %idxprom34 = zext nneg i32 %c to i64
   %arrayidx35 = getelementptr inbounds i16, ptr %18, i64 %idxprom34
@@ -46082,7 +46082,7 @@ sw.bb32:                                          ; preds = %entry
   br label %sw.epilog
 
 sw.bb38:                                          ; preds = %entry
-  %call39 = tail call ptr @__ctype_b_loc() #42
+  %call39 = tail call ptr @__ctype_b_loc() #41
   %21 = load ptr, ptr %call39, align 8
   %idxprom40 = zext nneg i32 %c to i64
   %arrayidx41 = getelementptr inbounds i16, ptr %21, i64 %idxprom40
@@ -46092,7 +46092,7 @@ sw.bb38:                                          ; preds = %entry
   br label %sw.epilog
 
 sw.bb44:                                          ; preds = %entry
-  %call45 = tail call ptr @__ctype_b_loc() #42
+  %call45 = tail call ptr @__ctype_b_loc() #41
   %24 = load ptr, ptr %call45, align 8
   %idxprom46 = zext nneg i32 %c to i64
   %arrayidx47 = getelementptr inbounds i16, ptr %24, i64 %idxprom46
@@ -46104,7 +46104,7 @@ sw.bb44:                                          ; preds = %entry
 sw.bb50:                                          ; preds = %entry
   %cmp = icmp eq i32 %c, 0
   %conv51 = zext i1 %cmp to i32
-  %.pre = tail call ptr @__ctype_b_loc() #42
+  %.pre = tail call ptr @__ctype_b_loc() #41
   br label %sw.epilog
 
 sw.default:                                       ; preds = %entry
@@ -46132,7 +46132,7 @@ return:                                           ; preds = %sw.epilog, %sw.defa
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read)
-declare i32 @tolower(i32 noundef) local_unnamed_addr #16
+declare i32 @tolower(i32 noundef) local_unnamed_addr #15
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @push_onecapture(ptr nocapture noundef readonly %ms, i32 noundef %i, ptr noundef %s, ptr noundef %e) unnamed_addr #0 {
@@ -46478,7 +46478,7 @@ return:                                           ; preds = %for.inc, %entry, %l
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read)
-declare i32 @toupper(i32 noundef) local_unnamed_addr #16
+declare i32 @toupper(i32 noundef) local_unnamed_addr #15
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc noundef ptr @luaL_findtable(ptr noundef %L, i32 noundef %idx, ptr noundef %fname, i32 noundef %szhint) unnamed_addr #0 {
@@ -46577,12 +46577,12 @@ lua_pushvalue.exit:                               ; preds = %if.then.i.i, %if.th
 do.body:                                          ; preds = %lua_remove.exit, %lua_pushvalue.exit
   %18 = phi ptr [ %incdec.ptr.i, %lua_pushvalue.exit ], [ %incdec.ptr4.i, %lua_remove.exit ]
   %fname.addr.0 = phi ptr [ %fname, %lua_pushvalue.exit ], [ %add.ptr16, %lua_remove.exit ]
-  %call = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %fname.addr.0, i32 noundef 46) #36
+  %call = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %fname.addr.0, i32 noundef 46) #35
   %cmp = icmp eq ptr %call, null
   br i1 %cmp, label %if.then, label %if.end
 
 if.then:                                          ; preds = %do.body
-  %call1 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %fname.addr.0) #36
+  %call1 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %fname.addr.0) #35
   %add.ptr = getelementptr inbounds i8, ptr %fname.addr.0, i64 %call1
   br label %if.end
 
@@ -46932,7 +46932,7 @@ land.lhs.true.i.i:                                ; preds = %land.lhs.true.i
   %3 = load ptr, ptr %add.ptr.luaO_nilobject_.i.i, align 8
   %add.ptr.i3.i = getelementptr inbounds i8, ptr %3, i64 24
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %endptr.i.i.i)
-  %call.i.i.i = call double @strtod(ptr noundef nonnull %add.ptr.i3.i, ptr noundef nonnull %endptr.i.i.i) #37
+  %call.i.i.i = call double @strtod(ptr noundef nonnull %add.ptr.i3.i, ptr noundef nonnull %endptr.i.i.i) #36
   %4 = load ptr, ptr %endptr.i.i.i, align 8
   %cmp.i.i.i = icmp eq ptr %4, %add.ptr.i3.i
   br i1 %cmp.i.i.i, label %luaO_str2d.exit.thread.i.i, label %if.end.i.i.i
@@ -46949,7 +46949,7 @@ if.end.i.i.i:                                     ; preds = %land.lhs.true.i.i
   ]
 
 if.then6.i.i.i:                                   ; preds = %if.end.i.i.i, %if.end.i.i.i
-  %call7.i.i.i = call i64 @strtoul(ptr noundef nonnull %add.ptr.i3.i, ptr noundef nonnull %endptr.i.i.i, i32 noundef 16) #37
+  %call7.i.i.i = call i64 @strtoul(ptr noundef nonnull %add.ptr.i3.i, ptr noundef nonnull %endptr.i.i.i, i32 noundef 16) #36
   %.pre.i.i.i = load ptr, ptr %endptr.i.i.i, align 8
   %.pre5.i.i.i = load i8, ptr %.pre.i.i.i, align 1
   br label %if.end9.i.i.i
@@ -46965,7 +46965,7 @@ luaO_str2d.exit.thread9.i.i:                      ; preds = %if.end9.i.i.i
   br label %barg.exit
 
 while.cond.preheader.i.i.i:                       ; preds = %if.end9.i.i.i
-  %call15.i.i.i = tail call ptr @__ctype_b_loc() #42
+  %call15.i.i.i = tail call ptr @__ctype_b_loc() #41
   %7 = load ptr, ptr %call15.i.i.i, align 8
   br label %while.cond.i.i.i
 
@@ -47031,7 +47031,7 @@ land.lhs.true.i.i:                                ; preds = %land.lhs.true.i
   %3 = load ptr, ptr %add.ptr.luaO_nilobject_.i.i, align 8
   %add.ptr.i3.i = getelementptr inbounds i8, ptr %3, i64 24
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %endptr.i.i.i)
-  %call.i.i.i = call double @strtod(ptr noundef nonnull %add.ptr.i3.i, ptr noundef nonnull %endptr.i.i.i) #37
+  %call.i.i.i = call double @strtod(ptr noundef nonnull %add.ptr.i3.i, ptr noundef nonnull %endptr.i.i.i) #36
   %4 = load ptr, ptr %endptr.i.i.i, align 8
   %cmp.i.i.i = icmp eq ptr %4, %add.ptr.i3.i
   br i1 %cmp.i.i.i, label %luaO_str2d.exit.thread.i.i, label %if.end.i.i.i
@@ -47048,7 +47048,7 @@ if.end.i.i.i:                                     ; preds = %land.lhs.true.i.i
   ]
 
 if.then6.i.i.i:                                   ; preds = %if.end.i.i.i, %if.end.i.i.i
-  %call7.i.i.i = call i64 @strtoul(ptr noundef nonnull %add.ptr.i3.i, ptr noundef nonnull %endptr.i.i.i, i32 noundef 16) #37
+  %call7.i.i.i = call i64 @strtoul(ptr noundef nonnull %add.ptr.i3.i, ptr noundef nonnull %endptr.i.i.i, i32 noundef 16) #36
   %.pre.i.i.i = load ptr, ptr %endptr.i.i.i, align 8
   %.pre5.i.i.i = load i8, ptr %.pre.i.i.i, align 1
   br label %if.end9.i.i.i
@@ -47064,7 +47064,7 @@ luaO_str2d.exit.thread9.i.i:                      ; preds = %if.end9.i.i.i
   br label %barg.exit
 
 while.cond.preheader.i.i.i:                       ; preds = %if.end9.i.i.i
-  %call15.i.i.i = tail call ptr @__ctype_b_loc() #42
+  %call15.i.i.i = tail call ptr @__ctype_b_loc() #41
   %7 = load ptr, ptr %call15.i.i.i, align 8
   br label %while.cond.i.i.i
 
@@ -47131,7 +47131,7 @@ land.lhs.true.i.i:                                ; preds = %land.lhs.true.i
   %3 = load ptr, ptr %add.ptr.luaO_nilobject_.i.i, align 8
   %add.ptr.i3.i = getelementptr inbounds i8, ptr %3, i64 24
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %endptr.i.i.i)
-  %call.i.i.i = call double @strtod(ptr noundef nonnull %add.ptr.i3.i, ptr noundef nonnull %endptr.i.i.i) #37
+  %call.i.i.i = call double @strtod(ptr noundef nonnull %add.ptr.i3.i, ptr noundef nonnull %endptr.i.i.i) #36
   %4 = load ptr, ptr %endptr.i.i.i, align 8
   %cmp.i.i.i = icmp eq ptr %4, %add.ptr.i3.i
   br i1 %cmp.i.i.i, label %luaO_str2d.exit.thread.i.i, label %if.end.i.i.i
@@ -47148,7 +47148,7 @@ if.end.i.i.i:                                     ; preds = %land.lhs.true.i.i
   ]
 
 if.then6.i.i.i:                                   ; preds = %if.end.i.i.i, %if.end.i.i.i
-  %call7.i.i.i = call i64 @strtoul(ptr noundef nonnull %add.ptr.i3.i, ptr noundef nonnull %endptr.i.i.i, i32 noundef 16) #37
+  %call7.i.i.i = call i64 @strtoul(ptr noundef nonnull %add.ptr.i3.i, ptr noundef nonnull %endptr.i.i.i, i32 noundef 16) #36
   %.pre.i.i.i = load ptr, ptr %endptr.i.i.i, align 8
   %.pre5.i.i.i = load i8, ptr %.pre.i.i.i, align 1
   br label %if.end9.i.i.i
@@ -47164,7 +47164,7 @@ luaO_str2d.exit.thread9.i.i:                      ; preds = %if.end9.i.i.i
   br label %barg.exit
 
 while.cond.preheader.i.i.i:                       ; preds = %if.end9.i.i.i
-  %call15.i.i.i = tail call ptr @__ctype_b_loc() #42
+  %call15.i.i.i = tail call ptr @__ctype_b_loc() #41
   %7 = load ptr, ptr %call15.i.i.i, align 8
   br label %while.cond.i.i.i
 
@@ -47272,7 +47272,7 @@ land.lhs.true.i.i:                                ; preds = %land.lhs.true.i
   %3 = load ptr, ptr %add.ptr.luaO_nilobject_.i.i, align 8
   %add.ptr.i3.i = getelementptr inbounds i8, ptr %3, i64 24
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %endptr.i.i.i)
-  %call.i.i.i = call double @strtod(ptr noundef nonnull %add.ptr.i3.i, ptr noundef nonnull %endptr.i.i.i) #37
+  %call.i.i.i = call double @strtod(ptr noundef nonnull %add.ptr.i3.i, ptr noundef nonnull %endptr.i.i.i) #36
   %4 = load ptr, ptr %endptr.i.i.i, align 8
   %cmp.i.i.i = icmp eq ptr %4, %add.ptr.i3.i
   br i1 %cmp.i.i.i, label %luaO_str2d.exit.thread.i.i, label %if.end.i.i.i
@@ -47289,7 +47289,7 @@ if.end.i.i.i:                                     ; preds = %land.lhs.true.i.i
   ]
 
 if.then6.i.i.i:                                   ; preds = %if.end.i.i.i, %if.end.i.i.i
-  %call7.i.i.i = call i64 @strtoul(ptr noundef nonnull %add.ptr.i3.i, ptr noundef nonnull %endptr.i.i.i, i32 noundef 16) #37
+  %call7.i.i.i = call i64 @strtoul(ptr noundef nonnull %add.ptr.i3.i, ptr noundef nonnull %endptr.i.i.i, i32 noundef 16) #36
   %.pre.i.i.i = load ptr, ptr %endptr.i.i.i, align 8
   %.pre5.i.i.i = load i8, ptr %.pre.i.i.i, align 1
   br label %if.end9.i.i.i
@@ -47305,7 +47305,7 @@ luaO_str2d.exit.thread9.i.i:                      ; preds = %if.end9.i.i.i
   br label %barg.exit
 
 while.cond.preheader.i.i.i:                       ; preds = %if.end9.i.i.i
-  %call15.i.i.i = tail call ptr @__ctype_b_loc() #42
+  %call15.i.i.i = tail call ptr @__ctype_b_loc() #41
   %7 = load ptr, ptr %call15.i.i.i, align 8
   br label %while.cond.i.i.i
 
@@ -47413,7 +47413,7 @@ land.lhs.true.i.i:                                ; preds = %land.lhs.true.i
   %3 = load ptr, ptr %add.ptr.luaO_nilobject_.i.i, align 8
   %add.ptr.i3.i = getelementptr inbounds i8, ptr %3, i64 24
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %endptr.i.i.i)
-  %call.i.i.i = call double @strtod(ptr noundef nonnull %add.ptr.i3.i, ptr noundef nonnull %endptr.i.i.i) #37
+  %call.i.i.i = call double @strtod(ptr noundef nonnull %add.ptr.i3.i, ptr noundef nonnull %endptr.i.i.i) #36
   %4 = load ptr, ptr %endptr.i.i.i, align 8
   %cmp.i.i.i = icmp eq ptr %4, %add.ptr.i3.i
   br i1 %cmp.i.i.i, label %luaO_str2d.exit.thread.i.i, label %if.end.i.i.i
@@ -47430,7 +47430,7 @@ if.end.i.i.i:                                     ; preds = %land.lhs.true.i.i
   ]
 
 if.then6.i.i.i:                                   ; preds = %if.end.i.i.i, %if.end.i.i.i
-  %call7.i.i.i = call i64 @strtoul(ptr noundef nonnull %add.ptr.i3.i, ptr noundef nonnull %endptr.i.i.i, i32 noundef 16) #37
+  %call7.i.i.i = call i64 @strtoul(ptr noundef nonnull %add.ptr.i3.i, ptr noundef nonnull %endptr.i.i.i, i32 noundef 16) #36
   %.pre.i.i.i = load ptr, ptr %endptr.i.i.i, align 8
   %.pre5.i.i.i = load i8, ptr %.pre.i.i.i, align 1
   br label %if.end9.i.i.i
@@ -47446,7 +47446,7 @@ luaO_str2d.exit.thread9.i.i:                      ; preds = %if.end9.i.i.i
   br label %barg.exit
 
 while.cond.preheader.i.i.i:                       ; preds = %if.end9.i.i.i
-  %call15.i.i.i = tail call ptr @__ctype_b_loc() #42
+  %call15.i.i.i = tail call ptr @__ctype_b_loc() #41
   %7 = load ptr, ptr %call15.i.i.i, align 8
   br label %while.cond.i.i.i
 
@@ -47555,7 +47555,7 @@ land.lhs.true.i.i:                                ; preds = %land.lhs.true.i
   %3 = load ptr, ptr %add.ptr.luaO_nilobject_.i.i, align 8
   %add.ptr.i3.i = getelementptr inbounds i8, ptr %3, i64 24
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %endptr.i.i.i)
-  %call.i.i.i = call double @strtod(ptr noundef nonnull %add.ptr.i3.i, ptr noundef nonnull %endptr.i.i.i) #37
+  %call.i.i.i = call double @strtod(ptr noundef nonnull %add.ptr.i3.i, ptr noundef nonnull %endptr.i.i.i) #36
   %4 = load ptr, ptr %endptr.i.i.i, align 8
   %cmp.i.i.i = icmp eq ptr %4, %add.ptr.i3.i
   br i1 %cmp.i.i.i, label %luaO_str2d.exit.thread.i.i, label %if.end.i.i.i
@@ -47572,7 +47572,7 @@ if.end.i.i.i:                                     ; preds = %land.lhs.true.i.i
   ]
 
 if.then6.i.i.i:                                   ; preds = %if.end.i.i.i, %if.end.i.i.i
-  %call7.i.i.i = call i64 @strtoul(ptr noundef nonnull %add.ptr.i3.i, ptr noundef nonnull %endptr.i.i.i, i32 noundef 16) #37
+  %call7.i.i.i = call i64 @strtoul(ptr noundef nonnull %add.ptr.i3.i, ptr noundef nonnull %endptr.i.i.i, i32 noundef 16) #36
   %.pre.i.i.i = load ptr, ptr %endptr.i.i.i, align 8
   %.pre5.i.i.i = load i8, ptr %.pre.i.i.i, align 1
   br label %if.end9.i.i.i
@@ -47588,7 +47588,7 @@ luaO_str2d.exit.thread9.i.i:                      ; preds = %if.end9.i.i.i
   br label %barg.exit
 
 while.cond.preheader.i.i.i:                       ; preds = %if.end9.i.i.i
-  %call15.i.i.i = tail call ptr @__ctype_b_loc() #42
+  %call15.i.i.i = tail call ptr @__ctype_b_loc() #41
   %7 = load ptr, ptr %call15.i.i.i, align 8
   br label %while.cond.i.i.i
 
@@ -47637,7 +47637,7 @@ land.lhs.true.i.i21:                              ; preds = %land.lhs.true.i7
   %14 = load ptr, ptr %add.ptr.luaO_nilobject_.i.i19, align 8
   %add.ptr.i3.i22 = getelementptr inbounds i8, ptr %14, i64 24
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %endptr.i.i.i14)
-  %call.i.i.i23 = call double @strtod(ptr noundef nonnull %add.ptr.i3.i22, ptr noundef nonnull %endptr.i.i.i14) #37
+  %call.i.i.i23 = call double @strtod(ptr noundef nonnull %add.ptr.i3.i22, ptr noundef nonnull %endptr.i.i.i14) #36
   %15 = load ptr, ptr %endptr.i.i.i14, align 8
   %cmp.i.i.i24 = icmp eq ptr %15, %add.ptr.i3.i22
   br i1 %cmp.i.i.i24, label %luaO_str2d.exit.thread.i.i46, label %if.end.i.i.i25
@@ -47654,7 +47654,7 @@ if.end.i.i.i25:                                   ; preds = %land.lhs.true.i.i21
   ]
 
 if.then6.i.i.i26:                                 ; preds = %if.end.i.i.i25, %if.end.i.i.i25
-  %call7.i.i.i27 = call i64 @strtoul(ptr noundef nonnull %add.ptr.i3.i22, ptr noundef nonnull %endptr.i.i.i14, i32 noundef 16) #37
+  %call7.i.i.i27 = call i64 @strtoul(ptr noundef nonnull %add.ptr.i3.i22, ptr noundef nonnull %endptr.i.i.i14, i32 noundef 16) #36
   %.pre.i.i.i28 = load ptr, ptr %endptr.i.i.i14, align 8
   %.pre5.i.i.i29 = load i8, ptr %.pre.i.i.i28, align 1
   br label %if.end9.i.i.i30
@@ -47670,7 +47670,7 @@ luaO_str2d.exit.thread9.i.i45:                    ; preds = %if.end9.i.i.i30
   br label %barg.exit12
 
 while.cond.preheader.i.i.i33:                     ; preds = %if.end9.i.i.i30
-  %call15.i.i.i34 = tail call ptr @__ctype_b_loc() #42
+  %call15.i.i.i34 = tail call ptr @__ctype_b_loc() #41
   %18 = load ptr, ptr %call15.i.i.i34, align 8
   br label %while.cond.i.i.i35
 
@@ -47741,7 +47741,7 @@ land.lhs.true.i.i:                                ; preds = %land.lhs.true.i
   %3 = load ptr, ptr %add.ptr.luaO_nilobject_.i.i, align 8
   %add.ptr.i3.i = getelementptr inbounds i8, ptr %3, i64 24
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %endptr.i.i.i)
-  %call.i.i.i = call double @strtod(ptr noundef nonnull %add.ptr.i3.i, ptr noundef nonnull %endptr.i.i.i) #37
+  %call.i.i.i = call double @strtod(ptr noundef nonnull %add.ptr.i3.i, ptr noundef nonnull %endptr.i.i.i) #36
   %4 = load ptr, ptr %endptr.i.i.i, align 8
   %cmp.i.i.i = icmp eq ptr %4, %add.ptr.i3.i
   br i1 %cmp.i.i.i, label %luaO_str2d.exit.thread.i.i, label %if.end.i.i.i
@@ -47758,7 +47758,7 @@ if.end.i.i.i:                                     ; preds = %land.lhs.true.i.i
   ]
 
 if.then6.i.i.i:                                   ; preds = %if.end.i.i.i, %if.end.i.i.i
-  %call7.i.i.i = call i64 @strtoul(ptr noundef nonnull %add.ptr.i3.i, ptr noundef nonnull %endptr.i.i.i, i32 noundef 16) #37
+  %call7.i.i.i = call i64 @strtoul(ptr noundef nonnull %add.ptr.i3.i, ptr noundef nonnull %endptr.i.i.i, i32 noundef 16) #36
   %.pre.i.i.i = load ptr, ptr %endptr.i.i.i, align 8
   %.pre5.i.i.i = load i8, ptr %.pre.i.i.i, align 1
   br label %if.end9.i.i.i
@@ -47774,7 +47774,7 @@ luaO_str2d.exit.thread9.i.i:                      ; preds = %if.end9.i.i.i
   br label %barg.exit
 
 while.cond.preheader.i.i.i:                       ; preds = %if.end9.i.i.i
-  %call15.i.i.i = tail call ptr @__ctype_b_loc() #42
+  %call15.i.i.i = tail call ptr @__ctype_b_loc() #41
   %7 = load ptr, ptr %call15.i.i.i, align 8
   br label %while.cond.i.i.i
 
@@ -47823,7 +47823,7 @@ land.lhs.true.i.i21:                              ; preds = %land.lhs.true.i7
   %14 = load ptr, ptr %add.ptr.luaO_nilobject_.i.i19, align 8
   %add.ptr.i3.i22 = getelementptr inbounds i8, ptr %14, i64 24
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %endptr.i.i.i14)
-  %call.i.i.i23 = call double @strtod(ptr noundef nonnull %add.ptr.i3.i22, ptr noundef nonnull %endptr.i.i.i14) #37
+  %call.i.i.i23 = call double @strtod(ptr noundef nonnull %add.ptr.i3.i22, ptr noundef nonnull %endptr.i.i.i14) #36
   %15 = load ptr, ptr %endptr.i.i.i14, align 8
   %cmp.i.i.i24 = icmp eq ptr %15, %add.ptr.i3.i22
   br i1 %cmp.i.i.i24, label %luaO_str2d.exit.thread.i.i46, label %if.end.i.i.i25
@@ -47840,7 +47840,7 @@ if.end.i.i.i25:                                   ; preds = %land.lhs.true.i.i21
   ]
 
 if.then6.i.i.i26:                                 ; preds = %if.end.i.i.i25, %if.end.i.i.i25
-  %call7.i.i.i27 = call i64 @strtoul(ptr noundef nonnull %add.ptr.i3.i22, ptr noundef nonnull %endptr.i.i.i14, i32 noundef 16) #37
+  %call7.i.i.i27 = call i64 @strtoul(ptr noundef nonnull %add.ptr.i3.i22, ptr noundef nonnull %endptr.i.i.i14, i32 noundef 16) #36
   %.pre.i.i.i28 = load ptr, ptr %endptr.i.i.i14, align 8
   %.pre5.i.i.i29 = load i8, ptr %.pre.i.i.i28, align 1
   br label %if.end9.i.i.i30
@@ -47856,7 +47856,7 @@ luaO_str2d.exit.thread9.i.i45:                    ; preds = %if.end9.i.i.i30
   br label %barg.exit12
 
 while.cond.preheader.i.i.i33:                     ; preds = %if.end9.i.i.i30
-  %call15.i.i.i34 = tail call ptr @__ctype_b_loc() #42
+  %call15.i.i.i34 = tail call ptr @__ctype_b_loc() #41
   %18 = load ptr, ptr %call15.i.i.i34, align 8
   br label %while.cond.i.i.i35
 
@@ -47927,7 +47927,7 @@ land.lhs.true.i.i:                                ; preds = %land.lhs.true.i
   %3 = load ptr, ptr %add.ptr.luaO_nilobject_.i.i, align 8
   %add.ptr.i3.i = getelementptr inbounds i8, ptr %3, i64 24
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %endptr.i.i.i)
-  %call.i.i.i = call double @strtod(ptr noundef nonnull %add.ptr.i3.i, ptr noundef nonnull %endptr.i.i.i) #37
+  %call.i.i.i = call double @strtod(ptr noundef nonnull %add.ptr.i3.i, ptr noundef nonnull %endptr.i.i.i) #36
   %4 = load ptr, ptr %endptr.i.i.i, align 8
   %cmp.i.i.i = icmp eq ptr %4, %add.ptr.i3.i
   br i1 %cmp.i.i.i, label %luaO_str2d.exit.thread.i.i, label %if.end.i.i.i
@@ -47944,7 +47944,7 @@ if.end.i.i.i:                                     ; preds = %land.lhs.true.i.i
   ]
 
 if.then6.i.i.i:                                   ; preds = %if.end.i.i.i, %if.end.i.i.i
-  %call7.i.i.i = call i64 @strtoul(ptr noundef nonnull %add.ptr.i3.i, ptr noundef nonnull %endptr.i.i.i, i32 noundef 16) #37
+  %call7.i.i.i = call i64 @strtoul(ptr noundef nonnull %add.ptr.i3.i, ptr noundef nonnull %endptr.i.i.i, i32 noundef 16) #36
   %.pre.i.i.i = load ptr, ptr %endptr.i.i.i, align 8
   %.pre5.i.i.i = load i8, ptr %.pre.i.i.i, align 1
   br label %if.end9.i.i.i
@@ -47960,7 +47960,7 @@ luaO_str2d.exit.thread9.i.i:                      ; preds = %if.end9.i.i.i
   br label %barg.exit
 
 while.cond.preheader.i.i.i:                       ; preds = %if.end9.i.i.i
-  %call15.i.i.i = tail call ptr @__ctype_b_loc() #42
+  %call15.i.i.i = tail call ptr @__ctype_b_loc() #41
   %7 = load ptr, ptr %call15.i.i.i, align 8
   br label %while.cond.i.i.i
 
@@ -48009,7 +48009,7 @@ land.lhs.true.i.i21:                              ; preds = %land.lhs.true.i7
   %14 = load ptr, ptr %add.ptr.luaO_nilobject_.i.i19, align 8
   %add.ptr.i3.i22 = getelementptr inbounds i8, ptr %14, i64 24
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %endptr.i.i.i14)
-  %call.i.i.i23 = call double @strtod(ptr noundef nonnull %add.ptr.i3.i22, ptr noundef nonnull %endptr.i.i.i14) #37
+  %call.i.i.i23 = call double @strtod(ptr noundef nonnull %add.ptr.i3.i22, ptr noundef nonnull %endptr.i.i.i14) #36
   %15 = load ptr, ptr %endptr.i.i.i14, align 8
   %cmp.i.i.i24 = icmp eq ptr %15, %add.ptr.i3.i22
   br i1 %cmp.i.i.i24, label %luaO_str2d.exit.thread.i.i46, label %if.end.i.i.i25
@@ -48026,7 +48026,7 @@ if.end.i.i.i25:                                   ; preds = %land.lhs.true.i.i21
   ]
 
 if.then6.i.i.i26:                                 ; preds = %if.end.i.i.i25, %if.end.i.i.i25
-  %call7.i.i.i27 = call i64 @strtoul(ptr noundef nonnull %add.ptr.i3.i22, ptr noundef nonnull %endptr.i.i.i14, i32 noundef 16) #37
+  %call7.i.i.i27 = call i64 @strtoul(ptr noundef nonnull %add.ptr.i3.i22, ptr noundef nonnull %endptr.i.i.i14, i32 noundef 16) #36
   %.pre.i.i.i28 = load ptr, ptr %endptr.i.i.i14, align 8
   %.pre5.i.i.i29 = load i8, ptr %.pre.i.i.i28, align 1
   br label %if.end9.i.i.i30
@@ -48042,7 +48042,7 @@ luaO_str2d.exit.thread9.i.i45:                    ; preds = %if.end9.i.i.i30
   br label %barg.exit12
 
 while.cond.preheader.i.i.i33:                     ; preds = %if.end9.i.i.i30
-  %call15.i.i.i34 = tail call ptr @__ctype_b_loc() #42
+  %call15.i.i.i34 = tail call ptr @__ctype_b_loc() #41
   %18 = load ptr, ptr %call15.i.i.i34, align 8
   br label %while.cond.i.i.i35
 
@@ -48113,7 +48113,7 @@ land.lhs.true.i.i:                                ; preds = %land.lhs.true.i
   %3 = load ptr, ptr %add.ptr.luaO_nilobject_.i.i, align 8
   %add.ptr.i3.i = getelementptr inbounds i8, ptr %3, i64 24
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %endptr.i.i.i)
-  %call.i.i.i = call double @strtod(ptr noundef nonnull %add.ptr.i3.i, ptr noundef nonnull %endptr.i.i.i) #37
+  %call.i.i.i = call double @strtod(ptr noundef nonnull %add.ptr.i3.i, ptr noundef nonnull %endptr.i.i.i) #36
   %4 = load ptr, ptr %endptr.i.i.i, align 8
   %cmp.i.i.i = icmp eq ptr %4, %add.ptr.i3.i
   br i1 %cmp.i.i.i, label %luaO_str2d.exit.thread.i.i, label %if.end.i.i.i
@@ -48130,7 +48130,7 @@ if.end.i.i.i:                                     ; preds = %land.lhs.true.i.i
   ]
 
 if.then6.i.i.i:                                   ; preds = %if.end.i.i.i, %if.end.i.i.i
-  %call7.i.i.i = call i64 @strtoul(ptr noundef nonnull %add.ptr.i3.i, ptr noundef nonnull %endptr.i.i.i, i32 noundef 16) #37
+  %call7.i.i.i = call i64 @strtoul(ptr noundef nonnull %add.ptr.i3.i, ptr noundef nonnull %endptr.i.i.i, i32 noundef 16) #36
   %.pre.i.i.i = load ptr, ptr %endptr.i.i.i, align 8
   %.pre5.i.i.i = load i8, ptr %.pre.i.i.i, align 1
   br label %if.end9.i.i.i
@@ -48146,7 +48146,7 @@ luaO_str2d.exit.thread9.i.i:                      ; preds = %if.end9.i.i.i
   br label %barg.exit
 
 while.cond.preheader.i.i.i:                       ; preds = %if.end9.i.i.i
-  %call15.i.i.i = tail call ptr @__ctype_b_loc() #42
+  %call15.i.i.i = tail call ptr @__ctype_b_loc() #41
   %7 = load ptr, ptr %call15.i.i.i, align 8
   br label %while.cond.i.i.i
 
@@ -48195,7 +48195,7 @@ land.lhs.true.i.i23:                              ; preds = %land.lhs.true.i9
   %14 = load ptr, ptr %add.ptr.luaO_nilobject_.i.i21, align 8
   %add.ptr.i3.i24 = getelementptr inbounds i8, ptr %14, i64 24
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %endptr.i.i.i16)
-  %call.i.i.i25 = call double @strtod(ptr noundef nonnull %add.ptr.i3.i24, ptr noundef nonnull %endptr.i.i.i16) #37
+  %call.i.i.i25 = call double @strtod(ptr noundef nonnull %add.ptr.i3.i24, ptr noundef nonnull %endptr.i.i.i16) #36
   %15 = load ptr, ptr %endptr.i.i.i16, align 8
   %cmp.i.i.i26 = icmp eq ptr %15, %add.ptr.i3.i24
   br i1 %cmp.i.i.i26, label %luaO_str2d.exit.thread.i.i48, label %if.end.i.i.i27
@@ -48212,7 +48212,7 @@ if.end.i.i.i27:                                   ; preds = %land.lhs.true.i.i23
   ]
 
 if.then6.i.i.i28:                                 ; preds = %if.end.i.i.i27, %if.end.i.i.i27
-  %call7.i.i.i29 = call i64 @strtoul(ptr noundef nonnull %add.ptr.i3.i24, ptr noundef nonnull %endptr.i.i.i16, i32 noundef 16) #37
+  %call7.i.i.i29 = call i64 @strtoul(ptr noundef nonnull %add.ptr.i3.i24, ptr noundef nonnull %endptr.i.i.i16, i32 noundef 16) #36
   %.pre.i.i.i30 = load ptr, ptr %endptr.i.i.i16, align 8
   %.pre5.i.i.i31 = load i8, ptr %.pre.i.i.i30, align 1
   br label %if.end9.i.i.i32
@@ -48228,7 +48228,7 @@ luaO_str2d.exit.thread9.i.i47:                    ; preds = %if.end9.i.i.i32
   br label %barg.exit14
 
 while.cond.preheader.i.i.i35:                     ; preds = %if.end9.i.i.i32
-  %call15.i.i.i36 = tail call ptr @__ctype_b_loc() #42
+  %call15.i.i.i36 = tail call ptr @__ctype_b_loc() #41
   %18 = load ptr, ptr %call15.i.i.i36, align 8
   br label %while.cond.i.i.i37
 
@@ -48298,7 +48298,7 @@ land.lhs.true.i.i:                                ; preds = %land.lhs.true.i
   %3 = load ptr, ptr %add.ptr.luaO_nilobject_.i.i, align 8
   %add.ptr.i3.i = getelementptr inbounds i8, ptr %3, i64 24
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %endptr.i.i.i)
-  %call.i.i.i = call double @strtod(ptr noundef nonnull %add.ptr.i3.i, ptr noundef nonnull %endptr.i.i.i) #37
+  %call.i.i.i = call double @strtod(ptr noundef nonnull %add.ptr.i3.i, ptr noundef nonnull %endptr.i.i.i) #36
   %4 = load ptr, ptr %endptr.i.i.i, align 8
   %cmp.i.i.i = icmp eq ptr %4, %add.ptr.i3.i
   br i1 %cmp.i.i.i, label %luaO_str2d.exit.thread.i.i, label %if.end.i.i.i
@@ -48315,7 +48315,7 @@ if.end.i.i.i:                                     ; preds = %land.lhs.true.i.i
   ]
 
 if.then6.i.i.i:                                   ; preds = %if.end.i.i.i, %if.end.i.i.i
-  %call7.i.i.i = call i64 @strtoul(ptr noundef nonnull %add.ptr.i3.i, ptr noundef nonnull %endptr.i.i.i, i32 noundef 16) #37
+  %call7.i.i.i = call i64 @strtoul(ptr noundef nonnull %add.ptr.i3.i, ptr noundef nonnull %endptr.i.i.i, i32 noundef 16) #36
   %.pre.i.i.i = load ptr, ptr %endptr.i.i.i, align 8
   %.pre5.i.i.i = load i8, ptr %.pre.i.i.i, align 1
   br label %if.end9.i.i.i
@@ -48331,7 +48331,7 @@ luaO_str2d.exit.thread9.i.i:                      ; preds = %if.end9.i.i.i
   br label %barg.exit
 
 while.cond.preheader.i.i.i:                       ; preds = %if.end9.i.i.i
-  %call15.i.i.i = tail call ptr @__ctype_b_loc() #42
+  %call15.i.i.i = tail call ptr @__ctype_b_loc() #41
   %7 = load ptr, ptr %call15.i.i.i, align 8
   br label %while.cond.i.i.i
 
@@ -48380,7 +48380,7 @@ land.lhs.true.i.i23:                              ; preds = %land.lhs.true.i9
   %14 = load ptr, ptr %add.ptr.luaO_nilobject_.i.i21, align 8
   %add.ptr.i3.i24 = getelementptr inbounds i8, ptr %14, i64 24
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %endptr.i.i.i16)
-  %call.i.i.i25 = call double @strtod(ptr noundef nonnull %add.ptr.i3.i24, ptr noundef nonnull %endptr.i.i.i16) #37
+  %call.i.i.i25 = call double @strtod(ptr noundef nonnull %add.ptr.i3.i24, ptr noundef nonnull %endptr.i.i.i16) #36
   %15 = load ptr, ptr %endptr.i.i.i16, align 8
   %cmp.i.i.i26 = icmp eq ptr %15, %add.ptr.i3.i24
   br i1 %cmp.i.i.i26, label %luaO_str2d.exit.thread.i.i48, label %if.end.i.i.i27
@@ -48397,7 +48397,7 @@ if.end.i.i.i27:                                   ; preds = %land.lhs.true.i.i23
   ]
 
 if.then6.i.i.i28:                                 ; preds = %if.end.i.i.i27, %if.end.i.i.i27
-  %call7.i.i.i29 = call i64 @strtoul(ptr noundef nonnull %add.ptr.i3.i24, ptr noundef nonnull %endptr.i.i.i16, i32 noundef 16) #37
+  %call7.i.i.i29 = call i64 @strtoul(ptr noundef nonnull %add.ptr.i3.i24, ptr noundef nonnull %endptr.i.i.i16, i32 noundef 16) #36
   %.pre.i.i.i30 = load ptr, ptr %endptr.i.i.i16, align 8
   %.pre5.i.i.i31 = load i8, ptr %.pre.i.i.i30, align 1
   br label %if.end9.i.i.i32
@@ -48413,7 +48413,7 @@ luaO_str2d.exit.thread9.i.i47:                    ; preds = %if.end9.i.i.i32
   br label %barg.exit14
 
 while.cond.preheader.i.i.i35:                     ; preds = %if.end9.i.i.i32
-  %call15.i.i.i36 = tail call ptr @__ctype_b_loc() #42
+  %call15.i.i.i36 = tail call ptr @__ctype_b_loc() #41
   %18 = load ptr, ptr %call15.i.i.i36, align 8
   br label %while.cond.i.i.i37
 
@@ -48482,7 +48482,7 @@ land.lhs.true.i.i:                                ; preds = %land.lhs.true.i
   %3 = load ptr, ptr %add.ptr.luaO_nilobject_.i.i, align 8
   %add.ptr.i3.i = getelementptr inbounds i8, ptr %3, i64 24
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %endptr.i.i.i)
-  %call.i.i.i = call double @strtod(ptr noundef nonnull %add.ptr.i3.i, ptr noundef nonnull %endptr.i.i.i) #37
+  %call.i.i.i = call double @strtod(ptr noundef nonnull %add.ptr.i3.i, ptr noundef nonnull %endptr.i.i.i) #36
   %4 = load ptr, ptr %endptr.i.i.i, align 8
   %cmp.i.i.i = icmp eq ptr %4, %add.ptr.i3.i
   br i1 %cmp.i.i.i, label %luaO_str2d.exit.thread.i.i, label %if.end.i.i.i
@@ -48499,7 +48499,7 @@ if.end.i.i.i:                                     ; preds = %land.lhs.true.i.i
   ]
 
 if.then6.i.i.i:                                   ; preds = %if.end.i.i.i, %if.end.i.i.i
-  %call7.i.i.i = call i64 @strtoul(ptr noundef nonnull %add.ptr.i3.i, ptr noundef nonnull %endptr.i.i.i, i32 noundef 16) #37
+  %call7.i.i.i = call i64 @strtoul(ptr noundef nonnull %add.ptr.i3.i, ptr noundef nonnull %endptr.i.i.i, i32 noundef 16) #36
   %.pre.i.i.i = load ptr, ptr %endptr.i.i.i, align 8
   %.pre5.i.i.i = load i8, ptr %.pre.i.i.i, align 1
   br label %if.end9.i.i.i
@@ -48515,7 +48515,7 @@ luaO_str2d.exit.thread9.i.i:                      ; preds = %if.end9.i.i.i
   br label %barg.exit
 
 while.cond.preheader.i.i.i:                       ; preds = %if.end9.i.i.i
-  %call15.i.i.i = tail call ptr @__ctype_b_loc() #42
+  %call15.i.i.i = tail call ptr @__ctype_b_loc() #41
   %7 = load ptr, ptr %call15.i.i.i, align 8
   br label %while.cond.i.i.i
 
@@ -48584,7 +48584,7 @@ land.lhs.true.i.i:                                ; preds = %land.lhs.true.i
   %3 = load ptr, ptr %add.ptr.luaO_nilobject_.i.i, align 8
   %add.ptr.i3.i = getelementptr inbounds i8, ptr %3, i64 24
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %endptr.i.i.i)
-  %call.i.i.i = call double @strtod(ptr noundef nonnull %add.ptr.i3.i, ptr noundef nonnull %endptr.i.i.i) #37
+  %call.i.i.i = call double @strtod(ptr noundef nonnull %add.ptr.i3.i, ptr noundef nonnull %endptr.i.i.i) #36
   %4 = load ptr, ptr %endptr.i.i.i, align 8
   %cmp.i.i.i = icmp eq ptr %4, %add.ptr.i3.i
   br i1 %cmp.i.i.i, label %luaO_str2d.exit.thread.i.i, label %if.end.i.i.i
@@ -48601,7 +48601,7 @@ if.end.i.i.i:                                     ; preds = %land.lhs.true.i.i
   ]
 
 if.then6.i.i.i:                                   ; preds = %if.end.i.i.i, %if.end.i.i.i
-  %call7.i.i.i = call i64 @strtoul(ptr noundef nonnull %add.ptr.i3.i, ptr noundef nonnull %endptr.i.i.i, i32 noundef 16) #37
+  %call7.i.i.i = call i64 @strtoul(ptr noundef nonnull %add.ptr.i3.i, ptr noundef nonnull %endptr.i.i.i, i32 noundef 16) #36
   %.pre.i.i.i = load ptr, ptr %endptr.i.i.i, align 8
   %.pre5.i.i.i = load i8, ptr %.pre.i.i.i, align 1
   br label %if.end9.i.i.i
@@ -48617,7 +48617,7 @@ luaO_str2d.exit.thread9.i.i:                      ; preds = %if.end9.i.i.i
   br label %barg.exit
 
 while.cond.preheader.i.i.i:                       ; preds = %if.end9.i.i.i
-  %call15.i.i.i = tail call ptr @__ctype_b_loc() #42
+  %call15.i.i.i = tail call ptr @__ctype_b_loc() #41
   %7 = load ptr, ptr %call15.i.i.i, align 8
   br label %while.cond.i.i.i
 
@@ -48684,7 +48684,7 @@ land.lhs.true.i.i39:                              ; preds = %land.lhs.true.i16
   %18 = load ptr, ptr %add.ptr.luaO_nilobject_.i.i36, align 8
   %add.ptr.i3.i40 = getelementptr inbounds i8, ptr %18, i64 24
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %endptr.i.i.i31)
-  %call.i.i.i41 = call double @strtod(ptr noundef nonnull %add.ptr.i3.i40, ptr noundef nonnull %endptr.i.i.i31) #37
+  %call.i.i.i41 = call double @strtod(ptr noundef nonnull %add.ptr.i3.i40, ptr noundef nonnull %endptr.i.i.i31) #36
   %19 = load ptr, ptr %endptr.i.i.i31, align 8
   %cmp.i.i.i42 = icmp eq ptr %19, %add.ptr.i3.i40
   br i1 %cmp.i.i.i42, label %luaO_str2d.exit.thread.i.i64, label %if.end.i.i.i43
@@ -48701,7 +48701,7 @@ if.end.i.i.i43:                                   ; preds = %land.lhs.true.i.i39
   ]
 
 if.then6.i.i.i44:                                 ; preds = %if.end.i.i.i43, %if.end.i.i.i43
-  %call7.i.i.i45 = call i64 @strtoul(ptr noundef nonnull %add.ptr.i3.i40, ptr noundef nonnull %endptr.i.i.i31, i32 noundef 16) #37
+  %call7.i.i.i45 = call i64 @strtoul(ptr noundef nonnull %add.ptr.i3.i40, ptr noundef nonnull %endptr.i.i.i31, i32 noundef 16) #36
   %.pre.i.i.i46 = load ptr, ptr %endptr.i.i.i31, align 8
   %.pre5.i.i.i47 = load i8, ptr %.pre.i.i.i46, align 1
   br label %if.end9.i.i.i48
@@ -48717,7 +48717,7 @@ luaO_str2d.exit.thread9.i.i63:                    ; preds = %if.end9.i.i.i48
   br label %cond.end
 
 while.cond.preheader.i.i.i51:                     ; preds = %if.end9.i.i.i48
-  %call15.i.i.i52 = tail call ptr @__ctype_b_loc() #42
+  %call15.i.i.i52 = tail call ptr @__ctype_b_loc() #41
   %22 = load ptr, ptr %call15.i.i.i52, align 8
   br label %while.cond.i.i.i53
 
@@ -48861,9 +48861,9 @@ lua_pushlstring.exit:                             ; preds = %for.end, %luaC_step
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @errfile(ptr noundef %L, ptr noundef %what, i32 noundef %fnameindex) unnamed_addr #0 {
 entry:
-  %call = tail call ptr @__errno_location() #42
+  %call = tail call ptr @__errno_location() #41
   %0 = load i32, ptr %call, align 4
-  %call1 = tail call ptr @strerror(i32 noundef %0) #37
+  %call1 = tail call ptr @strerror(i32 noundef %0) #36
   %call2 = tail call fastcc ptr @lua_tolstring(ptr noundef %L, i32 noundef %fnameindex, ptr noundef null)
   %add.ptr = getelementptr inbounds i8, ptr %call2, i64 1
   %call3 = tail call ptr (ptr, ptr, ...) @lua_pushfstring(ptr noundef %L, ptr noundef nonnull @.str.276, ptr noundef %what, ptr noundef nonnull %add.ptr, ptr noundef %call1)
@@ -48971,10 +48971,10 @@ lua_remove.exit:                                  ; preds = %while.body.i, %inde
   ret void
 }
 
-declare ptr @freopen(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #26
+declare ptr @freopen(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #25
 
 ; Function Attrs: nofree nounwind uwtable
-define internal noundef ptr @getF(ptr nocapture readnone %L, ptr noundef %ud, ptr nocapture noundef writeonly %size) #22 {
+define internal noundef ptr @getF(ptr nocapture readnone %L, ptr noundef %ud, ptr nocapture noundef writeonly %size) #21 {
 entry:
   %0 = load i32, ptr %ud, align 8
   %tobool.not = icmp eq i32 %0, 0
@@ -48988,7 +48988,7 @@ if.then:                                          ; preds = %entry
 if.end:                                           ; preds = %entry
   %f = getelementptr inbounds i8, ptr %ud, i64 8
   %1 = load ptr, ptr %f, align 8
-  %call = tail call i32 @feof(ptr noundef %1) #37
+  %call = tail call i32 @feof(ptr noundef %1) #36
   %tobool2.not = icmp eq i32 %call, 0
   br i1 %tobool2.not, label %if.end4, label %return
 
@@ -49042,103 +49042,102 @@ luaC_callGCTM.exit:                               ; preds = %while.body.i, %entr
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_start.p0(ptr) #28
+declare void @llvm.va_start.p0(ptr) #27
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_end.p0(ptr) #28
+declare void @llvm.va_end.p0(ptr) #27
 
 ; Function Attrs: nofree nounwind willreturn memory(argmem: read)
-declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #29
+declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #28
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.umax.i64(i64, i64) #30
+declare i64 @llvm.umax.i64(i64, i64) #29
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.smax.i32(i32, i32) #30
+declare i32 @llvm.smax.i32(i32, i32) #29
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.smax.i64(i64, i64) #30
+declare i64 @llvm.smax.i64(i64, i64) #29
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.fshl.i32(i32, i32, i32) #30
+declare i32 @llvm.fshl.i32(i32, i32, i32) #29
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.fshr.i32(i32, i32, i32) #30
+declare i32 @llvm.fshr.i32(i32, i32, i32) #29
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.bswap.i32(i32) #30
+declare i32 @llvm.bswap.i32(i32) #29
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.smin.i32(i32, i32) #30
+declare i32 @llvm.smin.i32(i32, i32) #29
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #31
+declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #30
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #32
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #31
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #32
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #31
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.umin.i64(i64, i64) #30
+declare i64 @llvm.umin.i64(i64, i64) #29
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
-declare void @llvm.assume(i1 noundef) #33
+declare void @llvm.assume(i1 noundef) #32
 
 ; Function Attrs: nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite)
-declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #34
+declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #33
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.smin.i64(i64, i64) #30
+declare i64 @llvm.smin.i64(i64, i64) #29
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.umin.i32(i32, i32) #30
+declare i32 @llvm.umin.i32(i32, i32) #29
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nofree nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { mustprogress nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { cold nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { nounwind returns_twice "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { noreturn nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { nofree noreturn nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #8 = { nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #9 = { noreturn nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #10 = { mustprogress nofree nounwind willreturn memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #11 = { mustprogress nofree nounwind willreturn memory(argmem: readwrite) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #12 = { mustprogress nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #13 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #14 = { mustprogress nofree nounwind willreturn memory(write) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #15 = { nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #16 = { mustprogress nofree nounwind willreturn memory(read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #17 = { mustprogress nofree nounwind willreturn "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #18 = { mustprogress nofree nosync nounwind willreturn memory(none) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #19 = { nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #20 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #21 = { mustprogress nounwind willreturn allockind("realloc") allocsize(1) memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #22 = { nofree nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #23 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #24 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #25 = { nofree nounwind memory(read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #26 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #27 = { mustprogress nofree nounwind willreturn memory(read) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #28 = { mustprogress nocallback nofree nosync nounwind willreturn }
-attributes #29 = { nofree nounwind willreturn memory(argmem: read) }
-attributes #30 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #31 = { nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #32 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #33 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
-attributes #34 = { nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" }
-attributes #35 = { cold }
-attributes #36 = { nounwind willreturn memory(read) }
-attributes #37 = { nounwind }
-attributes #38 = { nounwind allocsize(1) }
-attributes #39 = { nounwind returns_twice }
-attributes #40 = { noreturn nounwind }
-attributes #41 = { cold noreturn nounwind }
-attributes #42 = { nounwind willreturn memory(none) }
-attributes #43 = { "function-inline-cost-multiplier"="2" }
+attributes #3 = { nounwind returns_twice "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { noreturn nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { nofree noreturn nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #7 = { nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #8 = { noreturn nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #9 = { mustprogress nofree nounwind willreturn memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #10 = { mustprogress nofree nounwind willreturn memory(argmem: readwrite) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #11 = { mustprogress nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #12 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #13 = { mustprogress nofree nounwind willreturn memory(write) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #14 = { nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #15 = { mustprogress nofree nounwind willreturn memory(read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #16 = { mustprogress nofree nounwind willreturn "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #17 = { mustprogress nofree nosync nounwind willreturn memory(none) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #18 = { nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #19 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #20 = { mustprogress nounwind willreturn allockind("realloc") allocsize(1) memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #21 = { nofree nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #22 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #23 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #24 = { nofree nounwind memory(read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #25 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #26 = { mustprogress nofree nounwind willreturn memory(read) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #27 = { mustprogress nocallback nofree nosync nounwind willreturn }
+attributes #28 = { nofree nounwind willreturn memory(argmem: read) }
+attributes #29 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #30 = { nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #31 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #32 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
+attributes #33 = { nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" }
+attributes #34 = { cold }
+attributes #35 = { nounwind willreturn memory(read) }
+attributes #36 = { nounwind }
+attributes #37 = { nounwind allocsize(1) }
+attributes #38 = { nounwind returns_twice }
+attributes #39 = { noreturn nounwind }
+attributes #40 = { cold noreturn nounwind }
+attributes #41 = { nounwind willreturn memory(none) }
+attributes #42 = { "function-inline-cost-multiplier"="2" }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

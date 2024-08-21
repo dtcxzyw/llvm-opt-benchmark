@@ -321,7 +321,7 @@ entry:
   br label %while.cond
 
 while.cond:                                       ; preds = %while.cond.backedge, %entry
-  %call = tail call i32 @opt_next() #8
+  %call = tail call i32 @opt_next() #7
   switch i32 %call, label %return [
     i32 0, label %while.end
     i32 1, label %sw.bb
@@ -341,10 +341,10 @@ sw.bb:                                            ; preds = %while.cond
   br label %while.cond.backedge
 
 while.end:                                        ; preds = %while.cond
-  tail call void @add_test(ptr noundef nonnull @.str.16, ptr noundef nonnull @test_big) #8
-  tail call void @add_all_tests(ptr noundef nonnull @.str.17, ptr noundef nonnull @test_fp, i32 noundef 7, i32 noundef 1) #8
-  tail call void @add_all_tests(ptr noundef nonnull @.str.18, ptr noundef nonnull @test_zu, i32 noundef 4, i32 noundef 1) #8
-  tail call void @add_all_tests(ptr noundef nonnull @.str.19, ptr noundef nonnull @test_j, i32 noundef 4, i32 noundef 1) #8
+  tail call void @add_test(ptr noundef nonnull @.str.16, ptr noundef nonnull @test_big) #7
+  tail call void @add_all_tests(ptr noundef nonnull @.str.17, ptr noundef nonnull @test_fp, i32 noundef 7, i32 noundef 1) #7
+  tail call void @add_all_tests(ptr noundef nonnull @.str.18, ptr noundef nonnull @test_zu, i32 noundef 4, i32 noundef 1) #7
+  tail call void @add_all_tests(ptr noundef nonnull @.str.19, ptr noundef nonnull @test_j, i32 noundef 4, i32 noundef 1) #7
   br label %return
 
 return:                                           ; preds = %while.cond, %while.end
@@ -360,8 +360,8 @@ declare void @add_test(ptr noundef, ptr noundef) local_unnamed_addr #2
 define internal range(i32 0, 2) i32 @test_big() #1 {
 entry:
   %buf = alloca [80 x i8], align 16
-  %call = call i32 (ptr, i64, ptr, ...) @BIO_snprintf(ptr noundef nonnull %buf, i64 noundef 80, ptr noundef nonnull @.str.26, double noundef 0x4400000000000000) #8
-  %call1 = call i32 @test_int_eq(ptr noundef nonnull @.str.23, i32 noundef 250, ptr noundef nonnull @.str.24, ptr noundef nonnull @.str.25, i32 noundef %call, i32 noundef -1) #8
+  %call = call i32 (ptr, i64, ptr, ...) @BIO_snprintf(ptr noundef nonnull %buf, i64 noundef 80, ptr noundef nonnull @.str.26, double noundef 0x4400000000000000) #7
+  %call1 = call i32 @test_int_eq(ptr noundef nonnull @.str.23, i32 noundef 250, ptr noundef nonnull @.str.24, ptr noundef nonnull @.str.25, i32 noundef %call, i32 noundef -1) #7
   %tobool.not = icmp ne i32 %call1, 0
   %. = zext i1 %tobool.not to i32
   ret i32 %.
@@ -386,61 +386,61 @@ if.end:                                           ; preds = %if.then, %entry
   %0 = load ptr, ptr %w, align 8
   %1 = load i32, ptr %arrayidx, align 16
   %call1 = tail call fastcc i32 @dofptest(i32 noundef %i, i32 noundef 0, double noundef 0.000000e+00, ptr noundef %0, i32 noundef %1)
-  %call2 = tail call i32 @test_true(ptr noundef nonnull @.str.23, i32 noundef 229, ptr noundef nonnull @.str.28, i32 noundef %call1) #8
+  %call2 = tail call i32 @test_true(ptr noundef nonnull @.str.23, i32 noundef 229, ptr noundef nonnull @.str.28, i32 noundef %call1) #7
   %tobool3.not = icmp eq i32 %call2, 0
   br i1 %tobool3.not, label %land.end, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %if.end
   %call7 = tail call fastcc i32 @dofptest(i32 noundef %i, i32 noundef 1, double noundef 6.700000e-01, ptr noundef %0, i32 noundef %1)
-  %call10 = tail call i32 @test_true(ptr noundef nonnull @.str.23, i32 noundef 230, ptr noundef nonnull @.str.29, i32 noundef %call7) #8
+  %call10 = tail call i32 @test_true(ptr noundef nonnull @.str.23, i32 noundef 230, ptr noundef nonnull @.str.29, i32 noundef %call7) #7
   %tobool11.not = icmp eq i32 %call10, 0
   br i1 %tobool11.not, label %land.end, label %land.lhs.true12
 
 land.lhs.true12:                                  ; preds = %land.lhs.true
   %call16 = tail call fastcc i32 @dofptest(i32 noundef %i, i32 noundef 2, double noundef 0x3FE5555555555555, ptr noundef %0, i32 noundef %1)
-  %call19 = tail call i32 @test_true(ptr noundef nonnull @.str.23, i32 noundef 231, ptr noundef nonnull @.str.30, i32 noundef %call16) #8
+  %call19 = tail call i32 @test_true(ptr noundef nonnull @.str.23, i32 noundef 231, ptr noundef nonnull @.str.30, i32 noundef %call16) #7
   %tobool20.not = icmp eq i32 %call19, 0
   br i1 %tobool20.not, label %land.end, label %land.lhs.true21
 
 land.lhs.true21:                                  ; preds = %land.lhs.true12
   %call25 = tail call fastcc i32 @dofptest(i32 noundef %i, i32 noundef 3, double noundef 0x3F45D867C3ECE2A5, ptr noundef %0, i32 noundef %1)
-  %call28 = tail call i32 @test_true(ptr noundef nonnull @.str.23, i32 noundef 232, ptr noundef nonnull @.str.31, i32 noundef %call25) #8
+  %call28 = tail call i32 @test_true(ptr noundef nonnull @.str.23, i32 noundef 232, ptr noundef nonnull @.str.31, i32 noundef %call25) #7
   %tobool29.not = icmp eq i32 %call28, 0
   br i1 %tobool29.not, label %land.end, label %land.lhs.true30
 
 land.lhs.true30:                                  ; preds = %land.lhs.true21
   %call34 = tail call fastcc i32 @dofptest(i32 noundef %i, i32 noundef 4, double noundef 0x3F1179EC9CBD821D, ptr noundef %0, i32 noundef %1)
-  %call37 = tail call i32 @test_true(ptr noundef nonnull @.str.23, i32 noundef 233, ptr noundef nonnull @.str.32, i32 noundef %call34) #8
+  %call37 = tail call i32 @test_true(ptr noundef nonnull @.str.23, i32 noundef 233, ptr noundef nonnull @.str.32, i32 noundef %call34) #7
   %tobool38.not = icmp eq i32 %call37, 0
   br i1 %tobool38.not, label %land.end, label %land.lhs.true39
 
 land.lhs.true39:                                  ; preds = %land.lhs.true30
   %call43 = tail call fastcc i32 @dofptest(i32 noundef %i, i32 noundef 5, double noundef 0x401AAAAAAAAAAAAB, ptr noundef %0, i32 noundef %1)
-  %call46 = tail call i32 @test_true(ptr noundef nonnull @.str.23, i32 noundef 234, ptr noundef nonnull @.str.33, i32 noundef %call43) #8
+  %call46 = tail call i32 @test_true(ptr noundef nonnull @.str.23, i32 noundef 234, ptr noundef nonnull @.str.33, i32 noundef %call43) #7
   %tobool47.not = icmp eq i32 %call46, 0
   br i1 %tobool47.not, label %land.end, label %land.lhs.true48
 
 land.lhs.true48:                                  ; preds = %land.lhs.true39
   %call52 = tail call fastcc i32 @dofptest(i32 noundef %i, i32 noundef 6, double noundef 0x4050AAAAAAAAAAAB, ptr noundef %0, i32 noundef %1)
-  %call55 = tail call i32 @test_true(ptr noundef nonnull @.str.23, i32 noundef 235, ptr noundef nonnull @.str.34, i32 noundef %call52) #8
+  %call55 = tail call i32 @test_true(ptr noundef nonnull @.str.23, i32 noundef 235, ptr noundef nonnull @.str.34, i32 noundef %call52) #7
   %tobool56.not = icmp eq i32 %call55, 0
   br i1 %tobool56.not, label %land.end, label %land.lhs.true57
 
 land.lhs.true57:                                  ; preds = %land.lhs.true48
   %call61 = tail call fastcc i32 @dofptest(i32 noundef %i, i32 noundef 7, double noundef 0x4084D55555555555, ptr noundef %0, i32 noundef %1)
-  %call64 = tail call i32 @test_true(ptr noundef nonnull @.str.23, i32 noundef 236, ptr noundef nonnull @.str.35, i32 noundef %call61) #8
+  %call64 = tail call i32 @test_true(ptr noundef nonnull @.str.23, i32 noundef 236, ptr noundef nonnull @.str.35, i32 noundef %call61) #7
   %tobool65.not = icmp eq i32 %call64, 0
   br i1 %tobool65.not, label %land.end, label %land.lhs.true66
 
 land.lhs.true66:                                  ; preds = %land.lhs.true57
   %call70 = tail call fastcc i32 @dofptest(i32 noundef %i, i32 noundef 8, double noundef 0x40BA0AAAAAAAAAAB, ptr noundef %0, i32 noundef %1)
-  %call73 = tail call i32 @test_true(ptr noundef nonnull @.str.23, i32 noundef 237, ptr noundef nonnull @.str.36, i32 noundef %call70) #8
+  %call73 = tail call i32 @test_true(ptr noundef nonnull @.str.23, i32 noundef 237, ptr noundef nonnull @.str.36, i32 noundef %call70) #7
   %tobool74.not = icmp eq i32 %call73, 0
   br i1 %tobool74.not, label %land.end, label %land.rhs
 
 land.rhs:                                         ; preds = %land.lhs.true66
   %call78 = tail call fastcc i32 @dofptest(i32 noundef %i, i32 noundef 9, double noundef 0x40F046AAAAAAAAAB, ptr noundef %0, i32 noundef %1)
-  %call81 = tail call i32 @test_true(ptr noundef nonnull @.str.23, i32 noundef 238, ptr noundef nonnull @.str.37, i32 noundef %call78) #8
+  %call81 = tail call i32 @test_true(ptr noundef nonnull @.str.23, i32 noundef 238, ptr noundef nonnull @.str.37, i32 noundef %call78) #7
   %tobool82 = icmp ne i32 %call81, 0
   %2 = zext i1 %tobool82 to i32
   br label %land.end
@@ -467,10 +467,10 @@ entry:
   %format = getelementptr inbounds i8, ptr %arrayidx, i64 8
   %0 = load ptr, ptr %format, align 8
   %1 = load i64, ptr %arrayidx, align 8
-  %call = call i32 (ptr, i64, ptr, ...) @BIO_snprintf(ptr noundef nonnull %bio_buf, i64 noundef 79, ptr noundef %0, i64 noundef %1) #8
+  %call = call i32 (ptr, i64, ptr, ...) @BIO_snprintf(ptr noundef nonnull %bio_buf, i64 noundef 79, ptr noundef %0, i64 noundef %1) #7
   %expected = getelementptr inbounds i8, ptr %arrayidx, i64 16
   %2 = load ptr, ptr %expected, align 8
-  %call2 = call i32 @test_str_eq(ptr noundef nonnull @.str.23, i32 noundef 137, ptr noundef nonnull @.str.276, ptr noundef nonnull @.str.277, ptr noundef nonnull %bio_buf, ptr noundef %2) #8
+  %call2 = call i32 @test_str_eq(ptr noundef nonnull @.str.23, i32 noundef 137, ptr noundef nonnull @.str.276, ptr noundef nonnull @.str.277, ptr noundef nonnull %bio_buf, ptr noundef %2) #7
   %tobool.not = icmp ne i32 %call2, 0
   %. = zext i1 %tobool.not to i32
   ret i32 %.
@@ -485,10 +485,10 @@ entry:
   %format = getelementptr inbounds i8, ptr %arrayidx, i64 8
   %0 = load ptr, ptr %format, align 8
   %1 = load i64, ptr %arrayidx, align 8
-  %call = call i32 (ptr, i64, ptr, ...) @BIO_snprintf(ptr noundef nonnull %bio_buf, i64 noundef 79, ptr noundef %0, i64 noundef %1) #8
+  %call = call i32 (ptr, i64, ptr, ...) @BIO_snprintf(ptr noundef nonnull %bio_buf, i64 noundef 79, ptr noundef %0, i64 noundef %1) #7
   %expected = getelementptr inbounds i8, ptr %arrayidx, i64 16
   %2 = load ptr, ptr %expected, align 8
-  %call2 = call i32 @test_str_eq(ptr noundef nonnull @.str.23, i32 noundef 165, ptr noundef nonnull @.str.276, ptr noundef nonnull @.str.277, ptr noundef nonnull %bio_buf, ptr noundef %2) #8
+  %call2 = call i32 @test_str_eq(ptr noundef nonnull @.str.23, i32 noundef 165, ptr noundef nonnull @.str.276, ptr noundef nonnull @.str.277, ptr noundef nonnull %bio_buf, ptr noundef %2) #7
   %tobool.not = icmp ne i32 %call2, 0
   %. = zext i1 %tobool.not to i32
   ret i32 %.
@@ -531,14 +531,14 @@ declare noundef i32 @fprintf(ptr nocapture noundef, ptr nocapture noundef readon
 ; Function Attrs: nofree nounwind
 declare noundef i32 @vfprintf(ptr nocapture noundef, ptr nocapture noundef readonly, ptr noundef) local_unnamed_addr #5
 
-; Function Attrs: cold nofree nounwind uwtable
-define dso_local i32 @test_vprintf_stderr(ptr nocapture noundef readonly %fmt, ptr noundef %ap) local_unnamed_addr #6 {
+; Function Attrs: nofree nounwind uwtable
+define dso_local i32 @test_vprintf_stderr(ptr nocapture noundef readonly %fmt, ptr noundef %ap) local_unnamed_addr #4 {
 entry:
   %0 = load ptr, ptr @stderr, align 8
   %1 = load i32, ptr @tap_level, align 4
-  %call = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.20, i32 noundef %1, ptr noundef nonnull @.str.21) #9
+  %call = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.20, i32 noundef %1, ptr noundef nonnull @.str.21) #8
   %2 = load ptr, ptr @stderr, align 8
-  %call1 = tail call i32 @vfprintf(ptr noundef %2, ptr noundef %fmt, ptr noundef %ap) #9
+  %call1 = tail call i32 @vfprintf(ptr noundef %2, ptr noundef %fmt, ptr noundef %ap) #8
   %add = add nsw i32 %call1, %call
   ret i32 %add
 }
@@ -574,14 +574,14 @@ entry:
   ret i32 %add
 }
 
-; Function Attrs: cold nofree nounwind uwtable
-define dso_local i32 @test_vprintf_taperr(ptr nocapture noundef readonly %fmt, ptr noundef %ap) local_unnamed_addr #6 {
+; Function Attrs: nofree nounwind uwtable
+define dso_local i32 @test_vprintf_taperr(ptr nocapture noundef readonly %fmt, ptr noundef %ap) local_unnamed_addr #4 {
 entry:
   %0 = load ptr, ptr @stderr, align 8
   %1 = load i32, ptr @tap_level, align 4
-  %call = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.22, i32 noundef %1, ptr noundef nonnull @.str.21) #9
+  %call = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.22, i32 noundef %1, ptr noundef nonnull @.str.21) #8
   %2 = load ptr, ptr @stderr, align 8
-  %call1 = tail call i32 @vfprintf(ptr noundef %2, ptr noundef %fmt, ptr noundef %ap) #9
+  %call1 = tail call i32 @vfprintf(ptr noundef %2, ptr noundef %fmt, ptr noundef %ap) #8
   %add = add nsw i32 %call1, %call
   ret i32 %add
 }
@@ -626,20 +626,20 @@ for.body.us:                                      ; preds = %entry, %for.inc.us
   %ret.016.us = phi i32 [ %ret.1.us, %for.inc.us ], [ 1, %entry ]
   %arrayidx.us = getelementptr inbounds [5 x ptr], ptr @dofptest.fspecs, i64 0, i64 %indvars.iv19
   %0 = load ptr, ptr %arrayidx.us, align 8
-  %call.us = call i32 (ptr, i64, ptr, ...) @BIO_snprintf(ptr noundef nonnull %format, i64 noundef 80, ptr noundef nonnull @.str.46, ptr noundef %width, i32 noundef %prec, ptr noundef %0) #8
-  %call6.us = call i32 (ptr, i64, ptr, ...) @BIO_snprintf(ptr noundef nonnull %result, i64 noundef 80, ptr noundef nonnull %format, double noundef %val) #8
+  %call.us = call i32 (ptr, i64, ptr, ...) @BIO_snprintf(ptr noundef nonnull %format, i64 noundef 80, ptr noundef nonnull @.str.46, ptr noundef %width, i32 noundef %prec, ptr noundef %0) #7
+  %call6.us = call i32 (ptr, i64, ptr, ...) @BIO_snprintf(ptr noundef nonnull %result, i64 noundef 80, ptr noundef nonnull %format, double noundef %val) #7
   %.b14.us = load i1, ptr @justprint, align 4
   br i1 %.b14.us, label %if.then7.us, label %if.else16.us
 
 if.else16.us:                                     ; preds = %for.body.us
   %arrayidx22.us = getelementptr inbounds [7 x [10 x [5 x ptr]]], ptr @fpexpected, i64 0, i64 %idxprom17, i64 %idxprom19, i64 %indvars.iv19
   %1 = load ptr, ptr %arrayidx22.us, align 8
-  %call24.us = call i32 @test_str_eq(ptr noundef nonnull @.str.23, i32 noundef 210, ptr noundef nonnull @.str.50, ptr noundef nonnull @.str.51, ptr noundef %1, ptr noundef nonnull %result) #8
+  %call24.us = call i32 @test_str_eq(ptr noundef nonnull @.str.23, i32 noundef 210, ptr noundef nonnull @.str.50, ptr noundef nonnull @.str.51, ptr noundef %1, ptr noundef nonnull %result) #7
   %tobool25.not.us = icmp eq i32 %call24.us, 0
   br i1 %tobool25.not.us, label %if.then26.us, label %for.inc.us
 
 if.then26.us:                                     ; preds = %if.else16.us
-  call void (ptr, i32, ptr, ...) @test_info(ptr noundef nonnull @.str.23, i32 noundef 212, ptr noundef nonnull @.str.52, i32 noundef %test, ptr noundef nonnull %format, ptr noundef %1, ptr noundef nonnull %result) #8
+  call void (ptr, i32, ptr, ...) @test_info(ptr noundef nonnull @.str.23, i32 noundef 212, ptr noundef nonnull @.str.52, i32 noundef %test, ptr noundef nonnull %format, ptr noundef %1, ptr noundef nonnull %result) #7
   br label %for.inc.us
 
 if.then7.us:                                      ; preds = %for.body.us
@@ -665,8 +665,8 @@ for.body:                                         ; preds = %entry, %for.inc
   %ret.016 = phi i32 [ %ret.1, %for.inc ], [ 1, %entry ]
   %arrayidx = getelementptr inbounds [5 x ptr], ptr @dofptest.fspecs, i64 0, i64 %indvars.iv
   %2 = load ptr, ptr %arrayidx, align 8
-  %call3 = call i32 (ptr, i64, ptr, ...) @BIO_snprintf(ptr noundef nonnull %format, i64 noundef 80, ptr noundef nonnull @.str.47, ptr noundef %width, ptr noundef %2) #8
-  %call6 = call i32 (ptr, i64, ptr, ...) @BIO_snprintf(ptr noundef nonnull %result, i64 noundef 80, ptr noundef nonnull %format, double noundef %val) #8
+  %call3 = call i32 (ptr, i64, ptr, ...) @BIO_snprintf(ptr noundef nonnull %format, i64 noundef 80, ptr noundef nonnull @.str.47, ptr noundef %width, ptr noundef %2) #7
+  %call6 = call i32 (ptr, i64, ptr, ...) @BIO_snprintf(ptr noundef nonnull %result, i64 noundef 80, ptr noundef nonnull %format, double noundef %val) #7
   %.b14 = load i1, ptr @justprint, align 4
   br i1 %.b14, label %if.then7, label %if.else16
 
@@ -685,12 +685,12 @@ if.else12:                                        ; preds = %if.then7
 if.else16:                                        ; preds = %for.body
   %arrayidx22 = getelementptr inbounds [7 x [10 x [5 x ptr]]], ptr @fpexpected, i64 0, i64 %idxprom17, i64 %idxprom19, i64 %indvars.iv
   %3 = load ptr, ptr %arrayidx22, align 8
-  %call24 = call i32 @test_str_eq(ptr noundef nonnull @.str.23, i32 noundef 210, ptr noundef nonnull @.str.50, ptr noundef nonnull @.str.51, ptr noundef %3, ptr noundef nonnull %result) #8
+  %call24 = call i32 @test_str_eq(ptr noundef nonnull @.str.23, i32 noundef 210, ptr noundef nonnull @.str.50, ptr noundef nonnull @.str.51, ptr noundef %3, ptr noundef nonnull %result) #7
   %tobool25.not = icmp eq i32 %call24, 0
   br i1 %tobool25.not, label %if.then26, label %for.inc
 
 if.then26:                                        ; preds = %if.else16
-  call void (ptr, i32, ptr, ...) @test_info(ptr noundef nonnull @.str.23, i32 noundef 212, ptr noundef nonnull @.str.52, i32 noundef %test, ptr noundef nonnull %format, ptr noundef %3, ptr noundef nonnull %result) #8
+  call void (ptr, i32, ptr, ...) @test_info(ptr noundef nonnull @.str.23, i32 noundef 212, ptr noundef nonnull @.str.52, i32 noundef %test, ptr noundef nonnull %format, ptr noundef %3, ptr noundef nonnull %result) #7
   br label %for.inc
 
 for.inc:                                          ; preds = %if.else12, %if.then9, %if.then26, %if.else16
@@ -717,7 +717,7 @@ declare i32 @test_str_eq(ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr
 declare void @test_info(ptr noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #2
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @puts(ptr nocapture noundef readonly) local_unnamed_addr #7
+declare noundef i32 @puts(ptr nocapture noundef readonly) local_unnamed_addr #6
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -725,10 +725,9 @@ attributes #2 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protect
 attributes #3 = { mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: none, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #4 = { nofree nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #5 = { nofree nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { cold nofree nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { nofree nounwind }
-attributes #8 = { nounwind }
-attributes #9 = { cold }
+attributes #6 = { nofree nounwind }
+attributes #7 = { nounwind }
+attributes #8 = { cold }
 
 !llvm.module.flags = !{!0, !1, !2, !3, !4}
 

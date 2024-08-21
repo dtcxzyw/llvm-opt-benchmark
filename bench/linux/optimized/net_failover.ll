@@ -64,19 +64,19 @@ module asm ".previous\09\09\09\09\09"
 define dso_local ptr @net_failover_create(ptr nocapture noundef readonly %0) #0 align 16 {
   %2 = getelementptr inbounds i8, ptr %0, i64 1400
   %3 = load ptr, ptr %2, align 8
-  %4 = tail call ptr @alloc_etherdev_mqs(i32 noundef 624, i32 noundef 16, i32 noundef 16) #12
+  %4 = tail call ptr @alloc_etherdev_mqs(i32 noundef 624, i32 noundef 16, i32 noundef 16) #11
   %5 = icmp eq ptr %4, null
   br i1 %5, label %6, label %7
 
 6:                                                ; preds = %1
-  tail call void (ptr, ptr, ...) @_dev_err(ptr noundef %3, ptr noundef nonnull @.str) #13
+  tail call void (ptr, ptr, ...) @_dev_err(ptr noundef %3, ptr noundef nonnull @.str) #12
   br label %45
 
 7:                                                ; preds = %1
   %8 = getelementptr inbounds i8, ptr %0, i64 272
   %9 = load ptr, ptr %8, align 8
   %10 = getelementptr inbounds i8, ptr %4, i64 272
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #12, !srcloc !5
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #11, !srcloc !5
   store volatile ptr %9, ptr %10, align 8
   %11 = getelementptr inbounds i8, ptr %4, i64 1400
   store ptr %3, ptr %11, align 8
@@ -99,7 +99,7 @@ define dso_local ptr @net_failover_create(ptr nocapture noundef readonly %0) #0 
   %23 = getelementptr inbounds i8, ptr %4, i64 813
   %24 = load i8, ptr %23, align 1
   %25 = zext i8 %24 to i64
-  tail call void @dev_addr_mod(ptr noundef nonnull %4, i32 noundef 0, ptr noundef %22, i64 noundef %25) #12
+  tail call void @dev_addr_mod(ptr noundef nonnull %4, i32 noundef 0, ptr noundef %22, i64 noundef %25) #11
   %26 = getelementptr inbounds i8, ptr %0, i64 544
   %27 = load i32, ptr %26, align 8
   %28 = getelementptr inbounds i8, ptr %4, i64 544
@@ -108,29 +108,29 @@ define dso_local ptr @net_failover_create(ptr nocapture noundef readonly %0) #0 
   %30 = load i32, ptr %29, align 4
   %31 = getelementptr inbounds i8, ptr %4, i64 548
   store i32 %30, ptr %31, align 4
-  %32 = tail call i32 @register_netdev(ptr noundef nonnull %4) #12
+  %32 = tail call i32 @register_netdev(ptr noundef nonnull %4) #11
   %33 = icmp eq i32 %32, 0
   br i1 %33, label %35, label %34
 
 34:                                               ; preds = %7
-  tail call void (ptr, ptr, ...) @_dev_err(ptr noundef %3, ptr noundef nonnull @.str.1) #13
+  tail call void (ptr, ptr, ...) @_dev_err(ptr noundef %3, ptr noundef nonnull @.str.1) #12
   br label %41
 
 35:                                               ; preds = %7
-  tail call void @netif_carrier_off(ptr noundef nonnull %4) #12
-  %36 = tail call ptr @failover_register(ptr noundef nonnull %4, ptr noundef nonnull @net_failover_ops) #12
+  tail call void @netif_carrier_off(ptr noundef nonnull %4) #11
+  %36 = tail call ptr @failover_register(ptr noundef nonnull %4, ptr noundef nonnull @net_failover_ops) #11
   %37 = icmp ugt ptr %36, inttoptr (i64 -4096 to ptr)
   br i1 %37, label %38, label %45
 
 38:                                               ; preds = %35
   %39 = ptrtoint ptr %36 to i64
   %40 = trunc i64 %39 to i32
-  tail call void @unregister_netdev(ptr noundef nonnull %4) #12
+  tail call void @unregister_netdev(ptr noundef nonnull %4) #11
   br label %41
 
 41:                                               ; preds = %38, %34
   %42 = phi i32 [ %32, %34 ], [ %40, %38 ]
-  tail call void @free_netdev(ptr noundef nonnull %4) #12
+  tail call void @free_netdev(ptr noundef nonnull %4) #11
   %43 = sext i32 %42 to i64
   %44 = inttoptr i64 %43 to ptr
   br label %45
@@ -176,14 +176,14 @@ define dso_local void @net_failover_destroy(ptr noundef %0) #0 align 16 {
   %4 = getelementptr inbounds i8, ptr %0, i64 16
   %5 = load volatile ptr, ptr %4, align 8
   %6 = getelementptr i8, ptr %5, i64 2304
-  tail call void @netif_device_detach(ptr noundef %5) #12
-  tail call void @rtnl_lock() #12
+  tail call void @netif_device_detach(ptr noundef %5) #11
+  tail call void @rtnl_lock() #11
   %7 = load ptr, ptr %6, align 8
   %8 = icmp eq ptr %7, null
   br i1 %8, label %11, label %9
 
 9:                                                ; preds = %3
-  %10 = tail call i32 @failover_slave_unregister(ptr noundef nonnull %7) #12
+  %10 = tail call i32 @failover_slave_unregister(ptr noundef nonnull %7) #11
   br label %11
 
 11:                                               ; preds = %9, %3
@@ -193,14 +193,14 @@ define dso_local void @net_failover_destroy(ptr noundef %0) #0 align 16 {
   br i1 %14, label %17, label %15
 
 15:                                               ; preds = %11
-  %16 = tail call i32 @failover_slave_unregister(ptr noundef nonnull %13) #12
+  %16 = tail call i32 @failover_slave_unregister(ptr noundef nonnull %13) #11
   br label %17
 
 17:                                               ; preds = %15, %11
-  tail call void @failover_unregister(ptr noundef nonnull %0) #12
-  tail call void @unregister_netdevice_queue(ptr noundef %5, ptr noundef null) #12
-  tail call void @rtnl_unlock() #12
-  tail call void @free_netdev(ptr noundef %5) #12
+  tail call void @failover_unregister(ptr noundef nonnull %0) #11
+  tail call void @unregister_netdevice_queue(ptr noundef %5, ptr noundef null) #11
+  tail call void @rtnl_unlock() #11
+  tail call void @free_netdev(ptr noundef %5) #11
   br label %18
 
 18:                                               ; preds = %17, %1
@@ -240,7 +240,7 @@ define internal i32 @net_failover_open(ptr noundef %0) #0 align 16 {
   br i1 %4, label %8, label %5
 
 5:                                                ; preds = %1
-  %6 = tail call i32 @dev_open(ptr noundef nonnull %3, ptr noundef null) #12
+  %6 = tail call i32 @dev_open(ptr noundef nonnull %3, ptr noundef null) #11
   %7 = icmp eq i32 %6, 0
   br i1 %7, label %8, label %51
 
@@ -251,7 +251,7 @@ define internal i32 @net_failover_open(ptr noundef %0) #0 align 16 {
   br i1 %11, label %15, label %12
 
 12:                                               ; preds = %8
-  %13 = tail call i32 @dev_open(ptr noundef nonnull %10, ptr noundef null) #12
+  %13 = tail call i32 @dev_open(ptr noundef nonnull %10, ptr noundef null) #11
   %14 = icmp eq i32 %13, 0
   br i1 %14, label %15, label %49
 
@@ -288,7 +288,7 @@ define internal i32 @net_failover_open(ptr noundef %0) #0 align 16 {
   br i1 %34, label %35, label %.loopexit
 
 35:                                               ; preds = %31, %21
-  tail call void @netif_carrier_on(ptr noundef %0) #12
+  tail call void @netif_carrier_on(ptr noundef %0) #11
   %36 = getelementptr inbounds i8, ptr %0, i64 1056
   %37 = load i32, ptr %36, align 8
   %38 = icmp eq i32 %37, 0
@@ -302,7 +302,7 @@ define internal i32 @net_failover_open(ptr noundef %0) #0 align 16 {
   %42 = phi i64 [ 0, %39 ], [ %45, %41 ]
   %43 = load ptr, ptr %40, align 8
   %44 = getelementptr %struct.netdev_queue, ptr %43, i64 %42
-  tail call void @netif_tx_wake_queue(ptr noundef %44) #12
+  tail call void @netif_tx_wake_queue(ptr noundef %44) #11
   %45 = add nuw nsw i64 %42, 1
   %46 = load i32, ptr %36, align 8
   %47 = zext i32 %46 to i64
@@ -313,17 +313,17 @@ define internal i32 @net_failover_open(ptr noundef %0) #0 align 16 {
   br i1 %4, label %51, label %50
 
 50:                                               ; preds = %49
-  tail call void @dev_close(ptr noundef nonnull %3) #12
+  tail call void @dev_close(ptr noundef nonnull %3) #11
   br label %51
 
 51:                                               ; preds = %50, %49, %5
   %52 = phi i32 [ %6, %5 ], [ %13, %50 ], [ %13, %49 ]
-  %53 = tail call i64 asm "lea 0(%rip), $0", "=r,~{dirflag},~{fpsr},~{flags}"() #14, !srcloc !9
-  tail call void asm "addl $1, %gs:$0", "=*m,ri,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds (i8, ptr @pcpu_hot, i64 8), i32 512, ptr nonnull elementtype(i32) getelementptr inbounds (i8, ptr @pcpu_hot, i64 8)) #12, !srcloc !10
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #12, !srcloc !11
-  %54 = tail call i32 asm "movl %gs:$1, $0", "=r,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds (i8, ptr @pcpu_hot, i64 12)) #15, !srcloc !12
+  %53 = tail call i64 asm "lea 0(%rip), $0", "=r,~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !9
+  tail call void asm "addl $1, %gs:$0", "=*m,ri,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds (i8, ptr @pcpu_hot, i64 8), i32 512, ptr nonnull elementtype(i32) getelementptr inbounds (i8, ptr @pcpu_hot, i64 8)) #11, !srcloc !10
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #11, !srcloc !11
+  %54 = tail call i32 asm "movl %gs:$1, $0", "=r,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds (i8, ptr @pcpu_hot, i64 12)) #14, !srcloc !12
   %55 = getelementptr inbounds i8, ptr %0, i64 1076
-  tail call void @_raw_spin_lock(ptr noundef %55) #12
+  tail call void @_raw_spin_lock(ptr noundef %55) #11
   %56 = getelementptr inbounds i8, ptr %0, i64 1056
   %57 = load i32, ptr %56, align 8
   %58 = icmp eq i32 %57, 0
@@ -338,13 +338,13 @@ define internal i32 @net_failover_open(ptr noundef %0) #0 align 16 {
   %63 = load ptr, ptr %60, align 8
   %64 = getelementptr %struct.netdev_queue, ptr %63, i64 %62
   %65 = getelementptr inbounds i8, ptr %64, i64 128
-  tail call void @_raw_spin_lock(ptr noundef %65) #12
+  tail call void @_raw_spin_lock(ptr noundef %65) #11
   %66 = getelementptr inbounds i8, ptr %64, i64 132
   store volatile i32 %54, ptr %66, align 4
   %67 = getelementptr inbounds i8, ptr %64, i64 144
-  tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; orb ${1:b},$0", "=*m,iq,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i8) %67, i32 1, ptr elementtype(i8) %67) #12, !srcloc !13
+  tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; orb ${1:b},$0", "=*m,iq,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i8) %67, i32 1, ptr elementtype(i8) %67) #11, !srcloc !13
   store volatile i32 -1, ptr %66, align 4
-  tail call void @_raw_spin_unlock(ptr noundef %65) #12
+  tail call void @_raw_spin_unlock(ptr noundef %65) #11
   %68 = add nuw nsw i64 %62, 1
   %69 = load i32, ptr %56, align 8
   %70 = zext i32 %69 to i64
@@ -352,8 +352,8 @@ define internal i32 @net_failover_open(ptr noundef %0) #0 align 16 {
   br i1 %71, label %61, label %.loopexit5, !llvm.loop !14
 
 .loopexit5:                                       ; preds = %61, %51
-  tail call void @_raw_spin_unlock(ptr noundef %55) #12
-  tail call void @__local_bh_enable_ip(i64 noundef %53, i32 noundef 512) #12
+  tail call void @_raw_spin_unlock(ptr noundef %55) #11
+  tail call void @__local_bh_enable_ip(i64 noundef %53, i32 noundef 512) #11
   br label %.loopexit
 
 .loopexit:                                        ; preds = %41, %.loopexit5, %35, %31, %26, %25
@@ -364,12 +364,12 @@ define internal i32 @net_failover_open(ptr noundef %0) #0 align 16 {
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal noundef i32 @net_failover_close(ptr noundef %0) #0 align 16 {
   %2 = getelementptr i8, ptr %0, i64 2304
-  %3 = tail call i64 asm "lea 0(%rip), $0", "=r,~{dirflag},~{fpsr},~{flags}"() #14, !srcloc !9
-  tail call void asm "addl $1, %gs:$0", "=*m,ri,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds (i8, ptr @pcpu_hot, i64 8), i32 512, ptr nonnull elementtype(i32) getelementptr inbounds (i8, ptr @pcpu_hot, i64 8)) #12, !srcloc !10
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #12, !srcloc !11
-  %4 = tail call i32 asm "movl %gs:$1, $0", "=r,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds (i8, ptr @pcpu_hot, i64 12)) #15, !srcloc !12
+  %3 = tail call i64 asm "lea 0(%rip), $0", "=r,~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !9
+  tail call void asm "addl $1, %gs:$0", "=*m,ri,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds (i8, ptr @pcpu_hot, i64 8), i32 512, ptr nonnull elementtype(i32) getelementptr inbounds (i8, ptr @pcpu_hot, i64 8)) #11, !srcloc !10
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #11, !srcloc !11
+  %4 = tail call i32 asm "movl %gs:$1, $0", "=r,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds (i8, ptr @pcpu_hot, i64 12)) #14, !srcloc !12
   %5 = getelementptr inbounds i8, ptr %0, i64 1076
-  tail call void @_raw_spin_lock(ptr noundef %5) #12
+  tail call void @_raw_spin_lock(ptr noundef %5) #11
   %6 = getelementptr inbounds i8, ptr %0, i64 1056
   %7 = load i32, ptr %6, align 8
   %8 = icmp eq i32 %7, 0
@@ -384,13 +384,13 @@ define internal noundef i32 @net_failover_close(ptr noundef %0) #0 align 16 {
   %13 = load ptr, ptr %10, align 8
   %14 = getelementptr %struct.netdev_queue, ptr %13, i64 %12
   %15 = getelementptr inbounds i8, ptr %14, i64 128
-  tail call void @_raw_spin_lock(ptr noundef %15) #12
+  tail call void @_raw_spin_lock(ptr noundef %15) #11
   %16 = getelementptr inbounds i8, ptr %14, i64 132
   store volatile i32 %4, ptr %16, align 4
   %17 = getelementptr inbounds i8, ptr %14, i64 144
-  tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; orb ${1:b},$0", "=*m,iq,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i8) %17, i32 1, ptr elementtype(i8) %17) #12, !srcloc !13
+  tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; orb ${1:b},$0", "=*m,iq,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i8) %17, i32 1, ptr elementtype(i8) %17) #11, !srcloc !13
   store volatile i32 -1, ptr %16, align 4
-  tail call void @_raw_spin_unlock(ptr noundef %15) #12
+  tail call void @_raw_spin_unlock(ptr noundef %15) #11
   %18 = add nuw nsw i64 %12, 1
   %19 = load i32, ptr %6, align 8
   %20 = zext i32 %19 to i64
@@ -398,14 +398,14 @@ define internal noundef i32 @net_failover_close(ptr noundef %0) #0 align 16 {
   br i1 %21, label %11, label %.loopexit, !llvm.loop !14
 
 .loopexit:                                        ; preds = %11, %1
-  tail call void @_raw_spin_unlock(ptr noundef %5) #12
-  tail call void @__local_bh_enable_ip(i64 noundef %3, i32 noundef 512) #12
+  tail call void @_raw_spin_unlock(ptr noundef %5) #11
+  tail call void @__local_bh_enable_ip(i64 noundef %3, i32 noundef 512) #11
   %22 = load ptr, ptr %2, align 8
   %23 = icmp eq ptr %22, null
   br i1 %23, label %25, label %24
 
 24:                                               ; preds = %.loopexit
-  tail call void @dev_close(ptr noundef nonnull %22) #12
+  tail call void @dev_close(ptr noundef nonnull %22) #11
   br label %25
 
 25:                                               ; preds = %24, %.loopexit
@@ -415,7 +415,7 @@ define internal noundef i32 @net_failover_close(ptr noundef %0) #0 align 16 {
   br i1 %28, label %30, label %29
 
 29:                                               ; preds = %25
-  tail call void @dev_close(ptr noundef nonnull %27) #12
+  tail call void @dev_close(ptr noundef nonnull %27) #11
   br label %30
 
 30:                                               ; preds = %29, %25
@@ -462,8 +462,8 @@ define internal i32 @net_failover_start_xmit(ptr noundef %0, ptr noundef %1) #0 
   br i1 %27, label %29, label %28
 
 28:                                               ; preds = %24, %19, %15
-  tail call void @netdev_core_stats_inc(ptr noundef %1, i32 noundef 8) #12
-  tail call void @dev_kfree_skb_any_reason(ptr noundef %0, i32 noundef 2) #12
+  tail call void @netdev_core_stats_inc(ptr noundef %1, i32 noundef 8) #11
+  tail call void @dev_kfree_skb_any_reason(ptr noundef %0, i32 noundef 2) #11
   br label %36
 
 29:                                               ; preds = %24, %11
@@ -474,7 +474,7 @@ define internal i32 @net_failover_start_xmit(ptr noundef %0, ptr noundef %1) #0 
   %33 = load i16, ptr %32, align 4
   %34 = getelementptr inbounds i8, ptr %0, i64 124
   store i16 %33, ptr %34, align 4
-  %35 = tail call i32 @__dev_queue_xmit(ptr noundef %0, ptr noundef null) #12
+  %35 = tail call i32 @__dev_queue_xmit(ptr noundef %0, ptr noundef null) #11
   br label %36
 
 36:                                               ; preds = %29, %28
@@ -501,11 +501,11 @@ define internal zeroext i16 @net_failover_select_queue(ptr noundef %0, ptr nound
   br i1 %12, label %15, label %13
 
 13:                                               ; preds = %7
-  %14 = tail call zeroext i16 %11(ptr noundef nonnull %5, ptr noundef %1, ptr noundef %2) #12
+  %14 = tail call zeroext i16 %11(ptr noundef nonnull %5, ptr noundef %1, ptr noundef %2) #11
   br label %21
 
 15:                                               ; preds = %7
-  %16 = tail call zeroext i16 @netdev_pick_tx(ptr noundef nonnull %5, ptr noundef %1, ptr noundef null) #12
+  %16 = tail call zeroext i16 @netdev_pick_tx(ptr noundef nonnull %5, ptr noundef %1, ptr noundef null) #11
   br label %21
 
 17:                                               ; preds = %3
@@ -544,14 +544,14 @@ define internal zeroext i16 @net_failover_select_queue(ptr noundef %0, ptr nound
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal void @net_failover_set_rx_mode(ptr noundef %0) #0 align 16 {
   %2 = getelementptr i8, ptr %0, i64 2304
-  tail call void @__rcu_read_lock() #12
+  tail call void @__rcu_read_lock() #11
   %3 = load volatile ptr, ptr %2, align 8
   %4 = icmp eq ptr %3, null
   br i1 %4, label %8, label %5
 
 5:                                                ; preds = %1
-  %6 = tail call i32 @dev_uc_sync_multiple(ptr noundef nonnull %3, ptr noundef %0) #12
-  %7 = tail call i32 @dev_mc_sync_multiple(ptr noundef nonnull %3, ptr noundef %0) #12
+  %6 = tail call i32 @dev_uc_sync_multiple(ptr noundef nonnull %3, ptr noundef %0) #11
+  %7 = tail call i32 @dev_mc_sync_multiple(ptr noundef nonnull %3, ptr noundef %0) #11
   br label %8
 
 8:                                                ; preds = %5, %1
@@ -561,12 +561,12 @@ define internal void @net_failover_set_rx_mode(ptr noundef %0) #0 align 16 {
   br i1 %11, label %15, label %12
 
 12:                                               ; preds = %8
-  %13 = tail call i32 @dev_uc_sync_multiple(ptr noundef nonnull %10, ptr noundef %0) #12
-  %14 = tail call i32 @dev_mc_sync_multiple(ptr noundef nonnull %10, ptr noundef %0) #12
+  %13 = tail call i32 @dev_uc_sync_multiple(ptr noundef nonnull %10, ptr noundef %0) #11
+  %14 = tail call i32 @dev_mc_sync_multiple(ptr noundef nonnull %10, ptr noundef %0) #11
   br label %15
 
 15:                                               ; preds = %12, %8
-  tail call void @__rcu_read_unlock() #12
+  tail call void @__rcu_read_unlock() #11
   ret void
 }
 
@@ -581,7 +581,7 @@ define internal i32 @net_failover_change_mtu(ptr nocapture noundef %0, i32 nound
   br i1 %5, label %9, label %6
 
 6:                                                ; preds = %2
-  %7 = tail call i32 @dev_set_mtu(ptr noundef nonnull %4, i32 noundef %1) #12
+  %7 = tail call i32 @dev_set_mtu(ptr noundef nonnull %4, i32 noundef %1) #11
   %8 = icmp eq i32 %7, 0
   br i1 %8, label %9, label %23
 
@@ -592,7 +592,7 @@ define internal i32 @net_failover_change_mtu(ptr nocapture noundef %0, i32 nound
   br i1 %12, label %21, label %13
 
 13:                                               ; preds = %9
-  %14 = tail call i32 @dev_set_mtu(ptr noundef nonnull %11, i32 noundef %1) #12
+  %14 = tail call i32 @dev_set_mtu(ptr noundef nonnull %11, i32 noundef %1) #11
   %15 = icmp eq i32 %14, 0
   br i1 %15, label %21, label %16
 
@@ -602,7 +602,7 @@ define internal i32 @net_failover_change_mtu(ptr nocapture noundef %0, i32 nound
 17:                                               ; preds = %16
   %18 = getelementptr inbounds i8, ptr %0, i64 56
   %19 = load i32, ptr %18, align 8
-  %20 = tail call i32 @dev_set_mtu(ptr noundef nonnull %4, i32 noundef %19) #12
+  %20 = tail call i32 @dev_set_mtu(ptr noundef nonnull %4, i32 noundef %19) #11
   br label %23
 
 21:                                               ; preds = %13, %9
@@ -619,19 +619,19 @@ define internal i32 @net_failover_change_mtu(ptr nocapture noundef %0, i32 nound
 define internal void @net_failover_get_stats(ptr noundef %0, ptr nocapture noundef %1) #0 align 16 {
   %3 = alloca %struct.rtnl_link_stats64, align 8
   %4 = getelementptr i8, ptr %0, i64 2304
-  call void @llvm.lifetime.start.p0(i64 200, ptr nonnull %3) #12
+  call void @llvm.lifetime.start.p0(i64 200, ptr nonnull %3) #11
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(200) %3, i8 0, i64 200, i1 false), !annotation !17
   %5 = getelementptr i8, ptr %0, i64 2920
-  tail call void @_raw_spin_lock(ptr noundef %5) #12
+  tail call void @_raw_spin_lock(ptr noundef %5) #11
   %6 = getelementptr i8, ptr %0, i64 2720
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef align 8 dereferenceable(200) %1, ptr noundef align 8 dereferenceable(200) %6, i64 200, i1 false)
-  tail call void @__rcu_read_lock() #12
+  tail call void @__rcu_read_lock() #11
   %7 = load volatile ptr, ptr %4, align 8
   %8 = icmp eq ptr %7, null
   br i1 %8, label %33, label %9
 
 9:                                                ; preds = %2
-  %10 = call ptr @dev_get_stats(ptr noundef nonnull %7, ptr noundef nonnull %3) #12
+  %10 = call ptr @dev_get_stats(ptr noundef nonnull %7, ptr noundef nonnull %3) #11
   %11 = getelementptr i8, ptr %0, i64 2320
   br label %12
 
@@ -673,7 +673,7 @@ define internal void @net_failover_get_stats(ptr noundef %0, ptr nocapture nound
   br i1 %36, label %61, label %37
 
 37:                                               ; preds = %33
-  %38 = call ptr @dev_get_stats(ptr noundef nonnull %35, ptr noundef nonnull %3) #12
+  %38 = call ptr @dev_get_stats(ptr noundef nonnull %35, ptr noundef nonnull %3) #11
   %39 = getelementptr i8, ptr %0, i64 2520
   br label %40
 
@@ -709,10 +709,10 @@ define internal void @net_failover_get_stats(ptr noundef %0, ptr nocapture nound
   br label %61
 
 61:                                               ; preds = %60, %33
-  call void @__rcu_read_unlock() #12
+  call void @__rcu_read_unlock() #11
   call void @llvm.memcpy.p0.p0.i64(ptr noundef align 8 dereferenceable(200) %6, ptr noundef align 8 dereferenceable(200) %1, i64 200, i1 false)
-  call void @_raw_spin_unlock(ptr noundef %5) #12
-  call void @llvm.lifetime.end.p0(i64 200, ptr nonnull %3) #12
+  call void @_raw_spin_unlock(ptr noundef %5) #11
+  call void @llvm.lifetime.end.p0(i64 200, ptr nonnull %3) #11
   ret void
 }
 
@@ -794,9 +794,9 @@ declare dso_local ptr @dev_get_stats(ptr noundef, ptr noundef) local_unnamed_add
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal void @nfo_ethtool_get_drvinfo(ptr nocapture readnone %0, ptr noundef %1) #0 align 16 {
   %3 = getelementptr inbounds i8, ptr %1, i64 4
-  %4 = tail call i64 @strscpy(ptr noundef %3, ptr noundef nonnull @.str.3, i64 noundef 32) #12
+  %4 = tail call i64 @strscpy(ptr noundef %3, ptr noundef nonnull @.str.3, i64 noundef 32) #11
   %5 = getelementptr inbounds i8, ptr %1, i64 36
-  %6 = tail call i64 @strscpy(ptr noundef %5, ptr noundef nonnull @.str.4, i64 noundef 32) #12
+  %6 = tail call i64 @strscpy(ptr noundef %5, ptr noundef nonnull @.str.4, i64 noundef 32) #11
   ret void
 }
 
@@ -853,7 +853,7 @@ define internal i32 @nfo_ethtool_get_link_ksettings(ptr nocapture noundef readon
 
 32:                                               ; preds = %24, %11
   %33 = phi ptr [ %4, %11 ], [ %17, %24 ]
-  %34 = tail call i32 @__ethtool_get_link_ksettings(ptr noundef nonnull %33, ptr noundef %1) #12
+  %34 = tail call i32 @__ethtool_get_link_ksettings(ptr noundef nonnull %33, ptr noundef %1) #11
   br label %35
 
 35:                                               ; preds = %32, %28
@@ -894,7 +894,7 @@ define internal noundef range(i32 -22, 1) i32 @net_failover_slave_pre_register(p
 16:                                               ; preds = %12, %8
   %17 = phi ptr [ @.str.7, %12 ], [ @.str.6, %8 ]
   %18 = getelementptr inbounds i8, ptr %0, i64 296
-  tail call void (ptr, ptr, ...) @netdev_err(ptr noundef %1, ptr noundef nonnull @.str.5, ptr noundef %18, ptr noundef nonnull %17) #13
+  tail call void (ptr, ptr, ...) @netdev_err(ptr noundef %1, ptr noundef nonnull @.str.5, ptr noundef %18, ptr noundef nonnull %17) #12
   br label %25
 
 19:                                               ; preds = %12
@@ -915,21 +915,21 @@ define internal noundef range(i32 -22, 1) i32 @net_failover_slave_pre_register(p
   ret i32 %26
 }
 
-; Function Attrs: cold fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i32 @net_failover_slave_register(ptr noundef %0, ptr noundef %1) #8 align 16 {
+; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
+define internal i32 @net_failover_slave_register(ptr noundef %0, ptr noundef %1) #0 align 16 {
   %3 = alloca %struct.netdev_lag_lower_state_info, align 1
   %4 = getelementptr inbounds i8, ptr %0, i64 56
   %5 = load i32, ptr %4, align 8
   %6 = getelementptr inbounds i8, ptr %1, i64 56
   %7 = load i32, ptr %6, align 8
-  %8 = tail call i32 @dev_set_mtu(ptr noundef %0, i32 noundef %7) #12
+  %8 = tail call i32 @dev_set_mtu(ptr noundef %0, i32 noundef %7) #11
   %9 = icmp eq i32 %8, 0
   br i1 %9, label %13, label %10
 
 10:                                               ; preds = %2
   %11 = getelementptr inbounds i8, ptr %0, i64 296
   %12 = load i32, ptr %6, align 8
-  tail call void (ptr, ptr, ...) @netdev_err(ptr noundef %1, ptr noundef nonnull @.str.9, ptr noundef %11, i32 noundef %12) #13
+  tail call void (ptr, ptr, ...) @netdev_err(ptr noundef %1, ptr noundef nonnull @.str.9, ptr noundef %11, i32 noundef %12) #12
   br label %83
 
 13:                                               ; preds = %2
@@ -939,7 +939,7 @@ define internal i32 @net_failover_slave_register(ptr noundef %0, ptr noundef %1)
 15:                                               ; preds = %13
   %16 = getelementptr inbounds i8, ptr %0, i64 1280
   %17 = load ptr, ptr %16, align 8
-  tail call void asm sideeffect "incl %gs:$0", "=*m,*m,~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %17, ptr elementtype(i32) %17) #12, !srcloc !19
+  tail call void asm sideeffect "incl %gs:$0", "=*m,*m,~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %17, ptr elementtype(i32) %17) #11, !srcloc !19
   br label %18
 
 18:                                               ; preds = %15, %13
@@ -950,7 +950,7 @@ define internal i32 @net_failover_slave_register(ptr noundef %0, ptr noundef %1)
   br i1 %22, label %32, label %23
 
 23:                                               ; preds = %18
-  %24 = tail call i32 @dev_open(ptr noundef %0, ptr noundef null) #12
+  %24 = tail call i32 @dev_open(ptr noundef %0, ptr noundef null) #11
   switch i32 %24, label %25 [
     i32 -16, label %32
     i32 0, label %32
@@ -958,28 +958,28 @@ define internal i32 @net_failover_slave_register(ptr noundef %0, ptr noundef %1)
 
 25:                                               ; preds = %23
   %26 = getelementptr inbounds i8, ptr %0, i64 296
-  tail call void (ptr, ptr, ...) @netdev_err(ptr noundef %1, ptr noundef nonnull @.str.10, ptr noundef %26, i32 noundef %24) #13
+  tail call void (ptr, ptr, ...) @netdev_err(ptr noundef %1, ptr noundef nonnull @.str.10, ptr noundef %26, i32 noundef %24) #12
   br i1 %14, label %30, label %27
 
 27:                                               ; preds = %25
   %28 = getelementptr inbounds i8, ptr %0, i64 1280
   %29 = load ptr, ptr %28, align 8
-  tail call void asm sideeffect "decl %gs:$0", "=*m,*m,~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %29, ptr elementtype(i32) %29) #12, !srcloc !20
+  tail call void asm sideeffect "decl %gs:$0", "=*m,*m,~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %29, ptr elementtype(i32) %29) #11, !srcloc !20
   br label %30
 
 30:                                               ; preds = %27, %25
-  %31 = tail call i32 @dev_set_mtu(ptr noundef %0, i32 noundef %5) #12
+  %31 = tail call i32 @dev_set_mtu(ptr noundef %0, i32 noundef %5) #11
   br label %83
 
 32:                                               ; preds = %23, %23, %18
-  %33 = tail call i64 asm "lea 0(%rip), $0", "=r,~{dirflag},~{fpsr},~{flags}"() #14, !srcloc !9
-  tail call void asm "addl $1, %gs:$0", "=*m,ri,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds (i8, ptr @pcpu_hot, i64 8), i32 512, ptr nonnull elementtype(i32) getelementptr inbounds (i8, ptr @pcpu_hot, i64 8)) #12, !srcloc !10
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #12, !srcloc !11
+  %33 = tail call i64 asm "lea 0(%rip), $0", "=r,~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !9
+  tail call void asm "addl $1, %gs:$0", "=*m,ri,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds (i8, ptr @pcpu_hot, i64 8), i32 512, ptr nonnull elementtype(i32) getelementptr inbounds (i8, ptr @pcpu_hot, i64 8)) #11, !srcloc !10
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #11, !srcloc !11
   %34 = getelementptr inbounds i8, ptr %1, i64 824
-  tail call void @_raw_spin_lock(ptr noundef %34) #12
-  %35 = tail call i32 @dev_uc_sync_multiple(ptr noundef %0, ptr noundef %1) #12
-  %36 = tail call i32 @dev_mc_sync_multiple(ptr noundef %0, ptr noundef %1) #12
-  tail call void @_raw_spin_unlock_bh(ptr noundef %34) #12
+  tail call void @_raw_spin_lock(ptr noundef %34) #11
+  %35 = tail call i32 @dev_uc_sync_multiple(ptr noundef %0, ptr noundef %1) #11
+  %36 = tail call i32 @dev_mc_sync_multiple(ptr noundef %0, ptr noundef %1) #11
+  tail call void @_raw_spin_unlock_bh(ptr noundef %34) #11
   %37 = getelementptr i8, ptr %1, i64 2304
   %38 = getelementptr i8, ptr %1, i64 2312
   %39 = getelementptr inbounds i8, ptr %0, i64 1400
@@ -991,18 +991,18 @@ define internal i32 @net_failover_slave_register(ptr noundef %0, ptr noundef %1)
 
 44:                                               ; preds = %32
   %45 = load ptr, ptr %37, align 8
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #12, !srcloc !21
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #11, !srcloc !21
   store volatile ptr %0, ptr %38, align 8
   %46 = getelementptr i8, ptr %1, i64 2520
-  %47 = tail call ptr @dev_get_stats(ptr noundef %0, ptr noundef %46) #12
+  %47 = tail call ptr @dev_get_stats(ptr noundef %0, ptr noundef %46) #11
   br label %58
 
 48:                                               ; preds = %32
   %49 = load ptr, ptr %38, align 8
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #12, !srcloc !22
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #11, !srcloc !22
   store volatile ptr %0, ptr %37, align 8
   %50 = getelementptr i8, ptr %1, i64 2320
-  %51 = tail call ptr @dev_get_stats(ptr noundef %0, ptr noundef %50) #12
+  %51 = tail call ptr @dev_get_stats(ptr noundef %0, ptr noundef %50) #11
   %52 = getelementptr inbounds i8, ptr %0, i64 544
   %53 = load i32, ptr %52, align 8
   %54 = getelementptr inbounds i8, ptr %1, i64 544
@@ -1017,7 +1017,7 @@ define internal i32 @net_failover_slave_register(ptr noundef %0, ptr noundef %1)
   %59 = phi ptr [ @.str.6, %44 ], [ @.str.7, %48 ]
   %60 = phi ptr [ %45, %44 ], [ %0, %48 ]
   %61 = phi ptr [ %0, %44 ], [ %49, %48 ]
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %3) #12
+  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %3) #11
   %62 = getelementptr inbounds i8, ptr %0, i64 352
   %63 = load volatile i64, ptr %62, align 8
   %64 = and i64 %63, 4
@@ -1050,12 +1050,12 @@ define internal i32 @net_failover_slave_register(ptr noundef %0, ptr noundef %1)
 80:                                               ; preds = %.sink.split, %70
   %.sink = phi i8 [ %66, %70 ], [ %spec.select4, %.sink.split ]
   store i8 %.sink, ptr %3, align 1
-  call void @netdev_lower_state_changed(ptr noundef %0, ptr noundef nonnull %3) #12
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %3) #12
+  call void @netdev_lower_state_changed(ptr noundef %0, ptr noundef nonnull %3) #11
+  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %3) #11
   call fastcc void @net_failover_compute_features(ptr noundef %1)
-  %81 = call i32 @call_netdevice_notifiers(i64 noundef 21, ptr noundef %0) #12
+  %81 = call i32 @call_netdevice_notifiers(i64 noundef 21, ptr noundef %0) #11
   %82 = getelementptr inbounds i8, ptr %0, i64 296
-  call void (ptr, ptr, ...) @netdev_info(ptr noundef %1, ptr noundef nonnull @.str.12, ptr noundef nonnull %59, ptr noundef %82) #13
+  call void (ptr, ptr, ...) @netdev_info(ptr noundef %1, ptr noundef nonnull @.str.12, ptr noundef nonnull %59, ptr noundef %82) #12
   br label %83
 
 83:                                               ; preds = %80, %30, %10
@@ -1064,7 +1064,7 @@ define internal i32 @net_failover_slave_register(ptr noundef %0, ptr noundef %1)
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: read)
-define internal noundef range(i32 -19, 1) i32 @net_failover_slave_pre_unregister(ptr noundef readnone %0, ptr nocapture noundef readonly %1) #9 align 16 {
+define internal noundef range(i32 -19, 1) i32 @net_failover_slave_pre_unregister(ptr noundef readnone %0, ptr nocapture noundef readonly %1) #8 align 16 {
   %3 = getelementptr i8, ptr %1, i64 2304
   %4 = load ptr, ptr %3, align 8
   %5 = icmp eq ptr %4, %0
@@ -1096,17 +1096,17 @@ define internal noundef range(i32 -19, 1) i32 @net_failover_slave_unregister(ptr
   br i1 %9, label %10, label %11, !prof !23
 
 10:                                               ; preds = %2
-  tail call void asm sideeffect "623: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 623b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 623) #12, !srcloc !24
-  tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.13, i32 600, i32 2307, i64 12) #12, !srcloc !25
-  tail call void asm sideeffect "624: nop\0A\09.pushsection .discard.instr_end\0A\09.long 624b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 624) #12, !srcloc !26
+  tail call void asm sideeffect "623: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 623b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 623) #11, !srcloc !24
+  tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.13, i32 600, i32 2307, i64 12) #11, !srcloc !25
+  tail call void asm sideeffect "624: nop\0A\09.pushsection .discard.instr_end\0A\09.long 624b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 624) #11, !srcloc !26
   br label %37
 
 11:                                               ; preds = %2
-  tail call void @dev_uc_unsync(ptr noundef %0, ptr noundef %1) #12
-  tail call void @dev_mc_unsync(ptr noundef %0, ptr noundef %1) #12
-  tail call void @dev_close(ptr noundef %0) #12
+  tail call void @dev_uc_unsync(ptr noundef %0, ptr noundef %1) #11
+  tail call void @dev_mc_unsync(ptr noundef %0, ptr noundef %1) #11
+  tail call void @dev_close(ptr noundef %0) #11
   %12 = getelementptr i8, ptr %1, i64 2720
-  %13 = tail call ptr @dev_get_stats(ptr noundef %1, ptr noundef %12) #12
+  %13 = tail call ptr @dev_get_stats(ptr noundef %1, ptr noundef %12) #11
   %14 = getelementptr inbounds i8, ptr %0, i64 1400
   %15 = load ptr, ptr %14, align 8
   %16 = getelementptr inbounds i8, ptr %1, i64 1400
@@ -1142,13 +1142,13 @@ define internal noundef range(i32 -19, 1) i32 @net_failover_slave_unregister(ptr
 32:                                               ; preds = %29
   %33 = getelementptr inbounds i8, ptr %0, i64 1280
   %34 = load ptr, ptr %33, align 8
-  tail call void asm sideeffect "decl %gs:$0", "=*m,*m,~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %34, ptr elementtype(i32) %34) #12, !srcloc !20
+  tail call void asm sideeffect "decl %gs:$0", "=*m,*m,~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %34, ptr elementtype(i32) %34) #11, !srcloc !20
   br label %35
 
 35:                                               ; preds = %32, %29
   tail call fastcc void @net_failover_compute_features(ptr noundef %1)
   %36 = getelementptr inbounds i8, ptr %0, i64 296
-  tail call void (ptr, ptr, ...) @netdev_info(ptr noundef %1, ptr noundef nonnull @.str.14, ptr noundef nonnull %30, ptr noundef %36) #13
+  tail call void (ptr, ptr, ...) @netdev_info(ptr noundef %1, ptr noundef nonnull @.str.14, ptr noundef nonnull %30, ptr noundef %36) #12
   br label %37
 
 37:                                               ; preds = %35, %10
@@ -1203,7 +1203,7 @@ define internal noundef range(i32 -19, 1) i32 @net_failover_slave_link_change(pt
   br i1 %32, label %33, label %47
 
 33:                                               ; preds = %29, %18
-  tail call void @netif_carrier_on(ptr noundef %1) #12
+  tail call void @netif_carrier_on(ptr noundef %1) #11
   %34 = getelementptr inbounds i8, ptr %1, i64 1056
   %35 = load i32, ptr %34, align 8
   %36 = icmp eq i32 %35, 0
@@ -1217,7 +1217,7 @@ define internal noundef range(i32 -19, 1) i32 @net_failover_slave_link_change(pt
   %40 = phi i64 [ 0, %37 ], [ %43, %39 ]
   %41 = load ptr, ptr %38, align 8
   %42 = getelementptr %struct.netdev_queue, ptr %41, i64 %40
-  tail call void @netif_tx_wake_queue(ptr noundef %42) #12
+  tail call void @netif_tx_wake_queue(ptr noundef %42) #11
   %43 = add nuw nsw i64 %40, 1
   %44 = load i32, ptr %34, align 8
   %45 = zext i32 %44 to i64
@@ -1226,13 +1226,13 @@ define internal noundef range(i32 -19, 1) i32 @net_failover_slave_link_change(pt
 
 47:                                               ; preds = %29, %24, %22
   %48 = getelementptr i8, ptr %1, i64 2720
-  %49 = tail call ptr @dev_get_stats(ptr noundef %1, ptr noundef %48) #12
-  tail call void @netif_carrier_off(ptr noundef %1) #12
-  tail call void @netif_tx_stop_all_queues(ptr noundef %1) #12
+  %49 = tail call ptr @dev_get_stats(ptr noundef %1, ptr noundef %48) #11
+  tail call void @netif_carrier_off(ptr noundef %1) #11
+  tail call void @netif_tx_stop_all_queues(ptr noundef %1) #11
   br label %.loopexit
 
 .loopexit:                                        ; preds = %39, %47, %33
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %3) #12
+  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %3) #11
   %50 = getelementptr inbounds i8, ptr %0, i64 352
   %51 = load volatile i64, ptr %50, align 8
   %52 = and i64 %51, 4
@@ -1262,8 +1262,8 @@ define internal noundef range(i32 -19, 1) i32 @net_failover_slave_link_change(pt
 65:                                               ; preds = %.sink.split, %55
   %.sink = phi i8 [ %54, %55 ], [ %spec.select2, %.sink.split ]
   store i8 %.sink, ptr %3, align 1
-  call void @netdev_lower_state_changed(ptr noundef %0, ptr noundef nonnull %3) #12
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %3) #12
+  call void @netdev_lower_state_changed(ptr noundef %0, ptr noundef nonnull %3) #11
+  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %3) #11
   br label %66
 
 66:                                               ; preds = %65, %2
@@ -1285,7 +1285,7 @@ define internal noundef range(i32 -19, 1) i32 @net_failover_slave_name_change(pt
   br i1 %9, label %10, label %12
 
 10:                                               ; preds = %6, %2
-  %11 = tail call i32 @dev_open(ptr noundef %0, ptr noundef null) #12
+  %11 = tail call i32 @dev_open(ptr noundef %0, ptr noundef null) #11
   br label %12
 
 12:                                               ; preds = %10, %6
@@ -1294,7 +1294,7 @@ define internal noundef range(i32 -19, 1) i32 @net_failover_slave_name_change(pt
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nounwind null_pointer_is_valid willreturn
-define internal noundef range(i32 1, 3) i32 @net_failover_handle_frame(ptr nocapture noundef readonly %0) #10 align 16 {
+define internal noundef range(i32 1, 3) i32 @net_failover_handle_frame(ptr nocapture noundef readonly %0) #9 align 16 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 16
   %4 = load ptr, ptr %3, align 8
@@ -1331,10 +1331,10 @@ define internal fastcc void @net_failover_compute_features(ptr noundef %0) unnam
 5:                                                ; preds = %1
   %6 = getelementptr inbounds i8, ptr %3, i64 520
   %7 = load i64, ptr %6, align 8
-  %8 = tail call i64 @netdev_increment_features(i64 noundef 0, i64 noundef %7, i64 noundef 1933417) #12
+  %8 = tail call i64 @netdev_increment_features(i64 noundef 0, i64 noundef %7, i64 noundef 1933417) #11
   %9 = getelementptr inbounds i8, ptr %3, i64 528
   %10 = load i64, ptr %9, align 8
-  %11 = tail call i64 @netdev_increment_features(i64 noundef 1099513528329, i64 noundef %10, i64 noundef 1099513528329) #12
+  %11 = tail call i64 @netdev_increment_features(i64 noundef 1099513528329, i64 noundef %10, i64 noundef 1099513528329) #11
   %12 = load i64, ptr %3, align 8
   %13 = trunc i64 %12 to i32
   %14 = and i32 %13, 131104
@@ -1356,10 +1356,10 @@ define internal fastcc void @net_failover_compute_features(ptr noundef %0) unnam
 26:                                               ; preds = %18
   %27 = getelementptr inbounds i8, ptr %24, i64 520
   %28 = load i64, ptr %27, align 8
-  %29 = tail call i64 @netdev_increment_features(i64 noundef %22, i64 noundef %28, i64 noundef 1933417) #12
+  %29 = tail call i64 @netdev_increment_features(i64 noundef %22, i64 noundef %28, i64 noundef 1933417) #11
   %30 = getelementptr inbounds i8, ptr %24, i64 528
   %31 = load i64, ptr %30, align 8
-  %32 = tail call i64 @netdev_increment_features(i64 noundef %21, i64 noundef %31, i64 noundef 1099513528329) #12
+  %32 = tail call i64 @netdev_increment_features(i64 noundef %21, i64 noundef %31, i64 noundef 1099513528329) #11
   %33 = load i64, ptr %24, align 8
   %34 = trunc i64 %33 to i32
   %35 = and i32 %19, %34
@@ -1386,7 +1386,7 @@ define internal fastcc void @net_failover_compute_features(ptr noundef %0) unnam
   %51 = select i1 %50, i64 32, i64 0
   %52 = or disjoint i64 %49, %51
   store i64 %52, ptr %0, align 8
-  tail call void @netdev_change_features(ptr noundef %0) #12
+  tail call void @netdev_change_features(ptr noundef %0) #11
   ret void
 }
 
@@ -1421,10 +1421,10 @@ declare dso_local void @netif_tx_stop_all_queues(ptr noundef) local_unnamed_addr
 declare dso_local void @unregister_netdevice_queue(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i16 @llvm.umax.i16(i16, i16) #11
+declare i16 @llvm.umax.i16(i16, i16) #10
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i16 @llvm.usub.sat.i16(i16, i16) #11
+declare i16 @llvm.usub.sat.i16(i16, i16) #10
 
 attributes #0 = { fn_ret_thunk_extern nounwind null_pointer_is_valid "min-legal-vector-width"="0" "no-jump-tables"="true" "no-trapping-math"="true" "patchable-function-entry"="0" "patchable-function-prefix"="16" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+retpoline-external-thunk,+retpoline-indirect-branches,+retpoline-indirect-calls,-3dnow,-3dnowa,-aes,-avx,-avx10.1-256,-avx10.1-512,-avx2,-avx512bf16,-avx512bitalg,-avx512bw,-avx512cd,-avx512dq,-avx512er,-avx512f,-avx512fp16,-avx512ifma,-avx512pf,-avx512vbmi,-avx512vbmi2,-avx512vl,-avx512vnni,-avx512vp2intersect,-avx512vpopcntdq,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-f16c,-fma,-fma4,-gfni,-kl,-mmx,-pclmul,-sha,-sha512,-sm3,-sm4,-sse,-sse2,-sse3,-sse4.1,-sse4.2,-sse4a,-ssse3,-vaes,-vpclmulqdq,-widekl,-x87,-xop" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
@@ -1434,14 +1434,13 @@ attributes #4 = { cold fn_ret_thunk_extern mustprogress nofree norecurse nosync 
 attributes #5 = { fn_ret_thunk_extern mustprogress nofree norecurse nounwind null_pointer_is_valid willreturn memory(argmem: readwrite, inaccessiblemem: readwrite) "min-legal-vector-width"="0" "no-jump-tables"="true" "no-trapping-math"="true" "patchable-function-entry"="0" "patchable-function-prefix"="16" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+retpoline-external-thunk,+retpoline-indirect-branches,+retpoline-indirect-calls,-3dnow,-3dnowa,-aes,-avx,-avx10.1-256,-avx10.1-512,-avx2,-avx512bf16,-avx512bitalg,-avx512bw,-avx512cd,-avx512dq,-avx512er,-avx512f,-avx512fp16,-avx512ifma,-avx512pf,-avx512vbmi,-avx512vbmi2,-avx512vl,-avx512vnni,-avx512vp2intersect,-avx512vpopcntdq,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-f16c,-fma,-fma4,-gfni,-kl,-mmx,-pclmul,-sha,-sha512,-sm3,-sm4,-sse,-sse2,-sse3,-sse4.1,-sse4.2,-sse4a,-ssse3,-vaes,-vpclmulqdq,-widekl,-x87,-xop" "tune-cpu"="generic" }
 attributes #6 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
 attributes #7 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #8 = { cold fn_ret_thunk_extern nounwind null_pointer_is_valid "min-legal-vector-width"="0" "no-jump-tables"="true" "no-trapping-math"="true" "patchable-function-entry"="0" "patchable-function-prefix"="16" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+retpoline-external-thunk,+retpoline-indirect-branches,+retpoline-indirect-calls,-3dnow,-3dnowa,-aes,-avx,-avx10.1-256,-avx10.1-512,-avx2,-avx512bf16,-avx512bitalg,-avx512bw,-avx512cd,-avx512dq,-avx512er,-avx512f,-avx512fp16,-avx512ifma,-avx512pf,-avx512vbmi,-avx512vbmi2,-avx512vl,-avx512vnni,-avx512vp2intersect,-avx512vpopcntdq,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-f16c,-fma,-fma4,-gfni,-kl,-mmx,-pclmul,-sha,-sha512,-sm3,-sm4,-sse,-sse2,-sse3,-sse4.1,-sse4.2,-sse4a,-ssse3,-vaes,-vpclmulqdq,-widekl,-x87,-xop" "tune-cpu"="generic" }
-attributes #9 = { fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: read) "min-legal-vector-width"="0" "no-jump-tables"="true" "no-trapping-math"="true" "patchable-function-entry"="0" "patchable-function-prefix"="16" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+retpoline-external-thunk,+retpoline-indirect-branches,+retpoline-indirect-calls,-3dnow,-3dnowa,-aes,-avx,-avx10.1-256,-avx10.1-512,-avx2,-avx512bf16,-avx512bitalg,-avx512bw,-avx512cd,-avx512dq,-avx512er,-avx512f,-avx512fp16,-avx512ifma,-avx512pf,-avx512vbmi,-avx512vbmi2,-avx512vl,-avx512vnni,-avx512vp2intersect,-avx512vpopcntdq,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-f16c,-fma,-fma4,-gfni,-kl,-mmx,-pclmul,-sha,-sha512,-sm3,-sm4,-sse,-sse2,-sse3,-sse4.1,-sse4.2,-sse4a,-ssse3,-vaes,-vpclmulqdq,-widekl,-x87,-xop" "tune-cpu"="generic" }
-attributes #10 = { fn_ret_thunk_extern mustprogress nofree norecurse nounwind null_pointer_is_valid willreturn "min-legal-vector-width"="0" "no-jump-tables"="true" "no-trapping-math"="true" "patchable-function-entry"="0" "patchable-function-prefix"="16" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+retpoline-external-thunk,+retpoline-indirect-branches,+retpoline-indirect-calls,-3dnow,-3dnowa,-aes,-avx,-avx10.1-256,-avx10.1-512,-avx2,-avx512bf16,-avx512bitalg,-avx512bw,-avx512cd,-avx512dq,-avx512er,-avx512f,-avx512fp16,-avx512ifma,-avx512pf,-avx512vbmi,-avx512vbmi2,-avx512vl,-avx512vnni,-avx512vp2intersect,-avx512vpopcntdq,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-f16c,-fma,-fma4,-gfni,-kl,-mmx,-pclmul,-sha,-sha512,-sm3,-sm4,-sse,-sse2,-sse3,-sse4.1,-sse4.2,-sse4a,-ssse3,-vaes,-vpclmulqdq,-widekl,-x87,-xop" "tune-cpu"="generic" }
-attributes #11 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #12 = { nounwind }
-attributes #13 = { cold nounwind }
-attributes #14 = { nounwind memory(none) }
-attributes #15 = { nounwind memory(read) }
+attributes #8 = { fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: read) "min-legal-vector-width"="0" "no-jump-tables"="true" "no-trapping-math"="true" "patchable-function-entry"="0" "patchable-function-prefix"="16" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+retpoline-external-thunk,+retpoline-indirect-branches,+retpoline-indirect-calls,-3dnow,-3dnowa,-aes,-avx,-avx10.1-256,-avx10.1-512,-avx2,-avx512bf16,-avx512bitalg,-avx512bw,-avx512cd,-avx512dq,-avx512er,-avx512f,-avx512fp16,-avx512ifma,-avx512pf,-avx512vbmi,-avx512vbmi2,-avx512vl,-avx512vnni,-avx512vp2intersect,-avx512vpopcntdq,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-f16c,-fma,-fma4,-gfni,-kl,-mmx,-pclmul,-sha,-sha512,-sm3,-sm4,-sse,-sse2,-sse3,-sse4.1,-sse4.2,-sse4a,-ssse3,-vaes,-vpclmulqdq,-widekl,-x87,-xop" "tune-cpu"="generic" }
+attributes #9 = { fn_ret_thunk_extern mustprogress nofree norecurse nounwind null_pointer_is_valid willreturn "min-legal-vector-width"="0" "no-jump-tables"="true" "no-trapping-math"="true" "patchable-function-entry"="0" "patchable-function-prefix"="16" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+retpoline-external-thunk,+retpoline-indirect-branches,+retpoline-indirect-calls,-3dnow,-3dnowa,-aes,-avx,-avx10.1-256,-avx10.1-512,-avx2,-avx512bf16,-avx512bitalg,-avx512bw,-avx512cd,-avx512dq,-avx512er,-avx512f,-avx512fp16,-avx512ifma,-avx512pf,-avx512vbmi,-avx512vbmi2,-avx512vl,-avx512vnni,-avx512vp2intersect,-avx512vpopcntdq,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-f16c,-fma,-fma4,-gfni,-kl,-mmx,-pclmul,-sha,-sha512,-sm3,-sm4,-sse,-sse2,-sse3,-sse4.1,-sse4.2,-sse4a,-ssse3,-vaes,-vpclmulqdq,-widekl,-x87,-xop" "tune-cpu"="generic" }
+attributes #10 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #11 = { nounwind }
+attributes #12 = { cold nounwind }
+attributes #13 = { nounwind memory(none) }
+attributes #14 = { nounwind memory(read) }
 
 !llvm.module.flags = !{!0, !1, !2, !3, !4}
 

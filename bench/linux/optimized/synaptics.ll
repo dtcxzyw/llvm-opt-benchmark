@@ -162,13 +162,13 @@ target triple = "x86_64-unknown-linux-gnu"
 define dso_local range(i32 -19, 1) i32 @synaptics_detect(ptr noundef %0, i1 noundef zeroext %1) local_unnamed_addr #0 align 16 {
   %3 = alloca [4 x i8], align 4
   %4 = getelementptr inbounds i8, ptr %0, i64 16
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3) #12
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3) #11
   store i32 0, ptr %3, align 4
-  %5 = call i32 @ps2_command(ptr noundef %4, ptr noundef nonnull %3, i32 noundef 4328) #12
-  %6 = call i32 @ps2_command(ptr noundef %4, ptr noundef nonnull %3, i32 noundef 4328) #12
-  %7 = call i32 @ps2_command(ptr noundef %4, ptr noundef nonnull %3, i32 noundef 4328) #12
-  %8 = call i32 @ps2_command(ptr noundef %4, ptr noundef nonnull %3, i32 noundef 4328) #12
-  %9 = call i32 @ps2_command(ptr noundef %4, ptr noundef nonnull %3, i32 noundef 1001) #12
+  %5 = call i32 @ps2_command(ptr noundef %4, ptr noundef nonnull %3, i32 noundef 4328) #11
+  %6 = call i32 @ps2_command(ptr noundef %4, ptr noundef nonnull %3, i32 noundef 4328) #11
+  %7 = call i32 @ps2_command(ptr noundef %4, ptr noundef nonnull %3, i32 noundef 4328) #11
+  %8 = call i32 @ps2_command(ptr noundef %4, ptr noundef nonnull %3, i32 noundef 4328) #11
+  %9 = call i32 @ps2_command(ptr noundef %4, ptr noundef nonnull %3, i32 noundef 1001) #11
   %10 = getelementptr inbounds i8, ptr %3, i64 1
   %11 = load i8, ptr %10, align 1
   %12 = icmp eq i8 %11, 71
@@ -185,7 +185,7 @@ define dso_local range(i32 -19, 1) i32 @synaptics_detect(ptr noundef %0, i1 noun
 
 18:                                               ; preds = %15, %2
   %19 = phi i32 [ %14, %2 ], [ 0, %15 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3) #12
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3) #11
   ret i32 %19
 }
 
@@ -204,33 +204,33 @@ declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #1
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local void @synaptics_reset(ptr noundef %0) #0 align 16 {
   %2 = alloca [1 x i8], align 1
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %2) #12
+  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %2) #11
   %3 = getelementptr inbounds i8, ptr %0, i64 16
-  %4 = tail call i32 @ps2_sliced_command(ptr noundef %3, i8 noundef zeroext 0) #12
+  %4 = tail call i32 @ps2_sliced_command(ptr noundef %3, i8 noundef zeroext 0) #11
   %5 = icmp eq i32 %4, 0
   br i1 %5, label %6, label %8
 
 6:                                                ; preds = %1
   store i8 20, ptr %2, align 1
-  %7 = call i32 @ps2_command(ptr noundef %3, ptr noundef nonnull %2, i32 noundef 4339) #12
+  %7 = call i32 @ps2_command(ptr noundef %3, ptr noundef nonnull %2, i32 noundef 4339) #11
   br label %8
 
 8:                                                ; preds = %6, %1
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %2) #12
+  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %2) #11
   ret void
 }
 
 ; Function Attrs: cold fn_ret_thunk_extern nounwind null_pointer_is_valid optsize
 define dso_local void @synaptics_module_init() local_unnamed_addr #4 section ".init.text" align 16 {
-  %1 = tail call i32 @dmi_check_system(ptr noundef nonnull @toshiba_dmi_table) #12
+  %1 = tail call i32 @dmi_check_system(ptr noundef nonnull @toshiba_dmi_table) #11
   %2 = icmp ne i32 %1, 0
   %3 = zext i1 %2 to i8
   store i8 %3, ptr @impaired_toshiba_kbc, align 1
-  %4 = tail call i32 @dmi_check_system(ptr noundef nonnull @olpc_dmi_table) #12
+  %4 = tail call i32 @dmi_check_system(ptr noundef nonnull @olpc_dmi_table) #11
   %5 = icmp ne i32 %4, 0
   %6 = zext i1 %5 to i8
   store i8 %6, ptr @broken_olpc_ec, align 1
-  %7 = tail call i32 @dmi_check_system(ptr noundef nonnull @cr48_dmi_table) #12
+  %7 = tail call i32 @dmi_check_system(ptr noundef nonnull @cr48_dmi_table) #11
   %8 = icmp ne i32 %7, 0
   %9 = zext i1 %8 to i8
   store i8 %9, ptr @cr48_profile_sensor, align 1
@@ -243,9 +243,9 @@ declare dso_local i32 @dmi_check_system(ptr noundef) local_unnamed_addr #3
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local i32 @synaptics_init_absolute(ptr noundef %0) local_unnamed_addr #0 align 16 {
   %2 = alloca %struct.synaptics_device_info, align 4
-  call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %2) #12
+  call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %2) #11
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(56) %2, i8 0, i64 56, i1 false), !annotation !5
-  %3 = tail call i32 @psmouse_reset(ptr noundef %0) #12
+  %3 = tail call i32 @psmouse_reset(ptr noundef %0) #11
   %4 = call fastcc i32 @synaptics_query_hardware(ptr noundef %0, ptr noundef nonnull %2)
   %5 = icmp eq i32 %4, 0
   br i1 %5, label %10, label %6
@@ -254,7 +254,7 @@ define dso_local i32 @synaptics_init_absolute(ptr noundef %0) local_unnamed_addr
   %7 = getelementptr inbounds i8, ptr %0, i64 16
   %8 = load ptr, ptr %7, align 8
   %9 = getelementptr inbounds i8, ptr %8, i64 344
-  tail call void (ptr, ptr, ...) @_dev_err(ptr noundef %9, ptr noundef nonnull @.str.2, i32 noundef %4) #13
+  tail call void (ptr, ptr, ...) @_dev_err(ptr noundef %9, ptr noundef nonnull @.str.2, i32 noundef %4) #12
   br label %12
 
 10:                                               ; preds = %1
@@ -263,16 +263,16 @@ define dso_local i32 @synaptics_init_absolute(ptr noundef %0) local_unnamed_addr
 
 12:                                               ; preds = %10, %6
   %13 = phi i32 [ %4, %6 ], [ %11, %10 ]
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %2) #12
+  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %2) #11
   ret i32 %13
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local i32 @synaptics_init_relative(ptr noundef %0) local_unnamed_addr #0 align 16 {
   %2 = alloca %struct.synaptics_device_info, align 4
-  call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %2) #12
+  call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %2) #11
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(56) %2, i8 0, i64 56, i1 false), !annotation !5
-  %3 = tail call i32 @psmouse_reset(ptr noundef %0) #12
+  %3 = tail call i32 @psmouse_reset(ptr noundef %0) #11
   %4 = call fastcc i32 @synaptics_query_hardware(ptr noundef %0, ptr noundef nonnull %2)
   %5 = icmp eq i32 %4, 0
   br i1 %5, label %10, label %6
@@ -281,7 +281,7 @@ define dso_local i32 @synaptics_init_relative(ptr noundef %0) local_unnamed_addr
   %7 = getelementptr inbounds i8, ptr %0, i64 16
   %8 = load ptr, ptr %7, align 8
   %9 = getelementptr inbounds i8, ptr %8, i64 344
-  tail call void (ptr, ptr, ...) @_dev_err(ptr noundef %9, ptr noundef nonnull @.str.2, i32 noundef %4) #13
+  tail call void (ptr, ptr, ...) @_dev_err(ptr noundef %9, ptr noundef nonnull @.str.2, i32 noundef %4) #12
   br label %12
 
 10:                                               ; preds = %1
@@ -290,7 +290,7 @@ define dso_local i32 @synaptics_init_relative(ptr noundef %0) local_unnamed_addr
 
 12:                                               ; preds = %10, %6
   %13 = phi i32 [ %4, %6 ], [ %11, %10 ]
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %2) #12
+  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %2) #11
   ret i32 %13
 }
 
@@ -299,9 +299,9 @@ define dso_local i32 @synaptics_init_smbus(ptr noundef %0) local_unnamed_addr #0
   %2 = alloca %struct.rmi_device_platform_data, align 8
   %3 = alloca %struct.i2c_board_info, align 8
   %4 = alloca %struct.synaptics_device_info, align 4
-  call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %4) #12
+  call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %4) #11
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(56) %4, i8 0, i64 56, i1 false), !annotation !5
-  %5 = tail call i32 @psmouse_reset(ptr noundef %0) #12
+  %5 = tail call i32 @psmouse_reset(ptr noundef %0) #11
   %6 = call fastcc i32 @synaptics_query_hardware(ptr noundef %0, ptr noundef nonnull %4)
   %7 = icmp eq i32 %6, 0
   br i1 %7, label %12, label %8
@@ -310,7 +310,7 @@ define dso_local i32 @synaptics_init_smbus(ptr noundef %0) local_unnamed_addr #0
   %9 = getelementptr inbounds i8, ptr %0, i64 16
   %10 = load ptr, ptr %9, align 8
   %11 = getelementptr inbounds i8, ptr %10, i64 344
-  tail call void (ptr, ptr, ...) @_dev_err(ptr noundef %11, ptr noundef nonnull @.str.2, i32 noundef %6) #13
+  tail call void (ptr, ptr, ...) @_dev_err(ptr noundef %11, ptr noundef nonnull @.str.2, i32 noundef %6) #12
   br label %37
 
 12:                                               ; preds = %1
@@ -321,14 +321,14 @@ define dso_local i32 @synaptics_init_smbus(ptr noundef %0) local_unnamed_addr #0
   br i1 %16, label %37, label %17
 
 17:                                               ; preds = %12
-  %18 = tail call zeroext i1 @psmouse_matches_pnp_id(ptr noundef %0, ptr noundef nonnull @topbuttonpad_pnp_ids) #12
+  %18 = tail call zeroext i1 @psmouse_matches_pnp_id(ptr noundef %0, ptr noundef nonnull @topbuttonpad_pnp_ids) #11
   %19 = getelementptr inbounds i8, ptr %4, i64 24
   %20 = load i32, ptr %19, align 4
   %21 = and i32 %20, 65536
   %22 = icmp eq i32 %21, 0
   %23 = select i1 %18, i1 %22, i1 false
   %24 = zext i1 %23 to i8
-  call void @llvm.lifetime.start.p0(i64 120, ptr nonnull %2) #12
+  call void @llvm.lifetime.start.p0(i64 120, ptr nonnull %2) #11
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(120) %2, i8 0, i64 120, i1 false)
   store i32 30, ptr %2, align 8
   %25 = getelementptr inbounds i8, ptr %2, i64 58
@@ -347,16 +347,16 @@ define dso_local i32 @synaptics_init_smbus(ptr noundef %0) local_unnamed_addr #0
   %34 = trunc i32 %33 to i8
   %35 = and i8 %34, 1
   store i8 %35, ptr %32, align 1
-  call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %3) #12
+  call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %3) #11
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %3, ptr noundef nonnull align 8 dereferenceable(80) @__const.synaptics_create_intertouch.intertouch_board, i64 80, i1 false)
-  %36 = call i32 @psmouse_smbus_init(ptr noundef %0, ptr noundef nonnull %3, ptr noundef nonnull %2, i64 noundef 120, i1 noundef zeroext true, i1 noundef zeroext false) #12
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %3) #12
-  call void @llvm.lifetime.end.p0(i64 120, ptr nonnull %2) #12
+  %36 = call i32 @psmouse_smbus_init(ptr noundef %0, ptr noundef nonnull %3, ptr noundef nonnull %2, i64 noundef 120, i1 noundef zeroext true, i1 noundef zeroext false) #11
+  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %3) #11
+  call void @llvm.lifetime.end.p0(i64 120, ptr nonnull %2) #11
   br label %37
 
 37:                                               ; preds = %17, %12, %8
   %38 = phi i32 [ %6, %8 ], [ %36, %17 ], [ -6, %12 ]
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %4) #12
+  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %4) #11
   ret i32 %38
 }
 
@@ -372,80 +372,80 @@ define internal fastcc i32 @synaptics_query_hardware(ptr noundef %0, ptr nocaptu
   %7 = alloca %union.anon.4, align 4
   tail call void @llvm.memset.p0.i64(ptr noundef align 4 dereferenceable(56) %1, i8 0, i64 56, i1 false)
   %8 = getelementptr inbounds i8, ptr %1, i64 28
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #12
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #11
   store i32 0, ptr %7, align 4
   %9 = getelementptr inbounds i8, ptr %0, i64 16
-  %10 = tail call i32 @ps2_sliced_command(ptr noundef %9, i8 noundef zeroext 0) #12
+  %10 = tail call i32 @ps2_sliced_command(ptr noundef %9, i8 noundef zeroext 0) #11
   %11 = icmp eq i32 %10, 0
   br i1 %11, label %12, label %.thread16
 
 12:                                               ; preds = %2
   %13 = getelementptr inbounds i8, ptr %7, i64 1
-  %14 = call i32 @ps2_command(ptr noundef %9, ptr noundef %13, i32 noundef 1001) #12
+  %14 = call i32 @ps2_command(ptr noundef %9, ptr noundef %13, i32 noundef 1001) #11
   %15 = icmp eq i32 %14, 0
   br i1 %15, label %16, label %.thread16
 
 .thread16:                                        ; preds = %12, %2
   %.ph = phi i32 [ %14, %12 ], [ %10, %2 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #12
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #11
   br label %.thread19
 
 16:                                               ; preds = %12
   %17 = load i32, ptr %7, align 4
   %18 = call i32 @llvm.bswap.i32(i32 %17)
   store i32 %18, ptr %8, align 4
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #12
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #11
   %19 = and i32 %18, 65280
   %20 = icmp eq i32 %19, 18176
   br i1 %20, label %21, label %.thread19
 
 21:                                               ; preds = %16
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6) #12
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6) #11
   store i32 0, ptr %6, align 4
-  %22 = call i32 @ps2_sliced_command(ptr noundef %9, i8 noundef zeroext 3) #12
+  %22 = call i32 @ps2_sliced_command(ptr noundef %9, i8 noundef zeroext 3) #11
   %23 = icmp eq i32 %22, 0
   br i1 %23, label %24, label %.thread23
 
 24:                                               ; preds = %21
   %25 = getelementptr inbounds i8, ptr %6, i64 1
-  %26 = call i32 @ps2_command(ptr noundef %9, ptr noundef %25, i32 noundef 1001) #12
+  %26 = call i32 @ps2_command(ptr noundef %9, ptr noundef %25, i32 noundef 1001) #11
   %27 = icmp eq i32 %26, 0
   br i1 %27, label %28, label %.thread23
 
 .thread23:                                        ; preds = %24, %21
   %.ph22 = phi i32 [ %26, %24 ], [ %22, %21 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #12
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #11
   br label %.thread19
 
 28:                                               ; preds = %24
   %29 = load i32, ptr %6, align 4
   %30 = call i32 @llvm.bswap.i32(i32 %29)
   store i32 %30, ptr %1, align 4
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #12
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #11
   %31 = getelementptr inbounds i8, ptr %1, i64 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #12
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #11
   store i32 0, ptr %5, align 4
-  %32 = call i32 @ps2_sliced_command(ptr noundef %9, i8 noundef zeroext 10) #12
+  %32 = call i32 @ps2_sliced_command(ptr noundef %9, i8 noundef zeroext 10) #11
   %33 = icmp eq i32 %32, 0
   br i1 %33, label %34, label %.thread27
 
 34:                                               ; preds = %28
   %35 = getelementptr inbounds i8, ptr %5, i64 1
-  %36 = call i32 @ps2_command(ptr noundef %9, ptr noundef %35, i32 noundef 1001) #12
+  %36 = call i32 @ps2_command(ptr noundef %9, ptr noundef %35, i32 noundef 1001) #11
   %37 = icmp eq i32 %36, 0
   br i1 %37, label %38, label %.thread27
 
 .thread27:                                        ; preds = %34, %28
   %.ph26 = phi i32 [ %36, %34 ], [ %32, %28 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #12
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #11
   br label %.thread19
 
 38:                                               ; preds = %34
   %39 = load i32, ptr %5, align 4
   %40 = call i32 @llvm.bswap.i32(i32 %39)
   store i32 %40, ptr %31, align 4
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #12
-  call void @llvm.lifetime.start.p0(i64 3, ptr nonnull %4) #12
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #11
+  call void @llvm.lifetime.start.p0(i64 3, ptr nonnull %4) #11
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %4, i8 0, i64 3, i1 false), !annotation !5
   %41 = load i32, ptr %8, align 4
   %42 = zext i32 %41 to i64
@@ -458,12 +458,12 @@ define internal fastcc i32 @synaptics_query_hardware(ptr noundef %0, ptr nocaptu
   br i1 %48, label %.thread31, label %49
 
 49:                                               ; preds = %38
-  %50 = call i32 @ps2_sliced_command(ptr noundef %9, i8 noundef zeroext 1) #12
+  %50 = call i32 @ps2_sliced_command(ptr noundef %9, i8 noundef zeroext 1) #11
   %51 = icmp eq i32 %50, 0
   br i1 %51, label %52, label %.thread34
 
 52:                                               ; preds = %49
-  %53 = call i32 @ps2_command(ptr noundef %9, ptr noundef nonnull %4, i32 noundef 1001) #12
+  %53 = call i32 @ps2_command(ptr noundef %9, ptr noundef nonnull %4, i32 noundef 1001) #11
   %54 = icmp eq i32 %53, 0
   br i1 %54, label %55, label %.thread34
 
@@ -484,38 +484,38 @@ define internal fastcc i32 @synaptics_query_hardware(ptr noundef %0, ptr nocaptu
 
 67:                                               ; preds = %55
   %68 = getelementptr inbounds i8, ptr %1, i64 24
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3) #12
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3) #11
   store i32 0, ptr %3, align 4
-  %69 = call i32 @ps2_sliced_command(ptr noundef %9, i8 noundef zeroext 16) #12
+  %69 = call i32 @ps2_sliced_command(ptr noundef %9, i8 noundef zeroext 16) #11
   %70 = icmp eq i32 %69, 0
   br i1 %70, label %71, label %.thread37
 
 71:                                               ; preds = %67
   %72 = getelementptr inbounds i8, ptr %3, i64 1
-  %73 = call i32 @ps2_command(ptr noundef %9, ptr noundef %72, i32 noundef 1001) #12
+  %73 = call i32 @ps2_command(ptr noundef %9, ptr noundef %72, i32 noundef 1001) #11
   %74 = icmp eq i32 %73, 0
   br i1 %74, label %75, label %.thread37
 
 .thread34:                                        ; preds = %52, %49
   %.ph33 = phi i32 [ %53, %52 ], [ %50, %49 ]
-  call void @llvm.lifetime.end.p0(i64 3, ptr nonnull %4) #12
+  call void @llvm.lifetime.end.p0(i64 3, ptr nonnull %4) #11
   br label %.thread19
 
 .thread37:                                        ; preds = %71, %67
   %.ph36 = phi i32 [ %73, %71 ], [ %69, %67 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3) #12
-  call void @llvm.lifetime.end.p0(i64 3, ptr nonnull %4) #12
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3) #11
+  call void @llvm.lifetime.end.p0(i64 3, ptr nonnull %4) #11
   br label %.thread19
 
 75:                                               ; preds = %71
   %76 = load i32, ptr %3, align 4
   %77 = call i32 @llvm.bswap.i32(i32 %76)
   store i32 %77, ptr %68, align 4
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3) #12
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3) #11
   br label %.thread31
 
 .thread31:                                        ; preds = %55, %38, %75
-  call void @llvm.lifetime.end.p0(i64 3, ptr nonnull %4) #12
+  call void @llvm.lifetime.end.p0(i64 3, ptr nonnull %4) #11
   %78 = call fastcc i32 @synaptics_capability(ptr noundef %0, ptr noundef %1)
   %79 = icmp eq i32 %78, 0
   br i1 %79, label %80, label %.thread19
@@ -537,9 +537,9 @@ define dso_local i32 @synaptics_init(ptr noundef %0) local_unnamed_addr #0 align
   %2 = alloca %struct.rmi_device_platform_data, align 8
   %3 = alloca %struct.i2c_board_info, align 8
   %4 = alloca %struct.synaptics_device_info, align 4
-  call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %4) #12
+  call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %4) #11
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(56) %4, i8 0, i64 56, i1 false), !annotation !5
-  %5 = tail call i32 @psmouse_reset(ptr noundef %0) #12
+  %5 = tail call i32 @psmouse_reset(ptr noundef %0) #11
   %6 = call fastcc i32 @synaptics_query_hardware(ptr noundef %0, ptr noundef nonnull %4)
   %7 = icmp eq i32 %6, 0
   br i1 %7, label %12, label %8
@@ -548,7 +548,7 @@ define dso_local i32 @synaptics_init(ptr noundef %0) local_unnamed_addr #0 align
   %9 = getelementptr inbounds i8, ptr %0, i64 16
   %10 = load ptr, ptr %9, align 8
   %11 = getelementptr inbounds i8, ptr %10, i64 344
-  tail call void (ptr, ptr, ...) @_dev_err(ptr noundef %11, ptr noundef nonnull @.str.2, i32 noundef %6) #13
+  tail call void (ptr, ptr, ...) @_dev_err(ptr noundef %11, ptr noundef nonnull @.str.2, i32 noundef %6) #12
   br label %.critedge5
 
 12:                                               ; preds = %1
@@ -559,14 +559,14 @@ define dso_local i32 @synaptics_init(ptr noundef %0) local_unnamed_addr #0 align
   br i1 %16, label %.critedge, label %17
 
 17:                                               ; preds = %12
-  %18 = tail call zeroext i1 @psmouse_matches_pnp_id(ptr noundef %0, ptr noundef nonnull @forcepad_pnp_ids) #12
+  %18 = tail call zeroext i1 @psmouse_matches_pnp_id(ptr noundef %0, ptr noundef nonnull @forcepad_pnp_ids) #11
   br i1 %18, label %23, label %19
 
 19:                                               ; preds = %17
   %20 = getelementptr inbounds i8, ptr %0, i64 16
   %21 = load ptr, ptr %20, align 8
   %22 = getelementptr inbounds i8, ptr %21, i64 344
-  tail call void (ptr, ptr, ...) @_dev_warn(ptr noundef %22, ptr noundef nonnull @.str.3) #13
+  tail call void (ptr, ptr, ...) @_dev_warn(ptr noundef %22, ptr noundef nonnull @.str.3) #12
   br label %23
 
 23:                                               ; preds = %19, %17
@@ -577,15 +577,15 @@ define dso_local i32 @synaptics_init(ptr noundef %0) local_unnamed_addr #0 align
   ]
 
 25:                                               ; preds = %23
-  %26 = tail call zeroext i1 @psmouse_matches_pnp_id(ptr noundef %0, ptr noundef nonnull @topbuttonpad_pnp_ids) #12
+  %26 = tail call zeroext i1 @psmouse_matches_pnp_id(ptr noundef %0, ptr noundef nonnull @topbuttonpad_pnp_ids) #11
   br i1 %26, label %36, label %27
 
 27:                                               ; preds = %25
-  %28 = tail call zeroext i1 @psmouse_matches_pnp_id(ptr noundef %0, ptr noundef nonnull @smbus_pnp_ids) #12
+  %28 = tail call zeroext i1 @psmouse_matches_pnp_id(ptr noundef %0, ptr noundef nonnull @smbus_pnp_ids) #11
   br i1 %28, label %36, label %29
 
 29:                                               ; preds = %27
-  %30 = tail call zeroext i1 @psmouse_matches_pnp_id(ptr noundef %0, ptr noundef nonnull @forcepad_pnp_ids) #12
+  %30 = tail call zeroext i1 @psmouse_matches_pnp_id(ptr noundef %0, ptr noundef nonnull @forcepad_pnp_ids) #11
   br i1 %30, label %.critedge, label %31
 
 31:                                               ; preds = %29
@@ -593,22 +593,22 @@ define dso_local i32 @synaptics_init(ptr noundef %0) local_unnamed_addr #0 align
   %33 = load ptr, ptr %32, align 8
   %34 = getelementptr inbounds i8, ptr %33, i64 344
   %35 = getelementptr inbounds i8, ptr %33, i64 72
-  tail call void (ptr, ptr, ...) @_dev_info(ptr noundef %34, ptr noundef nonnull @.str.69, ptr noundef %35) #13
+  tail call void (ptr, ptr, ...) @_dev_info(ptr noundef %34, ptr noundef nonnull @.str.69, ptr noundef %35) #12
   br label %.critedge
 
 36:                                               ; preds = %27, %25, %23
   %37 = getelementptr inbounds i8, ptr %0, i64 16
   %38 = load ptr, ptr %37, align 8
   %39 = getelementptr inbounds i8, ptr %38, i64 344
-  tail call void (ptr, ptr, ...) @_dev_info(ptr noundef %39, ptr noundef nonnull @.str.70) #13
-  %40 = tail call zeroext i1 @psmouse_matches_pnp_id(ptr noundef %0, ptr noundef nonnull @topbuttonpad_pnp_ids) #12
+  tail call void (ptr, ptr, ...) @_dev_info(ptr noundef %39, ptr noundef nonnull @.str.70) #12
+  %40 = tail call zeroext i1 @psmouse_matches_pnp_id(ptr noundef %0, ptr noundef nonnull @topbuttonpad_pnp_ids) #11
   %41 = getelementptr inbounds i8, ptr %4, i64 24
   %42 = load i32, ptr %41, align 4
   %43 = and i32 %42, 65536
   %44 = icmp eq i32 %43, 0
   %45 = select i1 %40, i1 %44, i1 false
   %46 = zext i1 %45 to i8
-  call void @llvm.lifetime.start.p0(i64 120, ptr nonnull %2) #12
+  call void @llvm.lifetime.start.p0(i64 120, ptr nonnull %2) #11
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(120) %2, i8 0, i64 120, i1 false)
   store i32 30, ptr %2, align 8
   %47 = getelementptr inbounds i8, ptr %2, i64 58
@@ -627,11 +627,11 @@ define dso_local i32 @synaptics_init(ptr noundef %0) local_unnamed_addr #0 align
   %56 = trunc i32 %55 to i8
   %57 = and i8 %56, 1
   store i8 %57, ptr %54, align 1
-  call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %3) #12
+  call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %3) #11
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %3, ptr noundef nonnull align 8 dereferenceable(80) @__const.synaptics_create_intertouch.intertouch_board, i64 80, i1 false)
-  %58 = call i32 @psmouse_smbus_init(ptr noundef %0, ptr noundef nonnull %3, ptr noundef nonnull %2, i64 noundef 120, i1 noundef zeroext true, i1 noundef zeroext true) #12
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %3) #12
-  call void @llvm.lifetime.end.p0(i64 120, ptr nonnull %2) #12
+  %58 = call i32 @psmouse_smbus_init(ptr noundef %0, ptr noundef nonnull %3, ptr noundef nonnull %2, i64 noundef 120, i1 noundef zeroext true, i1 noundef zeroext true) #11
+  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %3) #11
+  call void @llvm.lifetime.end.p0(i64 120, ptr nonnull %2) #11
   switch i32 %58, label %62 [
     i32 0, label %.critedge5
     i32 -11, label %59
@@ -640,13 +640,13 @@ define dso_local i32 @synaptics_init(ptr noundef %0) local_unnamed_addr #0 align
 59:                                               ; preds = %36
   %60 = load ptr, ptr %37, align 8
   %61 = getelementptr inbounds i8, ptr %60, i64 344
-  call void (ptr, ptr, ...) @_dev_info(ptr noundef %61, ptr noundef nonnull @.str.71) #13
+  call void (ptr, ptr, ...) @_dev_info(ptr noundef %61, ptr noundef nonnull @.str.71) #12
   br label %.critedge
 
 62:                                               ; preds = %36
   %63 = load ptr, ptr %37, align 8
   %64 = getelementptr inbounds i8, ptr %63, i64 344
-  call void (ptr, ptr, ...) @_dev_err(ptr noundef %64, ptr noundef nonnull @.str.72) #13
+  call void (ptr, ptr, ...) @_dev_err(ptr noundef %64, ptr noundef nonnull @.str.72) #12
   br label %.critedge
 
 .critedge:                                        ; preds = %23, %31, %29, %59, %62, %12
@@ -658,7 +658,7 @@ define dso_local i32 @synaptics_init(ptr noundef %0) local_unnamed_addr #0 align
   %68 = getelementptr inbounds i8, ptr %0, i64 16
   %69 = load ptr, ptr %68, align 8
   %70 = getelementptr inbounds i8, ptr %69, i64 344
-  call void (ptr, ptr, ...) @_dev_info(ptr noundef %70, ptr noundef nonnull @.str.103) #13
+  call void (ptr, ptr, ...) @_dev_info(ptr noundef %70, ptr noundef nonnull @.str.103) #12
   br label %71
 
 71:                                               ; preds = %67, %.critedge
@@ -670,12 +670,12 @@ define dso_local i32 @synaptics_init(ptr noundef %0) local_unnamed_addr #0 align
   br i1 %76, label %77, label %.critedge5
 
 77:                                               ; preds = %71
-  call void @psmouse_smbus_cleanup(ptr noundef %0) #12
+  call void @psmouse_smbus_cleanup(ptr noundef %0) #11
   br label %.critedge5
 
 .critedge5:                                       ; preds = %36, %77, %71, %8
   %78 = phi i32 [ %6, %8 ], [ %75, %77 ], [ %75, %71 ], [ 21, %36 ]
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %4) #12
+  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %4) #11
   ret i32 %78
 }
 
@@ -700,7 +700,7 @@ define internal fastcc i32 @synaptics_init_ps2(ptr noundef %0, ptr nocapture nou
   %6 = phi i64 [ 0, %3 ], [ %41, %40 ]
   %7 = phi ptr [ @.compoundliteral, %3 ], [ %43, %40 ]
   %8 = phi ptr [ @min_max_pnpid_table, %3 ], [ %42, %40 ]
-  %9 = tail call zeroext i1 @psmouse_matches_pnp_id(ptr noundef %0, ptr noundef nonnull %7) #12
+  %9 = tail call zeroext i1 @psmouse_matches_pnp_id(ptr noundef %0, ptr noundef nonnull %7) #11
   br i1 %9, label %10, label %40
 
 10:                                               ; preds = %5
@@ -745,7 +745,7 @@ define internal fastcc i32 @synaptics_init_ps2(ptr noundef %0, ptr nocapture nou
   %37 = getelementptr inbounds i8, ptr %0, i64 16
   %38 = load ptr, ptr %37, align 8
   %39 = getelementptr inbounds i8, ptr %38, i64 344
-  tail call void (ptr, ptr, ...) @_dev_info(ptr noundef %39, ptr noundef nonnull @.str.9, i32 noundef %26, i32 noundef %29, i32 noundef %32, i32 noundef %35) #13
+  tail call void (ptr, ptr, ...) @_dev_info(ptr noundef %39, ptr noundef nonnull @.str.9, i32 noundef %26, i32 noundef %29, i32 noundef %32, i32 noundef %35) #12
   br label %.loopexit9
 
 40:                                               ; preds = %21, %14, %5
@@ -757,7 +757,7 @@ define internal fastcc i32 @synaptics_init_ps2(ptr noundef %0, ptr nocapture nou
 
 .loopexit9:                                       ; preds = %40, %24
   %45 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 56), align 8
-  %46 = tail call noalias align 8 dereferenceable_or_null(120) ptr @kmalloc_trace(ptr noundef %45, i32 noundef 3520, i64 noundef 120) #14
+  %46 = tail call noalias align 8 dereferenceable_or_null(120) ptr @kmalloc_trace(ptr noundef %45, i32 noundef 3520, i64 noundef 120) #13
   store ptr %46, ptr %0, align 8
   %47 = icmp eq ptr %46, null
   br i1 %47, label %239, label %48
@@ -779,7 +779,7 @@ define internal fastcc i32 @synaptics_init_ps2(ptr noundef %0, ptr nocapture nou
   br label %57
 
 57:                                               ; preds = %55, %48
-  %58 = tail call zeroext i1 @psmouse_matches_pnp_id(ptr noundef %0, ptr noundef nonnull @forcepad_pnp_ids) #12
+  %58 = tail call zeroext i1 @psmouse_matches_pnp_id(ptr noundef %0, ptr noundef nonnull @forcepad_pnp_ids) #11
   %59 = getelementptr inbounds i8, ptr %46, i64 114
   %60 = zext i1 %58 to i8
   store i8 %60, ptr %59, align 2
@@ -791,7 +791,7 @@ define internal fastcc i32 @synaptics_init_ps2(ptr noundef %0, ptr nocapture nou
   %64 = getelementptr inbounds i8, ptr %0, i64 16
   %65 = load ptr, ptr %64, align 8
   %66 = getelementptr inbounds i8, ptr %65, i64 344
-  tail call void (ptr, ptr, ...) @_dev_err(ptr noundef %66, ptr noundef nonnull @.str.4) #13
+  tail call void (ptr, ptr, ...) @_dev_err(ptr noundef %66, ptr noundef nonnull @.str.4) #12
   br label %237
 
 67:                                               ; preds = %57
@@ -822,16 +822,16 @@ define internal fastcc i32 @synaptics_init_ps2(ptr noundef %0, ptr nocapture nou
   %91 = load i32, ptr %4, align 4
   %92 = getelementptr inbounds i8, ptr %1, i64 4
   %93 = load i32, ptr %92, align 4
-  tail call void (ptr, ptr, ...) @_dev_info(ptr noundef %75, ptr noundef nonnull @.str.5, i64 noundef %79, i64 noundef %80, i64 noundef %82, i32 noundef %68, i32 noundef %84, i32 noundef %86, i32 noundef %88, i32 noundef %90, i32 noundef %91, i32 noundef %93) #13
+  tail call void (ptr, ptr, ...) @_dev_info(ptr noundef %75, ptr noundef nonnull @.str.5, i64 noundef %79, i64 noundef %80, i64 noundef %82, i32 noundef %68, i32 noundef %84, i32 noundef %86, i32 noundef %88, i32 noundef %90, i32 noundef %91, i32 noundef %93) #12
   %94 = getelementptr inbounds i8, ptr %0, i64 8
   %95 = load ptr, ptr %94, align 8
   %96 = getelementptr inbounds i8, ptr %95, i64 40
-  tail call void asm sideeffect " btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %96, i64 2) #12, !srcloc !11
+  tail call void asm sideeffect " btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %96, i64 2) #11, !srcloc !11
   %97 = getelementptr inbounds i8, ptr %95, i64 48
   %98 = getelementptr inbounds i8, ptr %95, i64 32
   tail call void @llvm.memset.p0.i64(ptr noundef align 8 dereferenceable(104) %97, i8 0, i64 104, i1 false)
-  tail call void asm sideeffect " btsq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %98, i64 0) #12, !srcloc !12
-  tail call void @input_set_capability(ptr noundef %95, i32 noundef 1, i32 noundef 272) #12
+  tail call void asm sideeffect " btsq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %98, i64 0) #11, !srcloc !12
+  tail call void @input_set_capability(ptr noundef %95, i32 noundef 1, i32 noundef 272) #11
   %99 = getelementptr inbounds i8, ptr %46, i64 20
   %100 = load i32, ptr %99, align 4
   %101 = and i32 %100, 1048576
@@ -839,7 +839,7 @@ define internal fastcc i32 @synaptics_init_ps2(ptr noundef %0, ptr nocapture nou
   br i1 %102, label %103, label %109
 
 103:                                              ; preds = %67
-  tail call void @input_set_capability(ptr noundef %95, i32 noundef 1, i32 noundef 273) #12
+  tail call void @input_set_capability(ptr noundef %95, i32 noundef 1, i32 noundef 273) #11
   %104 = getelementptr inbounds i8, ptr %46, i64 12
   %105 = load i32, ptr %104, align 4
   %106 = and i32 %105, 262144
@@ -847,7 +847,7 @@ define internal fastcc i32 @synaptics_init_ps2(ptr noundef %0, ptr nocapture nou
   br i1 %107, label %109, label %108
 
 108:                                              ; preds = %103
-  tail call void @input_set_capability(ptr noundef %95, i32 noundef 1, i32 noundef 274) #12
+  tail call void @input_set_capability(ptr noundef %95, i32 noundef 1, i32 noundef 274) #11
   br label %109
 
 109:                                              ; preds = %108, %103, %67
@@ -856,19 +856,19 @@ define internal fastcc i32 @synaptics_init_ps2(ptr noundef %0, ptr nocapture nou
   br i1 %111, label %112, label %113
 
 112:                                              ; preds = %109
-  tail call void @input_set_capability(ptr noundef %95, i32 noundef 2, i32 noundef 0) #12
-  tail call void @input_set_capability(ptr noundef %95, i32 noundef 2, i32 noundef 1) #12
+  tail call void @input_set_capability(ptr noundef %95, i32 noundef 2, i32 noundef 0) #11
+  tail call void @input_set_capability(ptr noundef %95, i32 noundef 2, i32 noundef 1) #11
   br label %190
 
 113:                                              ; preds = %109
   tail call fastcc void @set_abs_position_params(ptr noundef %95, ptr noundef nonnull %46, i32 noundef 0, i32 noundef 1)
-  tail call void @input_set_abs_params(ptr noundef %95, i32 noundef 24, i32 noundef 0, i32 noundef 255, i32 noundef 0, i32 noundef 0) #12
+  tail call void @input_set_abs_params(ptr noundef %95, i32 noundef 24, i32 noundef 0, i32 noundef 255, i32 noundef 0, i32 noundef 0) #11
   %114 = load i8, ptr @cr48_profile_sensor, align 1, !range !6, !noundef !7
   %115 = icmp eq i8 %114, 0
   br i1 %115, label %117, label %116
 
 116:                                              ; preds = %113
-  tail call void @input_set_abs_params(ptr noundef %95, i32 noundef 58, i32 noundef 0, i32 noundef 255, i32 noundef 0, i32 noundef 0) #12
+  tail call void @input_set_abs_params(ptr noundef %95, i32 noundef 58, i32 noundef 0, i32 noundef 255, i32 noundef 0, i32 noundef 0) #11
   br label %117
 
 117:                                              ; preds = %116, %113
@@ -880,14 +880,14 @@ define internal fastcc i32 @synaptics_init_ps2(ptr noundef %0, ptr nocapture nou
 
 122:                                              ; preds = %117
   tail call fastcc void @set_abs_position_params(ptr noundef %95, ptr noundef nonnull %46, i32 noundef 53, i32 noundef 54)
-  tail call void @input_set_abs_params(ptr noundef %95, i32 noundef 58, i32 noundef 0, i32 noundef 255, i32 noundef 0, i32 noundef 0) #12
-  %123 = tail call i32 @input_mt_init_slots(ptr noundef %95, i32 noundef 2, i32 noundef 9) #12
+  tail call void @input_set_abs_params(ptr noundef %95, i32 noundef 58, i32 noundef 0, i32 noundef 255, i32 noundef 0, i32 noundef 0) #11
+  %123 = tail call i32 @input_mt_init_slots(ptr noundef %95, i32 noundef 2, i32 noundef 9) #11
   %124 = icmp eq i32 %123, 0
   br i1 %124, label %125, label %186
 
 125:                                              ; preds = %122
-  tail call void @input_set_capability(ptr noundef %95, i32 noundef 1, i32 noundef 335) #12
-  tail call void @input_set_capability(ptr noundef %95, i32 noundef 1, i32 noundef 328) #12
+  tail call void @input_set_capability(ptr noundef %95, i32 noundef 1, i32 noundef 335) #11
+  tail call void @input_set_capability(ptr noundef %95, i32 noundef 1, i32 noundef 328) #11
   br label %139
 
 126:                                              ; preds = %117
@@ -900,7 +900,7 @@ define internal fastcc i32 @synaptics_init_ps2(ptr noundef %0, ptr nocapture nou
   %130 = load i8, ptr @cr48_profile_sensor, align 1, !range !6, !noundef !7
   %131 = icmp eq i8 %130, 0
   %132 = select i1 %131, i32 17, i32 9
-  %133 = tail call i32 @input_mt_init_slots(ptr noundef %95, i32 noundef 2, i32 noundef %132) #12
+  %133 = tail call i32 @input_mt_init_slots(ptr noundef %95, i32 noundef 2, i32 noundef %132) #11
   %134 = icmp eq i32 %133, 0
   br i1 %134, label %135, label %186
 
@@ -921,12 +921,12 @@ define internal fastcc i32 @synaptics_init_ps2(ptr noundef %0, ptr nocapture nou
   br i1 %143, label %145, label %144
 
 144:                                              ; preds = %139
-  tail call void @input_set_abs_params(ptr noundef %95, i32 noundef 28, i32 noundef 0, i32 noundef 15, i32 noundef 0, i32 noundef 0) #12
+  tail call void @input_set_abs_params(ptr noundef %95, i32 noundef 28, i32 noundef 0, i32 noundef 15, i32 noundef 0, i32 noundef 0) #11
   br label %145
 
 145:                                              ; preds = %144, %139
-  tail call void @input_set_capability(ptr noundef %95, i32 noundef 1, i32 noundef 330) #12
-  tail call void @input_set_capability(ptr noundef %95, i32 noundef 1, i32 noundef 325) #12
+  tail call void @input_set_capability(ptr noundef %95, i32 noundef 1, i32 noundef 330) #11
+  tail call void @input_set_capability(ptr noundef %95, i32 noundef 1, i32 noundef 325) #11
   %146 = load i32, ptr %140, align 4
   %147 = and i32 %146, 2
   %148 = icmp eq i32 %147, 0
@@ -939,8 +939,8 @@ define internal fastcc i32 @synaptics_init_ps2(ptr noundef %0, ptr nocapture nou
   br i1 %152, label %154, label %153
 
 153:                                              ; preds = %149, %145
-  tail call void @input_set_capability(ptr noundef %95, i32 noundef 1, i32 noundef 333) #12
-  tail call void @input_set_capability(ptr noundef %95, i32 noundef 1, i32 noundef 334) #12
+  tail call void @input_set_capability(ptr noundef %95, i32 noundef 1, i32 noundef 333) #11
+  tail call void @input_set_capability(ptr noundef %95, i32 noundef 1, i32 noundef 334) #11
   %.pre = load i32, ptr %140, align 4
   br label %154
 
@@ -951,8 +951,8 @@ define internal fastcc i32 @synaptics_init_ps2(ptr noundef %0, ptr nocapture nou
   br i1 %157, label %159, label %158
 
 158:                                              ; preds = %154
-  tail call void @input_set_capability(ptr noundef %95, i32 noundef 1, i32 noundef 277) #12
-  tail call void @input_set_capability(ptr noundef %95, i32 noundef 1, i32 noundef 278) #12
+  tail call void @input_set_capability(ptr noundef %95, i32 noundef 1, i32 noundef 277) #11
+  tail call void @input_set_capability(ptr noundef %95, i32 noundef 1, i32 noundef 278) #11
   br label %159
 
 159:                                              ; preds = %158, %154
@@ -972,7 +972,7 @@ define internal fastcc i32 @synaptics_init_ps2(ptr noundef %0, ptr nocapture nou
 .preheader:                                       ; preds = %164, %.preheader
   %169 = phi i32 [ %171, %.preheader ], [ 0, %164 ]
   %170 = add nuw nsw i32 %169, 256
-  tail call void @input_set_capability(ptr noundef %95, i32 noundef 1, i32 noundef %170) #12
+  tail call void @input_set_capability(ptr noundef %95, i32 noundef 1, i32 noundef %170) #11
   %171 = add nuw nsw i32 %169, 1
   %172 = load i32, ptr %165, align 8
   %173 = lshr i32 %172, 12
@@ -987,8 +987,8 @@ define internal fastcc i32 @synaptics_init_ps2(ptr noundef %0, ptr nocapture nou
   br i1 %178, label %190, label %179
 
 179:                                              ; preds = %.loopexit
-  tail call void asm sideeffect " btsq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %98, i64 2) #12, !srcloc !12
-  %180 = tail call zeroext i1 @psmouse_matches_pnp_id(ptr noundef %0, ptr noundef nonnull @topbuttonpad_pnp_ids) #12
+  tail call void asm sideeffect " btsq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %98, i64 2) #11, !srcloc !12
+  %180 = tail call zeroext i1 @psmouse_matches_pnp_id(ptr noundef %0, ptr noundef nonnull @topbuttonpad_pnp_ids) #11
   br i1 %180, label %181, label %190
 
 181:                                              ; preds = %179
@@ -998,14 +998,14 @@ define internal fastcc i32 @synaptics_init_ps2(ptr noundef %0, ptr nocapture nou
   br i1 %184, label %185, label %190
 
 185:                                              ; preds = %181
-  tail call void asm sideeffect " btsq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %98, i64 4) #12, !srcloc !12
+  tail call void asm sideeffect " btsq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %98, i64 4) #11, !srcloc !12
   br label %190
 
 186:                                              ; preds = %122, %129
   %187 = phi i32 [ %123, %122 ], [ %133, %129 ]
   %188 = load ptr, ptr %73, align 8
   %189 = getelementptr inbounds i8, ptr %188, i64 344
-  tail call void (ptr, ptr, ...) @_dev_err(ptr noundef %189, ptr noundef nonnull @.str.6, i32 noundef %187) #13
+  tail call void (ptr, ptr, ...) @_dev_err(ptr noundef %189, ptr noundef nonnull @.str.6, i32 noundef %187) #12
   br label %237
 
 190:                                              ; preds = %112, %179, %181, %185, %.loopexit
@@ -1055,8 +1055,8 @@ define internal fastcc i32 @synaptics_init_ps2(ptr noundef %0, ptr nocapture nou
 218:                                              ; preds = %211
   %219 = load ptr, ptr %73, align 8
   %220 = getelementptr inbounds i8, ptr %219, i64 344
-  %221 = tail call ptr @dmi_get_system_info(i32 noundef 7) #12
-  tail call void (ptr, ptr, ...) @_dev_info(ptr noundef %220, ptr noundef nonnull @.str.7, ptr noundef %221) #13
+  %221 = tail call ptr @dmi_get_system_info(i32 noundef 7) #11
+  tail call void (ptr, ptr, ...) @_dev_info(ptr noundef %220, ptr noundef nonnull @.str.7, ptr noundef %221) #12
   store i32 40, ptr %212, align 4
   br label %222
 
@@ -1074,19 +1074,19 @@ define internal fastcc i32 @synaptics_init_ps2(ptr noundef %0, ptr nocapture nou
 229:                                              ; preds = %225
   %230 = load ptr, ptr %73, align 8
   %231 = getelementptr inbounds i8, ptr %230, i64 344
-  %232 = tail call i32 @device_create_file(ptr noundef %231, ptr noundef nonnull @psmouse_attr_disable_gesture) #12
+  %232 = tail call i32 @device_create_file(ptr noundef %231, ptr noundef nonnull @psmouse_attr_disable_gesture) #11
   %233 = icmp eq i32 %232, 0
   br i1 %233, label %239, label %234
 
 234:                                              ; preds = %229
   %235 = load ptr, ptr %73, align 8
   %236 = getelementptr inbounds i8, ptr %235, i64 344
-  tail call void (ptr, ptr, ...) @_dev_err(ptr noundef %236, ptr noundef nonnull @.str.8, i32 noundef %232) #13
+  tail call void (ptr, ptr, ...) @_dev_err(ptr noundef %236, ptr noundef nonnull @.str.8, i32 noundef %232) #12
   br label %237
 
 237:                                              ; preds = %234, %186, %63
   %238 = phi i32 [ %61, %63 ], [ %187, %186 ], [ %232, %234 ]
-  tail call void @kfree(ptr noundef nonnull %46) #12
+  tail call void @kfree(ptr noundef nonnull %46) #11
   br label %239
 
 239:                                              ; preds = %237, %229, %225, %222, %.loopexit9
@@ -1144,20 +1144,20 @@ define internal fastcc i32 @synaptics_set_mode(ptr noundef %0) unnamed_addr #0 a
 
 29:                                               ; preds = %27, %21
   %30 = phi i8 [ %28, %27 ], [ %22, %21 ]
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %2) #12
+  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %2) #11
   %31 = getelementptr inbounds i8, ptr %0, i64 16
-  %32 = tail call i32 @ps2_sliced_command(ptr noundef %31, i8 noundef zeroext %30) #12
+  %32 = tail call i32 @ps2_sliced_command(ptr noundef %31, i8 noundef zeroext %30) #11
   %33 = icmp eq i32 %32, 0
   br i1 %33, label %34, label %.thread
 
 .thread:                                          ; preds = %29
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %2) #12
+  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %2) #11
   br label %54
 
 34:                                               ; preds = %29
   store i8 20, ptr %2, align 1
-  %35 = call i32 @ps2_command(ptr noundef %31, ptr noundef nonnull %2, i32 noundef 4339) #12
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %2) #12
+  %35 = call i32 @ps2_command(ptr noundef %31, ptr noundef nonnull %2, i32 noundef 4339) #11
+  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %2) #11
   %36 = icmp eq i32 %35, 0
   br i1 %36, label %37, label %54
 
@@ -1174,12 +1174,12 @@ define internal fastcc i32 @synaptics_set_mode(ptr noundef %0) unnamed_addr #0 a
   br i1 %44, label %54, label %45
 
 45:                                               ; preds = %40
-  %46 = call i32 @ps2_sliced_command(ptr noundef %31, i8 noundef zeroext 3) #12
+  %46 = call i32 @ps2_sliced_command(ptr noundef %31, i8 noundef zeroext 3) #11
   %47 = icmp eq i32 %46, 0
   br i1 %47, label %48, label %.thread4
 
 48:                                               ; preds = %45
-  %49 = call i32 @ps2_command(ptr noundef %31, ptr noundef nonnull @synaptics_set_advanced_gesture_mode.param, i32 noundef 4339) #12
+  %49 = call i32 @ps2_command(ptr noundef %31, ptr noundef nonnull @synaptics_set_advanced_gesture_mode.param, i32 noundef 4339) #11
   %50 = icmp eq i32 %49, 0
   br i1 %50, label %54, label %.thread4
 
@@ -1187,7 +1187,7 @@ define internal fastcc i32 @synaptics_set_mode(ptr noundef %0) unnamed_addr #0 a
   %51 = phi i32 [ %49, %48 ], [ %46, %45 ]
   %52 = load ptr, ptr %31, align 8
   %53 = getelementptr inbounds i8, ptr %52, i64 344
-  call void (ptr, ptr, ...) @_dev_err(ptr noundef %53, ptr noundef nonnull @.str.28, i32 noundef %51) #13
+  call void (ptr, ptr, ...) @_dev_err(ptr noundef %53, ptr noundef nonnull @.str.28, i32 noundef %51) #12
   br label %54
 
 54:                                               ; preds = %.thread, %.thread4, %48, %40, %37, %34
@@ -1246,7 +1246,7 @@ define internal range(i32 0, 3) i32 @synaptics_process_byte(ptr nocapture nounde
   br i1 %30, label %480, label %31
 
 31:                                               ; preds = %27
-  %32 = tail call ptr @psmouse_from_serio(ptr noundef nonnull %29) #12
+  %32 = tail call ptr @psmouse_from_serio(ptr noundef nonnull %29) #11
   %33 = icmp eq ptr %32, null
   br i1 %33, label %55, label %34
 
@@ -1259,13 +1259,13 @@ define internal range(i32 0, 3) i32 @synaptics_process_byte(ptr nocapture nounde
 38:                                               ; preds = %34
   %39 = getelementptr i8, ptr %0, i64 233
   %40 = load i8, ptr %39, align 1
-  %41 = tail call i32 @serio_interrupt(ptr noundef nonnull %29, i8 noundef zeroext %40, i32 noundef 0) #12
+  %41 = tail call i32 @serio_interrupt(ptr noundef nonnull %29, i8 noundef zeroext %40, i32 noundef 0) #11
   %42 = getelementptr i8, ptr %0, i64 236
   %43 = load i8, ptr %42, align 1
-  %44 = tail call i32 @serio_interrupt(ptr noundef nonnull %29, i8 noundef zeroext %43, i32 noundef 0) #12
+  %44 = tail call i32 @serio_interrupt(ptr noundef nonnull %29, i8 noundef zeroext %43, i32 noundef 0) #11
   %45 = getelementptr i8, ptr %0, i64 237
   %46 = load i8, ptr %45, align 1
-  %47 = tail call i32 @serio_interrupt(ptr noundef nonnull %29, i8 noundef zeroext %46, i32 noundef 0) #12
+  %47 = tail call i32 @serio_interrupt(ptr noundef nonnull %29, i8 noundef zeroext %46, i32 noundef 0) #11
   %48 = getelementptr inbounds i8, ptr %32, i64 242
   %49 = load i8, ptr %48, align 2
   %50 = icmp eq i8 %49, 4
@@ -1274,20 +1274,20 @@ define internal range(i32 0, 3) i32 @synaptics_process_byte(ptr nocapture nounde
 51:                                               ; preds = %38
   %52 = getelementptr i8, ptr %0, i64 234
   %53 = load i8, ptr %52, align 1
-  %54 = tail call i32 @serio_interrupt(ptr noundef nonnull %29, i8 noundef zeroext %53, i32 noundef 0) #12
+  %54 = tail call i32 @serio_interrupt(ptr noundef nonnull %29, i8 noundef zeroext %53, i32 noundef 0) #11
   br label %480
 
 55:                                               ; preds = %34, %31
   %56 = getelementptr i8, ptr %0, i64 233
   %57 = load i8, ptr %56, align 1
-  %58 = tail call i32 @serio_interrupt(ptr noundef nonnull %29, i8 noundef zeroext %57, i32 noundef 0) #12
+  %58 = tail call i32 @serio_interrupt(ptr noundef nonnull %29, i8 noundef zeroext %57, i32 noundef 0) #11
   br label %480
 
 .thread:                                          ; preds = %18, %23, %13
   %59 = getelementptr inbounds i8, ptr %0, i64 8
   %60 = load ptr, ptr %59, align 8
   %61 = load ptr, ptr %0, align 8
-  call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %2) #12
+  call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %2) #11
   %62 = getelementptr inbounds i8, ptr %0, i64 232
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %2, i8 0, i64 20, i1 false)
   %63 = load i32, ptr %61, align 8
@@ -1725,10 +1725,10 @@ define internal range(i32 0, 3) i32 @synaptics_process_byte(ptr nocapture nounde
   br label %366
 
 362:                                              ; preds = %362, %347
-  tail call void @input_event(ptr noundef %60, i32 noundef 1, i32 noundef 278, i32 noundef %350) #12
-  tail call void @input_event(ptr noundef %60, i32 noundef 0, i32 noundef 0, i32 noundef 0) #12
-  tail call void @input_event(ptr noundef %60, i32 noundef 1, i32 noundef 278, i32 noundef %352) #12
-  tail call void @input_event(ptr noundef %60, i32 noundef 0, i32 noundef 0, i32 noundef 0) #12
+  tail call void @input_event(ptr noundef %60, i32 noundef 1, i32 noundef 278, i32 noundef %350) #11
+  tail call void @input_event(ptr noundef %60, i32 noundef 0, i32 noundef 0, i32 noundef 0) #11
+  tail call void @input_event(ptr noundef %60, i32 noundef 1, i32 noundef 278, i32 noundef %352) #11
+  tail call void @input_event(ptr noundef %60, i32 noundef 0, i32 noundef 0, i32 noundef 0) #11
   %363 = load i32, ptr %343, align 8
   %364 = add i32 %363, -4
   store i32 %364, ptr %343, align 8
@@ -1736,10 +1736,10 @@ define internal range(i32 0, 3) i32 @synaptics_process_byte(ptr nocapture nounde
   br i1 %365, label %362, label %.loopexit12, !llvm.loop !16
 
 366:                                              ; preds = %366, %355
-  tail call void @input_event(ptr noundef %60, i32 noundef 1, i32 noundef 277, i32 noundef %358) #12
-  tail call void @input_event(ptr noundef %60, i32 noundef 0, i32 noundef 0, i32 noundef 0) #12
-  tail call void @input_event(ptr noundef %60, i32 noundef 1, i32 noundef 277, i32 noundef %361) #12
-  tail call void @input_event(ptr noundef %60, i32 noundef 0, i32 noundef 0, i32 noundef 0) #12
+  tail call void @input_event(ptr noundef %60, i32 noundef 1, i32 noundef 277, i32 noundef %358) #11
+  tail call void @input_event(ptr noundef %60, i32 noundef 0, i32 noundef 0, i32 noundef 0) #11
+  tail call void @input_event(ptr noundef %60, i32 noundef 1, i32 noundef 277, i32 noundef %361) #11
+  tail call void @input_event(ptr noundef %60, i32 noundef 0, i32 noundef 0, i32 noundef 0) #11
   %367 = load i32, ptr %343, align 8
   %368 = add i32 %367, 4
   store i32 %368, ptr %343, align 8
@@ -1826,7 +1826,7 @@ define internal range(i32 0, 3) i32 @synaptics_process_byte(ptr nocapture nounde
 
 .sink.split13:                                    ; preds = %406, %403
   %.sink14 = phi i32 [ 1, %403 ], [ 0, %406 ]
-  tail call void @input_event(ptr noundef %60, i32 noundef 1, i32 noundef 330, i32 noundef %.sink14) #12
+  tail call void @input_event(ptr noundef %60, i32 noundef 1, i32 noundef 330, i32 noundef %.sink14) #11
   br label %408
 
 408:                                              ; preds = %.sink.split13, %406
@@ -1835,14 +1835,14 @@ define internal range(i32 0, 3) i32 @synaptics_process_byte(ptr nocapture nounde
 
 409:                                              ; preds = %408
   %410 = load i32, ptr %2, align 4
-  tail call void @input_event(ptr noundef %60, i32 noundef 3, i32 noundef 0, i32 noundef %410) #12
+  tail call void @input_event(ptr noundef %60, i32 noundef 3, i32 noundef 0, i32 noundef %410) #11
   %411 = load i32, ptr %312, align 4
   %412 = sub i32 5856, %411
-  tail call void @input_event(ptr noundef %60, i32 noundef 3, i32 noundef 1, i32 noundef %412) #12
+  tail call void @input_event(ptr noundef %60, i32 noundef 3, i32 noundef 1, i32 noundef %412) #11
   br label %413
 
 413:                                              ; preds = %409, %408
-  tail call void @input_event(ptr noundef %60, i32 noundef 3, i32 noundef 24, i32 noundef %404) #12
+  tail call void @input_event(ptr noundef %60, i32 noundef 3, i32 noundef 24, i32 noundef %404) #11
   %414 = getelementptr inbounds i8, ptr %61, i64 12
   %415 = load i32, ptr %414, align 4
   %416 = and i32 %415, 1
@@ -1850,13 +1850,13 @@ define internal range(i32 0, 3) i32 @synaptics_process_byte(ptr nocapture nounde
   br i1 %417, label %419, label %418
 
 418:                                              ; preds = %413
-  tail call void @input_event(ptr noundef %60, i32 noundef 3, i32 noundef 28, i32 noundef %394) #12
+  tail call void @input_event(ptr noundef %60, i32 noundef 3, i32 noundef 28, i32 noundef %394) #11
   br label %419
 
 419:                                              ; preds = %418, %413
   %420 = icmp eq i32 %393, 1
   %421 = zext i1 %420 to i32
-  tail call void @input_event(ptr noundef %60, i32 noundef 1, i32 noundef 325, i32 noundef %421) #12
+  tail call void @input_event(ptr noundef %60, i32 noundef 1, i32 noundef 325, i32 noundef %421) #11
   %422 = load i32, ptr %414, align 4
   %423 = and i32 %422, 2
   %424 = icmp eq i32 %423, 0
@@ -1871,19 +1871,19 @@ define internal range(i32 0, 3) i32 @synaptics_process_byte(ptr nocapture nounde
 429:                                              ; preds = %425, %419
   %430 = icmp eq i32 %393, 2
   %431 = zext i1 %430 to i32
-  tail call void @input_event(ptr noundef %60, i32 noundef 1, i32 noundef 333, i32 noundef %431) #12
+  tail call void @input_event(ptr noundef %60, i32 noundef 1, i32 noundef 333, i32 noundef %431) #11
   %432 = icmp eq i32 %393, 3
   %433 = zext i1 %432 to i32
-  tail call void @input_event(ptr noundef %60, i32 noundef 1, i32 noundef 334, i32 noundef %433) #12
+  tail call void @input_event(ptr noundef %60, i32 noundef 1, i32 noundef 334, i32 noundef %433) #11
   br label %434
 
 434:                                              ; preds = %429, %425
   call fastcc void @synaptics_report_buttons(ptr noundef %0, ptr noundef nonnull %2)
-  tail call void @input_event(ptr noundef %60, i32 noundef 0, i32 noundef 0, i32 noundef 0) #12
+  tail call void @input_event(ptr noundef %60, i32 noundef 0, i32 noundef 0, i32 noundef 0) #11
   br label %.loopexit
 
 .loopexit:                                        ; preds = %366, %434, %397, %.loopexit12, %337, %123, %92, %87
-  call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %2) #12
+  call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %2) #11
   br label %480
 
 435:                                              ; preds = %1
@@ -1943,7 +1943,7 @@ define internal range(i32 0, 3) i32 @synaptics_process_byte(ptr nocapture nounde
   %474 = getelementptr inbounds i8, ptr %0, i64 16
   %475 = load ptr, ptr %474, align 8
   %476 = getelementptr inbounds i8, ptr %475, i64 344
-  tail call void (ptr, ptr, ...) @_dev_err(ptr noundef %476, ptr noundef nonnull @.str.51, i32 noundef %439) #13
+  tail call void (ptr, ptr, ...) @_dev_err(ptr noundef %476, ptr noundef nonnull @.str.51, i32 noundef %439) #12
   br label %477
 
 477:                                              ; preds = %473, %463, %453, %443, %435
@@ -1974,19 +1974,19 @@ define internal void @synaptics_set_rate(ptr noundef %0, i32 noundef %1) #0 alig
   store i8 %11, ptr %6, align 4
   store i32 %12, ptr %8, align 4
   %13 = load i8, ptr %6, align 4
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %3) #12
+  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %3) #11
   %14 = getelementptr inbounds i8, ptr %0, i64 16
-  %15 = tail call i32 @ps2_sliced_command(ptr noundef %14, i8 noundef zeroext %13) #12
+  %15 = tail call i32 @ps2_sliced_command(ptr noundef %14, i8 noundef zeroext %13) #11
   %16 = icmp eq i32 %15, 0
   br i1 %16, label %17, label %19
 
 17:                                               ; preds = %2
   store i8 20, ptr %3, align 1
-  %18 = call i32 @ps2_command(ptr noundef %14, ptr noundef nonnull %3, i32 noundef 4339) #12
+  %18 = call i32 @ps2_command(ptr noundef %14, ptr noundef nonnull %3, i32 noundef 4339) #11
   br label %19
 
 19:                                               ; preds = %17, %2
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %3) #12
+  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %3) #11
   ret void
 }
 
@@ -1994,7 +1994,7 @@ define internal void @synaptics_set_rate(ptr noundef %0, i32 noundef %1) #0 alig
 define internal void @synaptics_disconnect(ptr noundef %0) #0 align 16 {
   %2 = alloca [1 x i8], align 1
   %3 = load ptr, ptr %0, align 8
-  tail call void @psmouse_smbus_cleanup(ptr noundef %0) #12
+  tail call void @psmouse_smbus_cleanup(ptr noundef %0) #11
   %4 = getelementptr inbounds i8, ptr %3, i64 68
   %5 = load i8, ptr %4, align 4, !range !6, !noundef !7
   %6 = icmp eq i8 %5, 0
@@ -2011,24 +2011,24 @@ define internal void @synaptics_disconnect(ptr noundef %0) #0 align 16 {
   %13 = getelementptr inbounds i8, ptr %0, i64 16
   %14 = load ptr, ptr %13, align 8
   %15 = getelementptr inbounds i8, ptr %14, i64 344
-  tail call void @device_remove_file(ptr noundef %15, ptr noundef nonnull @psmouse_attr_disable_gesture) #12
+  tail call void @device_remove_file(ptr noundef %15, ptr noundef nonnull @psmouse_attr_disable_gesture) #11
   br label %16
 
 16:                                               ; preds = %12, %7, %1
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %2) #12
+  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %2) #11
   %17 = getelementptr inbounds i8, ptr %0, i64 16
-  %18 = tail call i32 @ps2_sliced_command(ptr noundef %17, i8 noundef zeroext 0) #12
+  %18 = tail call i32 @ps2_sliced_command(ptr noundef %17, i8 noundef zeroext 0) #11
   %19 = icmp eq i32 %18, 0
   br i1 %19, label %20, label %22
 
 20:                                               ; preds = %16
   store i8 20, ptr %2, align 1
-  %21 = call i32 @ps2_command(ptr noundef %17, ptr noundef nonnull %2, i32 noundef 4339) #12
+  %21 = call i32 @ps2_command(ptr noundef %17, ptr noundef nonnull %2, i32 noundef 4339) #11
   br label %22
 
 22:                                               ; preds = %20, %16
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %2) #12
-  call void @kfree(ptr noundef %3) #12
+  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %2) #11
+  call void @kfree(ptr noundef %3) #11
   store ptr null, ptr %0, align 8
   ret void
 }
@@ -2039,8 +2039,8 @@ define internal i32 @synaptics_reconnect(ptr noundef %0) #0 align 16 {
   %3 = alloca %struct.synaptics_device_info, align 4
   %4 = alloca [2 x i8], align 2
   %5 = load ptr, ptr %0, align 8
-  call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %3) #12
-  call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %4) #12
+  call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %3) #11
+  call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %4) #11
   store i16 0, ptr %4, align 2, !annotation !5
   %6 = getelementptr inbounds i8, ptr %0, i64 16
   %7 = getelementptr inbounds i8, ptr %2, i64 1
@@ -2048,26 +2048,26 @@ define internal i32 @synaptics_reconnect(ptr noundef %0) #0 align 16 {
 
 8:                                                ; preds = %13, %1
   %9 = phi i32 [ 0, %1 ], [ %22, %13 ]
-  %10 = call i32 @psmouse_reset(ptr noundef %0) #12
+  %10 = call i32 @psmouse_reset(ptr noundef %0) #11
   %11 = icmp eq i32 %9, 0
   br i1 %11, label %13, label %12
 
 12:                                               ; preds = %8
-  call void @msleep(i32 noundef 1000) #12
+  call void @msleep(i32 noundef 1000) #11
   br label %13
 
 13:                                               ; preds = %12, %8
-  %14 = call i32 @ps2_command(ptr noundef %6, ptr noundef nonnull %4, i32 noundef 754) #12
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %2) #12
+  %14 = call i32 @ps2_command(ptr noundef %6, ptr noundef nonnull %4, i32 noundef 754) #11
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %2) #11
   store i32 0, ptr %2, align 4
-  %15 = call i32 @ps2_command(ptr noundef %6, ptr noundef nonnull %2, i32 noundef 4328) #12
-  %16 = call i32 @ps2_command(ptr noundef %6, ptr noundef nonnull %2, i32 noundef 4328) #12
-  %17 = call i32 @ps2_command(ptr noundef %6, ptr noundef nonnull %2, i32 noundef 4328) #12
-  %18 = call i32 @ps2_command(ptr noundef %6, ptr noundef nonnull %2, i32 noundef 4328) #12
-  %19 = call i32 @ps2_command(ptr noundef %6, ptr noundef nonnull %2, i32 noundef 1001) #12
+  %15 = call i32 @ps2_command(ptr noundef %6, ptr noundef nonnull %2, i32 noundef 4328) #11
+  %16 = call i32 @ps2_command(ptr noundef %6, ptr noundef nonnull %2, i32 noundef 4328) #11
+  %17 = call i32 @ps2_command(ptr noundef %6, ptr noundef nonnull %2, i32 noundef 4328) #11
+  %18 = call i32 @ps2_command(ptr noundef %6, ptr noundef nonnull %2, i32 noundef 4328) #11
+  %19 = call i32 @ps2_command(ptr noundef %6, ptr noundef nonnull %2, i32 noundef 1001) #11
   %20 = load i8, ptr %7, align 1
   %21 = icmp ne i8 %20, 71
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %2) #12
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %2) #11
   %22 = add nuw nsw i32 %9, 1
   %23 = icmp ult i32 %9, 2
   %24 = select i1 %21, i1 %23, i1 false
@@ -2085,7 +2085,7 @@ define internal i32 @synaptics_reconnect(ptr noundef %0) #0 align 16 {
 29:                                               ; preds = %26
   %30 = load ptr, ptr %6, align 8
   %31 = getelementptr inbounds i8, ptr %30, i64 344
-  call void (ptr, ptr, ...) @_dev_err(ptr noundef %31, ptr noundef nonnull @.str.52) #13
+  call void (ptr, ptr, ...) @_dev_err(ptr noundef %31, ptr noundef nonnull @.str.52) #12
   br label %68
 
 32:                                               ; preds = %26
@@ -2096,7 +2096,7 @@ define internal i32 @synaptics_reconnect(ptr noundef %0) #0 align 16 {
 35:                                               ; preds = %32
   %36 = load ptr, ptr %6, align 8
   %37 = getelementptr inbounds i8, ptr %36, i64 344
-  call void (ptr, ptr, ...) @_dev_err(ptr noundef %37, ptr noundef nonnull @.str.4) #13
+  call void (ptr, ptr, ...) @_dev_err(ptr noundef %37, ptr noundef nonnull @.str.4) #12
   br label %68
 
 38:                                               ; preds = %32
@@ -2138,20 +2138,20 @@ define internal i32 @synaptics_reconnect(ptr noundef %0) #0 align 16 {
   %65 = load i32, ptr %64, align 8
   %66 = getelementptr inbounds i8, ptr %3, i64 16
   %67 = load i32, ptr %66, align 4
-  call void (ptr, ptr, ...) @_dev_err(ptr noundef %59, ptr noundef nonnull @.str.53, i32 noundef %42, i32 noundef %40, i32 noundef %.pre, i32 noundef %.pre2, i32 noundef %61, i32 noundef %63, i32 noundef %65, i32 noundef %67) #13
+  call void (ptr, ptr, ...) @_dev_err(ptr noundef %59, ptr noundef nonnull @.str.53, i32 noundef %42, i32 noundef %40, i32 noundef %.pre, i32 noundef %.pre2, i32 noundef %61, i32 noundef %63, i32 noundef %65, i32 noundef %67) #12
   br label %68
 
 68:                                               ; preds = %57, %51, %35, %29, %25
   %69 = phi i32 [ %27, %29 ], [ %33, %35 ], [ -6, %57 ], [ -19, %25 ], [ 0, %51 ]
-  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %4) #12
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %3) #12
+  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %4) #11
+  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %3) #11
   ret i32 %69
 }
 
-; Function Attrs: cold fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc void @synaptics_pt_create(ptr noundef %0) unnamed_addr #7 align 16 {
+; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
+define internal fastcc void @synaptics_pt_create(ptr noundef %0) unnamed_addr #0 align 16 {
   %2 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 88), align 8
-  %3 = tail call noalias align 8 dereferenceable_or_null(1096) ptr @kmalloc_trace(ptr noundef %2, i32 noundef 3520, i64 noundef 1096) #14
+  %3 = tail call noalias align 8 dereferenceable_or_null(1096) ptr @kmalloc_trace(ptr noundef %2, i32 noundef 3520, i64 noundef 1096) #13
   %4 = icmp eq ptr %3, null
   br i1 %4, label %5, label %9
 
@@ -2159,16 +2159,16 @@ define internal fastcc void @synaptics_pt_create(ptr noundef %0) unnamed_addr #7
   %6 = getelementptr inbounds i8, ptr %0, i64 16
   %7 = load ptr, ptr %6, align 8
   %8 = getelementptr inbounds i8, ptr %7, i64 344
-  tail call void (ptr, ptr, ...) @_dev_err(ptr noundef %8, ptr noundef nonnull @.str.54) #13
+  tail call void (ptr, ptr, ...) @_dev_err(ptr noundef %8, ptr noundef nonnull @.str.54) #12
   br label %24
 
 9:                                                ; preds = %1
   %10 = getelementptr inbounds i8, ptr %3, i64 201
   store i8 5, ptr %10, align 1
   %11 = getelementptr inbounds i8, ptr %3, i64 8
-  %12 = tail call i64 @strscpy(ptr noundef %11, ptr noundef nonnull @.str.55, i64 noundef 32) #12
+  %12 = tail call i64 @strscpy(ptr noundef %11, ptr noundef nonnull @.str.55, i64 noundef 32) #11
   %13 = getelementptr inbounds i8, ptr %3, i64 40
-  %14 = tail call i64 @strscpy(ptr noundef %13, ptr noundef nonnull @.str.56, i64 noundef 32) #12
+  %14 = tail call i64 @strscpy(ptr noundef %13, ptr noundef nonnull @.str.56, i64 noundef 32) #11
   %15 = getelementptr inbounds i8, ptr %3, i64 216
   store ptr @synaptics_pt_write, ptr %15, align 8
   %16 = getelementptr inbounds i8, ptr %3, i64 240
@@ -2183,8 +2183,8 @@ define internal fastcc void @synaptics_pt_create(ptr noundef %0) unnamed_addr #7
   store ptr @synaptics_pt_activate, ptr %21, align 8
   %22 = getelementptr inbounds i8, ptr %19, i64 344
   %23 = getelementptr inbounds i8, ptr %0, i64 348
-  tail call void (ptr, ptr, ...) @_dev_info(ptr noundef %22, ptr noundef nonnull @.str.57, ptr noundef %11, ptr noundef %23) #13
-  tail call void @__serio_register_port(ptr noundef nonnull %3, ptr noundef null) #12
+  tail call void (ptr, ptr, ...) @_dev_info(ptr noundef %22, ptr noundef nonnull @.str.57, ptr noundef %11, ptr noundef %23) #12
+  tail call void @__serio_register_port(ptr noundef nonnull %3, ptr noundef null) #11
   br label %24
 
 24:                                               ; preds = %9, %5
@@ -2201,7 +2201,7 @@ declare dso_local i32 @device_create_file(ptr noundef, ptr noundef) local_unname
 declare dso_local void @kfree(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: null_pointer_is_valid allocsize(2)
-declare dso_local noalias ptr @kmalloc_trace(ptr noundef, i32 noundef, i64 noundef) local_unnamed_addr #8
+declare dso_local noalias ptr @kmalloc_trace(ptr noundef, i32 noundef, i64 noundef) local_unnamed_addr #7
 
 ; Function Attrs: null_pointer_is_valid
 declare dso_local void @input_set_capability(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #3
@@ -2228,11 +2228,11 @@ define internal fastcc void @set_abs_position_params(ptr noundef %0, ptr nocaptu
   %22 = load i32, ptr %21, align 4
   %23 = lshr i32 %22, 7
   %24 = and i32 %23, 8
-  tail call void @input_set_abs_params(ptr noundef %0, i32 noundef %2, i32 noundef %8, i32 noundef %12, i32 noundef %24, i32 noundef 0) #12
-  tail call void @input_set_abs_params(ptr noundef %0, i32 noundef %3, i32 noundef %16, i32 noundef %20, i32 noundef %24, i32 noundef 0) #12
+  tail call void @input_set_abs_params(ptr noundef %0, i32 noundef %2, i32 noundef %8, i32 noundef %12, i32 noundef %24, i32 noundef 0) #11
+  tail call void @input_set_abs_params(ptr noundef %0, i32 noundef %3, i32 noundef %16, i32 noundef %20, i32 noundef %24, i32 noundef 0) #11
   %25 = getelementptr inbounds i8, ptr %1, i64 32
   %26 = load i32, ptr %25, align 4
-  tail call void @input_alloc_absinfo(ptr noundef %0) #12
+  tail call void @input_alloc_absinfo(ptr noundef %0) #11
   %27 = getelementptr inbounds i8, ptr %0, i64 328
   %28 = load ptr, ptr %27, align 8
   %29 = icmp eq ptr %28, null
@@ -2247,7 +2247,7 @@ define internal fastcc void @set_abs_position_params(ptr noundef %0, ptr nocaptu
 33:                                               ; preds = %30, %4
   %34 = getelementptr inbounds i8, ptr %1, i64 36
   %35 = load i32, ptr %34, align 4
-  tail call void @input_alloc_absinfo(ptr noundef %0) #12
+  tail call void @input_alloc_absinfo(ptr noundef %0) #11
   %36 = load ptr, ptr %27, align 8
   %37 = icmp eq ptr %36, null
   br i1 %37, label %41, label %38
@@ -2297,7 +2297,7 @@ define internal fastcc noundef range(i32 1, 3) i32 @synaptics_detect_pkt_type(pt
   %17 = getelementptr inbounds i8, ptr %0, i64 16
   %18 = load ptr, ptr %17, align 8
   %19 = getelementptr inbounds i8, ptr %18, i64 344
-  tail call void (ptr, ptr, ...) @_dev_info(ptr noundef %19, ptr noundef nonnull @.str.50) #13
+  tail call void (ptr, ptr, ...) @_dev_info(ptr noundef %19, ptr noundef nonnull @.str.50) #12
   br label %.loopexit
 
 .loopexit:                                        ; preds = %3, %16
@@ -2319,14 +2319,14 @@ define internal fastcc void @synaptics_report_mt_data(ptr nocapture noundef read
   %7 = getelementptr inbounds i8, ptr %0, i64 8
   %8 = load ptr, ptr %7, align 8
   %9 = load ptr, ptr %0, align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #12
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #11
   store ptr %1, ptr %4, align 16
   %10 = getelementptr inbounds i8, ptr %4, i64 8
   %11 = getelementptr inbounds i8, ptr %9, i64 80
   store ptr %11, ptr %10, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #12
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #11
   store i64 0, ptr %5, align 8, !annotation !5
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #12
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #11
   store i64 0, ptr %6, align 8, !annotation !5
   %12 = icmp eq i32 %2, 1
   %13 = zext i1 %12 to i32
@@ -2361,28 +2361,28 @@ define internal fastcc void @synaptics_report_mt_data(ptr nocapture noundef read
   %34 = getelementptr inbounds i8, ptr %9, i64 32
   %35 = load i32, ptr %34, align 8
   %36 = mul i32 %35, 10
-  %37 = call i32 @input_mt_assign_slots(ptr noundef %8, ptr noundef nonnull %6, ptr noundef nonnull %5, i32 noundef %15, i32 noundef %36) #12
+  %37 = call i32 @input_mt_assign_slots(ptr noundef %8, ptr noundef nonnull %6, ptr noundef nonnull %5, i32 noundef %15, i32 noundef %36) #11
   br label %38
 
 38:                                               ; preds = %38, %33
   %39 = phi i64 [ 0, %33 ], [ %53, %38 ]
   %40 = getelementptr [2 x i32], ptr %6, i64 0, i64 %39
   %41 = load i32, ptr %40, align 4
-  call void @input_event(ptr noundef %8, i32 noundef 3, i32 noundef 47, i32 noundef %41) #12
-  %42 = call zeroext i1 @input_mt_report_slot_state(ptr noundef %8, i32 noundef 0, i1 noundef zeroext true) #12
+  call void @input_event(ptr noundef %8, i32 noundef 3, i32 noundef 47, i32 noundef %41) #11
+  %42 = call zeroext i1 @input_mt_report_slot_state(ptr noundef %8, i32 noundef 0, i1 noundef zeroext true) #11
   %43 = getelementptr [2 x %struct.input_mt_pos], ptr %5, i64 0, i64 %39
   %44 = load i16, ptr %43, align 4
   %45 = sext i16 %44 to i32
-  call void @input_event(ptr noundef %8, i32 noundef 3, i32 noundef 53, i32 noundef %45) #12
+  call void @input_event(ptr noundef %8, i32 noundef 3, i32 noundef 53, i32 noundef %45) #11
   %46 = getelementptr inbounds i8, ptr %43, i64 2
   %47 = load i16, ptr %46, align 2
   %48 = sext i16 %47 to i32
-  call void @input_event(ptr noundef %8, i32 noundef 3, i32 noundef 54, i32 noundef %48) #12
+  call void @input_event(ptr noundef %8, i32 noundef 3, i32 noundef 54, i32 noundef %48) #11
   %49 = getelementptr [2 x ptr], ptr %4, i64 0, i64 %39
   %50 = load ptr, ptr %49, align 8
   %51 = getelementptr inbounds i8, ptr %50, i64 8
   %52 = load i32, ptr %51, align 4
-  call void @input_event(ptr noundef %8, i32 noundef 3, i32 noundef 58, i32 noundef %52) #12
+  call void @input_event(ptr noundef %8, i32 noundef 3, i32 noundef 58, i32 noundef %52) #11
   %53 = add nuw nsw i64 %39, 1
   %54 = icmp eq i64 %53, %18
   br i1 %54, label %.loopexit, label %38, !llvm.loop !21
@@ -2391,18 +2391,18 @@ define internal fastcc void @synaptics_report_mt_data(ptr nocapture noundef read
   %55 = getelementptr inbounds i8, ptr %9, i64 32
   %56 = load i32, ptr %55, align 8
   %57 = mul i32 %56, 10
-  %58 = call i32 @input_mt_assign_slots(ptr noundef %8, ptr noundef nonnull %6, ptr noundef nonnull %5, i32 noundef 0, i32 noundef %57) #12
+  %58 = call i32 @input_mt_assign_slots(ptr noundef %8, ptr noundef nonnull %6, ptr noundef nonnull %5, i32 noundef 0, i32 noundef %57) #11
   br label %.loopexit
 
 .loopexit:                                        ; preds = %38, %.critedge
-  call void @input_mt_drop_unused(ptr noundef %8) #12
-  call void @input_mt_report_pointer_emulation(ptr noundef %8, i1 noundef zeroext false) #12
-  call void @input_mt_report_finger_count(ptr noundef %8, i32 noundef %2) #12
+  call void @input_mt_drop_unused(ptr noundef %8) #11
+  call void @input_mt_report_pointer_emulation(ptr noundef %8, i1 noundef zeroext false) #11
+  call void @input_mt_report_finger_count(ptr noundef %8, i32 noundef %2) #11
   call fastcc void @synaptics_report_buttons(ptr noundef %0, ptr noundef %1)
-  call void @input_event(ptr noundef %8, i32 noundef 0, i32 noundef 0, i32 noundef 0) #12
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #12
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #12
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #12
+  call void @input_event(ptr noundef %8, i32 noundef 0, i32 noundef 0, i32 noundef 0) #11
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #11
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #11
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #11
   ret void
 }
 
@@ -2420,22 +2420,22 @@ define internal fastcc void @synaptics_report_semi_mt_data(ptr noundef %0, ptr n
   %12 = getelementptr inbounds i8, ptr %2, i64 4
   %13 = load i32, ptr %12, align 4
   %14 = tail call i32 @llvm.smin.i32(i32 %11, i32 %13)
-  tail call void @input_event(ptr noundef %0, i32 noundef 3, i32 noundef 47, i32 noundef 0) #12
-  %15 = tail call zeroext i1 @input_mt_report_slot_state(ptr noundef %0, i32 noundef 0, i1 noundef zeroext true) #12
-  tail call void @input_event(ptr noundef %0, i32 noundef 3, i32 noundef 53, i32 noundef %9) #12
+  tail call void @input_event(ptr noundef %0, i32 noundef 3, i32 noundef 47, i32 noundef 0) #11
+  %15 = tail call zeroext i1 @input_mt_report_slot_state(ptr noundef %0, i32 noundef 0, i1 noundef zeroext true) #11
+  tail call void @input_event(ptr noundef %0, i32 noundef 3, i32 noundef 53, i32 noundef %9) #11
   %16 = sub i32 5856, %14
-  tail call void @input_event(ptr noundef %0, i32 noundef 3, i32 noundef 54, i32 noundef %16) #12
+  tail call void @input_event(ptr noundef %0, i32 noundef 3, i32 noundef 54, i32 noundef %16) #11
   %17 = load i32, ptr %1, align 4
   %18 = load i32, ptr %2, align 4
   %19 = tail call i32 @llvm.smax.i32(i32 %17, i32 %18)
   %20 = load i32, ptr %10, align 4
   %21 = load i32, ptr %12, align 4
   %22 = tail call i32 @llvm.smax.i32(i32 %20, i32 %21)
-  tail call void @input_event(ptr noundef %0, i32 noundef 3, i32 noundef 47, i32 noundef 1) #12
-  %23 = tail call zeroext i1 @input_mt_report_slot_state(ptr noundef %0, i32 noundef 0, i1 noundef zeroext true) #12
-  tail call void @input_event(ptr noundef %0, i32 noundef 3, i32 noundef 53, i32 noundef %19) #12
+  tail call void @input_event(ptr noundef %0, i32 noundef 3, i32 noundef 47, i32 noundef 1) #11
+  %23 = tail call zeroext i1 @input_mt_report_slot_state(ptr noundef %0, i32 noundef 0, i1 noundef zeroext true) #11
+  tail call void @input_event(ptr noundef %0, i32 noundef 3, i32 noundef 53, i32 noundef %19) #11
   %24 = sub i32 5856, %22
-  tail call void @input_event(ptr noundef %0, i32 noundef 3, i32 noundef 54, i32 noundef %24) #12
+  tail call void @input_event(ptr noundef %0, i32 noundef 3, i32 noundef 54, i32 noundef %24) #11
   br label %37
 
 25:                                               ; preds = %4
@@ -2446,20 +2446,20 @@ define internal fastcc void @synaptics_report_semi_mt_data(ptr noundef %0, ptr n
   %28 = load i32, ptr %1, align 4
   %29 = getelementptr inbounds i8, ptr %1, i64 4
   %30 = load i32, ptr %29, align 4
-  tail call void @input_event(ptr noundef %0, i32 noundef 3, i32 noundef 47, i32 noundef 0) #12
-  %31 = tail call zeroext i1 @input_mt_report_slot_state(ptr noundef %0, i32 noundef 0, i1 noundef zeroext true) #12
-  tail call void @input_event(ptr noundef %0, i32 noundef 3, i32 noundef 53, i32 noundef %28) #12
+  tail call void @input_event(ptr noundef %0, i32 noundef 3, i32 noundef 47, i32 noundef 0) #11
+  %31 = tail call zeroext i1 @input_mt_report_slot_state(ptr noundef %0, i32 noundef 0, i1 noundef zeroext true) #11
+  tail call void @input_event(ptr noundef %0, i32 noundef 3, i32 noundef 53, i32 noundef %28) #11
   %32 = sub i32 5856, %30
-  tail call void @input_event(ptr noundef %0, i32 noundef 3, i32 noundef 54, i32 noundef %32) #12
-  tail call void @input_event(ptr noundef %0, i32 noundef 3, i32 noundef 47, i32 noundef 1) #12
-  %33 = tail call zeroext i1 @input_mt_report_slot_state(ptr noundef %0, i32 noundef 0, i1 noundef zeroext false) #12
+  tail call void @input_event(ptr noundef %0, i32 noundef 3, i32 noundef 54, i32 noundef %32) #11
+  tail call void @input_event(ptr noundef %0, i32 noundef 3, i32 noundef 47, i32 noundef 1) #11
+  %33 = tail call zeroext i1 @input_mt_report_slot_state(ptr noundef %0, i32 noundef 0, i1 noundef zeroext false) #11
   br label %37
 
 34:                                               ; preds = %25
-  tail call void @input_event(ptr noundef %0, i32 noundef 3, i32 noundef 47, i32 noundef 0) #12
-  %35 = tail call zeroext i1 @input_mt_report_slot_state(ptr noundef %0, i32 noundef 0, i1 noundef zeroext false) #12
-  tail call void @input_event(ptr noundef %0, i32 noundef 3, i32 noundef 47, i32 noundef 1) #12
-  %36 = tail call zeroext i1 @input_mt_report_slot_state(ptr noundef %0, i32 noundef 0, i1 noundef zeroext false) #12
+  tail call void @input_event(ptr noundef %0, i32 noundef 3, i32 noundef 47, i32 noundef 0) #11
+  %35 = tail call zeroext i1 @input_mt_report_slot_state(ptr noundef %0, i32 noundef 0, i1 noundef zeroext false) #11
+  tail call void @input_event(ptr noundef %0, i32 noundef 3, i32 noundef 47, i32 noundef 1) #11
+  %36 = tail call zeroext i1 @input_mt_report_slot_state(ptr noundef %0, i32 noundef 0, i1 noundef zeroext false) #11
   br label %37
 
 37:                                               ; preds = %34, %27, %6
@@ -2475,12 +2475,12 @@ define internal fastcc void @synaptics_report_buttons(ptr nocapture noundef read
   %7 = load i8, ptr %6, align 4
   %8 = and i8 %7, 1
   %9 = zext nneg i8 %8 to i32
-  tail call void @input_event(ptr noundef %4, i32 noundef 1, i32 noundef 272, i32 noundef %9) #12
+  tail call void @input_event(ptr noundef %4, i32 noundef 1, i32 noundef 272, i32 noundef %9) #11
   %10 = load i8, ptr %6, align 4
   %11 = lshr i8 %10, 1
   %12 = and i8 %11, 1
   %13 = zext nneg i8 %12 to i32
-  tail call void @input_event(ptr noundef %4, i32 noundef 1, i32 noundef 273, i32 noundef %13) #12
+  tail call void @input_event(ptr noundef %4, i32 noundef 1, i32 noundef 273, i32 noundef %13) #11
   %14 = getelementptr inbounds i8, ptr %5, i64 12
   %15 = load i32, ptr %14, align 4
   %16 = and i32 %15, 262144
@@ -2492,7 +2492,7 @@ define internal fastcc void @synaptics_report_buttons(ptr nocapture noundef read
   %20 = lshr i8 %19, 2
   %21 = and i8 %20, 1
   %22 = zext nneg i8 %21 to i32
-  tail call void @input_event(ptr noundef %4, i32 noundef 1, i32 noundef 274, i32 noundef %22) #12
+  tail call void @input_event(ptr noundef %4, i32 noundef 1, i32 noundef 274, i32 noundef %22) #11
   %.pre = load i32, ptr %14, align 4
   br label %23
 
@@ -2507,12 +2507,12 @@ define internal fastcc void @synaptics_report_buttons(ptr nocapture noundef read
   %29 = lshr i8 %28, 3
   %30 = and i8 %29, 1
   %31 = zext nneg i8 %30 to i32
-  tail call void @input_event(ptr noundef %4, i32 noundef 1, i32 noundef 277, i32 noundef %31) #12
+  tail call void @input_event(ptr noundef %4, i32 noundef 1, i32 noundef 277, i32 noundef %31) #11
   %32 = load i8, ptr %6, align 4
   %33 = lshr i8 %32, 4
   %34 = and i8 %33, 1
   %35 = zext nneg i8 %34 to i32
-  tail call void @input_event(ptr noundef %4, i32 noundef 1, i32 noundef 278, i32 noundef %35) #12
+  tail call void @input_event(ptr noundef %4, i32 noundef 1, i32 noundef 278, i32 noundef %35) #11
   br label %36
 
 36:                                               ; preds = %27, %23
@@ -2575,7 +2575,7 @@ define internal fastcc void @synaptics_report_buttons(ptr nocapture noundef read
   %83 = trunc i64 %76 to i32
   %84 = shl i32 %83, 1
   %85 = add i32 %84, 256
-  tail call void @input_event(ptr noundef %37, i32 noundef 1, i32 noundef %85, i32 noundef %82) #12
+  tail call void @input_event(ptr noundef %37, i32 noundef 1, i32 noundef %85, i32 noundef %82) #11
   %86 = load i8, ptr %71, align 1
   %87 = zext i8 %86 to i64
   %88 = add nuw nsw i64 %76, %72
@@ -2584,7 +2584,7 @@ define internal fastcc void @synaptics_report_buttons(ptr nocapture noundef read
   %91 = icmp ne i64 %90, 0
   %92 = zext i1 %91 to i32
   %93 = add i32 %84, 257
-  tail call void @input_event(ptr noundef %37, i32 noundef 1, i32 noundef %93, i32 noundef %92) #12
+  tail call void @input_event(ptr noundef %37, i32 noundef 1, i32 noundef %93, i32 noundef %92) #11
   %94 = add nuw nsw i64 %76, 1
   %95 = icmp eq i64 %94, %74
   br i1 %95, label %.loopexit, label %75, !llvm.loop !22
@@ -2605,9 +2605,9 @@ define internal fastcc void @synaptics_report_buttons(ptr nocapture noundef read
   %107 = shl i8 %102, 1
   %108 = and i8 %107, 4
   %109 = or disjoint i8 %106, %108
-  %110 = tail call i32 @serio_interrupt(ptr noundef nonnull %98, i8 noundef zeroext 1, i32 noundef 8) #12
+  %110 = tail call i32 @serio_interrupt(ptr noundef nonnull %98, i8 noundef zeroext 1, i32 noundef 8) #11
   %111 = load ptr, ptr %97, align 8
-  %112 = tail call i32 @serio_interrupt(ptr noundef %111, i8 noundef zeroext %109, i32 noundef 8) #12
+  %112 = tail call i32 @serio_interrupt(ptr noundef %111, i8 noundef zeroext %109, i32 noundef 8) #11
   br label %.loopexit
 
 .loopexit:                                        ; preds = %75, %100, %96, %57, %36
@@ -2646,21 +2646,21 @@ define internal i32 @synaptics_pt_write(ptr nocapture noundef readonly %0, i8 no
   %3 = alloca i8, align 1
   %4 = getelementptr inbounds i8, ptr %0, i64 256
   %5 = load ptr, ptr %4, align 8
-  %6 = tail call ptr @psmouse_from_serio(ptr noundef %5) #12
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %3) #12
+  %6 = tail call ptr @psmouse_from_serio(ptr noundef %5) #11
+  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %3) #11
   store i8 40, ptr %3, align 1
   %7 = getelementptr inbounds i8, ptr %6, i64 16
-  %8 = tail call i32 @ps2_sliced_command(ptr noundef %7, i8 noundef zeroext %1) #12
+  %8 = tail call i32 @ps2_sliced_command(ptr noundef %7, i8 noundef zeroext %1) #11
   %9 = icmp eq i32 %8, 0
   br i1 %9, label %10, label %12
 
 10:                                               ; preds = %2
-  %11 = call i32 @ps2_command(ptr noundef %7, ptr noundef nonnull %3, i32 noundef 4339) #12
+  %11 = call i32 @ps2_command(ptr noundef %7, ptr noundef nonnull %3, i32 noundef 4339) #11
   br label %12
 
 12:                                               ; preds = %10, %2
   %13 = phi i32 [ %8, %2 ], [ %11, %10 ]
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %3) #12
+  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %3) #11
   ret i32 %13
 }
 
@@ -2668,17 +2668,17 @@ define internal i32 @synaptics_pt_write(ptr nocapture noundef readonly %0, i8 no
 define internal noundef i32 @synaptics_pt_start(ptr noundef %0) #0 align 16 {
   %2 = getelementptr inbounds i8, ptr %0, i64 256
   %3 = load ptr, ptr %2, align 8
-  %4 = tail call ptr @psmouse_from_serio(ptr noundef %3) #12
+  %4 = tail call ptr @psmouse_from_serio(ptr noundef %3) #11
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds i8, ptr %4, i64 16
   %7 = load ptr, ptr %6, align 8
   %8 = getelementptr inbounds i8, ptr %7, i64 208
-  tail call void @_raw_spin_lock_irq(ptr noundef %8) #12
+  tail call void @_raw_spin_lock_irq(ptr noundef %8) #11
   %9 = getelementptr inbounds i8, ptr %5, i64 72
   store ptr %0, ptr %9, align 8
   %10 = load ptr, ptr %6, align 8
   %11 = getelementptr inbounds i8, ptr %10, i64 208
-  tail call void @_raw_spin_unlock_irq(ptr noundef %11) #12
+  tail call void @_raw_spin_unlock_irq(ptr noundef %11) #11
   ret i32 0
 }
 
@@ -2686,17 +2686,17 @@ define internal noundef i32 @synaptics_pt_start(ptr noundef %0) #0 align 16 {
 define internal void @synaptics_pt_stop(ptr nocapture noundef readonly %0) #0 align 16 {
   %2 = getelementptr inbounds i8, ptr %0, i64 256
   %3 = load ptr, ptr %2, align 8
-  %4 = tail call ptr @psmouse_from_serio(ptr noundef %3) #12
+  %4 = tail call ptr @psmouse_from_serio(ptr noundef %3) #11
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds i8, ptr %4, i64 16
   %7 = load ptr, ptr %6, align 8
   %8 = getelementptr inbounds i8, ptr %7, i64 208
-  tail call void @_raw_spin_lock_irq(ptr noundef %8) #12
+  tail call void @_raw_spin_lock_irq(ptr noundef %8) #11
   %9 = getelementptr inbounds i8, ptr %5, i64 72
   store ptr null, ptr %9, align 8
   %10 = load ptr, ptr %6, align 8
   %11 = getelementptr inbounds i8, ptr %10, i64 208
-  tail call void @_raw_spin_unlock_irq(ptr noundef %11) #12
+  tail call void @_raw_spin_unlock_irq(ptr noundef %11) #11
   ret void
 }
 
@@ -2706,7 +2706,7 @@ define internal void @synaptics_pt_activate(ptr noundef %0) #0 align 16 {
   %3 = load ptr, ptr %0, align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 72
   %5 = load ptr, ptr %4, align 8
-  %6 = tail call ptr @psmouse_from_serio(ptr noundef %5) #12
+  %6 = tail call ptr @psmouse_from_serio(ptr noundef %5) #11
   %7 = icmp eq ptr %6, null
   br i1 %7, label %27, label %8
 
@@ -2720,27 +2720,27 @@ define internal void @synaptics_pt_activate(ptr noundef %0) #0 align 16 {
   %15 = select i1 %11, i8 2, i8 0
   %16 = or disjoint i8 %14, %15
   store i8 %16, ptr %12, align 4
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %2) #12
+  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %2) #11
   %17 = getelementptr inbounds i8, ptr %0, i64 16
-  %18 = tail call i32 @ps2_sliced_command(ptr noundef %17, i8 noundef zeroext %16) #12
+  %18 = tail call i32 @ps2_sliced_command(ptr noundef %17, i8 noundef zeroext %16) #11
   %19 = icmp eq i32 %18, 0
   br i1 %19, label %20, label %23
 
 20:                                               ; preds = %8
   store i8 20, ptr %2, align 1
-  %21 = call i32 @ps2_command(ptr noundef %17, ptr noundef nonnull %2, i32 noundef 4339) #12
+  %21 = call i32 @ps2_command(ptr noundef %17, ptr noundef nonnull %2, i32 noundef 4339) #11
   %22 = icmp eq i32 %21, 0
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %2) #12
+  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %2) #11
   br i1 %22, label %27, label %24
 
 23:                                               ; preds = %8
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %2) #12
+  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %2) #11
   br label %24
 
 24:                                               ; preds = %23, %20
   %25 = load ptr, ptr %17, align 8
   %26 = getelementptr inbounds i8, ptr %25, i64 344
-  call void (ptr, ptr, ...) @_dev_warn(ptr noundef %26, ptr noundef nonnull @.str.58) #13
+  call void (ptr, ptr, ...) @_dev_warn(ptr noundef %26, ptr noundef nonnull @.str.58) #12
   br label %27
 
 27:                                               ; preds = %24, %20, %1
@@ -2763,13 +2763,13 @@ declare dso_local i64 @psmouse_attr_show_helper(ptr noundef, ptr noundef, ptr no
 declare dso_local i64 @psmouse_attr_set_helper(ptr noundef, ptr noundef, ptr noundef, i64 noundef) #3
 
 ; Function Attrs: fn_ret_thunk_extern nofree nounwind null_pointer_is_valid
-define internal noundef range(i64 -2147483648, 2147483648) i64 @synaptics_show_disable_gesture(ptr nocapture noundef readonly %0, ptr nocapture readnone %1, ptr nocapture noundef writeonly %2) #9 align 16 {
+define internal noundef range(i64 -2147483648, 2147483648) i64 @synaptics_show_disable_gesture(ptr nocapture noundef readonly %0, ptr nocapture readnone %1, ptr nocapture noundef writeonly %2) #8 align 16 {
   %4 = load ptr, ptr %0, align 8
   %5 = getelementptr inbounds i8, ptr %4, i64 69
   %6 = load i8, ptr %5, align 1, !range !6, !noundef !7
   %7 = icmp eq i8 %6, 0
   %8 = select i1 %7, i32 48, i32 49
-  %9 = tail call i32 (ptr, ptr, ...) @sprintf(ptr noundef %2, ptr noundef nonnull dereferenceable(1) @.str.60, i32 noundef %8) #12
+  %9 = tail call i32 (ptr, ptr, ...) @sprintf(ptr noundef %2, ptr noundef nonnull dereferenceable(1) @.str.60, i32 noundef %8) #11
   %10 = sext i32 %9 to i64
   ret i64 %10
 }
@@ -2779,9 +2779,9 @@ define internal i64 @synaptics_set_disable_gesture(ptr noundef %0, ptr nocapture
   %5 = alloca [1 x i8], align 1
   %6 = alloca i32, align 4
   %7 = load ptr, ptr %0, align 8
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6) #12
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6) #11
   store i32 0, ptr %6, align 4, !annotation !5
-  %8 = call i32 @kstrtouint(ptr noundef %2, i32 noundef 10, ptr noundef nonnull %6) #12
+  %8 = call i32 @kstrtouint(ptr noundef %2, i32 noundef 10, ptr noundef nonnull %6) #11
   %9 = icmp eq i32 %8, 0
   br i1 %9, label %12, label %10
 
@@ -2811,32 +2811,32 @@ define internal i64 @synaptics_set_disable_gesture(ptr noundef %0, ptr nocapture
   %26 = select i1 %22, i8 0, i8 4
   %27 = or disjoint i8 %25, %26
   store i8 %27, ptr %23, align 4
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %5) #12
+  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %5) #11
   %28 = getelementptr inbounds i8, ptr %0, i64 16
-  %29 = call i32 @ps2_sliced_command(ptr noundef %28, i8 noundef zeroext %27) #12
+  %29 = call i32 @ps2_sliced_command(ptr noundef %28, i8 noundef zeroext %27) #11
   %30 = icmp eq i32 %29, 0
   br i1 %30, label %31, label %35
 
 31:                                               ; preds = %20
   store i8 20, ptr %5, align 1
-  %32 = call i32 @ps2_command(ptr noundef %28, ptr noundef nonnull %5, i32 noundef 4339) #12
+  %32 = call i32 @ps2_command(ptr noundef %28, ptr noundef nonnull %5, i32 noundef 4339) #11
   %33 = icmp eq i32 %32, 0
   %34 = select i1 %33, i64 %3, i64 -5
   br label %35
 
 35:                                               ; preds = %31, %20
   %36 = phi i64 [ -5, %20 ], [ %34, %31 ]
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %5) #12
+  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %5) #11
   br label %37
 
 37:                                               ; preds = %35, %15, %12, %10
   %38 = phi i64 [ %11, %10 ], [ -22, %12 ], [ %3, %15 ], [ %36, %35 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #12
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #11
   ret i64 %38
 }
 
 ; Function Attrs: nofree nounwind null_pointer_is_valid
-declare dso_local noundef i32 @sprintf(ptr noalias nocapture noundef writeonly, ptr nocapture noundef readonly, ...) local_unnamed_addr #10
+declare dso_local noundef i32 @sprintf(ptr noalias nocapture noundef writeonly, ptr nocapture noundef readonly, ...) local_unnamed_addr #9
 
 ; Function Attrs: null_pointer_is_valid
 declare dso_local i32 @kstrtouint(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #3
@@ -2847,29 +2847,29 @@ define internal fastcc i32 @synaptics_capability(ptr noundef %0, ptr nocapture n
   %4 = alloca %union.anon.4, align 4
   %5 = alloca %union.anon.4, align 4
   %6 = getelementptr inbounds i8, ptr %1, i64 12
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #12
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #11
   store i32 0, ptr %5, align 4
   %7 = getelementptr inbounds i8, ptr %0, i64 16
-  %8 = tail call i32 @ps2_sliced_command(ptr noundef %7, i8 noundef zeroext 2) #12
+  %8 = tail call i32 @ps2_sliced_command(ptr noundef %7, i8 noundef zeroext 2) #11
   %9 = icmp eq i32 %8, 0
   br i1 %9, label %10, label %.thread3
 
 10:                                               ; preds = %2
   %11 = getelementptr inbounds i8, ptr %5, i64 1
-  %12 = call i32 @ps2_command(ptr noundef %7, ptr noundef %11, i32 noundef 1001) #12
+  %12 = call i32 @ps2_command(ptr noundef %7, ptr noundef %11, i32 noundef 1001) #11
   %13 = icmp eq i32 %12, 0
   br i1 %13, label %14, label %.thread3
 
 .thread3:                                         ; preds = %10, %2
   %.ph = phi i32 [ %12, %10 ], [ %8, %2 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #12
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #11
   br label %70
 
 14:                                               ; preds = %10
   %15 = load i32, ptr %5, align 4
   %16 = call i32 @llvm.bswap.i32(i32 %15)
   store i32 %16, ptr %6, align 4
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #12
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #11
   %17 = getelementptr inbounds i8, ptr %1, i64 20
   store i32 0, ptr %17, align 4
   %18 = getelementptr inbounds i8, ptr %1, i64 16
@@ -2903,15 +2903,15 @@ define internal fastcc i32 @synaptics_capability(ptr noundef %0, ptr nocapture n
   br i1 %35, label %53, label %36
 
 36:                                               ; preds = %33
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #12
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #11
   store i32 0, ptr %4, align 4
-  %37 = call i32 @ps2_sliced_command(ptr noundef %7, i8 noundef zeroext 9) #12
+  %37 = call i32 @ps2_sliced_command(ptr noundef %7, i8 noundef zeroext 9) #11
   %38 = icmp eq i32 %37, 0
   br i1 %38, label %39, label %48
 
 39:                                               ; preds = %36
   %40 = getelementptr inbounds i8, ptr %4, i64 1
-  %41 = call i32 @ps2_command(ptr noundef %7, ptr noundef %40, i32 noundef 1001) #12
+  %41 = call i32 @ps2_command(ptr noundef %7, ptr noundef %40, i32 noundef 1001) #11
   %42 = icmp eq i32 %41, 0
   br i1 %42, label %43, label %48
 
@@ -2919,16 +2919,16 @@ define internal fastcc i32 @synaptics_capability(ptr noundef %0, ptr nocapture n
   %44 = load i32, ptr %4, align 4
   %45 = call i32 @llvm.bswap.i32(i32 %44)
   store i32 %45, ptr %18, align 4
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #12
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #11
   %46 = and i32 %45, 61440
   %47 = icmp ugt i32 %46, 32768
   br i1 %47, label %51, label %53
 
 48:                                               ; preds = %39, %36
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #12
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #11
   %49 = load ptr, ptr %7, align 8
   %50 = getelementptr inbounds i8, ptr %49, i64 344
-  call void (ptr, ptr, ...) @_dev_warn(ptr noundef %50, ptr noundef nonnull @.str.61) #13
+  call void (ptr, ptr, ...) @_dev_warn(ptr noundef %50, ptr noundef nonnull @.str.61) #12
   br label %53
 
 51:                                               ; preds = %43
@@ -2943,15 +2943,15 @@ define internal fastcc i32 @synaptics_capability(ptr noundef %0, ptr nocapture n
   br i1 %56, label %70, label %57
 
 57:                                               ; preds = %53
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3) #12
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3) #11
   store i32 0, ptr %3, align 4
-  %58 = call i32 @ps2_sliced_command(ptr noundef %7, i8 noundef zeroext 12) #12
+  %58 = call i32 @ps2_sliced_command(ptr noundef %7, i8 noundef zeroext 12) #11
   %59 = icmp eq i32 %58, 0
   br i1 %59, label %60, label %67
 
 60:                                               ; preds = %57
   %61 = getelementptr inbounds i8, ptr %3, i64 1
-  %62 = call i32 @ps2_command(ptr noundef %7, ptr noundef %61, i32 noundef 1001) #12
+  %62 = call i32 @ps2_command(ptr noundef %7, ptr noundef %61, i32 noundef 1001) #11
   %63 = icmp eq i32 %62, 0
   br i1 %63, label %64, label %67
 
@@ -2959,14 +2959,14 @@ define internal fastcc i32 @synaptics_capability(ptr noundef %0, ptr nocapture n
   %65 = load i32, ptr %3, align 4
   %66 = call i32 @llvm.bswap.i32(i32 %65)
   store i32 %66, ptr %17, align 4
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3) #12
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3) #11
   br label %70
 
 67:                                               ; preds = %60, %57
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3) #12
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3) #11
   %68 = load ptr, ptr %7, align 8
   %69 = getelementptr inbounds i8, ptr %68, i64 344
-  call void (ptr, ptr, ...) @_dev_warn(ptr noundef %69, ptr noundef nonnull @.str.62) #13
+  call void (ptr, ptr, ...) @_dev_warn(ptr noundef %69, ptr noundef nonnull @.str.62) #12
   br label %70
 
 70:                                               ; preds = %14, %.thread3, %67, %64, %53
@@ -2977,7 +2977,7 @@ define internal fastcc i32 @synaptics_capability(ptr noundef %0, ptr nocapture n
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal fastcc void @synaptics_resolution(ptr noundef %0, ptr nocapture noundef %1) unnamed_addr #0 align 16 {
   %3 = alloca [3 x i8], align 1
-  call void @llvm.lifetime.start.p0(i64 3, ptr nonnull %3) #12
+  call void @llvm.lifetime.start.p0(i64 3, ptr nonnull %3) #11
   %4 = getelementptr inbounds i8, ptr %1, i64 28
   %5 = load i32, ptr %4, align 4
   %6 = and i32 %5, 12
@@ -2987,12 +2987,12 @@ define internal fastcc void @synaptics_resolution(ptr noundef %0, ptr nocapture 
 8:                                                ; preds = %2
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %3, i8 0, i64 3, i1 false), !annotation !5
   %9 = getelementptr inbounds i8, ptr %0, i64 16
-  %10 = tail call i32 @ps2_sliced_command(ptr noundef %9, i8 noundef zeroext 8) #12
+  %10 = tail call i32 @ps2_sliced_command(ptr noundef %9, i8 noundef zeroext 8) #11
   %11 = icmp eq i32 %10, 0
   br i1 %11, label %12, label %.thread
 
 12:                                               ; preds = %8
-  %13 = call i32 @ps2_command(ptr noundef %9, ptr noundef nonnull %3, i32 noundef 1001) #12
+  %13 = call i32 @ps2_command(ptr noundef %9, ptr noundef nonnull %3, i32 noundef 1001) #11
   %14 = icmp eq i32 %13, 0
   %15 = load i8, ptr %3, align 1
   %16 = zext i8 %15 to i32
@@ -3040,7 +3040,7 @@ define internal fastcc void @synaptics_resolution(ptr noundef %0, ptr nocapture 
 43:                                               ; preds = %40
   %44 = load ptr, ptr %9, align 8
   %45 = getelementptr inbounds i8, ptr %44, i64 344
-  call void (ptr, ptr, ...) @_dev_warn(ptr noundef %45, ptr noundef nonnull @.str.63) #13
+  call void (ptr, ptr, ...) @_dev_warn(ptr noundef %45, ptr noundef nonnull @.str.63) #12
   br label %68
 
 46:                                               ; preds = %40
@@ -3067,7 +3067,7 @@ define internal fastcc void @synaptics_resolution(ptr noundef %0, ptr nocapture 
   store i32 %64, ptr %65, align 4
   %66 = load ptr, ptr %9, align 8
   %67 = getelementptr inbounds i8, ptr %66, i64 344
-  call void (ptr, ptr, ...) @_dev_info(ptr noundef %67, ptr noundef nonnull @.str.64, i32 noundef %55, i32 noundef %64) #13
+  call void (ptr, ptr, ...) @_dev_info(ptr noundef %67, ptr noundef nonnull @.str.64, i32 noundef %55, i32 noundef %64) #12
   br label %68
 
 68:                                               ; preds = %46, %43, %35, %.thread
@@ -3095,19 +3095,19 @@ define internal fastcc void @synaptics_resolution(ptr noundef %0, ptr nocapture 
   br i1 %85, label %86, label %117
 
 86:                                               ; preds = %77, %73
-  %87 = call i32 @ps2_sliced_command(ptr noundef %9, i8 noundef zeroext 15) #12
+  %87 = call i32 @ps2_sliced_command(ptr noundef %9, i8 noundef zeroext 15) #11
   %88 = icmp eq i32 %87, 0
   br i1 %88, label %89, label %92
 
 89:                                               ; preds = %86
-  %90 = call i32 @ps2_command(ptr noundef %9, ptr noundef nonnull %3, i32 noundef 1001) #12
+  %90 = call i32 @ps2_command(ptr noundef %9, ptr noundef nonnull %3, i32 noundef 1001) #11
   %91 = icmp eq i32 %90, 0
   br i1 %91, label %95, label %92
 
 92:                                               ; preds = %89, %86
   %93 = load ptr, ptr %9, align 8
   %94 = getelementptr inbounds i8, ptr %93, i64 344
-  call void (ptr, ptr, ...) @_dev_warn(ptr noundef %94, ptr noundef nonnull @.str.65) #13
+  call void (ptr, ptr, ...) @_dev_warn(ptr noundef %94, ptr noundef nonnull @.str.65) #12
   br label %117
 
 95:                                               ; preds = %89
@@ -3134,23 +3134,23 @@ define internal fastcc void @synaptics_resolution(ptr noundef %0, ptr nocapture 
   store i32 %113, ptr %114, align 4
   %115 = load ptr, ptr %9, align 8
   %116 = getelementptr inbounds i8, ptr %115, i64 344
-  call void (ptr, ptr, ...) @_dev_info(ptr noundef %116, ptr noundef nonnull @.str.66, i32 noundef %104, i32 noundef %113) #13
+  call void (ptr, ptr, ...) @_dev_info(ptr noundef %116, ptr noundef nonnull @.str.66, i32 noundef %104, i32 noundef %113) #12
   br label %117
 
 117:                                              ; preds = %95, %92, %77, %68, %2
-  call void @llvm.lifetime.end.p0(i64 3, ptr nonnull %3) #12
+  call void @llvm.lifetime.end.p0(i64 3, ptr nonnull %3) #11
   ret void
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal fastcc i32 @synaptics_send_cmd(ptr noundef %0, ptr noundef %1) unnamed_addr #0 align 16 {
   %3 = getelementptr inbounds i8, ptr %0, i64 16
-  %4 = tail call i32 @ps2_sliced_command(ptr noundef %3, i8 noundef zeroext 13) #12
+  %4 = tail call i32 @ps2_sliced_command(ptr noundef %3, i8 noundef zeroext 13) #11
   %5 = icmp eq i32 %4, 0
   br i1 %5, label %6, label %8
 
 6:                                                ; preds = %2
-  %7 = tail call i32 @ps2_command(ptr noundef %3, ptr noundef %1, i32 noundef 1001) #12
+  %7 = tail call i32 @ps2_command(ptr noundef %3, ptr noundef %1, i32 noundef 1001) #11
   br label %8
 
 8:                                                ; preds = %6, %2
@@ -3159,19 +3159,19 @@ define internal fastcc i32 @synaptics_send_cmd(ptr noundef %0, ptr noundef %1) u
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.bswap.i32(i32) #11
+declare i32 @llvm.bswap.i32(i32) #10
 
 ; Function Attrs: null_pointer_is_valid
 declare dso_local i32 @psmouse_smbus_init(ptr noundef, ptr noundef, ptr noundef, i64 noundef, i1 noundef zeroext, i1 noundef zeroext) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.smin.i32(i32, i32) #11
+declare i32 @llvm.smin.i32(i32, i32) #10
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.smax.i32(i32, i32) #11
+declare i32 @llvm.smax.i32(i32, i32) #10
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.umax.i32(i32, i32) #11
+declare i32 @llvm.umax.i32(i32, i32) #10
 
 attributes #0 = { fn_ret_thunk_extern nounwind null_pointer_is_valid "min-legal-vector-width"="0" "no-jump-tables"="true" "no-trapping-math"="true" "patchable-function-entry"="0" "patchable-function-prefix"="16" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+retpoline-external-thunk,+retpoline-indirect-branches,+retpoline-indirect-calls,-3dnow,-3dnowa,-aes,-avx,-avx10.1-256,-avx10.1-512,-avx2,-avx512bf16,-avx512bitalg,-avx512bw,-avx512cd,-avx512dq,-avx512er,-avx512f,-avx512fp16,-avx512ifma,-avx512pf,-avx512vbmi,-avx512vbmi2,-avx512vl,-avx512vnni,-avx512vp2intersect,-avx512vpopcntdq,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-f16c,-fma,-fma4,-gfni,-kl,-mmx,-pclmul,-sha,-sha512,-sm3,-sm4,-sse,-sse2,-sse3,-sse4.1,-sse4.2,-sse4a,-ssse3,-vaes,-vpclmulqdq,-widekl,-x87,-xop" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
@@ -3180,14 +3180,13 @@ attributes #3 = { null_pointer_is_valid "no-trapping-math"="true" "stack-protect
 attributes #4 = { cold fn_ret_thunk_extern nounwind null_pointer_is_valid optsize "min-legal-vector-width"="0" "no-jump-tables"="true" "no-trapping-math"="true" "patchable-function-entry"="0" "patchable-function-prefix"="16" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+retpoline-external-thunk,+retpoline-indirect-branches,+retpoline-indirect-calls,-3dnow,-3dnowa,-aes,-avx,-avx10.1-256,-avx10.1-512,-avx2,-avx512bf16,-avx512bitalg,-avx512bw,-avx512cd,-avx512dq,-avx512er,-avx512f,-avx512fp16,-avx512ifma,-avx512pf,-avx512vbmi,-avx512vbmi2,-avx512vl,-avx512vnni,-avx512vp2intersect,-avx512vpopcntdq,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-f16c,-fma,-fma4,-gfni,-kl,-mmx,-pclmul,-sha,-sha512,-sm3,-sm4,-sse,-sse2,-sse3,-sse4.1,-sse4.2,-sse4a,-ssse3,-vaes,-vpclmulqdq,-widekl,-x87,-xop" "tune-cpu"="generic" }
 attributes #5 = { cold null_pointer_is_valid "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+retpoline-external-thunk,+retpoline-indirect-branches,+retpoline-indirect-calls,-3dnow,-3dnowa,-aes,-avx,-avx10.1-256,-avx10.1-512,-avx2,-avx512bf16,-avx512bitalg,-avx512bw,-avx512cd,-avx512dq,-avx512er,-avx512f,-avx512fp16,-avx512ifma,-avx512pf,-avx512vbmi,-avx512vbmi2,-avx512vl,-avx512vnni,-avx512vp2intersect,-avx512vpopcntdq,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-f16c,-fma,-fma4,-gfni,-kl,-mmx,-pclmul,-sha,-sha512,-sm3,-sm4,-sse,-sse2,-sse3,-sse4.1,-sse4.2,-sse4a,-ssse3,-vaes,-vpclmulqdq,-widekl,-x87,-xop" "tune-cpu"="generic" }
 attributes #6 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #7 = { cold fn_ret_thunk_extern nounwind null_pointer_is_valid "min-legal-vector-width"="0" "no-jump-tables"="true" "no-trapping-math"="true" "patchable-function-entry"="0" "patchable-function-prefix"="16" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+retpoline-external-thunk,+retpoline-indirect-branches,+retpoline-indirect-calls,-3dnow,-3dnowa,-aes,-avx,-avx10.1-256,-avx10.1-512,-avx2,-avx512bf16,-avx512bitalg,-avx512bw,-avx512cd,-avx512dq,-avx512er,-avx512f,-avx512fp16,-avx512ifma,-avx512pf,-avx512vbmi,-avx512vbmi2,-avx512vl,-avx512vnni,-avx512vp2intersect,-avx512vpopcntdq,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-f16c,-fma,-fma4,-gfni,-kl,-mmx,-pclmul,-sha,-sha512,-sm3,-sm4,-sse,-sse2,-sse3,-sse4.1,-sse4.2,-sse4a,-ssse3,-vaes,-vpclmulqdq,-widekl,-x87,-xop" "tune-cpu"="generic" }
-attributes #8 = { null_pointer_is_valid allocsize(2) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+retpoline-external-thunk,+retpoline-indirect-branches,+retpoline-indirect-calls,-3dnow,-3dnowa,-aes,-avx,-avx10.1-256,-avx10.1-512,-avx2,-avx512bf16,-avx512bitalg,-avx512bw,-avx512cd,-avx512dq,-avx512er,-avx512f,-avx512fp16,-avx512ifma,-avx512pf,-avx512vbmi,-avx512vbmi2,-avx512vl,-avx512vnni,-avx512vp2intersect,-avx512vpopcntdq,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-f16c,-fma,-fma4,-gfni,-kl,-mmx,-pclmul,-sha,-sha512,-sm3,-sm4,-sse,-sse2,-sse3,-sse4.1,-sse4.2,-sse4a,-ssse3,-vaes,-vpclmulqdq,-widekl,-x87,-xop" "tune-cpu"="generic" }
-attributes #9 = { fn_ret_thunk_extern nofree nounwind null_pointer_is_valid "min-legal-vector-width"="0" "no-jump-tables"="true" "no-trapping-math"="true" "patchable-function-entry"="0" "patchable-function-prefix"="16" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+retpoline-external-thunk,+retpoline-indirect-branches,+retpoline-indirect-calls,-3dnow,-3dnowa,-aes,-avx,-avx10.1-256,-avx10.1-512,-avx2,-avx512bf16,-avx512bitalg,-avx512bw,-avx512cd,-avx512dq,-avx512er,-avx512f,-avx512fp16,-avx512ifma,-avx512pf,-avx512vbmi,-avx512vbmi2,-avx512vl,-avx512vnni,-avx512vp2intersect,-avx512vpopcntdq,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-f16c,-fma,-fma4,-gfni,-kl,-mmx,-pclmul,-sha,-sha512,-sm3,-sm4,-sse,-sse2,-sse3,-sse4.1,-sse4.2,-sse4a,-ssse3,-vaes,-vpclmulqdq,-widekl,-x87,-xop" "tune-cpu"="generic" }
-attributes #10 = { nofree nounwind null_pointer_is_valid "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+retpoline-external-thunk,+retpoline-indirect-branches,+retpoline-indirect-calls,-3dnow,-3dnowa,-aes,-avx,-avx10.1-256,-avx10.1-512,-avx2,-avx512bf16,-avx512bitalg,-avx512bw,-avx512cd,-avx512dq,-avx512er,-avx512f,-avx512fp16,-avx512ifma,-avx512pf,-avx512vbmi,-avx512vbmi2,-avx512vl,-avx512vnni,-avx512vp2intersect,-avx512vpopcntdq,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-f16c,-fma,-fma4,-gfni,-kl,-mmx,-pclmul,-sha,-sha512,-sm3,-sm4,-sse,-sse2,-sse3,-sse4.1,-sse4.2,-sse4a,-ssse3,-vaes,-vpclmulqdq,-widekl,-x87,-xop" "tune-cpu"="generic" }
-attributes #11 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #12 = { nounwind }
-attributes #13 = { cold nounwind }
-attributes #14 = { nounwind allocsize(2) }
+attributes #7 = { null_pointer_is_valid allocsize(2) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+retpoline-external-thunk,+retpoline-indirect-branches,+retpoline-indirect-calls,-3dnow,-3dnowa,-aes,-avx,-avx10.1-256,-avx10.1-512,-avx2,-avx512bf16,-avx512bitalg,-avx512bw,-avx512cd,-avx512dq,-avx512er,-avx512f,-avx512fp16,-avx512ifma,-avx512pf,-avx512vbmi,-avx512vbmi2,-avx512vl,-avx512vnni,-avx512vp2intersect,-avx512vpopcntdq,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-f16c,-fma,-fma4,-gfni,-kl,-mmx,-pclmul,-sha,-sha512,-sm3,-sm4,-sse,-sse2,-sse3,-sse4.1,-sse4.2,-sse4a,-ssse3,-vaes,-vpclmulqdq,-widekl,-x87,-xop" "tune-cpu"="generic" }
+attributes #8 = { fn_ret_thunk_extern nofree nounwind null_pointer_is_valid "min-legal-vector-width"="0" "no-jump-tables"="true" "no-trapping-math"="true" "patchable-function-entry"="0" "patchable-function-prefix"="16" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+retpoline-external-thunk,+retpoline-indirect-branches,+retpoline-indirect-calls,-3dnow,-3dnowa,-aes,-avx,-avx10.1-256,-avx10.1-512,-avx2,-avx512bf16,-avx512bitalg,-avx512bw,-avx512cd,-avx512dq,-avx512er,-avx512f,-avx512fp16,-avx512ifma,-avx512pf,-avx512vbmi,-avx512vbmi2,-avx512vl,-avx512vnni,-avx512vp2intersect,-avx512vpopcntdq,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-f16c,-fma,-fma4,-gfni,-kl,-mmx,-pclmul,-sha,-sha512,-sm3,-sm4,-sse,-sse2,-sse3,-sse4.1,-sse4.2,-sse4a,-ssse3,-vaes,-vpclmulqdq,-widekl,-x87,-xop" "tune-cpu"="generic" }
+attributes #9 = { nofree nounwind null_pointer_is_valid "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+retpoline-external-thunk,+retpoline-indirect-branches,+retpoline-indirect-calls,-3dnow,-3dnowa,-aes,-avx,-avx10.1-256,-avx10.1-512,-avx2,-avx512bf16,-avx512bitalg,-avx512bw,-avx512cd,-avx512dq,-avx512er,-avx512f,-avx512fp16,-avx512ifma,-avx512pf,-avx512vbmi,-avx512vbmi2,-avx512vl,-avx512vnni,-avx512vp2intersect,-avx512vpopcntdq,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-f16c,-fma,-fma4,-gfni,-kl,-mmx,-pclmul,-sha,-sha512,-sm3,-sm4,-sse,-sse2,-sse3,-sse4.1,-sse4.2,-sse4a,-ssse3,-vaes,-vpclmulqdq,-widekl,-x87,-xop" "tune-cpu"="generic" }
+attributes #10 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #11 = { nounwind }
+attributes #12 = { cold nounwind }
+attributes #13 = { nounwind allocsize(2) }
 
 !llvm.module.flags = !{!0, !1, !2, !3, !4}
 

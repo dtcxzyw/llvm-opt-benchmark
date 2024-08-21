@@ -1208,14 +1208,14 @@ for.cond.preheader:                               ; preds = %entry
 for.body:                                         ; preds = %for.cond.preheader, %for.inc
   %1 = phi ptr [ @.str.2, %for.cond.preheader ], [ %3, %for.inc ]
   %tc.01318 = phi ptr [ @TestCases, %for.cond.preheader ], [ %incdec.ptr, %for.inc ]
-  %call = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(1) %1) #19
+  %call = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(1) %1) #17
   %cmp3 = icmp eq i32 %call, 0
   br i1 %cmp3, label %if.then4, label %for.inc
 
 if.then4:                                         ; preds = %for.body
   %func = getelementptr inbounds i8, ptr %tc.01318, i64 8
   %2 = load ptr, ptr %func, align 8
-  %call5 = tail call i32 %2() #20
+  %call5 = tail call i32 %2() #18
   br label %return
 
 for.inc:                                          ; preds = %for.body
@@ -1249,8 +1249,8 @@ declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_
 ; Function Attrs: nofree nounwind
 declare noundef i32 @printf(ptr nocapture noundef readonly, ...) local_unnamed_addr #2
 
-; Function Attrs: cold nounwind uwtable
-define internal range(i32 0, 2) i32 @test_repeated_init_exec() #3 {
+; Function Attrs: nounwind uwtable
+define internal range(i32 0, 2) i32 @test_repeated_init_exec() #0 {
 entry:
   %0 = load i32, ptr @main_argc, align 4
   %cmp = icmp slt i32 %0, 3
@@ -1258,8 +1258,8 @@ entry:
 
 if.then:                                          ; preds = %entry
   %1 = load ptr, ptr @stderr, align 8
-  %call = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1, ptr noundef nonnull @.str.61, ptr noundef nonnull @.str.62) #21
-  tail call void @exit(i32 noundef 1) #22
+  %call = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1, ptr noundef nonnull @.str.61, ptr noundef nonnull @.str.62) #19
+  tail call void @exit(i32 noundef 1) #20
   unreachable
 
 if.end:                                           ; preds = %entry
@@ -1276,12 +1276,12 @@ for.cond:                                         ; preds = %for.body
 for.body:                                         ; preds = %if.end, %for.cond
   %i.03 = phi i32 [ 1, %if.end ], [ %inc, %for.cond ]
   %4 = load ptr, ptr @stderr, align 8
-  %call2 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %4, ptr noundef nonnull @.str.63, i32 noundef %i.03) #21
+  %call2 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %4, ptr noundef nonnull @.str.63, i32 noundef %i.03) #19
   %5 = load ptr, ptr @stderr, align 8
   %call3 = tail call i32 @fflush(ptr noundef %5)
   tail call fastcc void @_testembed_Py_InitializeFromConfig()
-  %call4 = tail call i32 @PyRun_SimpleStringFlags(ptr noundef %3, ptr noundef null) #20
-  tail call void @Py_Finalize() #20
+  %call4 = tail call i32 @PyRun_SimpleStringFlags(ptr noundef %3, ptr noundef null) #18
+  tail call void @Py_Finalize() #18
   %tobool.not = icmp eq i32 %call4, 0
   br i1 %tobool.not, label %for.cond, label %return
 
@@ -1290,20 +1290,20 @@ return:                                           ; preds = %for.cond, %for.body
   ret i32 %retval.0
 }
 
-; Function Attrs: cold nounwind uwtable
-define internal noundef i32 @test_repeated_simple_init() #3 {
+; Function Attrs: nounwind uwtable
+define internal noundef i32 @test_repeated_simple_init() #0 {
 entry:
   br label %for.body
 
 for.body:                                         ; preds = %entry, %for.body
   %i.03 = phi i32 [ 1, %entry ], [ %inc, %for.body ]
   %0 = load ptr, ptr @stderr, align 8
-  %call = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.63, i32 noundef %i.03) #21
+  %call = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.63, i32 noundef %i.03) #19
   %1 = load ptr, ptr @stderr, align 8
   %call1 = tail call i32 @fflush(ptr noundef %1)
-  tail call void @Py_SetProgramName(ptr noundef nonnull @.str.64) #20
-  tail call void @Py_Initialize() #20
-  tail call void @Py_Finalize() #20
+  tail call void @Py_SetProgramName(ptr noundef nonnull @.str.64) #18
+  tail call void @Py_Initialize() #18
+  tail call void @Py_Finalize() #18
   %puts = tail call i32 @puts(ptr nonnull dereferenceable(1) @str)
   %inc = add nuw nsw i32 %i.03, 1
   %exitcond.not = icmp eq i32 %inc, 5
@@ -1336,55 +1336,55 @@ for.body:                                         ; preds = %entry, %for.end
   %i.019 = phi i32 [ 1, %entry ], [ %inc10, %for.end ]
   %call = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.78, i32 noundef %i.019)
   tail call fastcc void @_testembed_Py_InitializeFromConfig()
-  %call1 = tail call ptr @PyThreadState_Get() #20
-  tail call void @PyEval_ReleaseThread(ptr noundef %call1) #20
-  %call2 = tail call i32 @PyGILState_Ensure() #20
-  %call.i = tail call ptr @PyThreadState_Get() #20
+  %call1 = tail call ptr @PyThreadState_Get() #18
+  tail call void @PyEval_ReleaseThread(ptr noundef %call1) #18
+  %call2 = tail call i32 @PyGILState_Ensure() #18
+  %call.i = tail call ptr @PyThreadState_Get() #18
   %interp1.i = getelementptr inbounds i8, ptr %call.i, i64 16
   %0 = load ptr, ptr %interp1.i, align 8
-  %call2.i = tail call i64 @PyInterpreterState_GetID(ptr noundef %0) #20
+  %call2.i = tail call i64 @PyInterpreterState_GetID(ptr noundef %0) #18
   %1 = ptrtoint ptr %0 to i64
   %2 = ptrtoint ptr %call.i to i64
   %call3.i = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.79, i64 noundef %call2.i, i64 noundef %1, i64 noundef %2)
   %3 = load ptr, ptr @stdout, align 8
   %call4.i = tail call i32 @fflush(ptr noundef %3)
-  %call5.i = tail call i32 @PyRun_SimpleStringFlags(ptr noundef nonnull @.str.80, ptr noundef null) #20
-  %call3 = tail call ptr @PyThreadState_Swap(ptr noundef null) #20
+  %call5.i = tail call i32 @PyRun_SimpleStringFlags(ptr noundef nonnull @.str.80, ptr noundef null) #18
+  %call3 = tail call ptr @PyThreadState_Swap(ptr noundef null) #18
   br label %for.body6
 
 for.body6:                                        ; preds = %for.body, %for.body6
   %j.018 = phi i32 [ 0, %for.body ], [ %inc, %for.body6 ]
-  %call7 = tail call ptr @Py_NewInterpreter() #20
-  %call.i6 = tail call ptr @PyThreadState_Get() #20
+  %call7 = tail call ptr @Py_NewInterpreter() #18
+  %call.i6 = tail call ptr @PyThreadState_Get() #18
   %interp1.i7 = getelementptr inbounds i8, ptr %call.i6, i64 16
   %4 = load ptr, ptr %interp1.i7, align 8
-  %call2.i8 = tail call i64 @PyInterpreterState_GetID(ptr noundef %4) #20
+  %call2.i8 = tail call i64 @PyInterpreterState_GetID(ptr noundef %4) #18
   %5 = ptrtoint ptr %4 to i64
   %6 = ptrtoint ptr %call.i6 to i64
   %call3.i9 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.79, i64 noundef %call2.i8, i64 noundef %5, i64 noundef %6)
   %7 = load ptr, ptr @stdout, align 8
   %call4.i10 = tail call i32 @fflush(ptr noundef %7)
-  %call5.i11 = tail call i32 @PyRun_SimpleStringFlags(ptr noundef nonnull @.str.80, ptr noundef null) #20
-  tail call void @Py_EndInterpreter(ptr noundef %call7) #20
+  %call5.i11 = tail call i32 @PyRun_SimpleStringFlags(ptr noundef nonnull @.str.80, ptr noundef null) #18
+  tail call void @Py_EndInterpreter(ptr noundef %call7) #18
   %inc = add nuw nsw i32 %j.018, 1
   %exitcond.not = icmp eq i32 %inc, 3
   br i1 %exitcond.not, label %for.end, label %for.body6, !llvm.loop !8
 
 for.end:                                          ; preds = %for.body6
-  %call8 = tail call ptr @PyThreadState_Swap(ptr noundef %call1) #20
-  %call.i12 = tail call ptr @PyThreadState_Get() #20
+  %call8 = tail call ptr @PyThreadState_Swap(ptr noundef %call1) #18
+  %call.i12 = tail call ptr @PyThreadState_Get() #18
   %interp1.i13 = getelementptr inbounds i8, ptr %call.i12, i64 16
   %8 = load ptr, ptr %interp1.i13, align 8
-  %call2.i14 = tail call i64 @PyInterpreterState_GetID(ptr noundef %8) #20
+  %call2.i14 = tail call i64 @PyInterpreterState_GetID(ptr noundef %8) #18
   %9 = ptrtoint ptr %8 to i64
   %10 = ptrtoint ptr %call.i12 to i64
   %call3.i15 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.79, i64 noundef %call2.i14, i64 noundef %9, i64 noundef %10)
   %11 = load ptr, ptr @stdout, align 8
   %call4.i16 = tail call i32 @fflush(ptr noundef %11)
-  %call5.i17 = tail call i32 @PyRun_SimpleStringFlags(ptr noundef nonnull @.str.80, ptr noundef null) #20
-  tail call void @PyGILState_Release(i32 noundef %call2) #20
-  tail call void @PyEval_RestoreThread(ptr noundef %call1) #20
-  tail call void @Py_Finalize() #20
+  %call5.i17 = tail call i32 @PyRun_SimpleStringFlags(ptr noundef nonnull @.str.80, ptr noundef null) #18
+  tail call void @PyGILState_Release(i32 noundef %call2) #18
+  tail call void @PyEval_RestoreThread(ptr noundef %call1) #18
+  tail call void @Py_Finalize() #18
   %inc10 = add nuw nsw i32 %i.019, 1
   %exitcond20.not = icmp eq i32 %inc10, 5
   br i1 %exitcond20.not, label %for.end11, label %for.body, !llvm.loop !9
@@ -1411,46 +1411,46 @@ for.cond:                                         ; preds = %init_from_config_cl
 for.body:                                         ; preds = %entry, %for.cond
   %i.08 = phi i32 [ 1, %entry ], [ %inc, %for.cond ]
   %call = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.78, i32 noundef %i.08)
-  %call1 = call i32 @PyImport_AppendInittab(ptr noundef nonnull @.str.81, ptr noundef nonnull @PyInit_embedded_ext) #20
+  %call1 = call i32 @PyImport_AppendInittab(ptr noundef nonnull @.str.81, ptr noundef nonnull @PyInit_embedded_ext) #18
   %cmp2.not = icmp eq i32 %call1, 0
   br i1 %cmp2.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %for.body
   %0 = load ptr, ptr @stderr, align 8
-  %1 = call i64 @fwrite(ptr nonnull @.str.82, i64 32, i64 1, ptr %0) #21
+  %1 = call i64 @fwrite(ptr nonnull @.str.82, i64 32, i64 1, ptr %0) #19
   br label %return
 
 if.end:                                           ; preds = %for.body
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %argv, ptr noundef nonnull align 16 dereferenceable(24) @__const.test_audit_run_command.argv, i64 24, i1 false)
-  call void @PyConfig_InitPythonConfig(ptr noundef nonnull %config) #20
+  call void @PyConfig_InitPythonConfig(ptr noundef nonnull %config) #18
   store i32 1, ptr %isolated, align 4
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %status.i)
-  call void @PyConfig_SetArgv(ptr nonnull sret(%struct.PyStatus) align 8 %status.i, ptr noundef nonnull %config, i64 noundef 3, ptr noundef nonnull %argv) #20
-  %call.i = call i32 @PyStatus_Exception(ptr noundef nonnull byval(%struct.PyStatus) align 8 %status.i) #20
+  call void @PyConfig_SetArgv(ptr nonnull sret(%struct.PyStatus) align 8 %status.i, ptr noundef nonnull %config, i64 noundef 3, ptr noundef nonnull %argv) #18
+  %call.i = call i32 @PyStatus_Exception(ptr noundef nonnull byval(%struct.PyStatus) align 8 %status.i) #18
   %tobool.not.i = icmp eq i32 %call.i, 0
   br i1 %tobool.not.i, label %config_set_argv.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %if.end
-  call void @PyConfig_Clear(ptr noundef nonnull %config) #20
-  call void @Py_ExitStatusException(ptr noundef nonnull byval(%struct.PyStatus) align 8 %status.i) #23
+  call void @PyConfig_Clear(ptr noundef nonnull %config) #18
+  call void @Py_ExitStatusException(ptr noundef nonnull byval(%struct.PyStatus) align 8 %status.i) #21
   unreachable
 
 config_set_argv.exit:                             ; preds = %if.end
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %status.i)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %status.i4)
-  call void @Py_InitializeFromConfig(ptr nonnull sret(%struct.PyStatus) align 8 %status.i4, ptr noundef nonnull %config) #20
-  call void @PyConfig_Clear(ptr noundef nonnull %config) #20
-  %call.i5 = call i32 @PyStatus_Exception(ptr noundef nonnull byval(%struct.PyStatus) align 8 %status.i4) #20
+  call void @Py_InitializeFromConfig(ptr nonnull sret(%struct.PyStatus) align 8 %status.i4, ptr noundef nonnull %config) #18
+  call void @PyConfig_Clear(ptr noundef nonnull %config) #18
+  %call.i5 = call i32 @PyStatus_Exception(ptr noundef nonnull byval(%struct.PyStatus) align 8 %status.i4) #18
   %tobool.not.i6 = icmp eq i32 %call.i5, 0
   br i1 %tobool.not.i6, label %init_from_config_clear.exit, label %if.then.i7
 
 if.then.i7:                                       ; preds = %config_set_argv.exit
-  call void @Py_ExitStatusException(ptr noundef nonnull byval(%struct.PyStatus) align 8 %status.i4) #23
+  call void @Py_ExitStatusException(ptr noundef nonnull byval(%struct.PyStatus) align 8 %status.i4) #21
   unreachable
 
 init_from_config_clear.exit:                      ; preds = %config_set_argv.exit
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %status.i4)
-  %call4 = call i32 @Py_RunMain() #20
+  %call4 = call i32 @Py_RunMain() #18
   %cmp5.not = icmp eq i32 %call4, 0
   br i1 %cmp5.not, label %for.cond, label %return
 
@@ -1462,40 +1462,40 @@ return:                                           ; preds = %for.cond, %init_fro
 ; Function Attrs: nounwind uwtable
 define internal range(i32 0, 2) i32 @test_pre_initialization_api() #0 {
 entry:
-  %call = tail call i32 @putenv(ptr noundef nonnull @.str.85) #20
+  %call = tail call i32 @putenv(ptr noundef nonnull @.str.85) #18
   %puts = tail call i32 @puts(ptr nonnull dereferenceable(1) @str.5)
   %0 = load ptr, ptr @stdout, align 8
   %call2 = tail call i32 @fflush(ptr noundef %0)
-  %call3 = tail call ptr @Py_DecodeLocale(ptr noundef nonnull @.str.87, ptr noundef null) #20
+  %call3 = tail call ptr @Py_DecodeLocale(ptr noundef nonnull @.str.87, ptr noundef null) #18
   %cmp = icmp eq ptr %call3, null
   br i1 %cmp, label %if.then, label %do.body5
 
 if.then:                                          ; preds = %entry
   %1 = load ptr, ptr @stderr, align 8
-  %2 = tail call i64 @fwrite(ptr nonnull @.str.88, i64 40, i64 1, ptr %1) #21
+  %2 = tail call i64 @fwrite(ptr nonnull @.str.88, i64 40, i64 1, ptr %1) #19
   br label %return
 
 do.body5:                                         ; preds = %entry
   %puts3 = tail call i32 @puts(ptr nonnull dereferenceable(1) @str.6)
   %3 = load ptr, ptr @stdout, align 8
   %call7 = tail call i32 @fflush(ptr noundef %3)
-  tail call void @Py_SetProgramName(ptr noundef nonnull %call3) #20
+  tail call void @Py_SetProgramName(ptr noundef nonnull %call3) #18
   %puts4 = tail call i32 @puts(ptr nonnull dereferenceable(1) @str.15)
   %4 = load ptr, ptr @stdout, align 8
   %call11 = tail call i32 @fflush(ptr noundef %4)
-  tail call void @Py_Initialize() #20
+  tail call void @Py_Initialize() #18
   %puts5 = tail call i32 @puts(ptr nonnull dereferenceable(1) @str.16)
   %5 = load ptr, ptr @stdout, align 8
   %call15 = tail call i32 @fflush(ptr noundef %5)
-  %call17 = tail call i32 @PyRun_SimpleStringFlags(ptr noundef nonnull @.str.92, ptr noundef null) #20
+  %call17 = tail call i32 @PyRun_SimpleStringFlags(ptr noundef nonnull @.str.92, ptr noundef null) #18
   %puts6 = tail call i32 @puts(ptr nonnull dereferenceable(1) @str.17)
   %6 = load ptr, ptr @stdout, align 8
   %call20 = tail call i32 @fflush(ptr noundef %6)
-  tail call void @Py_Finalize() #20
+  tail call void @Py_Finalize() #18
   %puts7 = tail call i32 @puts(ptr nonnull dereferenceable(1) @str.10)
   %7 = load ptr, ptr @stdout, align 8
   %call24 = tail call i32 @fflush(ptr noundef %7)
-  tail call void @PyMem_RawFree(ptr noundef nonnull %call3) #20
+  tail call void @PyMem_RawFree(ptr noundef nonnull %call3) #18
   br label %return
 
 return:                                           ; preds = %do.body5, %if.then
@@ -1506,31 +1506,31 @@ return:                                           ; preds = %do.body5, %if.then
 ; Function Attrs: nounwind uwtable
 define internal noundef i32 @test_pre_initialization_sys_options() #0 {
 entry:
-  %call2 = tail call noalias dereferenceable_or_null(20) ptr @calloc(i64 noundef 5, i64 noundef 4) #24
-  %call4 = tail call noalias dereferenceable_or_null(84) ptr @calloc(i64 noundef 21, i64 noundef 4) #24
-  %call6 = tail call ptr @wcsncpy(ptr noundef %call2, ptr noundef nonnull @.str.95, i64 noundef 5) #20
-  %call8 = tail call ptr @wcsncpy(ptr noundef %call4, ptr noundef nonnull @.str.96, i64 noundef 21) #20
+  %call2 = tail call noalias dereferenceable_or_null(20) ptr @calloc(i64 noundef 5, i64 noundef 4) #22
+  %call4 = tail call noalias dereferenceable_or_null(84) ptr @calloc(i64 noundef 21, i64 noundef 4) #22
+  %call6 = tail call ptr @wcsncpy(ptr noundef %call2, ptr noundef nonnull @.str.95, i64 noundef 5) #18
+  %call8 = tail call ptr @wcsncpy(ptr noundef %call4, ptr noundef nonnull @.str.96, i64 noundef 21) #18
   %puts = tail call i32 @puts(ptr nonnull dereferenceable(1) @str.11)
   %0 = load ptr, ptr @stdout, align 8
   %call10 = tail call i32 @fflush(ptr noundef %0)
-  tail call void @PySys_AddWarnOption(ptr noundef nonnull @.str.98) #20
+  tail call void @PySys_AddWarnOption(ptr noundef nonnull @.str.98) #18
   %puts9 = tail call i32 @puts(ptr nonnull dereferenceable(1) @str.12)
   %1 = load ptr, ptr @stdout, align 8
   %call13 = tail call i32 @fflush(ptr noundef %1)
-  tail call void @PySys_ResetWarnOptions() #20
+  tail call void @PySys_ResetWarnOptions() #18
   %puts10 = tail call i32 @puts(ptr nonnull dereferenceable(1) @str.13)
   %2 = load ptr, ptr @stdout, align 8
   %call17 = tail call i32 @fflush(ptr noundef %2)
-  tail call void @PySys_AddWarnOption(ptr noundef %call2) #20
-  tail call void @PySys_AddWarnOption(ptr noundef nonnull @.str.101) #20
-  tail call void @PySys_AddWarnOption(ptr noundef nonnull @.str.98) #20
+  tail call void @PySys_AddWarnOption(ptr noundef %call2) #18
+  tail call void @PySys_AddWarnOption(ptr noundef nonnull @.str.101) #18
+  tail call void @PySys_AddWarnOption(ptr noundef nonnull @.str.98) #18
   %puts11 = tail call i32 @puts(ptr nonnull dereferenceable(1) @str.14)
   %3 = load ptr, ptr @stdout, align 8
   %call21 = tail call i32 @fflush(ptr noundef %3)
-  tail call void @PySys_AddXOption(ptr noundef nonnull @.str.103) #20
-  tail call void @PySys_AddXOption(ptr noundef %call4) #20
-  tail call void @free(ptr noundef %call2) #20
-  tail call void @free(ptr noundef %call4) #20
+  tail call void @PySys_AddXOption(ptr noundef nonnull @.str.103) #18
+  tail call void @PySys_AddXOption(ptr noundef %call4) #18
+  tail call void @free(ptr noundef %call2) #18
+  tail call void @free(ptr noundef %call4) #18
   %puts12 = tail call i32 @puts(ptr nonnull dereferenceable(1) @str.15)
   %4 = load ptr, ptr @stdout, align 8
   %call25 = tail call i32 @fflush(ptr noundef %4)
@@ -1538,11 +1538,11 @@ entry:
   %puts13 = tail call i32 @puts(ptr nonnull dereferenceable(1) @str.16)
   %5 = load ptr, ptr @stdout, align 8
   %call29 = tail call i32 @fflush(ptr noundef %5)
-  %call31 = tail call i32 @PyRun_SimpleStringFlags(ptr noundef nonnull @.str.104, ptr noundef null) #20
+  %call31 = tail call i32 @PyRun_SimpleStringFlags(ptr noundef nonnull @.str.104, ptr noundef null) #18
   %puts14 = tail call i32 @puts(ptr nonnull dereferenceable(1) @str.17)
   %6 = load ptr, ptr @stdout, align 8
   %call34 = tail call i32 @fflush(ptr noundef %6)
-  tail call void @Py_Finalize() #20
+  tail call void @Py_Finalize() #18
   ret i32 0
 }
 
@@ -1550,36 +1550,42 @@ entry:
 define internal range(i32 0, 2) i32 @test_bpo20891() #0 {
 entry:
   %lock = alloca ptr, align 8
-  %call = tail call i32 @putenv(ptr noundef nonnull @.str.85) #20
-  %call1 = tail call ptr @PyThread_allocate_lock() #20
+  %call = tail call i32 @putenv(ptr noundef nonnull @.str.85) #18
+  %call1 = tail call ptr @PyThread_allocate_lock() #18
   store ptr %call1, ptr %lock, align 8
   %tobool.not = icmp eq ptr %call1, null
   br i1 %tobool.not, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
-  tail call fastcc void @error(ptr noundef nonnull @.str.105)
+  %0 = load ptr, ptr @stderr, align 8
+  %call.i = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.107, ptr noundef nonnull @.str.105) #19
+  %1 = load ptr, ptr @stderr, align 8
+  %call1.i = tail call i32 @fflush(ptr noundef %1)
   br label %return
 
 if.end:                                           ; preds = %entry
   tail call fastcc void @_testembed_Py_InitializeFromConfig()
-  %call2 = call i64 @PyThread_start_new_thread(ptr noundef nonnull @bpo20891_thread, ptr noundef nonnull %lock) #20
+  %call2 = call i64 @PyThread_start_new_thread(ptr noundef nonnull @bpo20891_thread, ptr noundef nonnull %lock) #18
   %cmp = icmp eq i64 %call2, -1
   br i1 %cmp, label %if.then3, label %if.end4
 
 if.then3:                                         ; preds = %if.end
-  call fastcc void @error(ptr noundef nonnull @.str.106)
+  %2 = load ptr, ptr @stderr, align 8
+  %call.i1 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %2, ptr noundef nonnull @.str.107, ptr noundef nonnull @.str.106) #19
+  %3 = load ptr, ptr @stderr, align 8
+  %call1.i2 = call i32 @fflush(ptr noundef %3)
   br label %return
 
 if.end4:                                          ; preds = %if.end
-  %0 = load ptr, ptr %lock, align 8
-  %call5 = call i32 @PyThread_acquire_lock(ptr noundef %0, i32 noundef 1) #20
-  %call6 = call ptr @PyEval_SaveThread() #20
-  %1 = load ptr, ptr %lock, align 8
-  %call7 = call i32 @PyThread_acquire_lock(ptr noundef %1, i32 noundef 1) #20
-  call void @PyEval_RestoreThread(ptr noundef %call6) #20
-  %2 = load ptr, ptr %lock, align 8
-  call void @PyThread_free_lock(ptr noundef %2) #20
-  call void @Py_Finalize() #20
+  %4 = load ptr, ptr %lock, align 8
+  %call5 = call i32 @PyThread_acquire_lock(ptr noundef %4, i32 noundef 1) #18
+  %call6 = call ptr @PyEval_SaveThread() #18
+  %5 = load ptr, ptr %lock, align 8
+  %call7 = call i32 @PyThread_acquire_lock(ptr noundef %5, i32 noundef 1) #18
+  call void @PyEval_RestoreThread(ptr noundef %call6) #18
+  %6 = load ptr, ptr %lock, align 8
+  call void @PyThread_free_lock(ptr noundef %6) #18
+  call void @Py_Finalize() #18
   br label %return
 
 return:                                           ; preds = %if.end4, %if.then3, %if.then
@@ -1591,8 +1597,8 @@ return:                                           ; preds = %if.end4, %if.then3,
 define internal noundef i32 @test_initialize_twice() #0 {
 entry:
   tail call fastcc void @_testembed_Py_InitializeFromConfig()
-  tail call void @Py_Initialize() #20
-  tail call void @Py_Finalize() #20
+  tail call void @Py_Initialize() #18
+  tail call void @Py_Finalize() #18
   ret i32 0
 }
 
@@ -1602,8 +1608,8 @@ entry:
   %argv = alloca [4 x ptr], align 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %argv, ptr noundef nonnull align 16 dereferenceable(32) @__const.test_initialize_pymain.argv, i64 32, i1 false)
   tail call fastcc void @_testembed_Py_InitializeFromConfig()
-  %call = call i32 @Py_Main(i32 noundef 4, ptr noundef nonnull %argv) #20
-  call void @Py_Finalize() #20
+  %call = call i32 @Py_Main(i32 noundef 4, ptr noundef nonnull %argv) #18
+  call void @Py_Finalize() #18
   ret i32 0
 }
 
@@ -1611,8 +1617,8 @@ entry:
 define internal noundef i32 @test_init_initialize_config() #0 {
 entry:
   tail call fastcc void @_testembed_Py_InitializeFromConfig()
-  %call.i = tail call i32 @PyRun_SimpleStringFlags(ptr noundef nonnull @.str.112, ptr noundef null) #20
-  tail call void @Py_Finalize() #20
+  %call.i = tail call i32 @PyRun_SimpleStringFlags(ptr noundef nonnull @.str.112, ptr noundef null) #18
+  tail call void @Py_Finalize() #18
   ret i32 0
 }
 
@@ -1633,29 +1639,29 @@ entry:
 ; Function Attrs: nounwind uwtable
 define internal noundef i32 @test_init_global_config() #0 {
 entry:
-  %call = tail call i32 @putenv(ptr noundef nonnull @.str.113) #20
+  %call = tail call i32 @putenv(ptr noundef nonnull @.str.113) #18
   store i32 1, ptr @Py_UTF8Mode, align 4
-  tail call void @Py_SetProgramName(ptr noundef nonnull @.str.114) #20
+  tail call void @Py_SetProgramName(ptr noundef nonnull @.str.114) #18
   store i32 1, ptr @Py_NoSiteFlag, align 4
   store i32 1, ptr @Py_BytesWarningFlag, align 4
-  %call1 = tail call i32 @putenv(ptr noundef nonnull @.str.115) #20
+  %call1 = tail call i32 @putenv(ptr noundef nonnull @.str.115) #18
   store i32 1, ptr @Py_InspectFlag, align 4
-  %call2 = tail call i32 @putenv(ptr noundef nonnull @.str.116) #20
+  %call2 = tail call i32 @putenv(ptr noundef nonnull @.str.116) #18
   store i32 1, ptr @Py_InteractiveFlag, align 4
-  %call3 = tail call i32 @putenv(ptr noundef nonnull @.str.117) #20
+  %call3 = tail call i32 @putenv(ptr noundef nonnull @.str.117) #18
   store i32 2, ptr @Py_OptimizeFlag, align 4
-  %call4 = tail call i32 @putenv(ptr noundef nonnull @.str.118) #20
+  %call4 = tail call i32 @putenv(ptr noundef nonnull @.str.118) #18
   store i32 1, ptr @Py_DontWriteBytecodeFlag, align 4
-  %call5 = tail call i32 @putenv(ptr noundef nonnull @.str.119) #20
+  %call5 = tail call i32 @putenv(ptr noundef nonnull @.str.119) #18
   store i32 1, ptr @Py_VerboseFlag, align 4
   store i32 1, ptr @Py_QuietFlag, align 4
   store i32 1, ptr @Py_NoUserSiteDirectory, align 4
-  %call6 = tail call i32 @putenv(ptr noundef nonnull @.str.120) #20
+  %call6 = tail call i32 @putenv(ptr noundef nonnull @.str.120) #18
   store i32 1, ptr @Py_UnbufferedStdioFlag, align 4
   store i32 1, ptr @Py_FrozenFlag, align 4
-  tail call void @Py_Initialize() #20
-  %call.i = tail call i32 @PyRun_SimpleStringFlags(ptr noundef nonnull @.str.112, ptr noundef null) #20
-  tail call void @Py_Finalize() #20
+  tail call void @Py_Initialize() #18
+  %call.i = tail call i32 @PyRun_SimpleStringFlags(ptr noundef nonnull @.str.112, ptr noundef null) #18
+  tail call void @Py_Finalize() #18
   ret i32 0
 }
 
@@ -1678,89 +1684,89 @@ entry:
   %argv = alloca [8 x ptr], align 16
   %xoptions = alloca [3 x ptr], align 16
   %warnoptions = alloca [1 x ptr], align 8
-  call void @_PyPreConfig_InitCompatConfig(ptr noundef nonnull %preconfig) #20
-  %call = call i32 @putenv(ptr noundef nonnull @.str.121) #20
+  call void @_PyPreConfig_InitCompatConfig(ptr noundef nonnull %preconfig) #18
+  %call = call i32 @putenv(ptr noundef nonnull @.str.121) #18
   %allocator = getelementptr inbounds i8, ptr %preconfig, i64 36
   store i32 3, ptr %allocator, align 4
-  %call1 = call i32 @putenv(ptr noundef nonnull @.str.113) #20
+  %call1 = call i32 @putenv(ptr noundef nonnull @.str.113) #18
   store i32 0, ptr @Py_UTF8Mode, align 4
   %utf8_mode = getelementptr inbounds i8, ptr %preconfig, i64 28
   store i32 1, ptr %utf8_mode, align 4
-  call void @Py_PreInitialize(ptr nonnull sret(%struct.PyStatus) align 8 %status, ptr noundef nonnull %preconfig) #20
-  %call2 = call i32 @PyStatus_Exception(ptr noundef nonnull byval(%struct.PyStatus) align 8 %status) #20
+  call void @Py_PreInitialize(ptr nonnull sret(%struct.PyStatus) align 8 %status, ptr noundef nonnull %preconfig) #18
+  %call2 = call i32 @PyStatus_Exception(ptr noundef nonnull byval(%struct.PyStatus) align 8 %status) #18
   %tobool.not = icmp eq i32 %call2, 0
   br i1 %tobool.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
-  call void @Py_ExitStatusException(ptr noundef nonnull byval(%struct.PyStatus) align 8 %status) #23
+  call void @Py_ExitStatusException(ptr noundef nonnull byval(%struct.PyStatus) align 8 %status) #21
   unreachable
 
 if.end:                                           ; preds = %entry
-  call void @_PyConfig_InitCompatConfig(ptr noundef nonnull %config) #20
+  call void @_PyConfig_InitCompatConfig(ptr noundef nonnull %config) #18
   %install_signal_handlers = getelementptr inbounds i8, ptr %config, i64 16
   store i32 0, ptr %install_signal_handlers, align 8
-  %call3 = call i32 @putenv(ptr noundef nonnull @.str.122) #20
+  %call3 = call i32 @putenv(ptr noundef nonnull @.str.122) #18
   %use_hash_seed = getelementptr inbounds i8, ptr %config, i64 20
   store i32 1, ptr %use_hash_seed, align 4
   %hash_seed = getelementptr inbounds i8, ptr %config, i64 24
   store i64 123, ptr %hash_seed, align 8
-  %call4 = call i32 @putenv(ptr noundef nonnull @.str.123) #20
+  %call4 = call i32 @putenv(ptr noundef nonnull @.str.123) #18
   %faulthandler = getelementptr inbounds i8, ptr %config, i64 32
   store i32 1, ptr %faulthandler, align 8
-  %call5 = call i32 @putenv(ptr noundef nonnull @.str.124) #20
+  %call5 = call i32 @putenv(ptr noundef nonnull @.str.124) #18
   %tracemalloc = getelementptr inbounds i8, ptr %config, i64 36
   store i32 2, ptr %tracemalloc, align 4
-  %call6 = call i32 @putenv(ptr noundef nonnull @.str.125) #20
+  %call6 = call i32 @putenv(ptr noundef nonnull @.str.125) #18
   %import_time = getelementptr inbounds i8, ptr %config, i64 44
   store i32 1, ptr %import_time, align 4
-  %call7 = call i32 @putenv(ptr noundef nonnull @.str.126) #20
+  %call7 = call i32 @putenv(ptr noundef nonnull @.str.126) #18
   %code_debug_ranges = getelementptr inbounds i8, ptr %config, i64 48
   store i32 0, ptr %code_debug_ranges, align 8
   %show_ref_count = getelementptr inbounds i8, ptr %config, i64 52
   store i32 1, ptr %show_ref_count, align 4
-  %call8 = call i32 @putenv(ptr noundef nonnull @.str.127) #20
+  %call8 = call i32 @putenv(ptr noundef nonnull @.str.127) #18
   %malloc_stats = getelementptr inbounds i8, ptr %config, i64 72
   store i32 1, ptr %malloc_stats, align 8
-  %call9 = call i32 @putenv(ptr noundef nonnull @.str.128) #20
+  %call9 = call i32 @putenv(ptr noundef nonnull @.str.128) #18
   %pycache_prefix = getelementptr inbounds i8, ptr %config, i64 96
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %status.i)
-  call void @PyConfig_SetString(ptr nonnull sret(%struct.PyStatus) align 8 %status.i, ptr noundef nonnull %config, ptr noundef nonnull %pycache_prefix, ptr noundef nonnull @.str.129) #20
-  %call.i = call i32 @PyStatus_Exception(ptr noundef nonnull byval(%struct.PyStatus) align 8 %status.i) #20
+  call void @PyConfig_SetString(ptr nonnull sret(%struct.PyStatus) align 8 %status.i, ptr noundef nonnull %config, ptr noundef nonnull %pycache_prefix, ptr noundef nonnull @.str.129) #18
+  %call.i = call i32 @PyStatus_Exception(ptr noundef nonnull byval(%struct.PyStatus) align 8 %status.i) #18
   %tobool.not.i = icmp eq i32 %call.i, 0
   br i1 %tobool.not.i, label %config_set_string.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %if.end
-  call void @PyConfig_Clear(ptr noundef nonnull %config) #20
-  call void @Py_ExitStatusException(ptr noundef nonnull byval(%struct.PyStatus) align 8 %status.i) #23
+  call void @PyConfig_Clear(ptr noundef nonnull %config) #18
+  call void @Py_ExitStatusException(ptr noundef nonnull byval(%struct.PyStatus) align 8 %status.i) #21
   unreachable
 
 config_set_string.exit:                           ; preds = %if.end
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %status.i)
-  call void @Py_SetProgramName(ptr noundef nonnull @.str.114) #20
+  call void @Py_SetProgramName(ptr noundef nonnull @.str.114) #18
   %program_name = getelementptr inbounds i8, ptr %config, i64 280
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %status.i1)
-  call void @PyConfig_SetString(ptr nonnull sret(%struct.PyStatus) align 8 %status.i1, ptr noundef nonnull %config, ptr noundef nonnull %program_name, ptr noundef nonnull @.str.130) #20
-  %call.i2 = call i32 @PyStatus_Exception(ptr noundef nonnull byval(%struct.PyStatus) align 8 %status.i1) #20
+  call void @PyConfig_SetString(ptr nonnull sret(%struct.PyStatus) align 8 %status.i1, ptr noundef nonnull %config, ptr noundef nonnull %program_name, ptr noundef nonnull @.str.130) #18
+  %call.i2 = call i32 @PyStatus_Exception(ptr noundef nonnull byval(%struct.PyStatus) align 8 %status.i1) #18
   %tobool.not.i3 = icmp eq i32 %call.i2, 0
   br i1 %tobool.not.i3, label %config_set_string.exit5, label %if.then.i4
 
 if.then.i4:                                       ; preds = %config_set_string.exit
-  call void @PyConfig_Clear(ptr noundef nonnull %config) #20
-  call void @Py_ExitStatusException(ptr noundef nonnull byval(%struct.PyStatus) align 8 %status.i1) #23
+  call void @PyConfig_Clear(ptr noundef nonnull %config) #18
+  call void @Py_ExitStatusException(ptr noundef nonnull byval(%struct.PyStatus) align 8 %status.i1) #21
   unreachable
 
 config_set_string.exit5:                          ; preds = %config_set_string.exit
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %status.i1)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(64) %argv, ptr noundef nonnull align 16 dereferenceable(64) @__const.test_init_from_config.argv, i64 64, i1 false)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %status.i6)
-  call void @PyConfig_SetArgv(ptr nonnull sret(%struct.PyStatus) align 8 %status.i6, ptr noundef nonnull %config, i64 noundef 8, ptr noundef nonnull %argv) #20
-  %call.i7 = call i32 @PyStatus_Exception(ptr noundef nonnull byval(%struct.PyStatus) align 8 %status.i6) #20
+  call void @PyConfig_SetArgv(ptr nonnull sret(%struct.PyStatus) align 8 %status.i6, ptr noundef nonnull %config, i64 noundef 8, ptr noundef nonnull %argv) #18
+  %call.i7 = call i32 @PyStatus_Exception(ptr noundef nonnull byval(%struct.PyStatus) align 8 %status.i6) #18
   %tobool.not.i8 = icmp eq i32 %call.i7, 0
   br i1 %tobool.not.i8, label %config_set_argv.exit, label %if.then.i9
 
 if.then.i9:                                       ; preds = %config_set_string.exit5
-  call void @PyConfig_Clear(ptr noundef nonnull %config) #20
-  call void @Py_ExitStatusException(ptr noundef nonnull byval(%struct.PyStatus) align 8 %status.i6) #23
+  call void @PyConfig_Clear(ptr noundef nonnull %config) #18
+  call void @Py_ExitStatusException(ptr noundef nonnull byval(%struct.PyStatus) align 8 %status.i6) #21
   unreachable
 
 config_set_argv.exit:                             ; preds = %config_set_string.exit5
@@ -1770,14 +1776,14 @@ config_set_argv.exit:                             ; preds = %config_set_string.e
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %xoptions, ptr noundef nonnull align 16 dereferenceable(24) @__const.test_init_from_config.xoptions, i64 24, i1 false)
   %xoptions10 = getelementptr inbounds i8, ptr %config, i64 144
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %status.i10)
-  call void @PyConfig_SetWideStringList(ptr nonnull sret(%struct.PyStatus) align 8 %status.i10, ptr noundef nonnull %config, ptr noundef nonnull %xoptions10, i64 noundef 3, ptr noundef nonnull %xoptions) #20
-  %call.i11 = call i32 @PyStatus_Exception(ptr noundef nonnull byval(%struct.PyStatus) align 8 %status.i10) #20
+  call void @PyConfig_SetWideStringList(ptr nonnull sret(%struct.PyStatus) align 8 %status.i10, ptr noundef nonnull %config, ptr noundef nonnull %xoptions10, i64 noundef 3, ptr noundef nonnull %xoptions) #18
+  %call.i11 = call i32 @PyStatus_Exception(ptr noundef nonnull byval(%struct.PyStatus) align 8 %status.i10) #18
   %tobool.not.i12 = icmp eq i32 %call.i11, 0
   br i1 %tobool.not.i12, label %config_set_wide_string_list.exit, label %if.then.i13
 
 if.then.i13:                                      ; preds = %config_set_argv.exit
-  call void @PyConfig_Clear(ptr noundef nonnull %config) #20
-  call void @Py_ExitStatusException(ptr noundef nonnull byval(%struct.PyStatus) align 8 %status.i10) #23
+  call void @PyConfig_Clear(ptr noundef nonnull %config) #18
+  call void @Py_ExitStatusException(ptr noundef nonnull byval(%struct.PyStatus) align 8 %status.i10) #21
   unreachable
 
 config_set_wide_string_list.exit:                 ; preds = %config_set_argv.exit
@@ -1785,34 +1791,34 @@ config_set_wide_string_list.exit:                 ; preds = %config_set_argv.exi
   store i64 ptrtoint (ptr @.str.139 to i64), ptr %warnoptions, align 8
   %warnoptions12 = getelementptr inbounds i8, ptr %config, i64 160
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %status.i14)
-  call void @PyConfig_SetWideStringList(ptr nonnull sret(%struct.PyStatus) align 8 %status.i14, ptr noundef nonnull %config, ptr noundef nonnull %warnoptions12, i64 noundef 1, ptr noundef nonnull %warnoptions) #20
-  %call.i15 = call i32 @PyStatus_Exception(ptr noundef nonnull byval(%struct.PyStatus) align 8 %status.i14) #20
+  call void @PyConfig_SetWideStringList(ptr nonnull sret(%struct.PyStatus) align 8 %status.i14, ptr noundef nonnull %config, ptr noundef nonnull %warnoptions12, i64 noundef 1, ptr noundef nonnull %warnoptions) #18
+  %call.i15 = call i32 @PyStatus_Exception(ptr noundef nonnull byval(%struct.PyStatus) align 8 %status.i14) #18
   %tobool.not.i16 = icmp eq i32 %call.i15, 0
   br i1 %tobool.not.i16, label %config_set_wide_string_list.exit18, label %if.then.i17
 
 if.then.i17:                                      ; preds = %config_set_wide_string_list.exit
-  call void @PyConfig_Clear(ptr noundef nonnull %config) #20
-  call void @Py_ExitStatusException(ptr noundef nonnull byval(%struct.PyStatus) align 8 %status.i14) #23
+  call void @PyConfig_Clear(ptr noundef nonnull %config) #18
+  call void @Py_ExitStatusException(ptr noundef nonnull byval(%struct.PyStatus) align 8 %status.i14) #21
   unreachable
 
 config_set_wide_string_list.exit18:               ; preds = %config_set_wide_string_list.exit
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %status.i14)
-  %call14 = call i32 @putenv(ptr noundef nonnull @.str.140) #20
+  %call14 = call i32 @putenv(ptr noundef nonnull @.str.140) #18
   %platlibdir = getelementptr inbounds i8, ptr %config, i64 304
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %status.i19)
-  call void @PyConfig_SetString(ptr nonnull sret(%struct.PyStatus) align 8 %status.i19, ptr noundef nonnull %config, ptr noundef nonnull %platlibdir, ptr noundef nonnull @.str.141) #20
-  %call.i20 = call i32 @PyStatus_Exception(ptr noundef nonnull byval(%struct.PyStatus) align 8 %status.i19) #20
+  call void @PyConfig_SetString(ptr nonnull sret(%struct.PyStatus) align 8 %status.i19, ptr noundef nonnull %config, ptr noundef nonnull %platlibdir, ptr noundef nonnull @.str.141) #18
+  %call.i20 = call i32 @PyStatus_Exception(ptr noundef nonnull byval(%struct.PyStatus) align 8 %status.i19) #18
   %tobool.not.i21 = icmp eq i32 %call.i20, 0
   br i1 %tobool.not.i21, label %config_set_string.exit23, label %if.then.i22
 
 if.then.i22:                                      ; preds = %config_set_wide_string_list.exit18
-  call void @PyConfig_Clear(ptr noundef nonnull %config) #20
-  call void @Py_ExitStatusException(ptr noundef nonnull byval(%struct.PyStatus) align 8 %status.i19) #23
+  call void @PyConfig_Clear(ptr noundef nonnull %config) #18
+  call void @Py_ExitStatusException(ptr noundef nonnull byval(%struct.PyStatus) align 8 %status.i19) #21
   unreachable
 
 config_set_string.exit23:                         ; preds = %config_set_wide_string_list.exit18
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %status.i19)
-  %call15 = call i32 @putenv(ptr noundef nonnull @.str.119) #20
+  %call15 = call i32 @putenv(ptr noundef nonnull @.str.119) #18
   store i32 0, ptr @Py_VerboseFlag, align 4
   %verbose = getelementptr inbounds i8, ptr %config, i64 208
   store i32 1, ptr %verbose, align 8
@@ -1822,18 +1828,18 @@ config_set_string.exit23:                         ; preds = %config_set_wide_str
   store i32 0, ptr @Py_BytesWarningFlag, align 4
   %bytes_warning = getelementptr inbounds i8, ptr %config, i64 180
   store i32 1, ptr %bytes_warning, align 4
-  %call16 = call i32 @putenv(ptr noundef nonnull @.str.115) #20
+  %call16 = call i32 @putenv(ptr noundef nonnull @.str.115) #18
   store i32 0, ptr @Py_InspectFlag, align 4
   %inspect = getelementptr inbounds i8, ptr %config, i64 188
   store i32 1, ptr %inspect, align 4
   store i32 0, ptr @Py_InteractiveFlag, align 4
   %interactive = getelementptr inbounds i8, ptr %config, i64 192
   store i32 1, ptr %interactive, align 8
-  %call17 = call i32 @putenv(ptr noundef nonnull @.str.116) #20
+  %call17 = call i32 @putenv(ptr noundef nonnull @.str.116) #18
   store i32 1, ptr @Py_OptimizeFlag, align 4
   %optimization_level = getelementptr inbounds i8, ptr %config, i64 196
   store i32 2, ptr %optimization_level, align 4
-  %call18 = call i32 @putenv(ptr noundef nonnull @.str.118) #20
+  %call18 = call i32 @putenv(ptr noundef nonnull @.str.118) #18
   store i32 0, ptr @Py_DontWriteBytecodeFlag, align 4
   %write_bytecode = getelementptr inbounds i8, ptr %config, i64 204
   store i32 0, ptr %write_bytecode, align 4
@@ -1842,53 +1848,53 @@ config_set_string.exit23:                         ; preds = %config_set_wide_str
   store i32 1, ptr %quiet, align 4
   %configure_c_stdio = getelementptr inbounds i8, ptr %config, i64 220
   store i32 1, ptr %configure_c_stdio, align 4
-  %call19 = call i32 @putenv(ptr noundef nonnull @.str.120) #20
+  %call19 = call i32 @putenv(ptr noundef nonnull @.str.120) #18
   store i32 0, ptr @Py_UnbufferedStdioFlag, align 4
   %buffered_stdio = getelementptr inbounds i8, ptr %config, i64 224
   store i32 0, ptr %buffered_stdio, align 8
-  %call20 = call i32 @putenv(ptr noundef nonnull @.str.142) #20
+  %call20 = call i32 @putenv(ptr noundef nonnull @.str.142) #18
   %stdio_encoding = getelementptr inbounds i8, ptr %config, i64 232
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %status.i24)
-  call void @PyConfig_SetString(ptr nonnull sret(%struct.PyStatus) align 8 %status.i24, ptr noundef nonnull %config, ptr noundef nonnull %stdio_encoding, ptr noundef nonnull @.str.70) #20
-  %call.i25 = call i32 @PyStatus_Exception(ptr noundef nonnull byval(%struct.PyStatus) align 8 %status.i24) #20
+  call void @PyConfig_SetString(ptr nonnull sret(%struct.PyStatus) align 8 %status.i24, ptr noundef nonnull %config, ptr noundef nonnull %stdio_encoding, ptr noundef nonnull @.str.70) #18
+  %call.i25 = call i32 @PyStatus_Exception(ptr noundef nonnull byval(%struct.PyStatus) align 8 %status.i24) #18
   %tobool.not.i26 = icmp eq i32 %call.i25, 0
   br i1 %tobool.not.i26, label %config_set_string.exit28, label %if.then.i27
 
 if.then.i27:                                      ; preds = %config_set_string.exit23
-  call void @PyConfig_Clear(ptr noundef nonnull %config) #20
-  call void @Py_ExitStatusException(ptr noundef nonnull byval(%struct.PyStatus) align 8 %status.i24) #23
+  call void @PyConfig_Clear(ptr noundef nonnull %config) #18
+  call void @Py_ExitStatusException(ptr noundef nonnull byval(%struct.PyStatus) align 8 %status.i24) #21
   unreachable
 
 config_set_string.exit28:                         ; preds = %config_set_string.exit23
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %status.i24)
   %stdio_errors = getelementptr inbounds i8, ptr %config, i64 240
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %status.i29)
-  call void @PyConfig_SetString(ptr nonnull sret(%struct.PyStatus) align 8 %status.i29, ptr noundef nonnull %config, ptr noundef nonnull %stdio_errors, ptr noundef nonnull @.str.72) #20
-  %call.i30 = call i32 @PyStatus_Exception(ptr noundef nonnull byval(%struct.PyStatus) align 8 %status.i29) #20
+  call void @PyConfig_SetString(ptr nonnull sret(%struct.PyStatus) align 8 %status.i29, ptr noundef nonnull %config, ptr noundef nonnull %stdio_errors, ptr noundef nonnull @.str.72) #18
+  %call.i30 = call i32 @PyStatus_Exception(ptr noundef nonnull byval(%struct.PyStatus) align 8 %status.i29) #18
   %tobool.not.i31 = icmp eq i32 %call.i30, 0
   br i1 %tobool.not.i31, label %config_set_string.exit33, label %if.then.i32
 
 if.then.i32:                                      ; preds = %config_set_string.exit28
-  call void @PyConfig_Clear(ptr noundef nonnull %config) #20
-  call void @Py_ExitStatusException(ptr noundef nonnull byval(%struct.PyStatus) align 8 %status.i29) #23
+  call void @PyConfig_Clear(ptr noundef nonnull %config) #18
+  call void @Py_ExitStatusException(ptr noundef nonnull byval(%struct.PyStatus) align 8 %status.i29) #21
   unreachable
 
 config_set_string.exit33:                         ; preds = %config_set_string.exit28
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %status.i29)
-  %call21 = call i32 @putenv(ptr noundef nonnull @.str.143) #20
+  %call21 = call i32 @putenv(ptr noundef nonnull @.str.143) #18
   store i32 0, ptr @Py_NoUserSiteDirectory, align 4
   %user_site_directory = getelementptr inbounds i8, ptr %config, i64 216
   store i32 0, ptr %user_site_directory, align 8
   %check_hash_pycs_mode = getelementptr inbounds i8, ptr %config, i64 248
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %status.i34)
-  call void @PyConfig_SetString(ptr nonnull sret(%struct.PyStatus) align 8 %status.i34, ptr noundef nonnull %config, ptr noundef nonnull %check_hash_pycs_mode, ptr noundef nonnull @.str.144) #20
-  %call.i35 = call i32 @PyStatus_Exception(ptr noundef nonnull byval(%struct.PyStatus) align 8 %status.i34) #20
+  call void @PyConfig_SetString(ptr nonnull sret(%struct.PyStatus) align 8 %status.i34, ptr noundef nonnull %config, ptr noundef nonnull %check_hash_pycs_mode, ptr noundef nonnull @.str.144) #18
+  %call.i35 = call i32 @PyStatus_Exception(ptr noundef nonnull byval(%struct.PyStatus) align 8 %status.i34) #18
   %tobool.not.i36 = icmp eq i32 %call.i35, 0
   br i1 %tobool.not.i36, label %config_set_string.exit38, label %if.then.i37
 
 if.then.i37:                                      ; preds = %config_set_string.exit33
-  call void @PyConfig_Clear(ptr noundef nonnull %config) #20
-  call void @Py_ExitStatusException(ptr noundef nonnull byval(%struct.PyStatus) align 8 %status.i34) #23
+  call void @PyConfig_Clear(ptr noundef nonnull %config) #18
+  call void @Py_ExitStatusException(ptr noundef nonnull byval(%struct.PyStatus) align 8 %status.i34) #21
   unreachable
 
 config_set_string.exit38:                         ; preds = %config_set_string.exit33
@@ -1898,26 +1904,26 @@ config_set_string.exit38:                         ; preds = %config_set_string.e
   store i32 0, ptr %pathconfig_warnings, align 8
   %safe_path = getelementptr inbounds i8, ptr %config, i64 260
   store i32 1, ptr %safe_path, align 4
-  %call22 = call i32 @putenv(ptr noundef nonnull @.str.145) #20
+  %call22 = call i32 @putenv(ptr noundef nonnull @.str.145) #18
   %int_max_str_digits = getelementptr inbounds i8, ptr %config, i64 264
   store i32 31337, ptr %int_max_str_digits, align 8
   %cpu_count = getelementptr inbounds i8, ptr %config, i64 268
   store i32 4321, ptr %cpu_count, align 4
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %status.i39)
-  call void @Py_InitializeFromConfig(ptr nonnull sret(%struct.PyStatus) align 8 %status.i39, ptr noundef nonnull %config) #20
-  call void @PyConfig_Clear(ptr noundef nonnull %config) #20
-  %call.i40 = call i32 @PyStatus_Exception(ptr noundef nonnull byval(%struct.PyStatus) align 8 %status.i39) #20
+  call void @Py_InitializeFromConfig(ptr nonnull sret(%struct.PyStatus) align 8 %status.i39, ptr noundef nonnull %config) #18
+  call void @PyConfig_Clear(ptr noundef nonnull %config) #18
+  %call.i40 = call i32 @PyStatus_Exception(ptr noundef nonnull byval(%struct.PyStatus) align 8 %status.i39) #18
   %tobool.not.i41 = icmp eq i32 %call.i40, 0
   br i1 %tobool.not.i41, label %init_from_config_clear.exit, label %if.then.i42
 
 if.then.i42:                                      ; preds = %config_set_string.exit38
-  call void @Py_ExitStatusException(ptr noundef nonnull byval(%struct.PyStatus) align 8 %status.i39) #23
+  call void @Py_ExitStatusException(ptr noundef nonnull byval(%struct.PyStatus) align 8 %status.i39) #21
   unreachable
 
 init_from_config_clear.exit:                      ; preds = %config_set_string.exit38
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %status.i39)
-  %call.i43 = call i32 @PyRun_SimpleStringFlags(ptr noundef nonnull @.str.112, ptr noundef null) #20
-  call void @Py_Finalize() #20
+  %call.i43 = call i32 @PyRun_SimpleStringFlags(ptr noundef nonnull @.str.112, ptr noundef null) #18
+  call void @Py_Finalize() #18
   ret i32 0
 }
 
@@ -1941,8 +1947,8 @@ entry:
   store i32 0, ptr @Py_IgnoreEnvironmentFlag, align 4
   tail call fastcc void @set_all_env_vars()
   tail call fastcc void @_testembed_Py_InitializeFromConfig()
-  %call.i = tail call i32 @PyRun_SimpleStringFlags(ptr noundef nonnull @.str.112, ptr noundef null) #20
-  tail call void @Py_Finalize() #20
+  %call.i = tail call i32 @PyRun_SimpleStringFlags(ptr noundef nonnull @.str.112, ptr noundef null) #18
+  tail call void @Py_Finalize() #18
   ret i32 0
 }
 
@@ -1953,36 +1959,36 @@ entry:
   %status.i.i = alloca %struct.PyStatus, align 8
   %config = alloca %struct.PyConfig, align 8
   tail call fastcc void @set_all_env_vars()
-  call void @PyConfig_InitPythonConfig(ptr noundef nonnull %config) #20
+  call void @PyConfig_InitPythonConfig(ptr noundef nonnull %config) #18
   %program_name1.i = getelementptr inbounds i8, ptr %config, i64 280
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %status.i.i)
-  call void @PyConfig_SetString(ptr nonnull sret(%struct.PyStatus) align 8 %status.i.i, ptr noundef nonnull %config, ptr noundef nonnull %program_name1.i, ptr noundef nonnull @.str.64) #20
-  %call.i.i = call i32 @PyStatus_Exception(ptr noundef nonnull byval(%struct.PyStatus) align 8 %status.i.i) #20
+  call void @PyConfig_SetString(ptr nonnull sret(%struct.PyStatus) align 8 %status.i.i, ptr noundef nonnull %config, ptr noundef nonnull %program_name1.i, ptr noundef nonnull @.str.64) #18
+  %call.i.i = call i32 @PyStatus_Exception(ptr noundef nonnull byval(%struct.PyStatus) align 8 %status.i.i) #18
   %tobool.not.i.i = icmp eq i32 %call.i.i, 0
   br i1 %tobool.not.i.i, label %config_set_program_name.exit, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %entry
-  call void @PyConfig_Clear(ptr noundef nonnull %config) #20
-  call void @Py_ExitStatusException(ptr noundef nonnull byval(%struct.PyStatus) align 8 %status.i.i) #23
+  call void @PyConfig_Clear(ptr noundef nonnull %config) #18
+  call void @Py_ExitStatusException(ptr noundef nonnull byval(%struct.PyStatus) align 8 %status.i.i) #21
   unreachable
 
 config_set_program_name.exit:                     ; preds = %entry
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %status.i.i)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %status.i)
-  call void @Py_InitializeFromConfig(ptr nonnull sret(%struct.PyStatus) align 8 %status.i, ptr noundef nonnull %config) #20
-  call void @PyConfig_Clear(ptr noundef nonnull %config) #20
-  %call.i = call i32 @PyStatus_Exception(ptr noundef nonnull byval(%struct.PyStatus) align 8 %status.i) #20
+  call void @Py_InitializeFromConfig(ptr nonnull sret(%struct.PyStatus) align 8 %status.i, ptr noundef nonnull %config) #18
+  call void @PyConfig_Clear(ptr noundef nonnull %config) #18
+  %call.i = call i32 @PyStatus_Exception(ptr noundef nonnull byval(%struct.PyStatus) align 8 %status.i) #18
   %tobool.not.i = icmp eq i32 %call.i, 0
   br i1 %tobool.not.i, label %init_from_config_clear.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %config_set_program_name.exit
-  call void @Py_ExitStatusException(ptr noundef nonnull byval(%struct.PyStatus) align 8 %status.i) #23
+  call void @Py_ExitStatusException(ptr noundef nonnull byval(%struct.PyStatus) align 8 %status.i) #21
   unreachable
 
 init_from_config_clear.exit:                      ; preds = %config_set_program_name.exit
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %status.i)
-  %call.i1 = call i32 @PyRun_SimpleStringFlags(ptr noundef nonnull @.str.112, ptr noundef null) #20
-  call void @Py_Finalize() #20
+  %call.i1 = call i32 @PyRun_SimpleStringFlags(ptr noundef nonnull @.str.112, ptr noundef null) #18
+  call void @Py_Finalize() #18
   ret i32 0
 }
 
@@ -1990,12 +1996,12 @@ init_from_config_clear.exit:                      ; preds = %config_set_program_
 define internal noundef i32 @test_init_env_dev_mode() #0 {
 entry:
   store i32 0, ptr @Py_IgnoreEnvironmentFlag, align 4
-  %call.i = tail call i32 @putenv(ptr noundef nonnull @.str.85) #20
-  %call1.i = tail call i32 @putenv(ptr noundef nonnull @.str.123) #20
-  %call2.i = tail call i32 @putenv(ptr noundef nonnull @.str.169) #20
+  %call.i = tail call i32 @putenv(ptr noundef nonnull @.str.85) #18
+  %call1.i = tail call i32 @putenv(ptr noundef nonnull @.str.123) #18
+  %call2.i = tail call i32 @putenv(ptr noundef nonnull @.str.169) #18
   tail call fastcc void @_testembed_Py_InitializeFromConfig()
-  %call.i1 = tail call i32 @PyRun_SimpleStringFlags(ptr noundef nonnull @.str.112, ptr noundef null) #20
-  tail call void @Py_Finalize() #20
+  %call.i1 = tail call i32 @PyRun_SimpleStringFlags(ptr noundef nonnull @.str.112, ptr noundef null) #18
+  tail call void @Py_Finalize() #18
   ret i32 0
 }
 
@@ -2003,13 +2009,13 @@ entry:
 define internal noundef i32 @test_init_env_dev_mode_alloc() #0 {
 entry:
   store i32 0, ptr @Py_IgnoreEnvironmentFlag, align 4
-  %call.i = tail call i32 @putenv(ptr noundef nonnull @.str.85) #20
-  %call1.i = tail call i32 @putenv(ptr noundef nonnull @.str.123) #20
-  %call2.i = tail call i32 @putenv(ptr noundef nonnull @.str.169) #20
-  %call = tail call i32 @putenv(ptr noundef nonnull @.str.153) #20
+  %call.i = tail call i32 @putenv(ptr noundef nonnull @.str.85) #18
+  %call1.i = tail call i32 @putenv(ptr noundef nonnull @.str.123) #18
+  %call2.i = tail call i32 @putenv(ptr noundef nonnull @.str.169) #18
+  %call = tail call i32 @putenv(ptr noundef nonnull @.str.153) #18
   tail call fastcc void @_testembed_Py_InitializeFromConfig()
-  %call.i1 = tail call i32 @PyRun_SimpleStringFlags(ptr noundef nonnull @.str.112, ptr noundef null) #20
-  tail call void @Py_Finalize() #20
+  %call.i1 = tail call i32 @PyRun_SimpleStringFlags(ptr noundef nonnull @.str.112, ptr noundef null) #18
+  tail call void @Py_Finalize() #18
   ret i32 0
 }
 
@@ -2021,53 +2027,53 @@ entry:
   %preconfig = alloca %struct.PyPreConfig, align 4
   %status = alloca %struct.PyStatus, align 8
   %config = alloca %struct.PyConfig, align 8
-  call void @PyPreConfig_InitPythonConfig(ptr noundef nonnull %preconfig) #20
+  call void @PyPreConfig_InitPythonConfig(ptr noundef nonnull %preconfig) #18
   %configure_locale = getelementptr inbounds i8, ptr %preconfig, i64 16
   store i32 0, ptr %configure_locale, align 4
   %coerce_c_locale = getelementptr inbounds i8, ptr %preconfig, i64 20
   store i32 1, ptr %coerce_c_locale, align 4
   %coerce_c_locale_warn = getelementptr inbounds i8, ptr %preconfig, i64 24
   store i32 1, ptr %coerce_c_locale_warn, align 4
-  call void @Py_PreInitialize(ptr nonnull sret(%struct.PyStatus) align 8 %status, ptr noundef nonnull %preconfig) #20
-  %call = call i32 @PyStatus_Exception(ptr noundef nonnull byval(%struct.PyStatus) align 8 %status) #20
+  call void @Py_PreInitialize(ptr nonnull sret(%struct.PyStatus) align 8 %status, ptr noundef nonnull %preconfig) #18
+  %call = call i32 @PyStatus_Exception(ptr noundef nonnull byval(%struct.PyStatus) align 8 %status) #18
   %tobool.not = icmp eq i32 %call, 0
   br i1 %tobool.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
-  call void @Py_ExitStatusException(ptr noundef nonnull byval(%struct.PyStatus) align 8 %status) #23
+  call void @Py_ExitStatusException(ptr noundef nonnull byval(%struct.PyStatus) align 8 %status) #21
   unreachable
 
 if.end:                                           ; preds = %entry
-  call void @PyConfig_InitPythonConfig(ptr noundef nonnull %config) #20
+  call void @PyConfig_InitPythonConfig(ptr noundef nonnull %config) #18
   %program_name1.i = getelementptr inbounds i8, ptr %config, i64 280
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %status.i.i)
-  call void @PyConfig_SetString(ptr nonnull sret(%struct.PyStatus) align 8 %status.i.i, ptr noundef nonnull %config, ptr noundef nonnull %program_name1.i, ptr noundef nonnull @.str.64) #20
-  %call.i.i = call i32 @PyStatus_Exception(ptr noundef nonnull byval(%struct.PyStatus) align 8 %status.i.i) #20
+  call void @PyConfig_SetString(ptr nonnull sret(%struct.PyStatus) align 8 %status.i.i, ptr noundef nonnull %config, ptr noundef nonnull %program_name1.i, ptr noundef nonnull @.str.64) #18
+  %call.i.i = call i32 @PyStatus_Exception(ptr noundef nonnull byval(%struct.PyStatus) align 8 %status.i.i) #18
   %tobool.not.i.i = icmp eq i32 %call.i.i, 0
   br i1 %tobool.not.i.i, label %config_set_program_name.exit, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %if.end
-  call void @PyConfig_Clear(ptr noundef nonnull %config) #20
-  call void @Py_ExitStatusException(ptr noundef nonnull byval(%struct.PyStatus) align 8 %status.i.i) #23
+  call void @PyConfig_Clear(ptr noundef nonnull %config) #18
+  call void @Py_ExitStatusException(ptr noundef nonnull byval(%struct.PyStatus) align 8 %status.i.i) #21
   unreachable
 
 config_set_program_name.exit:                     ; preds = %if.end
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %status.i.i)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %status.i)
-  call void @Py_InitializeFromConfig(ptr nonnull sret(%struct.PyStatus) align 8 %status.i, ptr noundef nonnull %config) #20
-  call void @PyConfig_Clear(ptr noundef nonnull %config) #20
-  %call.i = call i32 @PyStatus_Exception(ptr noundef nonnull byval(%struct.PyStatus) align 8 %status.i) #20
+  call void @Py_InitializeFromConfig(ptr nonnull sret(%struct.PyStatus) align 8 %status.i, ptr noundef nonnull %config) #18
+  call void @PyConfig_Clear(ptr noundef nonnull %config) #18
+  %call.i = call i32 @PyStatus_Exception(ptr noundef nonnull byval(%struct.PyStatus) align 8 %status.i) #18
   %tobool.not.i = icmp eq i32 %call.i, 0
   br i1 %tobool.not.i, label %init_from_config_clear.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %config_set_program_name.exit
-  call void @Py_ExitStatusException(ptr noundef nonnull byval(%struct.PyStatus) align 8 %status.i) #23
+  call void @Py_ExitStatusException(ptr noundef nonnull byval(%struct.PyStatus) align 8 %status.i) #21
   unreachable
 
 init_from_config_clear.exit:                      ; preds = %config_set_program_name.exit
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %status.i)
-  %call.i1 = call i32 @PyRun_SimpleStringFlags(ptr noundef nonnull @.str.112, ptr noundef null) #20
-  call void @Py_Finalize() #20
+  %call.i1 = call i32 @PyRun_SimpleStringFlags(ptr noundef nonnull @.str.112, ptr noundef null) #18
+  call void @Py_Finalize() #18
   ret i32 0
 }
 
@@ -2077,40 +2083,40 @@ entry:
   %status.i = alloca %struct.PyStatus, align 8
   %status.i.i = alloca %struct.PyStatus, align 8
   %config = alloca %struct.PyConfig, align 8
-  call void @PyConfig_InitPythonConfig(ptr noundef nonnull %config) #20
-  %call = call i32 @putenv(ptr noundef nonnull @.str.123) #20
-  %call1 = call i32 @putenv(ptr noundef nonnull @.str.85) #20
+  call void @PyConfig_InitPythonConfig(ptr noundef nonnull %config) #18
+  %call = call i32 @putenv(ptr noundef nonnull @.str.123) #18
+  %call1 = call i32 @putenv(ptr noundef nonnull @.str.85) #18
   %dev_mode = getelementptr inbounds i8, ptr %config, i64 12
   store i32 1, ptr %dev_mode, align 4
   %program_name1.i = getelementptr inbounds i8, ptr %config, i64 280
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %status.i.i)
-  call void @PyConfig_SetString(ptr nonnull sret(%struct.PyStatus) align 8 %status.i.i, ptr noundef nonnull %config, ptr noundef nonnull %program_name1.i, ptr noundef nonnull @.str.64) #20
-  %call.i.i = call i32 @PyStatus_Exception(ptr noundef nonnull byval(%struct.PyStatus) align 8 %status.i.i) #20
+  call void @PyConfig_SetString(ptr nonnull sret(%struct.PyStatus) align 8 %status.i.i, ptr noundef nonnull %config, ptr noundef nonnull %program_name1.i, ptr noundef nonnull @.str.64) #18
+  %call.i.i = call i32 @PyStatus_Exception(ptr noundef nonnull byval(%struct.PyStatus) align 8 %status.i.i) #18
   %tobool.not.i.i = icmp eq i32 %call.i.i, 0
   br i1 %tobool.not.i.i, label %config_set_program_name.exit, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %entry
-  call void @PyConfig_Clear(ptr noundef nonnull %config) #20
-  call void @Py_ExitStatusException(ptr noundef nonnull byval(%struct.PyStatus) align 8 %status.i.i) #23
+  call void @PyConfig_Clear(ptr noundef nonnull %config) #18
+  call void @Py_ExitStatusException(ptr noundef nonnull byval(%struct.PyStatus) align 8 %status.i.i) #21
   unreachable
 
 config_set_program_name.exit:                     ; preds = %entry
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %status.i.i)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %status.i)
-  call void @Py_InitializeFromConfig(ptr nonnull sret(%struct.PyStatus) align 8 %status.i, ptr noundef nonnull %config) #20
-  call void @PyConfig_Clear(ptr noundef nonnull %config) #20
-  %call.i = call i32 @PyStatus_Exception(ptr noundef nonnull byval(%struct.PyStatus) align 8 %status.i) #20
+  call void @Py_InitializeFromConfig(ptr nonnull sret(%struct.PyStatus) align 8 %status.i, ptr noundef nonnull %config) #18
+  call void @PyConfig_Clear(ptr noundef nonnull %config) #18
+  %call.i = call i32 @PyStatus_Exception(ptr noundef nonnull byval(%struct.PyStatus) align 8 %status.i) #18
   %tobool.not.i = icmp eq i32 %call.i, 0
   br i1 %tobool.not.i, label %init_from_config_clear.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %config_set_program_name.exit
-  call void @Py_ExitStatusException(ptr noundef nonnull byval(%struct.PyStatus) align 8 %status.i) #23
+  call void @Py_ExitStatusException(ptr noundef nonnull byval(%struct.PyStatus) align 8 %status.i) #21
   unreachable
 
 init_from_config_clear.exit:                      ; preds = %config_set_program_name.exit
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %status.i)
-  %call.i1 = call i32 @PyRun_SimpleStringFlags(ptr noundef nonnull @.str.112, ptr noundef null) #20
-  call void @Py_Finalize() #20
+  %call.i1 = call i32 @PyRun_SimpleStringFlags(ptr noundef nonnull @.str.112, ptr noundef null) #18
+  call void @Py_Finalize() #18
   ret i32 0
 }
 
@@ -2120,7 +2126,7 @@ entry:
   %status.i = alloca %struct.PyStatus, align 8
   %status.i.i = alloca %struct.PyStatus, align 8
   %config = alloca %struct.PyConfig, align 8
-  call void @PyConfig_InitPythonConfig(ptr noundef nonnull %config) #20
+  call void @PyConfig_InitPythonConfig(ptr noundef nonnull %config) #18
   store i32 0, ptr @Py_IsolatedFlag, align 4
   %isolated = getelementptr inbounds i8, ptr %config, i64 4
   store i32 1, ptr %isolated, align 4
@@ -2132,34 +2138,34 @@ entry:
   store i32 1, ptr %user_site_directory, align 8
   %program_name1.i = getelementptr inbounds i8, ptr %config, i64 280
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %status.i.i)
-  call void @PyConfig_SetString(ptr nonnull sret(%struct.PyStatus) align 8 %status.i.i, ptr noundef nonnull %config, ptr noundef nonnull %program_name1.i, ptr noundef nonnull @.str.64) #20
-  %call.i.i = call i32 @PyStatus_Exception(ptr noundef nonnull byval(%struct.PyStatus) align 8 %status.i.i) #20
+  call void @PyConfig_SetString(ptr nonnull sret(%struct.PyStatus) align 8 %status.i.i, ptr noundef nonnull %config, ptr noundef nonnull %program_name1.i, ptr noundef nonnull @.str.64) #18
+  %call.i.i = call i32 @PyStatus_Exception(ptr noundef nonnull byval(%struct.PyStatus) align 8 %status.i.i) #18
   %tobool.not.i.i = icmp eq i32 %call.i.i, 0
   br i1 %tobool.not.i.i, label %config_set_program_name.exit, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %entry
-  call void @PyConfig_Clear(ptr noundef nonnull %config) #20
-  call void @Py_ExitStatusException(ptr noundef nonnull byval(%struct.PyStatus) align 8 %status.i.i) #23
+  call void @PyConfig_Clear(ptr noundef nonnull %config) #18
+  call void @Py_ExitStatusException(ptr noundef nonnull byval(%struct.PyStatus) align 8 %status.i.i) #21
   unreachable
 
 config_set_program_name.exit:                     ; preds = %entry
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %status.i.i)
   call fastcc void @set_all_env_vars()
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %status.i)
-  call void @Py_InitializeFromConfig(ptr nonnull sret(%struct.PyStatus) align 8 %status.i, ptr noundef nonnull %config) #20
-  call void @PyConfig_Clear(ptr noundef nonnull %config) #20
-  %call.i = call i32 @PyStatus_Exception(ptr noundef nonnull byval(%struct.PyStatus) align 8 %status.i) #20
+  call void @Py_InitializeFromConfig(ptr nonnull sret(%struct.PyStatus) align 8 %status.i, ptr noundef nonnull %config) #18
+  call void @PyConfig_Clear(ptr noundef nonnull %config) #18
+  %call.i = call i32 @PyStatus_Exception(ptr noundef nonnull byval(%struct.PyStatus) align 8 %status.i) #18
   %tobool.not.i = icmp eq i32 %call.i, 0
   br i1 %tobool.not.i, label %init_from_config_clear.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %config_set_program_name.exit
-  call void @Py_ExitStatusException(ptr noundef nonnull byval(%struct.PyStatus) align 8 %status.i) #23
+  call void @Py_ExitStatusException(ptr noundef nonnull byval(%struct.PyStatus) align 8 %status.i) #21
   unreachable
 
 init_from_config_clear.exit:                      ; preds = %config_set_program_name.exit
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %status.i)
-  %call.i1 = call i32 @PyRun_SimpleStringFlags(ptr noundef nonnull @.str.112, ptr noundef null) #20
-  call void @Py_Finalize() #20
+  %call.i1 = call i32 @PyRun_SimpleStringFlags(ptr noundef nonnull @.str.112, ptr noundef null) #18
+  call void @Py_Finalize() #18
   ret i32 0
 }
 
@@ -2199,50 +2205,50 @@ entry:
   %preconfig = alloca %struct.PyPreConfig, align 4
   %status = alloca %struct.PyStatus, align 8
   %config = alloca %struct.PyConfig, align 8
-  call void @_PyPreConfig_InitCompatConfig(ptr noundef nonnull %preconfig) #20
+  call void @_PyPreConfig_InitCompatConfig(ptr noundef nonnull %preconfig) #18
   %isolated = getelementptr inbounds i8, ptr %preconfig, i64 8
   store i32 1, ptr %isolated, align 4
-  call void @Py_PreInitialize(ptr nonnull sret(%struct.PyStatus) align 8 %status, ptr noundef nonnull %preconfig) #20
-  %call = call i32 @PyStatus_Exception(ptr noundef nonnull byval(%struct.PyStatus) align 8 %status) #20
+  call void @Py_PreInitialize(ptr nonnull sret(%struct.PyStatus) align 8 %status, ptr noundef nonnull %preconfig) #18
+  %call = call i32 @PyStatus_Exception(ptr noundef nonnull byval(%struct.PyStatus) align 8 %status) #18
   %tobool.not = icmp eq i32 %call, 0
   br i1 %tobool.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
-  call void @Py_ExitStatusException(ptr noundef nonnull byval(%struct.PyStatus) align 8 %status) #23
+  call void @Py_ExitStatusException(ptr noundef nonnull byval(%struct.PyStatus) align 8 %status) #21
   unreachable
 
 if.end:                                           ; preds = %entry
-  call void @_PyConfig_InitCompatConfig(ptr noundef nonnull %config) #20
+  call void @_PyConfig_InitCompatConfig(ptr noundef nonnull %config) #18
   %program_name1.i = getelementptr inbounds i8, ptr %config, i64 280
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %status.i.i)
-  call void @PyConfig_SetString(ptr nonnull sret(%struct.PyStatus) align 8 %status.i.i, ptr noundef nonnull %config, ptr noundef nonnull %program_name1.i, ptr noundef nonnull @.str.64) #20
-  %call.i.i = call i32 @PyStatus_Exception(ptr noundef nonnull byval(%struct.PyStatus) align 8 %status.i.i) #20
+  call void @PyConfig_SetString(ptr nonnull sret(%struct.PyStatus) align 8 %status.i.i, ptr noundef nonnull %config, ptr noundef nonnull %program_name1.i, ptr noundef nonnull @.str.64) #18
+  %call.i.i = call i32 @PyStatus_Exception(ptr noundef nonnull byval(%struct.PyStatus) align 8 %status.i.i) #18
   %tobool.not.i.i = icmp eq i32 %call.i.i, 0
   br i1 %tobool.not.i.i, label %config_set_program_name.exit, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %if.end
-  call void @PyConfig_Clear(ptr noundef nonnull %config) #20
-  call void @Py_ExitStatusException(ptr noundef nonnull byval(%struct.PyStatus) align 8 %status.i.i) #23
+  call void @PyConfig_Clear(ptr noundef nonnull %config) #18
+  call void @Py_ExitStatusException(ptr noundef nonnull byval(%struct.PyStatus) align 8 %status.i.i) #21
   unreachable
 
 config_set_program_name.exit:                     ; preds = %if.end
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %status.i.i)
   call fastcc void @set_all_env_vars()
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %status.i)
-  call void @Py_InitializeFromConfig(ptr nonnull sret(%struct.PyStatus) align 8 %status.i, ptr noundef nonnull %config) #20
-  call void @PyConfig_Clear(ptr noundef nonnull %config) #20
-  %call.i = call i32 @PyStatus_Exception(ptr noundef nonnull byval(%struct.PyStatus) align 8 %status.i) #20
+  call void @Py_InitializeFromConfig(ptr nonnull sret(%struct.PyStatus) align 8 %status.i, ptr noundef nonnull %config) #18
+  call void @PyConfig_Clear(ptr noundef nonnull %config) #18
+  %call.i = call i32 @PyStatus_Exception(ptr noundef nonnull byval(%struct.PyStatus) align 8 %status.i) #18
   %tobool.not.i = icmp eq i32 %call.i, 0
   br i1 %tobool.not.i, label %init_from_config_clear.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %config_set_program_name.exit
-  call void @Py_ExitStatusException(ptr noundef nonnull byval(%struct.PyStatus) align 8 %status.i) #23
+  call void @Py_ExitStatusException(ptr noundef nonnull byval(%struct.PyStatus) align 8 %status.i) #21
   unreachable
 
 init_from_config_clear.exit:                      ; preds = %config_set_program_name.exit
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %status.i)
-  %call.i1 = call i32 @PyRun_SimpleStringFlags(ptr noundef nonnull @.str.112, ptr noundef null) #20
-  call void @Py_Finalize() #20
+  %call.i1 = call i32 @PyRun_SimpleStringFlags(ptr noundef nonnull @.str.112, ptr noundef null) #18
+  call void @Py_Finalize() #18
   ret i32 0
 }
 
@@ -2254,53 +2260,53 @@ entry:
   %preconfig = alloca %struct.PyPreConfig, align 4
   %status = alloca %struct.PyStatus, align 8
   %config = alloca %struct.PyConfig, align 8
-  call void @_PyPreConfig_InitCompatConfig(ptr noundef nonnull %preconfig) #20
+  call void @_PyPreConfig_InitCompatConfig(ptr noundef nonnull %preconfig) #18
   %isolated = getelementptr inbounds i8, ptr %preconfig, i64 8
   store i32 0, ptr %isolated, align 4
-  call void @Py_PreInitialize(ptr nonnull sret(%struct.PyStatus) align 8 %status, ptr noundef nonnull %preconfig) #20
-  %call = call i32 @PyStatus_Exception(ptr noundef nonnull byval(%struct.PyStatus) align 8 %status) #20
+  call void @Py_PreInitialize(ptr nonnull sret(%struct.PyStatus) align 8 %status, ptr noundef nonnull %preconfig) #18
+  %call = call i32 @PyStatus_Exception(ptr noundef nonnull byval(%struct.PyStatus) align 8 %status) #18
   %tobool.not = icmp eq i32 %call, 0
   br i1 %tobool.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
-  call void @Py_ExitStatusException(ptr noundef nonnull byval(%struct.PyStatus) align 8 %status) #23
+  call void @Py_ExitStatusException(ptr noundef nonnull byval(%struct.PyStatus) align 8 %status) #21
   unreachable
 
 if.end:                                           ; preds = %entry
-  call void @_PyConfig_InitCompatConfig(ptr noundef nonnull %config) #20
+  call void @_PyConfig_InitCompatConfig(ptr noundef nonnull %config) #18
   store i32 0, ptr @Py_IsolatedFlag, align 4
   %isolated1 = getelementptr inbounds i8, ptr %config, i64 4
   store i32 1, ptr %isolated1, align 4
   %program_name1.i = getelementptr inbounds i8, ptr %config, i64 280
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %status.i.i)
-  call void @PyConfig_SetString(ptr nonnull sret(%struct.PyStatus) align 8 %status.i.i, ptr noundef nonnull %config, ptr noundef nonnull %program_name1.i, ptr noundef nonnull @.str.64) #20
-  %call.i.i = call i32 @PyStatus_Exception(ptr noundef nonnull byval(%struct.PyStatus) align 8 %status.i.i) #20
+  call void @PyConfig_SetString(ptr nonnull sret(%struct.PyStatus) align 8 %status.i.i, ptr noundef nonnull %config, ptr noundef nonnull %program_name1.i, ptr noundef nonnull @.str.64) #18
+  %call.i.i = call i32 @PyStatus_Exception(ptr noundef nonnull byval(%struct.PyStatus) align 8 %status.i.i) #18
   %tobool.not.i.i = icmp eq i32 %call.i.i, 0
   br i1 %tobool.not.i.i, label %config_set_program_name.exit, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %if.end
-  call void @PyConfig_Clear(ptr noundef nonnull %config) #20
-  call void @Py_ExitStatusException(ptr noundef nonnull byval(%struct.PyStatus) align 8 %status.i.i) #23
+  call void @PyConfig_Clear(ptr noundef nonnull %config) #18
+  call void @Py_ExitStatusException(ptr noundef nonnull byval(%struct.PyStatus) align 8 %status.i.i) #21
   unreachable
 
 config_set_program_name.exit:                     ; preds = %if.end
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %status.i.i)
   call fastcc void @set_all_env_vars()
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %status.i)
-  call void @Py_InitializeFromConfig(ptr nonnull sret(%struct.PyStatus) align 8 %status.i, ptr noundef nonnull %config) #20
-  call void @PyConfig_Clear(ptr noundef nonnull %config) #20
-  %call.i = call i32 @PyStatus_Exception(ptr noundef nonnull byval(%struct.PyStatus) align 8 %status.i) #20
+  call void @Py_InitializeFromConfig(ptr nonnull sret(%struct.PyStatus) align 8 %status.i, ptr noundef nonnull %config) #18
+  call void @PyConfig_Clear(ptr noundef nonnull %config) #18
+  %call.i = call i32 @PyStatus_Exception(ptr noundef nonnull byval(%struct.PyStatus) align 8 %status.i) #18
   %tobool.not.i = icmp eq i32 %call.i, 0
   br i1 %tobool.not.i, label %init_from_config_clear.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %config_set_program_name.exit
-  call void @Py_ExitStatusException(ptr noundef nonnull byval(%struct.PyStatus) align 8 %status.i) #23
+  call void @Py_ExitStatusException(ptr noundef nonnull byval(%struct.PyStatus) align 8 %status.i) #21
   unreachable
 
 init_from_config_clear.exit:                      ; preds = %config_set_program_name.exit
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %status.i)
-  %call.i1 = call i32 @PyRun_SimpleStringFlags(ptr noundef nonnull @.str.112, ptr noundef null) #20
-  call void @Py_Finalize() #20
+  %call.i1 = call i32 @PyRun_SimpleStringFlags(ptr noundef nonnull @.str.112, ptr noundef null) #18
+  call void @Py_Finalize() #18
   ret i32 0
 }
 
@@ -2312,50 +2318,50 @@ entry:
   %status.i = alloca %struct.PyStatus, align 8
   %config = alloca %struct.PyConfig, align 8
   %argv = alloca [5 x ptr], align 16
-  call void @PyConfig_InitPythonConfig(ptr noundef nonnull %config) #20
+  call void @PyConfig_InitPythonConfig(ptr noundef nonnull %config) #18
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(40) %argv, ptr noundef nonnull align 16 dereferenceable(40) @__const.test_preinit_parse_argv.argv, i64 40, i1 false)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %status.i)
-  call void @PyConfig_SetArgv(ptr nonnull sret(%struct.PyStatus) align 8 %status.i, ptr noundef nonnull %config, i64 noundef 5, ptr noundef nonnull %argv) #20
-  %call.i = call i32 @PyStatus_Exception(ptr noundef nonnull byval(%struct.PyStatus) align 8 %status.i) #20
+  call void @PyConfig_SetArgv(ptr nonnull sret(%struct.PyStatus) align 8 %status.i, ptr noundef nonnull %config, i64 noundef 5, ptr noundef nonnull %argv) #18
+  %call.i = call i32 @PyStatus_Exception(ptr noundef nonnull byval(%struct.PyStatus) align 8 %status.i) #18
   %tobool.not.i = icmp eq i32 %call.i, 0
   br i1 %tobool.not.i, label %config_set_argv.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %entry
-  call void @PyConfig_Clear(ptr noundef nonnull %config) #20
-  call void @Py_ExitStatusException(ptr noundef nonnull byval(%struct.PyStatus) align 8 %status.i) #23
+  call void @PyConfig_Clear(ptr noundef nonnull %config) #18
+  call void @Py_ExitStatusException(ptr noundef nonnull byval(%struct.PyStatus) align 8 %status.i) #21
   unreachable
 
 config_set_argv.exit:                             ; preds = %entry
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %status.i)
   %program_name1.i = getelementptr inbounds i8, ptr %config, i64 280
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %status.i.i)
-  call void @PyConfig_SetString(ptr nonnull sret(%struct.PyStatus) align 8 %status.i.i, ptr noundef nonnull %config, ptr noundef nonnull %program_name1.i, ptr noundef nonnull @.str.64) #20
-  %call.i.i = call i32 @PyStatus_Exception(ptr noundef nonnull byval(%struct.PyStatus) align 8 %status.i.i) #20
+  call void @PyConfig_SetString(ptr nonnull sret(%struct.PyStatus) align 8 %status.i.i, ptr noundef nonnull %config, ptr noundef nonnull %program_name1.i, ptr noundef nonnull @.str.64) #18
+  %call.i.i = call i32 @PyStatus_Exception(ptr noundef nonnull byval(%struct.PyStatus) align 8 %status.i.i) #18
   %tobool.not.i.i = icmp eq i32 %call.i.i, 0
   br i1 %tobool.not.i.i, label %config_set_program_name.exit, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %config_set_argv.exit
-  call void @PyConfig_Clear(ptr noundef nonnull %config) #20
-  call void @Py_ExitStatusException(ptr noundef nonnull byval(%struct.PyStatus) align 8 %status.i.i) #23
+  call void @PyConfig_Clear(ptr noundef nonnull %config) #18
+  call void @Py_ExitStatusException(ptr noundef nonnull byval(%struct.PyStatus) align 8 %status.i.i) #21
   unreachable
 
 config_set_program_name.exit:                     ; preds = %config_set_argv.exit
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %status.i.i)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %status.i1)
-  call void @Py_InitializeFromConfig(ptr nonnull sret(%struct.PyStatus) align 8 %status.i1, ptr noundef nonnull %config) #20
-  call void @PyConfig_Clear(ptr noundef nonnull %config) #20
-  %call.i2 = call i32 @PyStatus_Exception(ptr noundef nonnull byval(%struct.PyStatus) align 8 %status.i1) #20
+  call void @Py_InitializeFromConfig(ptr nonnull sret(%struct.PyStatus) align 8 %status.i1, ptr noundef nonnull %config) #18
+  call void @PyConfig_Clear(ptr noundef nonnull %config) #18
+  %call.i2 = call i32 @PyStatus_Exception(ptr noundef nonnull byval(%struct.PyStatus) align 8 %status.i1) #18
   %tobool.not.i3 = icmp eq i32 %call.i2, 0
   br i1 %tobool.not.i3, label %init_from_config_clear.exit, label %if.then.i4
 
 if.then.i4:                                       ; preds = %config_set_program_name.exit
-  call void @Py_ExitStatusException(ptr noundef nonnull byval(%struct.PyStatus) align 8 %status.i1) #23
+  call void @Py_ExitStatusException(ptr noundef nonnull byval(%struct.PyStatus) align 8 %status.i1) #21
   unreachable
 
 init_from_config_clear.exit:                      ; preds = %config_set_program_name.exit
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %status.i1)
-  %call.i5 = call i32 @PyRun_SimpleStringFlags(ptr noundef nonnull @.str.112, ptr noundef null) #20
-  call void @Py_Finalize() #20
+  %call.i5 = call i32 @PyRun_SimpleStringFlags(ptr noundef nonnull @.str.112, ptr noundef null) #18
+  call void @Py_Finalize() #18
   ret i32 0
 }
 
@@ -2369,65 +2375,65 @@ entry:
   %argv = alloca [9 x ptr], align 16
   %status = alloca %struct.PyStatus, align 8
   %config = alloca %struct.PyConfig, align 8
-  call void @PyPreConfig_InitIsolatedConfig(ptr noundef nonnull %preconfig) #20
+  call void @PyPreConfig_InitIsolatedConfig(ptr noundef nonnull %preconfig) #18
   %isolated = getelementptr inbounds i8, ptr %preconfig, i64 8
   store i32 0, ptr %isolated, align 4
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(72) %argv, ptr noundef nonnull align 16 dereferenceable(72) @__const.test_preinit_dont_parse_argv.argv, i64 72, i1 false)
-  call void @Py_PreInitializeFromArgs(ptr nonnull sret(%struct.PyStatus) align 8 %status, ptr noundef nonnull %preconfig, i64 noundef 9, ptr noundef nonnull %argv) #20
-  %call = call i32 @PyStatus_Exception(ptr noundef nonnull byval(%struct.PyStatus) align 8 %status) #20
+  call void @Py_PreInitializeFromArgs(ptr nonnull sret(%struct.PyStatus) align 8 %status, ptr noundef nonnull %preconfig, i64 noundef 9, ptr noundef nonnull %argv) #18
+  %call = call i32 @PyStatus_Exception(ptr noundef nonnull byval(%struct.PyStatus) align 8 %status) #18
   %tobool.not = icmp eq i32 %call, 0
   br i1 %tobool.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
-  call void @Py_ExitStatusException(ptr noundef nonnull byval(%struct.PyStatus) align 8 %status) #23
+  call void @Py_ExitStatusException(ptr noundef nonnull byval(%struct.PyStatus) align 8 %status) #21
   unreachable
 
 if.end:                                           ; preds = %entry
-  call void @PyConfig_InitIsolatedConfig(ptr noundef nonnull %config) #20
+  call void @PyConfig_InitIsolatedConfig(ptr noundef nonnull %config) #18
   %isolated1 = getelementptr inbounds i8, ptr %config, i64 4
   store i32 0, ptr %isolated1, align 4
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %status.i)
-  call void @PyConfig_SetArgv(ptr nonnull sret(%struct.PyStatus) align 8 %status.i, ptr noundef nonnull %config, i64 noundef 9, ptr noundef nonnull %argv) #20
-  %call.i = call i32 @PyStatus_Exception(ptr noundef nonnull byval(%struct.PyStatus) align 8 %status.i) #20
+  call void @PyConfig_SetArgv(ptr nonnull sret(%struct.PyStatus) align 8 %status.i, ptr noundef nonnull %config, i64 noundef 9, ptr noundef nonnull %argv) #18
+  %call.i = call i32 @PyStatus_Exception(ptr noundef nonnull byval(%struct.PyStatus) align 8 %status.i) #18
   %tobool.not.i = icmp eq i32 %call.i, 0
   br i1 %tobool.not.i, label %config_set_argv.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %if.end
-  call void @PyConfig_Clear(ptr noundef nonnull %config) #20
-  call void @Py_ExitStatusException(ptr noundef nonnull byval(%struct.PyStatus) align 8 %status.i) #23
+  call void @PyConfig_Clear(ptr noundef nonnull %config) #18
+  call void @Py_ExitStatusException(ptr noundef nonnull byval(%struct.PyStatus) align 8 %status.i) #21
   unreachable
 
 config_set_argv.exit:                             ; preds = %if.end
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %status.i)
   %program_name1.i = getelementptr inbounds i8, ptr %config, i64 280
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %status.i.i)
-  call void @PyConfig_SetString(ptr nonnull sret(%struct.PyStatus) align 8 %status.i.i, ptr noundef nonnull %config, ptr noundef nonnull %program_name1.i, ptr noundef nonnull @.str.64) #20
-  %call.i.i = call i32 @PyStatus_Exception(ptr noundef nonnull byval(%struct.PyStatus) align 8 %status.i.i) #20
+  call void @PyConfig_SetString(ptr nonnull sret(%struct.PyStatus) align 8 %status.i.i, ptr noundef nonnull %config, ptr noundef nonnull %program_name1.i, ptr noundef nonnull @.str.64) #18
+  %call.i.i = call i32 @PyStatus_Exception(ptr noundef nonnull byval(%struct.PyStatus) align 8 %status.i.i) #18
   %tobool.not.i.i = icmp eq i32 %call.i.i, 0
   br i1 %tobool.not.i.i, label %config_set_program_name.exit, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %config_set_argv.exit
-  call void @PyConfig_Clear(ptr noundef nonnull %config) #20
-  call void @Py_ExitStatusException(ptr noundef nonnull byval(%struct.PyStatus) align 8 %status.i.i) #23
+  call void @PyConfig_Clear(ptr noundef nonnull %config) #18
+  call void @Py_ExitStatusException(ptr noundef nonnull byval(%struct.PyStatus) align 8 %status.i.i) #21
   unreachable
 
 config_set_program_name.exit:                     ; preds = %config_set_argv.exit
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %status.i.i)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %status.i1)
-  call void @Py_InitializeFromConfig(ptr nonnull sret(%struct.PyStatus) align 8 %status.i1, ptr noundef nonnull %config) #20
-  call void @PyConfig_Clear(ptr noundef nonnull %config) #20
-  %call.i2 = call i32 @PyStatus_Exception(ptr noundef nonnull byval(%struct.PyStatus) align 8 %status.i1) #20
+  call void @Py_InitializeFromConfig(ptr nonnull sret(%struct.PyStatus) align 8 %status.i1, ptr noundef nonnull %config) #18
+  call void @PyConfig_Clear(ptr noundef nonnull %config) #18
+  %call.i2 = call i32 @PyStatus_Exception(ptr noundef nonnull byval(%struct.PyStatus) align 8 %status.i1) #18
   %tobool.not.i3 = icmp eq i32 %call.i2, 0
   br i1 %tobool.not.i3, label %init_from_config_clear.exit, label %if.then.i4
 
 if.then.i4:                                       ; preds = %config_set_program_name.exit
-  call void @Py_ExitStatusException(ptr noundef nonnull byval(%struct.PyStatus) align 8 %status.i1) #23
+  call void @Py_ExitStatusException(ptr noundef nonnull byval(%struct.PyStatus) align 8 %status.i1) #21
   unreachable
 
 init_from_config_clear.exit:                      ; preds = %config_set_program_name.exit
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %status.i1)
-  %call.i5 = call i32 @PyRun_SimpleStringFlags(ptr noundef nonnull @.str.112, ptr noundef null) #20
-  call void @Py_Finalize() #20
+  %call.i5 = call i32 @PyRun_SimpleStringFlags(ptr noundef nonnull @.str.112, ptr noundef null) #18
+  call void @Py_Finalize() #18
   ret i32 0
 }
 
@@ -2442,77 +2448,77 @@ entry:
   %tmp = alloca %struct.PyStatus, align 8
   %tmp1 = alloca %struct.PyStatus, align 8
   %tmp6 = alloca %struct.PyStatus, align 8
-  call void @PyConfig_InitPythonConfig(ptr noundef nonnull %config) #20
+  call void @PyConfig_InitPythonConfig(ptr noundef nonnull %config) #18
   %program_name = getelementptr inbounds i8, ptr %config, i64 280
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %status.i)
-  call void @PyConfig_SetString(ptr nonnull sret(%struct.PyStatus) align 8 %status.i, ptr noundef nonnull %config, ptr noundef nonnull %program_name, ptr noundef nonnull @.str.178) #20
-  %call.i = call i32 @PyStatus_Exception(ptr noundef nonnull byval(%struct.PyStatus) align 8 %status.i) #20
+  call void @PyConfig_SetString(ptr nonnull sret(%struct.PyStatus) align 8 %status.i, ptr noundef nonnull %config, ptr noundef nonnull %program_name, ptr noundef nonnull @.str.178) #18
+  %call.i = call i32 @PyStatus_Exception(ptr noundef nonnull byval(%struct.PyStatus) align 8 %status.i) #18
   %tobool.not.i = icmp eq i32 %call.i, 0
   br i1 %tobool.not.i, label %config_set_string.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %entry
-  call void @PyConfig_Clear(ptr noundef nonnull %config) #20
-  call void @Py_ExitStatusException(ptr noundef nonnull byval(%struct.PyStatus) align 8 %status.i) #23
+  call void @PyConfig_Clear(ptr noundef nonnull %config) #18
+  call void @Py_ExitStatusException(ptr noundef nonnull byval(%struct.PyStatus) align 8 %status.i) #21
   unreachable
 
 config_set_string.exit:                           ; preds = %entry
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %status.i)
-  call void @PyConfig_Read(ptr nonnull sret(%struct.PyStatus) align 8 %tmp, ptr noundef nonnull %config) #20
+  call void @PyConfig_Read(ptr nonnull sret(%struct.PyStatus) align 8 %tmp, ptr noundef nonnull %config) #18
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %status, ptr noundef nonnull align 8 dereferenceable(32) %tmp, i64 32, i1 false)
-  %call = call i32 @PyStatus_Exception(ptr noundef nonnull byval(%struct.PyStatus) align 8 %tmp) #20
+  %call = call i32 @PyStatus_Exception(ptr noundef nonnull byval(%struct.PyStatus) align 8 %tmp) #18
   %tobool.not = icmp eq i32 %call, 0
   br i1 %tobool.not, label %if.end, label %fail
 
 if.end:                                           ; preds = %config_set_string.exit
   %module_search_paths = getelementptr inbounds i8, ptr %config, i64 320
-  call void @PyWideStringList_Insert(ptr nonnull sret(%struct.PyStatus) align 8 %tmp1, ptr noundef nonnull %module_search_paths, i64 noundef 1, ptr noundef nonnull @.str.179) #20
+  call void @PyWideStringList_Insert(ptr nonnull sret(%struct.PyStatus) align 8 %tmp1, ptr noundef nonnull %module_search_paths, i64 noundef 1, ptr noundef nonnull @.str.179) #18
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %status, ptr noundef nonnull align 8 dereferenceable(32) %tmp1, i64 32, i1 false)
-  %call2 = call i32 @PyStatus_Exception(ptr noundef nonnull byval(%struct.PyStatus) align 8 %tmp1) #20
+  %call2 = call i32 @PyStatus_Exception(ptr noundef nonnull byval(%struct.PyStatus) align 8 %tmp1) #18
   %tobool3.not = icmp eq i32 %call2, 0
   br i1 %tobool3.not, label %if.end5, label %fail
 
 if.end5:                                          ; preds = %if.end
-  call void @PyWideStringList_Append(ptr nonnull sret(%struct.PyStatus) align 8 %tmp6, ptr noundef nonnull %module_search_paths, ptr noundef nonnull @.str.180) #20
+  call void @PyWideStringList_Append(ptr nonnull sret(%struct.PyStatus) align 8 %tmp6, ptr noundef nonnull %module_search_paths, ptr noundef nonnull @.str.180) #18
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %status, ptr noundef nonnull align 8 dereferenceable(32) %tmp6, i64 32, i1 false)
-  %call8 = call i32 @PyStatus_Exception(ptr noundef nonnull byval(%struct.PyStatus) align 8 %tmp6) #20
+  %call8 = call i32 @PyStatus_Exception(ptr noundef nonnull byval(%struct.PyStatus) align 8 %tmp6) #18
   %tobool9.not = icmp eq i32 %call8, 0
   br i1 %tobool9.not, label %if.end11, label %fail
 
 if.end11:                                         ; preds = %if.end5
   %executable = getelementptr inbounds i8, ptr %config, i64 344
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %status.i1)
-  call void @PyConfig_SetString(ptr nonnull sret(%struct.PyStatus) align 8 %status.i1, ptr noundef nonnull %config, ptr noundef nonnull %executable, ptr noundef nonnull @.str.181) #20
-  %call.i2 = call i32 @PyStatus_Exception(ptr noundef nonnull byval(%struct.PyStatus) align 8 %status.i1) #20
+  call void @PyConfig_SetString(ptr nonnull sret(%struct.PyStatus) align 8 %status.i1, ptr noundef nonnull %config, ptr noundef nonnull %executable, ptr noundef nonnull @.str.181) #18
+  %call.i2 = call i32 @PyStatus_Exception(ptr noundef nonnull byval(%struct.PyStatus) align 8 %status.i1) #18
   %tobool.not.i3 = icmp eq i32 %call.i2, 0
   br i1 %tobool.not.i3, label %config_set_string.exit5, label %if.then.i4
 
 if.then.i4:                                       ; preds = %if.end11
-  call void @PyConfig_Clear(ptr noundef nonnull %config) #20
-  call void @Py_ExitStatusException(ptr noundef nonnull byval(%struct.PyStatus) align 8 %status.i1) #23
+  call void @PyConfig_Clear(ptr noundef nonnull %config) #18
+  call void @Py_ExitStatusException(ptr noundef nonnull byval(%struct.PyStatus) align 8 %status.i1) #21
   unreachable
 
 config_set_string.exit5:                          ; preds = %if.end11
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %status.i1)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %status.i6)
-  call void @Py_InitializeFromConfig(ptr nonnull sret(%struct.PyStatus) align 8 %status.i6, ptr noundef nonnull %config) #20
-  call void @PyConfig_Clear(ptr noundef nonnull %config) #20
-  %call.i7 = call i32 @PyStatus_Exception(ptr noundef nonnull byval(%struct.PyStatus) align 8 %status.i6) #20
+  call void @Py_InitializeFromConfig(ptr nonnull sret(%struct.PyStatus) align 8 %status.i6, ptr noundef nonnull %config) #18
+  call void @PyConfig_Clear(ptr noundef nonnull %config) #18
+  %call.i7 = call i32 @PyStatus_Exception(ptr noundef nonnull byval(%struct.PyStatus) align 8 %status.i6) #18
   %tobool.not.i8 = icmp eq i32 %call.i7, 0
   br i1 %tobool.not.i8, label %init_from_config_clear.exit, label %if.then.i9
 
 if.then.i9:                                       ; preds = %config_set_string.exit5
-  call void @Py_ExitStatusException(ptr noundef nonnull byval(%struct.PyStatus) align 8 %status.i6) #23
+  call void @Py_ExitStatusException(ptr noundef nonnull byval(%struct.PyStatus) align 8 %status.i6) #21
   unreachable
 
 init_from_config_clear.exit:                      ; preds = %config_set_string.exit5
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %status.i6)
-  %call.i10 = call i32 @PyRun_SimpleStringFlags(ptr noundef nonnull @.str.112, ptr noundef null) #20
-  call void @Py_Finalize() #20
+  %call.i10 = call i32 @PyRun_SimpleStringFlags(ptr noundef nonnull @.str.112, ptr noundef null) #18
+  call void @Py_Finalize() #18
   ret i32 0
 
 fail:                                             ; preds = %if.end5, %if.end, %config_set_string.exit
-  call void @PyConfig_Clear(ptr noundef nonnull %config) #20
-  call void @Py_ExitStatusException(ptr noundef nonnull byval(%struct.PyStatus) align 8 %status) #23
+  call void @PyConfig_Clear(ptr noundef nonnull %config) #18
+  call void @Py_ExitStatusException(ptr noundef nonnull byval(%struct.PyStatus) align 8 %status) #21
   unreachable
 }
 
@@ -2521,22 +2527,22 @@ define internal i32 @test_init_run_main() #0 {
 entry:
   %status.i = alloca %struct.PyStatus, align 8
   %config = alloca %struct.PyConfig, align 8
-  call void @PyConfig_InitPythonConfig(ptr noundef nonnull %config) #20
+  call void @PyConfig_InitPythonConfig(ptr noundef nonnull %config) #18
   call fastcc void @configure_init_main(ptr noundef nonnull %config)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %status.i)
-  call void @Py_InitializeFromConfig(ptr nonnull sret(%struct.PyStatus) align 8 %status.i, ptr noundef nonnull %config) #20
-  call void @PyConfig_Clear(ptr noundef nonnull %config) #20
-  %call.i = call i32 @PyStatus_Exception(ptr noundef nonnull byval(%struct.PyStatus) align 8 %status.i) #20
+  call void @Py_InitializeFromConfig(ptr nonnull sret(%struct.PyStatus) align 8 %status.i, ptr noundef nonnull %config) #18
+  call void @PyConfig_Clear(ptr noundef nonnull %config) #18
+  %call.i = call i32 @PyStatus_Exception(ptr noundef nonnull byval(%struct.PyStatus) align 8 %status.i) #18
   %tobool.not.i = icmp eq i32 %call.i, 0
   br i1 %tobool.not.i, label %init_from_config_clear.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %entry
-  call void @Py_ExitStatusException(ptr noundef nonnull byval(%struct.PyStatus) align 8 %status.i) #23
+  call void @Py_ExitStatusException(ptr noundef nonnull byval(%struct.PyStatus) align 8 %status.i) #21
   unreachable
 
 init_from_config_clear.exit:                      ; preds = %entry
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %status.i)
-  %call = call i32 @Py_RunMain() #20
+  %call = call i32 @Py_RunMain() #18
   ret i32 %call
 }
 
@@ -2546,43 +2552,43 @@ entry:
   %status.i = alloca %struct.PyStatus, align 8
   %config = alloca %struct.PyConfig, align 8
   %status = alloca %struct.PyStatus, align 8
-  call void @PyConfig_InitPythonConfig(ptr noundef nonnull %config) #20
+  call void @PyConfig_InitPythonConfig(ptr noundef nonnull %config) #18
   call fastcc void @configure_init_main(ptr noundef nonnull %config)
   %_init_main = getelementptr inbounds i8, ptr %config, i64 436
   store i32 0, ptr %_init_main, align 4
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %status.i)
-  call void @Py_InitializeFromConfig(ptr nonnull sret(%struct.PyStatus) align 8 %status.i, ptr noundef nonnull %config) #20
-  call void @PyConfig_Clear(ptr noundef nonnull %config) #20
-  %call.i = call i32 @PyStatus_Exception(ptr noundef nonnull byval(%struct.PyStatus) align 8 %status.i) #20
+  call void @Py_InitializeFromConfig(ptr nonnull sret(%struct.PyStatus) align 8 %status.i, ptr noundef nonnull %config) #18
+  call void @PyConfig_Clear(ptr noundef nonnull %config) #18
+  %call.i = call i32 @PyStatus_Exception(ptr noundef nonnull byval(%struct.PyStatus) align 8 %status.i) #18
   %tobool.not.i = icmp eq i32 %call.i, 0
   br i1 %tobool.not.i, label %init_from_config_clear.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %entry
-  call void @Py_ExitStatusException(ptr noundef nonnull byval(%struct.PyStatus) align 8 %status.i) #23
+  call void @Py_ExitStatusException(ptr noundef nonnull byval(%struct.PyStatus) align 8 %status.i) #21
   unreachable
 
 init_from_config_clear.exit:                      ; preds = %entry
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %status.i)
-  %call = call i32 @PyRun_SimpleStringFlags(ptr noundef nonnull @.str.184, ptr noundef null) #20
+  %call = call i32 @PyRun_SimpleStringFlags(ptr noundef nonnull @.str.184, ptr noundef null) #18
   %cmp = icmp slt i32 %call, 0
   br i1 %cmp, label %if.then, label %if.end
 
 if.then:                                          ; preds = %init_from_config_clear.exit
-  call void @exit(i32 noundef 1) #22
+  call void @exit(i32 noundef 1) #20
   unreachable
 
 if.end:                                           ; preds = %init_from_config_clear.exit
-  call void @_Py_InitializeMain(ptr nonnull sret(%struct.PyStatus) align 8 %status) #20
-  %call1 = call i32 @PyStatus_Exception(ptr noundef nonnull byval(%struct.PyStatus) align 8 %status) #20
+  call void @_Py_InitializeMain(ptr nonnull sret(%struct.PyStatus) align 8 %status) #18
+  %call1 = call i32 @PyStatus_Exception(ptr noundef nonnull byval(%struct.PyStatus) align 8 %status) #18
   %tobool.not = icmp eq i32 %call1, 0
   br i1 %tobool.not, label %if.end3, label %if.then2
 
 if.then2:                                         ; preds = %if.end
-  call void @Py_ExitStatusException(ptr noundef nonnull byval(%struct.PyStatus) align 8 %status) #23
+  call void @Py_ExitStatusException(ptr noundef nonnull byval(%struct.PyStatus) align 8 %status) #21
   unreachable
 
 if.end3:                                          ; preds = %if.end
-  %call4 = call i32 @Py_RunMain() #20
+  %call4 = call i32 @Py_RunMain() #18
   ret i32 %call4
 }
 
@@ -2597,20 +2603,20 @@ entry:
   %status = alloca %struct.PyStatus, align 8
   %tmp = alloca %struct.PyStatus, align 8
   %tmp1 = alloca %struct.PyStatus, align 8
-  tail call void @PySys_AddXOption(ptr noundef nonnull @.str.185) #20
-  tail call void @PySys_AddXOption(ptr noundef nonnull @.str.186) #20
-  tail call void @PySys_AddWarnOption(ptr noundef nonnull @.str.187) #20
-  call void @PyConfig_InitPythonConfig(ptr noundef nonnull %config) #20
+  tail call void @PySys_AddXOption(ptr noundef nonnull @.str.185) #18
+  tail call void @PySys_AddXOption(ptr noundef nonnull @.str.186) #18
+  tail call void @PySys_AddWarnOption(ptr noundef nonnull @.str.187) #18
+  call void @PyConfig_InitPythonConfig(ptr noundef nonnull %config) #18
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(40) %argv, ptr noundef nonnull align 16 dereferenceable(40) @__const.test_init_sys_add.argv, i64 40, i1 false)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %status.i)
-  call void @PyConfig_SetArgv(ptr nonnull sret(%struct.PyStatus) align 8 %status.i, ptr noundef nonnull %config, i64 noundef 5, ptr noundef nonnull %argv) #20
-  %call.i = call i32 @PyStatus_Exception(ptr noundef nonnull byval(%struct.PyStatus) align 8 %status.i) #20
+  call void @PyConfig_SetArgv(ptr nonnull sret(%struct.PyStatus) align 8 %status.i, ptr noundef nonnull %config, i64 noundef 5, ptr noundef nonnull %argv) #18
+  %call.i = call i32 @PyStatus_Exception(ptr noundef nonnull byval(%struct.PyStatus) align 8 %status.i) #18
   %tobool.not.i = icmp eq i32 %call.i, 0
   br i1 %tobool.not.i, label %config_set_argv.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %entry
-  call void @PyConfig_Clear(ptr noundef nonnull %config) #20
-  call void @Py_ExitStatusException(ptr noundef nonnull byval(%struct.PyStatus) align 8 %status.i) #23
+  call void @PyConfig_Clear(ptr noundef nonnull %config) #18
+  call void @Py_ExitStatusException(ptr noundef nonnull byval(%struct.PyStatus) align 8 %status.i) #21
   unreachable
 
 config_set_argv.exit:                             ; preds = %entry
@@ -2618,85 +2624,91 @@ config_set_argv.exit:                             ; preds = %entry
   %parse_argv = getelementptr inbounds i8, ptr %config, i64 104
   store i32 1, ptr %parse_argv, align 8
   %xoptions = getelementptr inbounds i8, ptr %config, i64 144
-  call void @PyWideStringList_Append(ptr nonnull sret(%struct.PyStatus) align 8 %tmp, ptr noundef nonnull %xoptions, ptr noundef nonnull @.str.189) #20
+  call void @PyWideStringList_Append(ptr nonnull sret(%struct.PyStatus) align 8 %tmp, ptr noundef nonnull %xoptions, ptr noundef nonnull @.str.189) #18
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %status, ptr noundef nonnull align 8 dereferenceable(32) %tmp, i64 32, i1 false)
-  %call = call i32 @PyStatus_Exception(ptr noundef nonnull byval(%struct.PyStatus) align 8 %tmp) #20
+  %call = call i32 @PyStatus_Exception(ptr noundef nonnull byval(%struct.PyStatus) align 8 %tmp) #18
   %tobool.not = icmp eq i32 %call, 0
   br i1 %tobool.not, label %if.end, label %fail
 
 if.end:                                           ; preds = %config_set_argv.exit
   %warnoptions = getelementptr inbounds i8, ptr %config, i64 160
-  call void @PyWideStringList_Append(ptr nonnull sret(%struct.PyStatus) align 8 %tmp1, ptr noundef nonnull %warnoptions, ptr noundef nonnull @.str.190) #20
+  call void @PyWideStringList_Append(ptr nonnull sret(%struct.PyStatus) align 8 %tmp1, ptr noundef nonnull %warnoptions, ptr noundef nonnull @.str.190) #18
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %status, ptr noundef nonnull align 8 dereferenceable(32) %tmp1, i64 32, i1 false)
-  %call2 = call i32 @PyStatus_Exception(ptr noundef nonnull byval(%struct.PyStatus) align 8 %tmp1) #20
+  %call2 = call i32 @PyStatus_Exception(ptr noundef nonnull byval(%struct.PyStatus) align 8 %tmp1) #18
   %tobool3.not = icmp eq i32 %call2, 0
   br i1 %tobool3.not, label %if.end5, label %fail
 
 if.end5:                                          ; preds = %if.end
   %program_name1.i = getelementptr inbounds i8, ptr %config, i64 280
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %status.i.i)
-  call void @PyConfig_SetString(ptr nonnull sret(%struct.PyStatus) align 8 %status.i.i, ptr noundef nonnull %config, ptr noundef nonnull %program_name1.i, ptr noundef nonnull @.str.64) #20
-  %call.i.i = call i32 @PyStatus_Exception(ptr noundef nonnull byval(%struct.PyStatus) align 8 %status.i.i) #20
+  call void @PyConfig_SetString(ptr nonnull sret(%struct.PyStatus) align 8 %status.i.i, ptr noundef nonnull %config, ptr noundef nonnull %program_name1.i, ptr noundef nonnull @.str.64) #18
+  %call.i.i = call i32 @PyStatus_Exception(ptr noundef nonnull byval(%struct.PyStatus) align 8 %status.i.i) #18
   %tobool.not.i.i = icmp eq i32 %call.i.i, 0
   br i1 %tobool.not.i.i, label %config_set_program_name.exit, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %if.end5
-  call void @PyConfig_Clear(ptr noundef nonnull %config) #20
-  call void @Py_ExitStatusException(ptr noundef nonnull byval(%struct.PyStatus) align 8 %status.i.i) #23
+  call void @PyConfig_Clear(ptr noundef nonnull %config) #18
+  call void @Py_ExitStatusException(ptr noundef nonnull byval(%struct.PyStatus) align 8 %status.i.i) #21
   unreachable
 
 config_set_program_name.exit:                     ; preds = %if.end5
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %status.i.i)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %status.i1)
-  call void @Py_InitializeFromConfig(ptr nonnull sret(%struct.PyStatus) align 8 %status.i1, ptr noundef nonnull %config) #20
-  call void @PyConfig_Clear(ptr noundef nonnull %config) #20
-  %call.i2 = call i32 @PyStatus_Exception(ptr noundef nonnull byval(%struct.PyStatus) align 8 %status.i1) #20
+  call void @Py_InitializeFromConfig(ptr nonnull sret(%struct.PyStatus) align 8 %status.i1, ptr noundef nonnull %config) #18
+  call void @PyConfig_Clear(ptr noundef nonnull %config) #18
+  %call.i2 = call i32 @PyStatus_Exception(ptr noundef nonnull byval(%struct.PyStatus) align 8 %status.i1) #18
   %tobool.not.i3 = icmp eq i32 %call.i2, 0
   br i1 %tobool.not.i3, label %init_from_config_clear.exit, label %if.then.i4
 
 if.then.i4:                                       ; preds = %config_set_program_name.exit
-  call void @Py_ExitStatusException(ptr noundef nonnull byval(%struct.PyStatus) align 8 %status.i1) #23
+  call void @Py_ExitStatusException(ptr noundef nonnull byval(%struct.PyStatus) align 8 %status.i1) #21
   unreachable
 
 init_from_config_clear.exit:                      ; preds = %config_set_program_name.exit
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %status.i1)
-  %call.i5 = call i32 @PyRun_SimpleStringFlags(ptr noundef nonnull @.str.112, ptr noundef null) #20
-  call void @Py_Finalize() #20
+  %call.i5 = call i32 @PyRun_SimpleStringFlags(ptr noundef nonnull @.str.112, ptr noundef null) #18
+  call void @Py_Finalize() #18
   ret i32 0
 
 fail:                                             ; preds = %if.end, %config_set_argv.exit
-  call void @PyConfig_Clear(ptr noundef nonnull %config) #20
-  call void @Py_ExitStatusException(ptr noundef nonnull byval(%struct.PyStatus) align 8 %status) #23
+  call void @PyConfig_Clear(ptr noundef nonnull %config) #18
+  call void @Py_ExitStatusException(ptr noundef nonnull byval(%struct.PyStatus) align 8 %status) #21
   unreachable
 }
 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 0, 2) i32 @test_init_setpath() #0 {
 entry:
-  %call = tail call ptr @getenv(ptr noundef nonnull @.str.191) #20
+  %call = tail call ptr @getenv(ptr noundef nonnull @.str.191) #18
   %tobool.not = icmp eq ptr %call, null
   br i1 %tobool.not, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
-  tail call fastcc void @error(ptr noundef nonnull @.str.192)
+  %0 = load ptr, ptr @stderr, align 8
+  %call.i = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.107, ptr noundef nonnull @.str.192) #19
+  %1 = load ptr, ptr @stderr, align 8
+  %call1.i = tail call i32 @fflush(ptr noundef %1)
   br label %return
 
 if.end:                                           ; preds = %entry
-  %call1 = tail call ptr @Py_DecodeLocale(ptr noundef nonnull %call, ptr noundef null) #20
+  %call1 = tail call ptr @Py_DecodeLocale(ptr noundef nonnull %call, ptr noundef null) #18
   %cmp = icmp eq ptr %call1, null
   br i1 %cmp, label %if.then2, label %if.end3
 
 if.then2:                                         ; preds = %if.end
-  tail call fastcc void @error(ptr noundef nonnull @.str.193)
+  %2 = load ptr, ptr @stderr, align 8
+  %call.i4 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %2, ptr noundef nonnull @.str.107, ptr noundef nonnull @.str.193) #19
+  %3 = load ptr, ptr @stderr, align 8
+  %call1.i5 = tail call i32 @fflush(ptr noundef %3)
   br label %return
 
 if.end3:                                          ; preds = %if.end
-  tail call void @Py_SetPath(ptr noundef nonnull %call1) #20
-  tail call void @PyMem_RawFree(ptr noundef nonnull %call1) #20
-  %call4 = tail call i32 @putenv(ptr noundef nonnull @.str.194) #20
-  tail call void @Py_Initialize() #20
-  %call.i = tail call i32 @PyRun_SimpleStringFlags(ptr noundef nonnull @.str.112, ptr noundef null) #20
-  tail call void @Py_Finalize() #20
+  tail call void @Py_SetPath(ptr noundef nonnull %call1) #18
+  tail call void @PyMem_RawFree(ptr noundef nonnull %call1) #18
+  %call4 = tail call i32 @putenv(ptr noundef nonnull @.str.194) #18
+  tail call void @Py_Initialize() #18
+  %call.i6 = tail call i32 @PyRun_SimpleStringFlags(ptr noundef nonnull @.str.112, ptr noundef null) #18
+  tail call void @Py_Finalize() #18
   br label %return
 
 return:                                           ; preds = %if.end3, %if.then2, %if.then
@@ -2707,88 +2719,94 @@ return:                                           ; preds = %if.end3, %if.then2,
 ; Function Attrs: nounwind uwtable
 define internal range(i32 0, 2) i32 @test_init_setpath_config() #0 {
 entry:
-  %status.i9 = alloca %struct.PyStatus, align 8
-  %status.i4 = alloca %struct.PyStatus, align 8
+  %status.i12 = alloca %struct.PyStatus, align 8
+  %status.i7 = alloca %struct.PyStatus, align 8
   %status.i = alloca %struct.PyStatus, align 8
   %preconfig = alloca %struct.PyPreConfig, align 4
   %status = alloca %struct.PyStatus, align 8
   %config = alloca %struct.PyConfig, align 8
-  call void @PyPreConfig_InitPythonConfig(ptr noundef nonnull %preconfig) #20
-  call void @Py_PreInitialize(ptr nonnull sret(%struct.PyStatus) align 8 %status, ptr noundef nonnull %preconfig) #20
-  %call = call i32 @PyStatus_Exception(ptr noundef nonnull byval(%struct.PyStatus) align 8 %status) #20
+  call void @PyPreConfig_InitPythonConfig(ptr noundef nonnull %preconfig) #18
+  call void @Py_PreInitialize(ptr nonnull sret(%struct.PyStatus) align 8 %status, ptr noundef nonnull %preconfig) #18
+  %call = call i32 @PyStatus_Exception(ptr noundef nonnull byval(%struct.PyStatus) align 8 %status) #18
   %tobool.not = icmp eq i32 %call, 0
   br i1 %tobool.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
-  call void @Py_ExitStatusException(ptr noundef nonnull byval(%struct.PyStatus) align 8 %status) #23
+  call void @Py_ExitStatusException(ptr noundef nonnull byval(%struct.PyStatus) align 8 %status) #21
   unreachable
 
 if.end:                                           ; preds = %entry
-  %call1 = call ptr @getenv(ptr noundef nonnull @.str.191) #20
+  %call1 = call ptr @getenv(ptr noundef nonnull @.str.191) #18
   %tobool2.not = icmp eq ptr %call1, null
   br i1 %tobool2.not, label %if.then3, label %if.end4
 
 if.then3:                                         ; preds = %if.end
-  call fastcc void @error(ptr noundef nonnull @.str.192)
+  %0 = load ptr, ptr @stderr, align 8
+  %call.i = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.107, ptr noundef nonnull @.str.192) #19
+  %1 = load ptr, ptr @stderr, align 8
+  %call1.i = call i32 @fflush(ptr noundef %1)
   br label %return
 
 if.end4:                                          ; preds = %if.end
-  %call5 = call ptr @Py_DecodeLocale(ptr noundef nonnull %call1, ptr noundef null) #20
+  %call5 = call ptr @Py_DecodeLocale(ptr noundef nonnull %call1, ptr noundef null) #18
   %cmp = icmp eq ptr %call5, null
   br i1 %cmp, label %if.then6, label %if.end7
 
 if.then6:                                         ; preds = %if.end4
-  call fastcc void @error(ptr noundef nonnull @.str.193)
+  %2 = load ptr, ptr @stderr, align 8
+  %call.i4 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %2, ptr noundef nonnull @.str.107, ptr noundef nonnull @.str.193) #19
+  %3 = load ptr, ptr @stderr, align 8
+  %call1.i5 = call i32 @fflush(ptr noundef %3)
   br label %return
 
 if.end7:                                          ; preds = %if.end4
-  call void @Py_SetPath(ptr noundef nonnull %call5) #20
-  call void @PyMem_RawFree(ptr noundef nonnull %call5) #20
-  %call8 = call i32 @putenv(ptr noundef nonnull @.str.194) #20
-  call void @PyConfig_InitPythonConfig(ptr noundef nonnull %config) #20
+  call void @Py_SetPath(ptr noundef nonnull %call5) #18
+  call void @PyMem_RawFree(ptr noundef nonnull %call5) #18
+  %call8 = call i32 @putenv(ptr noundef nonnull @.str.194) #18
+  call void @PyConfig_InitPythonConfig(ptr noundef nonnull %config) #18
   %program_name = getelementptr inbounds i8, ptr %config, i64 280
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %status.i)
-  call void @PyConfig_SetString(ptr nonnull sret(%struct.PyStatus) align 8 %status.i, ptr noundef nonnull %config, ptr noundef nonnull %program_name, ptr noundef nonnull @.str.195) #20
-  %call.i = call i32 @PyStatus_Exception(ptr noundef nonnull byval(%struct.PyStatus) align 8 %status.i) #20
-  %tobool.not.i = icmp eq i32 %call.i, 0
+  call void @PyConfig_SetString(ptr nonnull sret(%struct.PyStatus) align 8 %status.i, ptr noundef nonnull %config, ptr noundef nonnull %program_name, ptr noundef nonnull @.str.195) #18
+  %call.i6 = call i32 @PyStatus_Exception(ptr noundef nonnull byval(%struct.PyStatus) align 8 %status.i) #18
+  %tobool.not.i = icmp eq i32 %call.i6, 0
   br i1 %tobool.not.i, label %config_set_string.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %if.end7
-  call void @PyConfig_Clear(ptr noundef nonnull %config) #20
-  call void @Py_ExitStatusException(ptr noundef nonnull byval(%struct.PyStatus) align 8 %status.i) #23
+  call void @PyConfig_Clear(ptr noundef nonnull %config) #18
+  call void @Py_ExitStatusException(ptr noundef nonnull byval(%struct.PyStatus) align 8 %status.i) #21
   unreachable
 
 config_set_string.exit:                           ; preds = %if.end7
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %status.i)
   %executable = getelementptr inbounds i8, ptr %config, i64 344
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %status.i4)
-  call void @PyConfig_SetString(ptr nonnull sret(%struct.PyStatus) align 8 %status.i4, ptr noundef nonnull %config, ptr noundef nonnull %executable, ptr noundef nonnull @.str.196) #20
-  %call.i5 = call i32 @PyStatus_Exception(ptr noundef nonnull byval(%struct.PyStatus) align 8 %status.i4) #20
-  %tobool.not.i6 = icmp eq i32 %call.i5, 0
-  br i1 %tobool.not.i6, label %config_set_string.exit8, label %if.then.i7
+  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %status.i7)
+  call void @PyConfig_SetString(ptr nonnull sret(%struct.PyStatus) align 8 %status.i7, ptr noundef nonnull %config, ptr noundef nonnull %executable, ptr noundef nonnull @.str.196) #18
+  %call.i8 = call i32 @PyStatus_Exception(ptr noundef nonnull byval(%struct.PyStatus) align 8 %status.i7) #18
+  %tobool.not.i9 = icmp eq i32 %call.i8, 0
+  br i1 %tobool.not.i9, label %config_set_string.exit11, label %if.then.i10
 
-if.then.i7:                                       ; preds = %config_set_string.exit
-  call void @PyConfig_Clear(ptr noundef nonnull %config) #20
-  call void @Py_ExitStatusException(ptr noundef nonnull byval(%struct.PyStatus) align 8 %status.i4) #23
+if.then.i10:                                      ; preds = %config_set_string.exit
+  call void @PyConfig_Clear(ptr noundef nonnull %config) #18
+  call void @Py_ExitStatusException(ptr noundef nonnull byval(%struct.PyStatus) align 8 %status.i7) #21
   unreachable
 
-config_set_string.exit8:                          ; preds = %config_set_string.exit
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %status.i4)
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %status.i9)
-  call void @Py_InitializeFromConfig(ptr nonnull sret(%struct.PyStatus) align 8 %status.i9, ptr noundef nonnull %config) #20
-  call void @PyConfig_Clear(ptr noundef nonnull %config) #20
-  %call.i10 = call i32 @PyStatus_Exception(ptr noundef nonnull byval(%struct.PyStatus) align 8 %status.i9) #20
-  %tobool.not.i11 = icmp eq i32 %call.i10, 0
-  br i1 %tobool.not.i11, label %init_from_config_clear.exit, label %if.then.i12
+config_set_string.exit11:                         ; preds = %config_set_string.exit
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %status.i7)
+  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %status.i12)
+  call void @Py_InitializeFromConfig(ptr nonnull sret(%struct.PyStatus) align 8 %status.i12, ptr noundef nonnull %config) #18
+  call void @PyConfig_Clear(ptr noundef nonnull %config) #18
+  %call.i13 = call i32 @PyStatus_Exception(ptr noundef nonnull byval(%struct.PyStatus) align 8 %status.i12) #18
+  %tobool.not.i14 = icmp eq i32 %call.i13, 0
+  br i1 %tobool.not.i14, label %init_from_config_clear.exit, label %if.then.i15
 
-if.then.i12:                                      ; preds = %config_set_string.exit8
-  call void @Py_ExitStatusException(ptr noundef nonnull byval(%struct.PyStatus) align 8 %status.i9) #23
+if.then.i15:                                      ; preds = %config_set_string.exit11
+  call void @Py_ExitStatusException(ptr noundef nonnull byval(%struct.PyStatus) align 8 %status.i12) #21
   unreachable
 
-init_from_config_clear.exit:                      ; preds = %config_set_string.exit8
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %status.i9)
-  %call.i13 = call i32 @PyRun_SimpleStringFlags(ptr noundef nonnull @.str.112, ptr noundef null) #20
-  call void @Py_Finalize() #20
+init_from_config_clear.exit:                      ; preds = %config_set_string.exit11
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %status.i12)
+  %call.i16 = call i32 @PyRun_SimpleStringFlags(ptr noundef nonnull @.str.112, ptr noundef null) #18
+  call void @Py_Finalize() #18
   br label %return
 
 return:                                           ; preds = %init_from_config_clear.exit, %if.then6, %if.then3
@@ -2799,30 +2817,36 @@ return:                                           ; preds = %init_from_config_cl
 ; Function Attrs: nounwind uwtable
 define internal range(i32 0, 2) i32 @test_init_setpythonhome() #0 {
 entry:
-  %call = tail call ptr @getenv(ptr noundef nonnull @.str.197) #20
+  %call = tail call ptr @getenv(ptr noundef nonnull @.str.197) #18
   %tobool.not = icmp eq ptr %call, null
   br i1 %tobool.not, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
-  tail call fastcc void @error(ptr noundef nonnull @.str.198)
+  %0 = load ptr, ptr @stderr, align 8
+  %call.i = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.107, ptr noundef nonnull @.str.198) #19
+  %1 = load ptr, ptr @stderr, align 8
+  %call1.i = tail call i32 @fflush(ptr noundef %1)
   br label %return
 
 if.end:                                           ; preds = %entry
-  %call1 = tail call ptr @Py_DecodeLocale(ptr noundef nonnull %call, ptr noundef null) #20
+  %call1 = tail call ptr @Py_DecodeLocale(ptr noundef nonnull %call, ptr noundef null) #18
   %cmp = icmp eq ptr %call1, null
   br i1 %cmp, label %if.then2, label %if.end3
 
 if.then2:                                         ; preds = %if.end
-  tail call fastcc void @error(ptr noundef nonnull @.str.199)
+  %2 = load ptr, ptr @stderr, align 8
+  %call.i4 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %2, ptr noundef nonnull @.str.107, ptr noundef nonnull @.str.199) #19
+  %3 = load ptr, ptr @stderr, align 8
+  %call1.i5 = tail call i32 @fflush(ptr noundef %3)
   br label %return
 
 if.end3:                                          ; preds = %if.end
-  tail call void @Py_SetPythonHome(ptr noundef nonnull %call1) #20
-  tail call void @PyMem_RawFree(ptr noundef nonnull %call1) #20
-  %call4 = tail call i32 @putenv(ptr noundef nonnull @.str.200) #20
-  tail call void @Py_Initialize() #20
-  %call.i = tail call i32 @PyRun_SimpleStringFlags(ptr noundef nonnull @.str.112, ptr noundef null) #20
-  tail call void @Py_Finalize() #20
+  tail call void @Py_SetPythonHome(ptr noundef nonnull %call1) #18
+  tail call void @PyMem_RawFree(ptr noundef nonnull %call1) #18
+  %call4 = tail call i32 @putenv(ptr noundef nonnull @.str.200) #18
+  tail call void @Py_Initialize() #18
+  %call.i6 = tail call i32 @PyRun_SimpleStringFlags(ptr noundef nonnull @.str.112, ptr noundef null) #18
+  tail call void @Py_Finalize() #18
   br label %return
 
 return:                                           ; preds = %if.end3, %if.then2, %if.then
@@ -2833,116 +2857,122 @@ return:                                           ; preds = %if.end3, %if.then2,
 ; Function Attrs: nounwind uwtable
 define internal range(i32 0, 2) i32 @test_init_is_python_build() #0 {
 entry:
-  %status.i10 = alloca %struct.PyStatus, align 8
-  %status.i6 = alloca %struct.PyStatus, align 8
+  %status.i13 = alloca %struct.PyStatus, align 8
+  %status.i9 = alloca %struct.PyStatus, align 8
   %status.i = alloca %struct.PyStatus, align 8
   %status.i.i = alloca %struct.PyStatus, align 8
   %config = alloca %struct.PyConfig, align 8
-  %call = tail call ptr @getenv(ptr noundef nonnull @.str.197) #20
+  %call = tail call ptr @getenv(ptr noundef nonnull @.str.197) #18
   %tobool.not = icmp eq ptr %call, null
   br i1 %tobool.not, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
-  tail call fastcc void @error(ptr noundef nonnull @.str.198)
+  %0 = load ptr, ptr @stderr, align 8
+  %call.i = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.107, ptr noundef nonnull @.str.198) #19
+  %1 = load ptr, ptr @stderr, align 8
+  %call1.i = tail call i32 @fflush(ptr noundef %1)
   br label %return
 
 if.end:                                           ; preds = %entry
-  %call1 = tail call ptr @Py_DecodeLocale(ptr noundef nonnull %call, ptr noundef null) #20
+  %call1 = tail call ptr @Py_DecodeLocale(ptr noundef nonnull %call, ptr noundef null) #18
   %cmp = icmp eq ptr %call1, null
   br i1 %cmp, label %if.then2, label %if.end3
 
 if.then2:                                         ; preds = %if.end
-  tail call fastcc void @error(ptr noundef nonnull @.str.199)
+  %2 = load ptr, ptr @stderr, align 8
+  %call.i6 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %2, ptr noundef nonnull @.str.107, ptr noundef nonnull @.str.199) #19
+  %3 = load ptr, ptr @stderr, align 8
+  %call1.i7 = tail call i32 @fflush(ptr noundef %3)
   br label %return
 
 if.end3:                                          ; preds = %if.end
-  call void @_PyConfig_InitCompatConfig(ptr noundef nonnull %config) #20
+  call void @_PyConfig_InitCompatConfig(ptr noundef nonnull %config) #18
   %program_name1.i = getelementptr inbounds i8, ptr %config, i64 280
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %status.i.i)
-  call void @PyConfig_SetString(ptr nonnull sret(%struct.PyStatus) align 8 %status.i.i, ptr noundef nonnull %config, ptr noundef nonnull %program_name1.i, ptr noundef nonnull @.str.64) #20
-  %call.i.i = call i32 @PyStatus_Exception(ptr noundef nonnull byval(%struct.PyStatus) align 8 %status.i.i) #20
+  call void @PyConfig_SetString(ptr nonnull sret(%struct.PyStatus) align 8 %status.i.i, ptr noundef nonnull %config, ptr noundef nonnull %program_name1.i, ptr noundef nonnull @.str.64) #18
+  %call.i.i = call i32 @PyStatus_Exception(ptr noundef nonnull byval(%struct.PyStatus) align 8 %status.i.i) #18
   %tobool.not.i.i = icmp eq i32 %call.i.i, 0
   br i1 %tobool.not.i.i, label %config_set_program_name.exit, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %if.end3
-  call void @PyConfig_Clear(ptr noundef nonnull %config) #20
-  call void @Py_ExitStatusException(ptr noundef nonnull byval(%struct.PyStatus) align 8 %status.i.i) #23
+  call void @PyConfig_Clear(ptr noundef nonnull %config) #18
+  call void @Py_ExitStatusException(ptr noundef nonnull byval(%struct.PyStatus) align 8 %status.i.i) #21
   unreachable
 
 config_set_program_name.exit:                     ; preds = %if.end3
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %status.i.i)
   %home4 = getelementptr inbounds i8, ptr %config, i64 296
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %status.i)
-  call void @PyConfig_SetString(ptr nonnull sret(%struct.PyStatus) align 8 %status.i, ptr noundef nonnull %config, ptr noundef nonnull %home4, ptr noundef nonnull %call1) #20
-  %call.i = call i32 @PyStatus_Exception(ptr noundef nonnull byval(%struct.PyStatus) align 8 %status.i) #20
-  %tobool.not.i = icmp eq i32 %call.i, 0
+  call void @PyConfig_SetString(ptr nonnull sret(%struct.PyStatus) align 8 %status.i, ptr noundef nonnull %config, ptr noundef nonnull %home4, ptr noundef nonnull %call1) #18
+  %call.i8 = call i32 @PyStatus_Exception(ptr noundef nonnull byval(%struct.PyStatus) align 8 %status.i) #18
+  %tobool.not.i = icmp eq i32 %call.i8, 0
   br i1 %tobool.not.i, label %config_set_string.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %config_set_program_name.exit
-  call void @PyConfig_Clear(ptr noundef nonnull %config) #20
-  call void @Py_ExitStatusException(ptr noundef nonnull byval(%struct.PyStatus) align 8 %status.i) #23
+  call void @PyConfig_Clear(ptr noundef nonnull %config) #18
+  call void @Py_ExitStatusException(ptr noundef nonnull byval(%struct.PyStatus) align 8 %status.i) #21
   unreachable
 
 config_set_string.exit:                           ; preds = %config_set_program_name.exit
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %status.i)
-  call void @PyMem_RawFree(ptr noundef nonnull %call1) #20
-  %call5 = call i32 @putenv(ptr noundef nonnull @.str.200) #20
+  call void @PyMem_RawFree(ptr noundef nonnull %call1) #18
+  %call5 = call i32 @putenv(ptr noundef nonnull @.str.200) #18
   %_is_python_build = getelementptr inbounds i8, ptr %config, i64 440
   store i32 2147483647, ptr %_is_python_build, align 8
-  %call6 = call ptr @getenv(ptr noundef nonnull @.str.201) #20
+  %call6 = call ptr @getenv(ptr noundef nonnull @.str.201) #18
   %tobool7.not = icmp eq ptr %call6, null
   br i1 %tobool7.not, label %if.end12, label %sub_0
 
 sub_0:                                            ; preds = %config_set_string.exit
-  %0 = load i8, ptr %call6, align 1
-  %.not = icmp eq i8 %0, 48
+  %4 = load i8, ptr %call6, align 1
+  %.not = icmp eq i8 %4, 48
   br i1 %.not, label %land.lhs.true.tail, label %if.then10
 
 land.lhs.true.tail:                               ; preds = %sub_0
-  %1 = getelementptr inbounds i8, ptr %call6, i64 1
-  %2 = load i8, ptr %1, align 1
-  %3 = icmp eq i8 %2, 0
-  br i1 %3, label %if.end12, label %if.then10
+  %5 = getelementptr inbounds i8, ptr %call6, i64 1
+  %6 = load i8, ptr %5, align 1
+  %7 = icmp eq i8 %6, 0
+  br i1 %7, label %if.end12, label %if.then10
 
 if.then10:                                        ; preds = %sub_0, %land.lhs.true.tail
   store i32 -2147483648, ptr %_is_python_build, align 8
   br label %if.end12
 
 if.end12:                                         ; preds = %if.then10, %land.lhs.true.tail, %config_set_string.exit
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %status.i6)
-  call void @Py_InitializeFromConfig(ptr nonnull sret(%struct.PyStatus) align 8 %status.i6, ptr noundef nonnull %config) #20
-  call void @PyConfig_Clear(ptr noundef nonnull %config) #20
-  %call.i7 = call i32 @PyStatus_Exception(ptr noundef nonnull byval(%struct.PyStatus) align 8 %status.i6) #20
-  %tobool.not.i8 = icmp eq i32 %call.i7, 0
-  br i1 %tobool.not.i8, label %init_from_config_clear.exit, label %if.then.i9
+  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %status.i9)
+  call void @Py_InitializeFromConfig(ptr nonnull sret(%struct.PyStatus) align 8 %status.i9, ptr noundef nonnull %config) #18
+  call void @PyConfig_Clear(ptr noundef nonnull %config) #18
+  %call.i10 = call i32 @PyStatus_Exception(ptr noundef nonnull byval(%struct.PyStatus) align 8 %status.i9) #18
+  %tobool.not.i11 = icmp eq i32 %call.i10, 0
+  br i1 %tobool.not.i11, label %init_from_config_clear.exit, label %if.then.i12
 
-if.then.i9:                                       ; preds = %if.end12
-  call void @Py_ExitStatusException(ptr noundef nonnull byval(%struct.PyStatus) align 8 %status.i6) #23
+if.then.i12:                                      ; preds = %if.end12
+  call void @Py_ExitStatusException(ptr noundef nonnull byval(%struct.PyStatus) align 8 %status.i9) #21
   unreachable
 
 init_from_config_clear.exit:                      ; preds = %if.end12
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %status.i6)
-  call void @Py_Finalize() #20
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %status.i9)
+  call void @Py_Finalize() #18
   store i32 -1, ptr %_is_python_build, align 8
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %status.i10)
-  call void @Py_InitializeFromConfig(ptr nonnull sret(%struct.PyStatus) align 8 %status.i10, ptr noundef nonnull %config) #20
-  call void @PyConfig_Clear(ptr noundef nonnull %config) #20
-  %call.i11 = call i32 @PyStatus_Exception(ptr noundef nonnull byval(%struct.PyStatus) align 8 %status.i10) #20
-  %tobool.not.i12 = icmp eq i32 %call.i11, 0
-  br i1 %tobool.not.i12, label %init_from_config_clear.exit14, label %if.then.i13
+  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %status.i13)
+  call void @Py_InitializeFromConfig(ptr nonnull sret(%struct.PyStatus) align 8 %status.i13, ptr noundef nonnull %config) #18
+  call void @PyConfig_Clear(ptr noundef nonnull %config) #18
+  %call.i14 = call i32 @PyStatus_Exception(ptr noundef nonnull byval(%struct.PyStatus) align 8 %status.i13) #18
+  %tobool.not.i15 = icmp eq i32 %call.i14, 0
+  br i1 %tobool.not.i15, label %init_from_config_clear.exit17, label %if.then.i16
 
-if.then.i13:                                      ; preds = %init_from_config_clear.exit
-  call void @Py_ExitStatusException(ptr noundef nonnull byval(%struct.PyStatus) align 8 %status.i10) #23
+if.then.i16:                                      ; preds = %init_from_config_clear.exit
+  call void @Py_ExitStatusException(ptr noundef nonnull byval(%struct.PyStatus) align 8 %status.i13) #21
   unreachable
 
-init_from_config_clear.exit14:                    ; preds = %init_from_config_clear.exit
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %status.i10)
-  %call.i15 = call i32 @PyRun_SimpleStringFlags(ptr noundef nonnull @.str.112, ptr noundef null) #20
-  call void @Py_Finalize() #20
+init_from_config_clear.exit17:                    ; preds = %init_from_config_clear.exit
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %status.i13)
+  %call.i18 = call i32 @PyRun_SimpleStringFlags(ptr noundef nonnull @.str.112, ptr noundef null) #18
+  call void @Py_Finalize() #18
   br label %return
 
-return:                                           ; preds = %init_from_config_clear.exit14, %if.then2, %if.then
-  %retval.0 = phi i32 [ 1, %if.then2 ], [ 0, %init_from_config_clear.exit14 ], [ 1, %if.then ]
+return:                                           ; preds = %init_from_config_clear.exit17, %if.then2, %if.then
+  %retval.0 = phi i32 [ 1, %if.then2 ], [ 0, %init_from_config_clear.exit17 ], [ 1, %if.then ]
   ret i32 %retval.0
 }
 
@@ -2959,104 +2989,104 @@ entry:
   %tmp2 = alloca %struct.PyStatus, align 8
   %tmp7 = alloca %struct.PyStatus, align 8
   %tmp13 = alloca %struct.PyStatus, align 8
-  %call = tail call i32 @putenv(ptr noundef nonnull @.str.203) #20
-  tail call void @PySys_AddWarnOption(ptr noundef nonnull @.str.204) #20
-  tail call void @PySys_AddWarnOption(ptr noundef nonnull @.str.205) #20
-  call void @PyConfig_InitPythonConfig(ptr noundef nonnull %config) #20
+  %call = tail call i32 @putenv(ptr noundef nonnull @.str.203) #18
+  tail call void @PySys_AddWarnOption(ptr noundef nonnull @.str.204) #18
+  tail call void @PySys_AddWarnOption(ptr noundef nonnull @.str.205) #18
+  call void @PyConfig_InitPythonConfig(ptr noundef nonnull %config) #18
   %dev_mode = getelementptr inbounds i8, ptr %config, i64 12
   store i32 1, ptr %dev_mode, align 4
   %bytes_warning = getelementptr inbounds i8, ptr %config, i64 180
   store i32 1, ptr %bytes_warning, align 4
   %program_name1.i = getelementptr inbounds i8, ptr %config, i64 280
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %status.i.i)
-  call void @PyConfig_SetString(ptr nonnull sret(%struct.PyStatus) align 8 %status.i.i, ptr noundef nonnull %config, ptr noundef nonnull %program_name1.i, ptr noundef nonnull @.str.64) #20
-  %call.i.i = call i32 @PyStatus_Exception(ptr noundef nonnull byval(%struct.PyStatus) align 8 %status.i.i) #20
+  call void @PyConfig_SetString(ptr nonnull sret(%struct.PyStatus) align 8 %status.i.i, ptr noundef nonnull %config, ptr noundef nonnull %program_name1.i, ptr noundef nonnull @.str.64) #18
+  %call.i.i = call i32 @PyStatus_Exception(ptr noundef nonnull byval(%struct.PyStatus) align 8 %status.i.i) #18
   %tobool.not.i.i = icmp eq i32 %call.i.i, 0
   br i1 %tobool.not.i.i, label %config_set_program_name.exit, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %entry
-  call void @PyConfig_Clear(ptr noundef nonnull %config) #20
-  call void @Py_ExitStatusException(ptr noundef nonnull byval(%struct.PyStatus) align 8 %status.i.i) #23
+  call void @PyConfig_Clear(ptr noundef nonnull %config) #18
+  call void @Py_ExitStatusException(ptr noundef nonnull byval(%struct.PyStatus) align 8 %status.i.i) #21
   unreachable
 
 config_set_program_name.exit:                     ; preds = %entry
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %status.i.i)
   %warnoptions = getelementptr inbounds i8, ptr %config, i64 160
-  call void @PyWideStringList_Append(ptr nonnull sret(%struct.PyStatus) align 8 %tmp, ptr noundef nonnull %warnoptions, ptr noundef nonnull @.str.206) #20
+  call void @PyWideStringList_Append(ptr nonnull sret(%struct.PyStatus) align 8 %tmp, ptr noundef nonnull %warnoptions, ptr noundef nonnull @.str.206) #18
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %status, ptr noundef nonnull align 8 dereferenceable(32) %tmp, i64 32, i1 false)
-  %call1 = call i32 @PyStatus_Exception(ptr noundef nonnull byval(%struct.PyStatus) align 8 %tmp) #20
+  %call1 = call i32 @PyStatus_Exception(ptr noundef nonnull byval(%struct.PyStatus) align 8 %tmp) #18
   %tobool.not = icmp eq i32 %call1, 0
   br i1 %tobool.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %config_set_program_name.exit
-  call void @Py_ExitStatusException(ptr noundef nonnull byval(%struct.PyStatus) align 8 %status) #23
+  call void @Py_ExitStatusException(ptr noundef nonnull byval(%struct.PyStatus) align 8 %status) #21
   unreachable
 
 if.end:                                           ; preds = %config_set_program_name.exit
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %argv, ptr noundef nonnull align 16 dereferenceable(24) @__const.test_init_warnoptions.argv, i64 24, i1 false)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %status.i)
-  call void @PyConfig_SetArgv(ptr nonnull sret(%struct.PyStatus) align 8 %status.i, ptr noundef nonnull %config, i64 noundef 3, ptr noundef nonnull %argv) #20
-  %call.i = call i32 @PyStatus_Exception(ptr noundef nonnull byval(%struct.PyStatus) align 8 %status.i) #20
+  call void @PyConfig_SetArgv(ptr nonnull sret(%struct.PyStatus) align 8 %status.i, ptr noundef nonnull %config, i64 noundef 3, ptr noundef nonnull %argv) #18
+  %call.i = call i32 @PyStatus_Exception(ptr noundef nonnull byval(%struct.PyStatus) align 8 %status.i) #18
   %tobool.not.i = icmp eq i32 %call.i, 0
   br i1 %tobool.not.i, label %config_set_argv.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %if.end
-  call void @PyConfig_Clear(ptr noundef nonnull %config) #20
-  call void @Py_ExitStatusException(ptr noundef nonnull byval(%struct.PyStatus) align 8 %status.i) #23
+  call void @PyConfig_Clear(ptr noundef nonnull %config) #18
+  call void @Py_ExitStatusException(ptr noundef nonnull byval(%struct.PyStatus) align 8 %status.i) #21
   unreachable
 
 config_set_argv.exit:                             ; preds = %if.end
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %status.i)
   %parse_argv = getelementptr inbounds i8, ptr %config, i64 104
   store i32 1, ptr %parse_argv, align 8
-  call void @PyConfig_Read(ptr nonnull sret(%struct.PyStatus) align 8 %tmp2, ptr noundef nonnull %config) #20
+  call void @PyConfig_Read(ptr nonnull sret(%struct.PyStatus) align 8 %tmp2, ptr noundef nonnull %config) #18
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %status, ptr noundef nonnull align 8 dereferenceable(32) %tmp2, i64 32, i1 false)
-  %call3 = call i32 @PyStatus_Exception(ptr noundef nonnull byval(%struct.PyStatus) align 8 %tmp2) #20
+  %call3 = call i32 @PyStatus_Exception(ptr noundef nonnull byval(%struct.PyStatus) align 8 %tmp2) #18
   %tobool4.not = icmp eq i32 %call3, 0
   br i1 %tobool4.not, label %if.end6, label %if.then5
 
 if.then5:                                         ; preds = %config_set_argv.exit
-  call void @Py_ExitStatusException(ptr noundef nonnull byval(%struct.PyStatus) align 8 %status) #23
+  call void @Py_ExitStatusException(ptr noundef nonnull byval(%struct.PyStatus) align 8 %status) #21
   unreachable
 
 if.end6:                                          ; preds = %config_set_argv.exit
-  call void @PyWideStringList_Append(ptr nonnull sret(%struct.PyStatus) align 8 %tmp7, ptr noundef nonnull %warnoptions, ptr noundef nonnull @.str.209) #20
+  call void @PyWideStringList_Append(ptr nonnull sret(%struct.PyStatus) align 8 %tmp7, ptr noundef nonnull %warnoptions, ptr noundef nonnull @.str.209) #18
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %status, ptr noundef nonnull align 8 dereferenceable(32) %tmp7, i64 32, i1 false)
-  %call9 = call i32 @PyStatus_Exception(ptr noundef nonnull byval(%struct.PyStatus) align 8 %tmp7) #20
+  %call9 = call i32 @PyStatus_Exception(ptr noundef nonnull byval(%struct.PyStatus) align 8 %tmp7) #18
   %tobool10.not = icmp eq i32 %call9, 0
   br i1 %tobool10.not, label %if.end12, label %if.then11
 
 if.then11:                                        ; preds = %if.end6
-  call void @Py_ExitStatusException(ptr noundef nonnull byval(%struct.PyStatus) align 8 %status) #23
+  call void @Py_ExitStatusException(ptr noundef nonnull byval(%struct.PyStatus) align 8 %status) #21
   unreachable
 
 if.end12:                                         ; preds = %if.end6
-  call void @PyWideStringList_Insert(ptr nonnull sret(%struct.PyStatus) align 8 %tmp13, ptr noundef nonnull %warnoptions, i64 noundef 0, ptr noundef nonnull @.str.210) #20
+  call void @PyWideStringList_Insert(ptr nonnull sret(%struct.PyStatus) align 8 %tmp13, ptr noundef nonnull %warnoptions, i64 noundef 0, ptr noundef nonnull @.str.210) #18
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %status, ptr noundef nonnull align 8 dereferenceable(32) %tmp13, i64 32, i1 false)
-  %call15 = call i32 @PyStatus_Exception(ptr noundef nonnull byval(%struct.PyStatus) align 8 %tmp13) #20
+  %call15 = call i32 @PyStatus_Exception(ptr noundef nonnull byval(%struct.PyStatus) align 8 %tmp13) #18
   %tobool16.not = icmp eq i32 %call15, 0
   br i1 %tobool16.not, label %if.end18, label %if.then17
 
 if.then17:                                        ; preds = %if.end12
-  call void @Py_ExitStatusException(ptr noundef nonnull byval(%struct.PyStatus) align 8 %status) #23
+  call void @Py_ExitStatusException(ptr noundef nonnull byval(%struct.PyStatus) align 8 %status) #21
   unreachable
 
 if.end18:                                         ; preds = %if.end12
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %status.i1)
-  call void @Py_InitializeFromConfig(ptr nonnull sret(%struct.PyStatus) align 8 %status.i1, ptr noundef nonnull %config) #20
-  call void @PyConfig_Clear(ptr noundef nonnull %config) #20
-  %call.i2 = call i32 @PyStatus_Exception(ptr noundef nonnull byval(%struct.PyStatus) align 8 %status.i1) #20
+  call void @Py_InitializeFromConfig(ptr nonnull sret(%struct.PyStatus) align 8 %status.i1, ptr noundef nonnull %config) #18
+  call void @PyConfig_Clear(ptr noundef nonnull %config) #18
+  %call.i2 = call i32 @PyStatus_Exception(ptr noundef nonnull byval(%struct.PyStatus) align 8 %status.i1) #18
   %tobool.not.i3 = icmp eq i32 %call.i2, 0
   br i1 %tobool.not.i3, label %init_from_config_clear.exit, label %if.then.i4
 
 if.then.i4:                                       ; preds = %if.end18
-  call void @Py_ExitStatusException(ptr noundef nonnull byval(%struct.PyStatus) align 8 %status.i1) #23
+  call void @Py_ExitStatusException(ptr noundef nonnull byval(%struct.PyStatus) align 8 %status.i1) #21
   unreachable
 
 init_from_config_clear.exit:                      ; preds = %if.end18
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %status.i1)
-  %call.i5 = call i32 @PyRun_SimpleStringFlags(ptr noundef nonnull @.str.112, ptr noundef null) #20
-  call void @Py_Finalize() #20
+  %call.i5 = call i32 @PyRun_SimpleStringFlags(ptr noundef nonnull @.str.112, ptr noundef null) #18
+  call void @Py_Finalize() #18
   ret i32 0
 }
 
@@ -3068,17 +3098,17 @@ entry:
   %status.i = alloca %struct.PyStatus, align 8
   %config = alloca %struct.PyConfig, align 8
   %status = alloca %struct.PyStatus, align 8
-  call void @PyConfig_InitIsolatedConfig(ptr noundef nonnull %config) #20
+  call void @PyConfig_InitIsolatedConfig(ptr noundef nonnull %config) #18
   %program_name = getelementptr inbounds i8, ptr %config, i64 280
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %status.i)
-  call void @PyConfig_SetString(ptr nonnull sret(%struct.PyStatus) align 8 %status.i, ptr noundef nonnull %config, ptr noundef nonnull %program_name, ptr noundef nonnull @.str.64) #20
-  %call.i = call i32 @PyStatus_Exception(ptr noundef nonnull byval(%struct.PyStatus) align 8 %status.i) #20
+  call void @PyConfig_SetString(ptr nonnull sret(%struct.PyStatus) align 8 %status.i, ptr noundef nonnull %config, ptr noundef nonnull %program_name, ptr noundef nonnull @.str.64) #18
+  %call.i = call i32 @PyStatus_Exception(ptr noundef nonnull byval(%struct.PyStatus) align 8 %status.i) #18
   %tobool.not.i = icmp eq i32 %call.i, 0
   br i1 %tobool.not.i, label %config_set_string.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %entry
-  call void @PyConfig_Clear(ptr noundef nonnull %config) #20
-  call void @Py_ExitStatusException(ptr noundef nonnull byval(%struct.PyStatus) align 8 %status.i) #23
+  call void @PyConfig_Clear(ptr noundef nonnull %config) #18
+  call void @Py_ExitStatusException(ptr noundef nonnull byval(%struct.PyStatus) align 8 %status.i) #21
   unreachable
 
 config_set_string.exit:                           ; preds = %entry
@@ -3088,56 +3118,56 @@ config_set_string.exit:                           ; preds = %entry
   %bytes_warning = getelementptr inbounds i8, ptr %config, i64 180
   store i32 0, ptr %bytes_warning, align 4
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %status.i1)
-  call void @Py_InitializeFromConfig(ptr nonnull sret(%struct.PyStatus) align 8 %status.i1, ptr noundef nonnull %config) #20
-  call void @PyConfig_Clear(ptr noundef nonnull %config) #20
-  %call.i2 = call i32 @PyStatus_Exception(ptr noundef nonnull byval(%struct.PyStatus) align 8 %status.i1) #20
+  call void @Py_InitializeFromConfig(ptr nonnull sret(%struct.PyStatus) align 8 %status.i1, ptr noundef nonnull %config) #18
+  call void @PyConfig_Clear(ptr noundef nonnull %config) #18
+  %call.i2 = call i32 @PyStatus_Exception(ptr noundef nonnull byval(%struct.PyStatus) align 8 %status.i1) #18
   %tobool.not.i3 = icmp eq i32 %call.i2, 0
   br i1 %tobool.not.i3, label %init_from_config_clear.exit, label %if.then.i4
 
 if.then.i4:                                       ; preds = %config_set_string.exit
-  call void @Py_ExitStatusException(ptr noundef nonnull byval(%struct.PyStatus) align 8 %status.i1) #23
+  call void @Py_ExitStatusException(ptr noundef nonnull byval(%struct.PyStatus) align 8 %status.i1) #21
   unreachable
 
 init_from_config_clear.exit:                      ; preds = %config_set_string.exit
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %status.i1)
   call void @llvm.lifetime.start.p0(i64 448, ptr nonnull %config.i)
-  call void @PyConfig_InitPythonConfig(ptr noundef nonnull %config.i) #20
-  %call.i5 = call i32 @_PyInterpreterState_GetConfigCopy(ptr noundef nonnull %config.i) #20
+  call void @PyConfig_InitPythonConfig(ptr noundef nonnull %config.i) #18
+  %call.i5 = call i32 @_PyInterpreterState_GetConfigCopy(ptr noundef nonnull %config.i) #18
   %cmp.i = icmp slt i32 %call.i5, 0
   br i1 %cmp.i, label %tune_config.exit.thread, label %tune_config.exit
 
 tune_config.exit.thread:                          ; preds = %init_from_config_clear.exit
-  call void @PyConfig_Clear(ptr noundef nonnull %config.i) #20
-  call void @PyErr_Print() #20
+  call void @PyConfig_Clear(ptr noundef nonnull %config.i) #18
+  call void @PyErr_Print() #18
   call void @llvm.lifetime.end.p0(i64 448, ptr nonnull %config.i)
   br label %if.then
 
 tune_config.exit:                                 ; preds = %init_from_config_clear.exit
   %bytes_warning.i = getelementptr inbounds i8, ptr %config.i, i64 180
   store i32 2, ptr %bytes_warning.i, align 4
-  %call1.i = call i32 @_PyInterpreterState_SetConfig(ptr noundef nonnull %config.i) #20
-  call void @PyConfig_Clear(ptr noundef nonnull %config.i) #20
+  %call1.i = call i32 @_PyInterpreterState_SetConfig(ptr noundef nonnull %config.i) #18
+  call void @PyConfig_Clear(ptr noundef nonnull %config.i) #18
   call void @llvm.lifetime.end.p0(i64 448, ptr nonnull %config.i)
   %cmp = icmp slt i32 %call1.i, 0
   br i1 %cmp, label %if.then, label %if.end
 
 if.then:                                          ; preds = %tune_config.exit.thread, %tune_config.exit
-  call void @PyErr_Print() #20
+  call void @PyErr_Print() #18
   br label %return
 
 if.end:                                           ; preds = %tune_config.exit
-  call void @_Py_InitializeMain(ptr nonnull sret(%struct.PyStatus) align 8 %status) #20
-  %call1 = call i32 @PyStatus_Exception(ptr noundef nonnull byval(%struct.PyStatus) align 8 %status) #20
+  call void @_Py_InitializeMain(ptr nonnull sret(%struct.PyStatus) align 8 %status) #18
+  %call1 = call i32 @PyStatus_Exception(ptr noundef nonnull byval(%struct.PyStatus) align 8 %status) #18
   %tobool.not = icmp eq i32 %call1, 0
   br i1 %tobool.not, label %if.end3, label %if.then2
 
 if.then2:                                         ; preds = %if.end
-  call void @Py_ExitStatusException(ptr noundef nonnull byval(%struct.PyStatus) align 8 %status) #23
+  call void @Py_ExitStatusException(ptr noundef nonnull byval(%struct.PyStatus) align 8 %status) #21
   unreachable
 
 if.end3:                                          ; preds = %if.end
-  %call.i7 = call i32 @PyRun_SimpleStringFlags(ptr noundef nonnull @.str.112, ptr noundef null) #20
-  call void @Py_Finalize() #20
+  %call.i7 = call i32 @PyRun_SimpleStringFlags(ptr noundef nonnull @.str.112, ptr noundef null) #18
+  call void @Py_Finalize() #18
   br label %return
 
 return:                                           ; preds = %if.end3, %if.then
@@ -3153,49 +3183,49 @@ entry:
   %status.i = alloca %struct.PyStatus, align 8
   %config = alloca %struct.PyConfig, align 8
   %argv = alloca [4 x ptr], align 16
-  call void @PyConfig_InitPythonConfig(ptr noundef nonnull %config) #20
+  call void @PyConfig_InitPythonConfig(ptr noundef nonnull %config) #18
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %argv, ptr noundef nonnull align 16 dereferenceable(32) @__const.test_run_main.argv, i64 32, i1 false)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %status.i)
-  call void @PyConfig_SetArgv(ptr nonnull sret(%struct.PyStatus) align 8 %status.i, ptr noundef nonnull %config, i64 noundef 4, ptr noundef nonnull %argv) #20
-  %call.i = call i32 @PyStatus_Exception(ptr noundef nonnull byval(%struct.PyStatus) align 8 %status.i) #20
+  call void @PyConfig_SetArgv(ptr nonnull sret(%struct.PyStatus) align 8 %status.i, ptr noundef nonnull %config, i64 noundef 4, ptr noundef nonnull %argv) #18
+  %call.i = call i32 @PyStatus_Exception(ptr noundef nonnull byval(%struct.PyStatus) align 8 %status.i) #18
   %tobool.not.i = icmp eq i32 %call.i, 0
   br i1 %tobool.not.i, label %config_set_argv.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %entry
-  call void @PyConfig_Clear(ptr noundef nonnull %config) #20
-  call void @Py_ExitStatusException(ptr noundef nonnull byval(%struct.PyStatus) align 8 %status.i) #23
+  call void @PyConfig_Clear(ptr noundef nonnull %config) #18
+  call void @Py_ExitStatusException(ptr noundef nonnull byval(%struct.PyStatus) align 8 %status.i) #21
   unreachable
 
 config_set_argv.exit:                             ; preds = %entry
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %status.i)
   %program_name = getelementptr inbounds i8, ptr %config, i64 280
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %status.i1)
-  call void @PyConfig_SetString(ptr nonnull sret(%struct.PyStatus) align 8 %status.i1, ptr noundef nonnull %config, ptr noundef nonnull %program_name, ptr noundef nonnull @.str.183) #20
-  %call.i2 = call i32 @PyStatus_Exception(ptr noundef nonnull byval(%struct.PyStatus) align 8 %status.i1) #20
+  call void @PyConfig_SetString(ptr nonnull sret(%struct.PyStatus) align 8 %status.i1, ptr noundef nonnull %config, ptr noundef nonnull %program_name, ptr noundef nonnull @.str.183) #18
+  %call.i2 = call i32 @PyStatus_Exception(ptr noundef nonnull byval(%struct.PyStatus) align 8 %status.i1) #18
   %tobool.not.i3 = icmp eq i32 %call.i2, 0
   br i1 %tobool.not.i3, label %config_set_string.exit, label %if.then.i4
 
 if.then.i4:                                       ; preds = %config_set_argv.exit
-  call void @PyConfig_Clear(ptr noundef nonnull %config) #20
-  call void @Py_ExitStatusException(ptr noundef nonnull byval(%struct.PyStatus) align 8 %status.i1) #23
+  call void @PyConfig_Clear(ptr noundef nonnull %config) #18
+  call void @Py_ExitStatusException(ptr noundef nonnull byval(%struct.PyStatus) align 8 %status.i1) #21
   unreachable
 
 config_set_string.exit:                           ; preds = %config_set_argv.exit
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %status.i1)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %status.i5)
-  call void @Py_InitializeFromConfig(ptr nonnull sret(%struct.PyStatus) align 8 %status.i5, ptr noundef nonnull %config) #20
-  call void @PyConfig_Clear(ptr noundef nonnull %config) #20
-  %call.i6 = call i32 @PyStatus_Exception(ptr noundef nonnull byval(%struct.PyStatus) align 8 %status.i5) #20
+  call void @Py_InitializeFromConfig(ptr nonnull sret(%struct.PyStatus) align 8 %status.i5, ptr noundef nonnull %config) #18
+  call void @PyConfig_Clear(ptr noundef nonnull %config) #18
+  %call.i6 = call i32 @PyStatus_Exception(ptr noundef nonnull byval(%struct.PyStatus) align 8 %status.i5) #18
   %tobool.not.i7 = icmp eq i32 %call.i6, 0
   br i1 %tobool.not.i7, label %init_from_config_clear.exit, label %if.then.i8
 
 if.then.i8:                                       ; preds = %config_set_string.exit
-  call void @Py_ExitStatusException(ptr noundef nonnull byval(%struct.PyStatus) align 8 %status.i5) #23
+  call void @Py_ExitStatusException(ptr noundef nonnull byval(%struct.PyStatus) align 8 %status.i5) #21
   unreachable
 
 init_from_config_clear.exit:                      ; preds = %config_set_string.exit
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %status.i5)
-  %call = call i32 @Py_RunMain() #20
+  %call = call i32 @Py_RunMain() #18
   ret i32 %call
 }
 
@@ -3228,60 +3258,60 @@ entry:
   %status = alloca %struct.PyStatus, align 8
   %get_argc = alloca i32, align 4
   %get_argv = alloca ptr, align 8
-  call void @PyConfig_InitPythonConfig(ptr noundef nonnull %config) #20
+  call void @PyConfig_InitPythonConfig(ptr noundef nonnull %config) #18
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %argv, ptr noundef nonnull align 16 dereferenceable(32) @__const.test_get_argc_argv.argv, i64 32, i1 false)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %status.i)
-  call void @PyConfig_SetArgv(ptr nonnull sret(%struct.PyStatus) align 8 %status.i, ptr noundef nonnull %config, i64 noundef 4, ptr noundef nonnull %argv) #20
-  %call.i = call i32 @PyStatus_Exception(ptr noundef nonnull byval(%struct.PyStatus) align 8 %status.i) #20
+  call void @PyConfig_SetArgv(ptr nonnull sret(%struct.PyStatus) align 8 %status.i, ptr noundef nonnull %config, i64 noundef 4, ptr noundef nonnull %argv) #18
+  %call.i = call i32 @PyStatus_Exception(ptr noundef nonnull byval(%struct.PyStatus) align 8 %status.i) #18
   %tobool.not.i = icmp eq i32 %call.i, 0
   br i1 %tobool.not.i, label %config_set_argv.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %entry
-  call void @PyConfig_Clear(ptr noundef nonnull %config) #20
-  call void @Py_ExitStatusException(ptr noundef nonnull byval(%struct.PyStatus) align 8 %status.i) #23
+  call void @PyConfig_Clear(ptr noundef nonnull %config) #18
+  call void @Py_ExitStatusException(ptr noundef nonnull byval(%struct.PyStatus) align 8 %status.i) #21
   unreachable
 
 config_set_argv.exit:                             ; preds = %entry
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %status.i)
   %program_name = getelementptr inbounds i8, ptr %config, i64 280
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %status.i6)
-  call void @PyConfig_SetString(ptr nonnull sret(%struct.PyStatus) align 8 %status.i6, ptr noundef nonnull %config, ptr noundef nonnull %program_name, ptr noundef nonnull @.str.183) #20
-  %call.i7 = call i32 @PyStatus_Exception(ptr noundef nonnull byval(%struct.PyStatus) align 8 %status.i6) #20
+  call void @PyConfig_SetString(ptr nonnull sret(%struct.PyStatus) align 8 %status.i6, ptr noundef nonnull %config, ptr noundef nonnull %program_name, ptr noundef nonnull @.str.183) #18
+  %call.i7 = call i32 @PyStatus_Exception(ptr noundef nonnull byval(%struct.PyStatus) align 8 %status.i6) #18
   %tobool.not.i8 = icmp eq i32 %call.i7, 0
   br i1 %tobool.not.i8, label %config_set_string.exit, label %if.then.i9
 
 if.then.i9:                                       ; preds = %config_set_argv.exit
-  call void @PyConfig_Clear(ptr noundef nonnull %config) #20
-  call void @Py_ExitStatusException(ptr noundef nonnull byval(%struct.PyStatus) align 8 %status.i6) #23
+  call void @PyConfig_Clear(ptr noundef nonnull %config) #18
+  call void @Py_ExitStatusException(ptr noundef nonnull byval(%struct.PyStatus) align 8 %status.i6) #21
   unreachable
 
 config_set_string.exit:                           ; preds = %config_set_argv.exit
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %status.i6)
-  call void @PyConfig_Read(ptr nonnull sret(%struct.PyStatus) align 8 %status, ptr noundef nonnull %config) #20
-  %call = call i32 @PyStatus_Exception(ptr noundef nonnull byval(%struct.PyStatus) align 8 %status) #20
+  call void @PyConfig_Read(ptr nonnull sret(%struct.PyStatus) align 8 %status, ptr noundef nonnull %config) #18
+  %call = call i32 @PyStatus_Exception(ptr noundef nonnull byval(%struct.PyStatus) align 8 %status) #18
   %tobool.not = icmp eq i32 %call, 0
   br i1 %tobool.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %config_set_string.exit
-  call void @PyConfig_Clear(ptr noundef nonnull %config) #20
-  call void @Py_ExitStatusException(ptr noundef nonnull byval(%struct.PyStatus) align 8 %status) #23
+  call void @PyConfig_Clear(ptr noundef nonnull %config) #18
+  call void @Py_ExitStatusException(ptr noundef nonnull byval(%struct.PyStatus) align 8 %status) #21
   unreachable
 
 if.end:                                           ; preds = %config_set_string.exit
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %status.i10)
-  call void @Py_InitializeFromConfig(ptr nonnull sret(%struct.PyStatus) align 8 %status.i10, ptr noundef nonnull %config) #20
-  call void @PyConfig_Clear(ptr noundef nonnull %config) #20
-  %call.i11 = call i32 @PyStatus_Exception(ptr noundef nonnull byval(%struct.PyStatus) align 8 %status.i10) #20
+  call void @Py_InitializeFromConfig(ptr nonnull sret(%struct.PyStatus) align 8 %status.i10, ptr noundef nonnull %config) #18
+  call void @PyConfig_Clear(ptr noundef nonnull %config) #18
+  %call.i11 = call i32 @PyStatus_Exception(ptr noundef nonnull byval(%struct.PyStatus) align 8 %status.i10) #18
   %tobool.not.i12 = icmp eq i32 %call.i11, 0
   br i1 %tobool.not.i12, label %init_from_config_clear.exit, label %if.then.i13
 
 if.then.i13:                                      ; preds = %if.end
-  call void @Py_ExitStatusException(ptr noundef nonnull byval(%struct.PyStatus) align 8 %status.i10) #23
+  call void @Py_ExitStatusException(ptr noundef nonnull byval(%struct.PyStatus) align 8 %status.i10) #21
   unreachable
 
 init_from_config_clear.exit:                      ; preds = %if.end
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %status.i10)
-  call void @Py_GetArgcArgv(ptr noundef nonnull %get_argc, ptr noundef nonnull %get_argv) #20
+  call void @Py_GetArgcArgv(ptr noundef nonnull %get_argc, ptr noundef nonnull %get_argv) #18
   %0 = load i32, ptr %get_argc, align 4
   %call1 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.212, i32 noundef %0)
   %1 = load i32, ptr %get_argc, align 4
@@ -3293,7 +3323,7 @@ for.body.preheader:                               ; preds = %init_from_config_cl
   br label %for.body
 
 cond.false:                                       ; preds = %init_from_config_clear.exit
-  call void @__assert_fail(ptr noundef nonnull @.str.213, ptr noundef nonnull @.str.171, i32 noundef 1909, ptr noundef nonnull @__PRETTY_FUNCTION__.test_get_argc_argv) #23
+  call void @__assert_fail(ptr noundef nonnull @.str.213, ptr noundef nonnull @.str.171, i32 noundef 1909, ptr noundef nonnull @__PRETTY_FUNCTION__.test_get_argc_argv) #21
   unreachable
 
 for.cond:                                         ; preds = %for.body
@@ -3315,16 +3345,16 @@ for.body:                                         ; preds = %for.body.preheader,
   %8 = load ptr, ptr %arrayidx7, align 8
   %arrayidx9 = getelementptr [4 x ptr], ptr %argv, i64 0, i64 %indvars.iv
   %9 = load ptr, ptr %arrayidx9, align 8
-  %call10 = call i32 @wcscmp(ptr noundef %8, ptr noundef %9) #19
+  %call10 = call i32 @wcscmp(ptr noundef %8, ptr noundef %9) #17
   %cmp11 = icmp eq i32 %call10, 0
   br i1 %cmp11, label %for.cond, label %cond.false14
 
 cond.false14:                                     ; preds = %for.body
-  call void @__assert_fail(ptr noundef nonnull @.str.215, ptr noundef nonnull @.str.171, i32 noundef 1912, ptr noundef nonnull @__PRETTY_FUNCTION__.test_get_argc_argv) #23
+  call void @__assert_fail(ptr noundef nonnull @.str.215, ptr noundef nonnull @.str.171, i32 noundef 1912, ptr noundef nonnull @__PRETTY_FUNCTION__.test_get_argc_argv) #21
   unreachable
 
 for.end:                                          ; preds = %for.cond
-  call void @Py_Finalize() #20
+  call void @Py_Finalize() #18
   %putchar = call i32 @putchar(i32 10)
   %puts = call i32 @puts(ptr nonnull dereferenceable(1) @str.18)
   ret i32 0
@@ -3333,12 +3363,12 @@ for.end:                                          ; preds = %for.cond
 ; Function Attrs: nounwind uwtable
 define internal range(i32 -1, 1) i32 @test_init_use_frozen_modules() #0 {
 entry:
-  %status.i2.i = alloca %struct.PyStatus, align 8
+  %status.i3.i = alloca %struct.PyStatus, align 8
   %status.i.i = alloca %struct.PyStatus, align 8
   %optval.i = alloca [100 x i32], align 16
   %config.i = alloca %struct.PyConfig, align 8
   %argv.i = alloca [5 x ptr], align 16
-  %call = tail call ptr @getenv(ptr noundef nonnull @.str.218) #20
+  %call = tail call ptr @getenv(ptr noundef nonnull @.str.218) #18
   call void @llvm.lifetime.start.p0(i64 400, ptr nonnull %optval.i)
   call void @llvm.lifetime.start.p0(i64 448, ptr nonnull %config.i)
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %argv.i)
@@ -3346,20 +3376,23 @@ entry:
   br i1 %cmp.i, label %if.then.i, label %if.else.i
 
 if.then.i:                                        ; preds = %entry
-  %call.i = call ptr @wcscpy(ptr noundef nonnull %optval.i, ptr noundef nonnull @.str.219) #20
+  %call.i = call ptr @wcscpy(ptr noundef nonnull %optval.i, ptr noundef nonnull @.str.219) #18
   br label %if.end5.i
 
 if.else.i:                                        ; preds = %entry
-  %call2.i = call i32 (ptr, i64, ptr, ...) @swprintf(ptr noundef nonnull %optval.i, i64 noundef 100, ptr noundef nonnull @.str.220, ptr noundef nonnull %call) #20
+  %call2.i = call i32 (ptr, i64, ptr, ...) @swprintf(ptr noundef nonnull %optval.i, i64 noundef 100, ptr noundef nonnull @.str.220, ptr noundef nonnull %call) #18
   %cmp3.i = icmp slt i32 %call2.i, 0
   br i1 %cmp3.i, label %if.then4.i, label %if.end5.i
 
 if.then4.i:                                       ; preds = %if.else.i
-  call fastcc void @error(ptr noundef nonnull @.str.221)
+  %0 = load ptr, ptr @stderr, align 8
+  %call.i.i = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.107, ptr noundef nonnull @.str.221) #19
+  %1 = load ptr, ptr @stderr, align 8
+  %call1.i.i = call i32 @fflush(ptr noundef %1)
   br label %check_use_frozen_modules.exit
 
 if.end5.i:                                        ; preds = %if.else.i, %if.then.i
-  call void @PyConfig_InitPythonConfig(ptr noundef nonnull %config.i) #20
+  call void @PyConfig_InitPythonConfig(ptr noundef nonnull %config.i) #18
   %parse_argv.i = getelementptr inbounds i8, ptr %config.i, i64 104
   store i32 1, ptr %parse_argv.i, align 8
   store ptr @.str.146, ptr %argv.i, align 16
@@ -3372,33 +3405,33 @@ if.end5.i:                                        ; preds = %if.else.i, %if.then
   %arrayinit.element9.i = getelementptr inbounds i8, ptr %argv.i, i64 32
   store ptr @.str.84, ptr %arrayinit.element9.i, align 16
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %status.i.i)
-  call void @PyConfig_SetArgv(ptr nonnull sret(%struct.PyStatus) align 8 %status.i.i, ptr noundef nonnull %config.i, i64 noundef 5, ptr noundef nonnull %argv.i) #20
-  %call.i.i = call i32 @PyStatus_Exception(ptr noundef nonnull byval(%struct.PyStatus) align 8 %status.i.i) #20
-  %tobool.not.i.i = icmp eq i32 %call.i.i, 0
+  call void @PyConfig_SetArgv(ptr nonnull sret(%struct.PyStatus) align 8 %status.i.i, ptr noundef nonnull %config.i, i64 noundef 5, ptr noundef nonnull %argv.i) #18
+  %call.i2.i = call i32 @PyStatus_Exception(ptr noundef nonnull byval(%struct.PyStatus) align 8 %status.i.i) #18
+  %tobool.not.i.i = icmp eq i32 %call.i2.i, 0
   br i1 %tobool.not.i.i, label %config_set_argv.exit.i, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %if.end5.i
-  call void @PyConfig_Clear(ptr noundef nonnull %config.i) #20
-  call void @Py_ExitStatusException(ptr noundef nonnull byval(%struct.PyStatus) align 8 %status.i.i) #23
+  call void @PyConfig_Clear(ptr noundef nonnull %config.i) #18
+  call void @Py_ExitStatusException(ptr noundef nonnull byval(%struct.PyStatus) align 8 %status.i.i) #21
   unreachable
 
 config_set_argv.exit.i:                           ; preds = %if.end5.i
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %status.i.i)
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %status.i2.i)
-  call void @Py_InitializeFromConfig(ptr nonnull sret(%struct.PyStatus) align 8 %status.i2.i, ptr noundef nonnull %config.i) #20
-  call void @PyConfig_Clear(ptr noundef nonnull %config.i) #20
-  %call.i3.i = call i32 @PyStatus_Exception(ptr noundef nonnull byval(%struct.PyStatus) align 8 %status.i2.i) #20
-  %tobool.not.i4.i = icmp eq i32 %call.i3.i, 0
-  br i1 %tobool.not.i4.i, label %init_from_config_clear.exit.i, label %if.then.i5.i
+  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %status.i3.i)
+  call void @Py_InitializeFromConfig(ptr nonnull sret(%struct.PyStatus) align 8 %status.i3.i, ptr noundef nonnull %config.i) #18
+  call void @PyConfig_Clear(ptr noundef nonnull %config.i) #18
+  %call.i4.i = call i32 @PyStatus_Exception(ptr noundef nonnull byval(%struct.PyStatus) align 8 %status.i3.i) #18
+  %tobool.not.i5.i = icmp eq i32 %call.i4.i, 0
+  br i1 %tobool.not.i5.i, label %init_from_config_clear.exit.i, label %if.then.i6.i
 
-if.then.i5.i:                                     ; preds = %config_set_argv.exit.i
-  call void @Py_ExitStatusException(ptr noundef nonnull byval(%struct.PyStatus) align 8 %status.i2.i) #23
+if.then.i6.i:                                     ; preds = %config_set_argv.exit.i
+  call void @Py_ExitStatusException(ptr noundef nonnull byval(%struct.PyStatus) align 8 %status.i3.i) #21
   unreachable
 
 init_from_config_clear.exit.i:                    ; preds = %config_set_argv.exit.i
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %status.i2.i)
-  %call.i6.i = call i32 @PyRun_SimpleStringFlags(ptr noundef nonnull @.str.112, ptr noundef null) #20
-  call void @Py_Finalize() #20
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %status.i3.i)
+  %call.i7.i = call i32 @PyRun_SimpleStringFlags(ptr noundef nonnull @.str.112, ptr noundef null) #18
+  call void @Py_Finalize() #18
   br label %check_use_frozen_modules.exit
 
 check_use_frozen_modules.exit:                    ; preds = %if.then4.i, %init_from_config_clear.exit.i
@@ -3412,10 +3445,10 @@ check_use_frozen_modules.exit:                    ; preds = %if.then4.i, %init_f
 ; Function Attrs: nounwind uwtable
 define internal noundef i32 @test_init_main_interpreter_settings() #0 {
 entry:
-  tail call void @Py_SetProgramName(ptr noundef nonnull @.str.64) #20
-  tail call void @Py_Initialize() #20
-  %call = tail call i32 @PyRun_SimpleStringFlags(ptr noundef nonnull @.str.222, ptr noundef null) #20
-  tail call void @Py_Finalize() #20
+  tail call void @Py_SetProgramName(ptr noundef nonnull @.str.64) #18
+  tail call void @Py_Initialize() #18
+  %call = tail call i32 @PyRun_SimpleStringFlags(ptr noundef nonnull @.str.222, ptr noundef null) #18
+  tail call void @Py_Finalize() #18
   ret i32 0
 }
 
@@ -3424,7 +3457,7 @@ define internal i32 @test_open_code_hook() #0 {
 entry:
   %result = alloca i32, align 4
   store i32 0, ptr %result, align 4
-  %call = call i32 @PyFile_SetOpenCodeHook(ptr noundef nonnull @_open_code_hook, ptr noundef nonnull %result) #20
+  %call = call i32 @PyFile_SetOpenCodeHook(ptr noundef nonnull @_open_code_hook, ptr noundef nonnull %result) #18
   store i32 %call, ptr %result, align 4
   %tobool.not = icmp eq i32 %call, 0
   br i1 %tobool.not, label %if.end, label %if.then
@@ -3434,7 +3467,7 @@ if.then:                                          ; preds = %entry
   br label %return
 
 if.end:                                           ; preds = %entry
-  %call2 = call i32 @PyFile_SetOpenCodeHook(ptr noundef nonnull @_open_code_hook, ptr noundef nonnull %result) #20
+  %call2 = call i32 @PyFile_SetOpenCodeHook(ptr noundef nonnull @_open_code_hook, ptr noundef nonnull %result) #18
   store i32 %call2, ptr %result, align 4
   %tobool3.not = icmp eq i32 %call2, 0
   br i1 %tobool3.not, label %if.then4, label %if.end6
@@ -3447,17 +3480,17 @@ if.end6:                                          ; preds = %if.end
   store i32 0, ptr @Py_IgnoreEnvironmentFlag, align 4
   call fastcc void @_testembed_Py_InitializeFromConfig()
   store i32 0, ptr %result, align 4
-  %call7 = call ptr @PyFile_OpenCode(ptr noundef nonnull @.str.225) #20
+  %call7 = call ptr @PyFile_OpenCode(ptr noundef nonnull @.str.225) #18
   %tobool8.not = icmp eq ptr %call7, null
   br i1 %tobool8.not, label %if.then9, label %if.else
 
 if.then9:                                         ; preds = %if.end6
-  call void @PyErr_Print() #20
+  call void @PyErr_Print() #18
   store i32 3, ptr %result, align 4
   br label %if.end32
 
 if.else:                                          ; preds = %if.end6
-  %call10 = call ptr @PyLong_AsVoidPtr(ptr noundef nonnull %call7) #20
+  %call10 = call ptr @PyLong_AsVoidPtr(ptr noundef nonnull %call7) #18
   %0 = load i64, ptr %call7, align 8
   %1 = and i64 %0, 2147483648
   %cmp.i43.not = icmp eq i64 %1, 0
@@ -3470,7 +3503,7 @@ if.end.i36:                                       ; preds = %if.else
   br i1 %cmp.i38, label %if.then1.i39, label %Py_DECREF.exit41
 
 if.then1.i39:                                     ; preds = %if.end.i36
-  call void @_Py_Dealloc(ptr noundef nonnull %call7) #20
+  call void @_Py_Dealloc(ptr noundef nonnull %call7) #18
   br label %Py_DECREF.exit41
 
 Py_DECREF.exit41:                                 ; preds = %if.else, %if.then1.i39, %if.end.i36
@@ -3488,22 +3521,22 @@ if.end15:                                         ; preds = %Py_DECREF.exit41
   br i1 %tobool16.not, label %if.then17, label %if.end32
 
 if.then17:                                        ; preds = %if.end15
-  %call18 = call ptr @PyImport_ImportModule(ptr noundef nonnull @.str.227) #20
+  %call18 = call ptr @PyImport_ImportModule(ptr noundef nonnull @.str.227) #18
   %tobool20.not = icmp eq ptr %call18, null
   br i1 %tobool20.not, label %if.end31.thread18, label %cond.end
 
 if.end31.thread18:                                ; preds = %if.then17
-  call void @PyErr_Print() #20
+  call void @PyErr_Print() #18
   store i32 5, ptr %result, align 4
   br label %if.end32
 
 cond.end:                                         ; preds = %if.then17
-  %call21 = call ptr (ptr, ptr, ptr, ...) @PyObject_CallMethod(ptr noundef nonnull %call18, ptr noundef nonnull @.str.228, ptr noundef nonnull @.str.229, ptr noundef nonnull @.str.225) #20
+  %call21 = call ptr (ptr, ptr, ptr, ...) @PyObject_CallMethod(ptr noundef nonnull %call18, ptr noundef nonnull @.str.228, ptr noundef nonnull @.str.229, ptr noundef nonnull @.str.225) #18
   %tobool22.not = icmp eq ptr %call21, null
   br i1 %tobool22.not, label %if.end31, label %if.else24
 
 if.else24:                                        ; preds = %cond.end
-  %call26 = call ptr @PyLong_AsVoidPtr(ptr noundef nonnull %call21) #20
+  %call26 = call ptr @PyLong_AsVoidPtr(ptr noundef nonnull %call21) #18
   %2 = load i64, ptr %call21, align 8
   %3 = and i64 %2, 2147483648
   %cmp.i46.not = icmp eq i64 %3, 0
@@ -3516,7 +3549,7 @@ if.end.i:                                         ; preds = %if.else24
   br i1 %cmp.i, label %if.then1.i, label %Py_DECREF.exit
 
 if.then1.i:                                       ; preds = %if.end.i
-  call void @_Py_Dealloc(ptr noundef nonnull %call21) #20
+  call void @_Py_Dealloc(ptr noundef nonnull %call21) #18
   br label %Py_DECREF.exit
 
 Py_DECREF.exit:                                   ; preds = %if.else24, %if.then1.i, %if.end.i
@@ -3528,7 +3561,7 @@ if.then28:                                        ; preds = %Py_DECREF.exit
   br label %if.then.i.sink.split
 
 if.end31:                                         ; preds = %cond.end
-  call void @PyErr_Print() #20
+  call void @PyErr_Print() #18
   br label %if.then.i.sink.split
 
 if.then.i.sink.split:                             ; preds = %if.end31, %if.then28
@@ -3549,11 +3582,11 @@ if.end.i.i:                                       ; preds = %if.then.i
   br i1 %cmp.i.i, label %if.then1.i.i, label %if.end32
 
 if.then1.i.i:                                     ; preds = %if.end.i.i
-  call void @_Py_Dealloc(ptr noundef nonnull %call18) #20
+  call void @_Py_Dealloc(ptr noundef nonnull %call18) #18
   br label %if.end32
 
 if.end32:                                         ; preds = %if.then9, %if.then12, %if.then1.i.i, %if.end.i.i, %if.then.i, %if.end31.thread18, %if.end15
-  call void @Py_Finalize() #20
+  call void @Py_Finalize() #18
   %6 = load i32, ptr %result, align 4
   br label %return
 
@@ -3569,9 +3602,9 @@ entry:
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %sawSet.i)
   store i64 0, ptr %sawSet.i, align 8
   store i32 0, ptr @Py_IgnoreEnvironmentFlag, align 4
-  %call.i = call i32 @PySys_AddAuditHook(ptr noundef nonnull @_audit_hook, ptr noundef nonnull %sawSet.i) #20
+  %call.i = call i32 @PySys_AddAuditHook(ptr noundef nonnull @_audit_hook, ptr noundef nonnull %sawSet.i) #18
   call fastcc void @_testembed_Py_InitializeFromConfig()
-  %call1.i = call i32 (ptr, ptr, ...) @PySys_Audit(ptr noundef nonnull @.str.233, ptr noundef null) #20
+  %call1.i = call i32 (ptr, ptr, ...) @PySys_Audit(ptr noundef nonnull @.str.233, ptr noundef null) #18
   %cmp.i = icmp eq i32 %call1.i, 0
   br i1 %cmp.i, label %if.then.i, label %if.end.i
 
@@ -3580,17 +3613,17 @@ if.then.i:                                        ; preds = %entry
   br label %_test_audit.exit
 
 if.end.i:                                         ; preds = %entry
-  %call3.i = call i32 (ptr, ptr, ...) @PySys_Audit(ptr noundef nonnull @.str.235, ptr noundef null) #20
+  %call3.i = call i32 (ptr, ptr, ...) @PySys_Audit(ptr noundef nonnull @.str.235, ptr noundef null) #18
   %cmp4.not.i = icmp eq i32 %call3.i, 0
   br i1 %cmp4.not.i, label %if.end7.i, label %if.then5.i
 
 if.then5.i:                                       ; preds = %if.end.i
   %call6.i = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.236)
-  call void @PyErr_Clear() #20
+  call void @PyErr_Clear() #18
   br label %_test_audit.exit
 
 if.end7.i:                                        ; preds = %if.end.i
-  %call8.i = call ptr @PyErr_Occurred() #20
+  %call8.i = call ptr @PyErr_Occurred() #18
   %tobool.not.i = icmp eq ptr %call8.i, null
   br i1 %tobool.not.i, label %if.then9.i, label %if.end11.i
 
@@ -3599,18 +3632,18 @@ if.then9.i:                                       ; preds = %if.end7.i
   br label %_test_audit.exit
 
 if.end11.i:                                       ; preds = %if.end7.i
-  call void @PyErr_Clear() #20
-  %call12.i = call i32 (ptr, ptr, ...) @PySys_Audit(ptr noundef nonnull @.str.238, ptr noundef nonnull @.str.239, i64 noundef 42) #20
+  call void @PyErr_Clear() #18
+  %call12.i = call i32 (ptr, ptr, ...) @PySys_Audit(ptr noundef nonnull @.str.238, ptr noundef nonnull @.str.239, i64 noundef 42) #18
   %cmp13.not.i = icmp eq i32 %call12.i, 0
   br i1 %cmp13.not.i, label %if.end16.i, label %if.then14.i
 
 if.then14.i:                                      ; preds = %if.end11.i
-  call void @PyErr_Print() #20
+  call void @PyErr_Print() #18
   %call15.i = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.240)
   br label %_test_audit.exit
 
 if.end16.i:                                       ; preds = %if.end11.i
-  %call17.i = call ptr @PyErr_Occurred() #20
+  %call17.i = call ptr @PyErr_Occurred() #18
   %tobool18.not.i = icmp eq ptr %call17.i, null
   br i1 %tobool18.not.i, label %if.end21.i, label %if.then19.i
 
@@ -3630,7 +3663,7 @@ if.then23.i:                                      ; preds = %if.end21.i
 _test_audit.exit:                                 ; preds = %if.then.i, %if.then5.i, %if.then9.i, %if.then14.i, %if.then19.i, %if.end21.i, %if.then23.i
   %retval.0.i = phi i32 [ 1, %if.then.i ], [ 2, %if.then5.i ], [ 4, %if.then14.i ], [ 5, %if.then19.i ], [ 6, %if.then23.i ], [ 3, %if.then9.i ], [ 0, %if.end21.i ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %sawSet.i)
-  call void @Py_Finalize() #20
+  call void @Py_Finalize() #18
   %1 = load i32, ptr @_audit_hook_clear_count, align 4
   %cmp.not = icmp eq i32 %1, 1
   %or = or i32 %1, 4096
@@ -3643,9 +3676,9 @@ define internal range(i32 0, 32) i32 @test_audit_tuple() #0 {
 entry:
   %sawSet = alloca i64, align 8
   store i64 0, ptr %sawSet, align 8
-  %call = call i32 @PySys_AddAuditHook(ptr noundef nonnull @_audit_hook, ptr noundef nonnull %sawSet) #20
+  %call = call i32 @PySys_AddAuditHook(ptr noundef nonnull @_audit_hook, ptr noundef nonnull %sawSet) #18
   call fastcc void @_testembed_Py_InitializeFromConfig()
-  %call1 = call ptr @PyErr_Occurred() #20
+  %call1 = call ptr @PyErr_Occurred() #18
   %tobool.not = icmp eq ptr %call1, null
   br i1 %tobool.not, label %if.end, label %if.then
 
@@ -3654,12 +3687,12 @@ if.then:                                          ; preds = %entry
   br label %return
 
 if.end:                                           ; preds = %entry
-  %call3 = call ptr (ptr, ...) @Py_BuildValue(ptr noundef nonnull @.str.247, i32 noundef 444) #20
+  %call3 = call ptr (ptr, ...) @Py_BuildValue(ptr noundef nonnull @.str.247, i32 noundef 444) #18
   %cmp = icmp eq ptr %call3, null
   br i1 %cmp, label %error, label %if.end5
 
 if.end5:                                          ; preds = %if.end
-  %call6 = call i32 @PySys_AuditTuple(ptr noundef nonnull @.str.238, ptr noundef nonnull %call3) #20
+  %call6 = call i32 @PySys_AuditTuple(ptr noundef nonnull @.str.238, ptr noundef nonnull %call3) #18
   %cmp7 = icmp eq i32 %call6, 0
   br i1 %cmp7, label %if.end10, label %if.then8
 
@@ -3668,7 +3701,7 @@ if.then8:                                         ; preds = %if.end5
   br label %return
 
 if.end10:                                         ; preds = %if.end5
-  %call11 = call ptr @PyErr_Occurred() #20
+  %call11 = call ptr @PyErr_Occurred() #18
   %tobool12.not = icmp eq ptr %call11, null
   br i1 %tobool12.not, label %if.end15, label %if.then13
 
@@ -3698,16 +3731,16 @@ if.end.i47:                                       ; preds = %if.end19
   br i1 %cmp.i49, label %if.then1.i50, label %Py_DECREF.exit52
 
 if.then1.i50:                                     ; preds = %if.end.i47
-  call void @_Py_Dealloc(ptr noundef nonnull %call3) #20
+  call void @_Py_Dealloc(ptr noundef nonnull %call3) #18
   br label %Py_DECREF.exit52
 
 Py_DECREF.exit52:                                 ; preds = %if.end19, %if.then1.i50, %if.end.i47
-  %call20 = call ptr @PyLong_FromLong(i64 noundef 555) #20
+  %call20 = call ptr @PyLong_FromLong(i64 noundef 555) #18
   %cmp21 = icmp eq ptr %call20, null
   br i1 %cmp21, label %error, label %if.end23
 
 if.end23:                                         ; preds = %Py_DECREF.exit52
-  %call24 = call i32 @PySys_AuditTuple(ptr noundef nonnull @.str.238, ptr noundef nonnull %call20) #20
+  %call24 = call i32 @PySys_AuditTuple(ptr noundef nonnull @.str.238, ptr noundef nonnull %call20) #18
   %cmp25 = icmp eq i32 %call24, -1
   br i1 %cmp25, label %if.end28, label %if.then26
 
@@ -3717,7 +3750,7 @@ if.then26:                                        ; preds = %if.end23
 
 if.end28:                                         ; preds = %if.end23
   %3 = load ptr, ptr @PyExc_TypeError, align 8
-  %call29 = call i32 @PyErr_ExceptionMatches(ptr noundef %3) #20
+  %call29 = call i32 @PyErr_ExceptionMatches(ptr noundef %3) #18
   %tobool30.not = icmp eq i32 %call29, 0
   br i1 %tobool30.not, label %if.then31, label %if.end33
 
@@ -3726,7 +3759,7 @@ if.then31:                                        ; preds = %if.end28
   br label %return
 
 if.end33:                                         ; preds = %if.end28
-  call void @PyErr_Clear() #20
+  call void @PyErr_Clear() #18
   %4 = load i64, ptr %call20, align 8
   %5 = and i64 %4, 2147483648
   %cmp.i57.not = icmp eq i64 %5, 0
@@ -3739,11 +3772,11 @@ if.end.i:                                         ; preds = %if.end33
   br i1 %cmp.i, label %if.then1.i, label %Py_DECREF.exit
 
 if.then1.i:                                       ; preds = %if.end.i
-  call void @_Py_Dealloc(ptr noundef nonnull %call20) #20
+  call void @_Py_Dealloc(ptr noundef nonnull %call20) #18
   br label %Py_DECREF.exit
 
 Py_DECREF.exit:                                   ; preds = %if.end33, %if.then1.i, %if.end.i
-  %call34 = call i32 @PySys_AuditTuple(ptr noundef nonnull @.str.248, ptr noundef null) #20
+  %call34 = call i32 @PySys_AuditTuple(ptr noundef nonnull @.str.248, ptr noundef null) #18
   %cmp35 = icmp eq i32 %call34, 0
   br i1 %cmp35, label %if.end38, label %if.then36
 
@@ -3752,7 +3785,7 @@ if.then36:                                        ; preds = %Py_DECREF.exit
   br label %return
 
 if.end38:                                         ; preds = %Py_DECREF.exit
-  %call39 = call ptr @PyErr_Occurred() #20
+  %call39 = call ptr @PyErr_Occurred() #18
   %tobool40.not = icmp eq ptr %call39, null
   br i1 %tobool40.not, label %if.end43, label %if.then41
 
@@ -3761,11 +3794,11 @@ if.then41:                                        ; preds = %if.end38
   br label %return
 
 if.end43:                                         ; preds = %if.end38
-  call void @Py_Finalize() #20
+  call void @Py_Finalize() #18
   br label %return
 
 error:                                            ; preds = %Py_DECREF.exit52, %if.end
-  call void @PyErr_Print() #20
+  call void @PyErr_Print() #18
   br label %return
 
 return:                                           ; preds = %error, %if.end43, %if.then41, %if.then36, %if.then31, %if.then26, %if.then17, %if.then13, %if.then8, %if.then
@@ -3777,12 +3810,12 @@ return:                                           ; preds = %error, %if.end43, %
 define internal i32 @test_audit_subinterpreter() #0 {
 entry:
   store i32 0, ptr @Py_IgnoreEnvironmentFlag, align 4
-  %call = tail call i32 @PySys_AddAuditHook(ptr noundef nonnull @_audit_subinterpreter_hook, ptr noundef null) #20
+  %call = tail call i32 @PySys_AddAuditHook(ptr noundef nonnull @_audit_subinterpreter_hook, ptr noundef null) #18
   tail call fastcc void @_testembed_Py_InitializeFromConfig()
-  %call1 = tail call ptr @Py_NewInterpreter() #20
-  %call2 = tail call ptr @Py_NewInterpreter() #20
-  %call3 = tail call ptr @Py_NewInterpreter() #20
-  tail call void @Py_Finalize() #20
+  %call1 = tail call ptr @Py_NewInterpreter() #18
+  %call2 = tail call ptr @Py_NewInterpreter() #18
+  %call3 = tail call ptr @Py_NewInterpreter() #18
+  tail call void @Py_Finalize() #18
   %0 = load volatile i32, ptr @_audit_subinterpreter_interpreter_count, align 4
   switch i32 %0, label %sw.default [
     i32 3, label %return
@@ -3809,8 +3842,8 @@ entry:
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %test, ptr noundef nonnull align 8 dereferenceable(16) @__const.test_audit_run_command.test, i64 16, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %argv, ptr noundef nonnull align 16 dereferenceable(24) @__const.test_audit_run_command.argv, i64 24, i1 false)
   store i32 0, ptr @Py_IgnoreEnvironmentFlag, align 4
-  %call = call i32 @PySys_AddAuditHook(ptr noundef nonnull @_audit_hook_run, ptr noundef nonnull %test) #20
-  %call1 = call i32 @Py_Main(i32 noundef 3, ptr noundef nonnull %argv) #20
+  %call = call i32 @PySys_AddAuditHook(ptr noundef nonnull @_audit_hook_run, ptr noundef nonnull %test) #18
+  %call1 = call i32 @Py_Main(i32 noundef 3, ptr noundef nonnull %argv) #18
   ret i32 %call1
 }
 
@@ -3822,8 +3855,8 @@ entry:
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %test, ptr noundef nonnull align 8 dereferenceable(16) @__const.test_audit_run_file.test, i64 16, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %argv, ptr noundef nonnull align 16 dereferenceable(16) @__const.test_audit_run_file.argv, i64 16, i1 false)
   store i32 0, ptr @Py_IgnoreEnvironmentFlag, align 4
-  %call = call i32 @PySys_AddAuditHook(ptr noundef nonnull @_audit_hook_run, ptr noundef nonnull %test) #20
-  %call1 = call i32 @Py_Main(i32 noundef 2, ptr noundef nonnull %argv) #20
+  %call = call i32 @PySys_AddAuditHook(ptr noundef nonnull @_audit_hook_run, ptr noundef nonnull %test) #18
+  %call1 = call i32 @Py_Main(i32 noundef 2, ptr noundef nonnull %argv) #18
   ret i32 %call1
 }
 
@@ -3838,7 +3871,7 @@ entry:
   store i64 ptrtoint (ptr @.str.64 to i64), ptr %argv, align 8
   call void @llvm.lifetime.start.p0(i64 448, ptr nonnull %config.i)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %status.i)
-  call void @PyConfig_InitPythonConfig(ptr noundef nonnull %config.i) #20
+  call void @PyConfig_InitPythonConfig(ptr noundef nonnull %config.i) #18
   %argv1.i = getelementptr inbounds i8, ptr %config.i, i64 128
   store i64 1, ptr %argv1.i, align 8
   %items.i = getelementptr inbounds i8, ptr %config.i, i64 136
@@ -3855,18 +3888,18 @@ entry:
   store i32 1, ptr %use_environment.i, align 8
   %quiet.i = getelementptr inbounds i8, ptr %config.i, i64 212
   store i32 1, ptr %quiet.i, align 4
-  %call.i = call i32 @PySys_AddAuditHook(ptr noundef nonnull @_audit_hook_run, ptr noundef nonnull %test) #20
-  call void @Py_InitializeFromConfig(ptr nonnull sret(%struct.PyStatus) align 8 %status.i, ptr noundef nonnull %config.i) #20
-  %call3.i = call i32 @PyStatus_Exception(ptr noundef nonnull byval(%struct.PyStatus) align 8 %status.i) #20
+  %call.i = call i32 @PySys_AddAuditHook(ptr noundef nonnull @_audit_hook_run, ptr noundef nonnull %test) #18
+  call void @Py_InitializeFromConfig(ptr nonnull sret(%struct.PyStatus) align 8 %status.i, ptr noundef nonnull %config.i) #18
+  %call3.i = call i32 @PyStatus_Exception(ptr noundef nonnull byval(%struct.PyStatus) align 8 %status.i) #18
   %tobool.not.i = icmp eq i32 %call3.i, 0
   br i1 %tobool.not.i, label %run_audit_run_test.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %entry
-  call void @Py_ExitStatusException(ptr noundef nonnull byval(%struct.PyStatus) align 8 %status.i) #23
+  call void @Py_ExitStatusException(ptr noundef nonnull byval(%struct.PyStatus) align 8 %status.i) #21
   unreachable
 
 run_audit_run_test.exit:                          ; preds = %entry
-  %call4.i = call i32 @Py_RunMain() #20
+  %call4.i = call i32 @Py_RunMain() #18
   call void @llvm.lifetime.end.p0(i64 448, ptr nonnull %config.i)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %status.i)
   ret i32 %call4.i
@@ -3883,7 +3916,7 @@ entry:
   store i64 ptrtoint (ptr @.str.64 to i64), ptr %argv, align 8
   call void @llvm.lifetime.start.p0(i64 448, ptr nonnull %config.i)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %status.i)
-  call void @PyConfig_InitPythonConfig(ptr noundef nonnull %config.i) #20
+  call void @PyConfig_InitPythonConfig(ptr noundef nonnull %config.i) #18
   %argv1.i = getelementptr inbounds i8, ptr %config.i, i64 128
   store i64 1, ptr %argv1.i, align 8
   %items.i = getelementptr inbounds i8, ptr %config.i, i64 136
@@ -3900,18 +3933,18 @@ entry:
   store i32 1, ptr %use_environment.i, align 8
   %quiet.i = getelementptr inbounds i8, ptr %config.i, i64 212
   store i32 1, ptr %quiet.i, align 4
-  %call.i = call i32 @PySys_AddAuditHook(ptr noundef nonnull @_audit_hook_run, ptr noundef nonnull %test) #20
-  call void @Py_InitializeFromConfig(ptr nonnull sret(%struct.PyStatus) align 8 %status.i, ptr noundef nonnull %config.i) #20
-  %call3.i = call i32 @PyStatus_Exception(ptr noundef nonnull byval(%struct.PyStatus) align 8 %status.i) #20
+  %call.i = call i32 @PySys_AddAuditHook(ptr noundef nonnull @_audit_hook_run, ptr noundef nonnull %test) #18
+  call void @Py_InitializeFromConfig(ptr nonnull sret(%struct.PyStatus) align 8 %status.i, ptr noundef nonnull %config.i) #18
+  %call3.i = call i32 @PyStatus_Exception(ptr noundef nonnull byval(%struct.PyStatus) align 8 %status.i) #18
   %tobool.not.i = icmp eq i32 %call3.i, 0
   br i1 %tobool.not.i, label %run_audit_run_test.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %entry
-  call void @Py_ExitStatusException(ptr noundef nonnull byval(%struct.PyStatus) align 8 %status.i) #23
+  call void @Py_ExitStatusException(ptr noundef nonnull byval(%struct.PyStatus) align 8 %status.i) #21
   unreachable
 
 run_audit_run_test.exit:                          ; preds = %entry
-  %call4.i = call i32 @Py_RunMain() #20
+  %call4.i = call i32 @Py_RunMain() #18
   call void @llvm.lifetime.end.p0(i64 448, ptr nonnull %config.i)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %status.i)
   ret i32 %call4.i
@@ -3928,7 +3961,7 @@ entry:
   store i64 ptrtoint (ptr @.str.64 to i64), ptr %argv, align 8
   call void @llvm.lifetime.start.p0(i64 448, ptr nonnull %config.i)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %status.i)
-  call void @PyConfig_InitPythonConfig(ptr noundef nonnull %config.i) #20
+  call void @PyConfig_InitPythonConfig(ptr noundef nonnull %config.i) #18
   %argv1.i = getelementptr inbounds i8, ptr %config.i, i64 128
   store i64 1, ptr %argv1.i, align 8
   %items.i = getelementptr inbounds i8, ptr %config.i, i64 136
@@ -3945,18 +3978,18 @@ entry:
   store i32 1, ptr %use_environment.i, align 8
   %quiet.i = getelementptr inbounds i8, ptr %config.i, i64 212
   store i32 1, ptr %quiet.i, align 4
-  %call.i = call i32 @PySys_AddAuditHook(ptr noundef nonnull @_audit_hook_run, ptr noundef nonnull %test) #20
-  call void @Py_InitializeFromConfig(ptr nonnull sret(%struct.PyStatus) align 8 %status.i, ptr noundef nonnull %config.i) #20
-  %call3.i = call i32 @PyStatus_Exception(ptr noundef nonnull byval(%struct.PyStatus) align 8 %status.i) #20
+  %call.i = call i32 @PySys_AddAuditHook(ptr noundef nonnull @_audit_hook_run, ptr noundef nonnull %test) #18
+  call void @Py_InitializeFromConfig(ptr nonnull sret(%struct.PyStatus) align 8 %status.i, ptr noundef nonnull %config.i) #18
+  %call3.i = call i32 @PyStatus_Exception(ptr noundef nonnull byval(%struct.PyStatus) align 8 %status.i) #18
   %tobool.not.i = icmp eq i32 %call3.i, 0
   br i1 %tobool.not.i, label %run_audit_run_test.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %entry
-  call void @Py_ExitStatusException(ptr noundef nonnull byval(%struct.PyStatus) align 8 %status.i) #23
+  call void @Py_ExitStatusException(ptr noundef nonnull byval(%struct.PyStatus) align 8 %status.i) #21
   unreachable
 
 run_audit_run_test.exit:                          ; preds = %entry
-  %call4.i = call i32 @Py_RunMain() #20
+  %call4.i = call i32 @Py_RunMain() #18
   call void @llvm.lifetime.end.p0(i64 448, ptr nonnull %config.i)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %status.i)
   ret i32 %call4.i
@@ -3966,18 +3999,18 @@ run_audit_run_test.exit:                          ; preds = %entry
 define internal noundef i32 @test_unicode_id_init() #0 {
 entry:
   tail call fastcc void @_testembed_Py_InitializeFromConfig()
-  tail call void @Py_Finalize() #20
+  tail call void @Py_Finalize() #18
   br label %for.body
 
 for.body:                                         ; preds = %entry, %Py_DECREF.exit
   %i.08 = phi i32 [ 0, %entry ], [ %inc, %Py_DECREF.exit ]
   tail call fastcc void @_testembed_Py_InitializeFromConfig()
-  %call = tail call ptr @_PyUnicode_FromId(ptr noundef nonnull @test_unicode_id_init.PyId_test_unicode_id_init) #20
+  %call = tail call ptr @_PyUnicode_FromId(ptr noundef nonnull @test_unicode_id_init.PyId_test_unicode_id_init) #18
   %cmp1.not = icmp eq ptr %call, null
   br i1 %cmp1.not, label %cond.false, label %cond.end
 
 cond.false:                                       ; preds = %for.body
-  tail call void @__assert_fail(ptr noundef nonnull @.str.258, ptr noundef nonnull @.str.171, i32 noundef 1992, ptr noundef nonnull @__PRETTY_FUNCTION__.test_unicode_id_init) #23
+  tail call void @__assert_fail(ptr noundef nonnull @.str.258, ptr noundef nonnull @.str.171, i32 noundef 1992, ptr noundef nonnull @__PRETTY_FUNCTION__.test_unicode_id_init) #21
   unreachable
 
 cond.end:                                         ; preds = %for.body
@@ -3987,25 +4020,25 @@ cond.end:                                         ; preds = %for.body
   br i1 %cmp.i20.not, label %cond.false4, label %cond.end5
 
 cond.false4:                                      ; preds = %cond.end
-  tail call void @__assert_fail(ptr noundef nonnull @.str.259, ptr noundef nonnull @.str.171, i32 noundef 1993, ptr noundef nonnull @__PRETTY_FUNCTION__.test_unicode_id_init) #23
+  tail call void @__assert_fail(ptr noundef nonnull @.str.259, ptr noundef nonnull @.str.171, i32 noundef 1993, ptr noundef nonnull @__PRETTY_FUNCTION__.test_unicode_id_init) #21
   unreachable
 
 cond.end5:                                        ; preds = %cond.end
-  %call6 = tail call ptr @PyUnicode_FromString(ptr noundef nonnull @.str.58) #20
+  %call6 = tail call ptr @PyUnicode_FromString(ptr noundef nonnull @.str.58) #18
   %cmp7.not = icmp eq ptr %call6, null
   br i1 %cmp7.not, label %cond.false9, label %cond.end10
 
 cond.false9:                                      ; preds = %cond.end5
-  tail call void @__assert_fail(ptr noundef nonnull @.str.260, ptr noundef nonnull @.str.171, i32 noundef 1996, ptr noundef nonnull @__PRETTY_FUNCTION__.test_unicode_id_init) #23
+  tail call void @__assert_fail(ptr noundef nonnull @.str.260, ptr noundef nonnull @.str.171, i32 noundef 1996, ptr noundef nonnull @__PRETTY_FUNCTION__.test_unicode_id_init) #21
   unreachable
 
 cond.end10:                                       ; preds = %cond.end5
-  %call11 = tail call i32 @PyUnicode_Compare(ptr noundef nonnull %call, ptr noundef nonnull %call6) #20
+  %call11 = tail call i32 @PyUnicode_Compare(ptr noundef nonnull %call, ptr noundef nonnull %call6) #18
   %cmp12 = icmp eq i32 %call11, 0
   br i1 %cmp12, label %cond.end15, label %cond.false14
 
 cond.false14:                                     ; preds = %cond.end10
-  tail call void @__assert_fail(ptr noundef nonnull @.str.261, ptr noundef nonnull @.str.171, i32 noundef 1998, ptr noundef nonnull @__PRETTY_FUNCTION__.test_unicode_id_init) #23
+  tail call void @__assert_fail(ptr noundef nonnull @.str.261, ptr noundef nonnull @.str.171, i32 noundef 1998, ptr noundef nonnull @__PRETTY_FUNCTION__.test_unicode_id_init) #21
   unreachable
 
 cond.end15:                                       ; preds = %cond.end10
@@ -4021,11 +4054,11 @@ if.end.i:                                         ; preds = %cond.end15
   br i1 %cmp.i, label %if.then1.i, label %Py_DECREF.exit
 
 if.then1.i:                                       ; preds = %if.end.i
-  tail call void @_Py_Dealloc(ptr noundef nonnull %call6) #20
+  tail call void @_Py_Dealloc(ptr noundef nonnull %call6) #18
   br label %Py_DECREF.exit
 
 Py_DECREF.exit:                                   ; preds = %cond.end15, %if.then1.i, %if.end.i
-  tail call void @Py_Finalize() #20
+  tail call void @Py_Finalize() #18
   %inc = add nuw nsw i32 %i.08, 1
   %exitcond.not = icmp eq i32 %inc, 3
   br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !13
@@ -4040,7 +4073,7 @@ entry:
   %argv = alloca [4 x ptr], align 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %argv, ptr noundef nonnull align 16 dereferenceable(32) @__const.test_frozenmain.argv, i64 32, i1 false)
   store ptr @test_frozenmain.frozen_modules, ptr @PyImport_FrozenModules, align 8
-  %call = call i32 @Py_FrozenMain(i32 noundef 4, ptr noundef nonnull %argv) #20
+  %call = call i32 @Py_FrozenMain(i32 noundef 4, ptr noundef nonnull %argv) #18
   ret i32 %call
 }
 
@@ -4051,7 +4084,7 @@ entry:
   %allocator = alloca %struct.PyMemAllocatorEx, align 8
   tail call fastcc void @_testembed_Py_InitializeFromConfig()
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %wrapper.i)
-  call void @PyMem_GetAllocator(i32 noundef 2, ptr noundef nonnull %allocator) #20
+  call void @PyMem_GetAllocator(i32 noundef 2, ptr noundef nonnull %allocator) #18
   store ptr %allocator, ptr %wrapper.i, align 8
   %malloc.i = getelementptr inbounds i8, ptr %wrapper.i, i64 8
   store ptr @malloc_wrapper, ptr %malloc.i, align 8
@@ -4061,11 +4094,11 @@ entry:
   store ptr @realloc_wrapper, ptr %realloc.i, align 8
   %free.i = getelementptr inbounds i8, ptr %wrapper.i, i64 32
   store ptr @free_wrapper, ptr %free.i, align 8
-  call void @PyMem_SetAllocator(i32 noundef 2, ptr noundef nonnull %wrapper.i) #20
+  call void @PyMem_SetAllocator(i32 noundef 2, ptr noundef nonnull %wrapper.i) #18
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %wrapper.i)
-  %call = call i32 @PyRun_SimpleStringFlags(ptr noundef nonnull @.str.267, ptr noundef null) #20
-  call void @PyMem_SetAllocator(i32 noundef 2, ptr noundef nonnull %allocator) #20
-  call void @Py_Finalize() #20
+  %call = call i32 @PyRun_SimpleStringFlags(ptr noundef nonnull @.str.267, ptr noundef null) #18
+  call void @PyMem_SetAllocator(i32 noundef 2, ptr noundef nonnull %allocator) #18
+  call void @Py_Finalize() #18
   ret i32 %call
 }
 
@@ -4073,7 +4106,7 @@ entry:
 declare noundef i32 @fprintf(ptr nocapture noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #2
 
 ; Function Attrs: nofree noreturn nounwind
-declare void @exit(i32 noundef) local_unnamed_addr #4
+declare void @exit(i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nofree nounwind
 declare noundef i32 @fflush(ptr nocapture noundef) local_unnamed_addr #2
@@ -4084,30 +4117,30 @@ entry:
   %status.i = alloca %struct.PyStatus, align 8
   %status.i.i = alloca %struct.PyStatus, align 8
   %config = alloca %struct.PyConfig, align 8
-  call void @_PyConfig_InitCompatConfig(ptr noundef nonnull %config) #20
+  call void @_PyConfig_InitCompatConfig(ptr noundef nonnull %config) #18
   %program_name1.i = getelementptr inbounds i8, ptr %config, i64 280
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %status.i.i)
-  call void @PyConfig_SetString(ptr nonnull sret(%struct.PyStatus) align 8 %status.i.i, ptr noundef nonnull %config, ptr noundef nonnull %program_name1.i, ptr noundef nonnull @.str.64) #20
-  %call.i.i = call i32 @PyStatus_Exception(ptr noundef nonnull byval(%struct.PyStatus) align 8 %status.i.i) #20
+  call void @PyConfig_SetString(ptr nonnull sret(%struct.PyStatus) align 8 %status.i.i, ptr noundef nonnull %config, ptr noundef nonnull %program_name1.i, ptr noundef nonnull @.str.64) #18
+  %call.i.i = call i32 @PyStatus_Exception(ptr noundef nonnull byval(%struct.PyStatus) align 8 %status.i.i) #18
   %tobool.not.i.i = icmp eq i32 %call.i.i, 0
   br i1 %tobool.not.i.i, label %config_set_program_name.exit, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %entry
-  call void @PyConfig_Clear(ptr noundef nonnull %config) #20
-  call void @Py_ExitStatusException(ptr noundef nonnull byval(%struct.PyStatus) align 8 %status.i.i) #23
+  call void @PyConfig_Clear(ptr noundef nonnull %config) #18
+  call void @Py_ExitStatusException(ptr noundef nonnull byval(%struct.PyStatus) align 8 %status.i.i) #21
   unreachable
 
 config_set_program_name.exit:                     ; preds = %entry
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %status.i.i)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %status.i)
-  call void @Py_InitializeFromConfig(ptr nonnull sret(%struct.PyStatus) align 8 %status.i, ptr noundef nonnull %config) #20
-  call void @PyConfig_Clear(ptr noundef nonnull %config) #20
-  %call.i = call i32 @PyStatus_Exception(ptr noundef nonnull byval(%struct.PyStatus) align 8 %status.i) #20
+  call void @Py_InitializeFromConfig(ptr nonnull sret(%struct.PyStatus) align 8 %status.i, ptr noundef nonnull %config) #18
+  call void @PyConfig_Clear(ptr noundef nonnull %config) #18
+  %call.i = call i32 @PyStatus_Exception(ptr noundef nonnull byval(%struct.PyStatus) align 8 %status.i) #18
   %tobool.not.i = icmp eq i32 %call.i, 0
   br i1 %tobool.not.i, label %init_from_config_clear.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %config_set_program_name.exit
-  call void @Py_ExitStatusException(ptr noundef nonnull byval(%struct.PyStatus) align 8 %status.i) #23
+  call void @Py_ExitStatusException(ptr noundef nonnull byval(%struct.PyStatus) align 8 %status.i) #21
   unreachable
 
 init_from_config_clear.exit:                      ; preds = %config_set_program_name.exit
@@ -4115,26 +4148,26 @@ init_from_config_clear.exit:                      ; preds = %config_set_program_
   ret void
 }
 
-declare i32 @PyRun_SimpleStringFlags(ptr noundef, ptr noundef) local_unnamed_addr #5
+declare i32 @PyRun_SimpleStringFlags(ptr noundef, ptr noundef) local_unnamed_addr #4
 
-declare void @Py_Finalize() local_unnamed_addr #5
+declare void @Py_Finalize() local_unnamed_addr #4
 
-declare void @_PyConfig_InitCompatConfig(ptr noundef) local_unnamed_addr #5
+declare void @_PyConfig_InitCompatConfig(ptr noundef) local_unnamed_addr #4
 
-declare void @PyConfig_SetString(ptr sret(%struct.PyStatus) align 8, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #5
+declare void @PyConfig_SetString(ptr sret(%struct.PyStatus) align 8, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #4
 
-declare i32 @PyStatus_Exception(ptr noundef byval(%struct.PyStatus) align 8) local_unnamed_addr #5
+declare i32 @PyStatus_Exception(ptr noundef byval(%struct.PyStatus) align 8) local_unnamed_addr #4
 
-declare void @PyConfig_Clear(ptr noundef) local_unnamed_addr #5
+declare void @PyConfig_Clear(ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: noreturn
-declare void @Py_ExitStatusException(ptr noundef byval(%struct.PyStatus) align 8) local_unnamed_addr #6
+declare void @Py_ExitStatusException(ptr noundef byval(%struct.PyStatus) align 8) local_unnamed_addr #5
 
-declare void @Py_InitializeFromConfig(ptr sret(%struct.PyStatus) align 8, ptr noundef) local_unnamed_addr #5
+declare void @Py_InitializeFromConfig(ptr sret(%struct.PyStatus) align 8, ptr noundef) local_unnamed_addr #4
 
-declare void @Py_SetProgramName(ptr noundef) local_unnamed_addr #5
+declare void @Py_SetProgramName(ptr noundef) local_unnamed_addr #4
 
-declare void @Py_Initialize() local_unnamed_addr #5
+declare void @Py_Initialize() local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @check_stdio_details(ptr noundef %encoding, ptr noundef %errors) unnamed_addr #0 {
@@ -4170,20 +4203,20 @@ if.else5:                                         ; preds = %if.end
 if.end7:                                          ; preds = %if.else5, %if.then3
   %0 = load ptr, ptr @stdout, align 8
   %call8 = tail call i32 @fflush(ptr noundef %0)
-  call void @_PyConfig_InitCompatConfig(ptr noundef nonnull %config) #20
+  call void @_PyConfig_InitCompatConfig(ptr noundef nonnull %config) #18
   br i1 %tobool.not, label %if.end11, label %if.then10
 
 if.then10:                                        ; preds = %if.end7
   %stdio_encoding = getelementptr inbounds i8, ptr %config, i64 232
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %status.i)
-  call void @PyConfig_SetString(ptr nonnull sret(%struct.PyStatus) align 8 %status.i, ptr noundef nonnull %config, ptr noundef nonnull %stdio_encoding, ptr noundef nonnull %encoding) #20
-  %call.i = call i32 @PyStatus_Exception(ptr noundef nonnull byval(%struct.PyStatus) align 8 %status.i) #20
+  call void @PyConfig_SetString(ptr nonnull sret(%struct.PyStatus) align 8 %status.i, ptr noundef nonnull %config, ptr noundef nonnull %stdio_encoding, ptr noundef nonnull %encoding) #18
+  %call.i = call i32 @PyStatus_Exception(ptr noundef nonnull byval(%struct.PyStatus) align 8 %status.i) #18
   %tobool.not.i = icmp eq i32 %call.i, 0
   br i1 %tobool.not.i, label %config_set_string.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %if.then10
-  call void @PyConfig_Clear(ptr noundef nonnull %config) #20
-  call void @Py_ExitStatusException(ptr noundef nonnull byval(%struct.PyStatus) align 8 %status.i) #23
+  call void @PyConfig_Clear(ptr noundef nonnull %config) #18
+  call void @Py_ExitStatusException(ptr noundef nonnull byval(%struct.PyStatus) align 8 %status.i) #21
   unreachable
 
 config_set_string.exit:                           ; preds = %if.then10
@@ -4196,14 +4229,14 @@ if.end11:                                         ; preds = %config_set_string.e
 if.then13:                                        ; preds = %if.end11
   %stdio_errors = getelementptr inbounds i8, ptr %config, i64 240
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %status.i8)
-  call void @PyConfig_SetString(ptr nonnull sret(%struct.PyStatus) align 8 %status.i8, ptr noundef nonnull %config, ptr noundef nonnull %stdio_errors, ptr noundef nonnull %errors) #20
-  %call.i9 = call i32 @PyStatus_Exception(ptr noundef nonnull byval(%struct.PyStatus) align 8 %status.i8) #20
+  call void @PyConfig_SetString(ptr nonnull sret(%struct.PyStatus) align 8 %status.i8, ptr noundef nonnull %config, ptr noundef nonnull %stdio_errors, ptr noundef nonnull %errors) #18
+  %call.i9 = call i32 @PyStatus_Exception(ptr noundef nonnull byval(%struct.PyStatus) align 8 %status.i8) #18
   %tobool.not.i10 = icmp eq i32 %call.i9, 0
   br i1 %tobool.not.i10, label %config_set_string.exit12, label %if.then.i11
 
 if.then.i11:                                      ; preds = %if.then13
-  call void @PyConfig_Clear(ptr noundef nonnull %config) #20
-  call void @Py_ExitStatusException(ptr noundef nonnull byval(%struct.PyStatus) align 8 %status.i8) #23
+  call void @PyConfig_Clear(ptr noundef nonnull %config) #18
+  call void @Py_ExitStatusException(ptr noundef nonnull byval(%struct.PyStatus) align 8 %status.i8) #21
   unreachable
 
 config_set_string.exit12:                         ; preds = %if.then13
@@ -4213,144 +4246,144 @@ config_set_string.exit12:                         ; preds = %if.then13
 if.end14:                                         ; preds = %config_set_string.exit12, %if.end11
   %program_name1.i = getelementptr inbounds i8, ptr %config, i64 280
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %status.i.i)
-  call void @PyConfig_SetString(ptr nonnull sret(%struct.PyStatus) align 8 %status.i.i, ptr noundef nonnull %config, ptr noundef nonnull %program_name1.i, ptr noundef nonnull @.str.64) #20
-  %call.i.i = call i32 @PyStatus_Exception(ptr noundef nonnull byval(%struct.PyStatus) align 8 %status.i.i) #20
+  call void @PyConfig_SetString(ptr nonnull sret(%struct.PyStatus) align 8 %status.i.i, ptr noundef nonnull %config, ptr noundef nonnull %program_name1.i, ptr noundef nonnull @.str.64) #18
+  %call.i.i = call i32 @PyStatus_Exception(ptr noundef nonnull byval(%struct.PyStatus) align 8 %status.i.i) #18
   %tobool.not.i.i = icmp eq i32 %call.i.i, 0
   br i1 %tobool.not.i.i, label %config_set_program_name.exit, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %if.end14
-  call void @PyConfig_Clear(ptr noundef nonnull %config) #20
-  call void @Py_ExitStatusException(ptr noundef nonnull byval(%struct.PyStatus) align 8 %status.i.i) #23
+  call void @PyConfig_Clear(ptr noundef nonnull %config) #18
+  call void @Py_ExitStatusException(ptr noundef nonnull byval(%struct.PyStatus) align 8 %status.i.i) #21
   unreachable
 
 config_set_program_name.exit:                     ; preds = %if.end14
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %status.i.i)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %status.i13)
-  call void @Py_InitializeFromConfig(ptr nonnull sret(%struct.PyStatus) align 8 %status.i13, ptr noundef nonnull %config) #20
-  call void @PyConfig_Clear(ptr noundef nonnull %config) #20
-  %call.i14 = call i32 @PyStatus_Exception(ptr noundef nonnull byval(%struct.PyStatus) align 8 %status.i13) #20
+  call void @Py_InitializeFromConfig(ptr nonnull sret(%struct.PyStatus) align 8 %status.i13, ptr noundef nonnull %config) #18
+  call void @PyConfig_Clear(ptr noundef nonnull %config) #18
+  %call.i14 = call i32 @PyStatus_Exception(ptr noundef nonnull byval(%struct.PyStatus) align 8 %status.i13) #18
   %tobool.not.i15 = icmp eq i32 %call.i14, 0
   br i1 %tobool.not.i15, label %init_from_config_clear.exit, label %if.then.i16
 
 if.then.i16:                                      ; preds = %config_set_program_name.exit
-  call void @Py_ExitStatusException(ptr noundef nonnull byval(%struct.PyStatus) align 8 %status.i13) #23
+  call void @Py_ExitStatusException(ptr noundef nonnull byval(%struct.PyStatus) align 8 %status.i13) #21
   unreachable
 
 init_from_config_clear.exit:                      ; preds = %config_set_program_name.exit
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %status.i13)
-  %call15 = call i32 @PyRun_SimpleStringFlags(ptr noundef nonnull @.str.77, ptr noundef null) #20
-  call void @Py_Finalize() #20
+  %call15 = call i32 @PyRun_SimpleStringFlags(ptr noundef nonnull @.str.77, ptr noundef null) #18
+  call void @Py_Finalize() #18
   ret void
 }
 
-declare ptr @PyThreadState_Get() local_unnamed_addr #5
+declare ptr @PyThreadState_Get() local_unnamed_addr #4
 
-declare void @PyEval_ReleaseThread(ptr noundef) local_unnamed_addr #5
+declare void @PyEval_ReleaseThread(ptr noundef) local_unnamed_addr #4
 
-declare i32 @PyGILState_Ensure() local_unnamed_addr #5
+declare i32 @PyGILState_Ensure() local_unnamed_addr #4
 
-declare ptr @PyThreadState_Swap(ptr noundef) local_unnamed_addr #5
+declare ptr @PyThreadState_Swap(ptr noundef) local_unnamed_addr #4
 
-declare ptr @Py_NewInterpreter() local_unnamed_addr #5
+declare ptr @Py_NewInterpreter() local_unnamed_addr #4
 
-declare void @Py_EndInterpreter(ptr noundef) local_unnamed_addr #5
+declare void @Py_EndInterpreter(ptr noundef) local_unnamed_addr #4
 
-declare void @PyGILState_Release(i32 noundef) local_unnamed_addr #5
+declare void @PyGILState_Release(i32 noundef) local_unnamed_addr #4
 
-declare void @PyEval_RestoreThread(ptr noundef) local_unnamed_addr #5
+declare void @PyEval_RestoreThread(ptr noundef) local_unnamed_addr #4
 
-declare i64 @PyInterpreterState_GetID(ptr noundef) local_unnamed_addr #5
+declare i64 @PyInterpreterState_GetID(ptr noundef) local_unnamed_addr #4
 
-declare i32 @PyImport_AppendInittab(ptr noundef, ptr noundef) local_unnamed_addr #5
+declare i32 @PyImport_AppendInittab(ptr noundef, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
 define internal ptr @PyInit_embedded_ext() #0 {
 entry:
-  %call = tail call ptr @PyModule_Create2(ptr noundef nonnull @embedded_ext, i32 noundef 1013) #20
+  %call = tail call ptr @PyModule_Create2(ptr noundef nonnull @embedded_ext, i32 noundef 1013) #18
   ret ptr %call
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #7
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #6
 
-declare void @PyConfig_InitPythonConfig(ptr noundef) local_unnamed_addr #5
+declare void @PyConfig_InitPythonConfig(ptr noundef) local_unnamed_addr #4
 
-declare i32 @Py_RunMain() local_unnamed_addr #5
+declare i32 @Py_RunMain() local_unnamed_addr #4
 
-declare ptr @PyModule_Create2(ptr noundef, i32 noundef) local_unnamed_addr #5
+declare ptr @PyModule_Create2(ptr noundef, i32 noundef) local_unnamed_addr #4
 
-declare void @PyConfig_SetArgv(ptr sret(%struct.PyStatus) align 8, ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #5
+declare void @PyConfig_SetArgv(ptr sret(%struct.PyStatus) align 8, ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind
-declare i32 @putenv(ptr noundef) local_unnamed_addr #8
+declare i32 @putenv(ptr noundef) local_unnamed_addr #7
 
-declare ptr @Py_DecodeLocale(ptr noundef, ptr noundef) local_unnamed_addr #5
+declare ptr @Py_DecodeLocale(ptr noundef, ptr noundef) local_unnamed_addr #4
 
-declare void @PyMem_RawFree(ptr noundef) local_unnamed_addr #5
+declare void @PyMem_RawFree(ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nofree nounwind willreturn allockind("alloc,zeroed") allocsize(0,1) memory(inaccessiblemem: readwrite)
-declare noalias noundef ptr @calloc(i64 noundef, i64 noundef) local_unnamed_addr #9
+declare noalias noundef ptr @calloc(i64 noundef, i64 noundef) local_unnamed_addr #8
 
 ; Function Attrs: nounwind
-declare ptr @wcsncpy(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #8
+declare ptr @wcsncpy(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #7
 
-declare void @PySys_AddWarnOption(ptr noundef) local_unnamed_addr #5
+declare void @PySys_AddWarnOption(ptr noundef) local_unnamed_addr #4
 
-declare void @PySys_ResetWarnOptions() local_unnamed_addr #5
+declare void @PySys_ResetWarnOptions() local_unnamed_addr #4
 
-declare void @PySys_AddXOption(ptr noundef) local_unnamed_addr #5
+declare void @PySys_AddXOption(ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #10
+declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #9
 
-declare ptr @PyThread_allocate_lock() local_unnamed_addr #5
+declare ptr @PyThread_allocate_lock() local_unnamed_addr #4
 
-; Function Attrs: cold nofree nounwind uwtable
-define internal fastcc void @error(ptr noundef %msg) unnamed_addr #11 {
+; Function Attrs: nofree nounwind uwtable
+define internal fastcc void @error(ptr noundef %msg) unnamed_addr #10 {
 entry:
   %0 = load ptr, ptr @stderr, align 8
-  %call = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.107, ptr noundef %msg) #21
+  %call = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.107, ptr noundef %msg) #19
   %1 = load ptr, ptr @stderr, align 8
   %call1 = tail call i32 @fflush(ptr noundef %1)
   ret void
 }
 
-declare i64 @PyThread_start_new_thread(ptr noundef, ptr noundef) local_unnamed_addr #5
+declare i64 @PyThread_start_new_thread(ptr noundef, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
 define internal void @bpo20891_thread(ptr nocapture noundef readonly %lockp) #0 {
 entry:
   %0 = load ptr, ptr %lockp, align 8
-  %call = tail call i32 @PyGILState_Ensure() #20
-  %call1 = tail call i32 @PyGILState_Check() #20
+  %call = tail call i32 @PyGILState_Ensure() #18
+  %call1 = tail call i32 @PyGILState_Check() #18
   %tobool.not = icmp eq i32 %call1, 0
   br i1 %tobool.not, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
   tail call fastcc void @error(ptr noundef nonnull @.str.108)
-  tail call void @abort() #23
+  tail call void @abort() #21
   unreachable
 
 if.end:                                           ; preds = %entry
-  tail call void @PyGILState_Release(i32 noundef %call) #20
-  tail call void @PyThread_release_lock(ptr noundef %0) #20
+  tail call void @PyGILState_Release(i32 noundef %call) #18
+  tail call void @PyThread_release_lock(ptr noundef %0) #18
   ret void
 }
 
-declare i32 @PyThread_acquire_lock(ptr noundef, i32 noundef) local_unnamed_addr #5
+declare i32 @PyThread_acquire_lock(ptr noundef, i32 noundef) local_unnamed_addr #4
 
-declare ptr @PyEval_SaveThread() local_unnamed_addr #5
+declare ptr @PyEval_SaveThread() local_unnamed_addr #4
 
-declare void @PyThread_free_lock(ptr noundef) local_unnamed_addr #5
+declare void @PyThread_free_lock(ptr noundef) local_unnamed_addr #4
 
-declare i32 @PyGILState_Check() local_unnamed_addr #5
+declare i32 @PyGILState_Check() local_unnamed_addr #4
 
 ; Function Attrs: cold nofree noreturn nounwind
-declare void @abort() local_unnamed_addr #12
+declare void @abort() local_unnamed_addr #11
 
-declare void @PyThread_release_lock(ptr noundef) local_unnamed_addr #5
+declare void @PyThread_release_lock(ptr noundef) local_unnamed_addr #4
 
-declare i32 @Py_Main(i32 noundef, ptr noundef) local_unnamed_addr #5
+declare i32 @Py_Main(i32 noundef, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @check_init_compat_config(i32 noundef %preinit) unnamed_addr #0 {
@@ -4365,56 +4398,56 @@ entry:
   br i1 %tobool.not, label %if.end3, label %if.then
 
 if.then:                                          ; preds = %entry
-  call void @_PyPreConfig_InitCompatConfig(ptr noundef nonnull %preconfig) #20
-  call void @Py_PreInitialize(ptr nonnull sret(%struct.PyStatus) align 8 %tmp, ptr noundef nonnull %preconfig) #20
+  call void @_PyPreConfig_InitCompatConfig(ptr noundef nonnull %preconfig) #18
+  call void @Py_PreInitialize(ptr nonnull sret(%struct.PyStatus) align 8 %tmp, ptr noundef nonnull %preconfig) #18
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %status, ptr noundef nonnull align 8 dereferenceable(32) %tmp, i64 32, i1 false)
-  %call = call i32 @PyStatus_Exception(ptr noundef nonnull byval(%struct.PyStatus) align 8 %tmp) #20
+  %call = call i32 @PyStatus_Exception(ptr noundef nonnull byval(%struct.PyStatus) align 8 %tmp) #18
   %tobool1.not = icmp eq i32 %call, 0
   br i1 %tobool1.not, label %if.end3, label %if.then2
 
 if.then2:                                         ; preds = %if.then
-  call void @Py_ExitStatusException(ptr noundef nonnull byval(%struct.PyStatus) align 8 %status) #23
+  call void @Py_ExitStatusException(ptr noundef nonnull byval(%struct.PyStatus) align 8 %status) #21
   unreachable
 
 if.end3:                                          ; preds = %if.then, %entry
-  call void @_PyConfig_InitCompatConfig(ptr noundef nonnull %config) #20
+  call void @_PyConfig_InitCompatConfig(ptr noundef nonnull %config) #18
   %program_name1.i = getelementptr inbounds i8, ptr %config, i64 280
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %status.i.i)
-  call void @PyConfig_SetString(ptr nonnull sret(%struct.PyStatus) align 8 %status.i.i, ptr noundef nonnull %config, ptr noundef nonnull %program_name1.i, ptr noundef nonnull @.str.64) #20
-  %call.i.i = call i32 @PyStatus_Exception(ptr noundef nonnull byval(%struct.PyStatus) align 8 %status.i.i) #20
+  call void @PyConfig_SetString(ptr nonnull sret(%struct.PyStatus) align 8 %status.i.i, ptr noundef nonnull %config, ptr noundef nonnull %program_name1.i, ptr noundef nonnull @.str.64) #18
+  %call.i.i = call i32 @PyStatus_Exception(ptr noundef nonnull byval(%struct.PyStatus) align 8 %status.i.i) #18
   %tobool.not.i.i = icmp eq i32 %call.i.i, 0
   br i1 %tobool.not.i.i, label %config_set_program_name.exit, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %if.end3
-  call void @PyConfig_Clear(ptr noundef nonnull %config) #20
-  call void @Py_ExitStatusException(ptr noundef nonnull byval(%struct.PyStatus) align 8 %status.i.i) #23
+  call void @PyConfig_Clear(ptr noundef nonnull %config) #18
+  call void @Py_ExitStatusException(ptr noundef nonnull byval(%struct.PyStatus) align 8 %status.i.i) #21
   unreachable
 
 config_set_program_name.exit:                     ; preds = %if.end3
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %status.i.i)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %status.i)
-  call void @Py_InitializeFromConfig(ptr nonnull sret(%struct.PyStatus) align 8 %status.i, ptr noundef nonnull %config) #20
-  call void @PyConfig_Clear(ptr noundef nonnull %config) #20
-  %call.i = call i32 @PyStatus_Exception(ptr noundef nonnull byval(%struct.PyStatus) align 8 %status.i) #20
+  call void @Py_InitializeFromConfig(ptr nonnull sret(%struct.PyStatus) align 8 %status.i, ptr noundef nonnull %config) #18
+  call void @PyConfig_Clear(ptr noundef nonnull %config) #18
+  %call.i = call i32 @PyStatus_Exception(ptr noundef nonnull byval(%struct.PyStatus) align 8 %status.i) #18
   %tobool.not.i = icmp eq i32 %call.i, 0
   br i1 %tobool.not.i, label %init_from_config_clear.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %config_set_program_name.exit
-  call void @Py_ExitStatusException(ptr noundef nonnull byval(%struct.PyStatus) align 8 %status.i) #23
+  call void @Py_ExitStatusException(ptr noundef nonnull byval(%struct.PyStatus) align 8 %status.i) #21
   unreachable
 
 init_from_config_clear.exit:                      ; preds = %config_set_program_name.exit
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %status.i)
-  %call.i1 = call i32 @PyRun_SimpleStringFlags(ptr noundef nonnull @.str.112, ptr noundef null) #20
-  call void @Py_Finalize() #20
+  %call.i1 = call i32 @PyRun_SimpleStringFlags(ptr noundef nonnull @.str.112, ptr noundef null) #18
+  call void @Py_Finalize() #18
   ret void
 }
 
-declare void @_PyPreConfig_InitCompatConfig(ptr noundef) local_unnamed_addr #5
+declare void @_PyPreConfig_InitCompatConfig(ptr noundef) local_unnamed_addr #4
 
-declare void @Py_PreInitialize(ptr sret(%struct.PyStatus) align 8, ptr noundef) local_unnamed_addr #5
+declare void @Py_PreInitialize(ptr sret(%struct.PyStatus) align 8, ptr noundef) local_unnamed_addr #4
 
-declare void @PyConfig_SetWideStringList(ptr sret(%struct.PyStatus) align 8, ptr noundef, ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #5
+declare void @PyConfig_SetWideStringList(ptr sret(%struct.PyStatus) align 8, ptr noundef, ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @check_init_parse_argv(i32 noundef %parse_argv) unnamed_addr #0 {
@@ -4423,69 +4456,69 @@ entry:
   %status.i = alloca %struct.PyStatus, align 8
   %config = alloca %struct.PyConfig, align 8
   %argv = alloca [7 x ptr], align 16
-  call void @PyConfig_InitPythonConfig(ptr noundef nonnull %config) #20
+  call void @PyConfig_InitPythonConfig(ptr noundef nonnull %config) #18
   %parse_argv1 = getelementptr inbounds i8, ptr %config, i64 104
   store i32 %parse_argv, ptr %parse_argv1, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(56) %argv, ptr noundef nonnull align 16 dereferenceable(56) @__const.check_init_parse_argv.argv, i64 56, i1 false)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %status.i)
-  call void @PyConfig_SetArgv(ptr nonnull sret(%struct.PyStatus) align 8 %status.i, ptr noundef nonnull %config, i64 noundef 7, ptr noundef nonnull %argv) #20
-  %call.i = call i32 @PyStatus_Exception(ptr noundef nonnull byval(%struct.PyStatus) align 8 %status.i) #20
+  call void @PyConfig_SetArgv(ptr nonnull sret(%struct.PyStatus) align 8 %status.i, ptr noundef nonnull %config, i64 noundef 7, ptr noundef nonnull %argv) #18
+  %call.i = call i32 @PyStatus_Exception(ptr noundef nonnull byval(%struct.PyStatus) align 8 %status.i) #18
   %tobool.not.i = icmp eq i32 %call.i, 0
   br i1 %tobool.not.i, label %config_set_argv.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %entry
-  call void @PyConfig_Clear(ptr noundef nonnull %config) #20
-  call void @Py_ExitStatusException(ptr noundef nonnull byval(%struct.PyStatus) align 8 %status.i) #23
+  call void @PyConfig_Clear(ptr noundef nonnull %config) #18
+  call void @Py_ExitStatusException(ptr noundef nonnull byval(%struct.PyStatus) align 8 %status.i) #21
   unreachable
 
 config_set_argv.exit:                             ; preds = %entry
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %status.i)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %status.i1)
-  call void @Py_InitializeFromConfig(ptr nonnull sret(%struct.PyStatus) align 8 %status.i1, ptr noundef nonnull %config) #20
-  call void @PyConfig_Clear(ptr noundef nonnull %config) #20
-  %call.i2 = call i32 @PyStatus_Exception(ptr noundef nonnull byval(%struct.PyStatus) align 8 %status.i1) #20
+  call void @Py_InitializeFromConfig(ptr nonnull sret(%struct.PyStatus) align 8 %status.i1, ptr noundef nonnull %config) #18
+  call void @PyConfig_Clear(ptr noundef nonnull %config) #18
+  %call.i2 = call i32 @PyStatus_Exception(ptr noundef nonnull byval(%struct.PyStatus) align 8 %status.i1) #18
   %tobool.not.i3 = icmp eq i32 %call.i2, 0
   br i1 %tobool.not.i3, label %init_from_config_clear.exit, label %if.then.i4
 
 if.then.i4:                                       ; preds = %config_set_argv.exit
-  call void @Py_ExitStatusException(ptr noundef nonnull byval(%struct.PyStatus) align 8 %status.i1) #23
+  call void @Py_ExitStatusException(ptr noundef nonnull byval(%struct.PyStatus) align 8 %status.i1) #21
   unreachable
 
 init_from_config_clear.exit:                      ; preds = %config_set_argv.exit
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %status.i1)
-  %call.i5 = call i32 @PyRun_SimpleStringFlags(ptr noundef nonnull @.str.112, ptr noundef null) #20
-  call void @Py_Finalize() #20
+  %call.i5 = call i32 @PyRun_SimpleStringFlags(ptr noundef nonnull @.str.112, ptr noundef null) #18
+  call void @Py_Finalize() #18
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @set_all_env_vars() unnamed_addr #0 {
 entry:
-  %call.i = tail call i32 @putenv(ptr noundef nonnull @.str.122) #20
-  %call1.i = tail call i32 @putenv(ptr noundef nonnull @.str.153) #20
-  %call2.i = tail call i32 @putenv(ptr noundef nonnull @.str.154) #20
-  %call3.i = tail call i32 @putenv(ptr noundef nonnull @.str.155) #20
-  %call4.i = tail call i32 @putenv(ptr noundef nonnull @.str.156) #20
-  %call5.i = tail call i32 @putenv(ptr noundef nonnull @.str.157) #20
-  %call6.i = tail call i32 @putenv(ptr noundef nonnull @.str.158) #20
-  %call7.i = tail call i32 @putenv(ptr noundef nonnull @.str.159) #20
-  %call8.i = tail call i32 @putenv(ptr noundef nonnull @.str.160) #20
-  %call9.i = tail call i32 @putenv(ptr noundef nonnull @.str.161) #20
-  %call10.i = tail call i32 @putenv(ptr noundef nonnull @.str.162) #20
-  %call11.i = tail call i32 @putenv(ptr noundef nonnull @.str.163) #20
-  %call12.i = tail call i32 @putenv(ptr noundef nonnull @.str.128) #20
-  %call13.i = tail call i32 @putenv(ptr noundef nonnull @.str.164) #20
-  %call14.i = tail call i32 @putenv(ptr noundef nonnull @.str.165) #20
-  %call15.i = tail call i32 @putenv(ptr noundef nonnull @.str.166) #20
-  %call16.i = tail call i32 @putenv(ptr noundef nonnull @.str.140) #20
-  %call17.i = tail call i32 @putenv(ptr noundef nonnull @.str.167) #20
-  %call18.i = tail call i32 @putenv(ptr noundef nonnull @.str.168) #20
-  %call = tail call i32 @putenv(ptr noundef nonnull @.str.151) #20
-  %call1 = tail call i32 @putenv(ptr noundef nonnull @.str.152) #20
+  %call.i = tail call i32 @putenv(ptr noundef nonnull @.str.122) #18
+  %call1.i = tail call i32 @putenv(ptr noundef nonnull @.str.153) #18
+  %call2.i = tail call i32 @putenv(ptr noundef nonnull @.str.154) #18
+  %call3.i = tail call i32 @putenv(ptr noundef nonnull @.str.155) #18
+  %call4.i = tail call i32 @putenv(ptr noundef nonnull @.str.156) #18
+  %call5.i = tail call i32 @putenv(ptr noundef nonnull @.str.157) #18
+  %call6.i = tail call i32 @putenv(ptr noundef nonnull @.str.158) #18
+  %call7.i = tail call i32 @putenv(ptr noundef nonnull @.str.159) #18
+  %call8.i = tail call i32 @putenv(ptr noundef nonnull @.str.160) #18
+  %call9.i = tail call i32 @putenv(ptr noundef nonnull @.str.161) #18
+  %call10.i = tail call i32 @putenv(ptr noundef nonnull @.str.162) #18
+  %call11.i = tail call i32 @putenv(ptr noundef nonnull @.str.163) #18
+  %call12.i = tail call i32 @putenv(ptr noundef nonnull @.str.128) #18
+  %call13.i = tail call i32 @putenv(ptr noundef nonnull @.str.164) #18
+  %call14.i = tail call i32 @putenv(ptr noundef nonnull @.str.165) #18
+  %call15.i = tail call i32 @putenv(ptr noundef nonnull @.str.166) #18
+  %call16.i = tail call i32 @putenv(ptr noundef nonnull @.str.140) #18
+  %call17.i = tail call i32 @putenv(ptr noundef nonnull @.str.167) #18
+  %call18.i = tail call i32 @putenv(ptr noundef nonnull @.str.168) #18
+  %call = tail call i32 @putenv(ptr noundef nonnull @.str.151) #18
+  %call1 = tail call i32 @putenv(ptr noundef nonnull @.str.152) #18
   ret void
 }
 
-declare void @PyPreConfig_InitPythonConfig(ptr noundef) local_unnamed_addr #5
+declare void @PyPreConfig_InitPythonConfig(ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @check_preinit_isolated_config(i32 noundef %preinit) unnamed_addr #0 {
@@ -4515,15 +4548,15 @@ entry:
   br i1 %tobool.not, label %if.end7, label %if.then
 
 if.then:                                          ; preds = %entry
-  call void @PyPreConfig_InitIsolatedConfig(ptr noundef nonnull %preconfig) #20
-  call void @Py_PreInitialize(ptr nonnull sret(%struct.PyStatus) align 8 %tmp, ptr noundef nonnull %preconfig) #20
+  call void @PyPreConfig_InitIsolatedConfig(ptr noundef nonnull %preconfig) #18
+  call void @Py_PreInitialize(ptr nonnull sret(%struct.PyStatus) align 8 %tmp, ptr noundef nonnull %preconfig) #18
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %status, ptr noundef nonnull align 8 dereferenceable(32) %tmp, i64 32, i1 false)
-  %call = call i32 @PyStatus_Exception(ptr noundef nonnull byval(%struct.PyStatus) align 8 %tmp) #20
+  %call = call i32 @PyStatus_Exception(ptr noundef nonnull byval(%struct.PyStatus) align 8 %tmp) #18
   %tobool1.not = icmp eq i32 %call, 0
   br i1 %tobool1.not, label %if.end, label %if.then2
 
 if.then2:                                         ; preds = %if.then
-  call void @Py_ExitStatusException(ptr noundef nonnull byval(%struct.PyStatus) align 8 %status) #23
+  call void @Py_ExitStatusException(ptr noundef nonnull byval(%struct.PyStatus) align 8 %status) #21
   unreachable
 
 if.end:                                           ; preds = %if.then
@@ -4532,7 +4565,7 @@ if.end:                                           ; preds = %if.then
   br i1 %cmp, label %cond.end, label %cond.false
 
 cond.false:                                       ; preds = %if.end
-  call void @__assert_fail(ptr noundef nonnull @.str.170, ptr noundef nonnull @.str.171, i32 noundef 1054, ptr noundef nonnull @__PRETTY_FUNCTION__.check_preinit_isolated_config) #23
+  call void @__assert_fail(ptr noundef nonnull @.str.170, ptr noundef nonnull @.str.171, i32 noundef 1054, ptr noundef nonnull @__PRETTY_FUNCTION__.check_preinit_isolated_config) #21
   unreachable
 
 cond.end:                                         ; preds = %if.end
@@ -4541,34 +4574,34 @@ cond.end:                                         ; preds = %if.end
   br i1 %cmp3, label %if.end7, label %cond.false5
 
 cond.false5:                                      ; preds = %cond.end
-  call void @__assert_fail(ptr noundef nonnull @.str.172, ptr noundef nonnull @.str.171, i32 noundef 1055, ptr noundef nonnull @__PRETTY_FUNCTION__.check_preinit_isolated_config) #23
+  call void @__assert_fail(ptr noundef nonnull @.str.172, ptr noundef nonnull @.str.171, i32 noundef 1055, ptr noundef nonnull @__PRETTY_FUNCTION__.check_preinit_isolated_config) #21
   unreachable
 
 if.end7:                                          ; preds = %cond.end, %entry
-  call void @PyConfig_InitIsolatedConfig(ptr noundef nonnull %config) #20
+  call void @PyConfig_InitIsolatedConfig(ptr noundef nonnull %config) #18
   %program_name1.i = getelementptr inbounds i8, ptr %config, i64 280
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %status.i.i)
-  call void @PyConfig_SetString(ptr nonnull sret(%struct.PyStatus) align 8 %status.i.i, ptr noundef nonnull %config, ptr noundef nonnull %program_name1.i, ptr noundef nonnull @.str.64) #20
-  %call.i.i = call i32 @PyStatus_Exception(ptr noundef nonnull byval(%struct.PyStatus) align 8 %status.i.i) #20
+  call void @PyConfig_SetString(ptr nonnull sret(%struct.PyStatus) align 8 %status.i.i, ptr noundef nonnull %config, ptr noundef nonnull %program_name1.i, ptr noundef nonnull @.str.64) #18
+  %call.i.i = call i32 @PyStatus_Exception(ptr noundef nonnull byval(%struct.PyStatus) align 8 %status.i.i) #18
   %tobool.not.i.i = icmp eq i32 %call.i.i, 0
   br i1 %tobool.not.i.i, label %config_set_program_name.exit, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %if.end7
-  call void @PyConfig_Clear(ptr noundef nonnull %config) #20
-  call void @Py_ExitStatusException(ptr noundef nonnull byval(%struct.PyStatus) align 8 %status.i.i) #23
+  call void @PyConfig_Clear(ptr noundef nonnull %config) #18
+  call void @Py_ExitStatusException(ptr noundef nonnull byval(%struct.PyStatus) align 8 %status.i.i) #21
   unreachable
 
 config_set_program_name.exit:                     ; preds = %if.end7
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %status.i.i)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %status.i)
-  call void @Py_InitializeFromConfig(ptr nonnull sret(%struct.PyStatus) align 8 %status.i, ptr noundef nonnull %config) #20
-  call void @PyConfig_Clear(ptr noundef nonnull %config) #20
-  %call.i = call i32 @PyStatus_Exception(ptr noundef nonnull byval(%struct.PyStatus) align 8 %status.i) #20
+  call void @Py_InitializeFromConfig(ptr nonnull sret(%struct.PyStatus) align 8 %status.i, ptr noundef nonnull %config) #18
+  call void @PyConfig_Clear(ptr noundef nonnull %config) #18
+  %call.i = call i32 @PyStatus_Exception(ptr noundef nonnull byval(%struct.PyStatus) align 8 %status.i) #18
   %tobool.not.i = icmp eq i32 %call.i, 0
   br i1 %tobool.not.i, label %init_from_config_clear.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %config_set_program_name.exit
-  call void @Py_ExitStatusException(ptr noundef nonnull byval(%struct.PyStatus) align 8 %status.i) #23
+  call void @Py_ExitStatusException(ptr noundef nonnull byval(%struct.PyStatus) align 8 %status.i) #21
   unreachable
 
 init_from_config_clear.exit:                      ; preds = %config_set_program_name.exit
@@ -4578,7 +4611,7 @@ init_from_config_clear.exit:                      ; preds = %config_set_program_
   br i1 %cmp9, label %cond.end12, label %cond.false11
 
 cond.false11:                                     ; preds = %init_from_config_clear.exit
-  call void @__assert_fail(ptr noundef nonnull @.str.170, ptr noundef nonnull @.str.171, i32 noundef 1065, ptr noundef nonnull @__PRETTY_FUNCTION__.check_preinit_isolated_config) #23
+  call void @__assert_fail(ptr noundef nonnull @.str.170, ptr noundef nonnull @.str.171, i32 noundef 1065, ptr noundef nonnull @__PRETTY_FUNCTION__.check_preinit_isolated_config) #21
   unreachable
 
 cond.end12:                                       ; preds = %init_from_config_clear.exit
@@ -4587,21 +4620,21 @@ cond.end12:                                       ; preds = %init_from_config_cl
   br i1 %cmp14, label %cond.end17, label %cond.false16
 
 cond.false16:                                     ; preds = %cond.end12
-  call void @__assert_fail(ptr noundef nonnull @.str.172, ptr noundef nonnull @.str.171, i32 noundef 1066, ptr noundef nonnull @__PRETTY_FUNCTION__.check_preinit_isolated_config) #23
+  call void @__assert_fail(ptr noundef nonnull @.str.172, ptr noundef nonnull @.str.171, i32 noundef 1066, ptr noundef nonnull @__PRETTY_FUNCTION__.check_preinit_isolated_config) #21
   unreachable
 
 cond.end17:                                       ; preds = %cond.end12
-  %call.i4 = call i32 @PyRun_SimpleStringFlags(ptr noundef nonnull @.str.112, ptr noundef null) #20
-  call void @Py_Finalize() #20
+  %call.i4 = call i32 @PyRun_SimpleStringFlags(ptr noundef nonnull @.str.112, ptr noundef null) #18
+  call void @Py_Finalize() #18
   ret void
 }
 
-declare void @PyPreConfig_InitIsolatedConfig(ptr noundef) local_unnamed_addr #5
+declare void @PyPreConfig_InitIsolatedConfig(ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: noreturn nounwind
-declare void @__assert_fail(ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #13
+declare void @__assert_fail(ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #12
 
-declare void @PyConfig_InitIsolatedConfig(ptr noundef) local_unnamed_addr #5
+declare void @PyConfig_InitIsolatedConfig(ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @check_init_python_config(i32 noundef %preinit) unnamed_addr #0 {
@@ -4629,57 +4662,57 @@ entry:
   br i1 %tobool.not, label %if.end3, label %if.then
 
 if.then:                                          ; preds = %entry
-  call void @PyPreConfig_InitPythonConfig(ptr noundef nonnull %preconfig) #20
-  call void @Py_PreInitialize(ptr nonnull sret(%struct.PyStatus) align 8 %status, ptr noundef nonnull %preconfig) #20
-  %call = call i32 @PyStatus_Exception(ptr noundef nonnull byval(%struct.PyStatus) align 8 %status) #20
+  call void @PyPreConfig_InitPythonConfig(ptr noundef nonnull %preconfig) #18
+  call void @Py_PreInitialize(ptr nonnull sret(%struct.PyStatus) align 8 %status, ptr noundef nonnull %preconfig) #18
+  %call = call i32 @PyStatus_Exception(ptr noundef nonnull byval(%struct.PyStatus) align 8 %status) #18
   %tobool1.not = icmp eq i32 %call, 0
   br i1 %tobool1.not, label %if.end3, label %if.then2
 
 if.then2:                                         ; preds = %if.then
-  call void @Py_ExitStatusException(ptr noundef nonnull byval(%struct.PyStatus) align 8 %status) #23
+  call void @Py_ExitStatusException(ptr noundef nonnull byval(%struct.PyStatus) align 8 %status) #21
   unreachable
 
 if.end3:                                          ; preds = %if.then, %entry
-  call void @PyConfig_InitPythonConfig(ptr noundef nonnull %config) #20
+  call void @PyConfig_InitPythonConfig(ptr noundef nonnull %config) #18
   %program_name1.i = getelementptr inbounds i8, ptr %config, i64 280
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %status.i.i)
-  call void @PyConfig_SetString(ptr nonnull sret(%struct.PyStatus) align 8 %status.i.i, ptr noundef nonnull %config, ptr noundef nonnull %program_name1.i, ptr noundef nonnull @.str.64) #20
-  %call.i.i = call i32 @PyStatus_Exception(ptr noundef nonnull byval(%struct.PyStatus) align 8 %status.i.i) #20
+  call void @PyConfig_SetString(ptr nonnull sret(%struct.PyStatus) align 8 %status.i.i, ptr noundef nonnull %config, ptr noundef nonnull %program_name1.i, ptr noundef nonnull @.str.64) #18
+  %call.i.i = call i32 @PyStatus_Exception(ptr noundef nonnull byval(%struct.PyStatus) align 8 %status.i.i) #18
   %tobool.not.i.i = icmp eq i32 %call.i.i, 0
   br i1 %tobool.not.i.i, label %config_set_program_name.exit, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %if.end3
-  call void @PyConfig_Clear(ptr noundef nonnull %config) #20
-  call void @Py_ExitStatusException(ptr noundef nonnull byval(%struct.PyStatus) align 8 %status.i.i) #23
+  call void @PyConfig_Clear(ptr noundef nonnull %config) #18
+  call void @Py_ExitStatusException(ptr noundef nonnull byval(%struct.PyStatus) align 8 %status.i.i) #21
   unreachable
 
 config_set_program_name.exit:                     ; preds = %if.end3
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %status.i.i)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %status.i)
-  call void @Py_InitializeFromConfig(ptr nonnull sret(%struct.PyStatus) align 8 %status.i, ptr noundef nonnull %config) #20
-  call void @PyConfig_Clear(ptr noundef nonnull %config) #20
-  %call.i = call i32 @PyStatus_Exception(ptr noundef nonnull byval(%struct.PyStatus) align 8 %status.i) #20
+  call void @Py_InitializeFromConfig(ptr nonnull sret(%struct.PyStatus) align 8 %status.i, ptr noundef nonnull %config) #18
+  call void @PyConfig_Clear(ptr noundef nonnull %config) #18
+  %call.i = call i32 @PyStatus_Exception(ptr noundef nonnull byval(%struct.PyStatus) align 8 %status.i) #18
   %tobool.not.i = icmp eq i32 %call.i, 0
   br i1 %tobool.not.i, label %init_from_config_clear.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %config_set_program_name.exit
-  call void @Py_ExitStatusException(ptr noundef nonnull byval(%struct.PyStatus) align 8 %status.i) #23
+  call void @Py_ExitStatusException(ptr noundef nonnull byval(%struct.PyStatus) align 8 %status.i) #21
   unreachable
 
 init_from_config_clear.exit:                      ; preds = %config_set_program_name.exit
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %status.i)
-  %call.i1 = call i32 @PyRun_SimpleStringFlags(ptr noundef nonnull @.str.112, ptr noundef null) #20
-  call void @Py_Finalize() #20
+  %call.i1 = call i32 @PyRun_SimpleStringFlags(ptr noundef nonnull @.str.112, ptr noundef null) #18
+  call void @Py_Finalize() #18
   ret void
 }
 
-declare void @Py_PreInitializeFromArgs(ptr sret(%struct.PyStatus) align 8, ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #5
+declare void @Py_PreInitializeFromArgs(ptr sret(%struct.PyStatus) align 8, ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #4
 
-declare void @PyConfig_Read(ptr sret(%struct.PyStatus) align 8, ptr noundef) local_unnamed_addr #5
+declare void @PyConfig_Read(ptr sret(%struct.PyStatus) align 8, ptr noundef) local_unnamed_addr #4
 
-declare void @PyWideStringList_Insert(ptr sret(%struct.PyStatus) align 8, ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #5
+declare void @PyWideStringList_Insert(ptr sret(%struct.PyStatus) align 8, ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #4
 
-declare void @PyWideStringList_Append(ptr sret(%struct.PyStatus) align 8, ptr noundef, ptr noundef) local_unnamed_addr #5
+declare void @PyWideStringList_Append(ptr sret(%struct.PyStatus) align 8, ptr noundef, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @configure_init_main(ptr noundef %config) unnamed_addr #0 {
@@ -4691,28 +4724,28 @@ entry:
   %parse_argv = getelementptr inbounds i8, ptr %config, i64 104
   store i32 1, ptr %parse_argv, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %status.i)
-  call void @PyConfig_SetArgv(ptr nonnull sret(%struct.PyStatus) align 8 %status.i, ptr noundef %config, i64 noundef 4, ptr noundef nonnull %argv) #20
-  %call.i = call i32 @PyStatus_Exception(ptr noundef nonnull byval(%struct.PyStatus) align 8 %status.i) #20
+  call void @PyConfig_SetArgv(ptr nonnull sret(%struct.PyStatus) align 8 %status.i, ptr noundef %config, i64 noundef 4, ptr noundef nonnull %argv) #18
+  %call.i = call i32 @PyStatus_Exception(ptr noundef nonnull byval(%struct.PyStatus) align 8 %status.i) #18
   %tobool.not.i = icmp eq i32 %call.i, 0
   br i1 %tobool.not.i, label %config_set_argv.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %entry
-  call void @PyConfig_Clear(ptr noundef nonnull %config) #20
-  call void @Py_ExitStatusException(ptr noundef nonnull byval(%struct.PyStatus) align 8 %status.i) #23
+  call void @PyConfig_Clear(ptr noundef nonnull %config) #18
+  call void @Py_ExitStatusException(ptr noundef nonnull byval(%struct.PyStatus) align 8 %status.i) #21
   unreachable
 
 config_set_argv.exit:                             ; preds = %entry
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %status.i)
   %program_name = getelementptr inbounds i8, ptr %config, i64 280
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %status.i4)
-  call void @PyConfig_SetString(ptr nonnull sret(%struct.PyStatus) align 8 %status.i4, ptr noundef nonnull %config, ptr noundef nonnull %program_name, ptr noundef nonnull @.str.183) #20
-  %call.i5 = call i32 @PyStatus_Exception(ptr noundef nonnull byval(%struct.PyStatus) align 8 %status.i4) #20
+  call void @PyConfig_SetString(ptr nonnull sret(%struct.PyStatus) align 8 %status.i4, ptr noundef nonnull %config, ptr noundef nonnull %program_name, ptr noundef nonnull @.str.183) #18
+  %call.i5 = call i32 @PyStatus_Exception(ptr noundef nonnull byval(%struct.PyStatus) align 8 %status.i4) #18
   %tobool.not.i6 = icmp eq i32 %call.i5, 0
   br i1 %tobool.not.i6, label %config_set_string.exit, label %if.then.i7
 
 if.then.i7:                                       ; preds = %config_set_argv.exit
-  call void @PyConfig_Clear(ptr noundef nonnull %config) #20
-  call void @Py_ExitStatusException(ptr noundef nonnull byval(%struct.PyStatus) align 8 %status.i4) #23
+  call void @PyConfig_Clear(ptr noundef nonnull %config) #18
+  call void @Py_ExitStatusException(ptr noundef nonnull byval(%struct.PyStatus) align 8 %status.i4) #21
   unreachable
 
 config_set_string.exit:                           ; preds = %config_set_argv.exit
@@ -4720,52 +4753,52 @@ config_set_string.exit:                           ; preds = %config_set_argv.exi
   ret void
 }
 
-declare void @_Py_InitializeMain(ptr sret(%struct.PyStatus) align 8) local_unnamed_addr #5
+declare void @_Py_InitializeMain(ptr sret(%struct.PyStatus) align 8) local_unnamed_addr #4
 
 ; Function Attrs: nofree nounwind memory(read)
-declare noundef ptr @getenv(ptr nocapture noundef) local_unnamed_addr #14
+declare noundef ptr @getenv(ptr nocapture noundef) local_unnamed_addr #13
 
-declare void @Py_SetPath(ptr noundef) local_unnamed_addr #5
+declare void @Py_SetPath(ptr noundef) local_unnamed_addr #4
 
-declare void @Py_SetPythonHome(ptr noundef) local_unnamed_addr #5
+declare void @Py_SetPythonHome(ptr noundef) local_unnamed_addr #4
 
-declare void @PyErr_Print() local_unnamed_addr #5
+declare void @PyErr_Print() local_unnamed_addr #4
 
-declare i32 @_PyInterpreterState_GetConfigCopy(ptr noundef) local_unnamed_addr #5
+declare i32 @_PyInterpreterState_GetConfigCopy(ptr noundef) local_unnamed_addr #4
 
-declare i32 @_PyInterpreterState_SetConfig(ptr noundef) local_unnamed_addr #5
+declare i32 @_PyInterpreterState_SetConfig(ptr noundef) local_unnamed_addr #4
 
-declare void @Py_GetArgcArgv(ptr noundef, ptr noundef) local_unnamed_addr #5
+declare void @Py_GetArgcArgv(ptr noundef, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read)
-declare i32 @wcscmp(ptr noundef, ptr noundef) local_unnamed_addr #15
+declare i32 @wcscmp(ptr noundef, ptr noundef) local_unnamed_addr #14
 
 ; Function Attrs: nounwind
-declare ptr @wcscpy(ptr noundef, ptr noundef) local_unnamed_addr #8
+declare ptr @wcscpy(ptr noundef, ptr noundef) local_unnamed_addr #7
 
 ; Function Attrs: nounwind
-declare i32 @swprintf(ptr noundef, i64 noundef, ptr noundef, ...) local_unnamed_addr #8
+declare i32 @swprintf(ptr noundef, i64 noundef, ptr noundef, ...) local_unnamed_addr #7
 
-declare i32 @PyFile_SetOpenCodeHook(ptr noundef, ptr noundef) local_unnamed_addr #5
+declare i32 @PyFile_SetOpenCodeHook(ptr noundef, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
 define internal ptr @_open_code_hook(ptr noundef %path, ptr noundef %data) #0 {
 entry:
-  %call = tail call i32 @PyUnicode_CompareWithASCIIString(ptr noundef %path, ptr noundef nonnull @.str.225) #20
+  %call = tail call i32 @PyUnicode_CompareWithASCIIString(ptr noundef %path, ptr noundef nonnull @.str.225) #18
   %cmp = icmp eq i32 %call, 0
   br i1 %cmp, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
-  %call1 = tail call ptr @PyLong_FromVoidPtr(ptr noundef %data) #20
+  %call1 = tail call ptr @PyLong_FromVoidPtr(ptr noundef %data) #18
   br label %return
 
 if.end:                                           ; preds = %entry
-  %call2 = tail call ptr @PyImport_ImportModule(ptr noundef nonnull @.str.227) #20
+  %call2 = tail call ptr @PyImport_ImportModule(ptr noundef nonnull @.str.227) #18
   %tobool.not = icmp eq ptr %call2, null
   br i1 %tobool.not, label %return, label %if.end4
 
 if.end4:                                          ; preds = %if.end
-  %call5 = tail call ptr (ptr, ptr, ptr, ...) @PyObject_CallMethod(ptr noundef nonnull %call2, ptr noundef nonnull @.str.230, ptr noundef nonnull @.str.231, ptr noundef %path, ptr noundef nonnull @.str.232) #20
+  %call5 = tail call ptr (ptr, ptr, ptr, ...) @PyObject_CallMethod(ptr noundef nonnull %call2, ptr noundef nonnull @.str.230, ptr noundef nonnull @.str.231, ptr noundef %path, ptr noundef nonnull @.str.232) #18
   br label %return
 
 return:                                           ; preds = %if.end, %if.end4, %if.then
@@ -4773,21 +4806,21 @@ return:                                           ; preds = %if.end, %if.end4, %
   ret ptr %retval.0
 }
 
-declare ptr @PyFile_OpenCode(ptr noundef) local_unnamed_addr #5
+declare ptr @PyFile_OpenCode(ptr noundef) local_unnamed_addr #4
 
-declare ptr @PyLong_AsVoidPtr(ptr noundef) local_unnamed_addr #5
+declare ptr @PyLong_AsVoidPtr(ptr noundef) local_unnamed_addr #4
 
-declare ptr @PyImport_ImportModule(ptr noundef) local_unnamed_addr #5
+declare ptr @PyImport_ImportModule(ptr noundef) local_unnamed_addr #4
 
-declare ptr @PyObject_CallMethod(ptr noundef, ptr noundef, ptr noundef, ...) local_unnamed_addr #5
+declare ptr @PyObject_CallMethod(ptr noundef, ptr noundef, ptr noundef, ...) local_unnamed_addr #4
 
-declare i32 @PyUnicode_CompareWithASCIIString(ptr noundef, ptr noundef) local_unnamed_addr #5
+declare i32 @PyUnicode_CompareWithASCIIString(ptr noundef, ptr noundef) local_unnamed_addr #4
 
-declare ptr @PyLong_FromVoidPtr(ptr noundef) local_unnamed_addr #5
+declare ptr @PyLong_FromVoidPtr(ptr noundef) local_unnamed_addr #4
 
-declare void @_Py_Dealloc(ptr noundef) local_unnamed_addr #5
+declare void @_Py_Dealloc(ptr noundef) local_unnamed_addr #4
 
-declare i32 @PySys_AddAuditHook(ptr noundef, ptr noundef) local_unnamed_addr #5
+declare i32 @PySys_AddAuditHook(ptr noundef, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 -1, 1) i32 @_audit_hook(ptr nocapture noundef readonly %event, ptr noundef %args, ptr noundef %userdata) #0 {
@@ -4802,32 +4835,32 @@ land.lhs.true:                                    ; preds = %entry
   br i1 %cmp.i.not, label %cond.end, label %cond.false
 
 cond.false:                                       ; preds = %land.lhs.true, %entry
-  tail call void @__assert_fail(ptr noundef nonnull @.str.243, ptr noundef nonnull @.str.171, i32 noundef 1250, ptr noundef nonnull @__PRETTY_FUNCTION__._audit_hook) #23
+  tail call void @__assert_fail(ptr noundef nonnull @.str.243, ptr noundef nonnull @.str.171, i32 noundef 1250, ptr noundef nonnull @__PRETTY_FUNCTION__._audit_hook) #21
   unreachable
 
 cond.end:                                         ; preds = %land.lhs.true
-  %call2 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %event, ptr noundef nonnull dereferenceable(17) @.str.233) #19
+  %call2 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %event, ptr noundef nonnull dereferenceable(17) @.str.233) #17
   %cmp = icmp eq i32 %call2, 0
   br i1 %cmp, label %if.then, label %if.else
 
 if.then:                                          ; preds = %cond.end
   %1 = load ptr, ptr @PyExc_RuntimeError, align 8
-  tail call void @PyErr_SetString(ptr noundef %1, ptr noundef nonnull @.str.244) #20
+  tail call void @PyErr_SetString(ptr noundef %1, ptr noundef nonnull @.str.244) #18
   br label %return
 
 if.else:                                          ; preds = %cond.end
-  %call3 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %event, ptr noundef nonnull dereferenceable(15) @.str.238) #19
+  %call3 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %event, ptr noundef nonnull dereferenceable(15) @.str.238) #17
   %cmp4 = icmp eq i32 %call3, 0
   br i1 %cmp4, label %if.then5, label %if.else9
 
 if.then5:                                         ; preds = %if.else
-  %call6 = tail call i32 (ptr, ptr, ...) @PyArg_ParseTuple(ptr noundef nonnull %args, ptr noundef nonnull @.str.239, ptr noundef %userdata) #20
+  %call6 = tail call i32 (ptr, ptr, ...) @PyArg_ParseTuple(ptr noundef nonnull %args, ptr noundef nonnull @.str.239, ptr noundef %userdata) #18
   %tobool7.not = icmp eq i32 %call6, 0
   %. = sext i1 %tobool7.not to i32
   br label %return
 
 if.else9:                                         ; preds = %if.else
-  %call10 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %event, ptr noundef nonnull dereferenceable(31) @.str.245) #19
+  %call10 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %event, ptr noundef nonnull dereferenceable(31) @.str.245) #17
   %cmp11 = icmp eq i32 %call10, 0
   br i1 %cmp11, label %if.then12, label %return
 
@@ -4842,29 +4875,29 @@ return:                                           ; preds = %if.else9, %if.then1
   ret i32 %retval.0
 }
 
-declare i32 @PySys_Audit(ptr noundef, ptr noundef, ...) local_unnamed_addr #5
+declare i32 @PySys_Audit(ptr noundef, ptr noundef, ...) local_unnamed_addr #4
 
-declare void @PyErr_Clear() local_unnamed_addr #5
+declare void @PyErr_Clear() local_unnamed_addr #4
 
-declare ptr @PyErr_Occurred() local_unnamed_addr #5
+declare ptr @PyErr_Occurred() local_unnamed_addr #4
 
-declare void @PyErr_SetString(ptr noundef, ptr noundef) local_unnamed_addr #5
+declare void @PyErr_SetString(ptr noundef, ptr noundef) local_unnamed_addr #4
 
-declare i32 @PyArg_ParseTuple(ptr noundef, ptr noundef, ...) local_unnamed_addr #5
+declare i32 @PyArg_ParseTuple(ptr noundef, ptr noundef, ...) local_unnamed_addr #4
 
-declare ptr @Py_BuildValue(ptr noundef, ...) local_unnamed_addr #5
+declare ptr @Py_BuildValue(ptr noundef, ...) local_unnamed_addr #4
 
-declare i32 @PySys_AuditTuple(ptr noundef, ptr noundef) local_unnamed_addr #5
+declare i32 @PySys_AuditTuple(ptr noundef, ptr noundef) local_unnamed_addr #4
 
-declare ptr @PyLong_FromLong(i64 noundef) local_unnamed_addr #5
+declare ptr @PyLong_FromLong(i64 noundef) local_unnamed_addr #4
 
-declare i32 @PyErr_ExceptionMatches(ptr noundef) local_unnamed_addr #5
+declare i32 @PyErr_ExceptionMatches(ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nofree nounwind uwtable
-define internal noundef i32 @_audit_subinterpreter_hook(ptr nocapture noundef readonly %event, ptr nocapture readnone %args, ptr nocapture readnone %userdata) #16 {
+define internal noundef i32 @_audit_subinterpreter_hook(ptr nocapture noundef readonly %event, ptr nocapture readnone %args, ptr nocapture readnone %userdata) #10 {
 entry:
   %puts = tail call i32 @puts(ptr nonnull dereferenceable(1) %event)
-  %call1 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %event, ptr noundef nonnull dereferenceable(31) @.str.250) #19
+  %call1 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %event, ptr noundef nonnull dereferenceable(31) @.str.250) #17
   %cmp = icmp eq i32 %call1, 0
   br i1 %cmp, label %if.then, label %if.end
 
@@ -4882,7 +4915,7 @@ if.end:                                           ; preds = %if.then, %entry
 define internal range(i32 -1, 1) i32 @_audit_hook_run(ptr noundef %eventName, ptr noundef %args, ptr nocapture noundef readonly %userData) #0 {
 entry:
   %0 = load ptr, ptr %userData, align 8
-  %call = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %eventName, ptr noundef nonnull dereferenceable(1) %0) #19
+  %call = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %eventName, ptr noundef nonnull dereferenceable(1) %0) #17
   %tobool.not = icmp eq i32 %call, 0
   br i1 %tobool.not, label %if.end, label %return
 
@@ -4893,12 +4926,12 @@ if.end:                                           ; preds = %entry
   br i1 %tobool1.not, label %if.end10, label %if.then2
 
 if.then2:                                         ; preds = %if.end
-  %call3 = tail call ptr (ptr, ...) @PyUnicode_FromFormat(ptr noundef nonnull @.str.252, ptr noundef %eventName, ptr noundef %args) #20
+  %call3 = tail call ptr (ptr, ...) @PyUnicode_FromFormat(ptr noundef nonnull @.str.252, ptr noundef %eventName, ptr noundef %args) #18
   %tobool4.not = icmp eq ptr %call3, null
   br i1 %tobool4.not, label %if.end8, label %if.then5
 
 if.then5:                                         ; preds = %if.then2
-  %call6 = tail call ptr @PyUnicode_AsUTF8(ptr noundef nonnull %call3) #20
+  %call6 = tail call ptr @PyUnicode_AsUTF8(ptr noundef nonnull %call3) #18
   %puts = tail call i32 @puts(ptr nonnull dereferenceable(1) %call6)
   %2 = load i64, ptr %call3, align 8
   %3 = and i64 %2, 2147483648
@@ -4912,17 +4945,17 @@ if.end.i:                                         ; preds = %if.then5
   br i1 %cmp.i, label %if.then1.i, label %if.end8
 
 if.then1.i:                                       ; preds = %if.end.i
-  tail call void @_Py_Dealloc(ptr noundef nonnull %call3) #20
+  tail call void @_Py_Dealloc(ptr noundef nonnull %call3) #18
   br label %if.end8
 
 if.end8:                                          ; preds = %if.end.i, %if.then1.i, %if.then5, %if.then2
   %4 = load i32, ptr %exit, align 8
-  tail call void @exit(i32 noundef %4) #23
+  tail call void @exit(i32 noundef %4) #21
   unreachable
 
 if.end10:                                         ; preds = %if.end
   %5 = load ptr, ptr @PyExc_RuntimeError, align 8
-  %call11 = tail call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %5, ptr noundef nonnull @.str.252, ptr noundef %eventName, ptr noundef %args) #20
+  %call11 = tail call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %5, ptr noundef nonnull @.str.252, ptr noundef %eventName, ptr noundef %args) #18
   br label %return
 
 return:                                           ; preds = %entry, %if.end10
@@ -4930,30 +4963,30 @@ return:                                           ; preds = %entry, %if.end10
   ret i32 %retval.0
 }
 
-declare ptr @PyUnicode_FromFormat(ptr noundef, ...) local_unnamed_addr #5
+declare ptr @PyUnicode_FromFormat(ptr noundef, ...) local_unnamed_addr #4
 
-declare ptr @PyUnicode_AsUTF8(ptr noundef) local_unnamed_addr #5
+declare ptr @PyUnicode_AsUTF8(ptr noundef) local_unnamed_addr #4
 
-declare ptr @PyErr_Format(ptr noundef, ptr noundef, ...) local_unnamed_addr #5
+declare ptr @PyErr_Format(ptr noundef, ptr noundef, ...) local_unnamed_addr #4
 
-declare ptr @_PyUnicode_FromId(ptr noundef) local_unnamed_addr #5
+declare ptr @_PyUnicode_FromId(ptr noundef) local_unnamed_addr #4
 
-declare ptr @PyUnicode_FromString(ptr noundef) local_unnamed_addr #5
+declare ptr @PyUnicode_FromString(ptr noundef) local_unnamed_addr #4
 
-declare i32 @PyUnicode_Compare(ptr noundef, ptr noundef) local_unnamed_addr #5
+declare i32 @PyUnicode_Compare(ptr noundef, ptr noundef) local_unnamed_addr #4
 
-declare i32 @Py_FrozenMain(i32 noundef, ptr noundef) local_unnamed_addr #5
+declare i32 @Py_FrozenMain(i32 noundef, ptr noundef) local_unnamed_addr #4
 
-declare void @PyMem_GetAllocator(i32 noundef, ptr noundef) local_unnamed_addr #5
+declare void @PyMem_GetAllocator(i32 noundef, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
 define internal ptr @malloc_wrapper(ptr noundef %ctx, i64 noundef %size) #0 {
 entry:
   %wrapper.i = alloca %struct.PyMemAllocatorEx, align 8
-  tail call void @PyMem_SetAllocator(i32 noundef 2, ptr noundef %ctx) #20
-  %call = tail call ptr @PyEval_GetFrame() #20
+  tail call void @PyMem_SetAllocator(i32 noundef 2, ptr noundef %ctx) #18
+  %call = tail call ptr @PyEval_GetFrame() #18
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %wrapper.i)
-  tail call void @PyMem_GetAllocator(i32 noundef 2, ptr noundef %ctx) #20
+  tail call void @PyMem_GetAllocator(i32 noundef 2, ptr noundef %ctx) #18
   store ptr %ctx, ptr %wrapper.i, align 8
   %malloc.i = getelementptr inbounds i8, ptr %wrapper.i, i64 8
   store ptr @malloc_wrapper, ptr %malloc.i, align 8
@@ -4963,12 +4996,12 @@ entry:
   store ptr @realloc_wrapper, ptr %realloc.i, align 8
   %free.i = getelementptr inbounds i8, ptr %wrapper.i, i64 32
   store ptr @free_wrapper, ptr %free.i, align 8
-  call void @PyMem_SetAllocator(i32 noundef 2, ptr noundef nonnull %wrapper.i) #20
+  call void @PyMem_SetAllocator(i32 noundef 2, ptr noundef nonnull %wrapper.i) #18
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %wrapper.i)
   %malloc = getelementptr inbounds i8, ptr %ctx, i64 8
   %0 = load ptr, ptr %malloc, align 8
   %1 = load ptr, ptr %ctx, align 8
-  %call2 = call ptr %0(ptr noundef %1, i64 noundef %size) #20
+  %call2 = call ptr %0(ptr noundef %1, i64 noundef %size) #18
   ret ptr %call2
 }
 
@@ -4978,7 +5011,7 @@ entry:
   %calloc = getelementptr inbounds i8, ptr %ctx, i64 16
   %0 = load ptr, ptr %calloc, align 8
   %1 = load ptr, ptr %ctx, align 8
-  %call = tail call ptr %0(ptr noundef %1, i64 noundef %nelem, i64 noundef %elsize) #20
+  %call = tail call ptr %0(ptr noundef %1, i64 noundef %nelem, i64 noundef %elsize) #18
   ret ptr %call
 }
 
@@ -4988,7 +5021,7 @@ entry:
   %realloc = getelementptr inbounds i8, ptr %ctx, i64 24
   %0 = load ptr, ptr %realloc, align 8
   %1 = load ptr, ptr %ctx, align 8
-  %call = tail call ptr %0(ptr noundef %1, ptr noundef %ptr, i64 noundef %new_size) #20
+  %call = tail call ptr %0(ptr noundef %1, ptr noundef %ptr, i64 noundef %new_size) #18
   ret ptr %call
 }
 
@@ -4998,54 +5031,52 @@ entry:
   %free = getelementptr inbounds i8, ptr %ctx, i64 32
   %0 = load ptr, ptr %free, align 8
   %1 = load ptr, ptr %ctx, align 8
-  tail call void %0(ptr noundef %1, ptr noundef %ptr) #20
+  tail call void %0(ptr noundef %1, ptr noundef %ptr) #18
   ret void
 }
 
-declare void @PyMem_SetAllocator(i32 noundef, ptr noundef) local_unnamed_addr #5
+declare void @PyMem_SetAllocator(i32 noundef, ptr noundef) local_unnamed_addr #4
 
-declare ptr @PyEval_GetFrame() local_unnamed_addr #5
-
-; Function Attrs: nofree nounwind
-declare noundef i32 @puts(ptr nocapture noundef readonly) local_unnamed_addr #17
+declare ptr @PyEval_GetFrame() local_unnamed_addr #4
 
 ; Function Attrs: nofree nounwind
-declare noundef i64 @fwrite(ptr nocapture noundef, i64 noundef, i64 noundef, ptr nocapture noundef) local_unnamed_addr #17
+declare noundef i32 @puts(ptr nocapture noundef readonly) local_unnamed_addr #15
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @putchar(i32 noundef) local_unnamed_addr #17
+declare noundef i64 @fwrite(ptr nocapture noundef, i64 noundef, i64 noundef, ptr nocapture noundef) local_unnamed_addr #15
+
+; Function Attrs: nofree nounwind
+declare noundef i32 @putchar(i32 noundef) local_unnamed_addr #15
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #18
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #16
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #18
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #16
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nofree nounwind willreturn memory(argmem: read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { nofree nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { cold nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { nofree noreturn nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { noreturn "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #8 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #9 = { mustprogress nofree nounwind willreturn allockind("alloc,zeroed") allocsize(0,1) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #10 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #11 = { cold nofree nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #12 = { cold nofree noreturn nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #13 = { noreturn nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #14 = { nofree nounwind memory(read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #15 = { mustprogress nofree nounwind willreturn memory(read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #16 = { nofree nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #17 = { nofree nounwind }
-attributes #18 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #19 = { nounwind willreturn memory(read) }
-attributes #20 = { nounwind }
-attributes #21 = { cold }
-attributes #22 = { cold noreturn nounwind }
-attributes #23 = { noreturn nounwind }
-attributes #24 = { nounwind allocsize(0,1) }
+attributes #3 = { nofree noreturn nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { noreturn "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #7 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #8 = { mustprogress nofree nounwind willreturn allockind("alloc,zeroed") allocsize(0,1) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #9 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #10 = { nofree nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #11 = { cold nofree noreturn nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #12 = { noreturn nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #13 = { nofree nounwind memory(read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #14 = { mustprogress nofree nounwind willreturn memory(read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #15 = { nofree nounwind }
+attributes #16 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #17 = { nounwind willreturn memory(read) }
+attributes #18 = { nounwind }
+attributes #19 = { cold }
+attributes #20 = { cold noreturn nounwind }
+attributes #21 = { noreturn nounwind }
+attributes #22 = { nounwind allocsize(0,1) }
 
 !llvm.module.flags = !{!0, !1, !2, !3, !4}
 

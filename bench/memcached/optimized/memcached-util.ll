@@ -12,7 +12,7 @@ target triple = "x86_64-unknown-linux-gnu"
 ; Function Attrs: nofree nounwind uwtable
 define dso_local void @uriencode_init() local_unnamed_addr #0 {
 entry:
-  %call = tail call ptr @__ctype_b_loc() #13
+  %call = tail call ptr @__ctype_b_loc() #12
   br label %for.body
 
 for.body:                                         ; preds = %entry, %for.inc
@@ -42,7 +42,7 @@ if.then:                                          ; preds = %switch.early.test, 
 
 if.else:                                          ; preds = %switch.early.test
   %3 = trunc nuw nsw i64 %indvars.iv to i32
-  %call16 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %str.018, i64 noundef 4, ptr noundef nonnull @.str, i32 noundef %3) #14
+  %call16 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %str.018, i64 noundef 4, ptr noundef nonnull @.str, i32 noundef %3) #13
   %arrayidx18 = getelementptr inbounds [256 x ptr], ptr @uriencode_map, i64 0, i64 %indvars.iv
   store ptr %str.018, ptr %arrayidx18, align 8
   %add.ptr = getelementptr inbounds i8, ptr %str.018, i64 3
@@ -128,10 +128,10 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias
 define dso_local noundef zeroext i1 @safe_strtoull(ptr noundef %str, ptr nocapture noundef writeonly %out) local_unnamed_addr #5 {
 entry:
   %endptr = alloca ptr, align 8
-  %call = tail call ptr @__errno_location() #13
+  %call = tail call ptr @__errno_location() #12
   store i32 0, ptr %call, align 4
   store i64 0, ptr %out, align 8
-  %call1 = call i64 @strtoull(ptr noundef %str, ptr noundef nonnull %endptr, i32 noundef 10) #14
+  %call1 = call i64 @strtoull(ptr noundef %str, ptr noundef nonnull %endptr, i32 noundef 10) #13
   %0 = load i32, ptr %call, align 4
   %cmp = icmp eq i32 %0, 34
   br i1 %cmp, label %return, label %lor.lhs.false
@@ -142,7 +142,7 @@ lor.lhs.false:                                    ; preds = %entry
   br i1 %cmp3, label %return, label %if.end
 
 if.end:                                           ; preds = %lor.lhs.false
-  %call4 = tail call ptr @__ctype_b_loc() #13
+  %call4 = tail call ptr @__ctype_b_loc() #12
   %2 = load ptr, ptr %call4, align 8
   %3 = load i8, ptr %1, align 1
   %idxprom = zext i8 %3 to i64
@@ -162,7 +162,7 @@ if.then15:                                        ; preds = %if.then12
   %sub.ptr.lhs.cast = ptrtoint ptr %1 to i64
   %sub.ptr.rhs.cast = ptrtoint ptr %str to i64
   %sub.ptr.sub = sub i64 %sub.ptr.lhs.cast, %sub.ptr.rhs.cast
-  %call16 = tail call ptr @memchr(ptr noundef %str, i32 noundef 45, i64 noundef %sub.ptr.sub) #15
+  %call16 = tail call ptr @memchr(ptr noundef %str, i32 noundef 45, i64 noundef %sub.ptr.sub) #14
   %cmp17.not = icmp eq ptr %call16, null
   br i1 %cmp17.not, label %if.end21, label %return
 
@@ -188,10 +188,10 @@ declare ptr @memchr(ptr noundef, i32 noundef, i64 noundef) local_unnamed_addr #7
 define dso_local noundef zeroext i1 @safe_strtoull_hex(ptr noundef %str, ptr nocapture noundef writeonly %out) local_unnamed_addr #5 {
 entry:
   %endptr = alloca ptr, align 8
-  %call = tail call ptr @__errno_location() #13
+  %call = tail call ptr @__errno_location() #12
   store i32 0, ptr %call, align 4
   store i64 0, ptr %out, align 8
-  %call1 = call i64 @strtoull(ptr noundef %str, ptr noundef nonnull %endptr, i32 noundef 16) #14
+  %call1 = call i64 @strtoull(ptr noundef %str, ptr noundef nonnull %endptr, i32 noundef 16) #13
   %0 = load i32, ptr %call, align 4
   %cmp = icmp eq i32 %0, 34
   br i1 %cmp, label %return, label %lor.lhs.false
@@ -202,7 +202,7 @@ lor.lhs.false:                                    ; preds = %entry
   br i1 %cmp3, label %return, label %if.end
 
 if.end:                                           ; preds = %lor.lhs.false
-  %call4 = tail call ptr @__ctype_b_loc() #13
+  %call4 = tail call ptr @__ctype_b_loc() #12
   %2 = load ptr, ptr %call4, align 8
   %3 = load i8, ptr %1, align 1
   %idxprom = zext i8 %3 to i64
@@ -222,7 +222,7 @@ if.then15:                                        ; preds = %if.then12
   %sub.ptr.lhs.cast = ptrtoint ptr %1 to i64
   %sub.ptr.rhs.cast = ptrtoint ptr %str to i64
   %sub.ptr.sub = sub i64 %sub.ptr.lhs.cast, %sub.ptr.rhs.cast
-  %call16 = tail call ptr @memchr(ptr noundef %str, i32 noundef 45, i64 noundef %sub.ptr.sub) #15
+  %call16 = tail call ptr @memchr(ptr noundef %str, i32 noundef 45, i64 noundef %sub.ptr.sub) #14
   %cmp17.not = icmp eq ptr %call16, null
   br i1 %cmp17.not, label %if.end21, label %return
 
@@ -239,10 +239,10 @@ return:                                           ; preds = %if.end, %if.then15,
 define dso_local noundef zeroext i1 @safe_strtoll(ptr noundef %str, ptr nocapture noundef writeonly %out) local_unnamed_addr #5 {
 entry:
   %endptr = alloca ptr, align 8
-  %call = tail call ptr @__errno_location() #13
+  %call = tail call ptr @__errno_location() #12
   store i32 0, ptr %call, align 4
   store i64 0, ptr %out, align 8
-  %call1 = call i64 @strtoll(ptr noundef %str, ptr noundef nonnull %endptr, i32 noundef 10) #14
+  %call1 = call i64 @strtoll(ptr noundef %str, ptr noundef nonnull %endptr, i32 noundef 10) #13
   %0 = load i32, ptr %call, align 4
   %cmp = icmp eq i32 %0, 34
   br i1 %cmp, label %return, label %lor.lhs.false
@@ -253,7 +253,7 @@ lor.lhs.false:                                    ; preds = %entry
   br i1 %cmp3, label %return, label %if.end
 
 if.end:                                           ; preds = %lor.lhs.false
-  %call4 = tail call ptr @__ctype_b_loc() #13
+  %call4 = tail call ptr @__ctype_b_loc() #12
   %2 = load ptr, ptr %call4, align 8
   %3 = load i8, ptr %1, align 1
   %idxprom = zext i8 %3 to i64
@@ -283,9 +283,9 @@ entry:
   %endptr = alloca ptr, align 8
   store ptr null, ptr %endptr, align 8
   store i32 0, ptr %out, align 4
-  %call = tail call ptr @__errno_location() #13
+  %call = tail call ptr @__errno_location() #12
   store i32 0, ptr %call, align 4
-  %call1 = call i64 @strtoul(ptr noundef %str, ptr noundef nonnull %endptr, i32 noundef 10) #14
+  %call1 = call i64 @strtoul(ptr noundef %str, ptr noundef nonnull %endptr, i32 noundef 10) #13
   %0 = load i32, ptr %call, align 4
   %cmp = icmp eq i32 %0, 34
   br i1 %cmp, label %return, label %lor.lhs.false
@@ -296,7 +296,7 @@ lor.lhs.false:                                    ; preds = %entry
   br i1 %cmp3, label %return, label %if.end
 
 if.end:                                           ; preds = %lor.lhs.false
-  %call4 = tail call ptr @__ctype_b_loc() #13
+  %call4 = tail call ptr @__ctype_b_loc() #12
   %2 = load ptr, ptr %call4, align 8
   %3 = load i8, ptr %1, align 1
   %idxprom = zext i8 %3 to i64
@@ -316,7 +316,7 @@ if.then15:                                        ; preds = %if.then12
   %sub.ptr.lhs.cast = ptrtoint ptr %1 to i64
   %sub.ptr.rhs.cast = ptrtoint ptr %str to i64
   %sub.ptr.sub = sub i64 %sub.ptr.lhs.cast, %sub.ptr.rhs.cast
-  %call16 = tail call ptr @memchr(ptr noundef %str, i32 noundef 45, i64 noundef %sub.ptr.sub) #15
+  %call16 = tail call ptr @memchr(ptr noundef %str, i32 noundef 45, i64 noundef %sub.ptr.sub) #14
   %cmp17.not = icmp eq ptr %call16, null
   br i1 %cmp17.not, label %if.end21, label %return
 
@@ -337,10 +337,10 @@ declare i64 @strtoul(ptr noundef readonly, ptr nocapture noundef, i32 noundef) l
 define dso_local noundef zeroext i1 @safe_strtol(ptr noundef %str, ptr nocapture noundef writeonly %out) local_unnamed_addr #5 {
 entry:
   %endptr = alloca ptr, align 8
-  %call = tail call ptr @__errno_location() #13
+  %call = tail call ptr @__errno_location() #12
   store i32 0, ptr %call, align 4
   store i32 0, ptr %out, align 4
-  %call1 = call i64 @strtol(ptr noundef %str, ptr noundef nonnull %endptr, i32 noundef 10) #14
+  %call1 = call i64 @strtol(ptr noundef %str, ptr noundef nonnull %endptr, i32 noundef 10) #13
   %0 = load i32, ptr %call, align 4
   %cmp = icmp eq i32 %0, 34
   br i1 %cmp, label %return, label %lor.lhs.false
@@ -351,7 +351,7 @@ lor.lhs.false:                                    ; preds = %entry
   br i1 %cmp3, label %return, label %if.end
 
 if.end:                                           ; preds = %lor.lhs.false
-  %call4 = tail call ptr @__ctype_b_loc() #13
+  %call4 = tail call ptr @__ctype_b_loc() #12
   %2 = load ptr, ptr %call4, align 8
   %3 = load i8, ptr %1, align 1
   %idxprom = zext i8 %3 to i64
@@ -380,10 +380,10 @@ declare i64 @strtol(ptr noundef readonly, ptr nocapture noundef, i32 noundef) lo
 define dso_local noundef zeroext i1 @safe_strtod(ptr noundef %str, ptr nocapture noundef writeonly %out) local_unnamed_addr #5 {
 entry:
   %endptr = alloca ptr, align 8
-  %call = tail call ptr @__errno_location() #13
+  %call = tail call ptr @__errno_location() #12
   store i32 0, ptr %call, align 4
   store double 0.000000e+00, ptr %out, align 8
-  %call1 = call double @strtod(ptr noundef %str, ptr noundef nonnull %endptr) #14
+  %call1 = call double @strtod(ptr noundef %str, ptr noundef nonnull %endptr) #13
   %0 = load i32, ptr %call, align 4
   %cmp = icmp eq i32 %0, 34
   br i1 %cmp, label %return, label %lor.lhs.false
@@ -394,7 +394,7 @@ lor.lhs.false:                                    ; preds = %entry
   br i1 %cmp3, label %return, label %if.end
 
 if.end:                                           ; preds = %lor.lhs.false
-  %call4 = tail call ptr @__ctype_b_loc() #13
+  %call4 = tail call ptr @__ctype_b_loc() #12
   %2 = load ptr, ptr %call4, align 8
   %3 = load i8, ptr %1, align 1
   %idxprom = zext i8 %3 to i64
@@ -478,15 +478,15 @@ for.end:                                          ; preds = %for.end.loopexit, %
   ret i1 %delta.0.lcssa
 }
 
-; Function Attrs: cold nofree nounwind uwtable
-define dso_local void @vperror(ptr nocapture noundef readonly %fmt, ...) local_unnamed_addr #10 {
+; Function Attrs: nofree nounwind uwtable
+define dso_local void @vperror(ptr nocapture noundef readonly %fmt, ...) local_unnamed_addr #0 {
 entry:
   %buf = alloca [1024 x i8], align 16
   %ap = alloca [1 x %struct.__va_list_tag], align 16
-  %call = tail call ptr @__errno_location() #13
+  %call = tail call ptr @__errno_location() #12
   %0 = load i32, ptr %call, align 4
   call void @llvm.va_start.p0(ptr nonnull %ap)
-  %call3 = call i32 @vsnprintf(ptr noundef nonnull %buf, i64 noundef 1024, ptr noundef %fmt, ptr noundef nonnull %ap) #14
+  %call3 = call i32 @vsnprintf(ptr noundef nonnull %buf, i64 noundef 1024, ptr noundef %fmt, ptr noundef nonnull %ap) #13
   %cmp = icmp eq i32 %call3, -1
   br i1 %cmp, label %if.then, label %if.end
 
@@ -498,7 +498,7 @@ if.then:                                          ; preds = %entry
 if.end:                                           ; preds = %if.then, %entry
   call void @llvm.va_end.p0(ptr nonnull %ap)
   store i32 %0, ptr %call, align 4
-  call void @perror(ptr noundef nonnull %buf) #16
+  call void @perror(ptr noundef nonnull %buf) #15
   ret void
 }
 
@@ -509,7 +509,7 @@ declare noundef i32 @vsnprintf(ptr nocapture noundef, i64 noundef, ptr nocapture
 declare void @perror(ptr nocapture noundef readonly) local_unnamed_addr #2
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(none) uwtable
-define dso_local i64 @ntohll(i64 noundef %val) local_unnamed_addr #11 {
+define dso_local i64 @ntohll(i64 noundef %val) local_unnamed_addr #10 {
 entry:
   br label %for.body.i
 
@@ -530,7 +530,7 @@ mc_swap64.exit:                                   ; preds = %for.body.i
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(none) uwtable
-define dso_local i64 @htonll(i64 noundef %val) local_unnamed_addr #11 {
+define dso_local i64 @htonll(i64 noundef %val) local_unnamed_addr #10 {
 entry:
   br label %for.body.i
 
@@ -551,10 +551,10 @@ mc_swap64.exit:                                   ; preds = %for.body.i
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_start.p0(ptr) #12
+declare void @llvm.va_start.p0(ptr) #11
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_end.p0(ptr) #12
+declare void @llvm.va_end.p0(ptr) #11
 
 attributes #0 = { nofree nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nofree nosync nounwind willreturn memory(none) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -566,13 +566,12 @@ attributes #6 = { mustprogress nofree nounwind willreturn "frame-pointer"="all" 
 attributes #7 = { mustprogress nofree nounwind willreturn memory(argmem: read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #8 = { nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #9 = { nofree norecurse nounwind memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #10 = { cold nofree nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #11 = { nofree norecurse nosync nounwind memory(none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #12 = { mustprogress nocallback nofree nosync nounwind willreturn }
-attributes #13 = { nounwind willreturn memory(none) }
-attributes #14 = { nounwind }
-attributes #15 = { nounwind willreturn memory(read) }
-attributes #16 = { cold }
+attributes #10 = { nofree norecurse nosync nounwind memory(none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #11 = { mustprogress nocallback nofree nosync nounwind willreturn }
+attributes #12 = { nounwind willreturn memory(none) }
+attributes #13 = { nounwind }
+attributes #14 = { nounwind willreturn memory(read) }
+attributes #15 = { cold }
 
 !llvm.module.flags = !{!0, !1, !2, !3, !4}
 

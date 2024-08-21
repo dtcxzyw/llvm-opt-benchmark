@@ -1027,8 +1027,8 @@ define hidden void @"_ZN97_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$alloc..ve
   ret void
 }
 
-; Function Attrs: cold nonlazybind uwtable
-define noundef nonnull align 8 ptr @"_ZN15ockam_multiaddr5error111_$LT$impl$u20$core..convert..From$LT$ockam_multiaddr..error..Error$GT$$u20$for$u20$ockam_core..error..Error$GT$4from17h7b784366f5b1ccafE"(ptr noalias nocapture noundef align 8 dereferenceable(32) %0, ptr noalias noundef readonly align 8 dereferenceable(24) %1) unnamed_addr #0 {
+; Function Attrs: nonlazybind uwtable
+define noundef nonnull align 8 ptr @"_ZN15ockam_multiaddr5error111_$LT$impl$u20$core..convert..From$LT$ockam_multiaddr..error..Error$GT$$u20$for$u20$ockam_core..error..Error$GT$4from17h7b784366f5b1ccafE"(ptr noalias nocapture noundef align 8 dereferenceable(32) %0, ptr noalias noundef readonly align 8 dereferenceable(24) %1) unnamed_addr #1 {
   %3 = tail call noundef nonnull align 8 ptr @_ZN10ockam_core5error5Error3new17h756b2258a2cb8271E(i8 noundef 0, i8 noundef 2, ptr noalias nocapture noundef nonnull align 8 dereferenceable(32) %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %1)
   ret ptr %3
 }

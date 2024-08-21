@@ -571,18 +571,21 @@ declare ptr @_ZN2v810StackTrace17CurrentStackTraceEPNS_7IsolateEiNS0_17StackTrac
 
 declare noundef i32 @_ZNK2v810StackTrace13GetFrameCountEv(ptr noundef nonnull align 1 dereferenceable(1)) local_unnamed_addr #0
 
-; Function Attrs: cold mustprogress nounwind uwtable
-define dso_local void @_ZN4node15PrintStackTraceEPN2v87IsolateENS0_5LocalINS0_10StackTraceEEENS_16StackTracePrefixE(ptr noundef %isolate, ptr %stack.coerce, i32 noundef %prefix) local_unnamed_addr #4 {
+; Function Attrs: mustprogress nounwind uwtable
+define dso_local void @_ZN4node15PrintStackTraceEPN2v87IsolateENS0_5LocalINS0_10StackTraceEEENS_16StackTracePrefixE(ptr noundef %isolate, ptr %stack.coerce, i32 noundef %prefix) local_unnamed_addr #3 {
 entry:
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
   call fastcc void @_ZN4nodeL16FormatStackTraceB5cxx11EPN2v87IsolateENS0_5LocalINS0_10StackTraceEEENS_16StackTracePrefixE(ptr noalias nonnull align 8 %ref.tmp, ptr noundef %isolate, ptr %stack.coerce, i32 noundef %prefix)
-  call fastcc void @_ZN4nodeL21PrintToStderrAndFlushERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp)
+  %0 = load ptr, ptr @stderr, align 8
+  call void @_ZN4node7FPrintFIJRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEvP8_IO_FILEPKcDpOT_(ptr noundef %0, ptr noundef nonnull @.str.131, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #20
+  %1 = load ptr, ptr @stderr, align 8
+  %call.i = call i32 @fflush(ptr noundef %1)
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #19
   ret void
 }
 
-; Function Attrs: cold mustprogress nounwind uwtable
-define internal fastcc void @_ZN4nodeL21PrintToStderrAndFlushERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(32) %str) unnamed_addr #4 {
+; Function Attrs: mustprogress nounwind uwtable
+define internal fastcc void @_ZN4nodeL21PrintToStderrAndFlushERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(32) %str) unnamed_addr #3 {
 entry:
   %0 = load ptr, ptr @stderr, align 8
   tail call void @_ZN4node7FPrintFIJRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEvP8_IO_FILEPKcDpOT_(ptr noundef %0, ptr noundef nonnull @.str.131, ptr noundef nonnull align 8 dereferenceable(32) %str) #20
@@ -982,12 +985,20 @@ declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noun
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZN4node22PrintCurrentStackTraceEPN2v87IsolateENS_16StackTracePrefixE(ptr noundef %isolate, i32 noundef %prefix) local_unnamed_addr #3 {
 entry:
+  %ref.tmp.i = alloca %"class.std::__cxx11::basic_string", align 8
   %call = tail call ptr @_ZN4node20GetCurrentStackTraceEPN2v87IsolateEi(ptr noundef %isolate, i32 noundef 10)
   %cmp.i.i.not = icmp eq ptr %call, null
   br i1 %cmp.i.i.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
-  tail call void @_ZN4node15PrintStackTraceEPN2v87IsolateENS0_5LocalINS0_10StackTraceEEENS_16StackTracePrefixE(ptr noundef %isolate, ptr nonnull %call, i32 noundef %prefix)
+  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp.i)
+  call fastcc void @_ZN4nodeL16FormatStackTraceB5cxx11EPN2v87IsolateENS0_5LocalINS0_10StackTraceEEENS_16StackTracePrefixE(ptr noalias nonnull align 8 %ref.tmp.i, ptr noundef %isolate, ptr nonnull %call, i32 noundef %prefix)
+  %0 = load ptr, ptr @stderr, align 8
+  call void @_ZN4node7FPrintFIJRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEvP8_IO_FILEPKcDpOT_(ptr noundef %0, ptr noundef nonnull @.str.131, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i) #20
+  %1 = load ptr, ptr @stderr, align 8
+  %call.i.i = call i32 @fflush(ptr noundef %1)
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i) #19
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp.i)
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry
@@ -1066,7 +1077,7 @@ declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noun
 declare ptr @_ZNK2v85Value14ToDetailStringENS_5LocalINS_7ContextEEE(ptr noundef nonnull align 1 dereferenceable(1), ptr) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #5
+declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #4
 
 declare void @_ZN4node9Utf8ValueC1EPN2v87IsolateENS1_5LocalINS1_5ValueEEE(ptr noundef nonnull align 8 dereferenceable(1048), ptr noundef, ptr) unnamed_addr #0
 
@@ -1588,8 +1599,8 @@ do.end6:                                          ; preds = %entry
 
 declare noundef zeroext i1 @_ZNK2v88TryCatch9HasCaughtEv(ptr noundef nonnull align 8 dereferenceable(41)) local_unnamed_addr #0
 
-; Function Attrs: cold mustprogress noreturn nounwind uwtable
-define dso_local void @_ZN4node6AssertERKNS_13AssertionInfoE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %info) local_unnamed_addr #6 {
+; Function Attrs: mustprogress noreturn nounwind uwtable
+define dso_local void @_ZN4node6AssertERKNS_13AssertionInfoE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %info) local_unnamed_addr #5 {
 entry:
   %name = alloca %"class.std::__cxx11::basic_string", align 8
   call void @_ZN4node27GetHumanReadableProcessNameB5cxx11Ev(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %name) #19
@@ -1618,14 +1629,14 @@ entry:
 }
 
 ; Function Attrs: cold nofree noreturn nounwind
-declare void @abort() local_unnamed_addr #7
+declare void @abort() local_unnamed_addr #6
 
 declare ptr @_ZNK2v88TryCatch9ExceptionEv(ptr noundef nonnull align 8 dereferenceable(41)) local_unnamed_addr #0
 
 declare ptr @_ZNK2v88TryCatch7MessageEv(ptr noundef nonnull align 8 dereferenceable(41)) local_unnamed_addr #0
 
-; Function Attrs: cold mustprogress nounwind uwtable
-define dso_local void @_ZN4node20PrintCaughtExceptionEPN2v87IsolateENS0_5LocalINS0_7ContextEEERKNS0_8TryCatchE(ptr noundef %isolate, ptr %context.coerce, ptr noundef nonnull align 8 dereferenceable(41) %try_catch) local_unnamed_addr #4 {
+; Function Attrs: mustprogress nounwind uwtable
+define dso_local void @_ZN4node20PrintCaughtExceptionEPN2v87IsolateENS0_5LocalINS0_7ContextEEERKNS0_8TryCatchE(ptr noundef %isolate, ptr %context.coerce, ptr noundef nonnull align 8 dereferenceable(41) %try_catch) local_unnamed_addr #3 {
 entry:
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
   %call.i = tail call noundef zeroext i1 @_ZNK2v88TryCatch9HasCaughtEv(ptr noundef nonnull align 8 dereferenceable(41) %try_catch) #19, !noalias !24
@@ -1639,7 +1650,10 @@ _ZN4node21FormatCaughtExceptionB5cxx11EPN2v87IsolateENS0_5LocalINS0_7ContextEEER
   %call8.i = tail call ptr @_ZNK2v88TryCatch9ExceptionEv(ptr noundef nonnull align 8 dereferenceable(41) %try_catch) #19, !noalias !24
   %call13.i = tail call ptr @_ZNK2v88TryCatch7MessageEv(ptr noundef nonnull align 8 dereferenceable(41) %try_catch) #19, !noalias !24
   call void @_ZN4node21FormatCaughtExceptionB5cxx11EPN2v87IsolateENS0_5LocalINS0_7ContextEEENS3_INS0_5ValueEEENS3_INS0_7MessageEEEb(ptr sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp, ptr noundef %isolate, ptr %context.coerce, ptr %call8.i, ptr %call13.i, i1 noundef zeroext true)
-  call fastcc void @_ZN4nodeL21PrintToStderrAndFlushERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp)
+  %0 = load ptr, ptr @stderr, align 8
+  call void @_ZN4node7FPrintFIJRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEvP8_IO_FILEPKcDpOT_(ptr noundef %0, ptr noundef nonnull @.str.131, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #20
+  %1 = load ptr, ptr @stderr, align 8
+  %call.i1 = call i32 @fflush(ptr noundef %1)
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #19
   ret void
 }
@@ -1801,7 +1815,7 @@ declare noundef zeroext i1 @_ZNK2v85Value13IsNativeErrorEv(ptr noundef nonnull a
 declare void @_ZN4node10ResetStdioEv() local_unnamed_addr #0
 
 ; Function Attrs: cold mustprogress nounwind uwtable
-define linkonce_odr dso_local void @_ZN4node7FPrintFIJRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEvP8_IO_FILEPKcDpOT_(ptr noundef %file, ptr noundef %format, ptr noundef nonnull align 8 dereferenceable(32) %args) local_unnamed_addr #4 comdat {
+define linkonce_odr dso_local void @_ZN4node7FPrintFIJRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEvP8_IO_FILEPKcDpOT_(ptr noundef %file, ptr noundef %format, ptr noundef nonnull align 8 dereferenceable(32) %args) local_unnamed_addr #7 comdat {
 entry:
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
   call void @_ZN4node11SPrintFImplIRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEJEEES6_PKcOT_DpOT0_(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp, ptr noundef %format, ptr noundef nonnull align 8 dereferenceable(32) %args) #20
@@ -1830,8 +1844,8 @@ declare void @_ZN4node19DumpNativeBacktraceEP8_IO_FILE(ptr noundef) local_unname
 
 declare void @_ZN4node23DumpJavaScriptBacktraceEP8_IO_FILE(ptr noundef) local_unnamed_addr #0
 
-; Function Attrs: cold mustprogress noreturn nounwind uwtable
-define dso_local void @_ZN4node12OnFatalErrorEPKcS1_(ptr noundef %location, ptr noundef %message) local_unnamed_addr #6 {
+; Function Attrs: mustprogress noreturn nounwind uwtable
+define dso_local void @_ZN4node12OnFatalErrorEPKcS1_(ptr noundef %location, ptr noundef %message) local_unnamed_addr #5 {
 entry:
   %location.addr = alloca ptr, align 8
   %message.addr = alloca ptr, align 8
@@ -1888,7 +1902,7 @@ if.end13:                                         ; preds = %if.then5, %if.end
 }
 
 ; Function Attrs: cold mustprogress nounwind uwtable
-define linkonce_odr dso_local void @_ZN4node7FPrintFIJRPKcS3_EEEvP8_IO_FILES2_DpOT_(ptr noundef %file, ptr noundef %format, ptr noundef nonnull align 8 dereferenceable(8) %args, ptr noundef nonnull align 8 dereferenceable(8) %args1) local_unnamed_addr #4 comdat {
+define linkonce_odr dso_local void @_ZN4node7FPrintFIJRPKcS3_EEEvP8_IO_FILES2_DpOT_(ptr noundef %file, ptr noundef %format, ptr noundef nonnull align 8 dereferenceable(8) %args, ptr noundef nonnull align 8 dereferenceable(8) %args1) local_unnamed_addr #7 comdat {
 entry:
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
   call void @_ZN4node11SPrintFImplIRPKcJS3_EEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES2_OT_DpOT0_(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp, ptr noundef %format, ptr noundef nonnull align 8 dereferenceable(8) %args, ptr noundef nonnull align 8 dereferenceable(8) %args1) #20
@@ -1898,7 +1912,7 @@ entry:
 }
 
 ; Function Attrs: cold mustprogress nounwind uwtable
-define linkonce_odr dso_local void @_ZN4node7FPrintFIJRPKcEEEvP8_IO_FILES2_DpOT_(ptr noundef %file, ptr noundef %format, ptr noundef nonnull align 8 dereferenceable(8) %args) local_unnamed_addr #4 comdat {
+define linkonce_odr dso_local void @_ZN4node7FPrintFIJRPKcEEEvP8_IO_FILES2_DpOT_(ptr noundef %file, ptr noundef %format, ptr noundef nonnull align 8 dereferenceable(8) %args) local_unnamed_addr #7 comdat {
 entry:
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
   call void @_ZN4node11SPrintFImplIRPKcJEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES2_OT_DpOT0_(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp, ptr noundef %format, ptr noundef nonnull align 8 dereferenceable(8) %args) #20
@@ -1917,8 +1931,8 @@ declare void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1)) unnam
 ; Function Attrs: nounwind
 declare void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1)) unnamed_addr #1
 
-; Function Attrs: cold mustprogress noreturn nounwind uwtable
-define dso_local void @_ZN4node15OOMErrorHandlerEPKcRKN2v810OOMDetailsE(ptr noundef %location, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %details) local_unnamed_addr #6 {
+; Function Attrs: mustprogress noreturn nounwind uwtable
+define dso_local void @_ZN4node15OOMErrorHandlerEPKcRKN2v810OOMDetailsE(ptr noundef %location, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %details) local_unnamed_addr #5 {
 entry:
   %location.addr = alloca ptr, align 8
   %message = alloca ptr, align 8
@@ -2164,9 +2178,10 @@ declare noundef zeroext i1 @_ZNK2v88TryCatch11CanContinueEv(ptr noundef nonnull 
 
 declare ptr @_ZN2v89Exception13CreateMessageEPNS_7IsolateENS_5LocalINS_5ValueEEE(ptr noundef, ptr) local_unnamed_addr #0
 
-; Function Attrs: cold mustprogress nounwind uwtable
-define internal fastcc void @_ZN4nodeL20ReportFatalExceptionEPNS_11EnvironmentEN2v85LocalINS2_5ValueEEENS3_INS2_7MessageEEENS_21EnhanceFatalExceptionE(ptr noundef %env, ptr %error.coerce, ptr %message.coerce, i32 noundef %enhance_stack) unnamed_addr #4 {
+; Function Attrs: mustprogress nounwind uwtable
+define internal fastcc void @_ZN4nodeL20ReportFatalExceptionEPNS_11EnvironmentEN2v85LocalINS2_5ValueEEENS3_INS2_7MessageEEENS_21EnhanceFatalExceptionE(ptr noundef %env, ptr %error.coerce, ptr %message.coerce, i32 noundef %enhance_stack) unnamed_addr #3 {
 entry:
+  %ref.tmp.i205 = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp.i = alloca %"class.std::allocator.84", align 1
   %argv.i39 = alloca [1 x %"class.v8::Local"], align 8
   %argv.i = alloca [1 x %"class.v8::Local"], align 8
@@ -2314,11 +2329,11 @@ land.rhs.i42:                                     ; preds = %"_ZZN4nodeL20Report
   %23 = inttoptr i64 %add1.i.i47 to ptr
   %call29.i48 = call ptr @_ZN2v88Function4CallENS_5LocalINS_7ContextEEENS1_INS_5ValueEEEiPS5_(ptr noundef nonnull align 1 dereferenceable(1) %call2.i38, ptr %call2.i.i46, ptr %23, i32 noundef 1, ptr noundef nonnull %argv.i39) #19
   %cmp.i.i.not.i49 = icmp eq ptr %call29.i48, null
-  %spec.select322 = select i1 %cmp.i.i.not.i49, ptr %stack_trace.sroa.0.2, ptr %call29.i48
+  %spec.select324 = select i1 %cmp.i.i.not.i49, ptr %stack_trace.sroa.0.2, ptr %call29.i48
   br label %"_ZZN4nodeL20ReportFatalExceptionEPNS_11EnvironmentEN2v85LocalINS2_5ValueEEENS3_INS2_7MessageEEENS_21EnhanceFatalExceptionEENK3$_1clENS3_INS2_8FunctionEEE.exit52"
 
 "_ZZN4nodeL20ReportFatalExceptionEPNS_11EnvironmentEN2v85LocalINS2_5ValueEEENS3_INS2_7MessageEEENS_21EnhanceFatalExceptionEENK3$_1clENS3_INS2_8FunctionEEE.exit52": ; preds = %land.rhs.i42, %"_ZZN4nodeL20ReportFatalExceptionEPNS_11EnvironmentEN2v85LocalINS2_5ValueEEENS3_INS2_7MessageEEENS_21EnhanceFatalExceptionEENK3$_1clENS3_INS2_8FunctionEEE.exit"
-  %stack_trace.sroa.0.3 = phi ptr [ %stack_trace.sroa.0.2, %"_ZZN4nodeL20ReportFatalExceptionEPNS_11EnvironmentEN2v85LocalINS2_5ValueEEENS3_INS2_7MessageEEENS_21EnhanceFatalExceptionEENK3$_1clENS3_INS2_8FunctionEEE.exit" ], [ %spec.select322, %land.rhs.i42 ]
+  %stack_trace.sroa.0.3 = phi ptr [ %stack_trace.sroa.0.2, %"_ZZN4nodeL20ReportFatalExceptionEPNS_11EnvironmentEN2v85LocalINS2_5ValueEEENS3_INS2_7MessageEEENS_21EnhanceFatalExceptionEENK3$_1clENS3_INS2_8FunctionEEE.exit" ], [ %spec.select324, %land.rhs.i42 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %argv.i39)
   br label %sw.epilog
 
@@ -2527,11 +2542,11 @@ if.then236:                                       ; preds = %if.else153, %lor.lh
   %75 = load ptr, ptr %buf_.i, align 8
   %tobool245.not = icmp eq ptr %75, null
   %76 = load i64, ptr %message237, align 8
-  %spec.select324 = select i1 %tobool245.not, i64 28, i64 %76
-  %spec.select325 = select i1 %tobool245.not, ptr @.str.179, ptr %75
-  store i64 %spec.select324, ptr %ref.tmp243, align 8
+  %spec.select326 = select i1 %tobool245.not, i64 28, i64 %76
+  %spec.select327 = select i1 %tobool245.not, ptr @.str.179, ptr %75
+  store i64 %spec.select326, ptr %ref.tmp243, align 8
   %77 = getelementptr inbounds i8, ptr %ref.tmp243, i64 8
-  store ptr %spec.select325, ptr %77, align 8
+  store ptr %spec.select327, ptr %77, align 8
   call void @_ZN4node7FPrintFIJSt17basic_string_viewIcSt11char_traitsIcEEEEEvP8_IO_FILEPKcDpOT_(ptr noundef %74, ptr noundef nonnull @.str.131, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp243) #20
   %78 = load ptr, ptr %buf_.i, align 8
   %cmp.i.i.i.i80 = icmp ne ptr %78, null
@@ -2654,9 +2669,9 @@ _ZN4node11Environment7optionsEv.exit:             ; preds = %if.end283
   br i1 %tobool286, label %if.end304, label %if.then288
 
 if.then.i.i.i:                                    ; preds = %if.then.i.i.i.i.i.i, %if.else.i.i.i.i.i.i
-  %trace_uncaught305 = getelementptr inbounds i8, ptr %98, i64 790
-  %104 = load i8, ptr %trace_uncaught305, align 2
-  %tobool286306 = trunc i8 %104 to i1
+  %trace_uncaught307 = getelementptr inbounds i8, ptr %98, i64 790
+  %104 = load i8, ptr %trace_uncaught307, align 2
+  %tobool286308 = trunc i8 %104 to i1
   %105 = load atomic i64, ptr %_M_use_count.i.i.i.i.i acquire, align 8
   %cmp.i.i.i.i107 = icmp eq i64 %105, 4294967297
   %106 = trunc i64 %105 to i32
@@ -2721,10 +2736,10 @@ if.end8.sink.split.i.i.i.i:                       ; preds = %_ZN9__gnu_cxx27__ex
   %vfn3.i.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable2.i.i.i.i.i.i, i64 24
   %114 = load ptr, ptr %vfn3.i.i.i.i.i.i, align 8
   call void %114(ptr noundef nonnull align 8 dereferenceable(16) %99) #19
-  br i1 %tobool286306, label %if.end304, label %if.then288
+  br i1 %tobool286308, label %if.end304, label %if.then288
 
 _ZNSt10shared_ptrIN4node18EnvironmentOptionsEED2Ev.exit: ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i
-  br i1 %tobool286306, label %if.end304, label %if.then288
+  br i1 %tobool286308, label %if.end304, label %if.then288
 
 if.then288:                                       ; preds = %if.end8.sink.split.i.i.i.i, %_ZN4node11Environment7optionsEv.exit, %_ZNSt10shared_ptrIN4node18EnvironmentOptionsEED2Ev.exit
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %argv0) #19
@@ -2794,9 +2809,9 @@ _ZN4node11IsolateData7optionsEv.exit:             ; preds = %if.end304
   br i1 %tobool308, label %if.then309, label %if.end317
 
 if.then.i.i.i128:                                 ; preds = %if.then.i.i.i.i.i.i123, %if.else.i.i.i.i.i.i125
-  %report_uncaught_exception309 = getelementptr inbounds i8, ptr %119, i64 25
-  %125 = load i8, ptr %report_uncaught_exception309, align 1
-  %tobool308310 = trunc i8 %125 to i1
+  %report_uncaught_exception311 = getelementptr inbounds i8, ptr %119, i64 25
+  %125 = load i8, ptr %report_uncaught_exception311, align 1
+  %tobool308312 = trunc i8 %125 to i1
   %126 = load atomic i64, ptr %_M_use_count.i.i.i.i.i121 acquire, align 8
   %cmp.i.i.i.i130 = icmp eq i64 %126, 4294967297
   %127 = trunc i64 %126 to i32
@@ -2861,10 +2876,10 @@ if.end8.sink.split.i.i.i.i148:                    ; preds = %_ZN9__gnu_cxx27__ex
   %vfn3.i.i.i.i.i.i150 = getelementptr inbounds i8, ptr %vtable2.i.i.i.i.i.i149, i64 24
   %135 = load ptr, ptr %vfn3.i.i.i.i.i.i150, align 8
   call void %135(ptr noundef nonnull align 8 dereferenceable(16) %120) #19
-  br i1 %tobool308310, label %if.then309, label %if.end317
+  br i1 %tobool308312, label %if.then309, label %if.end317
 
 _ZNSt10shared_ptrIN4node17PerIsolateOptionsEED2Ev.exit: ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i135, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i145
-  br i1 %tobool308310, label %if.then309, label %if.end317
+  br i1 %tobool308312, label %if.then309, label %if.end317
 
 if.then309:                                       ; preds = %if.end8.sink.split.i.i.i.i148, %_ZN4node11IsolateData7optionsEv.exit, %_ZNSt10shared_ptrIN4node17PerIsolateOptionsEED2Ev.exit
   %call310 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %report_message) #19
@@ -2909,9 +2924,9 @@ _ZN4node11Environment7optionsEv.exit171:          ; preds = %if.end317
   br i1 %tobool321, label %if.then322, label %if.end337
 
 if.then.i.i.i174:                                 ; preds = %if.then.i.i.i.i.i.i168, %if.else.i.i.i.i.i.i170
-  %trace_uncaught320313 = getelementptr inbounds i8, ptr %136, i64 790
-  %142 = load i8, ptr %trace_uncaught320313, align 2
-  %tobool321314 = trunc i8 %142 to i1
+  %trace_uncaught320315 = getelementptr inbounds i8, ptr %136, i64 790
+  %142 = load i8, ptr %trace_uncaught320315, align 2
+  %tobool321316 = trunc i8 %142 to i1
   %143 = load atomic i64, ptr %_M_use_count.i.i.i.i.i166 acquire, align 8
   %cmp.i.i.i.i176 = icmp eq i64 %143, 4294967297
   %144 = trunc i64 %143 to i32
@@ -2976,10 +2991,10 @@ if.end8.sink.split.i.i.i.i194:                    ; preds = %_ZN9__gnu_cxx27__ex
   %vfn3.i.i.i.i.i.i196 = getelementptr inbounds i8, ptr %vtable2.i.i.i.i.i.i195, i64 24
   %152 = load ptr, ptr %vfn3.i.i.i.i.i.i196, align 8
   call void %152(ptr noundef nonnull align 8 dereferenceable(16) %137) #19
-  br i1 %tobool321314, label %if.then322, label %if.end337
+  br i1 %tobool321316, label %if.then322, label %if.end337
 
 _ZNSt10shared_ptrIN4node18EnvironmentOptionsEED2Ev.exit203: ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i181, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i191
-  br i1 %tobool321314, label %if.then322, label %if.end337
+  br i1 %tobool321316, label %if.then322, label %if.end337
 
 if.then322:                                       ; preds = %if.end8.sink.split.i.i.i.i194, %_ZN4node11Environment7optionsEv.exit171, %_ZNSt10shared_ptrIN4node18EnvironmentOptionsEED2Ev.exit203
   %call325 = call ptr @_ZNK2v87Message13GetStackTraceEv(ptr noundef nonnull align 1 dereferenceable(1) %message.coerce) #19
@@ -2990,132 +3005,139 @@ if.then330:                                       ; preds = %if.then322
   %153 = load ptr, ptr @stderr, align 8
   call void @_ZN4node7FPrintFIJEEEvP8_IO_FILEPKcDpOT_(ptr noundef %153, ptr noundef nonnull @.str.185) #20
   %154 = load ptr, ptr %isolate_.i, align 8
-  call void @_ZN4node15PrintStackTraceEPN2v87IsolateENS0_5LocalINS0_10StackTraceEEENS_16StackTracePrefixE(ptr noundef %154, ptr nonnull %call325, i32 noundef 0)
+  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp.i205)
+  call fastcc void @_ZN4nodeL16FormatStackTraceB5cxx11EPN2v87IsolateENS0_5LocalINS0_10StackTraceEEENS_16StackTracePrefixE(ptr noalias nonnull align 8 %ref.tmp.i205, ptr noundef %154, ptr nonnull %call325, i32 noundef 0)
+  %155 = load ptr, ptr @stderr, align 8
+  call void @_ZN4node7FPrintFIJRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEvP8_IO_FILEPKcDpOT_(ptr noundef %155, ptr noundef nonnull @.str.131, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i205) #20
+  %156 = load ptr, ptr @stderr, align 8
+  %call.i.i206 = call i32 @fflush(ptr noundef %156)
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i205) #19
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp.i205)
   br label %if.end337
 
 if.end337:                                        ; preds = %if.end8.sink.split.i.i.i.i194, %_ZN4node11Environment7optionsEv.exit171, %if.then322, %if.then330, %_ZNSt10shared_ptrIN4node18EnvironmentOptionsEED2Ev.exit203
-  %155 = load ptr, ptr %options_.i161, align 8, !noalias !39
-  %156 = load ptr, ptr %_M_refcount3.i.i.i163, align 8, !noalias !39
-  %cmp.not.i.i.i.i208 = icmp eq ptr %156, null
-  br i1 %cmp.not.i.i.i.i208, label %_ZN4node11Environment7optionsEv.exit215, label %if.then.i.i.i.i209
+  %157 = load ptr, ptr %options_.i161, align 8, !noalias !39
+  %158 = load ptr, ptr %_M_refcount3.i.i.i163, align 8, !noalias !39
+  %cmp.not.i.i.i.i210 = icmp eq ptr %158, null
+  br i1 %cmp.not.i.i.i.i210, label %_ZN4node11Environment7optionsEv.exit217, label %if.then.i.i.i.i211
 
-if.then.i.i.i.i209:                               ; preds = %if.end337
-  %_M_use_count.i.i.i.i.i210 = getelementptr inbounds i8, ptr %156, i64 8
-  %157 = load i8, ptr @__libc_single_threaded, align 1, !noalias !39
-  %tobool.i.not.i.i.i.i.i211 = icmp eq i8 %157, 0
-  br i1 %tobool.i.not.i.i.i.i.i211, label %if.else.i.i.i.i.i.i214, label %if.then.i.i.i.i.i.i212
+if.then.i.i.i.i211:                               ; preds = %if.end337
+  %_M_use_count.i.i.i.i.i212 = getelementptr inbounds i8, ptr %158, i64 8
+  %159 = load i8, ptr @__libc_single_threaded, align 1, !noalias !39
+  %tobool.i.not.i.i.i.i.i213 = icmp eq i8 %159, 0
+  br i1 %tobool.i.not.i.i.i.i.i213, label %if.else.i.i.i.i.i.i216, label %if.then.i.i.i.i.i.i214
 
-if.then.i.i.i.i.i.i212:                           ; preds = %if.then.i.i.i.i209
-  %158 = load i32, ptr %_M_use_count.i.i.i.i.i210, align 4, !noalias !39
-  %add.i.i.i.i.i.i213 = add nsw i32 %158, 1
-  store i32 %add.i.i.i.i.i.i213, ptr %_M_use_count.i.i.i.i.i210, align 4, !noalias !39
-  br label %if.then.i.i.i218
+if.then.i.i.i.i.i.i214:                           ; preds = %if.then.i.i.i.i211
+  %160 = load i32, ptr %_M_use_count.i.i.i.i.i212, align 4, !noalias !39
+  %add.i.i.i.i.i.i215 = add nsw i32 %160, 1
+  store i32 %add.i.i.i.i.i.i215, ptr %_M_use_count.i.i.i.i.i212, align 4, !noalias !39
+  br label %if.then.i.i.i220
 
-if.else.i.i.i.i.i.i214:                           ; preds = %if.then.i.i.i.i209
-  %159 = atomicrmw volatile add ptr %_M_use_count.i.i.i.i.i210, i32 1 acq_rel, align 4, !noalias !39
-  br label %if.then.i.i.i218
+if.else.i.i.i.i.i.i216:                           ; preds = %if.then.i.i.i.i211
+  %161 = atomicrmw volatile add ptr %_M_use_count.i.i.i.i.i212, i32 1 acq_rel, align 4, !noalias !39
+  br label %if.then.i.i.i220
 
-_ZN4node11Environment7optionsEv.exit215:          ; preds = %if.end337
-  %extra_info_on_fatal_exception = getelementptr inbounds i8, ptr %155, i64 793
-  %160 = load i8, ptr %extra_info_on_fatal_exception, align 1
-  %tobool340 = trunc i8 %160 to i1
+_ZN4node11Environment7optionsEv.exit217:          ; preds = %if.end337
+  %extra_info_on_fatal_exception = getelementptr inbounds i8, ptr %157, i64 793
+  %162 = load i8, ptr %extra_info_on_fatal_exception, align 1
+  %tobool340 = trunc i8 %162 to i1
   br i1 %tobool340, label %if.then341, label %if.end342
 
-if.then.i.i.i218:                                 ; preds = %if.then.i.i.i.i.i.i212, %if.else.i.i.i.i.i.i214
-  %extra_info_on_fatal_exception317 = getelementptr inbounds i8, ptr %155, i64 793
-  %161 = load i8, ptr %extra_info_on_fatal_exception317, align 1
-  %tobool340318 = trunc i8 %161 to i1
-  %162 = load atomic i64, ptr %_M_use_count.i.i.i.i.i210 acquire, align 8
-  %cmp.i.i.i.i220 = icmp eq i64 %162, 4294967297
-  %163 = trunc i64 %162 to i32
-  br i1 %cmp.i.i.i.i220, label %if.then.i.i.i.i243, label %if.end.i.i.i.i221
+if.then.i.i.i220:                                 ; preds = %if.then.i.i.i.i.i.i214, %if.else.i.i.i.i.i.i216
+  %extra_info_on_fatal_exception319 = getelementptr inbounds i8, ptr %157, i64 793
+  %163 = load i8, ptr %extra_info_on_fatal_exception319, align 1
+  %tobool340320 = trunc i8 %163 to i1
+  %164 = load atomic i64, ptr %_M_use_count.i.i.i.i.i212 acquire, align 8
+  %cmp.i.i.i.i222 = icmp eq i64 %164, 4294967297
+  %165 = trunc i64 %164 to i32
+  br i1 %cmp.i.i.i.i222, label %if.then.i.i.i.i245, label %if.end.i.i.i.i223
 
-if.then.i.i.i.i243:                               ; preds = %if.then.i.i.i218
-  store i32 0, ptr %_M_use_count.i.i.i.i.i210, align 8
-  %_M_weak_count.i.i.i.i244 = getelementptr inbounds i8, ptr %156, i64 12
-  store i32 0, ptr %_M_weak_count.i.i.i.i244, align 4
-  %vtable.i.i.i.i245 = load ptr, ptr %156, align 8
-  %vfn.i.i.i.i246 = getelementptr inbounds i8, ptr %vtable.i.i.i.i245, i64 16
-  %164 = load ptr, ptr %vfn.i.i.i.i246, align 8
-  call void %164(ptr noundef nonnull align 8 dereferenceable(16) %156) #19
-  br label %if.end8.sink.split.i.i.i.i238
+if.then.i.i.i.i245:                               ; preds = %if.then.i.i.i220
+  store i32 0, ptr %_M_use_count.i.i.i.i.i212, align 8
+  %_M_weak_count.i.i.i.i246 = getelementptr inbounds i8, ptr %158, i64 12
+  store i32 0, ptr %_M_weak_count.i.i.i.i246, align 4
+  %vtable.i.i.i.i247 = load ptr, ptr %158, align 8
+  %vfn.i.i.i.i248 = getelementptr inbounds i8, ptr %vtable.i.i.i.i247, i64 16
+  %166 = load ptr, ptr %vfn.i.i.i.i248, align 8
+  call void %166(ptr noundef nonnull align 8 dereferenceable(16) %158) #19
+  br label %if.end8.sink.split.i.i.i.i240
 
-if.end.i.i.i.i221:                                ; preds = %if.then.i.i.i218
-  %165 = load i8, ptr @__libc_single_threaded, align 1
-  %tobool.i.i.not.i.i.i.i222 = icmp eq i8 %165, 0
-  br i1 %tobool.i.i.not.i.i.i.i222, label %if.else.i.i.i.i.i242, label %if.then.i.i.i.i.i223
+if.end.i.i.i.i223:                                ; preds = %if.then.i.i.i220
+  %167 = load i8, ptr @__libc_single_threaded, align 1
+  %tobool.i.i.not.i.i.i.i224 = icmp eq i8 %167, 0
+  br i1 %tobool.i.i.not.i.i.i.i224, label %if.else.i.i.i.i.i244, label %if.then.i.i.i.i.i225
 
-if.then.i.i.i.i.i223:                             ; preds = %if.end.i.i.i.i221
-  %add.i.i.i.i.i224 = add nsw i32 %163, -1
-  store i32 %add.i.i.i.i.i224, ptr %_M_use_count.i.i.i.i.i210, align 4
-  br label %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i225
+if.then.i.i.i.i.i225:                             ; preds = %if.end.i.i.i.i223
+  %add.i.i.i.i.i226 = add nsw i32 %165, -1
+  store i32 %add.i.i.i.i.i226, ptr %_M_use_count.i.i.i.i.i212, align 4
+  br label %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i227
 
-if.else.i.i.i.i.i242:                             ; preds = %if.end.i.i.i.i221
-  %166 = atomicrmw volatile add ptr %_M_use_count.i.i.i.i.i210, i32 -1 acq_rel, align 4
-  br label %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i225
+if.else.i.i.i.i.i244:                             ; preds = %if.end.i.i.i.i223
+  %168 = atomicrmw volatile add ptr %_M_use_count.i.i.i.i.i212, i32 -1 acq_rel, align 4
+  br label %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i227
 
-_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i225: ; preds = %if.else.i.i.i.i.i242, %if.then.i.i.i.i.i223
-  %retval.i.0.i.i.i.i226 = phi i32 [ %163, %if.then.i.i.i.i.i223 ], [ %166, %if.else.i.i.i.i.i242 ]
-  %cmp6.i.i.i.i227 = icmp eq i32 %retval.i.0.i.i.i.i226, 1
-  br i1 %cmp6.i.i.i.i227, label %if.then7.i.i.i.i228, label %_ZNSt10shared_ptrIN4node18EnvironmentOptionsEED2Ev.exit247
+_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i227: ; preds = %if.else.i.i.i.i.i244, %if.then.i.i.i.i.i225
+  %retval.i.0.i.i.i.i228 = phi i32 [ %165, %if.then.i.i.i.i.i225 ], [ %168, %if.else.i.i.i.i.i244 ]
+  %cmp6.i.i.i.i229 = icmp eq i32 %retval.i.0.i.i.i.i228, 1
+  br i1 %cmp6.i.i.i.i229, label %if.then7.i.i.i.i230, label %_ZNSt10shared_ptrIN4node18EnvironmentOptionsEED2Ev.exit249
 
-if.then7.i.i.i.i228:                              ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i225
-  %vtable.i.i.i.i.i.i229 = load ptr, ptr %156, align 8
-  %vfn.i.i.i.i.i.i230 = getelementptr inbounds i8, ptr %vtable.i.i.i.i.i.i229, i64 16
-  %167 = load ptr, ptr %vfn.i.i.i.i.i.i230, align 8
-  call void %167(ptr noundef nonnull align 8 dereferenceable(16) %156) #19
-  %_M_weak_count.i.i.i.i.i.i231 = getelementptr inbounds i8, ptr %156, i64 12
-  %168 = load i8, ptr @__libc_single_threaded, align 1
-  %tobool.i.i.not.i.i.i.i.i.i232 = icmp eq i8 %168, 0
-  br i1 %tobool.i.i.not.i.i.i.i.i.i232, label %if.else.i.i.i.i.i.i.i241, label %if.then.i.i.i.i.i.i.i233
+if.then7.i.i.i.i230:                              ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i227
+  %vtable.i.i.i.i.i.i231 = load ptr, ptr %158, align 8
+  %vfn.i.i.i.i.i.i232 = getelementptr inbounds i8, ptr %vtable.i.i.i.i.i.i231, i64 16
+  %169 = load ptr, ptr %vfn.i.i.i.i.i.i232, align 8
+  call void %169(ptr noundef nonnull align 8 dereferenceable(16) %158) #19
+  %_M_weak_count.i.i.i.i.i.i233 = getelementptr inbounds i8, ptr %158, i64 12
+  %170 = load i8, ptr @__libc_single_threaded, align 1
+  %tobool.i.i.not.i.i.i.i.i.i234 = icmp eq i8 %170, 0
+  br i1 %tobool.i.i.not.i.i.i.i.i.i234, label %if.else.i.i.i.i.i.i.i243, label %if.then.i.i.i.i.i.i.i235
 
-if.then.i.i.i.i.i.i.i233:                         ; preds = %if.then7.i.i.i.i228
-  %169 = load i32, ptr %_M_weak_count.i.i.i.i.i.i231, align 4
-  %add.i.i.i.i.i.i.i234 = add nsw i32 %169, -1
-  store i32 %add.i.i.i.i.i.i.i234, ptr %_M_weak_count.i.i.i.i.i.i231, align 4
-  br label %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i235
+if.then.i.i.i.i.i.i.i235:                         ; preds = %if.then7.i.i.i.i230
+  %171 = load i32, ptr %_M_weak_count.i.i.i.i.i.i233, align 4
+  %add.i.i.i.i.i.i.i236 = add nsw i32 %171, -1
+  store i32 %add.i.i.i.i.i.i.i236, ptr %_M_weak_count.i.i.i.i.i.i233, align 4
+  br label %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i237
 
-if.else.i.i.i.i.i.i.i241:                         ; preds = %if.then7.i.i.i.i228
-  %170 = atomicrmw volatile add ptr %_M_weak_count.i.i.i.i.i.i231, i32 -1 acq_rel, align 4
-  br label %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i235
+if.else.i.i.i.i.i.i.i243:                         ; preds = %if.then7.i.i.i.i230
+  %172 = atomicrmw volatile add ptr %_M_weak_count.i.i.i.i.i.i233, i32 -1 acq_rel, align 4
+  br label %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i237
 
-_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i235: ; preds = %if.else.i.i.i.i.i.i.i241, %if.then.i.i.i.i.i.i.i233
-  %retval.i.0.i.i.i.i.i.i236 = phi i32 [ %169, %if.then.i.i.i.i.i.i.i233 ], [ %170, %if.else.i.i.i.i.i.i.i241 ]
-  %cmp.i.i.i.i.i.i237 = icmp eq i32 %retval.i.0.i.i.i.i.i.i236, 1
-  br i1 %cmp.i.i.i.i.i.i237, label %if.end8.sink.split.i.i.i.i238, label %_ZNSt10shared_ptrIN4node18EnvironmentOptionsEED2Ev.exit247
+_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i237: ; preds = %if.else.i.i.i.i.i.i.i243, %if.then.i.i.i.i.i.i.i235
+  %retval.i.0.i.i.i.i.i.i238 = phi i32 [ %171, %if.then.i.i.i.i.i.i.i235 ], [ %172, %if.else.i.i.i.i.i.i.i243 ]
+  %cmp.i.i.i.i.i.i239 = icmp eq i32 %retval.i.0.i.i.i.i.i.i238, 1
+  br i1 %cmp.i.i.i.i.i.i239, label %if.end8.sink.split.i.i.i.i240, label %_ZNSt10shared_ptrIN4node18EnvironmentOptionsEED2Ev.exit249
 
-if.end8.sink.split.i.i.i.i238:                    ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i235, %if.then.i.i.i.i243
-  %vtable2.i.i.i.i.i.i239 = load ptr, ptr %156, align 8
-  %vfn3.i.i.i.i.i.i240 = getelementptr inbounds i8, ptr %vtable2.i.i.i.i.i.i239, i64 24
-  %171 = load ptr, ptr %vfn3.i.i.i.i.i.i240, align 8
-  call void %171(ptr noundef nonnull align 8 dereferenceable(16) %156) #19
-  br i1 %tobool340318, label %if.then341, label %if.end342
+if.end8.sink.split.i.i.i.i240:                    ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i237, %if.then.i.i.i.i245
+  %vtable2.i.i.i.i.i.i241 = load ptr, ptr %158, align 8
+  %vfn3.i.i.i.i.i.i242 = getelementptr inbounds i8, ptr %vtable2.i.i.i.i.i.i241, i64 24
+  %173 = load ptr, ptr %vfn3.i.i.i.i.i.i242, align 8
+  call void %173(ptr noundef nonnull align 8 dereferenceable(16) %158) #19
+  br i1 %tobool340320, label %if.then341, label %if.end342
 
-_ZNSt10shared_ptrIN4node18EnvironmentOptionsEED2Ev.exit247: ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i225, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i235
-  br i1 %tobool340318, label %if.then341, label %if.end342
+_ZNSt10shared_ptrIN4node18EnvironmentOptionsEED2Ev.exit249: ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i227, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i237
+  br i1 %tobool340320, label %if.then341, label %if.end342
 
-if.then341:                                       ; preds = %if.end8.sink.split.i.i.i.i238, %_ZN4node11Environment7optionsEv.exit215, %_ZNSt10shared_ptrIN4node18EnvironmentOptionsEED2Ev.exit247
-  %172 = load ptr, ptr @stderr, align 8
-  call void @_ZN4node7FPrintFIJRA12_KcEEEvP8_IO_FILEPS1_DpOT_(ptr noundef %172, ptr noundef nonnull @.str.186, ptr noundef nonnull align 1 dereferenceable(12) @.str.187) #20
+if.then341:                                       ; preds = %if.end8.sink.split.i.i.i.i240, %_ZN4node11Environment7optionsEv.exit217, %_ZNSt10shared_ptrIN4node18EnvironmentOptionsEED2Ev.exit249
+  %174 = load ptr, ptr @stderr, align 8
+  call void @_ZN4node7FPrintFIJRA12_KcEEEvP8_IO_FILEPS1_DpOT_(ptr noundef %174, ptr noundef nonnull @.str.186, ptr noundef nonnull align 1 dereferenceable(12) @.str.187) #20
   br label %if.end342
 
-if.end342:                                        ; preds = %if.end8.sink.split.i.i.i.i238, %_ZN4node11Environment7optionsEv.exit215, %if.then341, %_ZNSt10shared_ptrIN4node18EnvironmentOptionsEED2Ev.exit247
-  %173 = load ptr, ptr @stderr, align 8
-  %call343 = call i32 @fflush(ptr noundef %173)
+if.end342:                                        ; preds = %if.end8.sink.split.i.i.i.i240, %_ZN4node11Environment7optionsEv.exit217, %if.then341, %_ZNSt10shared_ptrIN4node18EnvironmentOptionsEED2Ev.exit249
+  %175 = load ptr, ptr @stderr, align 8
+  %call343 = call i32 @fflush(ptr noundef %175)
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %report_message) #19
-  %buf_.i.i.i.i248 = getelementptr inbounds i8, ptr %trace, i64 16
-  %174 = load ptr, ptr %buf_.i.i.i.i248, align 8
-  %cmp.i.i.i.i249 = icmp ne ptr %174, null
-  %buf_st_.i.i.i250 = getelementptr inbounds i8, ptr %trace, i64 24
-  %cmp.i.i.i251 = icmp ne ptr %174, %buf_st_.i.i.i250
-  %175 = select i1 %cmp.i.i.i.i249, i1 %cmp.i.i.i251, i1 false
-  br i1 %175, label %if.then.i.i252, label %_ZN4node9Utf8ValueD2Ev.exit253
+  %buf_.i.i.i.i250 = getelementptr inbounds i8, ptr %trace, i64 16
+  %176 = load ptr, ptr %buf_.i.i.i.i250, align 8
+  %cmp.i.i.i.i251 = icmp ne ptr %176, null
+  %buf_st_.i.i.i252 = getelementptr inbounds i8, ptr %trace, i64 24
+  %cmp.i.i.i253 = icmp ne ptr %176, %buf_st_.i.i.i252
+  %177 = select i1 %cmp.i.i.i.i251, i1 %cmp.i.i.i253, i1 false
+  br i1 %177, label %if.then.i.i254, label %_ZN4node9Utf8ValueD2Ev.exit255
 
-if.then.i.i252:                                   ; preds = %if.end342
-  call void @free(ptr noundef nonnull %174) #19
-  br label %_ZN4node9Utf8ValueD2Ev.exit253
+if.then.i.i254:                                   ; preds = %if.end342
+  call void @free(ptr noundef nonnull %176) #19
+  br label %_ZN4node9Utf8ValueD2Ev.exit255
 
-_ZN4node9Utf8ValueD2Ev.exit253:                   ; preds = %if.end342, %if.then.i.i252
+_ZN4node9Utf8ValueD2Ev.exit255:                   ; preds = %if.end342, %if.then.i.i254
   call void @_ZN2v811HandleScopeD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %scope) #19
   ret void
 }
@@ -5182,7 +5204,10 @@ if.end:                                           ; preds = %entry
   %1 = load i32, ptr %print_source_line_, align 8
   %cmp = icmp eq i32 %1, 0
   call void @_ZN4node21FormatCaughtExceptionB5cxx11EPN2v87IsolateENS0_5LocalINS0_7ContextEEENS3_INS0_5ValueEEENS3_INS0_7MessageEEEb(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %str, ptr noundef nonnull %0, ptr %call3, ptr %call7, ptr %call12, i1 noundef zeroext %cmp)
-  call fastcc void @_ZN4nodeL21PrintToStderrAndFlushERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(32) %str)
+  %2 = load ptr, ptr @stderr, align 8
+  call void @_ZN4node7FPrintFIJRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEvP8_IO_FILEPKcDpOT_(ptr noundef %2, ptr noundef nonnull @.str.131, ptr noundef nonnull align 8 dereferenceable(32) %str) #20
+  %3 = load ptr, ptr @stderr, align 8
+  %call.i = call i32 @fflush(ptr noundef %3)
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %str) #19
   br label %cleanup
 
@@ -5211,7 +5236,7 @@ entry:
 declare void @_ZN2v811HandleScopeD2Ev(ptr noundef nonnull align 8 dereferenceable(24)) unnamed_addr #1
 
 ; Function Attrs: cold mustprogress nounwind uwtable
-define linkonce_odr dso_local void @_ZN4node7FPrintFIJRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEvP8_IO_FILEPKcDpOT_(ptr noundef %file, ptr noundef %format, ptr noundef nonnull align 8 dereferenceable(32) %args) local_unnamed_addr #4 comdat {
+define linkonce_odr dso_local void @_ZN4node7FPrintFIJRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEvP8_IO_FILEPKcDpOT_(ptr noundef %file, ptr noundef %format, ptr noundef nonnull align 8 dereferenceable(32) %args) local_unnamed_addr #7 comdat {
 entry:
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
   call void @_ZN4node11SPrintFImplIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEJEEES6_PKcOT_DpOT0_(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp, ptr noundef %format, ptr noundef nonnull align 8 dereferenceable(32) %args) #20
@@ -5223,7 +5248,7 @@ entry:
 declare void @_ZN4node6FWriteEP8_IO_FILERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef, ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #0
 
 ; Function Attrs: cold mustprogress nounwind uwtable
-define linkonce_odr dso_local void @_ZN4node11SPrintFImplIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEJEEES6_PKcOT_DpOT0_(ptr noalias sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, ptr noundef %format, ptr noundef nonnull align 8 dereferenceable(32) %arg) local_unnamed_addr #4 comdat {
+define linkonce_odr dso_local void @_ZN4node11SPrintFImplIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEJEEES6_PKcOT_DpOT0_(ptr noalias sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, ptr noundef %format, ptr noundef nonnull align 8 dereferenceable(32) %arg) local_unnamed_addr #7 comdat {
 entry:
   %agg.tmp.i16 = alloca %"class.std::__cxx11::basic_string", align 8
   %agg.tmp.i15 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -5703,7 +5728,7 @@ declare i64 @_ZNK2v810StackFrame11GetLocationEv(ptr noundef nonnull align 1 dere
 declare noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: cold mustprogress nounwind uwtable
-define linkonce_odr dso_local void @_ZN4node11SPrintFImplIRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEJRKiS9_EEES6_PKcOT_DpOT0_(ptr noalias sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, ptr noundef %format, ptr noundef nonnull align 8 dereferenceable(32) %arg, ptr noundef nonnull align 4 dereferenceable(4) %args, ptr noundef nonnull align 4 dereferenceable(4) %args1) local_unnamed_addr #4 comdat {
+define linkonce_odr dso_local void @_ZN4node11SPrintFImplIRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEJRKiS9_EEES6_PKcOT_DpOT0_(ptr noalias sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, ptr noundef %format, ptr noundef nonnull align 8 dereferenceable(32) %arg, ptr noundef nonnull align 4 dereferenceable(4) %args, ptr noundef nonnull align 4 dereferenceable(4) %args1) local_unnamed_addr #7 comdat {
 entry:
   %agg.tmp.i35 = alloca %"class.std::__cxx11::basic_string", align 8
   %agg.tmp.i34 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -5876,7 +5901,7 @@ cleanup:                                          ; preds = %sw.epilog, %_ZStplI
 }
 
 ; Function Attrs: cold mustprogress nounwind uwtable
-define linkonce_odr dso_local void @_ZN4node11SPrintFImplIRKiJS2_EEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcOT_DpOT0_(ptr noalias sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, ptr noundef %format, ptr noundef nonnull align 4 dereferenceable(4) %arg, ptr noundef nonnull align 4 dereferenceable(4) %args) local_unnamed_addr #4 comdat {
+define linkonce_odr dso_local void @_ZN4node11SPrintFImplIRKiJS2_EEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcOT_DpOT0_(ptr noalias sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, ptr noundef %format, ptr noundef nonnull align 4 dereferenceable(4) %arg, ptr noundef nonnull align 4 dereferenceable(4) %args) local_unnamed_addr #7 comdat {
 entry:
   %ret.i.i46 = alloca [12 x i8], align 1
   %ref.tmp.i.i47 = alloca %"class.std::allocator.84", align 1
@@ -6128,7 +6153,7 @@ cleanup:                                          ; preds = %sw.epilog, %_ZStplI
 }
 
 ; Function Attrs: cold mustprogress nounwind uwtable
-define linkonce_odr dso_local void @_ZN4node11SPrintFImplIRKiJEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcOT_DpOT0_(ptr noalias sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, ptr noundef %format, ptr noundef nonnull align 4 dereferenceable(4) %arg) local_unnamed_addr #4 comdat {
+define linkonce_odr dso_local void @_ZN4node11SPrintFImplIRKiJEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcOT_DpOT0_(ptr noalias sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, ptr noundef %format, ptr noundef nonnull align 4 dereferenceable(4) %arg) local_unnamed_addr #7 comdat {
 entry:
   %ret.i.i29 = alloca [12 x i8], align 1
   %ref.tmp.i.i30 = alloca %"class.std::allocator.84", align 1
@@ -6376,7 +6401,7 @@ declare void @_ZN2v88TryCatchD1Ev(ptr noundef nonnull align 8 dereferenceable(41
 declare void @_ZN2v812api_internal17FromJustIsNothingEv() local_unnamed_addr #0
 
 ; Function Attrs: cold mustprogress nounwind uwtable
-define linkonce_odr dso_local void @_ZN4node11SPrintFImplIRPKcJRiS2_EEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES2_OT_DpOT0_(ptr noalias sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, ptr noundef %format, ptr noundef nonnull align 8 dereferenceable(8) %arg, ptr noundef nonnull align 4 dereferenceable(4) %args, ptr noundef nonnull align 8 dereferenceable(8) %args1) local_unnamed_addr #4 comdat {
+define linkonce_odr dso_local void @_ZN4node11SPrintFImplIRPKcJRiS2_EEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES2_OT_DpOT0_(ptr noalias sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, ptr noundef %format, ptr noundef nonnull align 8 dereferenceable(8) %arg, ptr noundef nonnull align 4 dereferenceable(4) %args, ptr noundef nonnull align 8 dereferenceable(8) %args1) local_unnamed_addr #7 comdat {
 entry:
   %ref.tmp.i.i.i42 = alloca %"class.std::allocator.84", align 1
   %ref.tmp.i.i.i36 = alloca %"class.std::allocator.84", align 1
@@ -6595,7 +6620,7 @@ cleanup:                                          ; preds = %sw.epilog, %_ZStplI
 }
 
 ; Function Attrs: cold mustprogress nounwind uwtable
-define linkonce_odr dso_local void @_ZN4node11SPrintFImplIRiJPKcEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES3_OT_DpOT0_(ptr noalias sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, ptr noundef %format, ptr noundef nonnull align 4 dereferenceable(4) %arg, ptr noundef nonnull align 8 dereferenceable(8) %args) local_unnamed_addr #4 comdat {
+define linkonce_odr dso_local void @_ZN4node11SPrintFImplIRiJPKcEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES3_OT_DpOT0_(ptr noalias sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, ptr noundef %format, ptr noundef nonnull align 4 dereferenceable(4) %arg, ptr noundef nonnull align 8 dereferenceable(8) %args) local_unnamed_addr #7 comdat {
 entry:
   %ret.i.i46 = alloca [12 x i8], align 1
   %ref.tmp.i.i47 = alloca %"class.std::allocator.84", align 1
@@ -6847,7 +6872,7 @@ cleanup:                                          ; preds = %sw.epilog, %_ZStplI
 }
 
 ; Function Attrs: cold mustprogress nounwind uwtable
-define linkonce_odr dso_local void @_ZN4node11SPrintFImplIPKcJEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES2_OT_DpOT0_(ptr noalias sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, ptr noundef %format, ptr noundef nonnull align 8 dereferenceable(8) %arg) local_unnamed_addr #4 comdat {
+define linkonce_odr dso_local void @_ZN4node11SPrintFImplIPKcJEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES2_OT_DpOT0_(ptr noalias sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, ptr noundef %format, ptr noundef nonnull align 8 dereferenceable(8) %arg) local_unnamed_addr #7 comdat {
 entry:
   %ref.tmp.i.i.i23 = alloca %"class.std::allocator.84", align 1
   %ref.tmp.i.i.i17 = alloca %"class.std::allocator.84", align 1
@@ -7033,7 +7058,7 @@ declare noundef ptr @_ZN2v88internal35IsolateFromNeverReadOnlySpaceObjectEm(i64 
 declare noundef ptr @_ZN2v811HandleScope12CreateHandleEPNS_8internal7IsolateEm(ptr noundef, i64 noundef) local_unnamed_addr #0
 
 ; Function Attrs: cold mustprogress nounwind uwtable
-define linkonce_odr dso_local void @_ZN4node7FPrintFIJRNS_9Utf8ValueEEEEvP8_IO_FILEPKcDpOT_(ptr noundef %file, ptr noundef %format, ptr noundef nonnull align 8 dereferenceable(1048) %args) local_unnamed_addr #4 comdat {
+define linkonce_odr dso_local void @_ZN4node7FPrintFIJRNS_9Utf8ValueEEEEvP8_IO_FILEPKcDpOT_(ptr noundef %file, ptr noundef %format, ptr noundef nonnull align 8 dereferenceable(1048) %args) local_unnamed_addr #7 comdat {
 entry:
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
   call void @_ZN4node11SPrintFImplIRNS_9Utf8ValueEJEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcOT_DpOT0_(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp, ptr noundef %format, ptr noundef nonnull align 8 dereferenceable(1048) %args) #20
@@ -7043,7 +7068,7 @@ entry:
 }
 
 ; Function Attrs: cold mustprogress nounwind uwtable
-define linkonce_odr dso_local void @_ZN4node7FPrintFIJRNS_9Utf8ValueES2_EEEvP8_IO_FILEPKcDpOT_(ptr noundef %file, ptr noundef %format, ptr noundef nonnull align 8 dereferenceable(1048) %args, ptr noundef nonnull align 8 dereferenceable(1048) %args1) local_unnamed_addr #4 comdat {
+define linkonce_odr dso_local void @_ZN4node7FPrintFIJRNS_9Utf8ValueES2_EEEvP8_IO_FILEPKcDpOT_(ptr noundef %file, ptr noundef %format, ptr noundef nonnull align 8 dereferenceable(1048) %args, ptr noundef nonnull align 8 dereferenceable(1048) %args1) local_unnamed_addr #7 comdat {
 entry:
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
   call void @_ZN4node11SPrintFImplIRNS_9Utf8ValueEJS2_EEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcOT_DpOT0_(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp, ptr noundef %format, ptr noundef nonnull align 8 dereferenceable(1048) %args, ptr noundef nonnull align 8 dereferenceable(1048) %args1) #20
@@ -7053,7 +7078,7 @@ entry:
 }
 
 ; Function Attrs: cold mustprogress nounwind uwtable
-define linkonce_odr dso_local void @_ZN4node7FPrintFIJSt17basic_string_viewIcSt11char_traitsIcEEEEEvP8_IO_FILEPKcDpOT_(ptr noundef %file, ptr noundef %format, ptr noundef nonnull align 8 dereferenceable(16) %args) local_unnamed_addr #4 comdat {
+define linkonce_odr dso_local void @_ZN4node7FPrintFIJSt17basic_string_viewIcSt11char_traitsIcEEEEEvP8_IO_FILEPKcDpOT_(ptr noundef %file, ptr noundef %format, ptr noundef nonnull align 8 dereferenceable(16) %args) local_unnamed_addr #7 comdat {
 entry:
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
   call void @_ZN4node11SPrintFImplISt17basic_string_viewIcSt11char_traitsIcEEJEEENSt7__cxx1112basic_stringIcS3_SaIcEEEPKcOT_DpOT0_(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp, ptr noundef %format, ptr noundef nonnull align 8 dereferenceable(16) %args) #20
@@ -7063,7 +7088,7 @@ entry:
 }
 
 ; Function Attrs: cold mustprogress nounwind uwtable
-define linkonce_odr dso_local void @_ZN4node7FPrintFIJRNS_9Utf8ValueES2_S2_EEEvP8_IO_FILEPKcDpOT_(ptr noundef %file, ptr noundef %format, ptr noundef nonnull align 8 dereferenceable(1048) %args, ptr noundef nonnull align 8 dereferenceable(1048) %args1, ptr noundef nonnull align 8 dereferenceable(1048) %args3) local_unnamed_addr #4 comdat {
+define linkonce_odr dso_local void @_ZN4node7FPrintFIJRNS_9Utf8ValueES2_S2_EEEvP8_IO_FILEPKcDpOT_(ptr noundef %file, ptr noundef %format, ptr noundef nonnull align 8 dereferenceable(1048) %args, ptr noundef nonnull align 8 dereferenceable(1048) %args1, ptr noundef nonnull align 8 dereferenceable(1048) %args3) local_unnamed_addr #7 comdat {
 entry:
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
   call void @_ZN4node11SPrintFImplIRNS_9Utf8ValueEJS2_S2_EEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcOT_DpOT0_(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp, ptr noundef %format, ptr noundef nonnull align 8 dereferenceable(1048) %args, ptr noundef nonnull align 8 dereferenceable(1048) %args1, ptr noundef nonnull align 8 dereferenceable(1048) %args3) #20
@@ -7080,7 +7105,7 @@ declare noundef zeroext i1 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIc
 declare noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEPKc(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: cold mustprogress nounwind uwtable
-define linkonce_odr dso_local void @_ZN4node7FPrintFIJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEvP8_IO_FILEPKcDpOT_(ptr noundef %file, ptr noundef %format, ptr noundef nonnull align 8 dereferenceable(32) %args) local_unnamed_addr #4 comdat {
+define linkonce_odr dso_local void @_ZN4node7FPrintFIJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEvP8_IO_FILEPKcDpOT_(ptr noundef %file, ptr noundef %format, ptr noundef nonnull align 8 dereferenceable(32) %args) local_unnamed_addr #7 comdat {
 entry:
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
   call void @_ZN4node11SPrintFImplINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEJEEES6_PKcOT_DpOT0_(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp, ptr noundef %format, ptr noundef nonnull align 8 dereferenceable(32) %args) #20
@@ -7094,7 +7119,7 @@ declare void @_ZN4node2fs8BasenameERKNSt7__cxx1112basic_stringIcSt11char_traitsI
 declare void @_ZN4node17TriggerNodeReportEPNS_11EnvironmentEPKcS3_RKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN2v85LocalINSC_5ValueEEE(ptr sret(%"class.std::__cxx11::basic_string") align 8, ptr noundef, ptr noundef, ptr noundef, ptr noundef nonnull align 8 dereferenceable(32), ptr) local_unnamed_addr #0
 
 ; Function Attrs: cold mustprogress nounwind uwtable
-define linkonce_odr dso_local void @_ZN4node7FPrintFIJEEEvP8_IO_FILEPKcDpOT_(ptr noundef %file, ptr noundef %format) local_unnamed_addr #4 comdat {
+define linkonce_odr dso_local void @_ZN4node7FPrintFIJEEEvP8_IO_FILEPKcDpOT_(ptr noundef %file, ptr noundef %format) local_unnamed_addr #7 comdat {
 entry:
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
   call void @_ZN4node11SPrintFImplB5cxx11EPKc(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp, ptr noundef %format)
@@ -7104,7 +7129,7 @@ entry:
 }
 
 ; Function Attrs: cold mustprogress nounwind uwtable
-define linkonce_odr dso_local void @_ZN4node7FPrintFIJRA12_KcEEEvP8_IO_FILEPS1_DpOT_(ptr noundef %file, ptr noundef %format, ptr noundef nonnull align 1 dereferenceable(12) %args) local_unnamed_addr #4 comdat {
+define linkonce_odr dso_local void @_ZN4node7FPrintFIJRA12_KcEEEvP8_IO_FILEPS1_DpOT_(ptr noundef %file, ptr noundef %format, ptr noundef nonnull align 1 dereferenceable(12) %args) local_unnamed_addr #7 comdat {
 entry:
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
   call void @_ZN4node11SPrintFImplIRA12_KcJEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPS1_OT_DpOT0_(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp, ptr noundef %format, ptr noundef nonnull align 1 dereferenceable(12) %args) #20
@@ -7116,7 +7141,7 @@ entry:
 declare void @_ZN4node9inspector5Agent23ReportUncaughtExceptionEN2v85LocalINS2_5ValueEEENS3_INS2_7MessageEEE(ptr noundef nonnull align 8 dereferenceable(186), ptr, ptr) local_unnamed_addr #0
 
 ; Function Attrs: cold mustprogress nounwind uwtable
-define linkonce_odr dso_local void @_ZN4node11SPrintFImplIRNS_9Utf8ValueEJEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcOT_DpOT0_(ptr noalias sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, ptr noundef %format, ptr noundef nonnull align 8 dereferenceable(1048) %arg) local_unnamed_addr #4 comdat {
+define linkonce_odr dso_local void @_ZN4node11SPrintFImplIRNS_9Utf8ValueEJEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcOT_DpOT0_(ptr noalias sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, ptr noundef %format, ptr noundef nonnull align 8 dereferenceable(1048) %arg) local_unnamed_addr #7 comdat {
 entry:
   %ref.tmp.i.i.i21 = alloca %"class.std::allocator.84", align 1
   %ref.tmp.i.i.i15 = alloca %"class.std::allocator.84", align 1
@@ -7286,7 +7311,7 @@ cleanup:                                          ; preds = %sw.epilog, %sw.defa
 }
 
 ; Function Attrs: cold mustprogress nounwind uwtable
-define linkonce_odr dso_local void @_ZN4node11SPrintFImplIRNS_9Utf8ValueEJS2_EEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcOT_DpOT0_(ptr noalias sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, ptr noundef %format, ptr noundef nonnull align 8 dereferenceable(1048) %arg, ptr noundef nonnull align 8 dereferenceable(1048) %args) local_unnamed_addr #4 comdat {
+define linkonce_odr dso_local void @_ZN4node11SPrintFImplIRNS_9Utf8ValueEJS2_EEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcOT_DpOT0_(ptr noalias sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, ptr noundef %format, ptr noundef nonnull align 8 dereferenceable(1048) %arg, ptr noundef nonnull align 8 dereferenceable(1048) %args) local_unnamed_addr #7 comdat {
 entry:
   %ref.tmp.i.i.i38 = alloca %"class.std::allocator.84", align 1
   %ref.tmp.i.i.i32 = alloca %"class.std::allocator.84", align 1
@@ -7500,7 +7525,7 @@ cleanup:                                          ; preds = %sw.epilog, %_ZStplI
 }
 
 ; Function Attrs: cold mustprogress nounwind uwtable
-define linkonce_odr dso_local void @_ZN4node11SPrintFImplISt17basic_string_viewIcSt11char_traitsIcEEJEEENSt7__cxx1112basic_stringIcS3_SaIcEEEPKcOT_DpOT0_(ptr noalias sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, ptr noundef %format, ptr noundef nonnull align 8 dereferenceable(16) %arg) local_unnamed_addr #4 comdat {
+define linkonce_odr dso_local void @_ZN4node11SPrintFImplISt17basic_string_viewIcSt11char_traitsIcEEJEEENSt7__cxx1112basic_stringIcS3_SaIcEEEPKcOT_DpOT0_(ptr noalias sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, ptr noundef %format, ptr noundef nonnull align 8 dereferenceable(16) %arg) local_unnamed_addr #7 comdat {
 entry:
   %agg.tmp.i.i.i.i24 = alloca %"struct.std::__cxx11::basic_string<char>::__sv_wrapper", align 8
   %ref.tmp.i.i.i25 = alloca %"class.std::allocator.84", align 1
@@ -7694,7 +7719,7 @@ declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12__sv_wrappe
 declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2ENS4_12__sv_wrapperERKS3_(ptr noundef nonnull align 8 dereferenceable(32), i64, ptr, ptr noundef nonnull align 1 dereferenceable(1)) unnamed_addr #0
 
 ; Function Attrs: cold mustprogress nounwind uwtable
-define linkonce_odr dso_local void @_ZN4node11SPrintFImplIRNS_9Utf8ValueEJS2_S2_EEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcOT_DpOT0_(ptr noalias sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, ptr noundef %format, ptr noundef nonnull align 8 dereferenceable(1048) %arg, ptr noundef nonnull align 8 dereferenceable(1048) %args, ptr noundef nonnull align 8 dereferenceable(1048) %args1) local_unnamed_addr #4 comdat {
+define linkonce_odr dso_local void @_ZN4node11SPrintFImplIRNS_9Utf8ValueEJS2_S2_EEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcOT_DpOT0_(ptr noalias sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, ptr noundef %format, ptr noundef nonnull align 8 dereferenceable(1048) %arg, ptr noundef nonnull align 8 dereferenceable(1048) %args, ptr noundef nonnull align 8 dereferenceable(1048) %args1) local_unnamed_addr #7 comdat {
 entry:
   %ref.tmp.i.i.i40 = alloca %"class.std::allocator.84", align 1
   %ref.tmp.i.i.i34 = alloca %"class.std::allocator.84", align 1
@@ -7908,7 +7933,7 @@ cleanup:                                          ; preds = %sw.epilog, %_ZStplI
 }
 
 ; Function Attrs: cold mustprogress nounwind uwtable
-define linkonce_odr dso_local void @_ZN4node11SPrintFImplINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEJEEES6_PKcOT_DpOT0_(ptr noalias sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, ptr noundef %format, ptr noundef nonnull align 8 dereferenceable(32) %arg) local_unnamed_addr #4 comdat {
+define linkonce_odr dso_local void @_ZN4node11SPrintFImplINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEJEEES6_PKcOT_DpOT0_(ptr noalias sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, ptr noundef %format, ptr noundef nonnull align 8 dereferenceable(32) %arg) local_unnamed_addr #7 comdat {
 entry:
   %agg.tmp.i16 = alloca %"class.std::__cxx11::basic_string", align 8
   %agg.tmp.i15 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -8037,7 +8062,7 @@ cleanup:                                          ; preds = %sw.epilog, %sw.defa
 }
 
 ; Function Attrs: cold mustprogress nounwind uwtable
-define linkonce_odr dso_local void @_ZN4node11SPrintFImplIRA12_KcJEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPS1_OT_DpOT0_(ptr noalias sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, ptr noundef %format, ptr noundef nonnull align 1 dereferenceable(12) %arg) local_unnamed_addr #4 comdat {
+define linkonce_odr dso_local void @_ZN4node11SPrintFImplIRA12_KcJEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPS1_OT_DpOT0_(ptr noalias sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, ptr noundef %format, ptr noundef nonnull align 1 dereferenceable(12) %arg) local_unnamed_addr #7 comdat {
 entry:
   %ref.tmp.i.i.i20 = alloca %"class.std::allocator.84", align 1
   %ref.tmp.i.i.i16 = alloca %"class.std::allocator.84", align 1
@@ -8202,7 +8227,7 @@ declare void @_ZN2v812api_internal12ToLocalEmptyEv() local_unnamed_addr #0
 declare void @_ZSt19__throw_logic_errorPKc(ptr noundef) local_unnamed_addr #11
 
 ; Function Attrs: cold mustprogress nounwind uwtable
-define linkonce_odr dso_local void @_ZN4node11SPrintFImplIRPKcJEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES2_OT_DpOT0_(ptr noalias sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, ptr noundef %format, ptr noundef nonnull align 8 dereferenceable(8) %arg) local_unnamed_addr #4 comdat {
+define linkonce_odr dso_local void @_ZN4node11SPrintFImplIRPKcJEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES2_OT_DpOT0_(ptr noalias sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, ptr noundef %format, ptr noundef nonnull align 8 dereferenceable(8) %arg) local_unnamed_addr #7 comdat {
 entry:
   %ref.tmp.i.i.i23 = alloca %"class.std::allocator.84", align 1
   %ref.tmp.i.i.i17 = alloca %"class.std::allocator.84", align 1
@@ -8389,7 +8414,7 @@ declare noundef ptr @_ZN2v820EscapableHandleScope6EscapeEPm(ptr noundef nonnull 
 declare noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEmc(ptr noundef nonnull align 8 dereferenceable(32), i64 noundef, i8 noundef signext) local_unnamed_addr #0
 
 ; Function Attrs: cold mustprogress nounwind uwtable
-define linkonce_odr dso_local void @_ZN4node11SPrintFImplIRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEJEEES6_PKcOT_DpOT0_(ptr noalias sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, ptr noundef %format, ptr noundef nonnull align 8 dereferenceable(32) %arg) local_unnamed_addr #4 comdat {
+define linkonce_odr dso_local void @_ZN4node11SPrintFImplIRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEJEEES6_PKcOT_DpOT0_(ptr noalias sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, ptr noundef %format, ptr noundef nonnull align 8 dereferenceable(32) %arg) local_unnamed_addr #7 comdat {
 entry:
   %agg.tmp.i16 = alloca %"class.std::__cxx11::basic_string", align 8
   %agg.tmp.i15 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -8518,7 +8543,7 @@ cleanup:                                          ; preds = %sw.epilog, %sw.defa
 }
 
 ; Function Attrs: cold mustprogress nounwind uwtable
-define linkonce_odr dso_local void @_ZN4node11SPrintFImplIRPKcJS3_EEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES2_OT_DpOT0_(ptr noalias sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, ptr noundef %format, ptr noundef nonnull align 8 dereferenceable(8) %arg, ptr noundef nonnull align 8 dereferenceable(8) %args) local_unnamed_addr #4 comdat {
+define linkonce_odr dso_local void @_ZN4node11SPrintFImplIRPKcJS3_EEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES2_OT_DpOT0_(ptr noalias sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, ptr noundef %format, ptr noundef nonnull align 8 dereferenceable(8) %arg, ptr noundef nonnull align 8 dereferenceable(8) %args) local_unnamed_addr #7 comdat {
 entry:
   %ref.tmp.i.i.i40 = alloca %"class.std::allocator.84", align 1
   %ref.tmp.i.i.i34 = alloca %"class.std::allocator.84", align 1
@@ -8775,10 +8800,10 @@ attributes #0 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protect
 attributes #1 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { nofree nounwind }
 attributes #3 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { cold mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #6 = { cold mustprogress noreturn nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { cold nofree noreturn nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #5 = { mustprogress noreturn nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { cold nofree noreturn nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { cold mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #8 = { nofree nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #9 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #10 = { mustprogress nofree nounwind willreturn memory(argmem: read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

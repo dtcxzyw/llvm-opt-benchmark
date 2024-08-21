@@ -80,12 +80,15 @@ entry:
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local void @qemu_mutex_init(ptr noundef %mutex) local_unnamed_addr #1 {
 entry:
-  %call = tail call i32 @pthread_mutex_init(ptr noundef %mutex, ptr noundef null) #21
+  %call = tail call i32 @pthread_mutex_init(ptr noundef %mutex, ptr noundef null) #20
   %tobool.not = icmp eq i32 %call, 0
   br i1 %tobool.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
-  tail call fastcc void @error_exit(i32 noundef %call, ptr noundef nonnull @__func__.qemu_mutex_init)
+  %0 = load ptr, ptr @stderr, align 8
+  %call.i = tail call ptr @strerror(i32 noundef %call) #20
+  %call1.i = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.5, ptr noundef nonnull @__func__.qemu_mutex_init, ptr noundef %call.i) #21
+  tail call void @abort() #22
   unreachable
 
 if.end:                                           ; preds = %entry
@@ -97,16 +100,6 @@ if.end:                                           ; preds = %entry
 ; Function Attrs: nounwind
 declare i32 @pthread_mutex_init(ptr noundef, ptr noundef) local_unnamed_addr #2
 
-; Function Attrs: cold noreturn nounwind sspstrong uwtable
-define internal fastcc void @error_exit(i32 noundef %err, ptr noundef %msg) unnamed_addr #3 {
-entry:
-  %0 = load ptr, ptr @stderr, align 8
-  %call = tail call ptr @strerror(i32 noundef %err) #21
-  %call1 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.5, ptr noundef %msg, ptr noundef %call) #22
-  tail call void @abort() #23
-  unreachable
-}
-
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local void @qemu_mutex_destroy(ptr noundef %mutex) local_unnamed_addr #1 {
 entry:
@@ -116,17 +109,20 @@ entry:
   br i1 %tobool, label %if.end, label %if.else
 
 if.else:                                          ; preds = %entry
-  tail call void @__assert_fail(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 81, ptr noundef nonnull @__PRETTY_FUNCTION__.qemu_mutex_destroy) #23
+  tail call void @__assert_fail(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 81, ptr noundef nonnull @__PRETTY_FUNCTION__.qemu_mutex_destroy) #22
   unreachable
 
 if.end:                                           ; preds = %entry
   store i8 0, ptr %initialized, align 8
-  %call = tail call i32 @pthread_mutex_destroy(ptr noundef nonnull %mutex) #21
+  %call = tail call i32 @pthread_mutex_destroy(ptr noundef nonnull %mutex) #20
   %tobool2.not = icmp eq i32 %call, 0
   br i1 %tobool2.not, label %if.end4, label %if.then3
 
 if.then3:                                         ; preds = %if.end
-  tail call fastcc void @error_exit(i32 noundef %call, ptr noundef nonnull @__func__.qemu_mutex_destroy)
+  %1 = load ptr, ptr @stderr, align 8
+  %call.i = tail call ptr @strerror(i32 noundef %call) #20
+  %call1.i = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1, ptr noundef nonnull @.str.5, ptr noundef nonnull @__func__.qemu_mutex_destroy, ptr noundef %call.i) #21
+  tail call void @abort() #22
   unreachable
 
 if.end4:                                          ; preds = %if.end
@@ -134,7 +130,7 @@ if.end4:                                          ; preds = %if.end
 }
 
 ; Function Attrs: noreturn nounwind
-declare void @__assert_fail(ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #4
+declare void @__assert_fail(ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind
 declare i32 @pthread_mutex_destroy(ptr noundef) local_unnamed_addr #2
@@ -150,7 +146,7 @@ entry:
   br i1 %tobool, label %if.end, label %if.else
 
 if.else:                                          ; preds = %entry
-  tail call void @__assert_fail(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 92, ptr noundef nonnull @__PRETTY_FUNCTION__.qemu_mutex_lock_impl) #23
+  tail call void @__assert_fail(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 92, ptr noundef nonnull @__PRETTY_FUNCTION__.qemu_mutex_lock_impl) #22
   unreachable
 
 if.end:                                           ; preds = %entry
@@ -174,59 +170,62 @@ if.then.i.i.i:                                    ; preds = %land.lhs.true5.i.i.
   br i1 %tobool7.i.i.i, label %if.then8.i.i.i, label %if.else.i.i.i
 
 if.then8.i.i.i:                                   ; preds = %if.then.i.i.i
-  %call9.i.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i.i, ptr noundef null) #21
-  %call10.i.i.i = tail call i32 @qemu_get_thread_id() #21
+  %call9.i.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i.i, ptr noundef null) #20
+  %call10.i.i.i = tail call i32 @qemu_get_thread_id() #20
   %5 = load i64, ptr %_now.i.i.i, align 8
   %tv_usec.i.i.i = getelementptr inbounds i8, ptr %_now.i.i.i, i64 8
   %6 = load i64, ptr %tv_usec.i.i.i, align 8
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.6, i32 noundef %call10.i.i.i, i64 noundef %5, i64 noundef %6, ptr noundef nonnull %mutex, ptr noundef %file, i32 noundef %line) #21
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.6, i32 noundef %call10.i.i.i, i64 noundef %5, i64 noundef %6, ptr noundef nonnull %mutex, ptr noundef %file, i32 noundef %line) #20
   br label %qemu_mutex_pre_lock.exit
 
 if.else.i.i.i:                                    ; preds = %if.then.i.i.i
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.7, ptr noundef nonnull %mutex, ptr noundef %file, i32 noundef %line) #21
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.7, ptr noundef nonnull %mutex, ptr noundef %file, i32 noundef %line) #20
   br label %qemu_mutex_pre_lock.exit
 
 qemu_mutex_pre_lock.exit:                         ; preds = %if.end, %land.lhs.true5.i.i.i, %if.then8.i.i.i, %if.else.i.i.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %_now.i.i.i)
-  %call = tail call i32 @pthread_mutex_lock(ptr noundef nonnull %mutex) #21
+  %call = tail call i32 @pthread_mutex_lock(ptr noundef nonnull %mutex) #20
   %tobool1.not = icmp eq i32 %call, 0
   br i1 %tobool1.not, label %if.end3, label %if.then2
 
 if.then2:                                         ; preds = %qemu_mutex_pre_lock.exit
-  tail call fastcc void @error_exit(i32 noundef %call, ptr noundef nonnull @__func__.qemu_mutex_lock_impl)
+  %7 = load ptr, ptr @stderr, align 8
+  %call.i = tail call ptr @strerror(i32 noundef %call) #20
+  %call1.i = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %7, ptr noundef nonnull @.str.5, ptr noundef nonnull @__func__.qemu_mutex_lock_impl, ptr noundef %call.i) #21
+  tail call void @abort() #22
   unreachable
 
 if.end3:                                          ; preds = %qemu_mutex_pre_lock.exit
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i.i.i7)
-  %7 = load i32, ptr @trace_events_enabled_count, align 4
-  %tobool.i.i.i8 = icmp ne i32 %7, 0
-  %8 = load i16, ptr @_TRACE_QEMU_MUTEX_LOCKED_DSTATE, align 2
-  %tobool4.i.i.i9 = icmp ne i16 %8, 0
+  %8 = load i32, ptr @trace_events_enabled_count, align 4
+  %tobool.i.i.i8 = icmp ne i32 %8, 0
+  %9 = load i16, ptr @_TRACE_QEMU_MUTEX_LOCKED_DSTATE, align 2
+  %tobool4.i.i.i9 = icmp ne i16 %9, 0
   %or.cond.i.i.i10 = select i1 %tobool.i.i.i8, i1 %tobool4.i.i.i9, i1 false
   br i1 %or.cond.i.i.i10, label %land.lhs.true5.i.i.i11, label %qemu_mutex_post_lock.exit
 
 land.lhs.true5.i.i.i11:                           ; preds = %if.end3
-  %9 = load i32, ptr @qemu_loglevel, align 4
-  %and.i.i.i.i12 = and i32 %9, 32768
+  %10 = load i32, ptr @qemu_loglevel, align 4
+  %and.i.i.i.i12 = and i32 %10, 32768
   %cmp.i.not.i.i.i13 = icmp eq i32 %and.i.i.i.i12, 0
   br i1 %cmp.i.not.i.i.i13, label %qemu_mutex_post_lock.exit, label %if.then.i.i.i14
 
 if.then.i.i.i14:                                  ; preds = %land.lhs.true5.i.i.i11
-  %10 = load i8, ptr @message_with_timestamp, align 1
-  %tobool7.i.i.i15 = trunc i8 %10 to i1
+  %11 = load i8, ptr @message_with_timestamp, align 1
+  %tobool7.i.i.i15 = trunc i8 %11 to i1
   br i1 %tobool7.i.i.i15, label %if.then8.i.i.i17, label %if.else.i.i.i16
 
 if.then8.i.i.i17:                                 ; preds = %if.then.i.i.i14
-  %call9.i.i.i18 = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i.i7, ptr noundef null) #21
-  %call10.i.i.i19 = tail call i32 @qemu_get_thread_id() #21
-  %11 = load i64, ptr %_now.i.i.i7, align 8
+  %call9.i.i.i18 = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i.i7, ptr noundef null) #20
+  %call10.i.i.i19 = tail call i32 @qemu_get_thread_id() #20
+  %12 = load i64, ptr %_now.i.i.i7, align 8
   %tv_usec.i.i.i20 = getelementptr inbounds i8, ptr %_now.i.i.i7, i64 8
-  %12 = load i64, ptr %tv_usec.i.i.i20, align 8
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.8, i32 noundef %call10.i.i.i19, i64 noundef %11, i64 noundef %12, ptr noundef nonnull %mutex, ptr noundef %file, i32 noundef %line) #21
+  %13 = load i64, ptr %tv_usec.i.i.i20, align 8
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.8, i32 noundef %call10.i.i.i19, i64 noundef %12, i64 noundef %13, ptr noundef nonnull %mutex, ptr noundef %file, i32 noundef %line) #20
   br label %qemu_mutex_post_lock.exit
 
 if.else.i.i.i16:                                  ; preds = %if.then.i.i.i14
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.9, ptr noundef nonnull %mutex, ptr noundef %file, i32 noundef %line) #21
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.9, ptr noundef nonnull %mutex, ptr noundef %file, i32 noundef %line) #20
   br label %qemu_mutex_post_lock.exit
 
 qemu_mutex_post_lock.exit:                        ; preds = %if.end3, %land.lhs.true5.i.i.i11, %if.then8.i.i.i17, %if.else.i.i.i16
@@ -247,11 +246,11 @@ entry:
   br i1 %tobool, label %if.end, label %if.else
 
 if.else:                                          ; preds = %entry
-  tail call void @__assert_fail(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 104, ptr noundef nonnull @__PRETTY_FUNCTION__.qemu_mutex_trylock_impl) #23
+  tail call void @__assert_fail(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 104, ptr noundef nonnull @__PRETTY_FUNCTION__.qemu_mutex_trylock_impl) #22
   unreachable
 
 if.end:                                           ; preds = %entry
-  %call = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull %mutex) #21
+  %call = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull %mutex) #20
   switch i32 %call, label %if.then4 [
     i32 0, label %if.then1
     i32 16, label %return
@@ -278,16 +277,16 @@ if.then.i.i.i:                                    ; preds = %land.lhs.true5.i.i.
   br i1 %tobool7.i.i.i, label %if.then8.i.i.i, label %if.else.i.i.i
 
 if.then8.i.i.i:                                   ; preds = %if.then.i.i.i
-  %call9.i.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i.i, ptr noundef null) #21
-  %call10.i.i.i = tail call i32 @qemu_get_thread_id() #21
+  %call9.i.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i.i, ptr noundef null) #20
+  %call10.i.i.i = tail call i32 @qemu_get_thread_id() #20
   %5 = load i64, ptr %_now.i.i.i, align 8
   %tv_usec.i.i.i = getelementptr inbounds i8, ptr %_now.i.i.i, i64 8
   %6 = load i64, ptr %tv_usec.i.i.i, align 8
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.8, i32 noundef %call10.i.i.i, i64 noundef %5, i64 noundef %6, ptr noundef nonnull %mutex, ptr noundef %file, i32 noundef %line) #21
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.8, i32 noundef %call10.i.i.i, i64 noundef %5, i64 noundef %6, ptr noundef nonnull %mutex, ptr noundef %file, i32 noundef %line) #20
   br label %qemu_mutex_post_lock.exit
 
 if.else.i.i.i:                                    ; preds = %if.then.i.i.i
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.9, ptr noundef nonnull %mutex, ptr noundef %file, i32 noundef %line) #21
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.9, ptr noundef nonnull %mutex, ptr noundef %file, i32 noundef %line) #20
   br label %qemu_mutex_post_lock.exit
 
 qemu_mutex_post_lock.exit:                        ; preds = %if.then1, %land.lhs.true5.i.i.i, %if.then8.i.i.i, %if.else.i.i.i
@@ -295,7 +294,10 @@ qemu_mutex_post_lock.exit:                        ; preds = %if.then1, %land.lhs
   br label %return
 
 if.then4:                                         ; preds = %if.end
-  tail call fastcc void @error_exit(i32 noundef %call, ptr noundef nonnull @__func__.qemu_mutex_trylock_impl)
+  %7 = load ptr, ptr @stderr, align 8
+  %call.i = tail call ptr @strerror(i32 noundef %call) #20
+  %call1.i = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %7, ptr noundef nonnull @.str.5, ptr noundef nonnull @__func__.qemu_mutex_trylock_impl, ptr noundef %call.i) #21
+  tail call void @abort() #22
   unreachable
 
 return:                                           ; preds = %if.end, %qemu_mutex_post_lock.exit
@@ -316,7 +318,7 @@ entry:
   br i1 %tobool, label %if.end, label %if.else
 
 if.else:                                          ; preds = %entry
-  tail call void @__assert_fail(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 120, ptr noundef nonnull @__PRETTY_FUNCTION__.qemu_mutex_unlock_impl) #23
+  tail call void @__assert_fail(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 120, ptr noundef nonnull @__PRETTY_FUNCTION__.qemu_mutex_unlock_impl) #22
   unreachable
 
 if.end:                                           ; preds = %entry
@@ -340,26 +342,29 @@ if.then.i.i.i:                                    ; preds = %land.lhs.true5.i.i.
   br i1 %tobool7.i.i.i, label %if.then8.i.i.i, label %if.else.i.i.i
 
 if.then8.i.i.i:                                   ; preds = %if.then.i.i.i
-  %call9.i.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i.i, ptr noundef null) #21
-  %call10.i.i.i = tail call i32 @qemu_get_thread_id() #21
+  %call9.i.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i.i, ptr noundef null) #20
+  %call10.i.i.i = tail call i32 @qemu_get_thread_id() #20
   %5 = load i64, ptr %_now.i.i.i, align 8
   %tv_usec.i.i.i = getelementptr inbounds i8, ptr %_now.i.i.i, i64 8
   %6 = load i64, ptr %tv_usec.i.i.i, align 8
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.10, i32 noundef %call10.i.i.i, i64 noundef %5, i64 noundef %6, ptr noundef nonnull %mutex, ptr noundef %file, i32 noundef %line) #21
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.10, i32 noundef %call10.i.i.i, i64 noundef %5, i64 noundef %6, ptr noundef nonnull %mutex, ptr noundef %file, i32 noundef %line) #20
   br label %qemu_mutex_pre_unlock.exit
 
 if.else.i.i.i:                                    ; preds = %if.then.i.i.i
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.11, ptr noundef nonnull %mutex, ptr noundef %file, i32 noundef %line) #21
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.11, ptr noundef nonnull %mutex, ptr noundef %file, i32 noundef %line) #20
   br label %qemu_mutex_pre_unlock.exit
 
 qemu_mutex_pre_unlock.exit:                       ; preds = %if.end, %land.lhs.true5.i.i.i, %if.then8.i.i.i, %if.else.i.i.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %_now.i.i.i)
-  %call = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %mutex) #21
+  %call = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %mutex) #20
   %tobool1.not = icmp eq i32 %call, 0
   br i1 %tobool1.not, label %if.end3, label %if.then2
 
 if.then2:                                         ; preds = %qemu_mutex_pre_unlock.exit
-  tail call fastcc void @error_exit(i32 noundef %call, ptr noundef nonnull @__func__.qemu_mutex_unlock_impl)
+  %7 = load ptr, ptr @stderr, align 8
+  %call.i = tail call ptr @strerror(i32 noundef %call) #20
+  %call1.i = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %7, ptr noundef nonnull @.str.5, ptr noundef nonnull @__func__.qemu_mutex_unlock_impl, ptr noundef %call.i) #21
+  tail call void @abort() #22
   unreachable
 
 if.end3:                                          ; preds = %qemu_mutex_pre_unlock.exit
@@ -373,15 +378,18 @@ declare i32 @pthread_mutex_unlock(ptr noundef) local_unnamed_addr #2
 define dso_local void @qemu_rec_mutex_init(ptr noundef %mutex) local_unnamed_addr #1 {
 entry:
   %attr = alloca %union.pthread_mutexattr_t, align 4
-  %call = call i32 @pthread_mutexattr_init(ptr noundef nonnull %attr) #21
-  %call1 = call i32 @pthread_mutexattr_settype(ptr noundef nonnull %attr, i32 noundef 1) #21
-  %call2 = call i32 @pthread_mutex_init(ptr noundef %mutex, ptr noundef nonnull %attr) #21
-  %call3 = call i32 @pthread_mutexattr_destroy(ptr noundef nonnull %attr) #21
+  %call = call i32 @pthread_mutexattr_init(ptr noundef nonnull %attr) #20
+  %call1 = call i32 @pthread_mutexattr_settype(ptr noundef nonnull %attr, i32 noundef 1) #20
+  %call2 = call i32 @pthread_mutex_init(ptr noundef %mutex, ptr noundef nonnull %attr) #20
+  %call3 = call i32 @pthread_mutexattr_destroy(ptr noundef nonnull %attr) #20
   %tobool.not = icmp eq i32 %call2, 0
   br i1 %tobool.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
-  call fastcc void @error_exit(i32 noundef %call2, ptr noundef nonnull @__func__.qemu_rec_mutex_init)
+  %0 = load ptr, ptr @stderr, align 8
+  %call.i = call ptr @strerror(i32 noundef %call2) #20
+  %call1.i = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.5, ptr noundef nonnull @__func__.qemu_rec_mutex_init, ptr noundef %call.i) #21
+  call void @abort() #22
   unreachable
 
 if.end:                                           ; preds = %entry
@@ -408,17 +416,20 @@ entry:
   br i1 %tobool.i, label %if.end.i, label %if.else.i
 
 if.else.i:                                        ; preds = %entry
-  tail call void @__assert_fail(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 81, ptr noundef nonnull @__PRETTY_FUNCTION__.qemu_mutex_destroy) #23
+  tail call void @__assert_fail(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 81, ptr noundef nonnull @__PRETTY_FUNCTION__.qemu_mutex_destroy) #22
   unreachable
 
 if.end.i:                                         ; preds = %entry
   store i8 0, ptr %initialized.i, align 8
-  %call.i = tail call i32 @pthread_mutex_destroy(ptr noundef nonnull %mutex) #21
+  %call.i = tail call i32 @pthread_mutex_destroy(ptr noundef nonnull %mutex) #20
   %tobool2.not.i = icmp eq i32 %call.i, 0
   br i1 %tobool2.not.i, label %qemu_mutex_destroy.exit, label %if.then3.i
 
 if.then3.i:                                       ; preds = %if.end.i
-  tail call fastcc void @error_exit(i32 noundef %call.i, ptr noundef nonnull @__func__.qemu_mutex_destroy)
+  %1 = load ptr, ptr @stderr, align 8
+  %call.i.i = tail call ptr @strerror(i32 noundef %call.i) #20
+  %call1.i.i = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1, ptr noundef nonnull @.str.5, ptr noundef nonnull @__func__.qemu_mutex_destroy, ptr noundef %call.i.i) #21
+  tail call void @abort() #22
   unreachable
 
 qemu_mutex_destroy.exit:                          ; preds = %if.end.i
@@ -450,30 +461,39 @@ entry:
 define dso_local void @qemu_cond_init(ptr noundef %cond) local_unnamed_addr #1 {
 entry:
   %attr = alloca %union.pthread_condattr_t, align 4
-  %call = call i32 @pthread_condattr_init(ptr noundef nonnull %attr) #21
+  %call = call i32 @pthread_condattr_init(ptr noundef nonnull %attr) #20
   %tobool.not = icmp eq i32 %call, 0
   br i1 %tobool.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
-  call fastcc void @error_exit(i32 noundef %call, ptr noundef nonnull @__func__.qemu_cond_init)
+  %0 = load ptr, ptr @stderr, align 8
+  %call.i = call ptr @strerror(i32 noundef %call) #20
+  %call1.i = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.5, ptr noundef nonnull @__func__.qemu_cond_init, ptr noundef %call.i) #21
+  call void @abort() #22
   unreachable
 
 if.end:                                           ; preds = %entry
-  %call2 = call i32 @pthread_cond_init(ptr noundef %cond, ptr noundef nonnull %attr) #21
+  %call2 = call i32 @pthread_cond_init(ptr noundef %cond, ptr noundef nonnull %attr) #20
   %tobool3.not = icmp eq i32 %call2, 0
   br i1 %tobool3.not, label %if.end5, label %if.then4
 
 if.then4:                                         ; preds = %if.end
-  call fastcc void @error_exit(i32 noundef %call2, ptr noundef nonnull @__func__.qemu_cond_init)
+  %1 = load ptr, ptr @stderr, align 8
+  %call.i7 = call ptr @strerror(i32 noundef %call2) #20
+  %call1.i8 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1, ptr noundef nonnull @.str.5, ptr noundef nonnull @__func__.qemu_cond_init, ptr noundef %call.i7) #21
+  call void @abort() #22
   unreachable
 
 if.end5:                                          ; preds = %if.end
-  %call6 = call i32 @pthread_condattr_destroy(ptr noundef nonnull %attr) #21
+  %call6 = call i32 @pthread_condattr_destroy(ptr noundef nonnull %attr) #20
   %tobool7.not = icmp eq i32 %call6, 0
   br i1 %tobool7.not, label %if.end9, label %if.then8
 
 if.then8:                                         ; preds = %if.end5
-  call fastcc void @error_exit(i32 noundef %call6, ptr noundef nonnull @__func__.qemu_cond_init)
+  %2 = load ptr, ptr @stderr, align 8
+  %call.i10 = call ptr @strerror(i32 noundef %call6) #20
+  %call1.i11 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %2, ptr noundef nonnull @.str.5, ptr noundef nonnull @__func__.qemu_cond_init, ptr noundef %call.i10) #21
+  call void @abort() #22
   unreachable
 
 if.end9:                                          ; preds = %if.end5
@@ -500,17 +520,20 @@ entry:
   br i1 %tobool, label %if.end, label %if.else
 
 if.else:                                          ; preds = %entry
-  tail call void @__assert_fail(ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.1, i32 noundef 192, ptr noundef nonnull @__PRETTY_FUNCTION__.qemu_cond_destroy) #23
+  tail call void @__assert_fail(ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.1, i32 noundef 192, ptr noundef nonnull @__PRETTY_FUNCTION__.qemu_cond_destroy) #22
   unreachable
 
 if.end:                                           ; preds = %entry
   store i8 0, ptr %initialized, align 8
-  %call = tail call i32 @pthread_cond_destroy(ptr noundef nonnull %cond) #21
+  %call = tail call i32 @pthread_cond_destroy(ptr noundef nonnull %cond) #20
   %tobool3.not = icmp eq i32 %call, 0
   br i1 %tobool3.not, label %if.end5, label %if.then4
 
 if.then4:                                         ; preds = %if.end
-  tail call fastcc void @error_exit(i32 noundef %call, ptr noundef nonnull @__func__.qemu_cond_destroy)
+  %1 = load ptr, ptr @stderr, align 8
+  %call.i = tail call ptr @strerror(i32 noundef %call) #20
+  %call1.i = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1, ptr noundef nonnull @.str.5, ptr noundef nonnull @__func__.qemu_cond_destroy, ptr noundef %call.i) #21
+  tail call void @abort() #22
   unreachable
 
 if.end5:                                          ; preds = %if.end
@@ -529,16 +552,19 @@ entry:
   br i1 %tobool, label %if.end, label %if.else
 
 if.else:                                          ; preds = %entry
-  tail call void @__assert_fail(ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.1, i32 noundef 203, ptr noundef nonnull @__PRETTY_FUNCTION__.qemu_cond_signal) #23
+  tail call void @__assert_fail(ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.1, i32 noundef 203, ptr noundef nonnull @__PRETTY_FUNCTION__.qemu_cond_signal) #22
   unreachable
 
 if.end:                                           ; preds = %entry
-  %call = tail call i32 @pthread_cond_signal(ptr noundef nonnull %cond) #21
+  %call = tail call i32 @pthread_cond_signal(ptr noundef nonnull %cond) #20
   %tobool2.not = icmp eq i32 %call, 0
   br i1 %tobool2.not, label %if.end4, label %if.then3
 
 if.then3:                                         ; preds = %if.end
-  tail call fastcc void @error_exit(i32 noundef %call, ptr noundef nonnull @__func__.qemu_cond_signal)
+  %1 = load ptr, ptr @stderr, align 8
+  %call.i = tail call ptr @strerror(i32 noundef %call) #20
+  %call1.i = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1, ptr noundef nonnull @.str.5, ptr noundef nonnull @__func__.qemu_cond_signal, ptr noundef %call.i) #21
+  tail call void @abort() #22
   unreachable
 
 if.end4:                                          ; preds = %if.end
@@ -557,16 +583,19 @@ entry:
   br i1 %tobool, label %if.end, label %if.else
 
 if.else:                                          ; preds = %entry
-  tail call void @__assert_fail(ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.1, i32 noundef 213, ptr noundef nonnull @__PRETTY_FUNCTION__.qemu_cond_broadcast) #23
+  tail call void @__assert_fail(ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.1, i32 noundef 213, ptr noundef nonnull @__PRETTY_FUNCTION__.qemu_cond_broadcast) #22
   unreachable
 
 if.end:                                           ; preds = %entry
-  %call = tail call i32 @pthread_cond_broadcast(ptr noundef nonnull %cond) #21
+  %call = tail call i32 @pthread_cond_broadcast(ptr noundef nonnull %cond) #20
   %tobool2.not = icmp eq i32 %call, 0
   br i1 %tobool2.not, label %if.end4, label %if.then3
 
 if.then3:                                         ; preds = %if.end
-  tail call fastcc void @error_exit(i32 noundef %call, ptr noundef nonnull @__func__.qemu_cond_broadcast)
+  %1 = load ptr, ptr @stderr, align 8
+  %call.i = tail call ptr @strerror(i32 noundef %call) #20
+  %call1.i = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1, ptr noundef nonnull @.str.5, ptr noundef nonnull @__func__.qemu_cond_broadcast, ptr noundef %call.i) #21
+  tail call void @abort() #22
   unreachable
 
 if.end4:                                          ; preds = %if.end
@@ -587,7 +616,7 @@ entry:
   br i1 %tobool, label %if.end, label %if.else
 
 if.else:                                          ; preds = %entry
-  tail call void @__assert_fail(ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.1, i32 noundef 223, ptr noundef nonnull @__PRETTY_FUNCTION__.qemu_cond_wait_impl) #23
+  tail call void @__assert_fail(ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.1, i32 noundef 223, ptr noundef nonnull @__PRETTY_FUNCTION__.qemu_cond_wait_impl) #22
   unreachable
 
 if.end:                                           ; preds = %entry
@@ -611,21 +640,21 @@ if.then.i.i.i:                                    ; preds = %land.lhs.true5.i.i.
   br i1 %tobool7.i.i.i, label %if.then8.i.i.i, label %if.else.i.i.i
 
 if.then8.i.i.i:                                   ; preds = %if.then.i.i.i
-  %call9.i.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i.i, ptr noundef null) #21
-  %call10.i.i.i = tail call i32 @qemu_get_thread_id() #21
+  %call9.i.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i.i, ptr noundef null) #20
+  %call10.i.i.i = tail call i32 @qemu_get_thread_id() #20
   %5 = load i64, ptr %_now.i.i.i, align 8
   %tv_usec.i.i.i = getelementptr inbounds i8, ptr %_now.i.i.i, i64 8
   %6 = load i64, ptr %tv_usec.i.i.i, align 8
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.10, i32 noundef %call10.i.i.i, i64 noundef %5, i64 noundef %6, ptr noundef %mutex, ptr noundef %file, i32 noundef %line) #21
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.10, i32 noundef %call10.i.i.i, i64 noundef %5, i64 noundef %6, ptr noundef %mutex, ptr noundef %file, i32 noundef %line) #20
   br label %qemu_mutex_pre_unlock.exit
 
 if.else.i.i.i:                                    ; preds = %if.then.i.i.i
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.11, ptr noundef %mutex, ptr noundef %file, i32 noundef %line) #21
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.11, ptr noundef %mutex, ptr noundef %file, i32 noundef %line) #20
   br label %qemu_mutex_pre_unlock.exit
 
 qemu_mutex_pre_unlock.exit:                       ; preds = %if.end, %land.lhs.true5.i.i.i, %if.then8.i.i.i, %if.else.i.i.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %_now.i.i.i)
-  %call = tail call i32 @pthread_cond_wait(ptr noundef nonnull %cond, ptr noundef %mutex) #21
+  %call = tail call i32 @pthread_cond_wait(ptr noundef nonnull %cond, ptr noundef %mutex) #20
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i.i.i7)
   %7 = load i32, ptr @trace_events_enabled_count, align 4
   %tobool.i.i.i8 = icmp ne i32 %7, 0
@@ -646,16 +675,16 @@ if.then.i.i.i14:                                  ; preds = %land.lhs.true5.i.i.
   br i1 %tobool7.i.i.i15, label %if.then8.i.i.i17, label %if.else.i.i.i16
 
 if.then8.i.i.i17:                                 ; preds = %if.then.i.i.i14
-  %call9.i.i.i18 = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i.i7, ptr noundef null) #21
-  %call10.i.i.i19 = tail call i32 @qemu_get_thread_id() #21
+  %call9.i.i.i18 = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i.i7, ptr noundef null) #20
+  %call10.i.i.i19 = tail call i32 @qemu_get_thread_id() #20
   %11 = load i64, ptr %_now.i.i.i7, align 8
   %tv_usec.i.i.i20 = getelementptr inbounds i8, ptr %_now.i.i.i7, i64 8
   %12 = load i64, ptr %tv_usec.i.i.i20, align 8
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.8, i32 noundef %call10.i.i.i19, i64 noundef %11, i64 noundef %12, ptr noundef %mutex, ptr noundef %file, i32 noundef %line) #21
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.8, i32 noundef %call10.i.i.i19, i64 noundef %11, i64 noundef %12, ptr noundef %mutex, ptr noundef %file, i32 noundef %line) #20
   br label %qemu_mutex_post_lock.exit
 
 if.else.i.i.i16:                                  ; preds = %if.then.i.i.i14
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.9, ptr noundef %mutex, ptr noundef %file, i32 noundef %line) #21
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.9, ptr noundef %mutex, ptr noundef %file, i32 noundef %line) #20
   br label %qemu_mutex_post_lock.exit
 
 qemu_mutex_post_lock.exit:                        ; preds = %qemu_mutex_pre_unlock.exit, %land.lhs.true5.i.i.i11, %if.then8.i.i.i17, %if.else.i.i.i16
@@ -664,20 +693,23 @@ qemu_mutex_post_lock.exit:                        ; preds = %qemu_mutex_pre_unlo
   br i1 %tobool2.not, label %if.end4, label %if.then3
 
 if.then3:                                         ; preds = %qemu_mutex_post_lock.exit
-  tail call fastcc void @error_exit(i32 noundef %call, ptr noundef nonnull @__func__.qemu_cond_wait_impl)
+  %13 = load ptr, ptr @stderr, align 8
+  %call.i = tail call ptr @strerror(i32 noundef %call) #20
+  %call1.i = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %13, ptr noundef nonnull @.str.5, ptr noundef nonnull @__func__.qemu_cond_wait_impl, ptr noundef %call.i) #21
+  tail call void @abort() #22
   unreachable
 
 if.end4:                                          ; preds = %qemu_mutex_post_lock.exit
   ret void
 }
 
-declare i32 @pthread_cond_wait(ptr noundef, ptr noundef) local_unnamed_addr #5
+declare i32 @pthread_cond_wait(ptr noundef, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local zeroext i1 @qemu_cond_timedwait_impl(ptr noundef %cond, ptr noundef %mutex, i32 noundef %ms, ptr noundef %file, i32 noundef %line) local_unnamed_addr #1 {
 entry:
   %ts = alloca %struct.timespec, align 8
-  %call1.i = call i32 @clock_gettime(i32 noundef 0, ptr noundef nonnull %ts) #21
+  %call1.i = call i32 @clock_gettime(i32 noundef 0, ptr noundef nonnull %ts) #20
   %rem.i = srem i32 %ms, 1000
   %mul.i = mul nsw i32 %rem.i, 1000000
   %conv.i = sext i32 %mul.i to i64
@@ -716,7 +748,7 @@ entry:
   br i1 %tobool, label %if.end, label %if.else
 
 if.else:                                          ; preds = %entry
-  tail call void @__assert_fail(ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.1, i32 noundef 237, ptr noundef nonnull @__PRETTY_FUNCTION__.qemu_cond_timedwait_ts) #23
+  tail call void @__assert_fail(ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.1, i32 noundef 237, ptr noundef nonnull @__PRETTY_FUNCTION__.qemu_cond_timedwait_ts) #22
   unreachable
 
 if.end:                                           ; preds = %entry
@@ -740,21 +772,21 @@ if.then.i.i:                                      ; preds = %land.lhs.true5.i.i
   br i1 %tobool7.i.i, label %if.then8.i.i, label %if.else.i.i
 
 if.then8.i.i:                                     ; preds = %if.then.i.i
-  %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #21
-  %call10.i.i = tail call i32 @qemu_get_thread_id() #21
+  %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #20
+  %call10.i.i = tail call i32 @qemu_get_thread_id() #20
   %5 = load i64, ptr %_now.i.i, align 8
   %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
   %6 = load i64, ptr %tv_usec.i.i, align 8
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.10, i32 noundef %call10.i.i, i64 noundef %5, i64 noundef %6, ptr noundef %mutex, ptr noundef %file, i32 noundef %line) #21
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.10, i32 noundef %call10.i.i, i64 noundef %5, i64 noundef %6, ptr noundef %mutex, ptr noundef %file, i32 noundef %line) #20
   br label %trace_qemu_mutex_unlock.exit
 
 if.else.i.i:                                      ; preds = %if.then.i.i
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.11, ptr noundef %mutex, ptr noundef %file, i32 noundef %line) #21
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.11, ptr noundef %mutex, ptr noundef %file, i32 noundef %line) #20
   br label %trace_qemu_mutex_unlock.exit
 
 trace_qemu_mutex_unlock.exit:                     ; preds = %if.end, %land.lhs.true5.i.i, %if.then8.i.i, %if.else.i.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %_now.i.i)
-  %call = tail call i32 @pthread_cond_timedwait(ptr noundef nonnull %cond, ptr noundef %mutex, ptr noundef %ts) #21
+  %call = tail call i32 @pthread_cond_timedwait(ptr noundef nonnull %cond, ptr noundef %mutex, ptr noundef %ts) #20
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i.i9)
   %7 = load i32, ptr @trace_events_enabled_count, align 4
   %tobool.i.i10 = icmp ne i32 %7, 0
@@ -775,16 +807,16 @@ if.then.i.i16:                                    ; preds = %land.lhs.true5.i.i1
   br i1 %tobool7.i.i17, label %if.then8.i.i19, label %if.else.i.i18
 
 if.then8.i.i19:                                   ; preds = %if.then.i.i16
-  %call9.i.i20 = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i9, ptr noundef null) #21
-  %call10.i.i21 = tail call i32 @qemu_get_thread_id() #21
+  %call9.i.i20 = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i9, ptr noundef null) #20
+  %call10.i.i21 = tail call i32 @qemu_get_thread_id() #20
   %11 = load i64, ptr %_now.i.i9, align 8
   %tv_usec.i.i22 = getelementptr inbounds i8, ptr %_now.i.i9, i64 8
   %12 = load i64, ptr %tv_usec.i.i22, align 8
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.8, i32 noundef %call10.i.i21, i64 noundef %11, i64 noundef %12, ptr noundef %mutex, ptr noundef %file, i32 noundef %line) #21
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.8, i32 noundef %call10.i.i21, i64 noundef %11, i64 noundef %12, ptr noundef %mutex, ptr noundef %file, i32 noundef %line) #20
   br label %trace_qemu_mutex_locked.exit
 
 if.else.i.i18:                                    ; preds = %if.then.i.i16
-  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.9, ptr noundef %mutex, ptr noundef %file, i32 noundef %line) #21
+  tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.9, ptr noundef %mutex, ptr noundef %file, i32 noundef %line) #20
   br label %trace_qemu_mutex_locked.exit
 
 trace_qemu_mutex_locked.exit:                     ; preds = %trace_qemu_mutex_unlock.exit, %land.lhs.true5.i.i13, %if.then8.i.i19, %if.else.i.i18
@@ -795,7 +827,10 @@ trace_qemu_mutex_locked.exit:                     ; preds = %trace_qemu_mutex_un
   ]
 
 if.then3:                                         ; preds = %trace_qemu_mutex_locked.exit
-  tail call fastcc void @error_exit(i32 noundef %call, ptr noundef nonnull @__func__.qemu_cond_timedwait_ts)
+  %13 = load ptr, ptr @stderr, align 8
+  %call.i = tail call ptr @strerror(i32 noundef %call) #20
+  %call1.i = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %13, ptr noundef nonnull @.str.5, ptr noundef nonnull @__func__.qemu_cond_timedwait_ts, ptr noundef %call.i) #21
+  tail call void @abort() #22
   unreachable
 
 if.end4:                                          ; preds = %trace_qemu_mutex_locked.exit, %trace_qemu_mutex_locked.exit
@@ -806,58 +841,33 @@ if.end4:                                          ; preds = %trace_qemu_mutex_lo
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local void @qemu_sem_init(ptr noundef %sem, i32 noundef %init) local_unnamed_addr #1 {
 entry:
-  %attr.i = alloca %union.pthread_condattr_t, align 4
-  %call.i = tail call i32 @pthread_mutex_init(ptr noundef %sem, ptr noundef null) #21
+  %call.i = tail call i32 @pthread_mutex_init(ptr noundef %sem, ptr noundef null) #20
   %tobool.not.i = icmp eq i32 %call.i, 0
   br i1 %tobool.not.i, label %qemu_mutex_init.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %entry
-  tail call fastcc void @error_exit(i32 noundef %call.i, ptr noundef nonnull @__func__.qemu_mutex_init)
+  %0 = load ptr, ptr @stderr, align 8
+  %call.i.i = tail call ptr @strerror(i32 noundef %call.i) #20
+  %call1.i.i = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.5, ptr noundef nonnull @__func__.qemu_mutex_init, ptr noundef %call.i.i) #21
+  tail call void @abort() #22
   unreachable
 
 qemu_mutex_init.exit:                             ; preds = %entry
   %initialized.i.i = getelementptr inbounds i8, ptr %sem, i64 40
   store i8 1, ptr %initialized.i.i, align 8
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %attr.i)
-  %call.i4 = call i32 @pthread_condattr_init(ptr noundef nonnull %attr.i) #21
-  %tobool.not.i5 = icmp eq i32 %call.i4, 0
-  br i1 %tobool.not.i5, label %if.end.i, label %if.then.i6
-
-if.then.i6:                                       ; preds = %qemu_mutex_init.exit
-  call fastcc void @error_exit(i32 noundef %call.i4, ptr noundef nonnull @__func__.qemu_cond_init)
-  unreachable
-
-if.end.i:                                         ; preds = %qemu_mutex_init.exit
   %cond = getelementptr inbounds i8, ptr %sem, i64 48
-  %call2.i = call i32 @pthread_cond_init(ptr noundef nonnull %cond, ptr noundef nonnull %attr.i) #21
-  %tobool3.not.i = icmp eq i32 %call2.i, 0
-  br i1 %tobool3.not.i, label %if.end5.i, label %if.then4.i
-
-if.then4.i:                                       ; preds = %if.end.i
-  call fastcc void @error_exit(i32 noundef %call2.i, ptr noundef nonnull @__func__.qemu_cond_init)
-  unreachable
-
-if.end5.i:                                        ; preds = %if.end.i
-  %call6.i = call i32 @pthread_condattr_destroy(ptr noundef nonnull %attr.i) #21
-  %tobool7.not.i = icmp eq i32 %call6.i, 0
-  br i1 %tobool7.not.i, label %qemu_cond_init.exit, label %if.then8.i
-
-if.then8.i:                                       ; preds = %if.end5.i
-  call fastcc void @error_exit(i32 noundef %call6.i, ptr noundef nonnull @__func__.qemu_cond_init)
-  unreachable
-
-qemu_cond_init.exit:                              ; preds = %if.end5.i
-  %initialized.i = getelementptr inbounds i8, ptr %sem, i64 96
-  store i8 1, ptr %initialized.i, align 8
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %attr.i)
+  tail call void @qemu_cond_init(ptr noundef nonnull %cond)
   %cmp = icmp slt i32 %init, 0
   br i1 %cmp, label %if.then, label %if.end
 
-if.then:                                          ; preds = %qemu_cond_init.exit
-  call fastcc void @error_exit(i32 noundef 22, ptr noundef nonnull @__func__.qemu_sem_init)
+if.then:                                          ; preds = %qemu_mutex_init.exit
+  %1 = load ptr, ptr @stderr, align 8
+  %call.i4 = tail call ptr @strerror(i32 noundef 22) #20
+  %call1.i = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1, ptr noundef nonnull @.str.5, ptr noundef nonnull @__func__.qemu_sem_init, ptr noundef %call.i4) #21
+  tail call void @abort() #22
   unreachable
 
-if.end:                                           ; preds = %qemu_cond_init.exit
+if.end:                                           ; preds = %qemu_mutex_init.exit
   %count = getelementptr inbounds i8, ptr %sem, i64 104
   store i32 %init, ptr %count, align 8
   ret void
@@ -872,38 +882,44 @@ entry:
   br i1 %tobool.i, label %if.end.i, label %if.else.i
 
 if.else.i:                                        ; preds = %entry
-  tail call void @__assert_fail(ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.1, i32 noundef 192, ptr noundef nonnull @__PRETTY_FUNCTION__.qemu_cond_destroy) #23
+  tail call void @__assert_fail(ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.1, i32 noundef 192, ptr noundef nonnull @__PRETTY_FUNCTION__.qemu_cond_destroy) #22
   unreachable
 
 if.end.i:                                         ; preds = %entry
   %cond = getelementptr inbounds i8, ptr %sem, i64 48
   store i8 0, ptr %initialized.i, align 8
-  %call.i = tail call i32 @pthread_cond_destroy(ptr noundef nonnull %cond) #21
+  %call.i = tail call i32 @pthread_cond_destroy(ptr noundef nonnull %cond) #20
   %tobool3.not.i = icmp eq i32 %call.i, 0
   br i1 %tobool3.not.i, label %qemu_cond_destroy.exit, label %if.then4.i
 
 if.then4.i:                                       ; preds = %if.end.i
-  tail call fastcc void @error_exit(i32 noundef %call.i, ptr noundef nonnull @__func__.qemu_cond_destroy)
+  %1 = load ptr, ptr @stderr, align 8
+  %call.i.i = tail call ptr @strerror(i32 noundef %call.i) #20
+  %call1.i.i = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1, ptr noundef nonnull @.str.5, ptr noundef nonnull @__func__.qemu_cond_destroy, ptr noundef %call.i.i) #21
+  tail call void @abort() #22
   unreachable
 
 qemu_cond_destroy.exit:                           ; preds = %if.end.i
   %initialized.i2 = getelementptr inbounds i8, ptr %sem, i64 40
-  %1 = load i8, ptr %initialized.i2, align 8
-  %tobool.i3 = trunc i8 %1 to i1
+  %2 = load i8, ptr %initialized.i2, align 8
+  %tobool.i3 = trunc i8 %2 to i1
   br i1 %tobool.i3, label %if.end.i5, label %if.else.i4
 
 if.else.i4:                                       ; preds = %qemu_cond_destroy.exit
-  tail call void @__assert_fail(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 81, ptr noundef nonnull @__PRETTY_FUNCTION__.qemu_mutex_destroy) #23
+  tail call void @__assert_fail(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 81, ptr noundef nonnull @__PRETTY_FUNCTION__.qemu_mutex_destroy) #22
   unreachable
 
 if.end.i5:                                        ; preds = %qemu_cond_destroy.exit
   store i8 0, ptr %initialized.i2, align 8
-  %call.i6 = tail call i32 @pthread_mutex_destroy(ptr noundef nonnull %sem) #21
+  %call.i6 = tail call i32 @pthread_mutex_destroy(ptr noundef nonnull %sem) #20
   %tobool2.not.i = icmp eq i32 %call.i6, 0
   br i1 %tobool2.not.i, label %qemu_mutex_destroy.exit, label %if.then3.i
 
 if.then3.i:                                       ; preds = %if.end.i5
-  tail call fastcc void @error_exit(i32 noundef %call.i6, ptr noundef nonnull @__func__.qemu_mutex_destroy)
+  %3 = load ptr, ptr @stderr, align 8
+  %call.i.i7 = tail call ptr @strerror(i32 noundef %call.i6) #20
+  %call1.i.i8 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %3, ptr noundef nonnull @.str.5, ptr noundef nonnull @__func__.qemu_mutex_destroy, ptr noundef %call.i.i7) #21
+  tail call void @abort() #22
   unreachable
 
 qemu_mutex_destroy.exit:                          ; preds = %if.end.i5
@@ -915,36 +931,42 @@ define dso_local void @qemu_sem_post(ptr noundef %sem) local_unnamed_addr #1 {
 entry:
   %0 = load atomic i64, ptr @qemu_mutex_lock_func monotonic, align 8
   %1 = inttoptr i64 %0 to ptr
-  tail call void %1(ptr noundef %sem, ptr noundef nonnull @.str.1, i32 noundef 275) #21
+  tail call void %1(ptr noundef %sem, ptr noundef nonnull @.str.1, i32 noundef 275) #20
   %count = getelementptr inbounds i8, ptr %sem, i64 104
   %2 = load i32, ptr %count, align 8
   %cmp = icmp eq i32 %2, -1
   br i1 %cmp, label %if.then, label %if.else
 
 if.then:                                          ; preds = %entry
-  tail call fastcc void @error_exit(i32 noundef 22, ptr noundef nonnull @__func__.qemu_sem_post)
+  %3 = load ptr, ptr @stderr, align 8
+  %call.i = tail call ptr @strerror(i32 noundef 22) #20
+  %call1.i = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %3, ptr noundef nonnull @.str.5, ptr noundef nonnull @__func__.qemu_sem_post, ptr noundef %call.i) #21
+  tail call void @abort() #22
   unreachable
 
 if.else:                                          ; preds = %entry
   %inc = add nuw i32 %2, 1
   store i32 %inc, ptr %count, align 8
   %initialized.i = getelementptr inbounds i8, ptr %sem, i64 96
-  %3 = load i8, ptr %initialized.i, align 8
-  %tobool.i = trunc i8 %3 to i1
+  %4 = load i8, ptr %initialized.i, align 8
+  %tobool.i = trunc i8 %4 to i1
   br i1 %tobool.i, label %if.end.i, label %if.else.i
 
 if.else.i:                                        ; preds = %if.else
-  tail call void @__assert_fail(ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.1, i32 noundef 203, ptr noundef nonnull @__PRETTY_FUNCTION__.qemu_cond_signal) #23
+  tail call void @__assert_fail(ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.1, i32 noundef 203, ptr noundef nonnull @__PRETTY_FUNCTION__.qemu_cond_signal) #22
   unreachable
 
 if.end.i:                                         ; preds = %if.else
   %cond = getelementptr inbounds i8, ptr %sem, i64 48
-  %call.i = tail call i32 @pthread_cond_signal(ptr noundef nonnull %cond) #21
-  %tobool2.not.i = icmp eq i32 %call.i, 0
+  %call.i5 = tail call i32 @pthread_cond_signal(ptr noundef nonnull %cond) #20
+  %tobool2.not.i = icmp eq i32 %call.i5, 0
   br i1 %tobool2.not.i, label %if.end, label %if.then3.i
 
 if.then3.i:                                       ; preds = %if.end.i
-  tail call fastcc void @error_exit(i32 noundef %call.i, ptr noundef nonnull @__func__.qemu_cond_signal)
+  %5 = load ptr, ptr @stderr, align 8
+  %call.i.i = tail call ptr @strerror(i32 noundef %call.i5) #20
+  %call1.i.i = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %5, ptr noundef nonnull @.str.5, ptr noundef nonnull @__func__.qemu_cond_signal, ptr noundef %call.i.i) #21
+  tail call void @abort() #22
   unreachable
 
 if.end:                                           ; preds = %if.end.i
@@ -953,13 +975,13 @@ if.end:                                           ; preds = %if.end.i
 }
 
 ; Function Attrs: noreturn
-declare void @g_assertion_message_expr(ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #6
+declare void @g_assertion_message_expr(ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local range(i32 -1, 1) i32 @qemu_sem_timedwait(ptr noundef %sem, i32 noundef %ms) local_unnamed_addr #1 {
 entry:
   %ts = alloca %struct.timespec, align 8
-  %call1.i = call i32 @clock_gettime(i32 noundef 0, ptr noundef nonnull %ts) #21
+  %call1.i = call i32 @clock_gettime(i32 noundef 0, ptr noundef nonnull %ts) #20
   %rem.i = srem i32 %ms, 1000
   %mul.i = mul nsw i32 %rem.i, 1000000
   %conv.i = sext i32 %mul.i to i64
@@ -985,7 +1007,7 @@ if.then.i:                                        ; preds = %entry
 compute_abs_deadline.exit:                        ; preds = %entry, %if.then.i
   %2 = load atomic i64, ptr @qemu_mutex_lock_func monotonic, align 8
   %3 = inttoptr i64 %2 to ptr
-  call void %3(ptr noundef %sem, ptr noundef nonnull @.str.1, i32 noundef 291) #21
+  call void %3(ptr noundef %sem, ptr noundef nonnull @.str.1, i32 noundef 291) #20
   %count = getelementptr inbounds i8, ptr %sem, i64 104
   %4 = load i32, ptr %count, align 8
   %cmp15 = icmp eq i32 %4, 0
@@ -1022,7 +1044,7 @@ define dso_local void @qemu_sem_wait(ptr noundef %sem) local_unnamed_addr #1 {
 entry:
   %0 = load atomic i64, ptr @qemu_mutex_lock_func monotonic, align 8
   %1 = inttoptr i64 %0 to ptr
-  tail call void %1(ptr noundef %sem, ptr noundef nonnull @.str.1, i32 noundef 312) #21
+  tail call void %1(ptr noundef %sem, ptr noundef nonnull @.str.1, i32 noundef 312) #20
   %count = getelementptr inbounds i8, ptr %sem, i64 104
   %2 = load i32, ptr %count, align 8
   %cmp6 = icmp eq i32 %2, 0
@@ -1035,7 +1057,7 @@ while.end8.lr.ph:                                 ; preds = %entry
 while.end8:                                       ; preds = %while.end8.lr.ph, %while.end8
   %3 = load atomic i64, ptr @qemu_cond_wait_func monotonic, align 8
   %4 = inttoptr i64 %3 to ptr
-  tail call void %4(ptr noundef nonnull %cond, ptr noundef nonnull %sem, ptr noundef nonnull @.str.1, i32 noundef 314) #21
+  tail call void %4(ptr noundef nonnull %cond, ptr noundef nonnull %sem, ptr noundef nonnull @.str.1, i32 noundef 314) #20
   %5 = load i32, ptr %count, align 8
   %cmp = icmp eq i32 %5, 0
   br i1 %cmp, label %while.end8, label %while.end12, !llvm.loop !7
@@ -1049,7 +1071,7 @@ while.end12:                                      ; preds = %while.end8, %entry
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: write) uwtable
-define dso_local void @qemu_event_init(ptr nocapture noundef writeonly %ev, i1 noundef zeroext %init) local_unnamed_addr #7 {
+define dso_local void @qemu_event_init(ptr nocapture noundef writeonly %ev, i1 noundef zeroext %init) local_unnamed_addr #6 {
 entry:
   %not.init = xor i1 %init, true
   %cond = zext i1 %not.init to i32
@@ -1068,7 +1090,7 @@ entry:
   br i1 %tobool, label %if.end, label %if.else
 
 if.else:                                          ; preds = %entry
-  tail call void @__assert_fail(ptr noundef nonnull @.str.3, ptr noundef nonnull @.str.1, i32 noundef 377, ptr noundef nonnull @__PRETTY_FUNCTION__.qemu_event_destroy) #23
+  tail call void @__assert_fail(ptr noundef nonnull @.str.3, ptr noundef nonnull @.str.1, i32 noundef 377, ptr noundef nonnull @__PRETTY_FUNCTION__.qemu_event_destroy) #22
   unreachable
 
 if.end:                                           ; preds = %entry
@@ -1085,11 +1107,11 @@ entry:
   br i1 %tobool, label %if.end, label %if.else
 
 if.else:                                          ; preds = %entry
-  tail call void @__assert_fail(ptr noundef nonnull @.str.3, ptr noundef nonnull @.str.1, i32 noundef 387, ptr noundef nonnull @__PRETTY_FUNCTION__.qemu_event_set) #23
+  tail call void @__assert_fail(ptr noundef nonnull @.str.3, ptr noundef nonnull @.str.1, i32 noundef 387, ptr noundef nonnull @__PRETTY_FUNCTION__.qemu_event_set) #22
   unreachable
 
 if.end:                                           ; preds = %entry
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #21, !srcloc !8
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #20, !srcloc !8
   fence seq_cst
   %1 = load atomic i32, ptr %ev monotonic, align 4
   %cmp.not = icmp eq i32 %1, 0
@@ -1102,7 +1124,7 @@ while.end6:                                       ; preds = %if.end
   br i1 %cmp11, label %if.then12, label %if.end14
 
 if.then12:                                        ; preds = %while.end6
-  %call.i = tail call i64 (i64, ...) @syscall(i64 noundef 202, ptr noundef nonnull %ev, i32 noundef 1, i32 noundef 2147483647, ptr noundef null, ptr noundef null, i32 noundef 0) #21
+  %call.i = tail call i64 (i64, ...) @syscall(i64 noundef 202, ptr noundef nonnull %ev, i32 noundef 1, i32 noundef 2147483647, ptr noundef null, ptr noundef null, i32 noundef 0) #20
   br label %if.end14
 
 if.end14:                                         ; preds = %while.end6, %if.then12, %if.end
@@ -1118,7 +1140,7 @@ entry:
   br i1 %tobool, label %if.end, label %if.else
 
 if.else:                                          ; preds = %entry
-  tail call void @__assert_fail(ptr noundef nonnull @.str.3, ptr noundef nonnull @.str.1, i32 noundef 410, ptr noundef nonnull @__PRETTY_FUNCTION__.qemu_event_reset) #23
+  tail call void @__assert_fail(ptr noundef nonnull @.str.3, ptr noundef nonnull @.str.1, i32 noundef 410, ptr noundef nonnull @__PRETTY_FUNCTION__.qemu_event_reset) #22
   unreachable
 
 if.end:                                           ; preds = %entry
@@ -1136,7 +1158,7 @@ entry:
   br i1 %tobool, label %while.end, label %if.else
 
 if.else:                                          ; preds = %entry
-  tail call void @__assert_fail(ptr noundef nonnull @.str.3, ptr noundef nonnull @.str.1, i32 noundef 429, ptr noundef nonnull @__PRETTY_FUNCTION__.qemu_event_wait) #23
+  tail call void @__assert_fail(ptr noundef nonnull @.str.3, ptr noundef nonnull @.str.1, i32 noundef 429, ptr noundef nonnull @__PRETTY_FUNCTION__.qemu_event_wait) #22
   unreachable
 
 while.end:                                        ; preds = %entry
@@ -1158,12 +1180,12 @@ while.cond.i.preheader:                           ; preds = %while.end, %while.e
   br label %while.cond.i
 
 while.cond.i:                                     ; preds = %while.cond.i.preheader, %while.body.i
-  %call.i = tail call i64 (i64, ...) @syscall(i64 noundef 202, ptr noundef nonnull %ev, i32 noundef 0, i32 noundef -1, ptr noundef null, ptr noundef null, i32 noundef 0) #21
+  %call.i = tail call i64 (i64, ...) @syscall(i64 noundef 202, ptr noundef nonnull %ev, i32 noundef 0, i32 noundef -1, ptr noundef null, ptr noundef null, i32 noundef 0) #20
   %tobool.not.i = icmp eq i64 %call.i, 0
   br i1 %tobool.not.i, label %if.end18, label %while.body.i
 
 while.body.i:                                     ; preds = %while.cond.i
-  %call1.i = tail call ptr @__errno_location() #24
+  %call1.i = tail call ptr @__errno_location() #23
   %6 = load i32, ptr %call1.i, align 4
   switch i32 %6, label %sw.default.i [
     i32 11, label %if.end18
@@ -1171,7 +1193,7 @@ while.body.i:                                     ; preds = %while.cond.i
   ], !llvm.loop !9
 
 sw.default.i:                                     ; preds = %while.body.i
-  tail call void @abort() #23
+  tail call void @abort() #22
   unreachable
 
 if.end18:                                         ; preds = %while.body.i, %while.cond.i, %while.end, %while.end9
@@ -1182,23 +1204,23 @@ if.end18:                                         ; preds = %while.body.i, %whil
 define dso_local void @qemu_thread_atexit_add(ptr noundef %notifier) local_unnamed_addr #1 {
 entry:
   %0 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @thread_exit)
-  tail call void @notifier_list_add(ptr noundef nonnull %0, ptr noundef %notifier) #21
+  tail call void @notifier_list_add(ptr noundef nonnull %0, ptr noundef %notifier) #20
   ret void
 }
 
-declare void @notifier_list_add(ptr noundef, ptr noundef) local_unnamed_addr #5
+declare void @notifier_list_add(ptr noundef, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare nonnull ptr @llvm.threadlocal.address.p0(ptr nonnull) #8
+declare nonnull ptr @llvm.threadlocal.address.p0(ptr nonnull) #7
 
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local void @qemu_thread_atexit_remove(ptr noundef %notifier) local_unnamed_addr #1 {
 entry:
-  tail call void @notifier_remove(ptr noundef %notifier) #21
+  tail call void @notifier_remove(ptr noundef %notifier) #20
   ret void
 }
 
-declare void @notifier_remove(ptr noundef) local_unnamed_addr #5
+declare void @notifier_remove(ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local void @qemu_thread_create(ptr noundef %thread, ptr noundef %name, ptr noundef %start_routine, ptr noundef %arg, i32 noundef %mode) local_unnamed_addr #1 {
@@ -1206,12 +1228,15 @@ entry:
   %set = alloca %struct.__sigset_t, align 8
   %oldset = alloca %struct.__sigset_t, align 8
   %attr = alloca %union.pthread_attr_t, align 8
-  %call = call i32 @pthread_attr_init(ptr noundef nonnull %attr) #21
+  %call = call i32 @pthread_attr_init(ptr noundef nonnull %attr) #20
   %tobool.not = icmp eq i32 %call, 0
   br i1 %tobool.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
-  call fastcc void @error_exit(i32 noundef %call, ptr noundef nonnull @__func__.qemu_thread_create)
+  %0 = load ptr, ptr @stderr, align 8
+  %call.i = call ptr @strerror(i32 noundef %call) #20
+  %call1.i = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.5, ptr noundef nonnull @__func__.qemu_thread_create, ptr noundef %call.i) #21
+  call void @abort() #22
   unreachable
 
 if.end:                                           ; preds = %entry
@@ -1219,33 +1244,36 @@ if.end:                                           ; preds = %entry
   br i1 %cmp, label %if.then1, label %if.end3
 
 if.then1:                                         ; preds = %if.end
-  %call2 = call i32 @pthread_attr_setdetachstate(ptr noundef nonnull %attr, i32 noundef 1) #21
+  %call2 = call i32 @pthread_attr_setdetachstate(ptr noundef nonnull %attr, i32 noundef 1) #20
   br label %if.end3
 
 if.end3:                                          ; preds = %if.then1, %if.end
-  %call4 = call i32 @sigfillset(ptr noundef nonnull %set) #21
-  %call5 = call i32 @sigdelset(ptr noundef nonnull %set, i32 noundef 11) #21
-  %call6 = call i32 @sigdelset(ptr noundef nonnull %set, i32 noundef 8) #21
-  %call7 = call i32 @sigdelset(ptr noundef nonnull %set, i32 noundef 4) #21
-  %call8 = call i32 @pthread_sigmask(i32 noundef 2, ptr noundef nonnull %set, ptr noundef nonnull %oldset) #21
-  %call9 = call noalias dereferenceable_or_null(24) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 24) #25
-  %call10 = call noalias ptr @g_strdup(ptr noundef %name) #21
+  %call4 = call i32 @sigfillset(ptr noundef nonnull %set) #20
+  %call5 = call i32 @sigdelset(ptr noundef nonnull %set, i32 noundef 11) #20
+  %call6 = call i32 @sigdelset(ptr noundef nonnull %set, i32 noundef 8) #20
+  %call7 = call i32 @sigdelset(ptr noundef nonnull %set, i32 noundef 4) #20
+  %call8 = call i32 @pthread_sigmask(i32 noundef 2, ptr noundef nonnull %set, ptr noundef nonnull %oldset) #20
+  %call9 = call noalias dereferenceable_or_null(24) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 24) #24
+  %call10 = call noalias ptr @g_strdup(ptr noundef %name) #20
   %name11 = getelementptr inbounds i8, ptr %call9, i64 16
   store ptr %call10, ptr %name11, align 8
   store ptr %start_routine, ptr %call9, align 8
   %arg13 = getelementptr inbounds i8, ptr %call9, i64 8
   store ptr %arg, ptr %arg13, align 8
-  %call15 = call i32 @pthread_create(ptr noundef %thread, ptr noundef nonnull %attr, ptr noundef nonnull @qemu_thread_start, ptr noundef nonnull %call9) #21
+  %call15 = call i32 @pthread_create(ptr noundef %thread, ptr noundef nonnull %attr, ptr noundef nonnull @qemu_thread_start, ptr noundef nonnull %call9) #20
   %tobool16.not = icmp eq i32 %call15, 0
   br i1 %tobool16.not, label %if.end18, label %if.then17
 
 if.then17:                                        ; preds = %if.end3
-  call fastcc void @error_exit(i32 noundef %call15, ptr noundef nonnull @__func__.qemu_thread_create)
+  %1 = load ptr, ptr @stderr, align 8
+  %call.i7 = call ptr @strerror(i32 noundef %call15) #20
+  %call1.i8 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1, ptr noundef nonnull @.str.5, ptr noundef nonnull @__func__.qemu_thread_create, ptr noundef %call.i7) #21
+  call void @abort() #22
   unreachable
 
 if.end18:                                         ; preds = %if.end3
-  %call19 = call i32 @pthread_sigmask(i32 noundef 2, ptr noundef nonnull %oldset, ptr noundef null) #21
-  %call20 = call i32 @pthread_attr_destroy(ptr noundef nonnull %attr) #21
+  %call19 = call i32 @pthread_sigmask(i32 noundef 2, ptr noundef nonnull %oldset, ptr noundef null) #20
+  %call20 = call i32 @pthread_attr_destroy(ptr noundef nonnull %attr) #20
   ret void
 }
 
@@ -1265,9 +1293,9 @@ declare i32 @sigdelset(ptr noundef, i32 noundef) local_unnamed_addr #2
 declare i32 @pthread_sigmask(i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: allocsize(0,1)
-declare noalias ptr @g_malloc0_n(i64 noundef, i64 noundef) local_unnamed_addr #9
+declare noalias ptr @g_malloc0_n(i64 noundef, i64 noundef) local_unnamed_addr #8
 
-declare noalias ptr @g_strdup(ptr noundef) local_unnamed_addr #5
+declare noalias ptr @g_strdup(ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind
 declare i32 @pthread_create(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
@@ -1290,30 +1318,30 @@ land.lhs.true:                                    ; preds = %entry
   br i1 %tobool3.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %land.lhs.true
-  %call = call i64 @pthread_self() #24
-  %call5 = call i32 @pthread_setname_np(i64 noundef %call, ptr noundef nonnull %3) #21
+  %call = call i64 @pthread_self() #23
+  %call5 = call i32 @pthread_setname_np(i64 noundef %call, ptr noundef nonnull %3) #20
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %land.lhs.true, %entry
   %name6 = getelementptr inbounds i8, ptr %args, i64 16
   %4 = load ptr, ptr %name6, align 8
-  call void @g_free(ptr noundef %4) #21
-  call void @g_free(ptr noundef nonnull %args) #21
-  %call7 = call i32 @__sigsetjmp(ptr noundef nonnull %__cancel_buf, i32 noundef 0) #26
+  call void @g_free(ptr noundef %4) #20
+  call void @g_free(ptr noundef nonnull %args) #20
+  %call7 = call i32 @__sigsetjmp(ptr noundef nonnull %__cancel_buf, i32 noundef 0) #25
   %tobool8.not = icmp eq i32 %call7, 0
   br i1 %tobool8.not, label %if.end10, label %if.then9
 
 if.then9:                                         ; preds = %if.end
   call fastcc void @qemu_thread_atexit_notify()
-  call void @__pthread_unwind_next(ptr noundef nonnull %__cancel_buf) #23
+  call void @__pthread_unwind_next(ptr noundef nonnull %__cancel_buf) #22
   unreachable
 
 if.end10:                                         ; preds = %if.end
-  call void @__pthread_register_cancel(ptr noundef nonnull %__cancel_buf) #21
-  %call12 = call ptr %0(ptr noundef %1) #21
-  call void @__pthread_unregister_cancel(ptr noundef nonnull %__cancel_buf) #21
+  call void @__pthread_register_cancel(ptr noundef nonnull %__cancel_buf) #20
+  %call12 = call ptr %0(ptr noundef %1) #20
+  call void @__pthread_unregister_cancel(ptr noundef nonnull %__cancel_buf) #20
   %5 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @thread_exit)
-  call void @notifier_list_notify(ptr noundef nonnull %5, ptr noundef null) #21
+  call void @notifier_list_notify(ptr noundef nonnull %5, ptr noundef null) #20
   ret ptr %call12
 }
 
@@ -1326,12 +1354,12 @@ entry:
   %sub = add i64 %nbits, 63
   %0 = lshr i64 %sub, 3
   %mul = and i64 %0, 2305843009213693944
-  %call = tail call ptr @__sched_cpualloc(i64 noundef %nbits) #21
+  %call = tail call ptr @__sched_cpualloc(i64 noundef %nbits) #20
   %tobool.not = icmp eq ptr %call, null
   br i1 %tobool.not, label %if.else, label %do.body1
 
 if.else:                                          ; preds = %entry
-  tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str.1, i32 noundef 602, ptr noundef nonnull @__func__.qemu_thread_set_affinity, ptr noundef nonnull @.str.4) #23
+  tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str.1, i32 noundef 602, ptr noundef nonnull @__func__.qemu_thread_set_affinity, ptr noundef nonnull @.str.4) #22
   unreachable
 
 do.body1:                                         ; preds = %entry
@@ -1381,14 +1409,14 @@ cond.true:                                        ; preds = %while.body
 
 cond.end:                                         ; preds = %while.body, %cond.true
   %add7 = add nuw i64 %value.022, 1
-  %call8 = tail call i64 @find_next_bit(ptr noundef %host_cpus, i64 noundef %nbits, i64 noundef %add7) #21
+  %call8 = tail call i64 @find_next_bit(ptr noundef %host_cpus, i64 noundef %nbits, i64 noundef %add7) #20
   %cmp = icmp ult i64 %call8, %nbits
   br i1 %cmp, label %while.body, label %while.end, !llvm.loop !11
 
 while.end:                                        ; preds = %for.inc.i, %cond.end, %find_first_bit.exit
   %4 = load i64, ptr %thread, align 8
-  %call10 = tail call i32 @pthread_setaffinity_np(i64 noundef %4, i64 noundef %mul, ptr noundef nonnull %call) #21
-  tail call void @__sched_cpufree(ptr noundef nonnull %call) #21
+  %call10 = tail call i32 @pthread_setaffinity_np(i64 noundef %4, i64 noundef %mul, ptr noundef nonnull %call) #20
+  tail call void @__sched_cpufree(ptr noundef nonnull %call) #20
   ret i32 %call10
 }
 
@@ -1396,9 +1424,9 @@ while.end:                                        ; preds = %for.inc.i, %cond.en
 declare ptr @__sched_cpualloc(i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #10
+declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #9
 
-declare i64 @find_next_bit(ptr noundef, i64 noundef, i64 noundef) local_unnamed_addr #5
+declare i64 @find_next_bit(ptr noundef, i64 noundef, i64 noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind
 declare i32 @pthread_setaffinity_np(i64 noundef, i64 noundef, ptr noundef) local_unnamed_addr #2
@@ -1409,12 +1437,12 @@ declare void @__sched_cpufree(ptr noundef) local_unnamed_addr #2
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local i32 @qemu_thread_get_affinity(ptr nocapture noundef readonly %thread, ptr nocapture noundef %host_cpus, ptr nocapture noundef writeonly %nbits) local_unnamed_addr #1 {
 entry:
-  %call29 = tail call ptr @__sched_cpualloc(i64 noundef 1024) #21
+  %call29 = tail call ptr @__sched_cpualloc(i64 noundef 1024) #20
   %tobool.not30 = icmp eq ptr %call29, null
   br i1 %tobool.not30, label %if.else, label %do.end
 
 if.else:                                          ; preds = %if.end6, %entry
-  tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str.1, i32 noundef 632, ptr noundef nonnull @__func__.qemu_thread_get_affinity, ptr noundef nonnull @.str.4) #23
+  tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str.1, i32 noundef 632, ptr noundef nonnull @__func__.qemu_thread_get_affinity, ptr noundef nonnull @.str.4) #22
   unreachable
 
 do.end:                                           ; preds = %entry, %if.end6
@@ -1422,29 +1450,29 @@ do.end:                                           ; preds = %entry, %if.end6
   %tmpbits.031 = phi i64 [ %mul7, %if.end6 ], [ 1024, %entry ]
   %sub = lshr exact i64 %tmpbits.031, 3
   %0 = load i64, ptr %thread, align 8
-  %call2 = tail call i32 @pthread_getaffinity_np(i64 noundef %0, i64 noundef %sub, ptr noundef nonnull %call32) #21
+  %call2 = tail call i32 @pthread_getaffinity_np(i64 noundef %0, i64 noundef %sub, ptr noundef nonnull %call32) #20
   %tobool3.not = icmp eq i32 %call2, 0
   br i1 %tobool3.not, label %while.end, label %if.then4
 
 if.then4:                                         ; preds = %do.end
-  tail call void @__sched_cpufree(ptr noundef nonnull %call32) #21
+  tail call void @__sched_cpufree(ptr noundef nonnull %call32) #20
   %cmp.not = icmp eq i32 %call2, -22
   br i1 %cmp.not, label %if.end6, label %return
 
 if.end6:                                          ; preds = %if.then4
   %mul7 = shl i64 %tmpbits.031, 1
-  %call = tail call ptr @__sched_cpualloc(i64 noundef %mul7) #21
+  %call = tail call ptr @__sched_cpualloc(i64 noundef %mul7) #20
   %tobool.not = icmp eq ptr %call, null
   br i1 %tobool.not, label %if.else, label %do.end
 
 while.end:                                        ; preds = %do.end
   store i64 %tmpbits.031, ptr %nbits, align 8
-  %call.i.i = tail call noalias ptr @g_try_malloc0(i64 noundef %sub) #27
+  %call.i.i = tail call noalias ptr @g_try_malloc0(i64 noundef %sub) #26
   %cmp.i = icmp eq ptr %call.i.i, null
   br i1 %cmp.i, label %if.then.i, label %bitmap_new.exit
 
 if.then.i:                                        ; preds = %while.end
-  tail call void @abort() #23
+  tail call void @abort() #22
   unreachable
 
 bitmap_new.exit:                                  ; preds = %while.end
@@ -1483,7 +1511,7 @@ for.inc:                                          ; preds = %for.body, %cond.end
   br i1 %cmp11, label %for.body, label %for.end, !llvm.loop !12
 
 for.end:                                          ; preds = %for.inc, %bitmap_new.exit
-  tail call void @__sched_cpufree(ptr noundef nonnull %call32) #21
+  tail call void @__sched_cpufree(ptr noundef nonnull %call32) #20
   br label %return
 
 return:                                           ; preds = %if.then4, %for.end
@@ -1495,154 +1523,156 @@ return:                                           ; preds = %if.then4, %for.end
 declare i32 @pthread_getaffinity_np(i64 noundef, i64 noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree nosync nounwind sspstrong willreturn memory(argmem: write) uwtable
-define dso_local void @qemu_thread_get_self(ptr nocapture noundef writeonly %thread) local_unnamed_addr #11 {
+define dso_local void @qemu_thread_get_self(ptr nocapture noundef writeonly %thread) local_unnamed_addr #10 {
 entry:
-  %call = tail call i64 @pthread_self() #24
+  %call = tail call i64 @pthread_self() #23
   store i64 %call, ptr %thread, align 8
   ret void
 }
 
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(none)
-declare i64 @pthread_self() local_unnamed_addr #12
+declare i64 @pthread_self() local_unnamed_addr #11
 
 ; Function Attrs: mustprogress nofree nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
-define dso_local zeroext i1 @qemu_thread_is_self(ptr nocapture noundef readonly %thread) local_unnamed_addr #13 {
+define dso_local zeroext i1 @qemu_thread_is_self(ptr nocapture noundef readonly %thread) local_unnamed_addr #12 {
 entry:
-  %call = tail call i64 @pthread_self() #24
+  %call = tail call i64 @pthread_self() #23
   %0 = load i64, ptr %thread, align 8
-  %call2 = tail call i32 @pthread_equal(i64 noundef %call, i64 noundef %0) #24
+  %call2 = tail call i32 @pthread_equal(i64 noundef %call, i64 noundef %0) #23
   %tobool = icmp ne i32 %call2, 0
   ret i1 %tobool
 }
 
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(none)
-declare i32 @pthread_equal(i64 noundef, i64 noundef) local_unnamed_addr #12
+declare i32 @pthread_equal(i64 noundef, i64 noundef) local_unnamed_addr #11
 
 ; Function Attrs: noreturn nounwind sspstrong uwtable
-define dso_local void @qemu_thread_exit(ptr noundef %retval) local_unnamed_addr #14 {
+define dso_local void @qemu_thread_exit(ptr noundef %retval) local_unnamed_addr #13 {
 entry:
-  tail call void @pthread_exit(ptr noundef %retval) #23
+  tail call void @pthread_exit(ptr noundef %retval) #22
   unreachable
 }
 
 ; Function Attrs: noreturn
-declare void @pthread_exit(ptr noundef) local_unnamed_addr #6
+declare void @pthread_exit(ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local ptr @qemu_thread_join(ptr nocapture noundef readonly %thread) local_unnamed_addr #1 {
 entry:
   %ret = alloca ptr, align 8
   %0 = load i64, ptr %thread, align 8
-  %call = call i32 @pthread_join(i64 noundef %0, ptr noundef nonnull %ret) #21
+  %call = call i32 @pthread_join(i64 noundef %0, ptr noundef nonnull %ret) #20
   %tobool.not = icmp eq i32 %call, 0
   br i1 %tobool.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
-  call fastcc void @error_exit(i32 noundef %call, ptr noundef nonnull @__func__.qemu_thread_join)
+  %1 = load ptr, ptr @stderr, align 8
+  %call.i = call ptr @strerror(i32 noundef %call) #20
+  %call1.i = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1, ptr noundef nonnull @.str.5, ptr noundef nonnull @__func__.qemu_thread_join, ptr noundef %call.i) #21
+  call void @abort() #22
   unreachable
 
 if.end:                                           ; preds = %entry
-  %1 = load ptr, ptr %ret, align 8
-  ret ptr %1
+  %2 = load ptr, ptr %ret, align 8
+  ret ptr %2
 }
 
-declare i32 @pthread_join(i64 noundef, ptr noundef) local_unnamed_addr #5
+declare i32 @pthread_join(i64 noundef, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fprintf(ptr nocapture noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #15
+declare noundef i32 @fprintf(ptr nocapture noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #14
 
 ; Function Attrs: nounwind
 declare ptr @strerror(i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: cold nofree noreturn nounwind
-declare void @abort() local_unnamed_addr #16
+declare void @abort() local_unnamed_addr #15
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @gettimeofday(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #15
+declare noundef i32 @gettimeofday(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #14
 
-declare void @qemu_log(ptr noundef, ...) local_unnamed_addr #5
+declare void @qemu_log(ptr noundef, ...) local_unnamed_addr #4
 
-declare i32 @qemu_get_thread_id() local_unnamed_addr #5
+declare i32 @qemu_get_thread_id() local_unnamed_addr #4
 
 ; Function Attrs: nounwind
 declare i32 @clock_gettime(i32 noundef, ptr noundef) local_unnamed_addr #2
 
-declare i32 @pthread_cond_timedwait(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #5
+declare i32 @pthread_cond_timedwait(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind
 declare i64 @syscall(i64 noundef, ...) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(none)
-declare ptr @__errno_location() local_unnamed_addr #12
+declare ptr @__errno_location() local_unnamed_addr #11
 
 ; Function Attrs: nounwind
 declare i32 @pthread_setname_np(i64 noundef, ptr noundef) local_unnamed_addr #2
 
-declare void @g_free(ptr noundef) local_unnamed_addr #5
+declare void @g_free(ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind sspstrong uwtable
 define internal fastcc void @qemu_thread_atexit_notify() unnamed_addr #1 {
 entry:
   %0 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @thread_exit)
-  tail call void @notifier_list_notify(ptr noundef nonnull %0, ptr noundef null) #21
+  tail call void @notifier_list_notify(ptr noundef nonnull %0, ptr noundef null) #20
   ret void
 }
 
 ; Function Attrs: nounwind returns_twice
-declare i32 @__sigsetjmp(ptr noundef, i32 noundef) local_unnamed_addr #17
+declare i32 @__sigsetjmp(ptr noundef, i32 noundef) local_unnamed_addr #16
 
 ; Function Attrs: noreturn
-declare extern_weak void @__pthread_unwind_next(ptr noundef) local_unnamed_addr #6
+declare extern_weak void @__pthread_unwind_next(ptr noundef) local_unnamed_addr #5
 
-declare void @__pthread_register_cancel(ptr noundef) local_unnamed_addr #5
+declare void @__pthread_register_cancel(ptr noundef) local_unnamed_addr #4
 
-declare void @__pthread_unregister_cancel(ptr noundef) local_unnamed_addr #5
+declare void @__pthread_unregister_cancel(ptr noundef) local_unnamed_addr #4
 
-declare void @notifier_list_notify(ptr noundef, ptr noundef) local_unnamed_addr #5
+declare void @notifier_list_notify(ptr noundef, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.cttz.i64(i64, i1 immarg) #8
+declare i64 @llvm.cttz.i64(i64, i1 immarg) #7
 
 ; Function Attrs: allocsize(0)
-declare noalias ptr @g_try_malloc0(i64 noundef) local_unnamed_addr #18
+declare noalias ptr @g_try_malloc0(i64 noundef) local_unnamed_addr #17
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.umin.i64(i64, i64) #19
+declare i64 @llvm.umin.i64(i64, i64) #18
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #20
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #19
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #20
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #19
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(write, argmem: none, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind sspstrong uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { cold noreturn nounwind sspstrong uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { noreturn nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { noreturn "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: write) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #8 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #9 = { allocsize(0,1) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #10 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #11 = { mustprogress nofree nosync nounwind sspstrong willreturn memory(argmem: write) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #12 = { mustprogress nofree nosync nounwind willreturn memory(none) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #13 = { mustprogress nofree nosync nounwind sspstrong willreturn memory(argmem: read) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #14 = { noreturn nounwind sspstrong uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #15 = { nofree nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #16 = { cold nofree noreturn nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #17 = { nounwind returns_twice "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #18 = { allocsize(0) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #19 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #20 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #21 = { nounwind }
-attributes #22 = { cold }
-attributes #23 = { noreturn nounwind }
-attributes #24 = { nounwind willreturn memory(none) }
-attributes #25 = { nounwind allocsize(0,1) }
-attributes #26 = { nounwind returns_twice }
-attributes #27 = { nounwind allocsize(0) }
+attributes #3 = { noreturn nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { noreturn "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: write) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #8 = { allocsize(0,1) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #9 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #10 = { mustprogress nofree nosync nounwind sspstrong willreturn memory(argmem: write) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #11 = { mustprogress nofree nosync nounwind willreturn memory(none) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #12 = { mustprogress nofree nosync nounwind sspstrong willreturn memory(argmem: read) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #13 = { noreturn nounwind sspstrong uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #14 = { nofree nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #15 = { cold nofree noreturn nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #16 = { nounwind returns_twice "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #17 = { allocsize(0) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #18 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #19 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #20 = { nounwind }
+attributes #21 = { cold }
+attributes #22 = { noreturn nounwind }
+attributes #23 = { nounwind willreturn memory(none) }
+attributes #24 = { nounwind allocsize(0,1) }
+attributes #25 = { nounwind returns_twice }
+attributes #26 = { nounwind allocsize(0) }
 
 !llvm.module.flags = !{!0, !1, !2, !3, !4}
 

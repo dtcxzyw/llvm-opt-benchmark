@@ -9,7 +9,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @anon.34af1673c5b8e709e49cbbae0cb27e1a.4 = private unnamed_addr constant <{ [25 x i8] }> <{ [25 x i8] c"crates/matcher/src/lib.rs" }>, align 1
 @anon.34af1673c5b8e709e49cbbae0cb27e1a.5 = private unnamed_addr constant <{ ptr, [16 x i8] }> <{ ptr @anon.34af1673c5b8e709e49cbbae0cb27e1a.4, [16 x i8] c"\19\00\00\00\00\00\00\00\F8\01\00\00\09\00\00\00" }>, align 8
 
-; Function Attrs: cold noreturn nonlazybind uwtable
+; Function Attrs: noreturn nonlazybind uwtable
 define noalias noundef nonnull ptr @"_ZN12grep_matcher100_$LT$impl$u20$core..convert..From$LT$grep_matcher..NoError$GT$$u20$for$u20$std..io..error..Error$GT$4from17h70aa8186255e76e0E"() unnamed_addr #0 {
   %1 = alloca { { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }, align 8
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %1)
@@ -22,19 +22,20 @@ define noalias noundef nonnull ptr @"_ZN12grep_matcher100_$LT$impl$u20$core..con
   store ptr @anon.34af1673c5b8e709e49cbbae0cb27e1a.2, ptr %4, align 8
   %5 = getelementptr inbounds i8, ptr %1, i64 24
   store i64 0, ptr %5, align 8
-  call void @_ZN4core9panicking9panic_fmt17hc69c4d258fe11477E(ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.34af1673c5b8e709e49cbbae0cb27e1a.5) #2
+  call void @_ZN4core9panicking9panic_fmt17hc69c4d258fe11477E(ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.34af1673c5b8e709e49cbbae0cb27e1a.5) #3
   unreachable
 }
 
 ; Function Attrs: cold noreturn nonlazybind uwtable
-declare void @_ZN4core9panicking9panic_fmt17hc69c4d258fe11477E(ptr noalias nocapture noundef align 8 dereferenceable(48), ptr noalias noundef readonly align 8 dereferenceable(24)) unnamed_addr #0
+declare void @_ZN4core9panicking9panic_fmt17hc69c4d258fe11477E(ptr noalias nocapture noundef align 8 dereferenceable(48), ptr noalias noundef readonly align 8 dereferenceable(24)) unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #1
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #2
 
-attributes #0 = { cold noreturn nonlazybind uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
-attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #2 = { noreturn }
+attributes #0 = { noreturn nonlazybind uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
+attributes #1 = { cold noreturn nonlazybind uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
+attributes #2 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #3 = { noreturn }
 
 !llvm.module.flags = !{!0, !1, !2}
 !llvm.ident = !{!3}

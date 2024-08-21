@@ -1287,7 +1287,7 @@ if.then.i:                                        ; preds = %land.lhs.true.i
   %16 = load i64, ptr %15, align 8
   %17 = load atomic i64, ptr @deferred_arg monotonic, align 8
   %18 = inttoptr i64 %17 to ptr
-  tail call void %14(i1 noundef zeroext false, i64 noundef %16, ptr noundef %18) #45
+  tail call void %14(i1 noundef zeroext false, i64 noundef %16, ptr noundef %18) #44
   %19 = load ptr, ptr %heap.addr.0, align 8
   %recurse8.i = getelementptr inbounds i8, ptr %19, i64 8
   store i8 0, ptr %recurse8.i, align 8
@@ -2608,7 +2608,7 @@ if.end:                                           ; preds = %entry
   %sub.i.i = add i64 %0, -1
   %and.i.i = and i64 %sub.i.i, -33554432
   %1 = inttoptr i64 %and.i.i to ptr
-  %2 = tail call ptr asm "movq %fs:$1, $0", "=r,*m,~{dirflag},~{fpsr},~{flags}"(ptr elementtype(ptr) null) #52, !srcloc !16
+  %2 = tail call ptr asm "movq %fs:$1, $0", "=r,*m,~{dirflag},~{fpsr},~{flags}"(ptr elementtype(ptr) null) #50, !srcloc !16
   %3 = ptrtoint ptr %2 to i64
   %thread_id = getelementptr inbounds i8, ptr %1, i64 256
   %4 = load atomic i64, ptr %thread_id monotonic, align 256
@@ -4021,7 +4021,7 @@ entry:
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %call = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %s) #53
+  %call = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %s) #51
   %add = add i64 %call, 1
   %cmp.i.i.i = icmp ult i64 %add, 1025
   br i1 %cmp.i.i.i, label %if.then.i.i.i, label %if.else.i.i.i
@@ -4084,7 +4084,7 @@ entry:
   br i1 %cmp.i, label %mi_heap_strdup.exit, label %if.end.i
 
 if.end.i:                                         ; preds = %entry
-  %call.i = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %s) #53
+  %call.i = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %s) #51
   %add.i = add i64 %call.i, 1
   %cmp.i.i.i.i = icmp ult i64 %add.i, 1025
   br i1 %cmp.i.i.i.i, label %if.then.i.i.i.i, label %if.else.i.i.i.i
@@ -4142,7 +4142,7 @@ entry:
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %call = tail call ptr @memchr(ptr noundef nonnull %s, i32 noundef 0, i64 noundef %n) #53
+  %call = tail call ptr @memchr(ptr noundef nonnull %s, i32 noundef 0, i64 noundef %n) #51
   %cmp1.not = icmp eq ptr %call, null
   %sub.ptr.lhs.cast = ptrtoint ptr %call to i64
   %sub.ptr.rhs.cast = ptrtoint ptr %s to i64
@@ -4210,7 +4210,7 @@ entry:
   br i1 %cmp.i, label %mi_heap_strndup.exit, label %if.end.i
 
 if.end.i:                                         ; preds = %entry
-  %call.i = tail call ptr @memchr(ptr noundef nonnull %s, i32 noundef 0, i64 noundef %n) #53
+  %call.i = tail call ptr @memchr(ptr noundef nonnull %s, i32 noundef 0, i64 noundef %n) #51
   %cmp1.not.i = icmp eq ptr %call.i, null
   %sub.ptr.lhs.cast.i = ptrtoint ptr %call.i to i64
   %sub.ptr.rhs.cast.i = ptrtoint ptr %s to i64
@@ -4273,16 +4273,16 @@ entry:
   br i1 %cmp.not, label %if.else, label %if.then
 
 if.then:                                          ; preds = %entry
-  %call = tail call ptr @realpath(ptr noundef %fname, ptr noundef nonnull %resolved_name) #45
+  %call = tail call ptr @realpath(ptr noundef %fname, ptr noundef nonnull %resolved_name) #44
   br label %return
 
 if.else:                                          ; preds = %entry
-  %call1 = tail call ptr @realpath(ptr noundef %fname, ptr noundef null) #45
+  %call1 = tail call ptr @realpath(ptr noundef %fname, ptr noundef null) #44
   %cmp2 = icmp eq ptr %call1, null
   br i1 %cmp2, label %return, label %if.end.i
 
 if.end.i:                                         ; preds = %if.else
-  %call.i = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %call1) #53
+  %call.i = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %call1) #51
   %add.i = add i64 %call.i, 1
   %cmp.i.i.i.i = icmp ult i64 %add.i, 1025
   br i1 %cmp.i.i.i.i, label %if.then.i.i.i.i, label %if.else.i.i.i.i
@@ -4330,7 +4330,7 @@ if.end4.i:                                        ; preds = %mi_heap_malloc.exit
 
 mi_heap_strdup.exit:                              ; preds = %mi_heap_malloc.exit.i, %if.end4.i
   %retval.0.i = phi ptr [ %retval.0.i.i.i10.i, %if.end4.i ], [ null, %mi_heap_malloc.exit.i ]
-  tail call void @free(ptr noundef nonnull %call1) #45
+  tail call void @free(ptr noundef nonnull %call1) #44
   br label %return
 
 return:                                           ; preds = %if.else, %mi_heap_strdup.exit, %if.then
@@ -4381,7 +4381,7 @@ land.rhs.us:                                      ; preds = %mi_heap_malloc.exit
 
 while.body.us:                                    ; preds = %entry.split.us, %land.rhs.us
   %call.i.i.us11 = phi ptr [ %call.i.i.us, %land.rhs.us ], [ %call.i.i.us9, %entry.split.us ]
-  tail call void %call.i.i.us11() #45
+  tail call void %call.i.i.us11() #44
   %0 = load ptr, ptr %arrayidx.i.i.i.i.i, align 8
   %free.i.i.i.i.i.us = getelementptr inbounds i8, ptr %0, i64 16
   %1 = load ptr, ptr %free.i.i.i.i.i.us, align 8
@@ -4417,12 +4417,12 @@ if.then.i:                                        ; preds = %land.rhs, %land.rhs
   br i1 %nothrow, label %while.end, label %if.then1.i
 
 if.then1.i:                                       ; preds = %if.then.i
-  tail call void @abort() #54
+  tail call void @abort() #52
   unreachable
 
 while.body:                                       ; preds = %entry.split, %land.rhs
   %call.i.i8 = phi ptr [ %call.i.i, %land.rhs ], [ %call.i.i.us9, %entry.split ]
-  tail call void %call.i.i8() #45
+  tail call void %call.i.i8() #44
   %call4.i.i.i = tail call noalias ptr @_mi_malloc_generic(ptr noundef %heap, i64 noundef %size, i1 noundef zeroext false, i64 noundef 0)
   %cmp = icmp eq ptr %call4.i.i.i, null
   br i1 %cmp, label %land.rhs, label %while.end, !llvm.loop !18
@@ -4551,11 +4551,11 @@ if.then:                                          ; preds = %mi_count_size_overf
 
 if.then.i:                                        ; preds = %if.then
   tail call void (i32, ptr, ...) @_mi_error_message(i32 noundef 12, ptr noundef nonnull @.str.45)
-  tail call void @abort() #54
+  tail call void @abort() #52
   unreachable
 
 mi_try_new_handler.exit:                          ; preds = %if.then
-  tail call void %call.i.i() #45
+  tail call void %call.i.i() #44
   br label %return
 
 if.else:                                          ; preds = %entry, %mi_count_size_overflow.exit
@@ -4708,7 +4708,7 @@ land.rhs.us.us:                                   ; preds = %if.then.i.i.i.i.i.u
   br i1 %cmp.i.not.us.us, label %if.then.i, label %mi_try_new_handler.exit.us.us
 
 mi_try_new_handler.exit.us.us:                    ; preds = %land.rhs.us.us
-  tail call void %call.i.i.us.us() #45
+  tail call void %call.i.i.us.us() #44
   %7 = load ptr, ptr %0, align 8
   %pages_free_direct.i.i.i.i.i.us.us = getelementptr inbounds i8, ptr %7, i64 8
   %arrayidx.i.i.i.i.i.us.us = getelementptr [129 x ptr], ptr %pages_free_direct.i.i.i.i.i.us.us, i64 0, i64 %div1.i.i.i.i.i.i
@@ -4729,7 +4729,7 @@ land.rhs.us:                                      ; preds = %entry.split.us.spli
   br i1 %cmp.i.not.us, label %if.then.i, label %mi_try_new_handler.exit.us
 
 mi_try_new_handler.exit.us:                       ; preds = %land.rhs.us
-  tail call void %call.i.i.us() #45
+  tail call void %call.i.i.us() #44
   %10 = load ptr, ptr %0, align 8
   %call.i.i.i.us = tail call fastcc noalias ptr @mi_heap_malloc_zero_aligned_at(ptr noundef %10, i64 noundef %size, i64 noundef %alignment, i64 noundef 0, i1 noundef zeroext false)
   %cmp.us = icmp eq ptr %call.i.i.i.us, null
@@ -4755,12 +4755,12 @@ mi_malloc_aligned.exit.thread6:                   ; preds = %mi_try_new_handler.
 
 if.then.i:                                        ; preds = %mi_try_new_handler.exit, %land.rhs.us, %land.rhs.us.us, %entry.split
   tail call void (i32, ptr, ...) @_mi_error_message(i32 noundef 12, ptr noundef nonnull @.str.45)
-  tail call void @abort() #54
+  tail call void @abort() #52
   unreachable
 
 mi_try_new_handler.exit:                          ; preds = %entry.split, %mi_try_new_handler.exit
   %call.i.i16 = phi ptr [ %call.i.i, %mi_try_new_handler.exit ], [ %call.i.i14, %entry.split ]
-  tail call void %call.i.i16() #45
+  tail call void %call.i.i16() #44
   %call.i.i = tail call ptr @_Py__ZSt15get_new_handlerv()
   %cmp.i.not = icmp eq ptr %call.i.i, null
   br i1 %cmp.i.not, label %if.then.i, label %mi_try_new_handler.exit, !llvm.loop !19
@@ -4863,7 +4863,7 @@ land.rhs.us.us:                                   ; preds = %if.then.i.i.i.i.i.u
   br i1 %cmp.i.not.us.us, label %mi_try_new_handler.exit.thread, label %mi_try_new_handler.exit.us.us
 
 mi_try_new_handler.exit.us.us:                    ; preds = %land.rhs.us.us
-  tail call void %call.i.i.us.us() #45
+  tail call void %call.i.i.us.us() #44
   %7 = load ptr, ptr %0, align 8
   %pages_free_direct.i.i.i.i.i.us.us = getelementptr inbounds i8, ptr %7, i64 8
   %arrayidx.i.i.i.i.i.us.us = getelementptr [129 x ptr], ptr %pages_free_direct.i.i.i.i.i.us.us, i64 0, i64 %div1.i.i.i.i.i.i
@@ -4884,7 +4884,7 @@ land.rhs.us:                                      ; preds = %entry.split.us.spli
   br i1 %cmp.i.not.us, label %mi_try_new_handler.exit.thread, label %mi_try_new_handler.exit.us
 
 mi_try_new_handler.exit.us:                       ; preds = %land.rhs.us
-  tail call void %call.i.i.us() #45
+  tail call void %call.i.i.us() #44
   %10 = load ptr, ptr %0, align 8
   %call.i.i.i.us = tail call fastcc noalias ptr @mi_heap_malloc_zero_aligned_at(ptr noundef %10, i64 noundef %size, i64 noundef %alignment, i64 noundef 0, i1 noundef zeroext false)
   %cmp.us = icmp eq ptr %call.i.i.i.us, null
@@ -4914,7 +4914,7 @@ mi_try_new_handler.exit.thread:                   ; preds = %mi_try_new_handler.
 
 mi_try_new_handler.exit:                          ; preds = %entry.split, %mi_try_new_handler.exit
   %call.i.i16 = phi ptr [ %call.i.i, %mi_try_new_handler.exit ], [ %call.i.i14, %entry.split ]
-  tail call void %call.i.i16() #45
+  tail call void %call.i.i16() #44
   %call.i.i = tail call ptr @_Py__ZSt15get_new_handlerv()
   %cmp.i.not = icmp eq ptr %call.i.i, null
   br i1 %cmp.i.not, label %mi_try_new_handler.exit.thread, label %mi_try_new_handler.exit, !llvm.loop !20
@@ -4940,11 +4940,11 @@ land.rhs:                                         ; preds = %entry, %mi_try_new_
 
 if.then.i:                                        ; preds = %land.rhs
   tail call void (i32, ptr, ...) @_mi_error_message(i32 noundef 12, ptr noundef nonnull @.str.45)
-  tail call void @abort() #54
+  tail call void @abort() #52
   unreachable
 
 mi_try_new_handler.exit:                          ; preds = %land.rhs
-  tail call void %call.i.i2() #45
+  tail call void %call.i.i2() #44
   %2 = load ptr, ptr %0, align 8
   %call.i.i = tail call ptr @_mi_heap_realloc_zero(ptr noundef %2, ptr noundef %p, i64 noundef %newsize, i1 noundef zeroext false)
   %cmp = icmp eq ptr %call.i.i, null
@@ -4974,11 +4974,11 @@ if.then:                                          ; preds = %mi_count_size_overf
 
 if.then.i:                                        ; preds = %if.then
   tail call void (i32, ptr, ...) @_mi_error_message(i32 noundef 12, ptr noundef nonnull @.str.45)
-  tail call void @abort() #54
+  tail call void @abort() #52
   unreachable
 
 mi_try_new_handler.exit:                          ; preds = %if.then
-  tail call void %call.i.i() #45
+  tail call void %call.i.i() #44
   br label %return
 
 if.else:                                          ; preds = %entry, %mi_count_size_overflow.exit
@@ -4996,11 +4996,11 @@ land.rhs.i:                                       ; preds = %if.else, %mi_try_ne
 
 if.then.i.i:                                      ; preds = %land.rhs.i
   tail call void (i32, ptr, ...) @_mi_error_message(i32 noundef 12, ptr noundef nonnull @.str.45)
-  tail call void @abort() #54
+  tail call void @abort() #52
   unreachable
 
 mi_try_new_handler.exit.i:                        ; preds = %land.rhs.i
-  tail call void %call.i.i2.i() #45
+  tail call void %call.i.i2.i() #44
   %5 = load ptr, ptr %3, align 8
   %call.i.i.i = tail call ptr @_mi_heap_realloc_zero(ptr noundef %5, ptr noundef %p, i64 noundef %storemerge.i6, i1 noundef zeroext false)
   %cmp.i3 = icmp eq ptr %call.i.i.i, null
@@ -6719,7 +6719,7 @@ mi_reallocn.exit:                                 ; preds = %entry, %mi_count_si
   br i1 %cmp, label %if.then, label %if.end
 
 if.then:                                          ; preds = %mi_count_size_overflow.exit.i.i, %mi_reallocn.exit
-  %call1 = tail call ptr @__errno_location() #55
+  %call1 = tail call ptr @__errno_location() #53
   store i32 12, ptr %call1, align 4
   br label %if.end
 
@@ -6738,7 +6738,7 @@ entry:
   br i1 %cmp, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
-  %call = tail call ptr @__errno_location() #55
+  %call = tail call ptr @__errno_location() #53
   store i32 22, ptr %call, align 4
   br label %return
 
@@ -6762,7 +6762,7 @@ mi_reallocn.exit.i:                               ; preds = %mi_count_size_overf
   br i1 %cmp.i, label %if.then4, label %if.end6
 
 if.then4:                                         ; preds = %mi_count_size_overflow.exit.i.i.i, %mi_reallocn.exit.i
-  %call1.i = tail call ptr @__errno_location() #55
+  %call1.i = tail call ptr @__errno_location() #53
   store i32 12, ptr %call1.i, align 4
   br label %return
 
@@ -6876,7 +6876,7 @@ _mi_usable_size.exit.i:                           ; preds = %mi_page_usable_alig
   br i1 %cmp1.i, label %if.then, label %if.end
 
 if.then:                                          ; preds = %_mi_usable_size.exit.i, %entry
-  %call1 = tail call ptr @__errno_location() #55
+  %call1 = tail call ptr @__errno_location() #53
   store i32 12, ptr %call1, align 4
   br label %if.end
 
@@ -6960,7 +6960,7 @@ entry:
   br i1 %cmp.i.i, label %mi_strdup.exit, label %if.end.i.i
 
 if.end.i.i:                                       ; preds = %entry
-  %call.i.i = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %s) #53
+  %call.i.i = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %s) #51
   %add.i.i = add i64 %call.i.i, 1
   %cmp.i.i.i.i.i = icmp ult i64 %add.i.i, 1025
   br i1 %cmp.i.i.i.i.i, label %if.then.i.i.i.i.i, label %if.else.i.i.i.i.i
@@ -7028,7 +7028,7 @@ if.then3:                                         ; preds = %if.end
   br label %if.end4
 
 if.end4:                                          ; preds = %if.then3, %if.end
-  %call = tail call ptr @getenv(ptr noundef nonnull %name) #45
+  %call = tail call ptr @getenv(ptr noundef nonnull %name) #44
   %cmp5 = icmp eq ptr %call, null
   br i1 %cmp5, label %if.then6, label %if.end.i.i
 
@@ -7039,7 +7039,7 @@ if.then6:                                         ; preds = %if.end4
 if.end.i.i:                                       ; preds = %if.end4
   %0 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_mi_heap_default)
   %1 = load ptr, ptr %0, align 8
-  %call.i.i = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %call) #53
+  %call.i.i = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %call) #51
   %add.i.i = add i64 %call.i.i, 1
   %cmp.i.i.i.i.i = icmp ult i64 %add.i.i, 1025
   br i1 %cmp.i.i.i.i.i, label %if.then.i.i.i.i.i, label %if.else.i.i.i.i.i
@@ -7395,7 +7395,7 @@ if.end23:                                         ; preds = %if.then9.i, %if.the
   br i1 %or.cond51, label %if.end29, label %if.then27
 
 if.then27:                                        ; preds = %if.end23
-  %call28 = tail call ptr @__errno_location() #55
+  %call28 = tail call ptr @__errno_location() #53
   store i32 12, ptr %call28, align 4
   br label %return
 
@@ -8018,7 +8018,7 @@ cond.end16.i.i.i.i:                               ; preds = %if.else.i.i21.i.i.i
   br i1 %cmp18.i.i.i.i, label %return, label %if.end.i.i
 
 if.end.i.i:                                       ; preds = %cond.end16.i.i.i.i
-  %call.i.i.i.i = tail call i32 @madvise(ptr noundef %cond39.i.i.i.i, i64 noundef %sub.ptr.sub.i.i.i.i, i32 noundef 4) #45
+  %call.i.i.i.i = tail call i32 @madvise(ptr noundef %cond39.i.i.i.i, i64 noundef %sub.ptr.sub.i.i.i.i, i32 noundef 4) #44
   %cmp2.not.i.i = icmp eq i32 %call.i.i.i.i, 0
   br i1 %cmp2.not.i.i, label %return, label %if.then3.i.i
 
@@ -8146,12 +8146,12 @@ if.else.i22:                                      ; preds = %if.end12.i21
   br i1 %cmp1.i.i, label %mi_os_prim_free.exit.i, label %if.end.i.i
 
 if.end.i.i:                                       ; preds = %if.else.i22
-  %call.i.i.i = tail call i32 @munmap(ptr noundef nonnull %call9.i, i64 noundef %retval.0.i.i) #45
+  %call.i.i.i = tail call i32 @munmap(ptr noundef nonnull %call9.i, i64 noundef %retval.0.i.i) #44
   %cmp.i.i.i = icmp eq i32 %call.i.i.i, -1
   br i1 %cmp.i.i.i, label %_mi_prim_free.exit.i.i, label %if.end4.i.i
 
 _mi_prim_free.exit.i.i:                           ; preds = %if.end.i.i
-  %call1.i.i.i = tail call ptr @__errno_location() #55
+  %call1.i.i.i = tail call ptr @__errno_location() #53
   %9 = load i32, ptr %call1.i.i.i, align 4
   %cmp2.not.i.i = icmp eq i32 %9, 0
   br i1 %cmp2.not.i.i, label %if.end4.i.i, label %if.then3.i.i
@@ -8739,7 +8739,7 @@ if.then:                                          ; preds = %mi_show_error_messa
   %4 = load volatile ptr, ptr @mi_error_handler, align 8
   %5 = load atomic i64, ptr @mi_error_arg acquire, align 8
   %6 = inttoptr i64 %5 to ptr
-  call void %4(i32 noundef %err, ptr noundef %6) #45
+  call void %4(i32 noundef %err, ptr noundef %6) #44
   br label %if.end
 
 if.end:                                           ; preds = %mi_show_error_message.exit, %if.then
@@ -8864,7 +8864,7 @@ if.then5:                                         ; preds = %if.else
 
 if.else8:                                         ; preds = %if.else
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %t.i.i)
-  %call.i.i = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %t.i.i) #45
+  %call.i.i = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %t.i.i) #44
   %2 = load i64, ptr %t.i.i, align 8
   %mul.i.i = mul i64 %2, 1000
   %tv_nsec.i.i = getelementptr inbounds i8, ptr %t.i.i, i64 8
@@ -8978,7 +8978,7 @@ for.body:                                         ; preds = %for.cond.preheader
   %cond = select i1 %visit_all, i64 %0, i64 1
   %tv_nsec.i.i = getelementptr inbounds i8, ptr %t.i.i, i64 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %t.i.i)
-  %call.i.i = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %t.i.i) #45
+  %call.i.i = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %t.i.i) #44
   %3 = load i64, ptr %t.i.i, align 8
   %mul.i.i = mul i64 %3, 1000
   %4 = load i64, ptr %tv_nsec.i.i, align 8
@@ -9190,7 +9190,7 @@ if.then49.i:                                      ; preds = %for.end.i
   %call1.i.i = call i64 @mi_option_get(i32 noundef 24)
   %mul.i54.i = mul i64 %call1.i.i, %call.i.i9
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %t.i.i.i)
-  %call.i.i.i = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %t.i.i.i) #45
+  %call.i.i.i = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %t.i.i.i) #44
   %26 = load i64, ptr %t.i.i.i, align 8
   %mul.i.i55.i = mul i64 %26, 1000
   %27 = load i64, ptr %tv_nsec.i.i.i, align 8
@@ -9649,12 +9649,12 @@ while.body.i:                                     ; preds = %if.then10, %mi_os_p
   br i1 %cmp.i.i7, label %mi_os_prim_free.exit.i, label %if.end.i.i
 
 if.end.i.i:                                       ; preds = %while.body.i
-  %call.i.i.i = tail call i32 @munmap(ptr noundef nonnull %base.03.i, i64 noundef 1073741824) #45
+  %call.i.i.i = tail call i32 @munmap(ptr noundef nonnull %base.03.i, i64 noundef 1073741824) #44
   %cmp.i.i.i = icmp eq i32 %call.i.i.i, -1
   br i1 %cmp.i.i.i, label %_mi_prim_free.exit.i.i, label %if.end4.i.i
 
 _mi_prim_free.exit.i.i:                           ; preds = %if.end.i.i
-  %call1.i.i.i = tail call ptr @__errno_location() #55
+  %call1.i.i.i = tail call ptr @__errno_location() #53
   %7 = load i32, ptr %call1.i.i.i, align 4
   %cmp2.not.i.i = icmp eq i32 %7, 0
   br i1 %cmp2.not.i.i, label %if.end4.i.i, label %if.then3.i.i
@@ -9715,12 +9715,12 @@ if.else:                                          ; preds = %_mi_os_good_alloc_s
   br i1 %or.cond.i, label %if.end13, label %if.end.i
 
 if.end.i:                                         ; preds = %if.else
-  %call.i.i = tail call i32 @munmap(ptr noundef nonnull %base.0, i64 noundef %csize.0) #45
+  %call.i.i = tail call i32 @munmap(ptr noundef nonnull %base.0, i64 noundef %csize.0) #44
   %cmp.i.i11 = icmp eq i32 %call.i.i, -1
   br i1 %cmp.i.i11, label %_mi_prim_free.exit.i, label %if.end4.i
 
 _mi_prim_free.exit.i:                             ; preds = %if.end.i
-  %call1.i.i = tail call ptr @__errno_location() #55
+  %call1.i.i = tail call ptr @__errno_location() #53
   %20 = load i32, ptr %call1.i.i, align 4
   %cmp2.not.i = icmp eq i32 %20, 0
   br i1 %cmp2.not.i, label %if.end4.i, label %if.then3.i
@@ -9818,15 +9818,15 @@ if.end.i:                                         ; preds = %if.end
 
 if.end2.i:                                        ; preds = %if.end.i
   store i8 1, ptr %0, align 1
-  %call3.i = call i32 @vsnprintf(ptr noundef nonnull %buf.i, i64 noundef 511, ptr noundef nonnull readonly %fmt, ptr noundef nonnull %args) #45
+  %call3.i = call i32 @vsnprintf(ptr noundef nonnull %buf.i, i64 noundef 511, ptr noundef nonnull readonly %fmt, ptr noundef nonnull %args) #44
   store i8 1, ptr %0, align 1
   %2 = load atomic i64, ptr @mi_out_arg acquire, align 8
   %3 = inttoptr i64 %2 to ptr
   %4 = load volatile ptr, ptr @mi_out_default, align 8
   %cmp1.i.i.i = icmp eq ptr %4, null
   %cond.i.i.i = select i1 %cmp1.i.i.i, ptr @mi_out_buf, ptr %4
-  call void %cond.i.i.i(ptr noundef nonnull @.str.22, ptr noundef %3) #45
-  call void %cond.i.i.i(ptr noundef nonnull %buf.i, ptr noundef %3) #45
+  call void %cond.i.i.i(ptr noundef nonnull @.str.22, ptr noundef %3) #44
+  call void %cond.i.i.i(ptr noundef nonnull %buf.i, ptr noundef %3) #44
   store i8 0, ptr %0, align 1
   br label %mi_vfprintf.exit
 
@@ -9992,8 +9992,8 @@ for.cond.i.i.i:                                   ; preds = %for.body.i.i.i, %if
 
 for.body.i.i.i:                                   ; preds = %for.cond.i.i.i
   %add.i.i.i = add nuw nsw i32 %node.0.i.i.i, 1
-  %call.i.i.i = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %buf.i.i.i, i64 noundef 127, ptr noundef nonnull @.str.32, i32 noundef %add.i.i.i) #45
-  %call.i.i.i.i = call i64 (i64, ...) @syscall(i64 noundef 21, ptr noundef nonnull %buf.i.i.i, i32 noundef 4) #45
+  %call.i.i.i = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %buf.i.i.i, i64 noundef 127, ptr noundef nonnull @.str.32, i32 noundef %add.i.i.i) #44
+  %call.i.i.i.i = call i64 (i64, ...) @syscall(i64 noundef 21, ptr noundef nonnull %buf.i.i.i, i32 noundef 4) #44
   %2 = and i64 %call.i.i.i.i, 4294967295
   %cmp3.not.i.i.i = icmp eq i64 %2, 0
   br i1 %cmp3.not.i.i.i, label %for.cond.i.i.i, label %for.endsplit.i.i.i, !llvm.loop !51
@@ -10149,14 +10149,14 @@ if.end6:                                          ; preds = %if.end5.i
 
 if.then.i:                                        ; preds = %if.end6
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %t.i.i.i)
-  %call.i.i.i = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %t.i.i.i) #45
+  %call.i.i.i = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %t.i.i.i) #44
   %15 = load i64, ptr %t.i.i.i, align 8
   %tv_nsec.i.i.i = getelementptr inbounds i8, ptr %t.i.i.i, i64 8
   %16 = load i64, ptr %tv_nsec.i.i.i, align 8
   %div.i.i.neg.i = sdiv i64 %16, -1000000
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %t.i.i.i)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %t.i.i1.i)
-  %call.i.i2.i = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %t.i.i1.i) #45
+  %call.i.i2.i = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %t.i.i1.i) #44
   %17 = load i64, ptr %t.i.i1.i, align 8
   %tv_nsec.i.i4.i = getelementptr inbounds i8, ptr %t.i.i1.i, i64 8
   %18 = load i64, ptr %tv_nsec.i.i4.i, align 8
@@ -10171,7 +10171,7 @@ if.then.i:                                        ; preds = %if.end6
 
 _mi_clock_start.exit:                             ; preds = %if.end6, %if.then.i
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %t.i.i7.i)
-  %call.i.i8.i = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %t.i.i7.i) #45
+  %call.i.i8.i = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %t.i.i7.i) #44
   %19 = load i64, ptr %t.i.i7.i, align 8
   %tv_nsec.i.i10.i = getelementptr inbounds i8, ptr %t.i.i7.i, i64 8
   %20 = load i64, ptr %tv_nsec.i.i10.i, align 8
@@ -10216,12 +10216,12 @@ if.then16:                                        ; preds = %if.end14
 
 if.end.i:                                         ; preds = %if.then16
   call void (ptr, ...) @_mi_warning_message(ptr noundef nonnull @.str.27, i64 noundef %page.060, ptr noundef %add.ptr)
-  %call.i.i = call i32 @munmap(ptr noundef nonnull %22, i64 noundef 1073741824) #45
+  %call.i.i = call i32 @munmap(ptr noundef nonnull %22, i64 noundef 1073741824) #44
   %cmp.i.i = icmp eq i32 %call.i.i, -1
   br i1 %cmp.i.i, label %_mi_prim_free.exit.i, label %if.end4.i
 
 _mi_prim_free.exit.i:                             ; preds = %if.end.i
-  %call1.i.i = tail call ptr @__errno_location() #55
+  %call1.i.i = tail call ptr @__errno_location() #53
   %23 = load i32, ptr %call1.i.i, align 4
   %cmp2.not.i = icmp eq i32 %23, 0
   br i1 %cmp2.not.i, label %if.end4.i, label %if.then3.i
@@ -10311,7 +10311,7 @@ _mi_stat_increase.exit39:                         ; preds = %while.cond.i.i.i35,
 
 if.then22:                                        ; preds = %_mi_stat_increase.exit39
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %t.i.i.i40)
-  %call.i.i.i41 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %t.i.i.i40) #45
+  %call.i.i.i41 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %t.i.i.i40) #44
   %48 = load i64, ptr %t.i.i.i40, align 8
   %49 = load i64, ptr %tv_nsec.i.i.i42, align 8
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %t.i.i.i40)
@@ -10457,8 +10457,8 @@ for.cond.i.i.i:                                   ; preds = %for.body.i.i.i, %if
 
 for.body.i.i.i:                                   ; preds = %for.cond.i.i.i
   %add.i.i.i = add nuw nsw i32 %node.0.i.i.i, 1
-  %call.i.i.i = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %buf.i.i.i, i64 noundef 127, ptr noundef nonnull @.str.32, i32 noundef %add.i.i.i) #45
-  %call.i.i.i.i = call i64 (i64, ...) @syscall(i64 noundef 21, ptr noundef nonnull %buf.i.i.i, i32 noundef 4) #45
+  %call.i.i.i = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %buf.i.i.i, i64 noundef 127, ptr noundef nonnull @.str.32, i32 noundef %add.i.i.i) #44
+  %call.i.i.i.i = call i64 (i64, ...) @syscall(i64 noundef 21, ptr noundef nonnull %buf.i.i.i, i32 noundef 4) #44
   %2 = and i64 %call.i.i.i.i, 4294967295
   %cmp3.not.i.i.i = icmp eq i64 %2, 0
   br i1 %cmp3.not.i.i.i, label %for.cond.i.i.i, label %for.endsplit.i.i.i, !llvm.loop !51
@@ -10942,7 +10942,7 @@ if.then4.us.i.us:                                 ; preds = %while.cond.us.i.us
   br i1 %3, label %if.then2.loopexit.us, label %while.cond.us.i.us, !llvm.loop !55
 
 lor.lhs.false.us:                                 ; preds = %if.then2.loopexit.us
-  %call4.us = tail call zeroext i1 %pred_fun(i64 noundef %add.i.i.us, ptr noundef %pred_arg) #45
+  %call4.us = tail call zeroext i1 %pred_fun(i64 noundef %add.i.i.us, ptr noundef %pred_arg) #44
   br i1 %call4.us, label %return, label %if.end6.us
 
 if.end6.us:                                       ; preds = %lor.lhs.false.us
@@ -11154,7 +11154,7 @@ if.then2.loopexit25:                              ; preds = %if.then4.i
   %mul.i.i = shl i64 %spec.store.select, 6
   %add.i.i = add i64 %bitidx.0.ph24.i, %mul.i.i
   store i64 %add.i.i, ptr %bitmap_idx, align 8
-  %call4 = tail call zeroext i1 %pred_fun(i64 noundef %add.i.i, ptr noundef %pred_arg) #45
+  %call4 = tail call zeroext i1 %pred_fun(i64 noundef %add.i.i, ptr noundef %pred_arg) #44
   br i1 %call4, label %return, label %if.end6
 
 if.end6:                                          ; preds = %if.then2.loopexit25
@@ -11946,7 +11946,7 @@ if.then.i:                                        ; preds = %land.lhs.true.i
   %7 = load i64, ptr %6, align 8
   %8 = load atomic i64, ptr @deferred_arg monotonic, align 8
   %9 = inttoptr i64 %8 to ptr
-  tail call void %5(i1 noundef zeroext %cmp1, i64 noundef %7, ptr noundef %9) #45
+  tail call void %5(i1 noundef zeroext %cmp1, i64 noundef %7, ptr noundef %9) #44
   %10 = load ptr, ptr %heap, align 8
   %recurse8.i = getelementptr inbounds i8, ptr %10, i64 8
   store i8 0, ptr %recurse8.i, align 8
@@ -11962,7 +11962,7 @@ land.lhs.true:                                    ; preds = %_mi_deferred_free.e
   br i1 %cmp.i19, label %land.lhs.true4, label %_mi_is_main_thread.exit
 
 _mi_is_main_thread.exit:                          ; preds = %land.lhs.true
-  %12 = tail call ptr asm "movq %fs:$1, $0", "=r,*m,~{dirflag},~{fpsr},~{flags}"(ptr elementtype(ptr) null) #52, !srcloc !16
+  %12 = tail call ptr asm "movq %fs:$1, $0", "=r,*m,~{dirflag},~{fpsr},~{flags}"(ptr elementtype(ptr) null) #50, !srcloc !16
   %13 = ptrtoint ptr %12 to i64
   %cmp1.i = icmp eq i64 %11, %13
   br i1 %cmp1.i, label %land.lhs.true4, label %lor.lhs.false.i25
@@ -12235,7 +12235,7 @@ if.then21:                                        ; preds = %mi_heap_visit_pages
   br i1 %cmp.i44, label %land.lhs.true28, label %_mi_is_main_thread.exit47
 
 _mi_is_main_thread.exit47:                        ; preds = %if.then21
-  %50 = tail call ptr asm "movq %fs:$1, $0", "=r,*m,~{dirflag},~{fpsr},~{flags}"(ptr elementtype(ptr) null) #52, !srcloc !16
+  %50 = tail call ptr asm "movq %fs:$1, $0", "=r,*m,~{dirflag},~{fpsr},~{flags}"(ptr elementtype(ptr) null) #50, !srcloc !16
   %51 = ptrtoint ptr %50 to i64
   %cmp1.i46 = icmp eq i64 %49, %51
   br i1 %cmp1.i46, label %land.lhs.true28, label %if.end32
@@ -12451,7 +12451,7 @@ if.end:                                           ; preds = %mi_heap_get_backing
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(3064) %call4.i.i.i, ptr noundef nonnull readonly align 64 dereferenceable(3064) @_mi_heap_empty, i64 3064, i1 false)
   %11 = load ptr, ptr %10, align 8
   store ptr %11, ptr %call4.i.i.i, align 8
-  %12 = tail call ptr asm "movq %fs:$1, $0", "=r,*m,~{dirflag},~{fpsr},~{flags}"(ptr elementtype(ptr) null) #52, !srcloc !16
+  %12 = tail call ptr asm "movq %fs:$1, $0", "=r,*m,~{dirflag},~{fpsr},~{flags}"(ptr elementtype(ptr) null) #50, !srcloc !16
   %13 = ptrtoint ptr %12 to i64
   %thread_id = getelementptr inbounds i8, ptr %call4.i.i.i, i64 2848
   store i64 %13, ptr %thread_id, align 8
@@ -12618,7 +12618,7 @@ return:                                           ; preds = %mi_heap_get_backing
 ; Function Attrs: nofree nounwind memory(read) uwtable
 define hidden i64 @_mi_thread_id() local_unnamed_addr #18 {
 entry:
-  %0 = tail call ptr asm "movq %fs:$1, $0", "=r,*m,~{dirflag},~{fpsr},~{flags}"(ptr elementtype(ptr) null) #52, !srcloc !16
+  %0 = tail call ptr asm "movq %fs:$1, $0", "=r,*m,~{dirflag},~{fpsr},~{flags}"(ptr elementtype(ptr) null) #50, !srcloc !16
   %1 = ptrtoint ptr %0 to i64
   ret i64 %1
 }
@@ -12938,7 +12938,7 @@ if.then5.i:                                       ; preds = %if.end3.i
   br i1 %cmp.not.i.i.i, label %if.end6.i, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %if.then5.i
-  %call.i.i.i = tail call i32 @pthread_setspecific(i32 noundef %5, ptr noundef %2) #45
+  %call.i.i.i = tail call i32 @pthread_setspecific(i32 noundef %5, ptr noundef %2) #44
   br label %if.end6.i
 
 if.end6.i:                                        ; preds = %if.then.i.i.i, %if.then5.i, %if.end3.i
@@ -13191,7 +13191,7 @@ if.then5.i:                                       ; preds = %if.end3.i
   br i1 %cmp.not.i.i.i, label %if.end6.i, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %if.then5.i
-  %call.i.i.i = tail call i32 @pthread_setspecific(i32 noundef %34, ptr noundef %31) #45
+  %call.i.i.i = tail call i32 @pthread_setspecific(i32 noundef %34, ptr noundef %31) #44
   br label %if.end6.i
 
 if.end6.i:                                        ; preds = %if.then.i.i.i, %if.then5.i, %if.end3.i
@@ -13304,7 +13304,7 @@ if.then5.i.i:                                     ; preds = %if.end3.i.i
   br i1 %cmp.not.i.i.i.i, label %if.end6.i.i, label %if.then.i.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %if.then5.i.i
-  %call.i.i.i.i = tail call i32 @pthread_setspecific(i32 noundef %18, ptr noundef %16) #45
+  %call.i.i.i.i = tail call i32 @pthread_setspecific(i32 noundef %18, ptr noundef %16) #44
   br label %if.end6.i.i
 
 if.end6.i.i:                                      ; preds = %if.then.i.i.i.i, %if.then5.i.i, %if.end3.i.i
@@ -13367,7 +13367,7 @@ if.end:                                           ; preds = %entry
   br i1 %cmp.not.i.i, label %return, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %if.end
-  %call.i.i = tail call i32 @pthread_setspecific(i32 noundef %2, ptr noundef nonnull %heap) #45
+  %call.i.i = tail call i32 @pthread_setspecific(i32 noundef %2, ptr noundef nonnull %heap) #44
   br label %return
 
 return:                                           ; preds = %if.then.i.i, %if.end, %entry
@@ -13385,7 +13385,7 @@ entry:
   br i1 %cmp.not.i, label %_mi_prim_thread_associate_default_heap.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %entry
-  %call.i = tail call i32 @pthread_setspecific(i32 noundef %1, ptr noundef %heap) #45
+  %call.i = tail call i32 @pthread_setspecific(i32 noundef %1, ptr noundef %heap) #44
   br label %_mi_prim_thread_associate_default_heap.exit
 
 _mi_prim_thread_associate_default_heap.exit:      ; preds = %entry, %if.then.i
@@ -13761,7 +13761,7 @@ mi_heap_visit_areas_page.exit.i:                  ; preds = %if.else.i.i.i.i.i, 
   store i64 %conv10.i.i, ptr %used12.i.i, align 8
   store i64 %retval.0.i16.i.i, ptr %block_size.i.i, align 8
   store i64 %retval.0.i16.i.i, ptr %full_block_size.i.i, align 8
-  %call.i = call zeroext i1 %visitor(ptr noundef nonnull %heap, ptr noundef nonnull %xarea.i.i, ptr noundef null, i64 noundef %retval.0.i16.i.i, ptr noundef %arg) #45
+  %call.i = call zeroext i1 %visitor(ptr noundef nonnull %heap, ptr noundef nonnull %xarea.i.i, ptr noundef null, i64 noundef %retval.0.i16.i.i, ptr noundef %arg) #44
   br i1 %call.i, label %if.end.i, label %mi_heap_visit_areas.exit.sink.split
 
 if.end.i:                                         ; preds = %mi_heap_visit_areas_page.exit.i
@@ -13940,7 +13940,7 @@ if.then14.i.i:                                    ; preds = %_mi_page_start.exit
   %xheap.i.i.i = getelementptr inbounds i8, ptr %11, i64 48
   %42 = load atomic i64, ptr %xheap.i.i.i monotonic, align 8
   %43 = inttoptr i64 %42 to ptr
-  %call16.i.i = call zeroext i1 %visitor(ptr noundef %43, ptr noundef nonnull %xarea.i.i, ptr noundef %add.ptr.i.i.i.i.i17, i64 noundef %retval.0.i.i59.i.i, ptr noundef %arg) #45
+  %call16.i.i = call zeroext i1 %visitor(ptr noundef %43, ptr noundef nonnull %xarea.i.i, ptr noundef %add.ptr.i.i.i.i.i17, i64 noundef %retval.0.i.i59.i.i, ptr noundef %arg) #44
   call void @llvm.lifetime.end.p0(i64 8192, ptr nonnull %free_map.i.i)
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %xarea.i.i)
   br i1 %call16.i.i, label %while.cond.i.i.backedge, label %mi_heap_visit_areas.exit
@@ -14008,7 +14008,7 @@ if.then42.i.i:                                    ; preds = %if.else.i.i
   %add.ptr.i.i = getelementptr i8, ptr %add.ptr.i.i.i.i.i17, i64 %mul44.i.i
   %49 = load atomic i64, ptr %xheap.i45.i.i monotonic, align 8
   %50 = inttoptr i64 %49 to ptr
-  %call46.i.i = call zeroext i1 %visitor(ptr noundef %50, ptr noundef nonnull %xarea.i.i, ptr noundef %add.ptr.i.i, i64 noundef %retval.0.i.i59.i.i, ptr noundef %arg) #45
+  %call46.i.i = call zeroext i1 %visitor(ptr noundef %50, ptr noundef nonnull %xarea.i.i, ptr noundef %add.ptr.i.i, i64 noundef %retval.0.i.i59.i.i, ptr noundef %arg) #44
   br i1 %call46.i.i, label %if.then42.for.inc51_crit_edge.i.i, label %mi_heap_area_visit_blocks.exit.i.thread
 
 mi_heap_area_visit_blocks.exit.i.thread:          ; preds = %if.then42.i.i
@@ -14068,7 +14068,7 @@ entry:
   br i1 %cmp, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
-  %1 = tail call ptr asm "movq %fs:$1, $0", "=r,*m,~{dirflag},~{fpsr},~{flags}"(ptr elementtype(ptr) null) #52, !srcloc !16
+  %1 = tail call ptr asm "movq %fs:$1, $0", "=r,*m,~{dirflag},~{fpsr},~{flags}"(ptr elementtype(ptr) null) #50, !srcloc !16
   %2 = ptrtoint ptr %1 to i64
   store i64 %2, ptr getelementptr inbounds (i8, ptr @_mi_heap_main, i64 2848), align 8
   store i64 1, ptr getelementptr inbounds (i8, ptr @_mi_heap_main, i64 2864), align 8
@@ -14247,7 +14247,7 @@ entry:
   br i1 %cmp, label %lor.end, label %lor.rhs
 
 lor.rhs:                                          ; preds = %entry
-  %1 = tail call ptr asm "movq %fs:$1, $0", "=r,*m,~{dirflag},~{fpsr},~{flags}"(ptr elementtype(ptr) null) #52, !srcloc !16
+  %1 = tail call ptr asm "movq %fs:$1, $0", "=r,*m,~{dirflag},~{fpsr},~{flags}"(ptr elementtype(ptr) null) #50, !srcloc !16
   %2 = ptrtoint ptr %1 to i64
   %cmp1 = icmp eq i64 %0, %2
   br label %lor.end
@@ -14283,7 +14283,7 @@ mi_atomic_once.exit:                              ; preds = %entry
 
 if.end:                                           ; preds = %mi_atomic_once.exit
   store i8 1, ptr @_mi_process_is_initialized, align 1
-  %3 = tail call ptr asm "movq %fs:$1, $0", "=r,*m,~{dirflag},~{fpsr},~{flags}"(ptr elementtype(ptr) null) #52, !srcloc !16
+  %3 = tail call ptr asm "movq %fs:$1, $0", "=r,*m,~{dirflag},~{fpsr},~{flags}"(ptr elementtype(ptr) null) #50, !srcloc !16
   %4 = ptrtoint ptr %3 to i64
   tail call void (ptr, ...) @_mi_verbose_message(ptr noundef nonnull @.str.17, i64 noundef %4)
   %.b1.i = load i1, ptr @mi_process_setup_auto_thread_done.tls_initialized, align 1
@@ -14291,7 +14291,7 @@ if.end:                                           ; preds = %mi_atomic_once.exit
 
 if.end.i6:                                        ; preds = %if.end
   store i1 true, ptr @mi_process_setup_auto_thread_done.tls_initialized, align 1
-  %call.i.i = tail call i32 @pthread_key_create(ptr noundef nonnull @_mi_heap_default_key, ptr noundef nonnull @mi_pthread_done) #45
+  %call.i.i = tail call i32 @pthread_key_create(ptr noundef nonnull @_mi_heap_default_key, ptr noundef nonnull @mi_pthread_done) #44
   %5 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_mi_heap_default)
   store ptr @_mi_heap_main, ptr %5, align 8
   %6 = load i32, ptr @_mi_heap_default_key, align 4
@@ -14299,11 +14299,11 @@ if.end.i6:                                        ; preds = %if.end
   br i1 %cmp.not.i.i.i, label %mi_process_setup_auto_thread_done.exit, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %if.end.i6
-  %call.i.i.i = tail call i32 @pthread_setspecific(i32 noundef %6, ptr noundef nonnull @_mi_heap_main) #45
+  %call.i.i.i = tail call i32 @pthread_setspecific(i32 noundef %6, ptr noundef nonnull @_mi_heap_main) #44
   br label %mi_process_setup_auto_thread_done.exit
 
 mi_process_setup_auto_thread_done.exit:           ; preds = %if.end, %if.end.i6, %if.then.i.i.i
-  %call.i.i7 = tail call i64 @sysconf(i32 noundef 30) #45
+  %call.i.i7 = tail call i64 @sysconf(i32 noundef 30) #44
   %cmp.i.i = icmp sgt i64 %call.i.i7, 0
   br i1 %cmp.i.i, label %if.then.i.i, label %if.end.i.i
 
@@ -14314,15 +14314,15 @@ if.then.i.i:                                      ; preds = %mi_process_setup_au
 if.end.i.i:                                       ; preds = %if.then.i.i, %mi_process_setup_auto_thread_done.exit
   store i1 true, ptr @mi_os_mem_config.1, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %buf.i.i.i)
-  %call.i.i.i.i = tail call i64 (i64, ...) @syscall(i64 noundef 2, ptr noundef nonnull @.str.151, i32 noundef 0, i32 noundef 0) #45
+  %call.i.i.i.i = tail call i64 (i64, ...) @syscall(i64 noundef 2, ptr noundef nonnull @.str.151, i32 noundef 0, i32 noundef 0) #44
   %conv.i.i.i.i = trunc i64 %call.i.i.i.i to i32
   %cmp.i.i.i = icmp sgt i32 %conv.i.i.i.i, -1
   br i1 %cmp.i.i.i, label %if.then.i.i.i8, label %_mi_os_init.exit
 
 if.then.i.i.i8:                                   ; preds = %if.end.i.i
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %buf.i.i.i, i8 0, i64 32, i1 false)
-  %call.i3.i.i.i = call i64 (i64, ...) @syscall(i64 noundef 0, i32 noundef %conv.i.i.i.i, ptr noundef nonnull %buf.i.i.i, i64 noundef 32) #45
-  %call.i4.i.i.i = call i64 (i64, ...) @syscall(i64 noundef 3, i32 noundef %conv.i.i.i.i) #45
+  %call.i3.i.i.i = call i64 (i64, ...) @syscall(i64 noundef 0, i32 noundef %conv.i.i.i.i, ptr noundef nonnull %buf.i.i.i, i64 noundef 32) #44
+  %call.i4.i.i.i = call i64 (i64, ...) @syscall(i64 noundef 3, i32 noundef %conv.i.i.i.i) #44
   %cmp3.i.i.i = icmp sgt i64 %call.i3.i.i.i, 0
   br i1 %cmp3.i.i.i, label %if.then4.i.i.i, label %_mi_os_init.exit
 
@@ -14418,14 +14418,14 @@ if.then2.i:                                       ; preds = %if.end.i12
 
 if.then.i22:                                      ; preds = %if.then2.i
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %t.i.i.i)
-  %call.i.i.i23 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %t.i.i.i) #45
+  %call.i.i.i23 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %t.i.i.i) #44
   %30 = load i64, ptr %t.i.i.i, align 8
   %tv_nsec.i.i.i = getelementptr inbounds i8, ptr %t.i.i.i, i64 8
   %31 = load i64, ptr %tv_nsec.i.i.i, align 8
   %div.i.i.neg.i = sdiv i64 %31, -1000000
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %t.i.i.i)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %t.i.i1.i)
-  %call.i.i2.i = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %t.i.i1.i) #45
+  %call.i.i2.i = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %t.i.i1.i) #44
   %32 = load i64, ptr %t.i.i1.i, align 8
   %tv_nsec.i.i4.i = getelementptr inbounds i8, ptr %t.i.i1.i, i64 8
   %33 = load i64, ptr %tv_nsec.i.i4.i, align 8
@@ -14440,7 +14440,7 @@ if.then.i22:                                      ; preds = %if.then2.i
 
 _mi_clock_start.exit:                             ; preds = %if.then2.i, %if.then.i22
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %t.i.i7.i)
-  %call.i.i8.i = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %t.i.i7.i) #45
+  %call.i.i8.i = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %t.i.i7.i) #44
   %34 = load i64, ptr %t.i.i7.i, align 8
   %mul.i.i9.i = mul i64 %34, 1000
   %tv_nsec.i.i10.i = getelementptr inbounds i8, ptr %t.i.i7.i, i64 8
@@ -14509,7 +14509,7 @@ if.end:                                           ; preds = %entry
   br i1 %cmp.i24, label %if.then3, label %_mi_is_main_thread.exit
 
 _mi_is_main_thread.exit:                          ; preds = %if.end
-  %3 = tail call ptr asm "movq %fs:$1, $0", "=r,*m,~{dirflag},~{fpsr},~{flags}"(ptr elementtype(ptr) null) #52, !srcloc !16
+  %3 = tail call ptr asm "movq %fs:$1, $0", "=r,*m,~{dirflag},~{fpsr},~{flags}"(ptr elementtype(ptr) null) #50, !srcloc !16
   %4 = ptrtoint ptr %3 to i64
   %cmp1.i = icmp eq i64 %2, %4
   br i1 %cmp1.i, label %if.then3, label %if.else
@@ -14522,7 +14522,7 @@ if.then3:                                         ; preds = %if.end, %_mi_is_mai
   br i1 %cmp.not.i.i, label %return, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %if.then3
-  %call.i.i = tail call i32 @pthread_setspecific(i32 noundef %5, ptr noundef nonnull @_mi_heap_main) #45
+  %call.i.i = tail call i32 @pthread_setspecific(i32 noundef %5, ptr noundef nonnull @_mi_heap_main) #44
   br label %return
 
 if.else:                                          ; preds = %_mi_is_main_thread.exit
@@ -14590,7 +14590,7 @@ if.end6:                                          ; preds = %if.end21.i, %if.the
   call void @llvm.assume(i1 true) [ "align"(ptr %td.323.i.ph, i64 8) ]
   call void @llvm.assume(i1 true) [ "align"(ptr @_mi_heap_empty, i64 8) ]
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(3064) %td.323.i.ph, ptr noundef nonnull readonly align 64 dereferenceable(3064) @_mi_heap_empty, i64 3064, i1 false)
-  %11 = tail call ptr asm "movq %fs:$1, $0", "=r,*m,~{dirflag},~{fpsr},~{flags}"(ptr elementtype(ptr) null) #52, !srcloc !16
+  %11 = tail call ptr asm "movq %fs:$1, $0", "=r,*m,~{dirflag},~{fpsr},~{flags}"(ptr elementtype(ptr) null) #50, !srcloc !16
   %12 = ptrtoint ptr %11 to i64
   %thread_id = getelementptr inbounds i8, ptr %td.323.i.ph, i64 2848
   store i64 %12, ptr %thread_id, align 8
@@ -14745,7 +14745,7 @@ _mi_heap_random_next.exit66:                      ; preds = %chacha_next32.exit.
   br i1 %cmp.not.i.i67, label %return, label %if.then.i.i68
 
 if.then.i.i68:                                    ; preds = %_mi_heap_random_next.exit66
-  %call.i.i69 = tail call i32 @pthread_setspecific(i32 noundef %32, ptr noundef nonnull %td.323.i.ph) #45
+  %call.i.i69 = tail call i32 @pthread_setspecific(i32 noundef %32, ptr noundef nonnull %td.323.i.ph) #44
   br label %return
 
 return:                                           ; preds = %if.then.i.i68, %_mi_heap_random_next.exit66, %mi_thread_data_zalloc.exit, %if.then.i.i, %if.then3, %entry
@@ -14878,7 +14878,7 @@ _mi_stat_decrease.exit:                           ; preds = %while.cond.i.i.i, %
   %8 = atomicrmw add ptr getelementptr inbounds (i8, ptr @_mi_stats_main, i64 296), i64 1 monotonic, align 8
   %thread_id = getelementptr inbounds i8, ptr %heap.addr.0, i64 2848
   %9 = load i64, ptr %thread_id, align 8
-  %10 = tail call ptr asm "movq %fs:$1, $0", "=r,*m,~{dirflag},~{fpsr},~{flags}"(ptr elementtype(ptr) null) #52, !srcloc !16
+  %10 = tail call ptr asm "movq %fs:$1, $0", "=r,*m,~{dirflag},~{fpsr},~{flags}"(ptr elementtype(ptr) null) #50, !srcloc !16
   %11 = ptrtoint ptr %10 to i64
   %cmp8.not.not = icmp eq i64 %9, %11
   br i1 %cmp8.not.not, label %if.end.i, label %if.end13
@@ -14905,7 +14905,7 @@ _mi_is_main_thread.exit.thread.i:                 ; preds = %_mi_is_main_thread.
   br i1 %cmp.not.i.i.i, label %_mi_heap_set_default_direct.exit.i, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %13
-  %call.i.i.i = tail call i32 @pthread_setspecific(i32 noundef %16, ptr noundef nonnull %14) #45
+  %call.i.i.i = tail call i32 @pthread_setspecific(i32 noundef %16, ptr noundef nonnull %14) #44
   br label %_mi_heap_set_default_direct.exit.i
 
 _mi_heap_set_default_direct.exit.i:               ; preds = %if.then.i.i.i, %13
@@ -14995,7 +14995,7 @@ entry:
   br i1 %cmp.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
-  %call = tail call i32 @pthread_setspecific(i32 noundef %0, ptr noundef %heap) #45
+  %call = tail call i32 @pthread_setspecific(i32 noundef %0, ptr noundef %heap) #44
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry
@@ -15020,7 +15020,7 @@ entry:
 define hidden void @_mi_os_init() local_unnamed_addr #0 {
 entry:
   %buf.i.i = alloca [32 x i8], align 16
-  %call.i = tail call i64 @sysconf(i32 noundef 30) #45
+  %call.i = tail call i64 @sysconf(i32 noundef 30) #44
   %cmp.i = icmp sgt i64 %call.i, 0
   br i1 %cmp.i, label %if.then.i, label %if.end.i
 
@@ -15031,15 +15031,15 @@ if.then.i:                                        ; preds = %entry
 if.end.i:                                         ; preds = %if.then.i, %entry
   store i1 true, ptr @mi_os_mem_config.1, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %buf.i.i)
-  %call.i.i.i = tail call i64 (i64, ...) @syscall(i64 noundef 2, ptr noundef nonnull @.str.151, i32 noundef 0, i32 noundef 0) #45
+  %call.i.i.i = tail call i64 (i64, ...) @syscall(i64 noundef 2, ptr noundef nonnull @.str.151, i32 noundef 0, i32 noundef 0) #44
   %conv.i.i.i = trunc i64 %call.i.i.i to i32
   %cmp.i.i = icmp sgt i32 %conv.i.i.i, -1
   br i1 %cmp.i.i, label %if.then.i.i, label %_mi_prim_mem_init.exit
 
 if.then.i.i:                                      ; preds = %if.end.i
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %buf.i.i, i8 0, i64 32, i1 false)
-  %call.i3.i.i = call i64 (i64, ...) @syscall(i64 noundef 0, i32 noundef %conv.i.i.i, ptr noundef nonnull %buf.i.i, i64 noundef 32) #45
-  %call.i4.i.i = call i64 (i64, ...) @syscall(i64 noundef 3, i32 noundef %conv.i.i.i) #45
+  %call.i3.i.i = call i64 (i64, ...) @syscall(i64 noundef 0, i32 noundef %conv.i.i.i, ptr noundef nonnull %buf.i.i, i64 noundef 32) #44
+  %call.i4.i.i = call i64 (i64, ...) @syscall(i64 noundef 3, i32 noundef %conv.i.i.i) #44
   %cmp3.i.i = icmp sgt i64 %call.i3.i.i, 0
   br i1 %cmp3.i.i, label %if.then4.i.i, label %_mi_prim_mem_init.exit
 
@@ -15114,14 +15114,14 @@ if.then2:                                         ; preds = %if.end
 
 if.then.i:                                        ; preds = %if.then2
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %t.i.i.i)
-  %call.i.i.i2 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %t.i.i.i) #45
+  %call.i.i.i2 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %t.i.i.i) #44
   %12 = load i64, ptr %t.i.i.i, align 8
   %tv_nsec.i.i.i = getelementptr inbounds i8, ptr %t.i.i.i, i64 8
   %13 = load i64, ptr %tv_nsec.i.i.i, align 8
   %div.i.i.neg.i = sdiv i64 %13, -1000000
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %t.i.i.i)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %t.i.i1.i)
-  %call.i.i2.i = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %t.i.i1.i) #45
+  %call.i.i2.i = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %t.i.i1.i) #44
   %14 = load i64, ptr %t.i.i1.i, align 8
   %tv_nsec.i.i4.i = getelementptr inbounds i8, ptr %t.i.i1.i, i64 8
   %15 = load i64, ptr %tv_nsec.i.i4.i, align 8
@@ -15136,7 +15136,7 @@ if.then.i:                                        ; preds = %if.then2
 
 _mi_clock_start.exit:                             ; preds = %if.then2, %if.then.i
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %t.i.i7.i)
-  %call.i.i8.i = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %t.i.i7.i) #45
+  %call.i.i8.i = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %t.i.i7.i) #44
   %16 = load i64, ptr %t.i.i7.i, align 8
   %mul.i.i9.i = mul i64 %16, 1000
   %tv_nsec.i.i10.i = getelementptr inbounds i8, ptr %t.i.i7.i, i64 8
@@ -15606,7 +15606,7 @@ for.end.i:                                        ; preds = %for.body.i, %for.co
   br i1 %cmp25.i, label %if.then31.i, label %lor.lhs.false.i
 
 lor.lhs.false.i:                                  ; preds = %for.end.i
-  %call28.i = call ptr @strstr(ptr noundef nonnull dereferenceable(1) @.str.86, ptr noundef nonnull dereferenceable(1) %buf.i) #53
+  %call28.i = call ptr @strstr(ptr noundef nonnull dereferenceable(1) @.str.86, ptr noundef nonnull dereferenceable(1) %buf.i) #51
   %cmp29.not.i = icmp eq ptr %call28.i, null
   br i1 %cmp29.not.i, label %if.else.i, label %if.then31.i
 
@@ -15616,7 +15616,7 @@ if.then31.i:                                      ; preds = %lor.lhs.false.i, %f
   br label %mi_option_init.exit
 
 if.else.i:                                        ; preds = %lor.lhs.false.i
-  %call33.i = call ptr @strstr(ptr noundef nonnull dereferenceable(1) @.str.87, ptr noundef nonnull dereferenceable(1) %buf.i) #53
+  %call33.i = call ptr @strstr(ptr noundef nonnull dereferenceable(1) @.str.87, ptr noundef nonnull dereferenceable(1) %buf.i) #51
   %cmp34.not.i = icmp eq ptr %call33.i, null
   br i1 %cmp34.not.i, label %if.else39.i, label %if.then36.i
 
@@ -15627,7 +15627,7 @@ if.then36.i:                                      ; preds = %if.else.i
 
 if.else39.i:                                      ; preds = %if.else.i
   store ptr %buf.i, ptr %end.i, align 8
-  %call43.i = call i64 @strtol(ptr noundef nonnull %buf.i, ptr noundef nonnull %end.i, i32 noundef 10) #45
+  %call43.i = call i64 @strtol(ptr noundef nonnull %buf.i, ptr noundef nonnull %end.i, i32 noundef 10) #44
   %option.i = getelementptr inbounds i8, ptr %arrayidx, i64 12
   %64 = load i32, ptr %option.i, align 4
   switch i32 %64, label %if.else39.i.if.end90.i_crit_edge [
@@ -15755,7 +15755,7 @@ define internal void @_mi_process_init() #0 {
 entry:
   tail call fastcc void @mi_heap_main_init()
   store i1 true, ptr @os_preloading, align 1
-  %call.i = tail call i32 @atexit(ptr noundef nonnull @mi_process_done) #45
+  %call.i = tail call i32 @atexit(ptr noundef nonnull @mi_process_done) #44
   %0 = atomicrmw add ptr @out_len, i64 1 acq_rel, align 8
   %spec.store.select.i.i.i.i = tail call i64 @llvm.umin.i64(i64 %0, i64 32768)
   %arrayidx.i.i.i.i = getelementptr [32769 x i8], ptr @out_buf, i64 0, i64 %spec.store.select.i.i.i.i
@@ -15766,7 +15766,7 @@ entry:
 
 if.then.i.i.i.i:                                  ; preds = %entry
   %2 = load ptr, ptr @stderr, align 8
-  %call.i.i.i.i.i = tail call i32 @fputs(ptr noundef nonnull readonly @out_buf, ptr noundef %2) #56
+  %call.i.i.i.i.i = tail call i32 @fputs(ptr noundef nonnull readonly @out_buf, ptr noundef %2) #54
   br label %mi_add_stderr_output.exit.i.i
 
 mi_add_stderr_output.exit.i.i:                    ; preds = %if.then.i.i.i.i, %entry
@@ -15797,7 +15797,7 @@ _mi_options_init.exit.i:                          ; preds = %for.body.i.i
 
 if.end.i.i:                                       ; preds = %_mi_options_init.exit.i
   store i1 true, ptr @mi_process_setup_auto_thread_done.tls_initialized, align 1
-  %call.i.i.i = tail call i32 @pthread_key_create(ptr noundef nonnull @_mi_heap_default_key, ptr noundef nonnull @mi_pthread_done) #45
+  %call.i.i.i = tail call i32 @pthread_key_create(ptr noundef nonnull @_mi_heap_default_key, ptr noundef nonnull @mi_pthread_done) #44
   %6 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_mi_heap_default)
   store ptr @_mi_heap_main, ptr %6, align 8
   %7 = load i32, ptr @_mi_heap_default_key, align 4
@@ -15805,7 +15805,7 @@ if.end.i.i:                                       ; preds = %_mi_options_init.ex
   br i1 %cmp.not.i.i.i.i, label %if.end5.i, label %if.then.i.i.i1.i
 
 if.then.i.i.i1.i:                                 ; preds = %if.end.i.i
-  %call.i.i.i.i = tail call i32 @pthread_setspecific(i32 noundef %7, ptr noundef nonnull @_mi_heap_main) #45
+  %call.i.i.i.i = tail call i32 @pthread_setspecific(i32 noundef %7, ptr noundef nonnull @_mi_heap_main) #44
   br label %if.end5.i
 
 if.end5.i:                                        ; preds = %if.then.i.i.i1.i, %if.end.i.i, %_mi_options_init.exit.i
@@ -15841,7 +15841,7 @@ entry:
 
 if.then.i.i:                                      ; preds = %entry
   %2 = load ptr, ptr @stderr, align 8
-  %call.i.i.i = tail call i32 @fputs(ptr noundef nonnull readonly @out_buf, ptr noundef %2) #56
+  %call.i.i.i = tail call i32 @fputs(ptr noundef nonnull readonly @out_buf, ptr noundef %2) #54
   br label %mi_add_stderr_output.exit
 
 mi_add_stderr_output.exit:                        ; preds = %entry, %if.then.i.i
@@ -16013,7 +16013,7 @@ mi_out_buf_flush.exit:                            ; preds = %entry
   %spec.store.select.i = tail call i64 @llvm.umin.i64(i64 %1, i64 32768)
   %arrayidx.i = getelementptr [32769 x i8], ptr @out_buf, i64 0, i64 %spec.store.select.i
   store i8 0, ptr %arrayidx.i, align 1
-  tail call void %out(ptr noundef nonnull @out_buf, ptr noundef %arg) #45
+  tail call void %out(ptr noundef nonnull @out_buf, ptr noundef %arg) #44
   br label %if.end
 
 if.end:                                           ; preds = %mi_out_buf_flush.exit, %entry
@@ -16033,7 +16033,7 @@ land.lhs.true:                                    ; preds = %entry
 
 if.then:                                          ; preds = %land.lhs.true
   %1 = load ptr, ptr @stderr, align 8
-  %call.i = tail call i32 @fputs(ptr noundef nonnull readonly %msg, ptr noundef %1) #56
+  %call.i = tail call i32 @fputs(ptr noundef nonnull readonly %msg, ptr noundef %1) #54
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %land.lhs.true, %entry
@@ -16069,11 +16069,11 @@ if.end:                                           ; preds = %if.then
   br i1 %cmp6.not, label %if.end8, label %if.then7
 
 if.then7:                                         ; preds = %if.end
-  tail call void %cond.i(ptr noundef nonnull %prefix, ptr noundef %5) #45
+  tail call void %cond.i(ptr noundef nonnull %prefix, ptr noundef %5) #44
   br label %if.end8
 
 if.end8:                                          ; preds = %if.then7, %if.end
-  tail call void %cond.i(ptr noundef %message, ptr noundef %5) #45
+  tail call void %cond.i(ptr noundef %message, ptr noundef %5) #44
   store i8 0, ptr %2, align 1
   br label %if.end12
 
@@ -16082,11 +16082,11 @@ if.else:                                          ; preds = %entry
   br i1 %cmp9.not, label %if.end11, label %if.then10
 
 if.then10:                                        ; preds = %if.else
-  tail call void %out(ptr noundef nonnull %prefix, ptr noundef %arg) #45
+  tail call void %out(ptr noundef nonnull %prefix, ptr noundef %arg) #44
   br label %if.end11
 
 if.end11:                                         ; preds = %if.then10, %if.else
-  tail call void %out(ptr noundef %message, ptr noundef %arg) #45
+  tail call void %out(ptr noundef %message, ptr noundef %arg) #44
   br label %if.end12
 
 if.end12:                                         ; preds = %if.then, %if.end11, %if.end8
@@ -16111,7 +16111,7 @@ if.end.i:                                         ; preds = %entry
 
 if.end2.i:                                        ; preds = %if.end.i
   store i8 1, ptr %0, align 1
-  %call3.i = call i32 @vsnprintf(ptr noundef nonnull %buf.i, i64 noundef 511, ptr noundef nonnull readonly %fmt, ptr noundef nonnull %args) #45
+  %call3.i = call i32 @vsnprintf(ptr noundef nonnull %buf.i, i64 noundef 511, ptr noundef nonnull readonly %fmt, ptr noundef nonnull %args) #44
   store i8 0, ptr %0, align 1
   %cmp.i.i = icmp eq ptr %out, null
   %2 = load ptr, ptr @stdout, align 8
@@ -16129,12 +16129,12 @@ if.end.i.i:                                       ; preds = %if.end2.i
   %6 = load volatile ptr, ptr @mi_out_default, align 8
   %cmp1.i.i.i = icmp eq ptr %6, null
   %cond.i.i.i = select i1 %cmp1.i.i.i, ptr @mi_out_buf, ptr %6
-  call void %cond.i.i.i(ptr noundef nonnull %buf.i, ptr noundef %5) #45
+  call void %cond.i.i.i(ptr noundef nonnull %buf.i, ptr noundef %5) #44
   store i8 0, ptr %0, align 1
   br label %mi_vfprintf.exit
 
 if.else.i.i:                                      ; preds = %if.end2.i
-  call void %out(ptr noundef nonnull %buf.i, ptr noundef %arg) #45
+  call void %out(ptr noundef nonnull %buf.i, ptr noundef %arg) #44
   br label %mi_vfprintf.exit
 
 mi_vfprintf.exit:                                 ; preds = %entry, %if.end.i, %if.end.i.i, %if.else.i.i
@@ -16189,13 +16189,13 @@ land.lhs.true2:                                   ; preds = %_mi_strnlen.exit
   br i1 %cmp.i8, label %if.else, label %_mi_is_main_thread.exit
 
 _mi_is_main_thread.exit:                          ; preds = %land.lhs.true2
-  %3 = tail call ptr asm "movq %fs:$1, $0", "=r,*m,~{dirflag},~{fpsr},~{flags}"(ptr elementtype(ptr) null) #52
+  %3 = tail call ptr asm "movq %fs:$1, $0", "=r,*m,~{dirflag},~{fpsr},~{flags}"(ptr elementtype(ptr) null) #50
   %4 = ptrtoint ptr %3 to i64
   %cmp1.i9 = icmp eq i64 %2, %4
   br i1 %cmp1.i9, label %if.else, label %if.then
 
 if.then:                                          ; preds = %_mi_is_main_thread.exit
-  %call5 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %tprefix, i64 noundef 64, ptr noundef nonnull @.str.82, ptr noundef nonnull %prefix, i64 noundef %4) #45
+  %call5 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %tprefix, i64 noundef 64, ptr noundef nonnull @.str.82, ptr noundef nonnull %prefix, i64 noundef %4) #44
   call void @llvm.lifetime.start.p0(i64 512, ptr nonnull %buf.i)
   %cmp.i10 = icmp eq ptr %fmt, null
   br i1 %cmp.i10, label %mi_vfprintf.exit, label %if.end.i
@@ -16208,15 +16208,15 @@ if.end.i:                                         ; preds = %if.then
 
 if.end2.i:                                        ; preds = %if.end.i
   store i8 1, ptr %5, align 1
-  %call3.i = call i32 @vsnprintf(ptr noundef nonnull %buf.i, i64 noundef 511, ptr noundef nonnull readonly %fmt, ptr noundef %args) #45
+  %call3.i = call i32 @vsnprintf(ptr noundef nonnull %buf.i, i64 noundef 511, ptr noundef nonnull readonly %fmt, ptr noundef %args) #44
   store i8 1, ptr %5, align 1
   %7 = load atomic i64, ptr @mi_out_arg acquire, align 8
   %8 = inttoptr i64 %7 to ptr
   %9 = load volatile ptr, ptr @mi_out_default, align 8
   %cmp1.i.i.i = icmp eq ptr %9, null
   %cond.i.i.i = select i1 %cmp1.i.i.i, ptr @mi_out_buf, ptr %9
-  call void %cond.i.i.i(ptr noundef nonnull %tprefix, ptr noundef %8) #45
-  call void %cond.i.i.i(ptr noundef nonnull %buf.i, ptr noundef %8) #45
+  call void %cond.i.i.i(ptr noundef nonnull %tprefix, ptr noundef %8) #44
+  call void %cond.i.i.i(ptr noundef nonnull %buf.i, ptr noundef %8) #44
   store i8 0, ptr %5, align 1
   br label %mi_vfprintf.exit
 
@@ -16237,7 +16237,7 @@ if.end.i13:                                       ; preds = %if.else
 
 if.end2.i15:                                      ; preds = %if.end.i13
   store i8 1, ptr %10, align 1
-  %call3.i16 = call i32 @vsnprintf(ptr noundef nonnull %buf.i11, i64 noundef 511, ptr noundef nonnull readonly %fmt, ptr noundef %args) #45
+  %call3.i16 = call i32 @vsnprintf(ptr noundef nonnull %buf.i11, i64 noundef 511, ptr noundef nonnull readonly %fmt, ptr noundef %args) #44
   store i8 1, ptr %10, align 1
   %12 = load atomic i64, ptr @mi_out_arg acquire, align 8
   %13 = inttoptr i64 %12 to ptr
@@ -16247,11 +16247,11 @@ if.end2.i15:                                      ; preds = %if.end.i13
   br i1 %cmp.not, label %if.end8.i.i, label %if.then7.i.i
 
 if.then7.i.i:                                     ; preds = %if.end2.i15
-  tail call void %cond.i.i.i20(ptr noundef nonnull %prefix, ptr noundef %13) #45
+  tail call void %cond.i.i.i20(ptr noundef nonnull %prefix, ptr noundef %13) #44
   br label %if.end8.i.i
 
 if.end8.i.i:                                      ; preds = %if.then7.i.i, %if.end2.i15
-  call void %cond.i.i.i20(ptr noundef nonnull %buf.i11, ptr noundef %13) #45
+  call void %cond.i.i.i20(ptr noundef nonnull %buf.i11, ptr noundef %13) #44
   store i8 0, ptr %10, align 1
   br label %mi_vfprintf.exit21
 
@@ -16575,7 +16575,7 @@ return:                                           ; preds = %if.else.i, %if.then
 define hidden void @_mi_prim_mem_init(ptr nocapture noundef writeonly %config) local_unnamed_addr #0 {
 entry:
   %buf.i = alloca [32 x i8], align 16
-  %call = tail call i64 @sysconf(i32 noundef 30) #45
+  %call = tail call i64 @sysconf(i32 noundef 30) #44
   %cmp = icmp sgt i64 %call, 0
   br i1 %cmp, label %if.then, label %if.end
 
@@ -16589,15 +16589,15 @@ if.end:                                           ; preds = %if.then, %entry
   %large_page_size = getelementptr inbounds i8, ptr %config, i64 8
   store i64 2097152, ptr %large_page_size, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %buf.i)
-  %call.i.i = tail call i64 (i64, ...) @syscall(i64 noundef 2, ptr noundef nonnull @.str.151, i32 noundef 0, i32 noundef 0) #45
+  %call.i.i = tail call i64 (i64, ...) @syscall(i64 noundef 2, ptr noundef nonnull @.str.151, i32 noundef 0, i32 noundef 0) #44
   %conv.i.i = trunc i64 %call.i.i to i32
   %cmp.i = icmp sgt i32 %conv.i.i, -1
   br i1 %cmp.i, label %if.then.i, label %unix_detect_overcommit.exit
 
 if.then.i:                                        ; preds = %if.end
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %buf.i, i8 0, i64 32, i1 false)
-  %call.i3.i = call i64 (i64, ...) @syscall(i64 noundef 0, i32 noundef %conv.i.i, ptr noundef nonnull %buf.i, i64 noundef 32) #45
-  %call.i4.i = call i64 (i64, ...) @syscall(i64 noundef 3, i32 noundef %conv.i.i) #45
+  %call.i3.i = call i64 (i64, ...) @syscall(i64 noundef 0, i32 noundef %conv.i.i, ptr noundef nonnull %buf.i, i64 noundef 32) #44
+  %call.i4.i = call i64 (i64, ...) @syscall(i64 noundef 3, i32 noundef %conv.i.i) #44
   %cmp3.i = icmp sgt i64 %call.i3.i, 0
   br i1 %cmp3.i, label %if.then4.i, label %unix_detect_overcommit.exit
 
@@ -16716,12 +16716,12 @@ entry:
   br i1 %or.cond, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %call.i = tail call i32 @munmap(ptr noundef nonnull %addr, i64 noundef %size) #45
+  %call.i = tail call i32 @munmap(ptr noundef nonnull %addr, i64 noundef %size) #44
   %cmp.i = icmp eq i32 %call.i, -1
   br i1 %cmp.i, label %_mi_prim_free.exit, label %if.end4
 
 _mi_prim_free.exit:                               ; preds = %if.end
-  %call1.i = tail call ptr @__errno_location() #55
+  %call1.i = tail call ptr @__errno_location() #53
   %0 = load i32, ptr %call1.i, align 4
   %cmp2.not = icmp eq i32 %0, 0
   br i1 %cmp2.not, label %if.end4, label %if.then3
@@ -16865,14 +16865,14 @@ lor.lhs.false.i.i.i:                              ; preds = %if.end.i
   br label %unix_mmap_prim.exit
 
 unix_mmap_prim.exit:                              ; preds = %lor.lhs.false.i.i.i, %if.end.i
-  %call13.i = tail call ptr @mmap64(ptr noundef null, i64 noundef %retval.0.i23, i32 noundef 3, i32 noundef %spec.select.i.i, i32 noundef -1, i64 noundef 0) #45
+  %call13.i = tail call ptr @mmap64(ptr noundef null, i64 noundef %retval.0.i23, i32 noundef 3, i32 noundef %spec.select.i.i, i32 noundef -1, i64 noundef 0) #44
   %cmp14.not.i = icmp eq ptr %call13.i, inttoptr (i64 -1 to ptr)
   %.call13.i = select i1 %cmp14.not.i, ptr null, ptr %call13.i
   %cmp48.not.i.i = icmp eq ptr %.call13.i, null
   br i1 %cmp48.not.i.i, label %_mi_prim_alloc.exit, label %if.end.i.i.i
 
 _mi_prim_alloc.exit:                              ; preds = %unix_mmap_prim.exit
-  %call3.i = tail call ptr @__errno_location() #55
+  %call3.i = tail call ptr @__errno_location() #53
   %4 = load i32, ptr %call3.i, align 4
   %cmp9.not.i = icmp eq i32 %4, 0
   br i1 %cmp9.not.i, label %return, label %if.then10.i
@@ -17128,7 +17128,7 @@ cond.end16.i.i.i:                                 ; preds = %if.else.i.i21.i.i.i
   br i1 %cmp18.i.i.i, label %mi_os_decommit_ex.exit, label %if.end.i
 
 if.end.i:                                         ; preds = %cond.end16.i.i.i
-  %call.i.i.i = tail call i32 @madvise(ptr noundef %cond39.i.i.i, i64 noundef %sub.ptr.sub.i.i.i, i32 noundef 4) #45
+  %call.i.i.i = tail call i32 @madvise(ptr noundef %cond39.i.i.i, i64 noundef %sub.ptr.sub.i.i.i, i32 noundef 4) #44
   %cmp2.not.i = icmp eq i32 %call.i.i.i, 0
   br i1 %cmp2.not.i, label %mi_os_decommit_ex.exit, label %if.then3.i
 
@@ -17229,12 +17229,12 @@ cond.end16.i:                                     ; preds = %if.else.i.i31.i, %i
   br i1 %cmp18.i, label %return, label %if.end3
 
 if.end3:                                          ; preds = %cond.end16.i
-  %call.i = tail call i32 @mprotect(ptr noundef %cond39.i, i64 noundef %sub.ptr.sub.i, i32 noundef 3) #45
+  %call.i = tail call i32 @mprotect(ptr noundef %cond39.i, i64 noundef %sub.ptr.sub.i, i32 noundef 3) #44
   %cmp.not.i = icmp eq i32 %call.i, 0
   br i1 %cmp.not.i, label %return, label %_mi_prim_commit.exit
 
 _mi_prim_commit.exit:                             ; preds = %if.end3
-  %call1.i = tail call ptr @__errno_location() #55
+  %call1.i = tail call ptr @__errno_location() #53
   %17 = load i32, ptr %call1.i, align 4
   %cmp5.not = icmp eq i32 %17, 0
   br i1 %cmp5.not, label %return, label %if.then6
@@ -17279,12 +17279,12 @@ if.end:                                           ; preds = %if.else, %if.then
 define hidden i32 @_mi_prim_commit(ptr noundef %start, i64 noundef %size, ptr nocapture noundef writeonly %is_zero) local_unnamed_addr #0 {
 entry:
   store i8 0, ptr %is_zero, align 1
-  %call = tail call i32 @mprotect(ptr noundef %start, i64 noundef %size, i32 noundef 3) #45
+  %call = tail call i32 @mprotect(ptr noundef %start, i64 noundef %size, i32 noundef 3) #44
   %cmp.not = icmp eq i32 %call, 0
   br i1 %cmp.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
-  %call1 = tail call ptr @__errno_location() #55
+  %call1 = tail call ptr @__errno_location() #53
   %0 = load i32, ptr %call1, align 4
   br label %if.end
 
@@ -17407,12 +17407,12 @@ if.else.i:                                        ; preds = %_mi_stat_increase.e
 _mi_stat_counter_increase.exit:                   ; preds = %if.then.i, %if.else.i
   %21 = load atomic i64, ptr @_mi_prim_reset.advice monotonic, align 8
   %conv.i = trunc nuw nsw i64 %21 to i32
-  %call.i7.i = tail call i32 @madvise(ptr noundef %cond39.i.i, i64 noundef %sub.ptr.sub.i.i, i32 noundef %conv.i) #45
+  %call.i7.i = tail call i32 @madvise(ptr noundef %cond39.i.i, i64 noundef %sub.ptr.sub.i.i, i32 noundef %conv.i) #44
   %cmp.not8.i = icmp eq i32 %call.i7.i, 0
   br i1 %cmp.not8.i, label %return, label %land.rhs.lr.ph.i
 
 land.rhs.lr.ph.i:                                 ; preds = %_mi_stat_counter_increase.exit
-  %call2.i = tail call ptr @__errno_location() #55
+  %call2.i = tail call ptr @__errno_location() #53
   %22 = load i32, ptr %call2.i, align 4
   %cmp3.i24 = icmp eq i32 %22, 11
   br i1 %cmp3.i24, label %while.body.i, label %land.lhs.true.i
@@ -17424,7 +17424,7 @@ land.rhs.i:                                       ; preds = %while.body.i
 
 while.body.i:                                     ; preds = %land.rhs.lr.ph.i, %land.rhs.i
   store i32 0, ptr %call2.i, align 4
-  %call.i.i = tail call i32 @madvise(ptr noundef %cond39.i.i, i64 noundef %sub.ptr.sub.i.i, i32 noundef %conv.i) #45
+  %call.i.i = tail call i32 @madvise(ptr noundef %cond39.i.i, i64 noundef %sub.ptr.sub.i.i, i32 noundef %conv.i) #44
   %cmp.not.i = icmp eq i32 %call.i.i, 0
   br i1 %cmp.not.i, label %return, label %land.rhs.i, !llvm.loop !85
 
@@ -17438,7 +17438,7 @@ land.lhs.true.i:                                  ; preds = %land.rhs.i, %land.r
 
 _mi_prim_reset.exit:                              ; preds = %land.lhs.true.i
   store atomic i64 4, ptr @_mi_prim_reset.advice release, align 8
-  %call.i5.i = tail call i32 @madvise(ptr noundef %cond39.i.i, i64 noundef %sub.ptr.sub.i.i, i32 noundef 4) #45
+  %call.i5.i = tail call i32 @madvise(ptr noundef %cond39.i.i, i64 noundef %sub.ptr.sub.i.i, i32 noundef 4) #44
   %cmp2.not = icmp eq i32 %call.i5.i, 0
   br i1 %cmp2.not, label %return, label %if.then3
 
@@ -17457,12 +17457,12 @@ define hidden i32 @_mi_prim_reset(ptr noundef %start, i64 noundef %size) local_u
 entry:
   %0 = load atomic i64, ptr @_mi_prim_reset.advice monotonic, align 8
   %conv = trunc nuw nsw i64 %0 to i32
-  %call.i7 = tail call i32 @madvise(ptr noundef %start, i64 noundef %size, i32 noundef %conv) #45
+  %call.i7 = tail call i32 @madvise(ptr noundef %start, i64 noundef %size, i32 noundef %conv) #44
   %cmp.not8 = icmp eq i32 %call.i7, 0
   br i1 %cmp.not8, label %if.end, label %land.rhs.lr.ph
 
 land.rhs.lr.ph:                                   ; preds = %entry
-  %call2 = tail call ptr @__errno_location() #55
+  %call2 = tail call ptr @__errno_location() #53
   %1 = load i32, ptr %call2, align 4
   %cmp316 = icmp eq i32 %1, 11
   br i1 %cmp316, label %while.body, label %land.lhs.true
@@ -17474,7 +17474,7 @@ land.rhs:                                         ; preds = %while.body
 
 while.body:                                       ; preds = %land.rhs.lr.ph, %land.rhs
   store i32 0, ptr %call2, align 4
-  %call.i = tail call i32 @madvise(ptr noundef %start, i64 noundef %size, i32 noundef %conv) #45
+  %call.i = tail call i32 @madvise(ptr noundef %start, i64 noundef %size, i32 noundef %conv) #44
   %cmp.not = icmp eq i32 %call.i, 0
   br i1 %cmp.not, label %if.end, label %land.rhs, !llvm.loop !85
 
@@ -17488,7 +17488,7 @@ land.lhs.true:                                    ; preds = %land.rhs, %land.rhs
 
 if.then:                                          ; preds = %land.lhs.true
   store atomic i64 4, ptr @_mi_prim_reset.advice release, align 8
-  %call.i5 = tail call i32 @madvise(ptr noundef %start, i64 noundef %size, i32 noundef 4) #45
+  %call.i5 = tail call i32 @madvise(ptr noundef %start, i64 noundef %size, i32 noundef 4) #44
   br label %if.end
 
 if.end:                                           ; preds = %while.body, %entry, %if.then, %land.lhs.true
@@ -17676,7 +17676,7 @@ cond.end16.i.i.i:                                 ; preds = %if.else.i.i21.i.i.i
   br i1 %cmp18.i.i.i, label %return, label %if.end.i
 
 if.end.i:                                         ; preds = %cond.end16.i.i.i
-  %call.i.i.i = tail call i32 @madvise(ptr noundef %cond39.i.i.i, i64 noundef %sub.ptr.sub.i.i.i, i32 noundef 4) #45
+  %call.i.i.i = tail call i32 @madvise(ptr noundef %cond39.i.i.i, i64 noundef %sub.ptr.sub.i.i.i, i32 noundef 4) #44
   %cmp2.not.i = icmp eq i32 %call.i.i.i, 0
   br i1 %cmp2.not.i, label %return, label %if.then3.i
 
@@ -17744,12 +17744,12 @@ cond.end16.i.i.i:                                 ; preds = %if.else.i.i21.i.i.i
   br i1 %cmp18.i.i.i, label %mi_os_protectx.exit, label %if.end.i
 
 if.end.i:                                         ; preds = %cond.end16.i.i.i
-  %call.i.i = tail call i32 @mprotect(ptr noundef %cond39.i.i.i, i64 noundef %sub.ptr.sub.i.i.i, i32 noundef 0) #45
+  %call.i.i = tail call i32 @mprotect(ptr noundef %cond39.i.i.i, i64 noundef %sub.ptr.sub.i.i.i, i32 noundef 0) #44
   %cmp.not.i.i = icmp eq i32 %call.i.i, 0
   br i1 %cmp.not.i.i, label %mi_os_protectx.exit, label %_mi_prim_protect.exit.i
 
 _mi_prim_protect.exit.i:                          ; preds = %if.end.i
-  %call1.i.i = tail call ptr @__errno_location() #55
+  %call1.i.i = tail call ptr @__errno_location() #53
   %6 = load i32, ptr %call1.i.i, align 4
   %cmp2.not.i = icmp eq i32 %6, 0
   br i1 %cmp2.not.i, label %mi_os_protectx.exit, label %if.then3.i
@@ -17804,12 +17804,12 @@ cond.end16.i.i.i:                                 ; preds = %if.else.i.i21.i.i.i
   br i1 %cmp18.i.i.i, label %mi_os_protectx.exit, label %if.end.i
 
 if.end.i:                                         ; preds = %cond.end16.i.i.i
-  %call.i.i = tail call i32 @mprotect(ptr noundef %cond39.i.i.i, i64 noundef %sub.ptr.sub.i.i.i, i32 noundef 3) #45
+  %call.i.i = tail call i32 @mprotect(ptr noundef %cond39.i.i.i, i64 noundef %sub.ptr.sub.i.i.i, i32 noundef 3) #44
   %cmp.not.i.i = icmp eq i32 %call.i.i, 0
   br i1 %cmp.not.i.i, label %mi_os_protectx.exit, label %_mi_prim_protect.exit.i
 
 _mi_prim_protect.exit.i:                          ; preds = %if.end.i
-  %call1.i.i = tail call ptr @__errno_location() #55
+  %call1.i.i = tail call ptr @__errno_location() #53
   %6 = load i32, ptr %call1.i.i, align 4
   %cmp2.not.i = icmp eq i32 %6, 0
   br i1 %cmp2.not.i, label %mi_os_protectx.exit, label %if.then3.i
@@ -17835,14 +17835,14 @@ entry:
 
 if.then:                                          ; preds = %entry
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %t.i.i)
-  %call.i.i = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %t.i.i) #45
+  %call.i.i = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %t.i.i) #44
   %1 = load i64, ptr %t.i.i, align 8
   %tv_nsec.i.i = getelementptr inbounds i8, ptr %t.i.i, i64 8
   %2 = load i64, ptr %tv_nsec.i.i, align 8
   %div.i.i.neg = sdiv i64 %2, -1000000
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %t.i.i)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %t.i.i1)
-  %call.i.i2 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %t.i.i1) #45
+  %call.i.i2 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %t.i.i1) #44
   %3 = load i64, ptr %t.i.i1, align 8
   %tv_nsec.i.i4 = getelementptr inbounds i8, ptr %t.i.i1, i64 8
   %4 = load i64, ptr %tv_nsec.i.i4, align 8
@@ -17857,7 +17857,7 @@ if.then:                                          ; preds = %entry
 
 if.end:                                           ; preds = %if.then, %entry
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %t.i.i7)
-  %call.i.i8 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %t.i.i7) #45
+  %call.i.i8 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %t.i.i7) #44
   %5 = load i64, ptr %t.i.i7, align 8
   %mul.i.i9 = mul i64 %5, 1000
   %tv_nsec.i.i10 = getelementptr inbounds i8, ptr %t.i.i7, i64 8
@@ -17893,7 +17893,7 @@ if.end19.i:                                       ; preds = %if.else17.i, %land.
 
 if.end34.i:                                       ; preds = %if.end19.i
   store i1 true, ptr @unix_mmap.mi_huge_pages_available, align 1
-  %call30.i = tail call ptr @__errno_location() #55
+  %call30.i = tail call ptr @__errno_location() #53
   %1 = load i32, ptr %call30.i, align 4
   tail call void (ptr, ...) @_mi_warning_message(ptr noundef nonnull @.str.152, i32 noundef %1)
   %call33.i = tail call fastcc ptr @unix_mmap_prim(ptr noundef %hint_addr, i64 noundef %size, i64 noundef 33554432, i32 noundef 3, i32 noundef 1409548322)
@@ -17911,12 +17911,12 @@ if.then:                                          ; preds = %unix_mmap.exit
   %sh_prom = zext nneg i32 %numa_node to i64
   %shl = shl nuw i64 1, %sh_prom
   store i64 %shl, ptr %numa_mask, align 8
-  %call.i = call i64 (i64, ...) @syscall(i64 noundef 237, ptr noundef nonnull %retval.0.i, i64 noundef %size, i64 noundef 1, ptr noundef nonnull %numa_mask, i64 noundef 64, i32 noundef 0) #45
+  %call.i = call i64 (i64, ...) @syscall(i64 noundef 237, ptr noundef nonnull %retval.0.i, i64 noundef %size, i64 noundef 1, ptr noundef nonnull %numa_mask, i64 noundef 64, i32 noundef 0) #44
   %cmp5.not = icmp eq i64 %call.i, 0
   br i1 %cmp5.not, label %if.end8thread-pre-split, label %if.then6
 
 if.then6:                                         ; preds = %if.then
-  %call7 = tail call ptr @__errno_location() #55
+  %call7 = tail call ptr @__errno_location() #53
   %3 = load i32, ptr %call7, align 4
   %conv = sext i32 %3 to i64
   call void (ptr, ...) @_mi_warning_message(ptr noundef nonnull @.str.31, i32 noundef %numa_node, i64 noundef %conv, i64 noundef %conv)
@@ -17932,7 +17932,7 @@ if.end8:                                          ; preds = %if.end8thread-pre-s
   br i1 %cmp9.not, label %cond.false, label %cond.end
 
 cond.false:                                       ; preds = %if.end8
-  %call11 = tail call ptr @__errno_location() #55
+  %call11 = tail call ptr @__errno_location() #53
   %5 = load i32, ptr %call11, align 4
   br label %cond.end
 
@@ -17946,7 +17946,7 @@ define hidden i64 @_mi_clock_end(i64 noundef %start) local_unnamed_addr #0 {
 entry:
   %t.i.i = alloca %struct.timespec, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %t.i.i)
-  %call.i.i = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %t.i.i) #45
+  %call.i.i = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %t.i.i) #44
   %0 = load i64, ptr %t.i.i, align 8
   %mul.i.i = mul i64 %0, 1000
   %tv_nsec.i.i = getelementptr inbounds i8, ptr %t.i.i, i64 8
@@ -17984,8 +17984,8 @@ for.cond.i:                                       ; preds = %for.body.i, %if.els
 
 for.body.i:                                       ; preds = %for.cond.i
   %add.i = add nuw nsw i32 %node.0.i, 1
-  %call.i = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %buf.i, i64 noundef 127, ptr noundef nonnull @.str.32, i32 noundef %add.i) #45
-  %call.i.i = call i64 (i64, ...) @syscall(i64 noundef 21, ptr noundef nonnull %buf.i, i32 noundef 4) #45
+  %call.i = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %buf.i, i64 noundef 127, ptr noundef nonnull @.str.32, i32 noundef %add.i) #44
+  %call.i.i = call i64 (i64, ...) @syscall(i64 noundef 21, ptr noundef nonnull %buf.i, i32 noundef 4) #44
   %1 = and i64 %call.i.i, 4294967295
   %cmp3.not.i = icmp eq i64 %1, 0
   br i1 %cmp3.not.i, label %for.cond.i, label %for.endsplit.i, !llvm.loop !51
@@ -18023,8 +18023,8 @@ for.cond:                                         ; preds = %for.body, %entry
 
 for.body:                                         ; preds = %for.cond
   %add = add nuw nsw i32 %node.0, 1
-  %call = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %buf, i64 noundef 127, ptr noundef nonnull @.str.32, i32 noundef %add) #45
-  %call.i = call i64 (i64, ...) @syscall(i64 noundef 21, ptr noundef nonnull %buf, i32 noundef 4) #45
+  %call = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %buf, i64 noundef 127, ptr noundef nonnull @.str.32, i32 noundef %add) #44
+  %call.i = call i64 (i64, ...) @syscall(i64 noundef 21, ptr noundef nonnull %buf, i32 noundef 4) #44
   %0 = and i64 %call.i, 4294967295
   %cmp3.not = icmp eq i64 %0, 0
   br i1 %cmp3.not, label %for.cond, label %for.endsplit, !llvm.loop !51
@@ -18070,8 +18070,8 @@ for.cond.i.i.i:                                   ; preds = %for.body.i.i.i, %if
 
 for.body.i.i.i:                                   ; preds = %for.cond.i.i.i
   %add.i.i.i = add nuw nsw i32 %node.0.i.i.i, 1
-  %call.i.i.i = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %buf.i.i.i, i64 noundef 127, ptr noundef nonnull @.str.32, i32 noundef %add.i.i.i) #45
-  %call.i.i.i.i = call i64 (i64, ...) @syscall(i64 noundef 21, ptr noundef nonnull %buf.i.i.i, i32 noundef 4) #45
+  %call.i.i.i = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %buf.i.i.i, i64 noundef 127, ptr noundef nonnull @.str.32, i32 noundef %add.i.i.i) #44
+  %call.i.i.i.i = call i64 (i64, ...) @syscall(i64 noundef 21, ptr noundef nonnull %buf.i.i.i, i32 noundef 4) #44
   %2 = and i64 %call.i.i.i.i, 4294967295
   %cmp3.not.i.i.i = icmp eq i64 %2, 0
   br i1 %cmp3.not.i.i.i, label %for.cond.i.i.i, label %for.endsplit.i.i.i, !llvm.loop !51
@@ -18101,7 +18101,7 @@ if.end:                                           ; preds = %_mi_os_numa_node_co
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ncpu.i)
   store i64 0, ptr %node.i, align 8
   store i64 0, ptr %ncpu.i, align 8
-  %call.i = call i64 (i64, ...) @syscall(i64 noundef 309, ptr noundef nonnull %ncpu.i, ptr noundef nonnull %node.i, ptr noundef null) #45
+  %call.i = call i64 (i64, ...) @syscall(i64 noundef 309, ptr noundef nonnull %ncpu.i, ptr noundef nonnull %node.i, ptr noundef null) #44
   %cmp.not.i5 = icmp eq i64 %call.i, 0
   %4 = load i64, ptr %node.i, align 8
   %retval.0.i6 = select i1 %cmp.not.i5, i64 %4, i64 0
@@ -18131,7 +18131,7 @@ entry:
   %ncpu = alloca i64, align 8
   store i64 0, ptr %node, align 8
   store i64 0, ptr %ncpu, align 8
-  %call = call i64 (i64, ...) @syscall(i64 noundef 309, ptr noundef nonnull %ncpu, ptr noundef nonnull %node, ptr noundef null) #45
+  %call = call i64 (i64, ...) @syscall(i64 noundef 309, ptr noundef nonnull %ncpu, ptr noundef nonnull %node, ptr noundef null) #44
   %cmp.not = icmp eq i64 %call, 0
   %0 = load i64, ptr %node, align 8
   %retval.0 = select i1 %cmp.not, i64 %0, i64 0
@@ -19779,7 +19779,7 @@ if.then:                                          ; preds = %land.lhs.true
   %7 = load i64, ptr %6, align 8
   %8 = load atomic i64, ptr @deferred_arg monotonic, align 8
   %9 = inttoptr i64 %8 to ptr
-  tail call void %5(i1 noundef zeroext %force, i64 noundef %7, ptr noundef %9) #45
+  tail call void %5(i1 noundef zeroext %force, i64 noundef %7, ptr noundef %9) #44
   %10 = load ptr, ptr %heap, align 8
   %recurse8 = getelementptr inbounds i8, ptr %10, i64 8
   store i8 0, ptr %recurse8, align 8
@@ -20514,7 +20514,7 @@ entry:
   %t.i = alloca %struct.timespec, align 8
   %xor = xor i64 %extra_seed, ptrtoint (ptr @_mi_os_random_weak to i64)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %t.i)
-  %call.i = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %t.i) #45
+  %call.i = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %t.i) #44
   %0 = load i64, ptr %t.i, align 8
   %mul.i = mul i64 %0, 1000
   %tv_nsec.i = getelementptr inbounds i8, ptr %t.i, i64 8
@@ -20553,7 +20553,7 @@ for.end:                                          ; preds = %for.body
 define hidden i64 @_mi_prim_clock_now() local_unnamed_addr #0 {
 entry:
   %t = alloca %struct.timespec, align 8
-  %call = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %t) #45
+  %call = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %t) #44
   %0 = load i64, ptr %t, align 8
   %mul = mul i64 %0, 1000
   %tv_nsec = getelementptr inbounds i8, ptr %t, i64 8
@@ -20588,7 +20588,7 @@ if.then2:                                         ; preds = %lor.lhs.false
 
 if.end:                                           ; preds = %entry, %if.then2
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %t.i.i)
-  %call.i.i = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %t.i.i) #45
+  %call.i.i = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %t.i.i) #44
   %0 = load i64, ptr %t.i.i, align 8
   %mul.i.i = mul i64 %0, 1000
   %tv_nsec.i.i = getelementptr inbounds i8, ptr %t.i.i, i64 8
@@ -21739,7 +21739,7 @@ if.then:                                          ; preds = %entry
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry
-  %0 = tail call ptr asm "movq %fs:$1, $0", "=r,*m,~{dirflag},~{fpsr},~{flags}"(ptr elementtype(ptr) null) #52, !srcloc !16
+  %0 = tail call ptr asm "movq %fs:$1, $0", "=r,*m,~{dirflag},~{fpsr},~{flags}"(ptr elementtype(ptr) null) #50, !srcloc !16
   %1 = ptrtoint ptr %0 to i64
   %thread_id = getelementptr inbounds i8, ptr %segment, i64 256
   store atomic i64 %1, ptr %thread_id seq_cst, align 8
@@ -22614,7 +22614,7 @@ mi_commit_mask_is_empty.exit:                     ; preds = %for.body.i
 
 if.end:                                           ; preds = %lor.lhs.false, %mi_commit_mask_is_empty.exit
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %t.i.i)
-  %call.i.i = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %t.i.i) #45
+  %call.i.i = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %t.i.i) #44
   %3 = load i64, ptr %t.i.i, align 8
   %tv_nsec.i.i = getelementptr inbounds i8, ptr %t.i.i, i64 8
   %4 = load i64, ptr %tv_nsec.i.i, align 8
@@ -24295,8 +24295,8 @@ for.cond.i.i.i:                                   ; preds = %for.body.i.i.i, %if
 
 for.body.i.i.i:                                   ; preds = %for.cond.i.i.i
   %add.i.i.i = add nuw nsw i32 %node.0.i.i.i, 1
-  %call.i.i.i = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %buf.i.i.i, i64 noundef 127, ptr noundef nonnull @.str.32, i32 noundef %add.i.i.i) #45
-  %call.i.i.i.i = call i64 (i64, ...) @syscall(i64 noundef 21, ptr noundef nonnull %buf.i.i.i, i32 noundef 4) #45
+  %call.i.i.i = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %buf.i.i.i, i64 noundef 127, ptr noundef nonnull @.str.32, i32 noundef %add.i.i.i) #44
+  %call.i.i.i.i = call i64 (i64, ...) @syscall(i64 noundef 21, ptr noundef nonnull %buf.i.i.i, i32 noundef 4) #44
   %13 = and i64 %call.i.i.i.i, 4294967295
   %cmp3.not.i.i.i = icmp eq i64 %13, 0
   br i1 %cmp3.not.i.i.i, label %for.cond.i.i.i, label %for.endsplit.i.i.i, !llvm.loop !51
@@ -24321,7 +24321,7 @@ _mi_os_numa_node_count.exit:                      ; preds = %mi_stat_counter_pri
   call void (ptr, ptr, ptr, ...) @_mi_fprintf(ptr noundef nonnull @mi_buffered_out, ptr noundef nonnull %buffer, ptr noundef nonnull @.str.117, ptr noundef nonnull @.str.118, i64 noundef %retval.0.i)
   %15 = load i64, ptr @mi_process_start, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %t.i.i.i.i)
-  %call.i.i.i.i69 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %t.i.i.i.i) #45
+  %call.i.i.i.i69 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %t.i.i.i.i) #44
   %16 = load i64, ptr %t.i.i.i.i, align 8
   %tv_nsec.i.i.i.i = getelementptr inbounds i8, ptr %t.i.i.i.i, i64 8
   %17 = load i64, ptr %tv_nsec.i.i.i.i, align 8
@@ -24330,7 +24330,7 @@ _mi_os_numa_node_count.exit:                      ; preds = %mi_stat_counter_pri
   %19 = load atomic i64, ptr getelementptr inbounds (i8, ptr @_mi_stats_main, i64 120) monotonic, align 8
   %20 = load atomic i64, ptr getelementptr inbounds (i8, ptr @_mi_stats_main, i64 112) monotonic, align 16
   call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %rusage.i.i)
-  %call.i.i70 = call i32 @getrusage(i32 noundef 0, ptr noundef nonnull %rusage.i.i) #45
+  %call.i.i70 = call i32 @getrusage(i32 noundef 0, ptr noundef nonnull %rusage.i.i) #44
   %rusage.val.i.i = load i64, ptr %rusage.i.i, align 8
   %21 = getelementptr inbounds i8, ptr %rusage.i.i, i64 8
   %rusage.val4.i.i = load i64, ptr %21, align 8
@@ -24462,7 +24462,7 @@ define hidden i64 @_mi_clock_now() local_unnamed_addr #0 {
 entry:
   %t.i = alloca %struct.timespec, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %t.i)
-  %call.i = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %t.i) #45
+  %call.i = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %t.i) #44
   %0 = load i64, ptr %t.i, align 8
   %mul.i = mul i64 %0, 1000
   %tv_nsec.i = getelementptr inbounds i8, ptr %t.i, i64 8
@@ -24480,7 +24480,7 @@ entry:
   %t.i.i.i = alloca %struct.timespec, align 8
   %0 = load i64, ptr @mi_process_start, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %t.i.i.i)
-  %call.i.i.i = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %t.i.i.i) #45
+  %call.i.i.i = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %t.i.i.i) #44
   %1 = load i64, ptr %t.i.i.i, align 8
   %tv_nsec.i.i.i = getelementptr inbounds i8, ptr %t.i.i.i, i64 8
   %2 = load i64, ptr %tv_nsec.i.i.i, align 8
@@ -24489,7 +24489,7 @@ entry:
   %4 = load atomic i64, ptr getelementptr inbounds (i8, ptr @_mi_stats_main, i64 120) monotonic, align 8
   %5 = load atomic i64, ptr getelementptr inbounds (i8, ptr @_mi_stats_main, i64 112) monotonic, align 16
   call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %rusage.i)
-  %call.i = call i32 @getrusage(i32 noundef 0, ptr noundef nonnull %rusage.i) #45
+  %call.i = call i32 @getrusage(i32 noundef 0, ptr noundef nonnull %rusage.i) #44
   %rusage.val.i = load i64, ptr %rusage.i, align 8
   %6 = getelementptr inbounds i8, ptr %rusage.i, i64 8
   %rusage.val4.i = load i64, ptr %6, align 8
@@ -24588,7 +24588,7 @@ if.end69:                                         ; preds = %if.then67, %if.end6
 define hidden void @_mi_prim_process_info(ptr nocapture noundef writeonly %pinfo) local_unnamed_addr #0 {
 entry:
   %rusage = alloca %struct.rusage, align 8
-  %call = call i32 @getrusage(i32 noundef 0, ptr noundef nonnull %rusage) #45
+  %call = call i32 @getrusage(i32 noundef 0, ptr noundef nonnull %rusage) #44
   %rusage.val = load i64, ptr %rusage, align 8
   %0 = getelementptr inbounds i8, ptr %rusage, i64 8
   %rusage.val4 = load i64, ptr %0, align 8
@@ -24624,12 +24624,12 @@ declare i64 @sysconf(i32 noundef) local_unnamed_addr #31
 ; Function Attrs: nounwind uwtable
 define hidden i32 @_mi_prim_free(ptr noundef %addr, i64 noundef %size) local_unnamed_addr #0 {
 entry:
-  %call = tail call i32 @munmap(ptr noundef %addr, i64 noundef %size) #45
+  %call = tail call i32 @munmap(ptr noundef %addr, i64 noundef %size) #44
   %cmp = icmp eq i32 %call, -1
   br i1 %cmp, label %cond.true, label %cond.end
 
 cond.true:                                        ; preds = %entry
-  %call1 = tail call ptr @__errno_location() #55
+  %call1 = tail call ptr @__errno_location() #53
   %0 = load i32, ptr %call1, align 4
   br label %cond.end
 
@@ -24697,7 +24697,7 @@ if.end19.i:                                       ; preds = %if.else17.i, %land.
 
 if.end34.i:                                       ; preds = %if.end19.i
   store i1 true, ptr @unix_mmap.mi_huge_pages_available, align 1
-  %call30.i = tail call ptr @__errno_location() #55
+  %call30.i = tail call ptr @__errno_location() #53
   %3 = load i32, ptr %call30.i, align 4
   tail call void (ptr, ...) @_mi_warning_message(ptr noundef nonnull @.str.152, i32 noundef %3)
   %call33.i = tail call fastcc ptr @unix_mmap_prim(ptr noundef null, i64 noundef %size, i64 noundef %try_alignment, i32 noundef %cond, i32 noundef 1409548322)
@@ -24729,7 +24729,7 @@ lor.lhs.false.i44.i:                              ; preds = %if.then46.i
   br i1 %or.cond8, label %if.then53.i, label %unix_mmap.exit.thread
 
 if.then53.i:                                      ; preds = %lor.lhs.false.i44.i
-  %call.i.i = tail call i32 @madvise(ptr noundef nonnull %call47.i, i64 noundef %size, i32 noundef 14) #45
+  %call.i.i = tail call i32 @madvise(ptr noundef nonnull %call47.i, i64 noundef %size, i32 noundef 14) #44
   %cmp55.i = icmp eq i32 %call.i.i, 0
   br i1 %cmp55.i, label %if.then56.i, label %unix_mmap.exit.thread
 
@@ -24747,7 +24747,7 @@ unix_mmap.exit:                                   ; preds = %if.then46.i
   br i1 %cmp48.not.i, label %cond.false, label %cond.end
 
 cond.false:                                       ; preds = %unix_mmap.exit
-  %call3 = tail call ptr @__errno_location() #55
+  %call3 = tail call ptr @__errno_location() #53
   %7 = load i32, ptr %call3, align 4
   br label %cond.end
 
@@ -24762,7 +24762,7 @@ declare i32 @mprotect(ptr noundef, i64 noundef, i32 noundef) local_unnamed_addr 
 ; Function Attrs: nounwind uwtable
 define hidden i32 @_mi_prim_decommit(ptr noundef %start, i64 noundef %size, ptr nocapture noundef writeonly %needs_recommit) local_unnamed_addr #0 {
 entry:
-  %call.i = tail call i32 @madvise(ptr noundef %start, i64 noundef %size, i32 noundef 4) #45
+  %call.i = tail call i32 @madvise(ptr noundef %start, i64 noundef %size, i32 noundef 4) #44
   store i8 0, ptr %needs_recommit, align 1
   ret i32 %call.i
 }
@@ -24771,12 +24771,12 @@ entry:
 define hidden i32 @_mi_prim_protect(ptr noundef %start, i64 noundef %size, i1 noundef zeroext %protect) local_unnamed_addr #0 {
 entry:
   %cond = select i1 %protect, i32 0, i32 3
-  %call = tail call i32 @mprotect(ptr noundef %start, i64 noundef %size, i32 noundef %cond) #45
+  %call = tail call i32 @mprotect(ptr noundef %start, i64 noundef %size, i32 noundef %cond) #44
   %cmp.not = icmp eq i32 %call, 0
   br i1 %cmp.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
-  %call1 = tail call ptr @__errno_location() #55
+  %call1 = tail call ptr @__errno_location() #53
   %0 = load i32, ptr %call1, align 4
   br label %if.end
 
@@ -24797,11 +24797,11 @@ declare i32 @clock_gettime(i32 noundef, ptr noundef) local_unnamed_addr #31
 ; Function Attrs: nounwind
 declare i32 @getrusage(i32 noundef, ptr noundef) local_unnamed_addr #31
 
-; Function Attrs: cold nofree nounwind uwtable
-define hidden void @_mi_prim_out_stderr(ptr nocapture noundef readonly %msg) local_unnamed_addr #32 {
+; Function Attrs: nofree nounwind uwtable
+define hidden void @_mi_prim_out_stderr(ptr nocapture noundef readonly %msg) local_unnamed_addr #25 {
 entry:
   %0 = load ptr, ptr @stderr, align 8
-  %call = tail call i32 @fputs(ptr noundef %msg, ptr noundef %0) #56
+  %call = tail call i32 @fputs(ptr noundef %msg, ptr noundef %0) #54
   ret void
 }
 
@@ -24809,7 +24809,7 @@ entry:
 declare noundef i32 @fputs(ptr nocapture noundef readonly, ptr nocapture noundef) local_unnamed_addr #5
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden noundef zeroext i1 @_mi_prim_getenv(ptr noundef readonly %name, ptr noundef writeonly %result, i64 noundef %result_size) local_unnamed_addr #33 {
+define hidden noundef zeroext i1 @_mi_prim_getenv(ptr noundef readonly %name, ptr noundef writeonly %result, i64 noundef %result_size) local_unnamed_addr #32 {
 entry:
   %cmp = icmp eq ptr %name, null
   br i1 %cmp, label %return, label %while.cond.i
@@ -24954,7 +24954,7 @@ entry:
   br i1 %cmp, label %if.then, label %if.end8
 
 if.then:                                          ; preds = %entry
-  %call = tail call i64 (i64, ...) @syscall(i64 noundef 318, ptr noundef %buf, i64 noundef %buf_len, i32 noundef 1) #45
+  %call = tail call i64 (i64, ...) @syscall(i64 noundef 318, ptr noundef %buf, i64 noundef %buf_len, i32 noundef 1) #44
   %cmp1 = icmp sgt i64 %call, -1
   br i1 %cmp1, label %if.then2, label %if.end
 
@@ -24963,7 +24963,7 @@ if.then2:                                         ; preds = %if.then
   br label %return
 
 if.end:                                           ; preds = %if.then
-  %call4 = tail call ptr @__errno_location() #55
+  %call4 = tail call ptr @__errno_location() #53
   %1 = load i32, ptr %call4, align 4
   %cmp5.not = icmp eq i32 %1, 38
   br i1 %cmp5.not, label %if.end7, label %return
@@ -24973,7 +24973,7 @@ if.end7:                                          ; preds = %if.end
   br label %if.end8
 
 if.end8:                                          ; preds = %if.end7, %entry
-  %call.i = tail call i64 (i64, ...) @syscall(i64 noundef 2, ptr noundef nonnull @.str.33, i32 noundef 524288, i32 noundef 0) #45
+  %call.i = tail call i64 (i64, ...) @syscall(i64 noundef 2, ptr noundef nonnull @.str.33, i32 noundef 524288, i32 noundef 0) #44
   %conv.i = trunc i64 %call.i to i32
   %cmp10 = icmp slt i32 %conv.i, 0
   br i1 %cmp10, label %return, label %while.cond.preheader
@@ -24986,12 +24986,12 @@ while.body:                                       ; preds = %while.cond.preheade
   %count.019 = phi i64 [ %count.1, %if.end24 ], [ 0, %while.cond.preheader ]
   %add.ptr = getelementptr i8, ptr %buf, i64 %count.019
   %sub = sub nuw i64 %buf_len, %count.019
-  %call.i15 = tail call i64 (i64, ...) @syscall(i64 noundef 0, i32 noundef %conv.i, ptr noundef %add.ptr, i64 noundef %sub) #45
+  %call.i15 = tail call i64 (i64, ...) @syscall(i64 noundef 0, i32 noundef %conv.i, ptr noundef %add.ptr, i64 noundef %sub) #44
   %cmp16 = icmp slt i64 %call.i15, 1
   br i1 %cmp16, label %if.then17, label %if.else
 
 if.then17:                                        ; preds = %while.body
-  %call18 = tail call ptr @__errno_location() #55
+  %call18 = tail call ptr @__errno_location() #53
   %2 = load i32, ptr %call18, align 4
   switch i32 %2, label %while.end [
     i32 11, label %if.end24
@@ -25009,7 +25009,7 @@ if.end24:                                         ; preds = %if.then17, %if.then
 
 while.end:                                        ; preds = %if.end24, %if.then17, %while.cond.preheader
   %count.0.lcssa = phi i64 [ 0, %while.cond.preheader ], [ %count.019, %if.then17 ], [ %count.1, %if.end24 ]
-  %call.i16 = tail call i64 (i64, ...) @syscall(i64 noundef 3, i32 noundef %conv.i) #45
+  %call.i16 = tail call i64 (i64, ...) @syscall(i64 noundef 3, i32 noundef %conv.i) #44
   %cmp26 = icmp eq i64 %count.0.lcssa, %buf_len
   br label %return
 
@@ -25021,7 +25021,7 @@ return:                                           ; preds = %if.end8, %if.end, %
 ; Function Attrs: nounwind uwtable
 define hidden void @_mi_prim_thread_init_auto_done() local_unnamed_addr #0 {
 entry:
-  %call = tail call i32 @pthread_key_create(ptr noundef nonnull @_mi_heap_default_key, ptr noundef nonnull @mi_pthread_done) #45
+  %call = tail call i32 @pthread_key_create(ptr noundef nonnull @_mi_heap_default_key, ptr noundef nonnull @mi_pthread_done) #44
   ret void
 }
 
@@ -25052,46 +25052,46 @@ entry:
 declare i32 @pthread_setspecific(i32 noundef, ptr noundef) local_unnamed_addr #31
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(inaccessiblemem: readwrite) uwtable
-define hidden noalias noundef ptr @_PyMem_RawMalloc(ptr nocapture readnone %_unused_ctx, i64 noundef %size) #34 {
+define hidden noalias noundef ptr @_PyMem_RawMalloc(ptr nocapture readnone %_unused_ctx, i64 noundef %size) #33 {
 entry:
   %spec.store.select = tail call i64 @llvm.umax.i64(i64 %size, i64 1)
-  %call = tail call noalias ptr @malloc(i64 noundef %spec.store.select) #57
+  %call = tail call noalias ptr @malloc(i64 noundef %spec.store.select) #55
   ret ptr %call
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite)
-declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #35
+declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #34
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(inaccessiblemem: readwrite) uwtable
-define hidden noalias noundef ptr @_PyMem_RawCalloc(ptr nocapture readnone %_unused_ctx, i64 noundef %nelem, i64 noundef %elsize) #34 {
+define hidden noalias noundef ptr @_PyMem_RawCalloc(ptr nocapture readnone %_unused_ctx, i64 noundef %nelem, i64 noundef %elsize) #33 {
 entry:
   %cmp = icmp eq i64 %nelem, 0
   %cmp1 = icmp eq i64 %elsize, 0
   %or.cond = or i1 %cmp, %cmp1
   %spec.select = select i1 %or.cond, i64 1, i64 %nelem
   %spec.select3 = select i1 %or.cond, i64 1, i64 %elsize
-  %call = tail call noalias ptr @calloc(i64 noundef %spec.select, i64 noundef %spec.select3) #58
+  %call = tail call noalias ptr @calloc(i64 noundef %spec.select, i64 noundef %spec.select3) #56
   ret ptr %call
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn allockind("alloc,zeroed") allocsize(0,1) memory(inaccessiblemem: readwrite)
-declare noalias noundef ptr @calloc(i64 noundef, i64 noundef) local_unnamed_addr #36
+declare noalias noundef ptr @calloc(i64 noundef, i64 noundef) local_unnamed_addr #35
 
 ; Function Attrs: mustprogress nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable
-define hidden noalias noundef ptr @_PyMem_RawRealloc(ptr nocapture readnone %_unused_ctx, ptr nocapture noundef %ptr, i64 noundef %size) #37 {
+define hidden noalias noundef ptr @_PyMem_RawRealloc(ptr nocapture readnone %_unused_ctx, ptr nocapture noundef %ptr, i64 noundef %size) #36 {
 entry:
   %spec.store.select = tail call i64 @llvm.umax.i64(i64 %size, i64 1)
-  %call = tail call ptr @realloc(ptr noundef %ptr, i64 noundef %spec.store.select) #59
+  %call = tail call ptr @realloc(ptr noundef %ptr, i64 noundef %spec.store.select) #57
   ret ptr %call
 }
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("realloc") allocsize(1) memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare noalias noundef ptr @realloc(ptr allocptr nocapture noundef, i64 noundef) local_unnamed_addr #38
+declare noalias noundef ptr @realloc(ptr allocptr nocapture noundef, i64 noundef) local_unnamed_addr #37
 
 ; Function Attrs: mustprogress nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable
-define hidden void @_PyMem_RawFree(ptr nocapture readnone %_unused_ctx, ptr nocapture noundef %ptr) #37 {
+define hidden void @_PyMem_RawFree(ptr nocapture readnone %_unused_ctx, ptr nocapture noundef %ptr) #36 {
 entry:
-  tail call void @free(ptr noundef %ptr) #45
+  tail call void @free(ptr noundef %ptr) #44
   ret void
 }
 
@@ -25352,7 +25352,7 @@ entry:
 ; Function Attrs: nounwind uwtable
 define hidden ptr @_PyMem_ArenaAlloc(ptr nocapture noundef readnone %_unused_ctx, i64 noundef %size) local_unnamed_addr #0 {
 entry:
-  %call = tail call ptr @mmap64(ptr noundef null, i64 noundef %size, i32 noundef 3, i32 noundef 34, i32 noundef -1, i64 noundef 0) #45
+  %call = tail call ptr @mmap64(ptr noundef null, i64 noundef %size, i32 noundef 3, i32 noundef 34, i32 noundef -1, i64 noundef 0) #44
   %cmp = icmp eq ptr %call, inttoptr (i64 -1 to ptr)
   %.call = select i1 %cmp, ptr null, ptr %call
   ret ptr %.call
@@ -25364,7 +25364,7 @@ declare ptr @mmap64(ptr noundef, i64 noundef, i32 noundef, i32 noundef, i32 noun
 ; Function Attrs: nounwind uwtable
 define hidden void @_PyMem_ArenaFree(ptr nocapture noundef readnone %_unused_ctx, ptr noundef %ptr, i64 noundef %size) local_unnamed_addr #0 {
 entry:
-  %call = tail call i32 @munmap(ptr noundef %ptr, i64 noundef %size) #45
+  %call = tail call i32 @munmap(ptr noundef %ptr, i64 noundef %size) #44
   ret void
 }
 
@@ -25376,7 +25376,7 @@ entry:
   br i1 %1, label %PyMutex_Lock.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %entry
-  tail call void @_PyMutex_LockSlow(ptr noundef nonnull getelementptr inbounds (i8, ptr @_PyRuntime, i64 400)) #45
+  tail call void @_PyMutex_LockSlow(ptr noundef nonnull getelementptr inbounds (i8, ptr @_PyRuntime, i64 400)) #44
   br label %PyMutex_Lock.exit
 
 PyMutex_Lock.exit:                                ; preds = %entry, %if.then.i
@@ -25444,7 +25444,7 @@ set_default_allocator_unlocked.exit:              ; preds = %sw.bb.i7.i, %sw.bb1
   br i1 %3, label %PyMutex_Unlock.exit, label %if.then.i2
 
 if.then.i2:                                       ; preds = %set_default_allocator_unlocked.exit
-  tail call void @_PyMutex_UnlockSlow(ptr noundef nonnull getelementptr inbounds (i8, ptr @_PyRuntime, i64 400)) #45
+  tail call void @_PyMutex_UnlockSlow(ptr noundef nonnull getelementptr inbounds (i8, ptr @_PyRuntime, i64 400)) #44
   br label %PyMutex_Unlock.exit
 
 PyMutex_Unlock.exit:                              ; preds = %set_default_allocator_unlocked.exit, %if.then.i2
@@ -25452,7 +25452,7 @@ PyMutex_Unlock.exit:                              ; preds = %set_default_allocat
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden range(i32 -1, 1) i32 @_PyMem_GetAllocatorName(ptr noundef readonly %name, ptr nocapture noundef writeonly %allocator) local_unnamed_addr #39 {
+define hidden range(i32 -1, 1) i32 @_PyMem_GetAllocatorName(ptr noundef readonly %name, ptr nocapture noundef writeonly %allocator) local_unnamed_addr #38 {
 entry:
   %cmp = icmp eq ptr %name, null
   br i1 %cmp, label %return.sink.split, label %lor.lhs.false
@@ -25463,42 +25463,42 @@ lor.lhs.false:                                    ; preds = %entry
   br i1 %cmp1, label %return.sink.split, label %if.else
 
 if.else:                                          ; preds = %lor.lhs.false
-  %call = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %name, ptr noundef nonnull dereferenceable(8) @.str.34) #53
+  %call = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %name, ptr noundef nonnull dereferenceable(8) @.str.34) #51
   %cmp3 = icmp eq i32 %call, 0
   br i1 %cmp3, label %return.sink.split, label %if.else6
 
 if.else6:                                         ; preds = %if.else
-  %call7 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %name, ptr noundef nonnull dereferenceable(6) @.str.35) #53
+  %call7 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %name, ptr noundef nonnull dereferenceable(6) @.str.35) #51
   %cmp8 = icmp eq i32 %call7, 0
   br i1 %cmp8, label %return.sink.split, label %if.else11
 
 if.else11:                                        ; preds = %if.else6
-  %call12 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %name, ptr noundef nonnull dereferenceable(9) @.str.36) #53
+  %call12 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %name, ptr noundef nonnull dereferenceable(9) @.str.36) #51
   %cmp13 = icmp eq i32 %call12, 0
   br i1 %cmp13, label %return.sink.split, label %if.else16
 
 if.else16:                                        ; preds = %if.else11
-  %call17 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %name, ptr noundef nonnull dereferenceable(15) @.str.37) #53
+  %call17 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %name, ptr noundef nonnull dereferenceable(15) @.str.37) #51
   %cmp18 = icmp eq i32 %call17, 0
   br i1 %cmp18, label %return.sink.split, label %if.else21
 
 if.else21:                                        ; preds = %if.else16
-  %call22 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %name, ptr noundef nonnull dereferenceable(9) @.str.38) #53
+  %call22 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %name, ptr noundef nonnull dereferenceable(9) @.str.38) #51
   %cmp23 = icmp eq i32 %call22, 0
   br i1 %cmp23, label %return.sink.split, label %if.else26
 
 if.else26:                                        ; preds = %if.else21
-  %call27 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %name, ptr noundef nonnull dereferenceable(15) @.str.39) #53
+  %call27 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %name, ptr noundef nonnull dereferenceable(15) @.str.39) #51
   %cmp28 = icmp eq i32 %call27, 0
   br i1 %cmp28, label %return.sink.split, label %if.else31
 
 if.else31:                                        ; preds = %if.else26
-  %call32 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %name, ptr noundef nonnull dereferenceable(7) @.str.40) #53
+  %call32 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %name, ptr noundef nonnull dereferenceable(7) @.str.40) #51
   %cmp33 = icmp eq i32 %call32, 0
   br i1 %cmp33, label %return.sink.split, label %if.else36
 
 if.else36:                                        ; preds = %if.else31
-  %call37 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %name, ptr noundef nonnull dereferenceable(13) @.str.41) #53
+  %call37 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %name, ptr noundef nonnull dereferenceable(13) @.str.41) #51
   %cmp38 = icmp eq i32 %call37, 0
   br i1 %cmp38, label %return.sink.split, label %return
 
@@ -25523,7 +25523,7 @@ entry:
   br i1 %1, label %PyMutex_Lock.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %entry
-  tail call void @_PyMutex_LockSlow(ptr noundef nonnull getelementptr inbounds (i8, ptr @_PyRuntime, i64 400)) #45
+  tail call void @_PyMutex_LockSlow(ptr noundef nonnull getelementptr inbounds (i8, ptr @_PyRuntime, i64 400)) #44
   br label %PyMutex_Lock.exit
 
 PyMutex_Lock.exit:                                ; preds = %entry, %if.then.i
@@ -25675,7 +25675,7 @@ set_up_allocators_unlocked.exit:                  ; preds = %PyMutex_Lock.exit, 
   br i1 %3, label %PyMutex_Unlock.exit, label %if.then.i1
 
 if.then.i1:                                       ; preds = %set_up_allocators_unlocked.exit
-  tail call void @_PyMutex_UnlockSlow(ptr noundef nonnull getelementptr inbounds (i8, ptr @_PyRuntime, i64 400)) #45
+  tail call void @_PyMutex_UnlockSlow(ptr noundef nonnull getelementptr inbounds (i8, ptr @_PyRuntime, i64 400)) #44
   br label %PyMutex_Unlock.exit
 
 PyMutex_Unlock.exit:                              ; preds = %set_up_allocators_unlocked.exit, %if.then.i1
@@ -25690,7 +25690,7 @@ entry:
   br i1 %1, label %PyMutex_Lock.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %entry
-  tail call void @_PyMutex_LockSlow(ptr noundef nonnull getelementptr inbounds (i8, ptr @_PyRuntime, i64 400)) #45
+  tail call void @_PyMutex_LockSlow(ptr noundef nonnull getelementptr inbounds (i8, ptr @_PyRuntime, i64 400)) #44
   br label %PyMutex_Lock.exit
 
 PyMutex_Lock.exit:                                ; preds = %entry, %if.then.i
@@ -25788,7 +25788,7 @@ get_current_allocator_name_unlocked.exit:         ; preds = %land.lhs.true3.i, %
   br i1 %3, label %PyMutex_Unlock.exit, label %if.then.i1
 
 if.then.i1:                                       ; preds = %get_current_allocator_name_unlocked.exit
-  tail call void @_PyMutex_UnlockSlow(ptr noundef nonnull getelementptr inbounds (i8, ptr @_PyRuntime, i64 400)) #45
+  tail call void @_PyMutex_UnlockSlow(ptr noundef nonnull getelementptr inbounds (i8, ptr @_PyRuntime, i64 400)) #44
   br label %PyMutex_Unlock.exit
 
 PyMutex_Unlock.exit:                              ; preds = %get_current_allocator_name_unlocked.exit, %if.then.i1
@@ -25803,7 +25803,7 @@ entry:
   br i1 %1, label %PyMutex_Lock.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %entry
-  tail call void @_PyMutex_LockSlow(ptr noundef nonnull getelementptr inbounds (i8, ptr @_PyRuntime, i64 400)) #45
+  tail call void @_PyMutex_LockSlow(ptr noundef nonnull getelementptr inbounds (i8, ptr @_PyRuntime, i64 400)) #44
   br label %PyMutex_Lock.exit
 
 PyMutex_Lock.exit:                                ; preds = %entry, %if.then.i
@@ -25854,7 +25854,7 @@ set_up_debug_hooks_unlocked.exit:                 ; preds = %set_up_debug_hooks_
   br i1 %6, label %PyMutex_Unlock.exit, label %if.then.i1
 
 if.then.i1:                                       ; preds = %set_up_debug_hooks_unlocked.exit
-  tail call void @_PyMutex_UnlockSlow(ptr noundef nonnull getelementptr inbounds (i8, ptr @_PyRuntime, i64 400)) #45
+  tail call void @_PyMutex_UnlockSlow(ptr noundef nonnull getelementptr inbounds (i8, ptr @_PyRuntime, i64 400)) #44
   br label %PyMutex_Unlock.exit
 
 PyMutex_Unlock.exit:                              ; preds = %set_up_debug_hooks_unlocked.exit, %if.then.i1
@@ -25869,7 +25869,7 @@ entry:
   br i1 %1, label %PyMutex_Lock.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %entry
-  tail call void @_PyMutex_LockSlow(ptr noundef nonnull getelementptr inbounds (i8, ptr @_PyRuntime, i64 400)) #45
+  tail call void @_PyMutex_LockSlow(ptr noundef nonnull getelementptr inbounds (i8, ptr @_PyRuntime, i64 400)) #44
   br label %PyMutex_Lock.exit
 
 PyMutex_Lock.exit:                                ; preds = %entry, %if.then.i
@@ -25901,7 +25901,7 @@ get_allocator_unlocked.exit:                      ; preds = %sw.bb.i, %sw.bb1.i,
   br i1 %3, label %PyMutex_Unlock.exit, label %if.then.i1
 
 if.then.i1:                                       ; preds = %get_allocator_unlocked.exit
-  tail call void @_PyMutex_UnlockSlow(ptr noundef nonnull getelementptr inbounds (i8, ptr @_PyRuntime, i64 400)) #45
+  tail call void @_PyMutex_UnlockSlow(ptr noundef nonnull getelementptr inbounds (i8, ptr @_PyRuntime, i64 400)) #44
   br label %PyMutex_Unlock.exit
 
 PyMutex_Unlock.exit:                              ; preds = %get_allocator_unlocked.exit, %if.then.i1
@@ -25916,7 +25916,7 @@ entry:
   br i1 %1, label %PyMutex_Lock.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %entry
-  tail call void @_PyMutex_LockSlow(ptr noundef nonnull getelementptr inbounds (i8, ptr @_PyRuntime, i64 400)) #45
+  tail call void @_PyMutex_LockSlow(ptr noundef nonnull getelementptr inbounds (i8, ptr @_PyRuntime, i64 400)) #44
   br label %PyMutex_Lock.exit
 
 PyMutex_Lock.exit:                                ; preds = %entry, %if.then.i
@@ -25944,7 +25944,7 @@ set_allocator_unlocked.exit:                      ; preds = %PyMutex_Lock.exit, 
   br i1 %3, label %PyMutex_Unlock.exit, label %if.then.i1
 
 if.then.i1:                                       ; preds = %set_allocator_unlocked.exit
-  tail call void @_PyMutex_UnlockSlow(ptr noundef nonnull getelementptr inbounds (i8, ptr @_PyRuntime, i64 400)) #45
+  tail call void @_PyMutex_UnlockSlow(ptr noundef nonnull getelementptr inbounds (i8, ptr @_PyRuntime, i64 400)) #44
   br label %PyMutex_Unlock.exit
 
 PyMutex_Unlock.exit:                              ; preds = %set_allocator_unlocked.exit, %if.then.i1
@@ -25959,7 +25959,7 @@ entry:
   br i1 %1, label %PyMutex_Lock.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %entry
-  tail call void @_PyMutex_LockSlow(ptr noundef nonnull getelementptr inbounds (i8, ptr @_PyRuntime, i64 400)) #45
+  tail call void @_PyMutex_LockSlow(ptr noundef nonnull getelementptr inbounds (i8, ptr @_PyRuntime, i64 400)) #44
   br label %PyMutex_Lock.exit
 
 PyMutex_Lock.exit:                                ; preds = %entry, %if.then.i
@@ -25969,7 +25969,7 @@ PyMutex_Lock.exit:                                ; preds = %entry, %if.then.i
   br i1 %3, label %PyMutex_Unlock.exit, label %if.then.i1
 
 if.then.i1:                                       ; preds = %PyMutex_Lock.exit
-  tail call void @_PyMutex_UnlockSlow(ptr noundef nonnull getelementptr inbounds (i8, ptr @_PyRuntime, i64 400)) #45
+  tail call void @_PyMutex_UnlockSlow(ptr noundef nonnull getelementptr inbounds (i8, ptr @_PyRuntime, i64 400)) #44
   br label %PyMutex_Unlock.exit
 
 PyMutex_Unlock.exit:                              ; preds = %PyMutex_Lock.exit, %if.then.i1
@@ -25984,7 +25984,7 @@ entry:
   br i1 %1, label %PyMutex_Lock.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %entry
-  tail call void @_PyMutex_LockSlow(ptr noundef nonnull getelementptr inbounds (i8, ptr @_PyRuntime, i64 400)) #45
+  tail call void @_PyMutex_LockSlow(ptr noundef nonnull getelementptr inbounds (i8, ptr @_PyRuntime, i64 400)) #44
   br label %PyMutex_Lock.exit
 
 PyMutex_Lock.exit:                                ; preds = %entry, %if.then.i
@@ -25994,7 +25994,7 @@ PyMutex_Lock.exit:                                ; preds = %entry, %if.then.i
   br i1 %3, label %PyMutex_Unlock.exit, label %if.then.i1
 
 if.then.i1:                                       ; preds = %PyMutex_Lock.exit
-  tail call void @_PyMutex_UnlockSlow(ptr noundef nonnull getelementptr inbounds (i8, ptr @_PyRuntime, i64 400)) #45
+  tail call void @_PyMutex_UnlockSlow(ptr noundef nonnull getelementptr inbounds (i8, ptr @_PyRuntime, i64 400)) #44
   br label %PyMutex_Unlock.exit
 
 PyMutex_Unlock.exit:                              ; preds = %PyMutex_Lock.exit, %if.then.i1
@@ -26006,7 +26006,7 @@ define hidden ptr @_PyObject_VirtualAlloc(i64 noundef %size) local_unnamed_addr 
 entry:
   %0 = load ptr, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 680), align 8
   %1 = load ptr, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 672), align 8
-  %call = tail call ptr %0(ptr noundef %1, i64 noundef %size) #45
+  %call = tail call ptr %0(ptr noundef %1, i64 noundef %size) #44
   ret ptr %call
 }
 
@@ -26015,7 +26015,7 @@ define hidden void @_PyObject_VirtualFree(ptr noundef %obj, i64 noundef %size) l
 entry:
   %0 = load ptr, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 688), align 8
   %1 = load ptr, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 672), align 8
-  tail call void %0(ptr noundef %1, ptr noundef %obj, i64 noundef %size) #45
+  tail call void %0(ptr noundef %1, ptr noundef %obj, i64 noundef %size) #44
   ret void
 }
 
@@ -26028,7 +26028,7 @@ entry:
 if.end:                                           ; preds = %entry
   %0 = load ptr, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 416), align 8
   %1 = load ptr, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 408), align 8
-  %call = tail call ptr %0(ptr noundef %1, i64 noundef %size) #45
+  %call = tail call ptr %0(ptr noundef %1, i64 noundef %size) #44
   br label %return
 
 return:                                           ; preds = %entry, %if.end
@@ -26050,7 +26050,7 @@ land.lhs.true:                                    ; preds = %entry
 if.end:                                           ; preds = %land.lhs.true, %entry
   %0 = load ptr, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 424), align 8
   %1 = load ptr, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 408), align 8
-  %call = tail call ptr %0(ptr noundef %1, i64 noundef %nelem, i64 noundef %elsize) #45
+  %call = tail call ptr %0(ptr noundef %1, i64 noundef %nelem, i64 noundef %elsize) #44
   br label %return
 
 return:                                           ; preds = %land.lhs.true, %if.end
@@ -26067,7 +26067,7 @@ entry:
 if.end:                                           ; preds = %entry
   %0 = load ptr, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 432), align 8
   %1 = load ptr, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 408), align 8
-  %call = tail call ptr %0(ptr noundef %1, ptr noundef %ptr, i64 noundef %new_size) #45
+  %call = tail call ptr %0(ptr noundef %1, ptr noundef %ptr, i64 noundef %new_size) #44
   br label %return
 
 return:                                           ; preds = %entry, %if.end
@@ -26080,7 +26080,7 @@ define dso_local void @PyMem_RawFree(ptr noundef %ptr) local_unnamed_addr #0 {
 entry:
   %0 = load ptr, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 440), align 8
   %1 = load ptr, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 408), align 8
-  tail call void %0(ptr noundef %1, ptr noundef %ptr) #45
+  tail call void %0(ptr noundef %1, ptr noundef %ptr) #44
   ret void
 }
 
@@ -26093,7 +26093,7 @@ entry:
 if.end:                                           ; preds = %entry
   %0 = load ptr, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 456), align 8
   %1 = load ptr, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 448), align 8
-  %call = tail call ptr %0(ptr noundef %1, i64 noundef %size) #45
+  %call = tail call ptr %0(ptr noundef %1, i64 noundef %size) #44
   br label %return
 
 return:                                           ; preds = %entry, %if.end
@@ -26115,7 +26115,7 @@ land.lhs.true:                                    ; preds = %entry
 if.end:                                           ; preds = %land.lhs.true, %entry
   %0 = load ptr, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 464), align 8
   %1 = load ptr, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 448), align 8
-  %call = tail call ptr %0(ptr noundef %1, i64 noundef %nelem, i64 noundef %elsize) #45
+  %call = tail call ptr %0(ptr noundef %1, i64 noundef %nelem, i64 noundef %elsize) #44
   br label %return
 
 return:                                           ; preds = %land.lhs.true, %if.end
@@ -26132,7 +26132,7 @@ entry:
 if.end:                                           ; preds = %entry
   %0 = load ptr, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 472), align 8
   %1 = load ptr, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 448), align 8
-  %call = tail call ptr %0(ptr noundef %1, ptr noundef %ptr, i64 noundef %new_size) #45
+  %call = tail call ptr %0(ptr noundef %1, ptr noundef %ptr, i64 noundef %new_size) #44
   br label %return
 
 return:                                           ; preds = %entry, %if.end
@@ -26145,14 +26145,14 @@ define dso_local void @PyMem_Free(ptr noundef %ptr) local_unnamed_addr #0 {
 entry:
   %0 = load ptr, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 480), align 8
   %1 = load ptr, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 448), align 8
-  tail call void %0(ptr noundef %1, ptr noundef %ptr) #45
+  tail call void %0(ptr noundef %1, ptr noundef %ptr) #44
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
 define hidden ptr @_PyMem_RawWcsdup(ptr nocapture noundef readonly %str) local_unnamed_addr #0 {
 entry:
-  %call = tail call i64 @wcslen(ptr noundef %str) #53
+  %call = tail call i64 @wcslen(ptr noundef %str) #51
   %cmp = icmp ugt i64 %call, 2305843009213693950
   br i1 %cmp, label %return, label %if.end
 
@@ -26161,7 +26161,7 @@ if.end:                                           ; preds = %entry
   %mul = add nuw nsw i64 %add, 4
   %0 = load ptr, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 416), align 8
   %1 = load ptr, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 408), align 8
-  %call.i = tail call ptr %0(ptr noundef %1, i64 noundef %mul) #45
+  %call.i = tail call ptr %0(ptr noundef %1, i64 noundef %mul) #44
   %cmp2 = icmp eq ptr %call.i, null
   br i1 %cmp2, label %return, label %if.end4
 
@@ -26180,7 +26180,7 @@ declare i64 @wcslen(ptr nocapture noundef) local_unnamed_addr #4
 ; Function Attrs: nounwind uwtable
 define hidden ptr @_PyMem_RawStrdup(ptr nocapture noundef readonly %str) local_unnamed_addr #0 {
 entry:
-  %call = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %str) #53
+  %call = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %str) #51
   %add = add i64 %call, 1
   %cmp.i = icmp slt i64 %add, 0
   br i1 %cmp.i, label %return, label %PyMem_RawMalloc.exit
@@ -26188,7 +26188,7 @@ entry:
 PyMem_RawMalloc.exit:                             ; preds = %entry
   %0 = load ptr, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 416), align 8
   %1 = load ptr, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 408), align 8
-  %call.i = tail call ptr %0(ptr noundef %1, i64 noundef %add) #45
+  %call.i = tail call ptr %0(ptr noundef %1, i64 noundef %add) #44
   %cmp = icmp eq ptr %call.i, null
   br i1 %cmp, label %return, label %if.end
 
@@ -26204,7 +26204,7 @@ return:                                           ; preds = %entry, %PyMem_RawMa
 ; Function Attrs: nounwind uwtable
 define dso_local ptr @_PyMem_Strdup(ptr nocapture noundef readonly %str) local_unnamed_addr #0 {
 entry:
-  %call = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %str) #53
+  %call = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %str) #51
   %add = add i64 %call, 1
   %cmp.i = icmp slt i64 %add, 0
   br i1 %cmp.i, label %return, label %PyMem_Malloc.exit
@@ -26212,7 +26212,7 @@ entry:
 PyMem_Malloc.exit:                                ; preds = %entry
   %0 = load ptr, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 456), align 8
   %1 = load ptr, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 448), align 8
-  %call.i = tail call ptr %0(ptr noundef %1, i64 noundef %add) #45
+  %call.i = tail call ptr %0(ptr noundef %1, i64 noundef %add) #44
   %cmp = icmp eq ptr %call.i, null
   br i1 %cmp, label %return, label %if.end
 
@@ -26234,7 +26234,7 @@ entry:
 if.end:                                           ; preds = %entry
   %0 = load ptr, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 496), align 8
   %1 = load ptr, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 488), align 8
-  %call = tail call ptr %0(ptr noundef %1, i64 noundef %size) #45
+  %call = tail call ptr %0(ptr noundef %1, i64 noundef %size) #44
   br label %return
 
 return:                                           ; preds = %entry, %if.end
@@ -26256,7 +26256,7 @@ land.lhs.true:                                    ; preds = %entry
 if.end:                                           ; preds = %land.lhs.true, %entry
   %0 = load ptr, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 504), align 8
   %1 = load ptr, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 488), align 8
-  %call = tail call ptr %0(ptr noundef %1, i64 noundef %nelem, i64 noundef %elsize) #45
+  %call = tail call ptr %0(ptr noundef %1, i64 noundef %nelem, i64 noundef %elsize) #44
   br label %return
 
 return:                                           ; preds = %land.lhs.true, %if.end
@@ -26273,7 +26273,7 @@ entry:
 if.end:                                           ; preds = %entry
   %0 = load ptr, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 512), align 8
   %1 = load ptr, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 488), align 8
-  %call = tail call ptr %0(ptr noundef %1, ptr noundef %ptr, i64 noundef %new_size) #45
+  %call = tail call ptr %0(ptr noundef %1, ptr noundef %ptr, i64 noundef %new_size) #44
   br label %return
 
 return:                                           ; preds = %entry, %if.end
@@ -26286,7 +26286,7 @@ define dso_local void @PyObject_Free(ptr noundef %ptr) local_unnamed_addr #0 {
 entry:
   %0 = load ptr, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 520), align 8
   %1 = load ptr, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 488), align 8
-  tail call void %0(ptr noundef %1, ptr noundef %ptr) #45
+  tail call void %0(ptr noundef %1, ptr noundef %ptr) #44
   ret void
 }
 
@@ -26389,7 +26389,7 @@ has_own_state.exit:                               ; preds = %lor.lhs.false.i
   br i1 %.not, label %if.then5, label %if.end6
 
 if.then5:                                         ; preds = %has_own_state.exit
-  tail call void @_Py_FatalErrorFunc(ptr noundef nonnull @__func__._PyInterpreterState_GetAllocatedBlocks, ptr noundef nonnull @.str.42) #54
+  tail call void @_Py_FatalErrorFunc(ptr noundef nonnull @__func__._PyInterpreterState_GetAllocatedBlocks, ptr noundef nonnull @.str.42) #52
   unreachable
 
 if.end6:                                          ; preds = %if.end, %lor.lhs.false.i, %has_own_state.exit
@@ -26446,7 +26446,7 @@ return:                                           ; preds = %for.inc26, %for.inc
 }
 
 ; Function Attrs: noreturn
-declare void @_Py_FatalErrorFunc(ptr noundef, ptr noundef) local_unnamed_addr #40
+declare void @_Py_FatalErrorFunc(ptr noundef, ptr noundef) local_unnamed_addr #39
 
 ; Function Attrs: nounwind uwtable
 define hidden void @_PyInterpreterState_FinalizeAllocatedBlocks(ptr noundef %interp) local_unnamed_addr #0 {
@@ -26602,11 +26602,11 @@ if.else10:                                        ; preds = %if.end
   br i1 %17, label %PyMutex_LockFlags.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %if.else10
-  %call1.i = tail call i32 @_PyMutex_LockTimed(ptr noundef nonnull %interpreters, i64 noundef -1, i32 noundef 0) #45
+  %call1.i = tail call i32 @_PyMutex_LockTimed(ptr noundef nonnull %interpreters, i64 noundef -1, i32 noundef 0) #44
   br label %PyMutex_LockFlags.exit
 
 PyMutex_LockFlags.exit:                           ; preds = %if.else10, %if.then.i
-  %call12 = tail call ptr @PyInterpreterState_Head() #45
+  %call12 = tail call ptr @PyInterpreterState_Head() #44
   %cmp13.not30 = icmp eq ptr %call12, null
   br i1 %cmp13.not30, label %for.end, label %for.body
 
@@ -26638,7 +26638,7 @@ if.then16:                                        ; preds = %for.body, %lor.lhs.
 
 for.inc:                                          ; preds = %has_own_state.exit, %if.then16
   %total.2 = phi i64 [ %add18, %if.then16 ], [ %total.131, %has_own_state.exit ]
-  %call20 = tail call ptr @PyInterpreterState_Next(ptr noundef nonnull %interp11.032) #45
+  %call20 = tail call ptr @PyInterpreterState_Next(ptr noundef nonnull %interp11.032) #44
   %cmp13.not = icmp eq ptr %call20, null
   br i1 %cmp13.not, label %for.end, label %for.body, !llvm.loop !124
 
@@ -26649,7 +26649,7 @@ for.end:                                          ; preds = %for.inc, %PyMutex_L
   br i1 %22, label %if.end23, label %if.then.i15
 
 if.then.i15:                                      ; preds = %for.end
-  tail call void @_PyMutex_UnlockSlow(ptr noundef nonnull %interpreters) #45
+  tail call void @_PyMutex_UnlockSlow(ptr noundef nonnull %interpreters) #44
   br label %if.end23
 
 if.end23:                                         ; preds = %if.then.i15, %for.end, %if.else, %if.then4
@@ -26713,7 +26713,7 @@ if.end:                                           ; preds = %get_state.exit
 PyMem_RawMalloc.exit:                             ; preds = %if.end
   %6 = load ptr, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 416), align 8
   %7 = load ptr, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 408), align 8
-  %call.i = tail call ptr %6(ptr noundef %7, i64 noundef %nbytes) #45
+  %call.i = tail call ptr %6(ptr noundef %7, i64 noundef %nbytes) #44
   %cmp3.not = icmp eq ptr %call.i, null
   br i1 %cmp3.not, label %return, label %if.then4
 
@@ -26801,7 +26801,7 @@ if.then.i22:                                      ; preds = %if.else
   br i1 %cmp.i.i, label %if.then.i.i, label %if.end.i.i
 
 if.then.i.i:                                      ; preds = %if.then.i22
-  %call.i.i = tail call ptr @Py_GETENV(ptr noundef nonnull @.str.157) #45
+  %call.i.i = tail call ptr @Py_GETENV(ptr noundef nonnull @.str.157) #44
   %cmp1.not.i.i = icmp eq ptr %call.i.i, null
   br i1 %cmp1.not.i.i, label %land.end.i.i, label %land.rhs.i.i
 
@@ -26847,7 +26847,7 @@ if.end19.i.i:                                     ; preds = %if.then9.i.i
   %17 = load ptr, ptr %mgmt.i, align 8
   %18 = load ptr, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 432), align 8
   %19 = load ptr, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 408), align 8
-  %call.i.i.i = tail call ptr %18(ptr noundef %19, ptr noundef %17, i64 noundef %mul.i.i) #45
+  %call.i.i.i = tail call ptr %18(ptr noundef %19, ptr noundef %17, i64 noundef %mul.i.i) #44
   %cmp23.i.i = icmp eq ptr %call.i.i.i, null
   br i1 %cmp23.i.i, label %new_arena.exit.thread.i, label %if.end26.i.i
 
@@ -26899,7 +26899,7 @@ if.end60.i.i:                                     ; preds = %for.end.i.i, %if.en
   store ptr %28, ptr %unused_arena_objects.i.i, align 8
   %29 = load ptr, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 680), align 8
   %30 = load ptr, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 672), align 8
-  %call66.i.i = tail call ptr %29(ptr noundef %30, i64 noundef 1048576) #45
+  %call66.i.i = tail call ptr %29(ptr noundef %30, i64 noundef 1048576) #44
   %cmp67.not.i.i = icmp eq ptr %call66.i.i, null
   br i1 %cmp67.not.i.i, label %if.then77.i.i, label %if.then69.i.i
 
@@ -26915,7 +26915,7 @@ if.then69.i.i:                                    ; preds = %if.end60.i.i
 if.then.i79.i.i.i:                                ; preds = %if.then69.i.i
   %33 = load ptr, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 424), align 8
   %34 = load ptr, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 408), align 8
-  %call.i51.i.i.i = tail call ptr %33(ptr noundef %34, i64 noundef 1, i64 noundef 262144) #45
+  %call.i51.i.i.i = tail call ptr %33(ptr noundef %34, i64 noundef 1, i64 noundef 262144) #44
   %cmp3.i84.i.i.i = icmp eq ptr %call.i51.i.i.i, null
   br i1 %cmp3.i84.i.i.i, label %if.then72.i.i, label %if.end6.i85.i.i.i
 
@@ -26939,7 +26939,7 @@ if.end13.i47.i.i.i:                               ; preds = %if.end6.i85.i.i.i, 
 if.then27.i63.i.i.i:                              ; preds = %if.end13.i47.i.i.i
   %38 = load ptr, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 424), align 8
   %39 = load ptr, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 408), align 8
-  %call.i53.i.i.i = tail call ptr %38(ptr noundef %39, i64 noundef 1, i64 noundef 131072) #45
+  %call.i53.i.i.i = tail call ptr %38(ptr noundef %39, i64 noundef 1, i64 noundef 131072) #44
   %cmp33.i68.i.i.i = icmp eq ptr %call.i53.i.i.i, null
   br i1 %cmp33.i68.i.i.i, label %if.then72.i.i, label %arena_map_get.exit93.i.i.i
 
@@ -26983,7 +26983,7 @@ if.else.i.i.i:                                    ; preds = %if.end.i.i.i
 if.then.i.i.i.i:                                  ; preds = %if.else.i.i.i
   %45 = load ptr, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 424), align 8
   %46 = load ptr, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 408), align 8
-  %call.i55.i.i.i = tail call ptr %45(ptr noundef %46, i64 noundef 1, i64 noundef 262144) #45
+  %call.i55.i.i.i = tail call ptr %45(ptr noundef %46, i64 noundef 1, i64 noundef 262144) #44
   %cmp3.i.i.i.i = icmp eq ptr %call.i55.i.i.i, null
   br i1 %cmp3.i.i.i.i, label %if.then15.i.i.i, label %if.end13.i.thread.i.i.i
 
@@ -27012,7 +27012,7 @@ if.end30.i.i.i.i:                                 ; preds = %if.end13.i.thread.i
   %conv16.i6366.i.i.i = phi i64 [ %conv16.i60.i.i.i, %if.end13.i.thread.i.i.i ], [ %conv16.i.i.i.i, %if.end13.i.i.i.i ]
   %50 = load ptr, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 424), align 8
   %51 = load ptr, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 408), align 8
-  %call.i.i.i.i = tail call ptr %50(ptr noundef %51, i64 noundef 1, i64 noundef 131072) #45
+  %call.i.i.i.i = tail call ptr %50(ptr noundef %51, i64 noundef 1, i64 noundef 131072) #44
   %cmp33.i.i.i.i = icmp eq ptr %call.i.i.i.i, null
   br i1 %cmp33.i.i.i.i, label %if.then15.i.i.i, label %arena_map_get.exit.i.i.i
 
@@ -27045,7 +27045,7 @@ if.end20.i.i.i:                                   ; preds = %arena_map_get.exit.
 if.then72.i.i:                                    ; preds = %if.then15.i.i.i, %arena_map_get.exit93.i.i.i, %if.then27.i63.i.i.i, %if.then.i79.i.i.i
   %55 = load ptr, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 688), align 8
   %56 = load ptr, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 672), align 8
-  tail call void %55(ptr noundef %56, ptr noundef nonnull %call66.i.i, i64 noundef 1048576) #45
+  tail call void %55(ptr noundef %56, ptr noundef nonnull %call66.i.i, i64 noundef 1048576) #44
   br label %if.then77.i.i
 
 if.then77.i.i:                                    ; preds = %if.then72.i.i, %if.end60.i.i
@@ -27315,7 +27315,7 @@ land.lhs.true.i:                                  ; preds = %if.end
 PyMem_RawCalloc.exit:                             ; preds = %if.end, %land.lhs.true.i
   %6 = load ptr, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 424), align 8
   %7 = load ptr, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 408), align 8
-  %call.i = tail call ptr %6(ptr noundef %7, i64 noundef %nelem, i64 noundef %elsize) #45
+  %call.i = tail call ptr %6(ptr noundef %7, i64 noundef %nelem, i64 noundef %elsize) #44
   %cmp3.not = icmp eq ptr %call.i, null
   br i1 %cmp3.not, label %return, label %if.then4
 
@@ -27568,7 +27568,7 @@ arena_map_mark_used.exit.i.i:                     ; preds = %if.end20.i.i.i, %if
   %40 = load ptr, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 672), align 8
   %41 = load i64, ptr %arrayidx.i17.i, align 8
   %42 = inttoptr i64 %41 to ptr
-  tail call void %39(ptr noundef %40, ptr noundef %42, i64 noundef 1048576) #45
+  tail call void %39(ptr noundef %40, ptr noundef %42, i64 noundef 1048576) #44
   store i64 0, ptr %arrayidx.i17.i, align 8
   %narenas_currently_allocated.i.i = getelementptr inbounds i8, ptr %interp.0.i, i64 5384
   %43 = load i64, ptr %narenas_currently_allocated.i.i, align 8
@@ -27653,7 +27653,7 @@ if.end105.i.i:                                    ; preds = %if.then102.i.i, %if
 if.then2:                                         ; preds = %address_in_range.exit.i, %if.end13.i.i.i.i, %get_state.exit
   %52 = load ptr, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 440), align 8
   %53 = load ptr, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 408), align 8
-  tail call void %52(ptr noundef %53, ptr noundef nonnull %p) #45
+  tail call void %52(ptr noundef %53, ptr noundef nonnull %p) #44
   %raw_allocated_blocks = getelementptr inbounds i8, ptr %interp.0.i, i64 5408
   %54 = load i64, ptr %raw_allocated_blocks, align 8
   %dec = add i64 %54, -1
@@ -27708,7 +27708,7 @@ if.end.i:                                         ; preds = %get_state.exit.i
 PyMem_RawMalloc.exit.i:                           ; preds = %if.end.i
   %6 = load ptr, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 416), align 8
   %7 = load ptr, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 408), align 8
-  %call.i.i = tail call ptr %6(ptr noundef %7, i64 noundef %nbytes) #45
+  %call.i.i = tail call ptr %6(ptr noundef %7, i64 noundef %nbytes) #44
   %cmp3.not.i = icmp eq ptr %call.i.i, null
   br i1 %cmp3.not.i, label %return, label %if.then4.i
 
@@ -27823,7 +27823,7 @@ if.end.i.i:                                       ; preds = %get_state.exit.i.i
 PyMem_RawMalloc.exit.i.i:                         ; preds = %if.end.i.i
   %22 = load ptr, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 416), align 8
   %23 = load ptr, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 408), align 8
-  %call.i.i.i = tail call ptr %22(ptr noundef %23, i64 noundef %nbytes) #45
+  %call.i.i.i = tail call ptr %22(ptr noundef %23, i64 noundef %nbytes) #44
   %cmp3.not.i.i = icmp eq ptr %call.i.i.i, null
   br i1 %cmp3.not.i.i, label %return, label %if.then4.i.i
 
@@ -27847,7 +27847,7 @@ if.end4:                                          ; preds = %address_in_range.ex
 if.end.i10:                                       ; preds = %if.end4
   %25 = load ptr, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 432), align 8
   %26 = load ptr, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 408), align 8
-  %call.i = tail call ptr %25(ptr noundef %26, ptr noundef nonnull %ptr, i64 noundef %nbytes) #45
+  %call.i = tail call ptr %25(ptr noundef %26, ptr noundef nonnull %ptr, i64 noundef %nbytes) #44
   br label %return
 
 return:                                           ; preds = %if.end.i10, %if.end4, %if.then2.i, %if.end.i.i, %PyMem_RawMalloc.exit.i.i, %if.then12.i, %if.then4.i, %PyMem_RawMalloc.exit.i, %if.end.i, %get_state.exit.i
@@ -27867,7 +27867,7 @@ if.end.i:                                         ; preds = %entry
   %0 = load ptr, ptr %alloc.i, align 8
   %malloc.i = getelementptr inbounds i8, ptr %ctx, i64 16
   %1 = load ptr, ptr %malloc.i, align 8
-  %call7.i = tail call ptr %1(ptr noundef %0, i64 noundef %add.i) #45
+  %call7.i = tail call ptr %1(ptr noundef %0, i64 noundef %add.i) #44
   %cmp9.i = icmp eq ptr %call7.i, null
   br i1 %cmp9.i, label %_PyMem_DebugRawAlloc.exit, label %if.end11.i
 
@@ -27924,7 +27924,7 @@ if.end.i:                                         ; preds = %entry
   %0 = load ptr, ptr %alloc.i, align 8
   %calloc.i = getelementptr inbounds i8, ptr %ctx, i64 24
   %1 = load ptr, ptr %calloc.i, align 8
-  %call.i = tail call ptr %1(ptr noundef %0, i64 noundef 1, i64 noundef %add.i) #45
+  %call.i = tail call ptr %1(ptr noundef %0, i64 noundef 1, i64 noundef %add.i) #44
   %cmp9.i = icmp eq ptr %call.i, null
   br i1 %cmp9.i, label %_PyMem_DebugRawAlloc.exit, label %if.end11.i
 
@@ -27994,7 +27994,7 @@ read_size_t.exit:                                 ; preds = %for.body.i
   %free = getelementptr inbounds i8, ptr %ctx, i64 40
   %3 = load ptr, ptr %free, align 8
   %4 = load ptr, ptr %alloc, align 8
-  tail call void %3(ptr noundef %4, ptr noundef nonnull %add.ptr) #45
+  tail call void %3(ptr noundef %4, ptr noundef nonnull %add.ptr) #44
   br label %return
 
 return:                                           ; preds = %entry, %read_size_t.exit
@@ -28013,7 +28013,7 @@ if.then:                                          ; preds = %entry
   %conv1 = sext i8 %api to i32
   %conv = sext i8 %0 to i32
   tail call fastcc void @_PyObject_DebugDumpAddress(ptr noundef nonnull %p)
-  tail call void (ptr, ptr, ...) @_Py_FatalErrorFormat(ptr noundef %func, ptr noundef nonnull @.str.159, i32 noundef %conv, i32 noundef %conv1) #54
+  tail call void (ptr, ptr, ...) @_Py_FatalErrorFormat(ptr noundef %func, ptr noundef nonnull @.str.159, i32 noundef %conv, i32 noundef %conv1) #52
   unreachable
 
 for.cond:                                         ; preds = %for.body
@@ -28032,7 +28032,7 @@ for.body:                                         ; preds = %entry, %for.cond
 
 if.then10:                                        ; preds = %for.body
   tail call fastcc void @_PyObject_DebugDumpAddress(ptr noundef nonnull %p)
-  tail call void @_Py_FatalErrorFunc(ptr noundef %func, ptr noundef nonnull @.str.160) #54
+  tail call void @_Py_FatalErrorFunc(ptr noundef %func, ptr noundef nonnull @.str.160) #52
   unreachable
 
 for.end:                                          ; preds = %for.cond
@@ -28072,7 +28072,7 @@ for.body17:                                       ; preds = %read_size_t.exit, %
 
 if.then22:                                        ; preds = %for.body17
   tail call fastcc void @_PyObject_DebugDumpAddress(ptr noundef nonnull %p)
-  tail call void @_Py_FatalErrorFunc(ptr noundef %func, ptr noundef nonnull @.str.161) #54
+  tail call void @_Py_FatalErrorFunc(ptr noundef %func, ptr noundef nonnull @.str.161) #52
   unreachable
 
 for.end25:                                        ; preds = %for.cond14
@@ -28096,7 +28096,7 @@ if.end.i:                                         ; preds = %if.then
   %0 = load ptr, ptr %alloc.i, align 8
   %malloc.i = getelementptr inbounds i8, ptr %ctx, i64 16
   %1 = load ptr, ptr %malloc.i, align 8
-  %call7.i = tail call ptr %1(ptr noundef %0, i64 noundef %add.i) #45
+  %call7.i = tail call ptr %1(ptr noundef %0, i64 noundef %add.i) #44
   %cmp9.i = icmp eq ptr %call7.i, null
   br i1 %cmp9.i, label %return, label %if.end11.i
 
@@ -28186,7 +28186,7 @@ if.end13:                                         ; preds = %if.else, %if.then7
   %realloc = getelementptr inbounds i8, ptr %ctx, i64 32
   %6 = load ptr, ptr %realloc, align 8
   %7 = load ptr, ptr %alloc, align 8
-  %call16 = tail call ptr %6(ptr noundef %7, ptr noundef nonnull %add.ptr, i64 noundef %add) #45
+  %call16 = tail call ptr %6(ptr noundef %7, ptr noundef nonnull %add.ptr, i64 noundef %add) #44
   %cmp17 = icmp eq ptr %call16, null
   %add.ptr.call16 = select i1 %cmp17, ptr %add.ptr, ptr %call16
   %call1.nbytes = select i1 %cmp17, i64 %or.i, i64 %nbytes
@@ -28257,12 +28257,12 @@ return:                                           ; preds = %if.end17.i, %if.end
 ; Function Attrs: nounwind uwtable
 define hidden ptr @_PyMem_DebugMalloc(ptr nocapture noundef readonly %ctx, i64 noundef %nbytes) #0 {
 entry:
-  %call.i = tail call i32 @PyGILState_Check() #45
+  %call.i = tail call i32 @PyGILState_Check() #44
   %tobool.not.i = icmp eq i32 %call.i, 0
   br i1 %tobool.not.i, label %if.then.i, label %_PyMem_DebugCheckGIL.exit
 
 if.then.i:                                        ; preds = %entry
-  tail call void @_Py_FatalErrorFunc(ptr noundef nonnull @__func__._PyMem_DebugMalloc, ptr noundef nonnull @.str.158) #54
+  tail call void @_Py_FatalErrorFunc(ptr noundef nonnull @__func__._PyMem_DebugMalloc, ptr noundef nonnull @.str.158) #52
   unreachable
 
 _PyMem_DebugCheckGIL.exit:                        ; preds = %entry
@@ -28275,7 +28275,7 @@ if.end.i.i:                                       ; preds = %_PyMem_DebugCheckGI
   %0 = load ptr, ptr %alloc.i.i, align 8
   %malloc.i.i = getelementptr inbounds i8, ptr %ctx, i64 16
   %1 = load ptr, ptr %malloc.i.i, align 8
-  %call7.i.i = tail call ptr %1(ptr noundef %0, i64 noundef %add.i.i) #45
+  %call7.i.i = tail call ptr %1(ptr noundef %0, i64 noundef %add.i.i) #44
   %cmp9.i.i = icmp eq ptr %call7.i.i, null
   br i1 %cmp9.i.i, label %_PyMem_DebugRawMalloc.exit, label %if.end11.i.i
 
@@ -28322,12 +28322,12 @@ _PyMem_DebugRawMalloc.exit:                       ; preds = %_PyMem_DebugCheckGI
 ; Function Attrs: nounwind uwtable
 define hidden ptr @_PyMem_DebugCalloc(ptr nocapture noundef readonly %ctx, i64 noundef %nelem, i64 noundef %elsize) #0 {
 entry:
-  %call.i = tail call i32 @PyGILState_Check() #45
+  %call.i = tail call i32 @PyGILState_Check() #44
   %tobool.not.i = icmp eq i32 %call.i, 0
   br i1 %tobool.not.i, label %if.then.i, label %_PyMem_DebugCheckGIL.exit
 
 if.then.i:                                        ; preds = %entry
-  tail call void @_Py_FatalErrorFunc(ptr noundef nonnull @__func__._PyMem_DebugCalloc, ptr noundef nonnull @.str.158) #54
+  tail call void @_Py_FatalErrorFunc(ptr noundef nonnull @__func__._PyMem_DebugCalloc, ptr noundef nonnull @.str.158) #52
   unreachable
 
 _PyMem_DebugCheckGIL.exit:                        ; preds = %entry
@@ -28341,7 +28341,7 @@ if.end.i.i:                                       ; preds = %_PyMem_DebugCheckGI
   %0 = load ptr, ptr %alloc.i.i, align 8
   %calloc.i.i = getelementptr inbounds i8, ptr %ctx, i64 24
   %1 = load ptr, ptr %calloc.i.i, align 8
-  %call.i.i = tail call ptr %1(ptr noundef %0, i64 noundef 1, i64 noundef %add.i.i) #45
+  %call.i.i = tail call ptr %1(ptr noundef %0, i64 noundef 1, i64 noundef %add.i.i) #44
   %cmp9.i.i = icmp eq ptr %call.i.i, null
   br i1 %cmp9.i.i, label %_PyMem_DebugRawCalloc.exit, label %if.end11.i.i
 
@@ -28380,12 +28380,12 @@ _PyMem_DebugRawCalloc.exit:                       ; preds = %_PyMem_DebugCheckGI
 ; Function Attrs: nounwind uwtable
 define hidden void @_PyMem_DebugFree(ptr nocapture noundef readonly %ctx, ptr noundef %ptr) #0 {
 entry:
-  %call.i = tail call i32 @PyGILState_Check() #45
+  %call.i = tail call i32 @PyGILState_Check() #44
   %tobool.not.i = icmp eq i32 %call.i, 0
   br i1 %tobool.not.i, label %if.then.i, label %_PyMem_DebugCheckGIL.exit
 
 if.then.i:                                        ; preds = %entry
-  tail call void @_Py_FatalErrorFunc(ptr noundef nonnull @__func__._PyMem_DebugFree, ptr noundef nonnull @.str.158) #54
+  tail call void @_Py_FatalErrorFunc(ptr noundef nonnull @__func__._PyMem_DebugFree, ptr noundef nonnull @.str.158) #52
   unreachable
 
 _PyMem_DebugCheckGIL.exit:                        ; preds = %entry
@@ -28420,7 +28420,7 @@ read_size_t.exit.i:                               ; preds = %for.body.i.i
   %free.i = getelementptr inbounds i8, ptr %ctx, i64 40
   %3 = load ptr, ptr %free.i, align 8
   %4 = load ptr, ptr %alloc.i, align 8
-  tail call void %3(ptr noundef %4, ptr noundef nonnull %add.ptr.i) #45
+  tail call void %3(ptr noundef %4, ptr noundef nonnull %add.ptr.i) #44
   br label %_PyMem_DebugRawFree.exit
 
 _PyMem_DebugRawFree.exit:                         ; preds = %_PyMem_DebugCheckGIL.exit, %read_size_t.exit.i
@@ -28430,12 +28430,12 @@ _PyMem_DebugRawFree.exit:                         ; preds = %_PyMem_DebugCheckGI
 ; Function Attrs: nounwind uwtable
 define hidden ptr @_PyMem_DebugRealloc(ptr nocapture noundef readonly %ctx, ptr noundef %ptr, i64 noundef %nbytes) #0 {
 entry:
-  %call.i = tail call i32 @PyGILState_Check() #45
+  %call.i = tail call i32 @PyGILState_Check() #44
   %tobool.not.i = icmp eq i32 %call.i, 0
   br i1 %tobool.not.i, label %if.then.i, label %_PyMem_DebugCheckGIL.exit
 
 if.then.i:                                        ; preds = %entry
-  tail call void @_Py_FatalErrorFunc(ptr noundef nonnull @__func__._PyMem_DebugRealloc, ptr noundef nonnull @.str.158) #54
+  tail call void @_Py_FatalErrorFunc(ptr noundef nonnull @__func__._PyMem_DebugRealloc, ptr noundef nonnull @.str.158) #52
   unreachable
 
 _PyMem_DebugCheckGIL.exit:                        ; preds = %entry
@@ -28448,22 +28448,22 @@ define hidden void @_PyDebugAllocatorStats(ptr nocapture noundef %out, ptr nound
 entry:
   %buf1 = alloca [128 x i8], align 16
   %buf2 = alloca [128 x i8], align 16
-  %call = call i32 (ptr, i64, ptr, ...) @PyOS_snprintf(ptr noundef nonnull %buf1, i64 noundef 128, ptr noundef nonnull @.str.43, i32 noundef %num_blocks, ptr noundef %block_name, i64 noundef %sizeof_block) #45
-  %call3 = call i32 (ptr, i64, ptr, ...) @PyOS_snprintf(ptr noundef nonnull %buf2, i64 noundef 128, ptr noundef nonnull @.str.44, ptr noundef nonnull %buf1) #45
+  %call = call i32 (ptr, i64, ptr, ...) @PyOS_snprintf(ptr noundef nonnull %buf1, i64 noundef 128, ptr noundef nonnull @.str.43, i32 noundef %num_blocks, ptr noundef %block_name, i64 noundef %sizeof_block) #44
+  %call3 = call i32 (ptr, i64, ptr, ...) @PyOS_snprintf(ptr noundef nonnull %buf2, i64 noundef 128, ptr noundef nonnull @.str.44, ptr noundef nonnull %buf1) #44
   %conv = sext i32 %num_blocks to i64
   %mul = mul i64 %conv, %sizeof_block
   %call5 = call fastcc i64 @printone(ptr noundef %out, ptr noundef nonnull %buf2, i64 noundef %mul)
   ret void
 }
 
-declare i32 @PyOS_snprintf(ptr noundef, i64 noundef, ptr noundef, ...) local_unnamed_addr #41
+declare i32 @PyOS_snprintf(ptr noundef, i64 noundef, ptr noundef, ...) local_unnamed_addr #40
 
 ; Function Attrs: nofree nounwind uwtable
 define internal fastcc noundef i64 @printone(ptr nocapture noundef %out, ptr nocapture noundef readonly %msg, i64 noundef returned %value) unnamed_addr #25 {
 entry:
   %buf = alloca [100 x i8], align 16
   %call = tail call i32 @fputs(ptr noundef %msg, ptr noundef %out)
-  %call1 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %msg) #53
+  %call1 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %msg) #51
   %conv = trunc i64 %call1 to i32
   %cmp21 = icmp slt i32 %conv, 35
   br i1 %cmp21, label %for.body, label %for.end
@@ -28866,13 +28866,13 @@ pymalloc_print_stats.exit:                        ; preds = %for.inc87.i
   %46 = load i64, ptr %narenas_highwater.i, align 8
   %call98.i = tail call fastcc i64 @printone(ptr noundef %out, ptr noundef nonnull @.str.189, i64 noundef %46)
   %call99.i = tail call fastcc i64 @printone(ptr noundef %out, ptr noundef nonnull @.str.190, i64 noundef %narenas.0.lcssa.i)
-  %call100.i = call i32 (ptr, i64, ptr, ...) @PyOS_snprintf(ptr noundef nonnull %buf.i, i64 noundef 128, ptr noundef nonnull @.str.191, i64 noundef %narenas.0.lcssa.i, i32 noundef 1048576) #45
+  %call100.i = call i32 (ptr, i64, ptr, ...) @PyOS_snprintf(ptr noundef nonnull %buf.i, i64 noundef 128, ptr noundef nonnull @.str.191, i64 noundef %narenas.0.lcssa.i, i32 noundef 1048576) #44
   %mul102.i = shl i64 %narenas.0.lcssa.i, 20
   %call103.i = call fastcc i64 @printone(ptr noundef %out, ptr noundef nonnull %buf.i, i64 noundef %mul102.i)
   %call104.i = call i32 @fputc(i32 noundef 10, ptr noundef %out)
   %call105.i = call fastcc i64 @printone(ptr noundef %out, ptr noundef nonnull @.str.192, i64 noundef %allocated_bytes.1.i)
   %call106.i = call fastcc i64 @printone(ptr noundef %out, ptr noundef nonnull @.str.193, i64 noundef %available_bytes.1.i)
-  %call109.i = call i32 (ptr, i64, ptr, ...) @PyOS_snprintf(ptr noundef nonnull %buf.i, i64 noundef 128, ptr noundef nonnull @.str.194, i32 noundef %numfreepools.0.lcssa.i, i32 noundef 16384) #45
+  %call109.i = call i32 (ptr, i64, ptr, ...) @PyOS_snprintf(ptr noundef nonnull %buf.i, i64 noundef 128, ptr noundef nonnull @.str.194, i32 noundef %numfreepools.0.lcssa.i, i32 noundef 16384) #44
   %conv111.i = zext i32 %numfreepools.0.lcssa.i to i64
   %mul112.i = shl nuw nsw i64 %conv111.i, 14
   %call113.i = call fastcc i64 @printone(ptr noundef %out, ptr noundef nonnull %buf.i, i64 noundef %mul112.i)
@@ -28919,13 +28919,13 @@ return:                                           ; preds = %if.else, %pymalloc_
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
-declare void @llvm.assume(i1 noundef) #42
+declare void @llvm.assume(i1 noundef) #41
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare { i64, i1 } @llvm.umul.with.overflow.i64(i64, i64) #22
 
 ; Function Attrs: cold nofree noreturn nounwind
-declare void @abort() local_unnamed_addr #43
+declare void @abort() local_unnamed_addr #42
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @mi_arena_purge(ptr nocapture noundef readonly %arena, i64 noundef %bitmap_idx, i64 noundef %blocks, ptr noundef %stats) unnamed_addr #0 {
@@ -29328,7 +29328,7 @@ land.lhs.true.i:                                  ; preds = %entry
 
 if.then.i:                                        ; preds = %land.lhs.true.i
   %1 = load ptr, ptr @stderr, align 8
-  %call.i.i = tail call i32 @fputs(ptr noundef nonnull readonly %msg, ptr noundef %1) #56
+  %call.i.i = tail call i32 @fputs(ptr noundef nonnull readonly %msg, ptr noundef %1) #54
   br label %if.end.i
 
 if.end.i:                                         ; preds = %land.lhs.true.i, %if.then.i
@@ -29414,10 +29414,10 @@ declare noundef i32 @vsnprintf(ptr nocapture noundef, i64 noundef, ptr nocapture
 declare ptr @strstr(ptr noundef, ptr nocapture noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nofree nounwind willreturn
-declare i64 @strtol(ptr noundef readonly, ptr nocapture noundef, i32 noundef) local_unnamed_addr #44
+declare i64 @strtol(ptr noundef readonly, ptr nocapture noundef, i32 noundef) local_unnamed_addr #43
 
 ; Function Attrs: nounwind
-declare void @llvm.x86.sse2.pause() #45
+declare void @llvm.x86.sse2.pause() #44
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc ptr @mi_page_fresh_alloc(ptr noundef %heap, ptr noundef %pq, i64 noundef %block_size, i64 noundef %page_alignment) unnamed_addr #0 {
@@ -30253,7 +30253,7 @@ for.body.i21.i:                                   ; preds = %for.body.i21.i, %mi
 
 mi_commit_mask_set.exit.i:                        ; preds = %for.body.i21.i
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %t.i.i.i)
-  %call.i.i.i = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %t.i.i.i) #45
+  %call.i.i.i = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %t.i.i.i) #44
   %14 = load i64, ptr %t.i.i.i, align 8
   %mul.i.i.i = mul i64 %14, 1000
   %tv_nsec.i.i.i = getelementptr inbounds i8, ptr %t.i.i.i, i64 8
@@ -30986,7 +30986,7 @@ if.end18:                                         ; preds = %if.then16, %if.end
   store i64 %segment_slices.0, ptr %segment_slices20, align 8
   %segment_info_slices = getelementptr inbounds i8, ptr %call7.i, i64 232
   store i64 %info_slices.0, ptr %segment_info_slices, align 8
-  %24 = tail call ptr asm "movq %fs:$1, $0", "=r,*m,~{dirflag},~{fpsr},~{flags}"(ptr elementtype(ptr) null) #52, !srcloc !16
+  %24 = tail call ptr asm "movq %fs:$1, $0", "=r,*m,~{dirflag},~{fpsr},~{flags}"(ptr elementtype(ptr) null) #50, !srcloc !16
   %25 = ptrtoint ptr %24 to i64
   %thread_id = getelementptr inbounds i8, ptr %call7.i, i64 256
   store atomic i64 %25, ptr %thread_id seq_cst, align 8
@@ -31434,7 +31434,7 @@ mi_commit_mask_any_set.exit.i.i:                  ; preds = %for.body.i28.i.i
 
 if.then11.i.i:                                    ; preds = %mi_commit_mask_any_set.exit.i.i, %if.end9.i.i
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %t.i.i.i.i)
-  %call.i.i.i.i = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %t.i.i.i.i) #45
+  %call.i.i.i.i = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %t.i.i.i.i) #44
   %29 = load i64, ptr %t.i.i.i.i, align 8
   %mul.i.i.i.i = mul i64 %29, 1000
   %tv_nsec.i.i.i.i = getelementptr inbounds i8, ptr %t.i.i.i.i, i64 8
@@ -31618,13 +31618,13 @@ if.end.i.i:                                       ; preds = %if.then.i.i
   %12 = load volatile ptr, ptr @mi_out_default, align 8
   %cmp1.i.i.i = icmp eq ptr %12, null
   %cond.i.i.i = select i1 %cmp1.i.i.i, ptr @mi_out_buf, ptr %12
-  tail call void %cond.i.i.i(ptr noundef %6, ptr noundef %11) #45
+  tail call void %cond.i.i.i(ptr noundef %6, ptr noundef %11) #44
   store i8 0, ptr %1, align 1
   br label %mi_buffered_flush.exit
 
 if.else.i.i:                                      ; preds = %if.then6
   %13 = load ptr, ptr %arg.i, align 8
-  tail call void %5(ptr noundef %6, ptr noundef %13) #45
+  tail call void %5(ptr noundef %6, ptr noundef %13) #44
   br label %mi_buffered_flush.exit
 
 mi_buffered_flush.exit:                           ; preds = %if.then.i.i, %if.end.i.i, %if.else.i.i
@@ -31669,13 +31669,13 @@ if.end.i.i23:                                     ; preds = %if.then.i.i21
   %25 = load volatile ptr, ptr @mi_out_default, align 8
   %cmp1.i.i.i24 = icmp eq ptr %25, null
   %cond.i.i.i25 = select i1 %cmp1.i.i.i24, ptr @mi_out_buf, ptr %25
-  tail call void %cond.i.i.i25(ptr noundef %19, ptr noundef %24) #45
+  tail call void %cond.i.i.i25(ptr noundef %19, ptr noundef %24) #44
   store i8 0, ptr %1, align 1
   br label %mi_buffered_flush.exit26
 
 if.else.i.i19:                                    ; preds = %if.then13
   %26 = load ptr, ptr %arg.i, align 8
-  tail call void %18(ptr noundef %19, ptr noundef %26) #45
+  tail call void %18(ptr noundef %19, ptr noundef %26) #44
   br label %mi_buffered_flush.exit26
 
 mi_buffered_flush.exit26:                         ; preds = %if.then.i.i21, %if.end.i.i23, %if.else.i.i19
@@ -31804,7 +31804,7 @@ if.then17:                                        ; preds = %if.then10
   %conv19 = trunc i64 %n to i32
   %cmp20 = icmp eq i64 %n, 0
   %cond25 = select i1 %cmp20, ptr @.str.10, ptr %cond
-  %call = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %buf, i64 noundef 32, ptr noundef nonnull @.str.144, i32 noundef %conv19, ptr noundef nonnull %cond25) #45
+  %call = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %buf, i64 noundef 32, ptr noundef nonnull @.str.144, i32 noundef %conv19, ptr noundef nonnull %cond25) #44
   br label %if.end57
 
 if.else:                                          ; preds = %entry
@@ -31823,9 +31823,9 @@ if.else:                                          ; preds = %entry
   %div40 = sdiv i64 %div39, 10
   %rem = srem i64 %div39, 10
   %cond44 = select i1 %cmp1.not, ptr @.str.10, ptr @.str.149
-  %call45 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %unitdesc, i64 noundef 8, ptr noundef nonnull @.str.148, ptr noundef nonnull %magnitude.1, ptr noundef nonnull %cond44, ptr noundef nonnull %cond) #45
+  %call45 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %unitdesc, i64 noundef 8, ptr noundef nonnull @.str.148, ptr noundef nonnull %magnitude.1, ptr noundef nonnull %cond44, ptr noundef nonnull %cond) #44
   %cond54 = tail call i64 @llvm.abs.i64(i64 %rem, i1 true)
-  %call56 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %buf, i64 noundef 32, ptr noundef nonnull @.str.150, i64 noundef %div40, i64 noundef %cond54, ptr noundef nonnull %unitdesc) #45
+  %call56 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %buf, i64 noundef 32, ptr noundef nonnull @.str.150, i64 noundef %div40, i64 noundef %cond54, ptr noundef nonnull %unitdesc) #44
   br label %if.end57
 
 if.end57:                                         ; preds = %if.then10, %if.then17, %if.else
@@ -31847,7 +31847,7 @@ if.then:                                          ; preds = %entry
   br i1 %cmp1.not, label %if.end12, label %if.then2
 
 if.then2:                                         ; preds = %if.then
-  %call3 = tail call ptr @mmap64(ptr noundef nonnull %call, i64 noundef %size, i32 noundef %protect_flags, i32 noundef %flags, i32 noundef -1, i64 noundef 0) #45
+  %call3 = tail call ptr @mmap64(ptr noundef nonnull %call, i64 noundef %size, i32 noundef %protect_flags, i32 noundef %flags, i32 noundef -1, i64 noundef 0) #44
   %cmp4 = icmp eq ptr %call3, inttoptr (i64 -1 to ptr)
   br i1 %cmp4, label %if.end12.critedge, label %lor.lhs.false
 
@@ -31858,19 +31858,19 @@ lor.lhs.false:                                    ; preds = %if.then2
   br i1 %cmp.i, label %return, label %if.end
 
 if.end:                                           ; preds = %lor.lhs.false
-  %call7 = tail call ptr @__errno_location() #55
+  %call7 = tail call ptr @__errno_location() #53
   %1 = load i32, ptr %call7, align 4
   tail call void (ptr, ...) @_mi_warning_message(ptr noundef nonnull @.str.153, i32 noundef %1, i32 noundef %1, i64 noundef %size, i64 noundef %try_alignment, ptr noundef nonnull %call)
   br label %return
 
 if.end12.critedge:                                ; preds = %if.then2
-  %call7.c = tail call ptr @__errno_location() #55
+  %call7.c = tail call ptr @__errno_location() #53
   %2 = load i32, ptr %call7.c, align 4
   tail call void (ptr, ...) @_mi_warning_message(ptr noundef nonnull @.str.153, i32 noundef %2, i32 noundef %2, i64 noundef %size, i64 noundef %try_alignment, ptr noundef nonnull %call)
   br label %if.end12
 
 if.end12:                                         ; preds = %if.end12.critedge, %if.then, %entry
-  %call13 = tail call ptr @mmap64(ptr noundef %addr, i64 noundef %size, i32 noundef %protect_flags, i32 noundef %flags, i32 noundef -1, i64 noundef 0) #45
+  %call13 = tail call ptr @mmap64(ptr noundef %addr, i64 noundef %size, i32 noundef %protect_flags, i32 noundef %flags, i32 noundef -1, i64 noundef 0) #44
   %cmp14.not = icmp eq ptr %call13, inttoptr (i64 -1 to ptr)
   %.call13 = select i1 %cmp14.not, ptr null, ptr %call13
   br label %return
@@ -31883,30 +31883,30 @@ return:                                           ; preds = %if.end, %lor.lhs.fa
 ; Function Attrs: nounwind
 declare i32 @madvise(ptr noundef, i64 noundef, i32 noundef) local_unnamed_addr #31
 
-declare void @_PyMutex_LockSlow(ptr noundef) local_unnamed_addr #41
+declare void @_PyMutex_LockSlow(ptr noundef) local_unnamed_addr #40
 
-declare void @_PyMutex_UnlockSlow(ptr noundef) local_unnamed_addr #41
+declare void @_PyMutex_UnlockSlow(ptr noundef) local_unnamed_addr #40
 
-declare ptr @PyInterpreterState_Head() local_unnamed_addr #41
+declare ptr @PyInterpreterState_Head() local_unnamed_addr #40
 
-declare ptr @PyInterpreterState_Next(ptr noundef) local_unnamed_addr #41
+declare ptr @PyInterpreterState_Next(ptr noundef) local_unnamed_addr #40
 
-declare i32 @_PyMutex_LockTimed(ptr noundef, i64 noundef, i32 noundef) local_unnamed_addr #41
+declare i32 @_PyMutex_LockTimed(ptr noundef, i64 noundef, i32 noundef) local_unnamed_addr #40
 
-declare ptr @Py_GETENV(ptr noundef) local_unnamed_addr #41
+declare ptr @Py_GETENV(ptr noundef) local_unnamed_addr #40
 
-declare i32 @PyGILState_Check() local_unnamed_addr #41
+declare i32 @PyGILState_Check() local_unnamed_addr #40
 
-; Function Attrs: cold nounwind uwtable
-define internal fastcc void @_PyObject_DebugDumpAddress(ptr noundef %p) unnamed_addr #46 {
+; Function Attrs: nounwind uwtable
+define internal fastcc void @_PyObject_DebugDumpAddress(ptr noundef %p) unnamed_addr #0 {
 entry:
   %0 = load ptr, ptr @stderr, align 8
-  %call = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.162, ptr noundef %p) #56
+  %call = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.162, ptr noundef %p) #54
   %arrayidx = getelementptr i8, ptr %p, i64 -8
   %1 = load i8, ptr %arrayidx, align 1
   %2 = load ptr, ptr @stderr, align 8
   %conv = sext i8 %1 to i32
-  %call2 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %2, ptr noundef nonnull @.str.163, i32 noundef %conv) #56
+  %call2 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %2, ptr noundef nonnull @.str.163, i32 noundef %conv) #54
   %add.ptr = getelementptr i8, ptr %p, i64 -16
   %3 = load i8, ptr %add.ptr, align 1
   %conv.i = zext i8 %3 to i64
@@ -31927,9 +31927,9 @@ for.body.i:                                       ; preds = %for.body.i, %entry
 
 read_size_t.exit:                                 ; preds = %for.body.i
   %5 = load ptr, ptr @stderr, align 8
-  %call4 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %5, ptr noundef nonnull @.str.164, i64 noundef %or.i) #56
+  %call4 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %5, ptr noundef nonnull @.str.164, i64 noundef %or.i) #54
   %6 = load ptr, ptr @stderr, align 8
-  %call5 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %6, ptr noundef nonnull @.str.165, i32 noundef 7, i32 noundef 7) #56
+  %call5 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %6, ptr noundef nonnull @.str.165, i32 noundef 7, i32 noundef 7) #54
   br label %for.body
 
 for.cond:                                         ; preds = %for.body
@@ -31947,12 +31947,12 @@ for.body:                                         ; preds = %read_size_t.exit, %
 
 if.then14:                                        ; preds = %for.cond
   %8 = load ptr, ptr @stderr, align 8
-  %9 = tail call i64 @fwrite(ptr nonnull @.str.166, i64 28, i64 1, ptr %8) #56
+  %9 = tail call i64 @fwrite(ptr nonnull @.str.166, i64 28, i64 1, ptr %8) #54
   br label %if.end36
 
 if.else:                                          ; preds = %for.body
   %10 = load ptr, ptr @stderr, align 8
-  %call16 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %10, ptr noundef nonnull @.str.167, i32 noundef 253) #56
+  %call16 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %10, ptr noundef nonnull @.str.167, i32 noundef 253) #54
   br label %for.body20
 
 for.body20:                                       ; preds = %if.else, %if.end31
@@ -31963,13 +31963,13 @@ for.body20:                                       ; preds = %if.else, %if.end31
   %12 = load ptr, ptr @stderr, align 8
   %conv24 = zext i8 %11 to i32
   %13 = trunc nuw nsw i64 %indvars.iv55 to i32
-  %call25 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %12, ptr noundef nonnull @.str.168, i32 noundef %13, i32 noundef %conv24) #56
+  %call25 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %12, ptr noundef nonnull @.str.168, i32 noundef %13, i32 noundef %conv24) #54
   %cmp27.not = icmp eq i8 %11, -3
   br i1 %cmp27.not, label %if.end31, label %if.then29
 
 if.then29:                                        ; preds = %for.body20
   %14 = load ptr, ptr @stderr, align 8
-  %15 = tail call i64 @fwrite(ptr nonnull @.str.169, i64 9, i64 1, ptr %14) #56
+  %15 = tail call i64 @fwrite(ptr nonnull @.str.169, i64 9, i64 1, ptr %14) #54
   br label %if.end31
 
 if.end31:                                         ; preds = %if.then29, %for.body20
@@ -31981,13 +31981,13 @@ if.end31:                                         ; preds = %if.then29, %for.bod
 
 for.end34:                                        ; preds = %if.end31
   %17 = load ptr, ptr @stderr, align 8
-  %18 = tail call i64 @fwrite(ptr nonnull @.str.170, i64 146, i64 1, ptr %17) #56
+  %18 = tail call i64 @fwrite(ptr nonnull @.str.170, i64 146, i64 1, ptr %17) #54
   br label %if.end36
 
 if.end36:                                         ; preds = %for.end34, %if.then14
   %add.ptr37 = getelementptr i8, ptr %p, i64 %or.i
   %19 = load ptr, ptr @stderr, align 8
-  %call38 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %19, ptr noundef nonnull @.str.171, i32 noundef 8, ptr noundef %add.ptr37) #56
+  %call38 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %19, ptr noundef nonnull @.str.171, i32 noundef 8, ptr noundef %add.ptr37) #54
   br label %for.body42
 
 for.cond39:                                       ; preds = %for.body42
@@ -32004,12 +32004,12 @@ for.body42:                                       ; preds = %if.end36, %for.cond
 
 if.then53:                                        ; preds = %for.cond39
   %21 = load ptr, ptr @stderr, align 8
-  %22 = tail call i64 @fwrite(ptr nonnull @.str.166, i64 28, i64 1, ptr %21) #56
+  %22 = tail call i64 @fwrite(ptr nonnull @.str.166, i64 28, i64 1, ptr %21) #54
   br label %if.end76
 
 if.else55:                                        ; preds = %for.body42
   %23 = load ptr, ptr @stderr, align 8
-  %call56 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %23, ptr noundef nonnull @.str.167, i32 noundef 253) #56
+  %call56 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %23, ptr noundef nonnull @.str.167, i32 noundef 253) #54
   br label %for.body60
 
 for.body60:                                       ; preds = %if.else55, %if.end71
@@ -32019,13 +32019,13 @@ for.body60:                                       ; preds = %if.else55, %if.end7
   %25 = load ptr, ptr @stderr, align 8
   %conv64 = zext i8 %24 to i32
   %26 = trunc nuw nsw i64 %indvars.iv62 to i32
-  %call65 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %25, ptr noundef nonnull @.str.172, i32 noundef %26, i32 noundef %conv64) #56
+  %call65 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %25, ptr noundef nonnull @.str.172, i32 noundef %26, i32 noundef %conv64) #54
   %cmp67.not = icmp eq i8 %24, -3
   br i1 %cmp67.not, label %if.end71, label %if.then69
 
 if.then69:                                        ; preds = %for.body60
   %27 = load ptr, ptr @stderr, align 8
-  %28 = tail call i64 @fwrite(ptr nonnull @.str.169, i64 9, i64 1, ptr %27) #56
+  %28 = tail call i64 @fwrite(ptr nonnull @.str.169, i64 9, i64 1, ptr %27) #54
   br label %if.end71
 
 if.end71:                                         ; preds = %if.then69, %for.body60
@@ -32041,7 +32041,7 @@ if.end76:                                         ; preds = %if.end71, %if.then5
 
 if.then79:                                        ; preds = %if.end76
   %30 = load ptr, ptr @stderr, align 8
-  %31 = tail call i64 @fwrite(ptr nonnull @.str.173, i64 14, i64 1, ptr %30) #56
+  %31 = tail call i64 @fwrite(ptr nonnull @.str.173, i64 14, i64 1, ptr %30) #54
   %cmp8147 = icmp ugt ptr %add.ptr37, %p
   br i1 %cmp8147, label %while.body, label %if.end105
 
@@ -32051,7 +32051,7 @@ while.body:                                       ; preds = %if.then79, %while.b
   %32 = load ptr, ptr @stderr, align 8
   %33 = load i8, ptr %q.049, align 1
   %conv85 = zext i8 %33 to i32
-  %call86 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %32, ptr noundef nonnull @.str.174, i32 noundef %conv85) #56
+  %call86 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %32, ptr noundef nonnull @.str.174, i32 noundef %conv85) #54
   %inc87 = add nuw nsw i32 %i.448, 1
   %incdec.ptr = getelementptr i8, ptr %q.049, i64 1
   %cmp81 = icmp ult ptr %incdec.ptr, %add.ptr37
@@ -32071,7 +32071,7 @@ if.then90:                                        ; preds = %while.end
 
 if.then93:                                        ; preds = %if.then90
   %35 = load ptr, ptr @stderr, align 8
-  %36 = tail call i64 @fwrite(ptr nonnull @.str.175, i64 4, i64 1, ptr %35) #56
+  %36 = tail call i64 @fwrite(ptr nonnull @.str.175, i64 4, i64 1, ptr %35) #54
   %add.ptr95 = getelementptr i8, ptr %add.ptr37, i64 -8
   br label %if.end96
 
@@ -32085,7 +32085,7 @@ while.body100:                                    ; preds = %if.end96, %while.bo
   %37 = load ptr, ptr @stderr, align 8
   %38 = load i8, ptr %q.252, align 1
   %conv101 = zext i8 %38 to i32
-  %call102 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %37, ptr noundef nonnull @.str.174, i32 noundef %conv101) #56
+  %call102 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %37, ptr noundef nonnull @.str.174, i32 noundef %conv101) #54
   %incdec.ptr103 = getelementptr i8, ptr %q.252, i64 1
   %cmp98 = icmp ult ptr %incdec.ptr103, %add.ptr37
   br i1 %cmp98, label %while.body100, label %if.end105, !llvm.loop !151
@@ -32101,13 +32101,13 @@ if.end107:                                        ; preds = %if.end105, %if.end7
   %41 = load ptr, ptr @stderr, align 8
   %call109 = tail call i32 @fflush(ptr noundef %41)
   %42 = load ptr, ptr @stderr, align 8
-  %call110 = tail call i32 @fileno(ptr noundef %42) #45
-  tail call void @_PyMem_DumpTraceback(i32 noundef %call110, ptr noundef %p) #45
+  %call110 = tail call i32 @fileno(ptr noundef %42) #44
+  tail call void @_PyMem_DumpTraceback(i32 noundef %call110, ptr noundef %p) #44
   ret void
 }
 
 ; Function Attrs: noreturn
-declare void @_Py_FatalErrorFormat(ptr noundef, ptr noundef, ...) local_unnamed_addr #40
+declare void @_Py_FatalErrorFormat(ptr noundef, ptr noundef, ...) local_unnamed_addr #39
 
 ; Function Attrs: nofree nounwind
 declare noundef i32 @fprintf(ptr nocapture noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #5
@@ -32118,55 +32118,55 @@ declare noundef i32 @fputc(i32 noundef, ptr nocapture noundef) local_unnamed_add
 ; Function Attrs: nofree nounwind
 declare noundef i32 @fflush(ptr nocapture noundef) local_unnamed_addr #5
 
-declare void @_PyMem_DumpTraceback(i32 noundef, ptr noundef) local_unnamed_addr #41
+declare void @_PyMem_DumpTraceback(i32 noundef, ptr noundef) local_unnamed_addr #40
 
 ; Function Attrs: nofree nounwind
 declare noundef i32 @fileno(ptr nocapture noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_start.p0(ptr) #47
+declare void @llvm.va_start.p0(ptr) #45
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_end.p0(ptr) #47
+declare void @llvm.va_end.p0(ptr) #45
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.umin.i64(i64, i64) #48
+declare i64 @llvm.umin.i64(i64, i64) #46
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.ctpop.i64(i64) #48
+declare i64 @llvm.ctpop.i64(i64) #46
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.smax.i32(i32, i32) #48
+declare i32 @llvm.smax.i32(i32, i32) #46
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.umax.i64(i64, i64) #48
+declare i64 @llvm.umax.i64(i64, i64) #46
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.smin.i64(i64, i64) #48
+declare i64 @llvm.smin.i64(i64, i64) #46
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.smax.i64(i64, i64) #48
+declare i64 @llvm.smax.i64(i64, i64) #46
 
 ; Function Attrs: nofree nounwind
-declare noundef i64 @fwrite(ptr nocapture noundef, i64 noundef, i64 noundef, ptr nocapture noundef) local_unnamed_addr #49
+declare noundef i64 @fwrite(ptr nocapture noundef, i64 noundef, i64 noundef, ptr nocapture noundef) local_unnamed_addr #47
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.usub.sat.i64(i64, i64) #48
+declare i64 @llvm.usub.sat.i64(i64, i64) #46
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.abs.i64(i64, i1 immarg) #48
+declare i64 @llvm.abs.i64(i64, i1 immarg) #46
 
 ; Function Attrs: nofree nounwind willreturn memory(argmem: read)
-declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #50
+declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #48
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #51
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #49
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #51
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #49
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.fshl.i32(i32, i32, i32) #48
+declare i32 @llvm.fshl.i32(i32, i32, i32) #46
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -32200,34 +32200,32 @@ attributes #28 = { mustprogress nofree norecurse nosync nounwind willreturn memo
 attributes #29 = { nofree norecurse nounwind memory(readwrite, argmem: none, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #30 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
 attributes #31 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #32 = { cold nofree nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #33 = { nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #34 = { mustprogress nofree nounwind willreturn memory(inaccessiblemem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #35 = { mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #36 = { mustprogress nofree nounwind willreturn allockind("alloc,zeroed") allocsize(0,1) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #37 = { mustprogress nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #38 = { mustprogress nounwind willreturn allockind("realloc") allocsize(1) memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #39 = { mustprogress nofree nounwind willreturn memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #40 = { noreturn "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #41 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #42 = { mustprogress nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
-attributes #43 = { cold nofree noreturn nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #44 = { mustprogress nofree nounwind willreturn "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #45 = { nounwind }
-attributes #46 = { cold nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #47 = { mustprogress nocallback nofree nosync nounwind willreturn }
-attributes #48 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #49 = { nofree nounwind }
-attributes #50 = { nofree nounwind willreturn memory(argmem: read) }
-attributes #51 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #52 = { nounwind memory(read) }
-attributes #53 = { nounwind willreturn memory(read) }
-attributes #54 = { noreturn nounwind }
-attributes #55 = { nounwind willreturn memory(none) }
-attributes #56 = { cold }
-attributes #57 = { nounwind allocsize(0) }
-attributes #58 = { nounwind allocsize(0,1) }
-attributes #59 = { nounwind allocsize(1) }
+attributes #32 = { nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #33 = { mustprogress nofree nounwind willreturn memory(inaccessiblemem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #34 = { mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #35 = { mustprogress nofree nounwind willreturn allockind("alloc,zeroed") allocsize(0,1) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #36 = { mustprogress nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #37 = { mustprogress nounwind willreturn allockind("realloc") allocsize(1) memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #38 = { mustprogress nofree nounwind willreturn memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #39 = { noreturn "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #40 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #41 = { mustprogress nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
+attributes #42 = { cold nofree noreturn nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #43 = { mustprogress nofree nounwind willreturn "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #44 = { nounwind }
+attributes #45 = { mustprogress nocallback nofree nosync nounwind willreturn }
+attributes #46 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #47 = { nofree nounwind }
+attributes #48 = { nofree nounwind willreturn memory(argmem: read) }
+attributes #49 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #50 = { nounwind memory(read) }
+attributes #51 = { nounwind willreturn memory(read) }
+attributes #52 = { noreturn nounwind }
+attributes #53 = { nounwind willreturn memory(none) }
+attributes #54 = { cold }
+attributes #55 = { nounwind allocsize(0) }
+attributes #56 = { nounwind allocsize(0,1) }
+attributes #57 = { nounwind allocsize(1) }
 
 !llvm.module.flags = !{!0, !1, !2, !3, !4}
 

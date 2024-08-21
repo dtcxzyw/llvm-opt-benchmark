@@ -208,7 +208,7 @@ define internal fastcc void @_ZN15wiggle_generate5funcs12_define_func17h641e19b7
 
 77:                                               ; preds = %500, %78
   %.pn103.pn.pn.pn = phi { ptr, i32 } [ %.pn103.pn.pn, %500 ], [ %79, %78 ]
-  invoke void @"_ZN4core3ptr39drop_in_place$LT$proc_macro2..Ident$GT$17h689352a13baa1516E"(ptr nonnull align 8 %76) #7
+  invoke void @"_ZN4core3ptr39drop_in_place$LT$proc_macro2..Ident$GT$17h689352a13baa1516E"(ptr nonnull align 8 %76) #8
           to label %514 unwind label %106
 
 78:                                               ; preds = %503, %4
@@ -227,7 +227,7 @@ define internal fastcc void @_ZN15wiggle_generate5funcs12_define_func17h641e19b7
 
 84:                                               ; preds = %92, %85
   %.pn103.pn = phi { ptr, i32 } [ %.pn103, %92 ], [ %86, %85 ]
-  invoke void @"_ZN4core3ptr63drop_in_place$LT$alloc..vec..Vec$LT$witx..abi..WasmType$GT$$GT$17h21cf68782e7ae3e4E"(ptr nonnull align 8 %74) #7
+  invoke void @"_ZN4core3ptr63drop_in_place$LT$alloc..vec..Vec$LT$witx..abi..WasmType$GT$$GT$17h21cf68782e7ae3e4E"(ptr nonnull align 8 %74) #8
           to label %500 unwind label %106
 
 85:                                               ; preds = %498, %80
@@ -245,7 +245,7 @@ define internal fastcc void @_ZN15wiggle_generate5funcs12_define_func17h641e19b7
 
 92:                                               ; preds = %121, %114, %101, %93
   %.pn103 = phi { ptr, i32 } [ %94, %93 ], [ %.pn101, %121 ], [ %.pn, %114 ], [ %102, %101 ]
-  invoke void @"_ZN4core3ptr62drop_in_place$LT$alloc..vec..Vec$LT$proc_macro2..Ident$GT$$GT$17h7fed6d1486afc955E"(ptr nonnull align 8 %72) #7
+  invoke void @"_ZN4core3ptr62drop_in_place$LT$alloc..vec..Vec$LT$proc_macro2..Ident$GT$$GT$17h7fed6d1486afc955E"(ptr nonnull align 8 %72) #8
           to label %84 unwind label %106
 
 93:                                               ; preds = %497, %120, %108, %99, %98, %87
@@ -263,7 +263,7 @@ define internal fastcc void @_ZN15wiggle_generate5funcs12_define_func17h641e19b7
   ]
 
 98:                                               ; preds = %95
-  invoke void @_ZN4core9panicking5panic17h44790a89027c670fE(ptr nonnull align 1 @anon.21253c77e3fc4844456cc94e3b0b613d.38, i64 15, ptr nonnull align 8 @anon.21253c77e3fc4844456cc94e3b0b613d.39) #8
+  invoke void @_ZN4core9panicking5panic17h44790a89027c670fE(ptr nonnull align 1 @anon.21253c77e3fc4844456cc94e3b0b613d.38, i64 15, ptr nonnull align 8 @anon.21253c77e3fc4844456cc94e3b0b613d.39) #9
           to label %112 unwind label %93
 
 99:                                               ; preds = %95
@@ -277,7 +277,7 @@ define internal fastcc void @_ZN15wiggle_generate5funcs12_define_func17h641e19b7
 101:                                              ; preds = %103, %100
   %102 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr45drop_in_place$LT$proc_macro2..TokenStream$GT$17h5b042ffa340debc2E"(ptr nonnull align 8 %69) #7
+  invoke void @"_ZN4core3ptr45drop_in_place$LT$proc_macro2..TokenStream$GT$17h5b042ffa340debc2E"(ptr nonnull align 8 %69) #8
           to label %92 unwind label %106
 
 103:                                              ; preds = %100
@@ -295,7 +295,7 @@ define internal fastcc void @_ZN15wiggle_generate5funcs12_define_func17h641e19b7
 106:                                              ; preds = %.thread, %507, %500, %481, %441, %436, %424, %419, %414, %410, %406, %401, %393, %389, %371, %356, %304, %299, %287, %282, %277, %273, %270, %263, %247, %242, %236, %220, %215, %211, %206, %202, %176, %163, %150, %130, %126, %121, %118, %114, %101, %92, %84, %77
   %107 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hbacfddf1bcf21a1eE() #9
+  call void @_ZN4core9panicking16panic_in_cleanup17hbacfddf1bcf21a1eE() #10
   unreachable
 
 108:                                              ; preds = %95
@@ -314,7 +314,7 @@ define internal fastcc void @_ZN15wiggle_generate5funcs12_define_func17h641e19b7
 
 114:                                              ; preds = %118, %115
   %.pn = phi { ptr, i32 } [ %119, %118 ], [ %116, %115 ]
-  invoke void @"_ZN4core3ptr45drop_in_place$LT$proc_macro2..TokenStream$GT$17h5b042ffa340debc2E"(ptr nonnull align 8 %67) #7
+  invoke void @"_ZN4core3ptr45drop_in_place$LT$proc_macro2..TokenStream$GT$17h5b042ffa340debc2E"(ptr nonnull align 8 %67) #8
           to label %92 unwind label %106
 
 115:                                              ; preds = %113
@@ -329,7 +329,7 @@ define internal fastcc void @_ZN15wiggle_generate5funcs12_define_func17h641e19b7
 118:                                              ; preds = %117
   %119 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr45drop_in_place$LT$proc_macro2..TokenStream$GT$17h5b042ffa340debc2E"(ptr nonnull align 8 %66) #7
+  invoke void @"_ZN4core3ptr45drop_in_place$LT$proc_macro2..TokenStream$GT$17h5b042ffa340debc2E"(ptr nonnull align 8 %66) #8
           to label %114 unwind label %106
 
 120:                                              ; preds = %117
@@ -339,7 +339,7 @@ define internal fastcc void @_ZN15wiggle_generate5funcs12_define_func17h641e19b7
 
 121:                                              ; preds = %126, %122
   %.pn101 = phi { ptr, i32 } [ %123, %122 ], [ %.pn98.pn, %126 ]
-  invoke void @"_ZN4core3ptr45drop_in_place$LT$proc_macro2..TokenStream$GT$17h5b042ffa340debc2E"(ptr nonnull align 8 %70) #7
+  invoke void @"_ZN4core3ptr45drop_in_place$LT$proc_macro2..TokenStream$GT$17h5b042ffa340debc2E"(ptr nonnull align 8 %70) #8
           to label %92 unwind label %106
 
 122:                                              ; preds = %496, %105
@@ -353,7 +353,7 @@ define internal fastcc void @_ZN15wiggle_generate5funcs12_define_func17h641e19b7
 
 126:                                              ; preds = %154, %130, %.thread, %153, %127
   %.pn98.pn = phi { ptr, i32 } [ %.pn98110, %.thread ], [ %.pn96, %153 ], [ %128, %127 ], [ %131, %130 ], [ %lpad.thr_comm.split-lp, %154 ]
-  invoke void @"_ZN4core3ptr45drop_in_place$LT$proc_macro2..TokenStream$GT$17h5b042ffa340debc2E"(ptr nonnull align 8 %65) #7
+  invoke void @"_ZN4core3ptr45drop_in_place$LT$proc_macro2..TokenStream$GT$17h5b042ffa340debc2E"(ptr nonnull align 8 %65) #8
           to label %121 unwind label %106
 
 127:                                              ; preds = %132, %124
@@ -369,7 +369,7 @@ define internal fastcc void @_ZN15wiggle_generate5funcs12_define_func17h641e19b7
 130:                                              ; preds = %129
   %131 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17he0d1447b2d0b27c2E"(ptr nonnull align 8 %63) #7
+  invoke void @"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17he0d1447b2d0b27c2E"(ptr nonnull align 8 %63) #8
           to label %126 unwind label %106
 
 132:                                              ; preds = %129
@@ -417,7 +417,7 @@ define internal fastcc void @_ZN15wiggle_generate5funcs12_define_func17h641e19b7
 150:                                              ; preds = %133
   %151 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr49drop_in_place$LT$wiggle_generate..funcs..Rust$GT$17hd57b51bcf508e6b2E"(ptr nonnull align 8 %61) #7
+  invoke void @"_ZN4core3ptr49drop_in_place$LT$wiggle_generate..funcs..Rust$GT$17hd57b51bcf508e6b2E"(ptr nonnull align 8 %61) #8
           to label %.thread unwind label %106
 
 152:                                              ; preds = %133
@@ -457,7 +457,7 @@ define internal fastcc void @_ZN15wiggle_generate5funcs12_define_func17h641e19b7
 
 163:                                              ; preds = %176, %164
   %.pn67 = phi { ptr, i32 } [ %165, %164 ], [ %177, %176 ]
-  invoke void @"_ZN4core3ptr45drop_in_place$LT$proc_macro2..TokenStream$GT$17h5b042ffa340debc2E"(ptr nonnull align 8 %57) #7
+  invoke void @"_ZN4core3ptr45drop_in_place$LT$proc_macro2..TokenStream$GT$17h5b042ffa340debc2E"(ptr nonnull align 8 %57) #8
           to label %.thread unwind label %106
 
 164:                                              ; preds = %195, %194, %174, %173, %172, %171, %170, %169, %168, %167, %166, %162
@@ -508,7 +508,7 @@ define internal fastcc void @_ZN15wiggle_generate5funcs12_define_func17h641e19b7
 176:                                              ; preds = %193, %192, %191, %190, %189, %188, %187, %186, %185, %184, %183, %182, %181, %180, %179, %178, %175
   %177 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr45drop_in_place$LT$proc_macro2..TokenStream$GT$17h5b042ffa340debc2E"(ptr nonnull align 8 %55) #7
+  invoke void @"_ZN4core3ptr45drop_in_place$LT$proc_macro2..TokenStream$GT$17h5b042ffa340debc2E"(ptr nonnull align 8 %55) #8
           to label %163 unwind label %106
 
 178:                                              ; preds = %175
@@ -602,7 +602,7 @@ define internal fastcc void @_ZN15wiggle_generate5funcs12_define_func17h641e19b7
 202:                                              ; preds = %215, %211, %206, %203
   %.3 = phi i1 [ %.2, %203 ], [ %.5, %215 ], [ true, %211 ], [ true, %206 ]
   %.pn96 = phi { ptr, i32 } [ %204, %203 ], [ %.pn94, %215 ], [ %212, %211 ], [ %207, %206 ]
-  invoke void @"_ZN4core3ptr45drop_in_place$LT$proc_macro2..TokenStream$GT$17h5b042ffa340debc2E"(ptr nonnull align 8 %58) #7
+  invoke void @"_ZN4core3ptr45drop_in_place$LT$proc_macro2..TokenStream$GT$17h5b042ffa340debc2E"(ptr nonnull align 8 %58) #8
           to label %153 unwind label %106
 
 203:                                              ; preds = %368, %201, %200
@@ -618,7 +618,7 @@ define internal fastcc void @_ZN15wiggle_generate5funcs12_define_func17h641e19b7
 206:                                              ; preds = %208, %205
   %207 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr45drop_in_place$LT$proc_macro2..TokenStream$GT$17h5b042ffa340debc2E"(ptr nonnull align 8 %52) #7
+  invoke void @"_ZN4core3ptr45drop_in_place$LT$proc_macro2..TokenStream$GT$17h5b042ffa340debc2E"(ptr nonnull align 8 %52) #8
           to label %202 unwind label %106
 
 208:                                              ; preds = %205
@@ -638,7 +638,7 @@ define internal fastcc void @_ZN15wiggle_generate5funcs12_define_func17h641e19b7
 211:                                              ; preds = %214, %213, %210
   %212 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr45drop_in_place$LT$proc_macro2..TokenStream$GT$17h5b042ffa340debc2E"(ptr nonnull align 8 %53) #7
+  invoke void @"_ZN4core3ptr45drop_in_place$LT$proc_macro2..TokenStream$GT$17h5b042ffa340debc2E"(ptr nonnull align 8 %53) #8
           to label %202 unwind label %106
 
 213:                                              ; preds = %210
@@ -652,7 +652,7 @@ define internal fastcc void @_ZN15wiggle_generate5funcs12_define_func17h641e19b7
 215:                                              ; preds = %410, %393, %389, %273, %247, %236, %220, %216
   %.5 = phi i1 [ %.4, %216 ], [ true, %410 ], [ true, %393 ], [ true, %389 ], [ true, %273 ], [ true, %247 ], [ true, %236 ], [ true, %220 ]
   %.pn94 = phi { ptr, i32 } [ %217, %216 ], [ %.pn91.pn, %410 ], [ %.pn83, %393 ], [ %390, %389 ], [ %.pn78.pn, %273 ], [ %.pn71, %247 ], [ %.pn69, %236 ], [ %221, %220 ]
-  invoke void @"_ZN4core3ptr45drop_in_place$LT$proc_macro2..TokenStream$GT$17h5b042ffa340debc2E"(ptr nonnull align 8 %54) #7
+  invoke void @"_ZN4core3ptr45drop_in_place$LT$proc_macro2..TokenStream$GT$17h5b042ffa340debc2E"(ptr nonnull align 8 %54) #8
           to label %202 unwind label %106
 
 216:                                              ; preds = %.invoke, %387, %386, %378, %234, %233, %225, %224, %223, %209
@@ -668,7 +668,7 @@ define internal fastcc void @_ZN15wiggle_generate5funcs12_define_func17h641e19b7
 220:                                              ; preds = %218
   %221 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr55drop_in_place$LT$wiggle_generate..config..Asyncness$GT$17h33d436e8d9faceecE"(ptr nonnull align 8 %51) #7
+  invoke void @"_ZN4core3ptr55drop_in_place$LT$wiggle_generate..config..Asyncness$GT$17h33d436e8d9faceecE"(ptr nonnull align 8 %51) #8
           to label %215 unwind label %106
 
 222:                                              ; preds = %218
@@ -708,7 +708,7 @@ define internal fastcc void @_ZN15wiggle_generate5funcs12_define_func17h641e19b7
 
 236:                                              ; preds = %242, %237
   %.pn69 = phi { ptr, i32 } [ %238, %237 ], [ %243, %242 ]
-  invoke void @"_ZN4core3ptr45drop_in_place$LT$proc_macro2..TokenStream$GT$17h5b042ffa340debc2E"(ptr nonnull align 8 %22) #7
+  invoke void @"_ZN4core3ptr45drop_in_place$LT$proc_macro2..TokenStream$GT$17h5b042ffa340debc2E"(ptr nonnull align 8 %22) #8
           to label %215 unwind label %106
 
 237:                                              ; preds = %244, %240, %239, %235
@@ -731,7 +731,7 @@ define internal fastcc void @_ZN15wiggle_generate5funcs12_define_func17h641e19b7
 242:                                              ; preds = %241
   %243 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr45drop_in_place$LT$proc_macro2..TokenStream$GT$17h5b042ffa340debc2E"(ptr nonnull align 8 %20) #7
+  invoke void @"_ZN4core3ptr45drop_in_place$LT$proc_macro2..TokenStream$GT$17h5b042ffa340debc2E"(ptr nonnull align 8 %20) #8
           to label %236 unwind label %106
 
 244:                                              ; preds = %241
@@ -751,7 +751,7 @@ define internal fastcc void @_ZN15wiggle_generate5funcs12_define_func17h641e19b7
 
 247:                                              ; preds = %270, %263, %248
   %.pn71 = phi { ptr, i32 } [ %249, %248 ], [ %271, %270 ], [ %264, %263 ]
-  invoke void @"_ZN4core3ptr45drop_in_place$LT$proc_macro2..TokenStream$GT$17h5b042ffa340debc2E"(ptr nonnull align 8 %27) #7
+  invoke void @"_ZN4core3ptr45drop_in_place$LT$proc_macro2..TokenStream$GT$17h5b042ffa340debc2E"(ptr nonnull align 8 %27) #8
           to label %215 unwind label %106
 
 248:                                              ; preds = %272, %268, %267, %266, %265, %261, %260, %259, %258, %257, %256, %255, %254, %253, %252, %251, %250, %246
@@ -814,7 +814,7 @@ define internal fastcc void @_ZN15wiggle_generate5funcs12_define_func17h641e19b7
 263:                                              ; preds = %262
   %264 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr45drop_in_place$LT$proc_macro2..TokenStream$GT$17h5b042ffa340debc2E"(ptr nonnull align 8 %25) #7
+  invoke void @"_ZN4core3ptr45drop_in_place$LT$proc_macro2..TokenStream$GT$17h5b042ffa340debc2E"(ptr nonnull align 8 %25) #8
           to label %247 unwind label %106
 
 265:                                              ; preds = %262
@@ -841,7 +841,7 @@ define internal fastcc void @_ZN15wiggle_generate5funcs12_define_func17h641e19b7
 270:                                              ; preds = %269
   %271 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr45drop_in_place$LT$proc_macro2..TokenStream$GT$17h5b042ffa340debc2E"(ptr nonnull align 8 %23) #7
+  invoke void @"_ZN4core3ptr45drop_in_place$LT$proc_macro2..TokenStream$GT$17h5b042ffa340debc2E"(ptr nonnull align 8 %23) #8
           to label %247 unwind label %106
 
 272:                                              ; preds = %269
@@ -851,7 +851,7 @@ define internal fastcc void @_ZN15wiggle_generate5funcs12_define_func17h641e19b7
 
 273:                                              ; preds = %277, %274
   %.pn78.pn = phi { ptr, i32 } [ %.pn78, %277 ], [ %275, %274 ]
-  invoke void @"_ZN4core3ptr45drop_in_place$LT$proc_macro2..TokenStream$GT$17h5b042ffa340debc2E"(ptr nonnull align 8 %28) #7
+  invoke void @"_ZN4core3ptr45drop_in_place$LT$proc_macro2..TokenStream$GT$17h5b042ffa340debc2E"(ptr nonnull align 8 %28) #8
           to label %215 unwind label %106
 
 274:                                              ; preds = %245
@@ -865,7 +865,7 @@ define internal fastcc void @_ZN15wiggle_generate5funcs12_define_func17h641e19b7
 
 277:                                              ; preds = %356, %299, %282, %278
   %.pn78 = phi { ptr, i32 } [ %279, %278 ], [ %357, %356 ], [ %.pn76, %299 ], [ %.pn73, %282 ]
-  invoke void @"_ZN4core3ptr45drop_in_place$LT$proc_macro2..TokenStream$GT$17h5b042ffa340debc2E"(ptr nonnull align 8 %19) #7
+  invoke void @"_ZN4core3ptr45drop_in_place$LT$proc_macro2..TokenStream$GT$17h5b042ffa340debc2E"(ptr nonnull align 8 %19) #8
           to label %273 unwind label %106
 
 278:                                              ; preds = %367, %354, %353, %352, %351, %350, %349, %348, %347, %346, %345, %344, %343, %342, %341, %340, %339, %338, %337, %336, %335, %334, %332, %297, %296, %295, %294, %293, %292, %291, %290, %280, %276
@@ -883,7 +883,7 @@ define internal fastcc void @_ZN15wiggle_generate5funcs12_define_func17h641e19b7
 
 282:                                              ; preds = %287, %283
   %.pn73 = phi { ptr, i32 } [ %284, %283 ], [ %288, %287 ]
-  invoke void @"_ZN4core3ptr45drop_in_place$LT$proc_macro2..TokenStream$GT$17h5b042ffa340debc2E"(ptr nonnull align 8 %17) #7
+  invoke void @"_ZN4core3ptr45drop_in_place$LT$proc_macro2..TokenStream$GT$17h5b042ffa340debc2E"(ptr nonnull align 8 %17) #8
           to label %277 unwind label %106
 
 283:                                              ; preds = %289, %285, %281
@@ -902,7 +902,7 @@ define internal fastcc void @_ZN15wiggle_generate5funcs12_define_func17h641e19b7
 287:                                              ; preds = %286
   %288 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr45drop_in_place$LT$proc_macro2..TokenStream$GT$17h5b042ffa340debc2E"(ptr nonnull align 8 %15) #7
+  invoke void @"_ZN4core3ptr45drop_in_place$LT$proc_macro2..TokenStream$GT$17h5b042ffa340debc2E"(ptr nonnull align 8 %15) #8
           to label %282 unwind label %106
 
 289:                                              ; preds = %286
@@ -949,7 +949,7 @@ define internal fastcc void @_ZN15wiggle_generate5funcs12_define_func17h641e19b7
 
 299:                                              ; preds = %.loopexit120, %.loopexit.split-lp121, %371, %304
   %.pn76 = phi { ptr, i32 } [ %372, %371 ], [ %lpad.phi129, %304 ], [ %lpad.loopexit122, %.loopexit120 ], [ %lpad.loopexit.split-lp123, %.loopexit.split-lp121 ]
-  invoke void @"_ZN4core3ptr45drop_in_place$LT$proc_macro2..TokenStream$GT$17h5b042ffa340debc2E"(ptr nonnull align 8 %13) #7
+  invoke void @"_ZN4core3ptr45drop_in_place$LT$proc_macro2..TokenStream$GT$17h5b042ffa340debc2E"(ptr nonnull align 8 %13) #8
           to label %277 unwind label %106
 
 .loopexit120:                                     ; preds = %328, %373
@@ -990,7 +990,7 @@ define internal fastcc void @_ZN15wiggle_generate5funcs12_define_func17h641e19b7
 
 304:                                              ; preds = %.loopexit.split-lp126, %.loopexit125
   %lpad.phi129 = phi { ptr, i32 } [ %lpad.loopexit127, %.loopexit125 ], [ %lpad.loopexit.split-lp128, %.loopexit.split-lp126 ]
-  invoke void @"_ZN4core3ptr45drop_in_place$LT$proc_macro2..TokenStream$GT$17h5b042ffa340debc2E"(ptr nonnull align 8 %11) #7
+  invoke void @"_ZN4core3ptr45drop_in_place$LT$proc_macro2..TokenStream$GT$17h5b042ffa340debc2E"(ptr nonnull align 8 %11) #8
           to label %299 unwind label %106
 
 305:                                              ; preds = %303
@@ -1178,7 +1178,7 @@ define internal fastcc void @_ZN15wiggle_generate5funcs12_define_func17h641e19b7
 356:                                              ; preds = %366, %365, %364, %363, %362, %361, %360, %359, %358, %355
   %357 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr45drop_in_place$LT$proc_macro2..TokenStream$GT$17h5b042ffa340debc2E"(ptr nonnull align 8 %5) #7
+  invoke void @"_ZN4core3ptr45drop_in_place$LT$proc_macro2..TokenStream$GT$17h5b042ffa340debc2E"(ptr nonnull align 8 %5) #8
           to label %277 unwind label %106
 
 358:                                              ; preds = %355
@@ -1237,7 +1237,7 @@ define internal fastcc void @_ZN15wiggle_generate5funcs12_define_func17h641e19b7
 371:                                              ; preds = %370, %369
   %372 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr80drop_in_place$LT$quote..__private..RepInterp$LT$proc_macro2..TokenStream$GT$$GT$17h75d055c7a8283fc6E"(ptr nonnull align 8 %8) #7
+  invoke void @"_ZN4core3ptr80drop_in_place$LT$quote..__private..RepInterp$LT$proc_macro2..TokenStream$GT$$GT$17h75d055c7a8283fc6E"(ptr nonnull align 8 %8) #8
           to label %299 unwind label %106
 
 373:                                              ; preds = %369
@@ -1281,7 +1281,7 @@ define internal fastcc void @_ZN15wiggle_generate5funcs12_define_func17h641e19b7
 389:                                              ; preds = %388
   %390 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr45drop_in_place$LT$proc_macro2..TokenStream$GT$17h5b042ffa340debc2E"(ptr nonnull align 8 %44) #7
+  invoke void @"_ZN4core3ptr45drop_in_place$LT$proc_macro2..TokenStream$GT$17h5b042ffa340debc2E"(ptr nonnull align 8 %44) #8
           to label %215 unwind label %106
 
 391:                                              ; preds = %388, %409
@@ -1296,7 +1296,7 @@ define internal fastcc void @_ZN15wiggle_generate5funcs12_define_func17h641e19b7
 
 393:                                              ; preds = %401, %394
   %.pn83 = phi { ptr, i32 } [ %395, %394 ], [ %.pn81, %401 ]
-  invoke void @"_ZN4core3ptr45drop_in_place$LT$proc_macro2..TokenStream$GT$17h5b042ffa340debc2E"(ptr nonnull align 8 %49) #7
+  invoke void @"_ZN4core3ptr45drop_in_place$LT$proc_macro2..TokenStream$GT$17h5b042ffa340debc2E"(ptr nonnull align 8 %49) #8
           to label %215 unwind label %106
 
 394:                                              ; preds = %409, %399, %398, %397, %396, %392
@@ -1326,7 +1326,7 @@ define internal fastcc void @_ZN15wiggle_generate5funcs12_define_func17h641e19b7
 
 401:                                              ; preds = %406, %402
   %.pn81 = phi { ptr, i32 } [ %403, %402 ], [ %407, %406 ]
-  invoke void @"_ZN4core3ptr45drop_in_place$LT$proc_macro2..TokenStream$GT$17h5b042ffa340debc2E"(ptr nonnull align 8 %47) #7
+  invoke void @"_ZN4core3ptr45drop_in_place$LT$proc_macro2..TokenStream$GT$17h5b042ffa340debc2E"(ptr nonnull align 8 %47) #8
           to label %393 unwind label %106
 
 402:                                              ; preds = %408, %404, %400
@@ -1345,7 +1345,7 @@ define internal fastcc void @_ZN15wiggle_generate5funcs12_define_func17h641e19b7
 406:                                              ; preds = %405
   %407 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr45drop_in_place$LT$proc_macro2..TokenStream$GT$17h5b042ffa340debc2E"(ptr nonnull align 8 %45) #7
+  invoke void @"_ZN4core3ptr45drop_in_place$LT$proc_macro2..TokenStream$GT$17h5b042ffa340debc2E"(ptr nonnull align 8 %45) #8
           to label %401 unwind label %106
 
 408:                                              ; preds = %405
@@ -1360,7 +1360,7 @@ define internal fastcc void @_ZN15wiggle_generate5funcs12_define_func17h641e19b7
 
 410:                                              ; preds = %414, %411
   %.pn91.pn = phi { ptr, i32 } [ %.pn91, %414 ], [ %412, %411 ]
-  invoke void @"_ZN4core3ptr45drop_in_place$LT$proc_macro2..TokenStream$GT$17h5b042ffa340debc2E"(ptr nonnull align 8 %50) #7
+  invoke void @"_ZN4core3ptr45drop_in_place$LT$proc_macro2..TokenStream$GT$17h5b042ffa340debc2E"(ptr nonnull align 8 %50) #8
           to label %215 unwind label %106
 
 411:                                              ; preds = %391
@@ -1374,7 +1374,7 @@ define internal fastcc void @_ZN15wiggle_generate5funcs12_define_func17h641e19b7
 
 414:                                              ; preds = %481, %436, %419, %415
   %.pn91 = phi { ptr, i32 } [ %416, %415 ], [ %482, %481 ], [ %.pn89, %436 ], [ %.pn85, %419 ]
-  invoke void @"_ZN4core3ptr45drop_in_place$LT$proc_macro2..TokenStream$GT$17h5b042ffa340debc2E"(ptr nonnull align 8 %43) #7
+  invoke void @"_ZN4core3ptr45drop_in_place$LT$proc_macro2..TokenStream$GT$17h5b042ffa340debc2E"(ptr nonnull align 8 %43) #8
           to label %410 unwind label %106
 
 415:                                              ; preds = %492, %479, %478, %477, %476, %475, %474, %473, %472, %471, %470, %468, %434, %433, %432, %431, %430, %429, %428, %427, %417, %413
@@ -1392,7 +1392,7 @@ define internal fastcc void @_ZN15wiggle_generate5funcs12_define_func17h641e19b7
 
 419:                                              ; preds = %424, %420
   %.pn85 = phi { ptr, i32 } [ %421, %420 ], [ %425, %424 ]
-  invoke void @"_ZN4core3ptr45drop_in_place$LT$proc_macro2..TokenStream$GT$17h5b042ffa340debc2E"(ptr nonnull align 8 %41) #7
+  invoke void @"_ZN4core3ptr45drop_in_place$LT$proc_macro2..TokenStream$GT$17h5b042ffa340debc2E"(ptr nonnull align 8 %41) #8
           to label %414 unwind label %106
 
 420:                                              ; preds = %426, %422, %418
@@ -1411,7 +1411,7 @@ define internal fastcc void @_ZN15wiggle_generate5funcs12_define_func17h641e19b7
 424:                                              ; preds = %423
   %425 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr45drop_in_place$LT$proc_macro2..TokenStream$GT$17h5b042ffa340debc2E"(ptr nonnull align 8 %39) #7
+  invoke void @"_ZN4core3ptr45drop_in_place$LT$proc_macro2..TokenStream$GT$17h5b042ffa340debc2E"(ptr nonnull align 8 %39) #8
           to label %419 unwind label %106
 
 426:                                              ; preds = %423
@@ -1458,7 +1458,7 @@ define internal fastcc void @_ZN15wiggle_generate5funcs12_define_func17h641e19b7
 
 436:                                              ; preds = %.loopexit, %.loopexit.split-lp, %507, %441
   %.pn89 = phi { ptr, i32 } [ %508, %507 ], [ %lpad.phi119, %441 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
-  invoke void @"_ZN4core3ptr45drop_in_place$LT$proc_macro2..TokenStream$GT$17h5b042ffa340debc2E"(ptr nonnull align 8 %37) #7
+  invoke void @"_ZN4core3ptr45drop_in_place$LT$proc_macro2..TokenStream$GT$17h5b042ffa340debc2E"(ptr nonnull align 8 %37) #8
           to label %414 unwind label %106
 
 .loopexit:                                        ; preds = %464, %509
@@ -1499,7 +1499,7 @@ define internal fastcc void @_ZN15wiggle_generate5funcs12_define_func17h641e19b7
 
 441:                                              ; preds = %.loopexit.split-lp116, %.loopexit115
   %lpad.phi119 = phi { ptr, i32 } [ %lpad.loopexit117, %.loopexit115 ], [ %lpad.loopexit.split-lp118, %.loopexit.split-lp116 ]
-  invoke void @"_ZN4core3ptr45drop_in_place$LT$proc_macro2..TokenStream$GT$17h5b042ffa340debc2E"(ptr nonnull align 8 %35) #7
+  invoke void @"_ZN4core3ptr45drop_in_place$LT$proc_macro2..TokenStream$GT$17h5b042ffa340debc2E"(ptr nonnull align 8 %35) #8
           to label %436 unwind label %106
 
 442:                                              ; preds = %440
@@ -1639,7 +1639,7 @@ define internal fastcc void @_ZN15wiggle_generate5funcs12_define_func17h641e19b7
 481:                                              ; preds = %491, %490, %489, %488, %487, %486, %485, %484, %483, %480
   %482 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr45drop_in_place$LT$proc_macro2..TokenStream$GT$17h5b042ffa340debc2E"(ptr nonnull align 8 %29) #7
+  invoke void @"_ZN4core3ptr45drop_in_place$LT$proc_macro2..TokenStream$GT$17h5b042ffa340debc2E"(ptr nonnull align 8 %29) #8
           to label %414 unwind label %106
 
 483:                                              ; preds = %480
@@ -1714,7 +1714,7 @@ define internal fastcc void @_ZN15wiggle_generate5funcs12_define_func17h641e19b7
 
 500:                                              ; preds = %501, %84
   %.pn103.pn.pn = phi { ptr, i32 } [ %.pn103.pn, %84 ], [ %502, %501 ]
-  invoke void @"_ZN4core3ptr63drop_in_place$LT$alloc..vec..Vec$LT$witx..abi..WasmType$GT$$GT$17h21cf68782e7ae3e4E"(ptr nonnull align 8 %75) #7
+  invoke void @"_ZN4core3ptr63drop_in_place$LT$alloc..vec..Vec$LT$witx..abi..WasmType$GT$$GT$17h21cf68782e7ae3e4E"(ptr nonnull align 8 %75) #8
           to label %77 unwind label %106
 
 501:                                              ; preds = %499
@@ -1741,7 +1741,7 @@ define internal fastcc void @_ZN15wiggle_generate5funcs12_define_func17h641e19b7
 507:                                              ; preds = %506, %505
   %508 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr80drop_in_place$LT$quote..__private..RepInterp$LT$proc_macro2..TokenStream$GT$$GT$17h75d055c7a8283fc6E"(ptr nonnull align 8 %32) #7
+  invoke void @"_ZN4core3ptr80drop_in_place$LT$quote..__private..RepInterp$LT$proc_macro2..TokenStream$GT$$GT$17h75d055c7a8283fc6E"(ptr nonnull align 8 %32) #8
           to label %436 unwind label %106
 
 509:                                              ; preds = %505
@@ -1760,7 +1760,7 @@ define internal fastcc void @_ZN15wiggle_generate5funcs12_define_func17h641e19b7
 
 .thread:                                          ; preds = %150, %163, %.thread112, %153
   %.pn98110 = phi { ptr, i32 } [ %.pn96, %153 ], [ %lpad.thr_comm, %.thread112 ], [ %151, %150 ], [ %.pn67, %163 ]
-  invoke void @"_ZN4core3ptr62drop_in_place$LT$alloc..vec..Vec$LT$proc_macro2..Ident$GT$$GT$17h7fed6d1486afc955E"(ptr nonnull align 8 %64) #7
+  invoke void @"_ZN4core3ptr62drop_in_place$LT$alloc..vec..Vec$LT$proc_macro2..Ident$GT$$GT$17h7fed6d1486afc955E"(ptr nonnull align 8 %64) #8
           to label %126 unwind label %106
 
 514:                                              ; preds = %77
@@ -1801,13 +1801,13 @@ define internal fastcc void @_ZN15wiggle_generate5funcs4Rust5bound17h6d14fd03774
 16:                                               ; preds = %2
   %17 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr39drop_in_place$LT$proc_macro2..Ident$GT$17h689352a13baa1516E"(ptr align 8 %1) #7
+  invoke void @"_ZN4core3ptr39drop_in_place$LT$proc_macro2..Ident$GT$17h689352a13baa1516E"(ptr align 8 %1) #8
           to label %15 unwind label %18
 
 18:                                               ; preds = %16
   %19 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  tail call void @_ZN4core9panicking16panic_in_cleanup17hbacfddf1bcf21a1eE() #9
+  tail call void @_ZN4core9panicking16panic_in_cleanup17hbacfddf1bcf21a1eE() #10
   unreachable
 }
 
@@ -1858,7 +1858,7 @@ define void @"_ZN67_$LT$wiggle_generate..funcs..Rust$u20$as$u20$witx..abi..Bindg
   br i1 %19, label %20, label %21
 
 20:                                               ; preds = %17
-  invoke void @_ZN4core6option13unwrap_failed17hcb3a256a9f1ca882E(ptr nonnull align 8 @anon.21253c77e3fc4844456cc94e3b0b613d.40) #8
+  invoke void @_ZN4core6option13unwrap_failed17hcb3a256a9f1ca882E(ptr nonnull align 8 @anon.21253c77e3fc4844456cc94e3b0b613d.40) #9
           to label %25 unwind label %14
 
 21:                                               ; preds = %17
@@ -1918,7 +1918,7 @@ define void @"_ZN67_$LT$wiggle_generate..funcs..Rust$u20$as$u20$witx..abi..Bindg
 
 38:                                               ; preds = %42, %39
   %.pn = phi { ptr, i32 } [ %40, %39 ], [ %43, %42 ]
-  invoke void @"_ZN4core3ptr45drop_in_place$LT$proc_macro2..TokenStream$GT$17h5b042ffa340debc2E"(ptr nonnull align 8 %5) #7
+  invoke void @"_ZN4core3ptr45drop_in_place$LT$proc_macro2..TokenStream$GT$17h5b042ffa340debc2E"(ptr nonnull align 8 %5) #8
           to label %.thread30 unwind label %48
 
 39:                                               ; preds = %46, %37
@@ -1933,7 +1933,7 @@ define void @"_ZN67_$LT$wiggle_generate..funcs..Rust$u20$as$u20$witx..abi..Bindg
 42:                                               ; preds = %45, %44, %41
   %43 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr45drop_in_place$LT$proc_macro2..TokenStream$GT$17h5b042ffa340debc2E"(ptr nonnull align 8 %3) #7
+  invoke void @"_ZN4core3ptr45drop_in_place$LT$proc_macro2..TokenStream$GT$17h5b042ffa340debc2E"(ptr nonnull align 8 %3) #8
           to label %38 unwind label %48
 
 44:                                               ; preds = %41
@@ -1957,7 +1957,7 @@ define void @"_ZN67_$LT$wiggle_generate..funcs..Rust$u20$as$u20$witx..abi..Bindg
 48:                                               ; preds = %53, %.thread, %.thread30, %42, %38
   %49 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hbacfddf1bcf21a1eE() #9
+  call void @_ZN4core9panicking16panic_in_cleanup17hbacfddf1bcf21a1eE() #10
   unreachable
 
 50:                                               ; preds = %47
@@ -1978,12 +1978,12 @@ define void @"_ZN67_$LT$wiggle_generate..funcs..Rust$u20$as$u20$witx..abi..Bindg
 
 .thread30:                                        ; preds = %38, %.thread36
   %.pn1334 = phi { ptr, i32 } [ %lpad.thr_comm, %.thread36 ], [ %.pn, %38 ]
-  invoke void @"_ZN4core3ptr45drop_in_place$LT$proc_macro2..TokenStream$GT$17h5b042ffa340debc2E"(ptr nonnull align 8 %8) #7
+  invoke void @"_ZN4core3ptr45drop_in_place$LT$proc_macro2..TokenStream$GT$17h5b042ffa340debc2E"(ptr nonnull align 8 %8) #8
           to label %.thread unwind label %48
 
 .thread:                                          ; preds = %32, %.thread30, %.thread24
   %.pn1522 = phi { ptr, i32 } [ %51, %.thread24 ], [ %lpad.thr_comm.split-lp, %32 ], [ %.pn1334, %.thread30 ]
-  invoke void @"_ZN4core3ptr45drop_in_place$LT$proc_macro2..TokenStream$GT$17h5b042ffa340debc2E"(ptr nonnull align 8 %10) #7
+  invoke void @"_ZN4core3ptr45drop_in_place$LT$proc_macro2..TokenStream$GT$17h5b042ffa340debc2E"(ptr nonnull align 8 %10) #8
           to label %.thread41 unwind label %48
 
 .thread41:                                        ; preds = %.thread, %12, %53
@@ -1991,13 +1991,13 @@ define void @"_ZN67_$LT$wiggle_generate..funcs..Rust$u20$as$u20$witx..abi..Bindg
   resume { ptr, i32 } %.pn1746
 
 53:                                               ; preds = %12
-  invoke void @"_ZN4core3ptr45drop_in_place$LT$proc_macro2..TokenStream$GT$17h5b042ffa340debc2E"(ptr nonnull align 8 %1) #7
+  invoke void @"_ZN4core3ptr45drop_in_place$LT$proc_macro2..TokenStream$GT$17h5b042ffa340debc2E"(ptr nonnull align 8 %1) #8
           to label %.thread41 unwind label %48
 }
 
-; Function Attrs: cold noreturn nonlazybind uwtable
+; Function Attrs: noreturn nonlazybind uwtable
 define void @"_ZN67_$LT$wiggle_generate..funcs..Rust$u20$as$u20$witx..abi..Bindgen$GT$14allocate_space17h8c69bbf2959cbad3E"(ptr nocapture readnone align 8 %0, i64 %1, ptr nocapture readnone align 8 %2) unnamed_addr #1 {
-  tail call void @_ZN4core9panicking5panic17h44790a89027c670fE(ptr nonnull align 1 @anon.21253c77e3fc4844456cc94e3b0b613d.38, i64 15, ptr nonnull align 8 @anon.21253c77e3fc4844456cc94e3b0b613d.41) #8
+  tail call void @_ZN4core9panicking5panic17h44790a89027c670fE(ptr nonnull align 1 @anon.21253c77e3fc4844456cc94e3b0b613d.38, i64 15, ptr nonnull align 8 @anon.21253c77e3fc4844456cc94e3b0b613d.41) #9
   unreachable
 }
 
@@ -2242,7 +2242,7 @@ define void @"_ZN67_$LT$wiggle_generate..funcs..Rust$u20$as$u20$witx..abi..Bindg
   %203 = getelementptr inbounds i8, ptr %5, i64 8
   store ptr @"_ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$GT$3fmt17hc40911627ad41783E", ptr %203, align 8
   call void @_ZN4core3fmt9Arguments6new_v117he168207f928597d2E(ptr nonnull sret({ { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }) align 8 %6, ptr nonnull align 8 @anon.21253c77e3fc4844456cc94e3b0b613d.100, i64 1, ptr nonnull align 8 %5, i64 1)
-  call void @_ZN4core9panicking9panic_fmt17ha6effc2775a0749cE(ptr nonnull align 8 %6, ptr nonnull align 8 @anon.21253c77e3fc4844456cc94e3b0b613d.101) #8
+  call void @_ZN4core9panicking9panic_fmt17ha6effc2775a0749cE(ptr nonnull align 8 %6, ptr nonnull align 8 @anon.21253c77e3fc4844456cc94e3b0b613d.101) #9
   unreachable
 
 204:                                              ; preds = %4
@@ -2389,13 +2389,13 @@ define void @"_ZN67_$LT$wiggle_generate..funcs..Rust$u20$as$u20$witx..abi..Bindg
           to label %272 unwind label %270
 
 269:                                              ; preds = %204
-  call void @_ZN4core9panicking18panic_bounds_check17h5aa5e8a957e001f9E(i64 %206, i64 %208, ptr nonnull align 8 @anon.21253c77e3fc4844456cc94e3b0b613d.42) #8
+  call void @_ZN4core9panicking18panic_bounds_check17h5aa5e8a957e001f9E(i64 %206, i64 %208, ptr nonnull align 8 @anon.21253c77e3fc4844456cc94e3b0b613d.42) #9
   unreachable
 
 270:                                              ; preds = %265
   %271 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr45drop_in_place$LT$proc_macro2..TokenStream$GT$17h5b042ffa340debc2E"(ptr nonnull align 8 %191) #7
+  invoke void @"_ZN4core3ptr45drop_in_place$LT$proc_macro2..TokenStream$GT$17h5b042ffa340debc2E"(ptr nonnull align 8 %191) #8
           to label %276 unwind label %274
 
 272:                                              ; preds = %265
@@ -2409,7 +2409,7 @@ define void @"_ZN67_$LT$wiggle_generate..funcs..Rust$u20$as$u20$witx..abi..Bindg
 274:                                              ; preds = %1125, %1120, %1114, %1110, %1101, %1095, %1064, %1058, %1054, %1044, %.thread, %1035, %1031, %1024, %1016, %1009, %1003, %995, %968, %964, %955, %949, %929, %923, %918, %912, %908, %903, %890, %882, %870, %863, %852, %839, %835, %828, %825, %816, %799, %789, %774, %761, %757, %752, %749, %740, %716, %703, %699, %694, %682, %675, %671, %667, %654, %650, %645, %639, %635, %630, %627, %624, %621, %617, %611, %594, %591, %572, %566, %560, %543, %522, %512, %487, %477, %442, %432, %424, %419, %413, %389, %379, %375, %348, %333, %327, %314, %310, %306, %302, %298, %294, %270
   %275 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hbacfddf1bcf21a1eE() #9
+  call void @_ZN4core9panicking16panic_in_cleanup17hbacfddf1bcf21a1eE() #10
   unreachable
 
 276:                                              ; preds = %1125, %1110, %1095, %1044, %.thread, %979, %964, %882, %799, %740, %694, %667, %650, %645, %635, %630, %627, %624, %621, %348, %310, %298, %294, %270
@@ -2417,7 +2417,7 @@ define void @"_ZN67_$LT$wiggle_generate..funcs..Rust$u20$as$u20$witx..abi..Bindg
   resume { ptr, i32 } %.pn234
 
 277:                                              ; preds = %210
-  call void @_ZN4core9panicking18panic_bounds_check17h5aa5e8a957e001f9E(i64 0, i64 0, ptr nonnull align 8 @anon.21253c77e3fc4844456cc94e3b0b613d.43) #8
+  call void @_ZN4core9panicking18panic_bounds_check17h5aa5e8a957e001f9E(i64 0, i64 0, ptr nonnull align 8 @anon.21253c77e3fc4844456cc94e3b0b613d.43) #9
   unreachable
 
 278:                                              ; preds = %210
@@ -2432,7 +2432,7 @@ define void @"_ZN67_$LT$wiggle_generate..funcs..Rust$u20$as$u20$witx..abi..Bindg
   br i1 %286, label %288, label %292
 
 287:                                              ; preds = %210
-  call void @_ZN4core9panicking18panic_bounds_check17h5aa5e8a957e001f9E(i64 1, i64 1, ptr nonnull align 8 @anon.21253c77e3fc4844456cc94e3b0b613d.44) #8
+  call void @_ZN4core9panicking18panic_bounds_check17h5aa5e8a957e001f9E(i64 1, i64 1, ptr nonnull align 8 @anon.21253c77e3fc4844456cc94e3b0b613d.44) #9
   unreachable
 
 288:                                              ; preds = %278
@@ -2455,7 +2455,7 @@ define void @"_ZN67_$LT$wiggle_generate..funcs..Rust$u20$as$u20$witx..abi..Bindg
 294:                                              ; preds = %293
   %295 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr45drop_in_place$LT$proc_macro2..TokenStream$GT$17h5b042ffa340debc2E"(ptr nonnull align 8 %181) #7
+  invoke void @"_ZN4core3ptr45drop_in_place$LT$proc_macro2..TokenStream$GT$17h5b042ffa340debc2E"(ptr nonnull align 8 %181) #8
           to label %276 unwind label %274
 
 296:                                              ; preds = %293
@@ -2468,7 +2468,7 @@ define void @"_ZN67_$LT$wiggle_generate..funcs..Rust$u20$as$u20$witx..abi..Bindg
 
 298:                                              ; preds = %302, %299
   %.pn225.pn = phi { ptr, i32 } [ %.pn225, %302 ], [ %300, %299 ]
-  invoke void @"_ZN4core3ptr45drop_in_place$LT$proc_macro2..TokenStream$GT$17h5b042ffa340debc2E"(ptr nonnull align 8 %180) #7
+  invoke void @"_ZN4core3ptr45drop_in_place$LT$proc_macro2..TokenStream$GT$17h5b042ffa340debc2E"(ptr nonnull align 8 %180) #8
           to label %276 unwind label %274
 
 299:                                              ; preds = %292
@@ -2482,7 +2482,7 @@ define void @"_ZN67_$LT$wiggle_generate..funcs..Rust$u20$as$u20$witx..abi..Bindg
 
 302:                                              ; preds = %306, %303
   %.pn225 = phi { ptr, i32 } [ %304, %303 ], [ %307, %306 ]
-  invoke void @"_ZN4core3ptr45drop_in_place$LT$proc_macro2..TokenStream$GT$17h5b042ffa340debc2E"(ptr nonnull align 8 %178) #7
+  invoke void @"_ZN4core3ptr45drop_in_place$LT$proc_macro2..TokenStream$GT$17h5b042ffa340debc2E"(ptr nonnull align 8 %178) #8
           to label %298 unwind label %274
 
 303:                                              ; preds = %308, %301
@@ -2497,7 +2497,7 @@ define void @"_ZN67_$LT$wiggle_generate..funcs..Rust$u20$as$u20$witx..abi..Bindg
 306:                                              ; preds = %305
   %307 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr45drop_in_place$LT$proc_macro2..TokenStream$GT$17h5b042ffa340debc2E"(ptr nonnull align 8 %176) #7
+  invoke void @"_ZN4core3ptr45drop_in_place$LT$proc_macro2..TokenStream$GT$17h5b042ffa340debc2E"(ptr nonnull align 8 %176) #8
           to label %302 unwind label %274
 
 308:                                              ; preds = %305
@@ -2512,7 +2512,7 @@ define void @"_ZN67_$LT$wiggle_generate..funcs..Rust$u20$as$u20$witx..abi..Bindg
 
 310:                                              ; preds = %314, %311
   %.pn232 = phi { ptr, i32 } [ %312, %311 ], [ %.pn230, %314 ]
-  invoke void @"_ZN4core3ptr45drop_in_place$LT$proc_macro2..TokenStream$GT$17h5b042ffa340debc2E"(ptr nonnull align 8 %182) #7
+  invoke void @"_ZN4core3ptr45drop_in_place$LT$proc_macro2..TokenStream$GT$17h5b042ffa340debc2E"(ptr nonnull align 8 %182) #8
           to label %276 unwind label %274
 
 311:                                              ; preds = %344, %297
@@ -2526,7 +2526,7 @@ define void @"_ZN67_$LT$wiggle_generate..funcs..Rust$u20$as$u20$witx..abi..Bindg
 
 314:                                              ; preds = %327, %315
   %.pn230 = phi { ptr, i32 } [ %316, %315 ], [ %.pn228, %327 ]
-  invoke void @"_ZN4core3ptr45drop_in_place$LT$proc_macro2..TokenStream$GT$17h5b042ffa340debc2E"(ptr nonnull align 8 %174) #7
+  invoke void @"_ZN4core3ptr45drop_in_place$LT$proc_macro2..TokenStream$GT$17h5b042ffa340debc2E"(ptr nonnull align 8 %174) #8
           to label %310 unwind label %274
 
 315:                                              ; preds = %343, %342, %325, %324, %323, %322, %321, %320, %319, %318, %317, %313
@@ -2576,7 +2576,7 @@ define void @"_ZN67_$LT$wiggle_generate..funcs..Rust$u20$as$u20$witx..abi..Bindg
 
 327:                                              ; preds = %333, %328
   %.pn228 = phi { ptr, i32 } [ %329, %328 ], [ %334, %333 ]
-  invoke void @"_ZN4core3ptr45drop_in_place$LT$proc_macro2..TokenStream$GT$17h5b042ffa340debc2E"(ptr nonnull align 8 %172) #7
+  invoke void @"_ZN4core3ptr45drop_in_place$LT$proc_macro2..TokenStream$GT$17h5b042ffa340debc2E"(ptr nonnull align 8 %172) #8
           to label %314 unwind label %274
 
 328:                                              ; preds = %341, %331, %330, %326
@@ -2599,7 +2599,7 @@ define void @"_ZN67_$LT$wiggle_generate..funcs..Rust$u20$as$u20$witx..abi..Bindg
 333:                                              ; preds = %340, %339, %338, %337, %336, %335, %332
   %334 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr45drop_in_place$LT$proc_macro2..TokenStream$GT$17h5b042ffa340debc2E"(ptr nonnull align 8 %170) #7
+  invoke void @"_ZN4core3ptr45drop_in_place$LT$proc_macro2..TokenStream$GT$17h5b042ffa340debc2E"(ptr nonnull align 8 %170) #8
           to label %327 unwind label %274
 
 335:                                              ; preds = %332
@@ -2655,7 +2655,7 @@ define void @"_ZN67_$LT$wiggle_generate..funcs..Rust$u20$as$u20$witx..abi..Bindg
 
 348:                                              ; preds = %.loopexit249, %.loopexit.split-lp250, %591, %413, %375
   %.pn221 = phi { ptr, i32 } [ %.pn219, %413 ], [ %.pn202, %375 ], [ %.pn197, %591 ], [ %lpad.loopexit251, %.loopexit249 ], [ %lpad.loopexit.split-lp252, %.loopexit.split-lp250 ]
-  invoke void @"_ZN4core3ptr68drop_in_place$LT$alloc..vec..Vec$LT$proc_macro2..TokenStream$GT$$GT$17h9ebc9b7807f19d85E"(ptr nonnull align 8 %169) #7
+  invoke void @"_ZN4core3ptr68drop_in_place$LT$alloc..vec..Vec$LT$proc_macro2..TokenStream$GT$$GT$17h9ebc9b7807f19d85E"(ptr nonnull align 8 %169) #8
           to label %276 unwind label %274
 
 .loopexit249:                                     ; preds = %346, %366, %615
@@ -2715,7 +2715,7 @@ define void @"_ZN67_$LT$wiggle_generate..funcs..Rust$u20$as$u20$witx..abi..Bindg
 
 375:                                              ; preds = %379, %376
   %.pn202 = phi { ptr, i32 } [ %377, %376 ], [ %.pn200, %379 ]
-  invoke void @"_ZN4core3ptr68drop_in_place$LT$alloc..vec..Vec$LT$proc_macro2..TokenStream$GT$$GT$17h9ebc9b7807f19d85E"(ptr nonnull align 8 %160) #7
+  invoke void @"_ZN4core3ptr68drop_in_place$LT$alloc..vec..Vec$LT$proc_macro2..TokenStream$GT$$GT$17h9ebc9b7807f19d85E"(ptr nonnull align 8 %160) #8
           to label %348 unwind label %274
 
 376:                                              ; preds = %410, %373
@@ -2729,7 +2729,7 @@ define void @"_ZN67_$LT$wiggle_generate..funcs..Rust$u20$as$u20$witx..abi..Bindg
 
 379:                                              ; preds = %389, %380
   %.pn200 = phi { ptr, i32 } [ %381, %380 ], [ %lpad.phi248, %389 ]
-  invoke void @"_ZN4core3ptr45drop_in_place$LT$proc_macro2..TokenStream$GT$17h5b042ffa340debc2E"(ptr nonnull align 8 %158) #7
+  invoke void @"_ZN4core3ptr45drop_in_place$LT$proc_macro2..TokenStream$GT$17h5b042ffa340debc2E"(ptr nonnull align 8 %158) #8
           to label %375 unwind label %274
 
 380:                                              ; preds = %409, %407, %387, %386, %385, %384, %383, %382, %378
@@ -2777,7 +2777,7 @@ define void @"_ZN67_$LT$wiggle_generate..funcs..Rust$u20$as$u20$witx..abi..Bindg
 
 389:                                              ; preds = %.loopexit.split-lp245, %.loopexit244
   %lpad.phi248 = phi { ptr, i32 } [ %lpad.loopexit246, %.loopexit244 ], [ %lpad.loopexit.split-lp247, %.loopexit.split-lp245 ]
-  invoke void @"_ZN4core3ptr45drop_in_place$LT$proc_macro2..TokenStream$GT$17h5b042ffa340debc2E"(ptr nonnull align 8 %156) #7
+  invoke void @"_ZN4core3ptr45drop_in_place$LT$proc_macro2..TokenStream$GT$17h5b042ffa340debc2E"(ptr nonnull align 8 %156) #8
           to label %379 unwind label %274
 
 390:                                              ; preds = %388
@@ -2857,7 +2857,7 @@ define void @"_ZN67_$LT$wiggle_generate..funcs..Rust$u20$as$u20$witx..abi..Bindg
 
 413:                                              ; preds = %419, %414
   %.pn219 = phi { ptr, i32 } [ %415, %414 ], [ %.pn217, %419 ]
-  invoke void @"_ZN4core3ptr39drop_in_place$LT$proc_macro2..Ident$GT$17h689352a13baa1516E"(ptr nonnull align 8 %154) #7
+  invoke void @"_ZN4core3ptr39drop_in_place$LT$proc_macro2..Ident$GT$17h689352a13baa1516E"(ptr nonnull align 8 %154) #8
           to label %348 unwind label %274
 
 414:                                              ; preds = %556, %412
@@ -2873,7 +2873,7 @@ define void @"_ZN67_$LT$wiggle_generate..funcs..Rust$u20$as$u20$witx..abi..Bindg
 
 419:                                              ; preds = %572, %560, %512, %477, %432, %424, %420
   %.pn217 = phi { ptr, i32 } [ %421, %420 ], [ %573, %572 ], [ %.pn215, %560 ], [ %.pn212, %512 ], [ %.pn208, %477 ], [ %.pn205, %432 ], [ %425, %424 ]
-  invoke void @"_ZN4core3ptr39drop_in_place$LT$proc_macro2..Ident$GT$17h689352a13baa1516E"(ptr nonnull align 8 %153) #7
+  invoke void @"_ZN4core3ptr39drop_in_place$LT$proc_macro2..Ident$GT$17h689352a13baa1516E"(ptr nonnull align 8 %153) #8
           to label %413 unwind label %274
 
 420:                                              ; preds = %.invoke, %574, %570, %557, %555, %550, %509, %474, %460, %429, %428, %427, %416
@@ -2888,7 +2888,7 @@ define void @"_ZN67_$LT$wiggle_generate..funcs..Rust$u20$as$u20$witx..abi..Bindg
 424:                                              ; preds = %422
   %425 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr55drop_in_place$LT$wiggle_generate..config..Asyncness$GT$17h33d436e8d9faceecE"(ptr nonnull align 8 %152) #7
+  invoke void @"_ZN4core3ptr55drop_in_place$LT$wiggle_generate..config..Asyncness$GT$17h33d436e8d9faceecE"(ptr nonnull align 8 %152) #8
           to label %419 unwind label %274
 
 426:                                              ; preds = %422
@@ -2913,7 +2913,7 @@ define void @"_ZN67_$LT$wiggle_generate..funcs..Rust$u20$as$u20$witx..abi..Bindg
 
 432:                                              ; preds = %442, %433
   %.pn205 = phi { ptr, i32 } [ %434, %433 ], [ %lpad.phi243, %442 ]
-  invoke void @"_ZN4core3ptr45drop_in_place$LT$proc_macro2..TokenStream$GT$17h5b042ffa340debc2E"(ptr nonnull align 8 %145) #7
+  invoke void @"_ZN4core3ptr45drop_in_place$LT$proc_macro2..TokenStream$GT$17h5b042ffa340debc2E"(ptr nonnull align 8 %145) #8
           to label %419 unwind label %274
 
 433:                                              ; preds = %458, %457, %456, %454, %440, %439, %438, %437, %436, %435, %431
@@ -2961,7 +2961,7 @@ define void @"_ZN67_$LT$wiggle_generate..funcs..Rust$u20$as$u20$witx..abi..Bindg
 
 442:                                              ; preds = %.loopexit.split-lp240, %.loopexit239
   %lpad.phi243 = phi { ptr, i32 } [ %lpad.loopexit241, %.loopexit239 ], [ %lpad.loopexit.split-lp242, %.loopexit.split-lp240 ]
-  invoke void @"_ZN4core3ptr45drop_in_place$LT$proc_macro2..TokenStream$GT$17h5b042ffa340debc2E"(ptr nonnull align 8 %143) #7
+  invoke void @"_ZN4core3ptr45drop_in_place$LT$proc_macro2..TokenStream$GT$17h5b042ffa340debc2E"(ptr nonnull align 8 %143) #8
           to label %432 unwind label %274
 
 443:                                              ; preds = %441
@@ -3047,7 +3047,7 @@ define void @"_ZN67_$LT$wiggle_generate..funcs..Rust$u20$as$u20$witx..abi..Bindg
 
 477:                                              ; preds = %487, %478
   %.pn208 = phi { ptr, i32 } [ %479, %478 ], [ %lpad.phi, %487 ]
-  invoke void @"_ZN4core3ptr45drop_in_place$LT$proc_macro2..TokenStream$GT$17h5b042ffa340debc2E"(ptr nonnull align 8 %150) #7
+  invoke void @"_ZN4core3ptr45drop_in_place$LT$proc_macro2..TokenStream$GT$17h5b042ffa340debc2E"(ptr nonnull align 8 %150) #8
           to label %419 unwind label %274
 
 478:                                              ; preds = %501, %499, %485, %484, %483, %482, %481, %480, %476
@@ -3095,7 +3095,7 @@ define void @"_ZN67_$LT$wiggle_generate..funcs..Rust$u20$as$u20$witx..abi..Bindg
 
 487:                                              ; preds = %.loopexit.split-lp, %.loopexit
   %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
-  invoke void @"_ZN4core3ptr45drop_in_place$LT$proc_macro2..TokenStream$GT$17h5b042ffa340debc2E"(ptr nonnull align 8 %148) #7
+  invoke void @"_ZN4core3ptr45drop_in_place$LT$proc_macro2..TokenStream$GT$17h5b042ffa340debc2E"(ptr nonnull align 8 %148) #8
           to label %477 unwind label %274
 
 488:                                              ; preds = %486
@@ -3166,7 +3166,7 @@ define void @"_ZN67_$LT$wiggle_generate..funcs..Rust$u20$as$u20$witx..abi..Bindg
 
 512:                                              ; preds = %522, %513
   %.pn212 = phi { ptr, i32 } [ %514, %513 ], [ %.pn210, %522 ]
-  invoke void @"_ZN4core3ptr45drop_in_place$LT$proc_macro2..TokenStream$GT$17h5b042ffa340debc2E"(ptr nonnull align 8 %140) #7
+  invoke void @"_ZN4core3ptr45drop_in_place$LT$proc_macro2..TokenStream$GT$17h5b042ffa340debc2E"(ptr nonnull align 8 %140) #8
           to label %419 unwind label %274
 
 513:                                              ; preds = %549, %548, %520, %519, %518, %517, %516, %515, %511
@@ -3204,7 +3204,7 @@ define void @"_ZN67_$LT$wiggle_generate..funcs..Rust$u20$as$u20$witx..abi..Bindg
 
 522:                                              ; preds = %543, %523
   %.pn210 = phi { ptr, i32 } [ %524, %523 ], [ %544, %543 ]
-  invoke void @"_ZN4core3ptr45drop_in_place$LT$proc_macro2..TokenStream$GT$17h5b042ffa340debc2E"(ptr nonnull align 8 %138) #7
+  invoke void @"_ZN4core3ptr45drop_in_place$LT$proc_macro2..TokenStream$GT$17h5b042ffa340debc2E"(ptr nonnull align 8 %138) #8
           to label %512 unwind label %274
 
 523:                                              ; preds = %547, %546, %541, %540, %539, %538, %537, %536, %535, %534, %533, %532, %531, %530, %529, %528, %527, %526, %525, %521
@@ -3287,7 +3287,7 @@ define void @"_ZN67_$LT$wiggle_generate..funcs..Rust$u20$as$u20$witx..abi..Bindg
 543:                                              ; preds = %545, %542
   %544 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr45drop_in_place$LT$proc_macro2..TokenStream$GT$17h5b042ffa340debc2E"(ptr nonnull align 8 %136) #7
+  invoke void @"_ZN4core3ptr45drop_in_place$LT$proc_macro2..TokenStream$GT$17h5b042ffa340debc2E"(ptr nonnull align 8 %136) #8
           to label %522 unwind label %274
 
 545:                                              ; preds = %542
@@ -3342,7 +3342,7 @@ define void @"_ZN67_$LT$wiggle_generate..funcs..Rust$u20$as$u20$witx..abi..Bindg
 
 560:                                              ; preds = %566, %561
   %.pn215 = phi { ptr, i32 } [ %562, %561 ], [ %567, %566 ]
-  invoke void @"_ZN4core3ptr45drop_in_place$LT$proc_macro2..TokenStream$GT$17h5b042ffa340debc2E"(ptr nonnull align 8 %132) #7
+  invoke void @"_ZN4core3ptr45drop_in_place$LT$proc_macro2..TokenStream$GT$17h5b042ffa340debc2E"(ptr nonnull align 8 %132) #8
           to label %419 unwind label %274
 
 561:                                              ; preds = %569, %568, %564, %563, %559
@@ -3365,7 +3365,7 @@ define void @"_ZN67_$LT$wiggle_generate..funcs..Rust$u20$as$u20$witx..abi..Bindg
 566:                                              ; preds = %565
   %567 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr45drop_in_place$LT$proc_macro2..TokenStream$GT$17h5b042ffa340debc2E"(ptr nonnull align 8 %130) #7
+  invoke void @"_ZN4core3ptr45drop_in_place$LT$proc_macro2..TokenStream$GT$17h5b042ffa340debc2E"(ptr nonnull align 8 %130) #8
           to label %560 unwind label %274
 
 568:                                              ; preds = %565
@@ -3389,7 +3389,7 @@ define void @"_ZN67_$LT$wiggle_generate..funcs..Rust$u20$as$u20$witx..abi..Bindg
 572:                                              ; preds = %571
   %573 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr45drop_in_place$LT$proc_macro2..TokenStream$GT$17h5b042ffa340debc2E"(ptr nonnull align 8 %134) #7
+  invoke void @"_ZN4core3ptr45drop_in_place$LT$proc_macro2..TokenStream$GT$17h5b042ffa340debc2E"(ptr nonnull align 8 %134) #8
           to label %419 unwind label %274
 
 574:                                              ; preds = %571
@@ -3436,12 +3436,12 @@ define void @"_ZN67_$LT$wiggle_generate..funcs..Rust$u20$as$u20$witx..abi..Bindg
           to label %593 unwind label %.loopexit254
 
 590:                                              ; preds = %583
-  invoke void @_ZN4core9panicking18panic_bounds_check17h5aa5e8a957e001f9E(i64 %350, i64 %584, ptr nonnull align 8 @anon.21253c77e3fc4844456cc94e3b0b613d.57) #8
+  invoke void @_ZN4core9panicking18panic_bounds_check17h5aa5e8a957e001f9E(i64 %350, i64 %584, ptr nonnull align 8 @anon.21253c77e3fc4844456cc94e3b0b613d.57) #9
           to label %592 unwind label %.loopexit.split-lp255
 
 591:                                              ; preds = %.loopexit254, %.loopexit.split-lp255, %617, %611, %594
   %.pn197 = phi { ptr, i32 } [ %618, %617 ], [ %612, %611 ], [ %595, %594 ], [ %lpad.loopexit256, %.loopexit254 ], [ %lpad.loopexit.split-lp257, %.loopexit.split-lp255 ]
-  invoke void @"_ZN4core3ptr39drop_in_place$LT$proc_macro2..Ident$GT$17h689352a13baa1516E"(ptr nonnull align 8 %167) #7
+  invoke void @"_ZN4core3ptr39drop_in_place$LT$proc_macro2..Ident$GT$17h689352a13baa1516E"(ptr nonnull align 8 %167) #8
           to label %348 unwind label %274
 
 .loopexit254:                                     ; preds = %.invoke294, %586, %600, %601, %603, %608, %609
@@ -3464,7 +3464,7 @@ define void @"_ZN67_$LT$wiggle_generate..funcs..Rust$u20$as$u20$witx..abi..Bindg
 594:                                              ; preds = %599, %598, %597, %596, %593
   %595 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr45drop_in_place$LT$proc_macro2..TokenStream$GT$17h5b042ffa340debc2E"(ptr nonnull align 8 %165) #7
+  invoke void @"_ZN4core3ptr45drop_in_place$LT$proc_macro2..TokenStream$GT$17h5b042ffa340debc2E"(ptr nonnull align 8 %165) #8
           to label %591 unwind label %274
 
 596:                                              ; preds = %593
@@ -3516,7 +3516,7 @@ define void @"_ZN67_$LT$wiggle_generate..funcs..Rust$u20$as$u20$witx..abi..Bindg
 611:                                              ; preds = %610
   %612 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr45drop_in_place$LT$proc_macro2..TokenStream$GT$17h5b042ffa340debc2E"(ptr nonnull align 8 %161) #7
+  invoke void @"_ZN4core3ptr45drop_in_place$LT$proc_macro2..TokenStream$GT$17h5b042ffa340debc2E"(ptr nonnull align 8 %161) #8
           to label %591 unwind label %274
 
 613:                                              ; preds = %610
@@ -3539,7 +3539,7 @@ define void @"_ZN67_$LT$wiggle_generate..funcs..Rust$u20$as$u20$witx..abi..Bindg
 617:                                              ; preds = %619, %616
   %618 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr45drop_in_place$LT$proc_macro2..TokenStream$GT$17h5b042ffa340debc2E"(ptr nonnull align 8 %163) #7
+  invoke void @"_ZN4core3ptr45drop_in_place$LT$proc_macro2..TokenStream$GT$17h5b042ffa340debc2E"(ptr nonnull align 8 %163) #8
           to label %591 unwind label %274
 
 619:                                              ; preds = %616
@@ -3553,7 +3553,7 @@ define void @"_ZN67_$LT$wiggle_generate..funcs..Rust$u20$as$u20$witx..abi..Bindg
 621:                                              ; preds = %228
   %622 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr45drop_in_place$LT$proc_macro2..TokenStream$GT$17h5b042ffa340debc2E"(ptr nonnull align 8 %27) #7
+  invoke void @"_ZN4core3ptr45drop_in_place$LT$proc_macro2..TokenStream$GT$17h5b042ffa340debc2E"(ptr nonnull align 8 %27) #8
           to label %276 unwind label %274
 
 623:                                              ; preds = %228
@@ -3564,7 +3564,7 @@ define void @"_ZN67_$LT$wiggle_generate..funcs..Rust$u20$as$u20$witx..abi..Bindg
 624:                                              ; preds = %229
   %625 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr45drop_in_place$LT$proc_macro2..TokenStream$GT$17h5b042ffa340debc2E"(ptr nonnull align 8 %29) #7
+  invoke void @"_ZN4core3ptr45drop_in_place$LT$proc_macro2..TokenStream$GT$17h5b042ffa340debc2E"(ptr nonnull align 8 %29) #8
           to label %276 unwind label %274
 
 626:                                              ; preds = %229
@@ -3575,7 +3575,7 @@ define void @"_ZN67_$LT$wiggle_generate..funcs..Rust$u20$as$u20$witx..abi..Bindg
 627:                                              ; preds = %230
   %628 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr45drop_in_place$LT$proc_macro2..TokenStream$GT$17h5b042ffa340debc2E"(ptr nonnull align 8 %21) #7
+  invoke void @"_ZN4core3ptr45drop_in_place$LT$proc_macro2..TokenStream$GT$17h5b042ffa340debc2E"(ptr nonnull align 8 %21) #8
           to label %276 unwind label %274
 
 629:                                              ; preds = %230
@@ -3586,7 +3586,7 @@ define void @"_ZN67_$LT$wiggle_generate..funcs..Rust$u20$as$u20$witx..abi..Bindg
 630:                                              ; preds = %231
   %631 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr45drop_in_place$LT$proc_macro2..TokenStream$GT$17h5b042ffa340debc2E"(ptr nonnull align 8 %23) #7
+  invoke void @"_ZN4core3ptr45drop_in_place$LT$proc_macro2..TokenStream$GT$17h5b042ffa340debc2E"(ptr nonnull align 8 %23) #8
           to label %276 unwind label %274
 
 632:                                              ; preds = %231
@@ -3595,7 +3595,7 @@ define void @"_ZN67_$LT$wiggle_generate..funcs..Rust$u20$as$u20$witx..abi..Bindg
   br label %273
 
 633:                                              ; preds = %238
-  call void @_ZN4core6option13unwrap_failed17hcb3a256a9f1ca882E(ptr nonnull align 8 @anon.21253c77e3fc4844456cc94e3b0b613d.62) #8
+  call void @_ZN4core6option13unwrap_failed17hcb3a256a9f1ca882E(ptr nonnull align 8 @anon.21253c77e3fc4844456cc94e3b0b613d.62) #9
   unreachable
 
 634:                                              ; preds = %238
@@ -3605,7 +3605,7 @@ define void @"_ZN67_$LT$wiggle_generate..funcs..Rust$u20$as$u20$witx..abi..Bindg
 
 635:                                              ; preds = %639, %636
   %.pn193 = phi { ptr, i32 } [ %637, %636 ], [ %640, %639 ]
-  invoke void @"_ZN4core3ptr45drop_in_place$LT$proc_macro2..TokenStream$GT$17h5b042ffa340debc2E"(ptr nonnull align 8 %16) #7
+  invoke void @"_ZN4core3ptr45drop_in_place$LT$proc_macro2..TokenStream$GT$17h5b042ffa340debc2E"(ptr nonnull align 8 %16) #8
           to label %276 unwind label %274
 
 636:                                              ; preds = %643, %634
@@ -3620,7 +3620,7 @@ define void @"_ZN67_$LT$wiggle_generate..funcs..Rust$u20$as$u20$witx..abi..Bindg
 639:                                              ; preds = %642, %641, %638
   %640 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr45drop_in_place$LT$proc_macro2..TokenStream$GT$17h5b042ffa340debc2E"(ptr nonnull align 8 %13) #7
+  invoke void @"_ZN4core3ptr45drop_in_place$LT$proc_macro2..TokenStream$GT$17h5b042ffa340debc2E"(ptr nonnull align 8 %13) #8
           to label %635 unwind label %274
 
 641:                                              ; preds = %638
@@ -3643,7 +3643,7 @@ define void @"_ZN67_$LT$wiggle_generate..funcs..Rust$u20$as$u20$witx..abi..Bindg
 645:                                              ; preds = %241
   %646 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr45drop_in_place$LT$proc_macro2..TokenStream$GT$17h5b042ffa340debc2E"(ptr nonnull align 8 %25) #7
+  invoke void @"_ZN4core3ptr45drop_in_place$LT$proc_macro2..TokenStream$GT$17h5b042ffa340debc2E"(ptr nonnull align 8 %25) #8
           to label %276 unwind label %274
 
 647:                                              ; preds = %241
@@ -3652,7 +3652,7 @@ define void @"_ZN67_$LT$wiggle_generate..funcs..Rust$u20$as$u20$witx..abi..Bindg
   br label %273
 
 648:                                              ; preds = %235
-  call void @_ZN4core6option13unwrap_failed17hcb3a256a9f1ca882E(ptr nonnull align 8 @anon.21253c77e3fc4844456cc94e3b0b613d.64) #8
+  call void @_ZN4core6option13unwrap_failed17hcb3a256a9f1ca882E(ptr nonnull align 8 @anon.21253c77e3fc4844456cc94e3b0b613d.64) #9
   unreachable
 
 649:                                              ; preds = %235
@@ -3662,7 +3662,7 @@ define void @"_ZN67_$LT$wiggle_generate..funcs..Rust$u20$as$u20$witx..abi..Bindg
 
 650:                                              ; preds = %654, %651
   %.pn195 = phi { ptr, i32 } [ %652, %651 ], [ %655, %654 ]
-  invoke void @"_ZN4core3ptr45drop_in_place$LT$proc_macro2..TokenStream$GT$17h5b042ffa340debc2E"(ptr nonnull align 8 %20) #7
+  invoke void @"_ZN4core3ptr45drop_in_place$LT$proc_macro2..TokenStream$GT$17h5b042ffa340debc2E"(ptr nonnull align 8 %20) #8
           to label %276 unwind label %274
 
 651:                                              ; preds = %658, %649
@@ -3677,7 +3677,7 @@ define void @"_ZN67_$LT$wiggle_generate..funcs..Rust$u20$as$u20$witx..abi..Bindg
 654:                                              ; preds = %657, %656, %653
   %655 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr45drop_in_place$LT$proc_macro2..TokenStream$GT$17h5b042ffa340debc2E"(ptr nonnull align 8 %17) #7
+  invoke void @"_ZN4core3ptr45drop_in_place$LT$proc_macro2..TokenStream$GT$17h5b042ffa340debc2E"(ptr nonnull align 8 %17) #8
           to label %650 unwind label %274
 
 656:                                              ; preds = %653
@@ -3698,7 +3698,7 @@ define void @"_ZN67_$LT$wiggle_generate..funcs..Rust$u20$as$u20$witx..abi..Bindg
   br label %273
 
 660:                                              ; preds = %232
-  call void @_ZN4core6option13unwrap_failed17hcb3a256a9f1ca882E(ptr nonnull align 8 @anon.21253c77e3fc4844456cc94e3b0b613d.65) #8
+  call void @_ZN4core6option13unwrap_failed17hcb3a256a9f1ca882E(ptr nonnull align 8 @anon.21253c77e3fc4844456cc94e3b0b613d.65) #9
   unreachable
 
 661:                                              ; preds = %232
@@ -3707,7 +3707,7 @@ define void @"_ZN67_$LT$wiggle_generate..funcs..Rust$u20$as$u20$witx..abi..Bindg
   br label %273
 
 662:                                              ; preds = %242
-  call void @_ZN4core6option13unwrap_failed17hcb3a256a9f1ca882E(ptr nonnull align 8 @anon.21253c77e3fc4844456cc94e3b0b613d.66) #8
+  call void @_ZN4core6option13unwrap_failed17hcb3a256a9f1ca882E(ptr nonnull align 8 @anon.21253c77e3fc4844456cc94e3b0b613d.66) #9
   unreachable
 
 663:                                              ; preds = %242
@@ -3720,7 +3720,7 @@ define void @"_ZN67_$LT$wiggle_generate..funcs..Rust$u20$as$u20$witx..abi..Bindg
 
 667:                                              ; preds = %671, %668
   %.pn191 = phi { ptr, i32 } [ %669, %668 ], [ %.pn189, %671 ]
-  invoke void @"_ZN4core3ptr45drop_in_place$LT$proc_macro2..TokenStream$GT$17h5b042ffa340debc2E"(ptr nonnull align 8 %37) #7
+  invoke void @"_ZN4core3ptr45drop_in_place$LT$proc_macro2..TokenStream$GT$17h5b042ffa340debc2E"(ptr nonnull align 8 %37) #8
           to label %276 unwind label %274
 
 668:                                              ; preds = %686, %663
@@ -3734,7 +3734,7 @@ define void @"_ZN67_$LT$wiggle_generate..funcs..Rust$u20$as$u20$witx..abi..Bindg
 
 671:                                              ; preds = %675, %672
   %.pn189 = phi { ptr, i32 } [ %673, %672 ], [ %.pn187, %675 ]
-  invoke void @"_ZN4core3ptr39drop_in_place$LT$proc_macro2..Ident$GT$17h689352a13baa1516E"(ptr nonnull align 8 %35) #7
+  invoke void @"_ZN4core3ptr39drop_in_place$LT$proc_macro2..Ident$GT$17h689352a13baa1516E"(ptr nonnull align 8 %35) #8
           to label %667 unwind label %274
 
 672:                                              ; preds = %685, %670
@@ -3748,7 +3748,7 @@ define void @"_ZN67_$LT$wiggle_generate..funcs..Rust$u20$as$u20$witx..abi..Bindg
 
 675:                                              ; preds = %682, %676
   %.pn187 = phi { ptr, i32 } [ %677, %676 ], [ %683, %682 ]
-  invoke void @"_ZN4core3ptr45drop_in_place$LT$proc_macro2..TokenStream$GT$17h5b042ffa340debc2E"(ptr nonnull align 8 %33) #7
+  invoke void @"_ZN4core3ptr45drop_in_place$LT$proc_macro2..TokenStream$GT$17h5b042ffa340debc2E"(ptr nonnull align 8 %33) #8
           to label %671 unwind label %274
 
 676:                                              ; preds = %684, %680, %679, %678, %674
@@ -3775,7 +3775,7 @@ define void @"_ZN67_$LT$wiggle_generate..funcs..Rust$u20$as$u20$witx..abi..Bindg
 682:                                              ; preds = %681
   %683 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr45drop_in_place$LT$proc_macro2..TokenStream$GT$17h5b042ffa340debc2E"(ptr nonnull align 8 %31) #7
+  invoke void @"_ZN4core3ptr45drop_in_place$LT$proc_macro2..TokenStream$GT$17h5b042ffa340debc2E"(ptr nonnull align 8 %31) #8
           to label %675 unwind label %274
 
 684:                                              ; preds = %681
@@ -3803,7 +3803,7 @@ define void @"_ZN67_$LT$wiggle_generate..funcs..Rust$u20$as$u20$witx..abi..Bindg
   br i1 %690, label %691, label %692
 
 691:                                              ; preds = %688
-  call void @_ZN4core6option13unwrap_failed17hcb3a256a9f1ca882E(ptr nonnull align 8 @anon.21253c77e3fc4844456cc94e3b0b613d.68) #8
+  call void @_ZN4core6option13unwrap_failed17hcb3a256a9f1ca882E(ptr nonnull align 8 @anon.21253c77e3fc4844456cc94e3b0b613d.68) #9
   unreachable
 
 692:                                              ; preds = %688
@@ -3815,7 +3815,7 @@ define void @"_ZN67_$LT$wiggle_generate..funcs..Rust$u20$as$u20$witx..abi..Bindg
 
 694:                                              ; preds = %699, %695
   %.pn185 = phi { ptr, i32 } [ %696, %695 ], [ %.pn183, %699 ]
-  invoke void @"_ZN4core3ptr45drop_in_place$LT$proc_macro2..TokenStream$GT$17h5b042ffa340debc2E"(ptr nonnull align 8 %190) #7
+  invoke void @"_ZN4core3ptr45drop_in_place$LT$proc_macro2..TokenStream$GT$17h5b042ffa340debc2E"(ptr nonnull align 8 %190) #8
           to label %276 unwind label %274
 
 695:                                              ; preds = %724, %697, %692
@@ -3833,7 +3833,7 @@ define void @"_ZN67_$LT$wiggle_generate..funcs..Rust$u20$as$u20$witx..abi..Bindg
 
 699:                                              ; preds = %703, %700
   %.pn183 = phi { ptr, i32 } [ %701, %700 ], [ %.pn181, %703 ]
-  invoke void @"_ZN4core3ptr45drop_in_place$LT$proc_macro2..TokenStream$GT$17h5b042ffa340debc2E"(ptr nonnull align 8 %188) #7
+  invoke void @"_ZN4core3ptr45drop_in_place$LT$proc_macro2..TokenStream$GT$17h5b042ffa340debc2E"(ptr nonnull align 8 %188) #8
           to label %694 unwind label %274
 
 700:                                              ; preds = %723, %698
@@ -3847,7 +3847,7 @@ define void @"_ZN67_$LT$wiggle_generate..funcs..Rust$u20$as$u20$witx..abi..Bindg
 
 703:                                              ; preds = %716, %704
   %.pn181 = phi { ptr, i32 } [ %705, %704 ], [ %717, %716 ]
-  invoke void @"_ZN4core3ptr45drop_in_place$LT$proc_macro2..TokenStream$GT$17h5b042ffa340debc2E"(ptr nonnull align 8 %185) #7
+  invoke void @"_ZN4core3ptr45drop_in_place$LT$proc_macro2..TokenStream$GT$17h5b042ffa340debc2E"(ptr nonnull align 8 %185) #8
           to label %699 unwind label %274
 
 704:                                              ; preds = %722, %714, %713, %712, %711, %710, %709, %708, %707, %706, %702
@@ -3898,7 +3898,7 @@ define void @"_ZN67_$LT$wiggle_generate..funcs..Rust$u20$as$u20$witx..abi..Bindg
 716:                                              ; preds = %721, %720, %719, %718, %715
   %717 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr45drop_in_place$LT$proc_macro2..TokenStream$GT$17h5b042ffa340debc2E"(ptr nonnull align 8 %183) #7
+  invoke void @"_ZN4core3ptr45drop_in_place$LT$proc_macro2..TokenStream$GT$17h5b042ffa340debc2E"(ptr nonnull align 8 %183) #8
           to label %703 unwind label %274
 
 718:                                              ; preds = %715
@@ -3944,7 +3944,7 @@ define void @"_ZN67_$LT$wiggle_generate..funcs..Rust$u20$as$u20$witx..abi..Bindg
           to label %967 unwind label %965
 
 729:                                              ; preds = %245
-  call void @_ZN4core6option13unwrap_failed17hcb3a256a9f1ca882E(ptr nonnull align 8 @anon.21253c77e3fc4844456cc94e3b0b613d.69) #8
+  call void @_ZN4core6option13unwrap_failed17hcb3a256a9f1ca882E(ptr nonnull align 8 @anon.21253c77e3fc4844456cc94e3b0b613d.69) #9
   unreachable
 
 730:                                              ; preds = %245
@@ -3967,7 +3967,7 @@ define void @"_ZN67_$LT$wiggle_generate..funcs..Rust$u20$as$u20$witx..abi..Bindg
 
 740:                                              ; preds = %752, %749, %741
   %.pn177 = phi { ptr, i32 } [ %742, %741 ], [ %.pn175, %752 ], [ %750, %749 ]
-  invoke void @"_ZN4core3ptr45drop_in_place$LT$proc_macro2..TokenStream$GT$17h5b042ffa340debc2E"(ptr nonnull align 8 %53) #7
+  invoke void @"_ZN4core3ptr45drop_in_place$LT$proc_macro2..TokenStream$GT$17h5b042ffa340debc2E"(ptr nonnull align 8 %53) #8
           to label %276 unwind label %274
 
 741:                                              ; preds = %795, %743, %730
@@ -3991,7 +3991,7 @@ define void @"_ZN67_$LT$wiggle_generate..funcs..Rust$u20$as$u20$witx..abi..Bindg
 749:                                              ; preds = %744
   %750 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17hcfc4ef542b4c7efcE"(ptr nonnull align 8 %50) #7
+  invoke void @"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17hcfc4ef542b4c7efcE"(ptr nonnull align 8 %50) #8
           to label %740 unwind label %274
 
 751:                                              ; preds = %744
@@ -4000,7 +4000,7 @@ define void @"_ZN67_$LT$wiggle_generate..funcs..Rust$u20$as$u20$witx..abi..Bindg
 
 752:                                              ; preds = %757, %753
   %.pn175 = phi { ptr, i32 } [ %754, %753 ], [ %.pn173, %757 ]
-  invoke void @"_ZN4core3ptr45drop_in_place$LT$proc_macro2..TokenStream$GT$17h5b042ffa340debc2E"(ptr nonnull align 8 %51) #7
+  invoke void @"_ZN4core3ptr45drop_in_place$LT$proc_macro2..TokenStream$GT$17h5b042ffa340debc2E"(ptr nonnull align 8 %51) #8
           to label %740 unwind label %274
 
 753:                                              ; preds = %794, %755, %751
@@ -4018,7 +4018,7 @@ define void @"_ZN67_$LT$wiggle_generate..funcs..Rust$u20$as$u20$witx..abi..Bindg
 
 757:                                              ; preds = %761, %758
   %.pn173 = phi { ptr, i32 } [ %759, %758 ], [ %.pn171, %761 ]
-  invoke void @"_ZN4core3ptr39drop_in_place$LT$proc_macro2..Ident$GT$17h689352a13baa1516E"(ptr nonnull align 8 %45) #7
+  invoke void @"_ZN4core3ptr39drop_in_place$LT$proc_macro2..Ident$GT$17h689352a13baa1516E"(ptr nonnull align 8 %45) #8
           to label %752 unwind label %274
 
 758:                                              ; preds = %793, %756
@@ -4032,7 +4032,7 @@ define void @"_ZN67_$LT$wiggle_generate..funcs..Rust$u20$as$u20$witx..abi..Bindg
 
 761:                                              ; preds = %789, %774, %762
   %.pn171 = phi { ptr, i32 } [ %763, %762 ], [ %790, %789 ], [ %775, %774 ]
-  invoke void @"_ZN4core3ptr45drop_in_place$LT$proc_macro2..TokenStream$GT$17h5b042ffa340debc2E"(ptr nonnull align 8 %43) #7
+  invoke void @"_ZN4core3ptr45drop_in_place$LT$proc_macro2..TokenStream$GT$17h5b042ffa340debc2E"(ptr nonnull align 8 %43) #8
           to label %757 unwind label %274
 
 762:                                              ; preds = %792, %791, %787, %786, %785, %784, %783, %782, %781, %780, %772, %771, %770, %769, %768, %767, %766, %765, %764, %760
@@ -4083,7 +4083,7 @@ define void @"_ZN67_$LT$wiggle_generate..funcs..Rust$u20$as$u20$witx..abi..Bindg
 774:                                              ; preds = %779, %778, %777, %776, %773
   %775 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr45drop_in_place$LT$proc_macro2..TokenStream$GT$17h5b042ffa340debc2E"(ptr nonnull align 8 %41) #7
+  invoke void @"_ZN4core3ptr45drop_in_place$LT$proc_macro2..TokenStream$GT$17h5b042ffa340debc2E"(ptr nonnull align 8 %41) #8
           to label %761 unwind label %274
 
 776:                                              ; preds = %773
@@ -4142,7 +4142,7 @@ define void @"_ZN67_$LT$wiggle_generate..funcs..Rust$u20$as$u20$witx..abi..Bindg
 789:                                              ; preds = %788
   %790 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr45drop_in_place$LT$proc_macro2..TokenStream$GT$17h5b042ffa340debc2E"(ptr nonnull align 8 %38) #7
+  invoke void @"_ZN4core3ptr45drop_in_place$LT$proc_macro2..TokenStream$GT$17h5b042ffa340debc2E"(ptr nonnull align 8 %38) #8
           to label %761 unwind label %274
 
 791:                                              ; preds = %788
@@ -4172,7 +4172,7 @@ define void @"_ZN67_$LT$wiggle_generate..funcs..Rust$u20$as$u20$witx..abi..Bindg
   br label %273
 
 797:                                              ; preds = %248
-  call void @_ZN4core6option13unwrap_failed17hcb3a256a9f1ca882E(ptr nonnull align 8 @anon.21253c77e3fc4844456cc94e3b0b613d.74) #8
+  call void @_ZN4core6option13unwrap_failed17hcb3a256a9f1ca882E(ptr nonnull align 8 @anon.21253c77e3fc4844456cc94e3b0b613d.74) #9
   unreachable
 
 798:                                              ; preds = %248
@@ -4182,7 +4182,7 @@ define void @"_ZN67_$LT$wiggle_generate..funcs..Rust$u20$as$u20$witx..abi..Bindg
 
 799:                                              ; preds = %816, %800
   %.pn169 = phi { ptr, i32 } [ %801, %800 ], [ %.pn167, %816 ]
-  invoke void @"_ZN4core3ptr45drop_in_place$LT$proc_macro2..TokenStream$GT$17h5b042ffa340debc2E"(ptr nonnull align 8 %72) #7
+  invoke void @"_ZN4core3ptr45drop_in_place$LT$proc_macro2..TokenStream$GT$17h5b042ffa340debc2E"(ptr nonnull align 8 %72) #8
           to label %276 unwind label %274
 
 800:                                              ; preds = %878, %805, %798
@@ -4196,7 +4196,7 @@ define void @"_ZN67_$LT$wiggle_generate..funcs..Rust$u20$as$u20$witx..abi..Bindg
   br i1 %804, label %805, label %806
 
 805:                                              ; preds = %802
-  invoke void @_ZN4core6option13unwrap_failed17hcb3a256a9f1ca882E(ptr nonnull align 8 @anon.21253c77e3fc4844456cc94e3b0b613d.75) #8
+  invoke void @_ZN4core6option13unwrap_failed17hcb3a256a9f1ca882E(ptr nonnull align 8 @anon.21253c77e3fc4844456cc94e3b0b613d.75) #9
           to label %592 unwind label %800
 
 806:                                              ; preds = %802
@@ -4219,7 +4219,7 @@ define void @"_ZN67_$LT$wiggle_generate..funcs..Rust$u20$as$u20$witx..abi..Bindg
 
 816:                                              ; preds = %828, %825, %817
   %.pn167 = phi { ptr, i32 } [ %818, %817 ], [ %.pn165, %828 ], [ %826, %825 ]
-  invoke void @"_ZN4core3ptr45drop_in_place$LT$proc_macro2..TokenStream$GT$17h5b042ffa340debc2E"(ptr nonnull align 8 %70) #7
+  invoke void @"_ZN4core3ptr45drop_in_place$LT$proc_macro2..TokenStream$GT$17h5b042ffa340debc2E"(ptr nonnull align 8 %70) #8
           to label %799 unwind label %274
 
 817:                                              ; preds = %877, %819, %806
@@ -4243,7 +4243,7 @@ define void @"_ZN67_$LT$wiggle_generate..funcs..Rust$u20$as$u20$witx..abi..Bindg
 825:                                              ; preds = %820
   %826 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17hcfc4ef542b4c7efcE"(ptr nonnull align 8 %67) #7
+  invoke void @"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17hcfc4ef542b4c7efcE"(ptr nonnull align 8 %67) #8
           to label %816 unwind label %274
 
 827:                                              ; preds = %820
@@ -4252,7 +4252,7 @@ define void @"_ZN67_$LT$wiggle_generate..funcs..Rust$u20$as$u20$witx..abi..Bindg
 
 828:                                              ; preds = %835, %829
   %.pn165 = phi { ptr, i32 } [ %830, %829 ], [ %.pn163, %835 ]
-  invoke void @"_ZN4core3ptr45drop_in_place$LT$proc_macro2..TokenStream$GT$17h5b042ffa340debc2E"(ptr nonnull align 8 %68) #7
+  invoke void @"_ZN4core3ptr45drop_in_place$LT$proc_macro2..TokenStream$GT$17h5b042ffa340debc2E"(ptr nonnull align 8 %68) #8
           to label %816 unwind label %274
 
 829:                                              ; preds = %876, %831, %827
@@ -4272,7 +4272,7 @@ define void @"_ZN67_$LT$wiggle_generate..funcs..Rust$u20$as$u20$witx..abi..Bindg
 
 835:                                              ; preds = %839, %836
   %.pn163 = phi { ptr, i32 } [ %837, %836 ], [ %.pn161, %839 ]
-  invoke void @"_ZN4core3ptr39drop_in_place$LT$proc_macro2..Ident$GT$17h689352a13baa1516E"(ptr nonnull align 8 %62) #7
+  invoke void @"_ZN4core3ptr39drop_in_place$LT$proc_macro2..Ident$GT$17h689352a13baa1516E"(ptr nonnull align 8 %62) #8
           to label %828 unwind label %274
 
 836:                                              ; preds = %875, %832
@@ -4286,7 +4286,7 @@ define void @"_ZN67_$LT$wiggle_generate..funcs..Rust$u20$as$u20$witx..abi..Bindg
 
 839:                                              ; preds = %870, %863, %852, %840
   %.pn161 = phi { ptr, i32 } [ %841, %840 ], [ %871, %870 ], [ %864, %863 ], [ %853, %852 ]
-  invoke void @"_ZN4core3ptr45drop_in_place$LT$proc_macro2..TokenStream$GT$17h5b042ffa340debc2E"(ptr nonnull align 8 %60) #7
+  invoke void @"_ZN4core3ptr45drop_in_place$LT$proc_macro2..TokenStream$GT$17h5b042ffa340debc2E"(ptr nonnull align 8 %60) #8
           to label %835 unwind label %274
 
 840:                                              ; preds = %874, %873, %872, %868, %867, %866, %865, %861, %860, %859, %858, %850, %849, %848, %847, %846, %845, %844, %843, %842, %838
@@ -4337,7 +4337,7 @@ define void @"_ZN67_$LT$wiggle_generate..funcs..Rust$u20$as$u20$witx..abi..Bindg
 852:                                              ; preds = %857, %856, %855, %854, %851
   %853 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr45drop_in_place$LT$proc_macro2..TokenStream$GT$17h5b042ffa340debc2E"(ptr nonnull align 8 %58) #7
+  invoke void @"_ZN4core3ptr45drop_in_place$LT$proc_macro2..TokenStream$GT$17h5b042ffa340debc2E"(ptr nonnull align 8 %58) #8
           to label %839 unwind label %274
 
 854:                                              ; preds = %851
@@ -4380,7 +4380,7 @@ define void @"_ZN67_$LT$wiggle_generate..funcs..Rust$u20$as$u20$witx..abi..Bindg
 863:                                              ; preds = %862
   %864 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr45drop_in_place$LT$proc_macro2..TokenStream$GT$17h5b042ffa340debc2E"(ptr nonnull align 8 %56) #7
+  invoke void @"_ZN4core3ptr45drop_in_place$LT$proc_macro2..TokenStream$GT$17h5b042ffa340debc2E"(ptr nonnull align 8 %56) #8
           to label %839 unwind label %274
 
 865:                                              ; preds = %862
@@ -4407,7 +4407,7 @@ define void @"_ZN67_$LT$wiggle_generate..funcs..Rust$u20$as$u20$witx..abi..Bindg
 870:                                              ; preds = %869
   %871 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr45drop_in_place$LT$proc_macro2..TokenStream$GT$17h5b042ffa340debc2E"(ptr nonnull align 8 %54) #7
+  invoke void @"_ZN4core3ptr45drop_in_place$LT$proc_macro2..TokenStream$GT$17h5b042ffa340debc2E"(ptr nonnull align 8 %54) #8
           to label %839 unwind label %274
 
 872:                                              ; preds = %869
@@ -4445,7 +4445,7 @@ define void @"_ZN67_$LT$wiggle_generate..funcs..Rust$u20$as$u20$witx..abi..Bindg
   br label %273
 
 880:                                              ; preds = %251
-  call void @_ZN4core6option13unwrap_failed17hcb3a256a9f1ca882E(ptr nonnull align 8 @anon.21253c77e3fc4844456cc94e3b0b613d.79) #8
+  call void @_ZN4core6option13unwrap_failed17hcb3a256a9f1ca882E(ptr nonnull align 8 @anon.21253c77e3fc4844456cc94e3b0b613d.79) #9
   unreachable
 
 881:                                              ; preds = %251
@@ -4455,7 +4455,7 @@ define void @"_ZN67_$LT$wiggle_generate..funcs..Rust$u20$as$u20$witx..abi..Bindg
 
 882:                                              ; preds = %890, %883
   %.pn159 = phi { ptr, i32 } [ %884, %883 ], [ %.pn157, %890 ]
-  invoke void @"_ZN4core3ptr45drop_in_place$LT$proc_macro2..TokenStream$GT$17h5b042ffa340debc2E"(ptr nonnull align 8 %114) #7
+  invoke void @"_ZN4core3ptr45drop_in_place$LT$proc_macro2..TokenStream$GT$17h5b042ffa340debc2E"(ptr nonnull align 8 %114) #8
           to label %276 unwind label %274
 
 883:                                              ; preds = %962, %888, %881
@@ -4469,7 +4469,7 @@ define void @"_ZN67_$LT$wiggle_generate..funcs..Rust$u20$as$u20$witx..abi..Bindg
   br i1 %887, label %888, label %889
 
 888:                                              ; preds = %885
-  invoke void @_ZN4core6option13unwrap_failed17hcb3a256a9f1ca882E(ptr nonnull align 8 @anon.21253c77e3fc4844456cc94e3b0b613d.80) #8
+  invoke void @_ZN4core6option13unwrap_failed17hcb3a256a9f1ca882E(ptr nonnull align 8 @anon.21253c77e3fc4844456cc94e3b0b613d.80) #9
           to label %592 unwind label %883
 
 889:                                              ; preds = %885
@@ -4479,7 +4479,7 @@ define void @"_ZN67_$LT$wiggle_generate..funcs..Rust$u20$as$u20$witx..abi..Bindg
 
 890:                                              ; preds = %903, %891
   %.pn157 = phi { ptr, i32 } [ %892, %891 ], [ %.pn155, %903 ]
-  invoke void @"_ZN4core3ptr45drop_in_place$LT$proc_macro2..TokenStream$GT$17h5b042ffa340debc2E"(ptr nonnull align 8 %112) #7
+  invoke void @"_ZN4core3ptr45drop_in_place$LT$proc_macro2..TokenStream$GT$17h5b042ffa340debc2E"(ptr nonnull align 8 %112) #8
           to label %882 unwind label %274
 
 891:                                              ; preds = %961, %896, %889
@@ -4493,7 +4493,7 @@ define void @"_ZN67_$LT$wiggle_generate..funcs..Rust$u20$as$u20$witx..abi..Bindg
   br i1 %895, label %896, label %897
 
 896:                                              ; preds = %893
-  invoke void @_ZN4core6option13unwrap_failed17hcb3a256a9f1ca882E(ptr nonnull align 8 @anon.21253c77e3fc4844456cc94e3b0b613d.81) #8
+  invoke void @_ZN4core6option13unwrap_failed17hcb3a256a9f1ca882E(ptr nonnull align 8 @anon.21253c77e3fc4844456cc94e3b0b613d.81) #9
           to label %592 unwind label %891
 
 897:                                              ; preds = %893
@@ -4504,7 +4504,7 @@ define void @"_ZN67_$LT$wiggle_generate..funcs..Rust$u20$as$u20$witx..abi..Bindg
   br i1 %900, label %901, label %902
 
 901:                                              ; preds = %897
-  invoke void @_ZN4core6option13unwrap_failed17hcb3a256a9f1ca882E(ptr nonnull align 8 @anon.21253c77e3fc4844456cc94e3b0b613d.82) #8
+  invoke void @_ZN4core6option13unwrap_failed17hcb3a256a9f1ca882E(ptr nonnull align 8 @anon.21253c77e3fc4844456cc94e3b0b613d.82) #9
           to label %592 unwind label %904
 
 902:                                              ; preds = %897
@@ -4513,7 +4513,7 @@ define void @"_ZN67_$LT$wiggle_generate..funcs..Rust$u20$as$u20$witx..abi..Bindg
 
 903:                                              ; preds = %908, %904
   %.pn155 = phi { ptr, i32 } [ %905, %904 ], [ %.pn153, %908 ]
-  invoke void @"_ZN4core3ptr45drop_in_place$LT$proc_macro2..TokenStream$GT$17h5b042ffa340debc2E"(ptr nonnull align 8 %110) #7
+  invoke void @"_ZN4core3ptr45drop_in_place$LT$proc_macro2..TokenStream$GT$17h5b042ffa340debc2E"(ptr nonnull align 8 %110) #8
           to label %890 unwind label %274
 
 904:                                              ; preds = %960, %906, %902, %901
@@ -4531,7 +4531,7 @@ define void @"_ZN67_$LT$wiggle_generate..funcs..Rust$u20$as$u20$witx..abi..Bindg
 
 908:                                              ; preds = %912, %909
   %.pn153 = phi { ptr, i32 } [ %910, %909 ], [ %.pn151, %912 ]
-  invoke void @"_ZN4core3ptr45drop_in_place$LT$proc_macro2..TokenStream$GT$17h5b042ffa340debc2E"(ptr nonnull align 8 %108) #7
+  invoke void @"_ZN4core3ptr45drop_in_place$LT$proc_macro2..TokenStream$GT$17h5b042ffa340debc2E"(ptr nonnull align 8 %108) #8
           to label %903 unwind label %274
 
 909:                                              ; preds = %959, %907
@@ -4545,7 +4545,7 @@ define void @"_ZN67_$LT$wiggle_generate..funcs..Rust$u20$as$u20$witx..abi..Bindg
 
 912:                                              ; preds = %918, %913
   %.pn151 = phi { ptr, i32 } [ %914, %913 ], [ %.pn149, %918 ]
-  invoke void @"_ZN4core3ptr45drop_in_place$LT$proc_macro2..TokenStream$GT$17h5b042ffa340debc2E"(ptr nonnull align 8 %105) #7
+  invoke void @"_ZN4core3ptr45drop_in_place$LT$proc_macro2..TokenStream$GT$17h5b042ffa340debc2E"(ptr nonnull align 8 %105) #8
           to label %908 unwind label %274
 
 913:                                              ; preds = %958, %916, %915, %911
@@ -4567,7 +4567,7 @@ define void @"_ZN67_$LT$wiggle_generate..funcs..Rust$u20$as$u20$witx..abi..Bindg
 
 918:                                              ; preds = %955, %949, %929, %923, %919
   %.pn149 = phi { ptr, i32 } [ %920, %919 ], [ %956, %955 ], [ %950, %949 ], [ %930, %929 ], [ %924, %923 ]
-  invoke void @"_ZN4core3ptr45drop_in_place$LT$proc_macro2..TokenStream$GT$17h5b042ffa340debc2E"(ptr nonnull align 8 %103) #7
+  invoke void @"_ZN4core3ptr45drop_in_place$LT$proc_macro2..TokenStream$GT$17h5b042ffa340debc2E"(ptr nonnull align 8 %103) #8
           to label %912 unwind label %274
 
 919:                                              ; preds = %957, %953, %952, %951, %947, %946, %945, %927, %926, %925, %921, %917
@@ -4586,7 +4586,7 @@ define void @"_ZN67_$LT$wiggle_generate..funcs..Rust$u20$as$u20$witx..abi..Bindg
 923:                                              ; preds = %922
   %924 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr45drop_in_place$LT$proc_macro2..TokenStream$GT$17h5b042ffa340debc2E"(ptr nonnull align 8 %101) #7
+  invoke void @"_ZN4core3ptr45drop_in_place$LT$proc_macro2..TokenStream$GT$17h5b042ffa340debc2E"(ptr nonnull align 8 %101) #8
           to label %918 unwind label %274
 
 925:                                              ; preds = %922
@@ -4609,7 +4609,7 @@ define void @"_ZN67_$LT$wiggle_generate..funcs..Rust$u20$as$u20$witx..abi..Bindg
 929:                                              ; preds = %944, %943, %942, %941, %940, %939, %938, %937, %936, %935, %934, %933, %932, %931, %928
   %930 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr45drop_in_place$LT$proc_macro2..TokenStream$GT$17h5b042ffa340debc2E"(ptr nonnull align 8 %99) #7
+  invoke void @"_ZN4core3ptr45drop_in_place$LT$proc_macro2..TokenStream$GT$17h5b042ffa340debc2E"(ptr nonnull align 8 %99) #8
           to label %918 unwind label %274
 
 931:                                              ; preds = %928
@@ -4688,7 +4688,7 @@ define void @"_ZN67_$LT$wiggle_generate..funcs..Rust$u20$as$u20$witx..abi..Bindg
 949:                                              ; preds = %948
   %950 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr45drop_in_place$LT$proc_macro2..TokenStream$GT$17h5b042ffa340debc2E"(ptr nonnull align 8 %96) #7
+  invoke void @"_ZN4core3ptr45drop_in_place$LT$proc_macro2..TokenStream$GT$17h5b042ffa340debc2E"(ptr nonnull align 8 %96) #8
           to label %918 unwind label %274
 
 951:                                              ; preds = %948
@@ -4711,7 +4711,7 @@ define void @"_ZN67_$LT$wiggle_generate..funcs..Rust$u20$as$u20$witx..abi..Bindg
 955:                                              ; preds = %954
   %956 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr45drop_in_place$LT$proc_macro2..TokenStream$GT$17h5b042ffa340debc2E"(ptr nonnull align 8 %94) #7
+  invoke void @"_ZN4core3ptr45drop_in_place$LT$proc_macro2..TokenStream$GT$17h5b042ffa340debc2E"(ptr nonnull align 8 %94) #8
           to label %918 unwind label %274
 
 957:                                              ; preds = %954
@@ -4747,7 +4747,7 @@ define void @"_ZN67_$LT$wiggle_generate..funcs..Rust$u20$as$u20$witx..abi..Bindg
 
 964:                                              ; preds = %968, %965
   %.pn179 = phi { ptr, i32 } [ %966, %965 ], [ %969, %968 ]
-  invoke void @"_ZN4core3ptr39drop_in_place$LT$proc_macro2..Ident$GT$17h689352a13baa1516E"(ptr nonnull align 8 %12) #7
+  invoke void @"_ZN4core3ptr39drop_in_place$LT$proc_macro2..Ident$GT$17h689352a13baa1516E"(ptr nonnull align 8 %12) #8
           to label %276 unwind label %274
 
 965:                                              ; preds = %970, %726
@@ -4762,7 +4762,7 @@ define void @"_ZN67_$LT$wiggle_generate..funcs..Rust$u20$as$u20$witx..abi..Bindg
 968:                                              ; preds = %967
   %969 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr45drop_in_place$LT$proc_macro2..TokenStream$GT$17h5b042ffa340debc2E"(ptr nonnull align 8 %10) #7
+  invoke void @"_ZN4core3ptr45drop_in_place$LT$proc_macro2..TokenStream$GT$17h5b042ffa340debc2E"(ptr nonnull align 8 %10) #8
           to label %964 unwind label %274
 
 970:                                              ; preds = %967
@@ -4775,7 +4775,7 @@ define void @"_ZN67_$LT$wiggle_generate..funcs..Rust$u20$as$u20$witx..abi..Bindg
   br label %273
 
 972:                                              ; preds = %255
-  call void @_ZN4core6option13unwrap_failed17hcb3a256a9f1ca882E(ptr nonnull align 8 @anon.21253c77e3fc4844456cc94e3b0b613d.89) #8
+  call void @_ZN4core6option13unwrap_failed17hcb3a256a9f1ca882E(ptr nonnull align 8 @anon.21253c77e3fc4844456cc94e3b0b613d.89) #9
   unreachable
 
 973:                                              ; preds = %255
@@ -4842,7 +4842,7 @@ define void @"_ZN67_$LT$wiggle_generate..funcs..Rust$u20$as$u20$witx..abi..Bindg
 
 995:                                              ; preds = %1009, %1003, %996
   %.pn142.pn = phi { ptr, i32 } [ %.pn142, %1009 ], [ %997, %996 ], [ %1004, %1003 ]
-  invoke void @"_ZN4core3ptr39drop_in_place$LT$proc_macro2..Ident$GT$17h689352a13baa1516E"(ptr nonnull align 8 %126) #7
+  invoke void @"_ZN4core3ptr39drop_in_place$LT$proc_macro2..Ident$GT$17h689352a13baa1516E"(ptr nonnull align 8 %126) #8
           to label %.thread unwind label %274
 
 996:                                              ; preds = %1007, %1006, %990
@@ -4862,7 +4862,7 @@ define void @"_ZN67_$LT$wiggle_generate..funcs..Rust$u20$as$u20$witx..abi..Bindg
 1003:                                             ; preds = %1005, %998
   %1004 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17hcfc4ef542b4c7efcE"(ptr nonnull align 8 %124) #7
+  invoke void @"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17hcfc4ef542b4c7efcE"(ptr nonnull align 8 %124) #8
           to label %995 unwind label %274
 
 1005:                                             ; preds = %998
@@ -4883,7 +4883,7 @@ define void @"_ZN67_$LT$wiggle_generate..funcs..Rust$u20$as$u20$witx..abi..Bindg
 
 1009:                                             ; preds = %1016, %1010
   %.pn142 = phi { ptr, i32 } [ %1011, %1010 ], [ %1017, %1016 ]
-  invoke void @"_ZN4core3ptr45drop_in_place$LT$proc_macro2..TokenStream$GT$17h5b042ffa340debc2E"(ptr nonnull align 8 %121) #7
+  invoke void @"_ZN4core3ptr45drop_in_place$LT$proc_macro2..TokenStream$GT$17h5b042ffa340debc2E"(ptr nonnull align 8 %121) #8
           to label %995 unwind label %274
 
 1010:                                             ; preds = %1021, %1020, %1014, %1013, %1012, %1008
@@ -4910,7 +4910,7 @@ define void @"_ZN67_$LT$wiggle_generate..funcs..Rust$u20$as$u20$witx..abi..Bindg
 1016:                                             ; preds = %1019, %1018, %1015
   %1017 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr45drop_in_place$LT$proc_macro2..TokenStream$GT$17h5b042ffa340debc2E"(ptr nonnull align 8 %119) #7
+  invoke void @"_ZN4core3ptr45drop_in_place$LT$proc_macro2..TokenStream$GT$17h5b042ffa340debc2E"(ptr nonnull align 8 %119) #8
           to label %1009 unwind label %274
 
 1018:                                             ; preds = %1015
@@ -4942,7 +4942,7 @@ define void @"_ZN67_$LT$wiggle_generate..funcs..Rust$u20$as$u20$witx..abi..Bindg
 1024:                                             ; preds = %1030, %1029, %1028, %1027, %1026, %1023
   %1025 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr45drop_in_place$LT$proc_macro2..TokenStream$GT$17h5b042ffa340debc2E"(ptr nonnull align 8 %118) #7
+  invoke void @"_ZN4core3ptr45drop_in_place$LT$proc_macro2..TokenStream$GT$17h5b042ffa340debc2E"(ptr nonnull align 8 %118) #8
           to label %.thread unwind label %274
 
 1026:                                             ; preds = %1023
@@ -4967,7 +4967,7 @@ define void @"_ZN67_$LT$wiggle_generate..funcs..Rust$u20$as$u20$witx..abi..Bindg
 
 1031:                                             ; preds = %1035, %1032
   %.pn145 = phi { ptr, i32 } [ %1033, %1032 ], [ %1036, %1035 ]
-  invoke void @"_ZN4core3ptr45drop_in_place$LT$proc_macro2..TokenStream$GT$17h5b042ffa340debc2E"(ptr nonnull align 8 %127) #7
+  invoke void @"_ZN4core3ptr45drop_in_place$LT$proc_macro2..TokenStream$GT$17h5b042ffa340debc2E"(ptr nonnull align 8 %127) #8
           to label %979 unwind label %274
 
 1032:                                             ; preds = %1039, %987
@@ -4982,7 +4982,7 @@ define void @"_ZN67_$LT$wiggle_generate..funcs..Rust$u20$as$u20$witx..abi..Bindg
 1035:                                             ; preds = %1038, %1037, %1034
   %1036 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr45drop_in_place$LT$proc_macro2..TokenStream$GT$17h5b042ffa340debc2E"(ptr nonnull align 8 %115) #7
+  invoke void @"_ZN4core3ptr45drop_in_place$LT$proc_macro2..TokenStream$GT$17h5b042ffa340debc2E"(ptr nonnull align 8 %115) #8
           to label %1031 unwind label %274
 
 1037:                                             ; preds = %1034
@@ -5012,12 +5012,12 @@ define void @"_ZN67_$LT$wiggle_generate..funcs..Rust$u20$as$u20$witx..abi..Bindg
 
 .thread:                                          ; preds = %1024, %995, %979
   %.pn147238 = phi { ptr, i32 } [ %.pn147, %979 ], [ %1025, %1024 ], [ %.pn142.pn, %995 ]
-  invoke void @"_ZN4core3ptr45drop_in_place$LT$proc_macro2..TokenStream$GT$17h5b042ffa340debc2E"(ptr nonnull align 8 %129) #7
+  invoke void @"_ZN4core3ptr45drop_in_place$LT$proc_macro2..TokenStream$GT$17h5b042ffa340debc2E"(ptr nonnull align 8 %129) #8
           to label %276 unwind label %274
 
 1044:                                             ; preds = %1054, %1045
   %.pn140 = phi { ptr, i32 } [ %1046, %1045 ], [ %.pn138, %1054 ]
-  invoke void @"_ZN4core3ptr62drop_in_place$LT$alloc..vec..Vec$LT$proc_macro2..Ident$GT$$GT$17h7fed6d1486afc955E"(ptr nonnull align 8 %80) #7
+  invoke void @"_ZN4core3ptr62drop_in_place$LT$alloc..vec..Vec$LT$proc_macro2..Ident$GT$$GT$17h7fed6d1486afc955E"(ptr nonnull align 8 %80) #8
           to label %276 unwind label %274
 
 1045:                                             ; preds = %1085, %1050, %258
@@ -5031,7 +5031,7 @@ define void @"_ZN67_$LT$wiggle_generate..funcs..Rust$u20$as$u20$witx..abi..Bindg
   br i1 %1049, label %1050, label %1051
 
 1050:                                             ; preds = %1047
-  invoke void @_ZN4core6option13unwrap_failed17hcb3a256a9f1ca882E(ptr nonnull align 8 @anon.21253c77e3fc4844456cc94e3b0b613d.96) #8
+  invoke void @_ZN4core6option13unwrap_failed17hcb3a256a9f1ca882E(ptr nonnull align 8 @anon.21253c77e3fc4844456cc94e3b0b613d.96) #9
           to label %592 unwind label %1045
 
 1051:                                             ; preds = %1047
@@ -5043,7 +5043,7 @@ define void @"_ZN67_$LT$wiggle_generate..funcs..Rust$u20$as$u20$witx..abi..Bindg
 
 1054:                                             ; preds = %1058, %1055
   %.pn138 = phi { ptr, i32 } [ %1056, %1055 ], [ %.pn136, %1058 ]
-  invoke void @"_ZN4core3ptr45drop_in_place$LT$proc_macro2..TokenStream$GT$17h5b042ffa340debc2E"(ptr nonnull align 8 %79) #7
+  invoke void @"_ZN4core3ptr45drop_in_place$LT$proc_macro2..TokenStream$GT$17h5b042ffa340debc2E"(ptr nonnull align 8 %79) #8
           to label %1044 unwind label %274
 
 1055:                                             ; preds = %1079, %1078, %1051
@@ -5057,7 +5057,7 @@ define void @"_ZN67_$LT$wiggle_generate..funcs..Rust$u20$as$u20$witx..abi..Bindg
 
 1058:                                             ; preds = %1064, %1059
   %.pn136 = phi { ptr, i32 } [ %1060, %1059 ], [ %lpad.phi263, %1064 ]
-  invoke void @"_ZN4core3ptr45drop_in_place$LT$proc_macro2..TokenStream$GT$17h5b042ffa340debc2E"(ptr nonnull align 8 %76) #7
+  invoke void @"_ZN4core3ptr45drop_in_place$LT$proc_macro2..TokenStream$GT$17h5b042ffa340debc2E"(ptr nonnull align 8 %76) #8
           to label %1054 unwind label %274
 
 1059:                                             ; preds = %1077, %1076, %1075, %1073, %1061, %1057
@@ -5085,7 +5085,7 @@ define void @"_ZN67_$LT$wiggle_generate..funcs..Rust$u20$as$u20$witx..abi..Bindg
 
 1064:                                             ; preds = %.loopexit.split-lp260, %.loopexit259
   %lpad.phi263 = phi { ptr, i32 } [ %lpad.loopexit261, %.loopexit259 ], [ %lpad.loopexit.split-lp262, %.loopexit.split-lp260 ]
-  invoke void @"_ZN4core3ptr45drop_in_place$LT$proc_macro2..TokenStream$GT$17h5b042ffa340debc2E"(ptr nonnull align 8 %74) #7
+  invoke void @"_ZN4core3ptr45drop_in_place$LT$proc_macro2..TokenStream$GT$17h5b042ffa340debc2E"(ptr nonnull align 8 %74) #8
           to label %1058 unwind label %274
 
 1065:                                             ; preds = %1062
@@ -5152,7 +5152,7 @@ define void @"_ZN67_$LT$wiggle_generate..funcs..Rust$u20$as$u20$witx..abi..Bindg
           to label %1069 unwind label %.loopexit259
 
 1088:                                             ; preds = %261
-  call void @_ZN4core9panicking5panic17h44790a89027c670fE(ptr nonnull align 1 @anon.21253c77e3fc4844456cc94e3b0b613d.38, i64 15, ptr nonnull align 8 @anon.21253c77e3fc4844456cc94e3b0b613d.98) #8
+  call void @_ZN4core9panicking5panic17h44790a89027c670fE(ptr nonnull align 1 @anon.21253c77e3fc4844456cc94e3b0b613d.38, i64 15, ptr nonnull align 8 @anon.21253c77e3fc4844456cc94e3b0b613d.98) #9
   unreachable
 
 1089:                                             ; preds = %261
@@ -5170,7 +5170,7 @@ define void @"_ZN67_$LT$wiggle_generate..funcs..Rust$u20$as$u20$witx..abi..Bindg
 
 1095:                                             ; preds = %1101, %1096
   %.pn134 = phi { ptr, i32 } [ %1097, %1096 ], [ %1102, %1101 ]
-  invoke void @"_ZN4core3ptr45drop_in_place$LT$proc_macro2..TokenStream$GT$17h5b042ffa340debc2E"(ptr nonnull align 8 %90) #7
+  invoke void @"_ZN4core3ptr45drop_in_place$LT$proc_macro2..TokenStream$GT$17h5b042ffa340debc2E"(ptr nonnull align 8 %90) #8
           to label %276 unwind label %274
 
 1096:                                             ; preds = %1104, %1099, %1098, %1089
@@ -5193,7 +5193,7 @@ define void @"_ZN67_$LT$wiggle_generate..funcs..Rust$u20$as$u20$witx..abi..Bindg
 1101:                                             ; preds = %1103, %1100
   %1102 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr45drop_in_place$LT$proc_macro2..TokenStream$GT$17h5b042ffa340debc2E"(ptr nonnull align 8 %88) #7
+  invoke void @"_ZN4core3ptr45drop_in_place$LT$proc_macro2..TokenStream$GT$17h5b042ffa340debc2E"(ptr nonnull align 8 %88) #8
           to label %1095 unwind label %274
 
 1103:                                             ; preds = %1100
@@ -5211,7 +5211,7 @@ define void @"_ZN67_$LT$wiggle_generate..funcs..Rust$u20$as$u20$witx..abi..Bindg
   br label %273
 
 1106:                                             ; preds = %1092
-  call void @_ZN4core6option13unwrap_failed17hcb3a256a9f1ca882E(ptr nonnull align 8 @anon.21253c77e3fc4844456cc94e3b0b613d.97) #8
+  call void @_ZN4core6option13unwrap_failed17hcb3a256a9f1ca882E(ptr nonnull align 8 @anon.21253c77e3fc4844456cc94e3b0b613d.97) #9
   unreachable
 
 1107:                                             ; preds = %1092
@@ -5223,7 +5223,7 @@ define void @"_ZN67_$LT$wiggle_generate..funcs..Rust$u20$as$u20$witx..abi..Bindg
 
 1110:                                             ; preds = %1114, %1111
   %.pn132 = phi { ptr, i32 } [ %1112, %1111 ], [ %.pn, %1114 ]
-  invoke void @"_ZN4core3ptr45drop_in_place$LT$proc_macro2..TokenStream$GT$17h5b042ffa340debc2E"(ptr nonnull align 8 %86) #7
+  invoke void @"_ZN4core3ptr45drop_in_place$LT$proc_macro2..TokenStream$GT$17h5b042ffa340debc2E"(ptr nonnull align 8 %86) #8
           to label %276 unwind label %274
 
 1111:                                             ; preds = %1123, %1107
@@ -5237,7 +5237,7 @@ define void @"_ZN67_$LT$wiggle_generate..funcs..Rust$u20$as$u20$witx..abi..Bindg
 
 1114:                                             ; preds = %1120, %1115
   %.pn = phi { ptr, i32 } [ %1116, %1115 ], [ %1121, %1120 ]
-  invoke void @"_ZN4core3ptr45drop_in_place$LT$proc_macro2..TokenStream$GT$17h5b042ffa340debc2E"(ptr nonnull align 8 %83) #7
+  invoke void @"_ZN4core3ptr45drop_in_place$LT$proc_macro2..TokenStream$GT$17h5b042ffa340debc2E"(ptr nonnull align 8 %83) #8
           to label %1110 unwind label %274
 
 1115:                                             ; preds = %1122, %1118, %1117, %1113
@@ -5260,7 +5260,7 @@ define void @"_ZN67_$LT$wiggle_generate..funcs..Rust$u20$as$u20$witx..abi..Bindg
 1120:                                             ; preds = %1119
   %1121 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr45drop_in_place$LT$proc_macro2..TokenStream$GT$17h5b042ffa340debc2E"(ptr nonnull align 8 %81) #7
+  invoke void @"_ZN4core3ptr45drop_in_place$LT$proc_macro2..TokenStream$GT$17h5b042ffa340debc2E"(ptr nonnull align 8 %81) #8
           to label %1114 unwind label %274
 
 1122:                                             ; preds = %1119
@@ -5280,7 +5280,7 @@ define void @"_ZN67_$LT$wiggle_generate..funcs..Rust$u20$as$u20$witx..abi..Bindg
 1125:                                             ; preds = %264
   %1126 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr45drop_in_place$LT$proc_macro2..TokenStream$GT$17h5b042ffa340debc2E"(ptr nonnull align 8 %92) #7
+  invoke void @"_ZN4core3ptr45drop_in_place$LT$proc_macro2..TokenStream$GT$17h5b042ffa340debc2E"(ptr nonnull align 8 %92) #8
           to label %276 unwind label %274
 
 1127:                                             ; preds = %264
@@ -5323,7 +5323,7 @@ declare void @_ZN5quote9__private10push_group17h3d81ec283a288856E(ptr align 8, i
 declare void @_ZN4core9panicking16panic_in_cleanup17hbacfddf1bcf21a1eE() unnamed_addr #4
 
 ; Function Attrs: cold noreturn nonlazybind uwtable
-declare void @_ZN4core9panicking18panic_bounds_check17h5aa5e8a957e001f9E(i64, i64, ptr align 8) unnamed_addr #1
+declare void @_ZN4core9panicking18panic_bounds_check17h5aa5e8a957e001f9E(i64, i64, ptr align 8) unnamed_addr #5
 
 ; Function Attrs: nonlazybind uwtable
 declare void @_ZN15wiggle_generate5names9wasm_type17h5152ee481af4db12E(ptr sret({ { i64, [3 x i64] }, {} }) align 8, i8) unnamed_addr #0
@@ -5443,7 +5443,7 @@ declare void @"_ZN4core3ptr39drop_in_place$LT$proc_macro2..Ident$GT$17h689352a13
 declare void @"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17he0d1447b2d0b27c2E"(ptr align 8) unnamed_addr #3
 
 ; Function Attrs: cold noreturn nonlazybind uwtable
-declare void @_ZN4core9panicking5panic17h44790a89027c670fE(ptr align 1, i64, ptr align 8) unnamed_addr #1
+declare void @_ZN4core9panicking5panic17h44790a89027c670fE(ptr align 1, i64, ptr align 8) unnamed_addr #5
 
 ; Function Attrs: nonlazybind uwtable
 declare zeroext i1 @"_ZN53_$LT$T$u20$as$u20$core..slice..cmp..SliceContains$GT$14slice_contains17hcaad2da314976cd0E"(ptr align 8, ptr align 8, i64) unnamed_addr #0
@@ -5458,7 +5458,7 @@ declare void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h33d9159aeb1a6a92E"(ptr ali
 declare void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17hc35bba765b534e91E"(ptr sret({ i64, [3 x i64] }) align 8, ptr align 8) unnamed_addr #3
 
 ; Function Attrs: cold noreturn nonlazybind uwtable
-declare void @_ZN4core6option13unwrap_failed17hcb3a256a9f1ca882E(ptr align 8) unnamed_addr #1
+declare void @_ZN4core6option13unwrap_failed17hcb3a256a9f1ca882E(ptr align 8) unnamed_addr #5
 
 ; Function Attrs: nonlazybind uwtable
 declare zeroext i1 @_ZN11proc_macro211TokenStream8is_empty17hb0de67b7ba72fc6eE(ptr align 8) unnamed_addr #0
@@ -5542,24 +5542,25 @@ declare void @"_ZN97_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$alloc..vec..spe
 declare zeroext i1 @"_ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$GT$3fmt17hc40911627ad41783E"(ptr align 8, ptr align 8) unnamed_addr #0
 
 ; Function Attrs: cold noreturn nonlazybind uwtable
-declare void @_ZN4core9panicking9panic_fmt17ha6effc2775a0749cE(ptr align 8, ptr align 8) unnamed_addr #1
+declare void @_ZN4core9panicking9panic_fmt17ha6effc2775a0749cE(ptr align 8, ptr align 8) unnamed_addr #5
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #5
+declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #6
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture readonly, i64, i1 immarg) #6
+declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture readonly, i64, i1 immarg) #7
 
 attributes #0 = { nonlazybind uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
-attributes #1 = { cold noreturn nonlazybind uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
+attributes #1 = { noreturn nonlazybind uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
 attributes #2 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
 attributes #3 = { inlinehint nonlazybind uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
 attributes #4 = { cold noreturn nounwind nonlazybind uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
-attributes #5 = { nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #6 = { nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #7 = { cold }
-attributes #8 = { noreturn }
-attributes #9 = { cold noreturn nounwind }
+attributes #5 = { cold noreturn nonlazybind uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
+attributes #6 = { nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #7 = { nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #8 = { cold }
+attributes #9 = { noreturn }
+attributes #10 = { cold noreturn nounwind }
 
 !llvm.module.flags = !{!0, !1}
 !llvm.ident = !{!2}
