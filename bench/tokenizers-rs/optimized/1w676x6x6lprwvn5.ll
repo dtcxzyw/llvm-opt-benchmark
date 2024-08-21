@@ -21127,10 +21127,8 @@ define void @_ZN10tokenizers9tokenizer8encoding8Encoding14word_to_tokens17hfefd6
   %22 = getelementptr i8, ptr %20, i64 4
   %.val4.i.i.i.i = load i32, ptr %22, align 4, !alias.scope !4533, !noalias !4536
   %trunc.i.i.i.i.i.i.i.i = trunc nuw i32 %.val.i.i.i.i to i1
-  %.04.i.i.i.i.i.i.i.i = tail call i8 @llvm.ucmp.i8.i32(i32 %.val.i.i.i.i, i32 1)
-  %.0.i.i.i.i.i.i.i.i.i = tail call range(i8 -1, 2) i8 @llvm.ucmp.i8.i32(i32 %.val4.i.i.i.i, i32 %2)
-  %.0.i.i.i.i.i.i.i.i = select i1 %trunc.i.i.i.i.i.i.i.i, i8 %.0.i.i.i.i.i.i.i.i.i, i8 %.04.i.i.i.i.i.i.i.i
-  %switch.i.not.i.i.i.i.i.i = icmp eq i8 %.0.i.i.i.i.i.i.i.i, 1
+  %switch1.i.i.i.i.i.i.i = icmp ugt i32 %.val4.i.i.i.i, %2
+  %switch.i.not.i.i.i.i.i.i = select i1 %trunc.i.i.i.i.i.i.i.i, i1 %switch1.i.i.i.i.i.i.i, i1 false
   br i1 %switch.i.not.i.i.i.i.i.i, label %"_ZN115_$LT$core..iter..adapters..take_while..TakeWhile$LT$I$C$P$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h1f268c5c4a82cc44E.exit", label %23
 
 23:                                               ; preds = %.lr.ph.i.i.i.i
@@ -21226,10 +21224,8 @@ define void @_ZN10tokenizers9tokenizer8encoding8Encoding13word_to_chars17hf177de
   %22 = getelementptr i8, ptr %20, i64 4
   %.val4.i.i.i.i.i = load i32, ptr %22, align 4, !alias.scope !4558, !noalias !4561
   %trunc.i.i.i.i.i.i.i.i.i = trunc nuw i32 %.val.i.i.i.i.i to i1
-  %.04.i.i.i.i.i.i.i.i.i = tail call i8 @llvm.ucmp.i8.i32(i32 %.val.i.i.i.i.i, i32 1)
-  %.0.i.i.i.i.i.i.i.i.i.i = tail call range(i8 -1, 2) i8 @llvm.ucmp.i8.i32(i32 %.val4.i.i.i.i.i, i32 %2)
-  %.0.i.i.i.i.i.i.i.i.i = select i1 %trunc.i.i.i.i.i.i.i.i.i, i8 %.0.i.i.i.i.i.i.i.i.i.i, i8 %.04.i.i.i.i.i.i.i.i.i
-  %switch.i.not.i.i.i.i.i.i.i = icmp eq i8 %.0.i.i.i.i.i.i.i.i.i, 1
+  %switch1.i.i.i.i.i.i.i.i = icmp ugt i32 %.val4.i.i.i.i.i, %2
+  %switch.i.not.i.i.i.i.i.i.i = select i1 %trunc.i.i.i.i.i.i.i.i.i, i1 %switch1.i.i.i.i.i.i.i.i, i1 false
   br i1 %switch.i.not.i.i.i.i.i.i.i, label %"_ZN115_$LT$core..iter..adapters..take_while..TakeWhile$LT$I$C$P$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h1f268c5c4a82cc44E.exit.i", label %23
 
 23:                                               ; preds = %.lr.ph.i.i.i.i.i
@@ -26437,9 +26433,6 @@ declare i64 @llvm.usub.sat.i64(i64, i64) #39
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare double @llvm.fabs.f64(double) #39
-
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i8 @llvm.ucmp.i8.i32(i32, i32) #39
 
 attributes #0 = { inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
 attributes #1 = { alwaysinline nonlazybind uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }

@@ -4116,35 +4116,35 @@ define hidden void @"_ZN17crossbeam_channel7channel17Receiver$LT$T$GT$4recv17h7e
   %7 = alloca [248 x i8], align 8
   call void @llvm.lifetime.start.p0(i64 248, ptr nonnull %7)
   %8 = load i64, ptr %1, align 8, !range !1517, !noundef !4
-  switch i64 %8, label %default.unreachable10 [
+  switch i64 %8, label %default.unreachable8 [
     i64 0, label %9
     i64 1, label %12
     i64 2, label %15
     i64 3, label %18
     i64 4, label %26
-    i64 5, label %58
+    i64 5, label %53
   ]
 
-default.unreachable10:                            ; preds = %2
+default.unreachable8:                             ; preds = %2
   unreachable
 
 9:                                                ; preds = %2
   %10 = getelementptr inbounds i8, ptr %1, i64 8
   %11 = load ptr, ptr %10, align 8, !noundef !4
   call void @"_ZN17crossbeam_channel7flavors5array16Channel$LT$T$GT$4recv17h5037924f156226a5E"(ptr noalias nocapture noundef nonnull sret([248 x i8]) align 8 dereferenceable(248) %7, ptr noundef nonnull align 128 %11, i64 undef, i32 noundef 1000000000)
-  br label %59
+  br label %54
 
 12:                                               ; preds = %2
   %13 = getelementptr inbounds i8, ptr %1, i64 8
   %14 = load ptr, ptr %13, align 8, !noundef !4
   call void @"_ZN17crossbeam_channel7flavors4list16Channel$LT$T$GT$4recv17hfd207f977f103d56E"(ptr noalias nocapture noundef nonnull sret([248 x i8]) align 8 dereferenceable(248) %7, ptr noundef nonnull align 128 %14, i64 undef, i32 noundef 1000000000)
-  br label %59
+  br label %54
 
 15:                                               ; preds = %2
   %16 = getelementptr inbounds i8, ptr %1, i64 8
   %17 = load ptr, ptr %16, align 8, !noundef !4
   call void @"_ZN17crossbeam_channel7flavors4zero16Channel$LT$T$GT$4recv17h5c9cbcdcc73e39b0E"(ptr noalias nocapture noundef nonnull sret([248 x i8]) align 8 dereferenceable(248) %7, ptr noundef nonnull align 8 %17, i64 undef, i32 noundef 1000000000)
-  br label %59
+  br label %54
 
 18:                                               ; preds = %2
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6)
@@ -4182,69 +4182,64 @@ default.unreachable10:                            ; preds = %2
   %37 = extractvalue { i64, i32 } %35, 1
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4), !noalias !1527
   %38 = icmp eq i64 %33, %36
-  %39 = tail call i8 @llvm.ucmp.i8.i32(i32 %34, i32 %37)
-  %40 = tail call i8 @llvm.scmp.i8.i64(i64 %33, i64 %36)
-  %.sroa.0.0.i.i.i.us.i = select i1 %38, i8 %39, i8 %40
-  %switch.i.us.i = icmp eq i8 %.sroa.0.0.i.i.i.us.i, 1
+  %switch15.i.us.i = icmp ugt i32 %34, %37
+  %switch16.i.us.i = icmp sgt i64 %33, %36
+  %switch.i.us.i = select i1 %38, i1 %switch15.i.us.i, i1 %switch16.i.us.i
   %.sroa.3.0.i.us.i = select i1 %switch.i.us.i, i32 %34, i32 %37
   %.sroa.0.0.sroa.speculated.i.us.i = select i1 %switch.i.us.i, i64 %33, i64 %36
-  %41 = load i64, ptr %30, align 8, !noalias !1527, !noundef !4
-  %42 = load i32, ptr %31, align 8, !range !1530, !noalias !1527, !noundef !4
-  %43 = tail call { i64, i32 } @"_ZN88_$LT$std..time..Instant$u20$as$u20$core..ops..arith..Add$LT$core..time..Duration$GT$$GT$3add17h255b1a39f8b6874bE"(i64 noundef %.sroa.0.0.sroa.speculated.i.us.i, i32 noundef %.sroa.3.0.i.us.i, i64 noundef %41, i32 noundef %42), !noalias !1527
-  %44 = extractvalue { i64, i32 } %43, 0
-  %45 = extractvalue { i64, i32 } %43, 1
-  call void @_ZN15crossbeam_utils6atomic11atomic_cell28atomic_compare_exchange_weak17h44f9487b13f8c037E(ptr noalias nocapture noundef nonnull sret([24 x i8]) align 8 dereferenceable(24) %4, ptr noundef nonnull %29, i64 noundef %33, i32 noundef %34, i64 noundef %44, i32 noundef %45), !noalias !1527
-  %46 = load i64, ptr %4, align 8, !range !204, !noalias !1527, !noundef !4
-  %trunc.us.i = trunc nuw i64 %46 to i1
+  %39 = load i64, ptr %30, align 8, !noalias !1527, !noundef !4
+  %40 = load i32, ptr %31, align 8, !range !1530, !noalias !1527, !noundef !4
+  %41 = tail call { i64, i32 } @"_ZN88_$LT$std..time..Instant$u20$as$u20$core..ops..arith..Add$LT$core..time..Duration$GT$$GT$3add17h255b1a39f8b6874bE"(i64 noundef %.sroa.0.0.sroa.speculated.i.us.i, i32 noundef %.sroa.3.0.i.us.i, i64 noundef %39, i32 noundef %40), !noalias !1527
+  %42 = extractvalue { i64, i32 } %41, 0
+  %43 = extractvalue { i64, i32 } %41, 1
+  call void @_ZN15crossbeam_utils6atomic11atomic_cell28atomic_compare_exchange_weak17h44f9487b13f8c037E(ptr noalias nocapture noundef nonnull sret([24 x i8]) align 8 dereferenceable(24) %4, ptr noundef nonnull %29, i64 noundef %33, i32 noundef %34, i64 noundef %42, i32 noundef %43), !noalias !1527
+  %44 = load i64, ptr %4, align 8, !range !204, !noalias !1527, !noundef !4
+  %trunc.us.i = trunc nuw i64 %44 to i1
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4), !noalias !1527
   br i1 %trunc.us.i, label %.split.us.i, label %.split57.us.i
 
 .split57.us.i:                                    ; preds = %.split.us.i
-  %47 = tail call i8 @llvm.ucmp.i8.i32(i32 %37, i32 %34)
-  %48 = tail call i8 @llvm.scmp.i8.i64(i64 %36, i64 %33)
-  %.sroa.0.0.i23.i = select i1 %38, i8 %47, i8 %48
-  %49 = icmp eq i8 %.sroa.0.0.i23.i, -1
-  br i1 %49, label %50, label %_ZN17crossbeam_channel7flavors4tick7Channel4recv17h63c8e3b5801ff8e6E.llvm.5336188084572713014.exit
+  br i1 %switch.i.us.i, label %45, label %_ZN17crossbeam_channel7flavors4tick7Channel4recv17h63c8e3b5801ff8e6E.llvm.5336188084572713014.exit
 
-50:                                               ; preds = %.split57.us.i
-  %51 = tail call { i64, i32 } @"_ZN60_$LT$std..time..Instant$u20$as$u20$core..ops..arith..Sub$GT$3sub17hb26d59006e5bd325E"(i64 noundef %33, i32 noundef %34, i64 noundef %36, i32 noundef %37), !noalias !1527
-  %52 = extractvalue { i64, i32 } %51, 0
-  %53 = extractvalue { i64, i32 } %51, 1
-  tail call void @_ZN3std6thread5sleep17ha4ece277e44faea7E(i64 noundef %52, i32 noundef %53), !noalias !1527
+45:                                               ; preds = %.split57.us.i
+  %46 = tail call { i64, i32 } @"_ZN60_$LT$std..time..Instant$u20$as$u20$core..ops..arith..Sub$GT$3sub17hb26d59006e5bd325E"(i64 noundef %33, i32 noundef %34, i64 noundef %36, i32 noundef %37), !noalias !1527
+  %47 = extractvalue { i64, i32 } %46, 0
+  %48 = extractvalue { i64, i32 } %46, 1
+  tail call void @_ZN3std6thread5sleep17ha4ece277e44faea7E(i64 noundef %47, i32 noundef %48), !noalias !1527
   br label %_ZN17crossbeam_channel7flavors4tick7Channel4recv17h63c8e3b5801ff8e6E.llvm.5336188084572713014.exit
 
-_ZN17crossbeam_channel7flavors4tick7Channel4recv17h63c8e3b5801ff8e6E.llvm.5336188084572713014.exit: ; preds = %.split57.us.i, %50
+_ZN17crossbeam_channel7flavors4tick7Channel4recv17h63c8e3b5801ff8e6E.llvm.5336188084572713014.exit: ; preds = %.split57.us.i, %45
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %3), !noalias !1531
   store ptr @anon.695ce54c0493ea6bfa978dacabdf8173.16.llvm.5336188084572713014, ptr %3, align 8, !noalias !1531
-  %54 = getelementptr inbounds i8, ptr %3, i64 8
-  store i64 1, ptr %54, align 8, !noalias !1531
-  %55 = getelementptr inbounds i8, ptr %3, i64 32
-  store ptr null, ptr %55, align 8, !noalias !1531
-  %56 = getelementptr inbounds i8, ptr %3, i64 16
-  store ptr inttoptr (i64 8 to ptr), ptr %56, align 8, !noalias !1531
-  %57 = getelementptr inbounds i8, ptr %3, i64 24
-  store i64 0, ptr %57, align 8, !noalias !1531
+  %49 = getelementptr inbounds i8, ptr %3, i64 8
+  store i64 1, ptr %49, align 8, !noalias !1531
+  %50 = getelementptr inbounds i8, ptr %3, i64 32
+  store ptr null, ptr %50, align 8, !noalias !1531
+  %51 = getelementptr inbounds i8, ptr %3, i64 16
+  store ptr inttoptr (i64 8 to ptr), ptr %51, align 8, !noalias !1531
+  %52 = getelementptr inbounds i8, ptr %3, i64 24
+  store i64 0, ptr %52, align 8, !noalias !1531
   call void @_ZN4core9panicking9panic_fmt17hdc63834ffaaefae5E(ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %3, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.695ce54c0493ea6bfa978dacabdf8173.11.llvm.5336188084572713014) #45
   unreachable
 
-58:                                               ; preds = %2
+53:                                               ; preds = %2
   tail call void @_ZN17crossbeam_channel5utils11sleep_until17he0ebdfaff23eeba3E(i64 undef, i32 noundef 1000000000)
-  br label %63
+  br label %58
 
-59:                                               ; preds = %15, %12, %9
-  %60 = load i64, ptr %7, align 8, !range !1516, !noundef !4
-  %61 = icmp eq i64 %60, -9223372036854775792
-  br i1 %61, label %63, label %62
+54:                                               ; preds = %15, %12, %9
+  %55 = load i64, ptr %7, align 8, !range !1516, !noundef !4
+  %56 = icmp eq i64 %55, -9223372036854775792
+  br i1 %56, label %58, label %57
 
-62:                                               ; preds = %59
+57:                                               ; preds = %54
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(248) %0, ptr noundef nonnull align 8 dereferenceable(248) %7, i64 248, i1 false)
-  br label %64
+  br label %59
 
-63:                                               ; preds = %59, %58
+58:                                               ; preds = %54, %53
   store i64 -9223372036854775792, ptr %0, align 8
-  br label %64
+  br label %59
 
-64:                                               ; preds = %63, %62
+59:                                               ; preds = %58, %57
   call void @llvm.lifetime.end.p0(i64 248, ptr nonnull %7)
   ret void
 }
@@ -4326,113 +4321,108 @@ define hidden void @_ZN17crossbeam_channel7flavors2at7Channel4recv17h5193d58b9e0
   %5 = getelementptr inbounds i8, ptr %1, i64 16
   %6 = load atomic i8, ptr %5 monotonic, align 8
   %7 = icmp eq i8 %6, 0
-  br i1 %7, label %.preheader, label %27
+  br i1 %7, label %.preheader, label %23
 
 .preheader:                                       ; preds = %4
   %8 = tail call { i64, i32 } @_ZN3std4time7Instant3now17h95d27afc96f9df2cE()
   %9 = extractvalue { i64, i32 } %8, 0
   %10 = extractvalue { i64, i32 } %8, 1
-  %.val1340 = load i64, ptr %1, align 8, !noundef !4
+  %.val1344 = load i64, ptr %1, align 8, !noundef !4
   %11 = getelementptr i8, ptr %1, i64 8
-  %.val1441 = load i32, ptr %11, align 8
-  %12 = icmp eq i64 %9, %.val1340
-  %13 = tail call i8 @llvm.ucmp.i8.i32(i32 %10, i32 %.val1441)
-  %14 = tail call i8 @llvm.scmp.i8.i64(i64 %9, i64 %.val1340)
-  %.sroa.0.0.i42 = select i1 %12, i8 %13, i8 %14
-  %switch43 = icmp ult i8 %.sroa.0.0.i42, 2
-  br i1 %switch43, label %._crit_edge, label %.lr.ph
+  %.val1445 = load i32, ptr %11, align 8
+  %12 = icmp eq i64 %9, %.val1344
+  %switch3946 = icmp uge i32 %10, %.val1445
+  %switch4047 = icmp sge i64 %9, %.val1344
+  %switch48 = select i1 %12, i1 %switch3946, i1 %switch4047
+  br i1 %switch48, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.preheader
-  %15 = icmp eq i32 %3, 1000000000
-  br i1 %15, label %.lr.ph.split.us, label %.lr.ph.split
+  %13 = icmp eq i32 %3, 1000000000
+  br i1 %13, label %.lr.ph.split.us, label %.lr.ph.split
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph, %.lr.ph.split.us
-  %.val1445.us = phi i32 [ %.val14.us, %.lr.ph.split.us ], [ %.val1441, %.lr.ph ]
-  %.val1344.us = phi i64 [ %.val13.us, %.lr.ph.split.us ], [ %.val1340, %.lr.ph ]
-  %16 = phi i32 [ %23, %.lr.ph.split.us ], [ %10, %.lr.ph ]
-  %17 = phi i64 [ %22, %.lr.ph.split.us ], [ %9, %.lr.ph ]
-  %18 = tail call { i64, i32 } @"_ZN60_$LT$std..time..Instant$u20$as$u20$core..ops..arith..Sub$GT$3sub17hb26d59006e5bd325E"(i64 noundef %.val1344.us, i32 noundef %.val1445.us, i64 noundef %17, i32 noundef %16)
-  %19 = extractvalue { i64, i32 } %18, 0
-  %20 = extractvalue { i64, i32 } %18, 1
-  tail call void @_ZN3std6thread5sleep17ha4ece277e44faea7E(i64 noundef %19, i32 noundef %20)
-  %21 = tail call { i64, i32 } @_ZN3std4time7Instant3now17h95d27afc96f9df2cE()
-  %22 = extractvalue { i64, i32 } %21, 0
-  %23 = extractvalue { i64, i32 } %21, 1
+  %.val1450.us = phi i32 [ %.val14.us, %.lr.ph.split.us ], [ %.val1445, %.lr.ph ]
+  %.val1349.us = phi i64 [ %.val13.us, %.lr.ph.split.us ], [ %.val1344, %.lr.ph ]
+  %14 = phi i32 [ %21, %.lr.ph.split.us ], [ %10, %.lr.ph ]
+  %15 = phi i64 [ %20, %.lr.ph.split.us ], [ %9, %.lr.ph ]
+  %16 = tail call { i64, i32 } @"_ZN60_$LT$std..time..Instant$u20$as$u20$core..ops..arith..Sub$GT$3sub17hb26d59006e5bd325E"(i64 noundef %.val1349.us, i32 noundef %.val1450.us, i64 noundef %15, i32 noundef %14)
+  %17 = extractvalue { i64, i32 } %16, 0
+  %18 = extractvalue { i64, i32 } %16, 1
+  tail call void @_ZN3std6thread5sleep17ha4ece277e44faea7E(i64 noundef %17, i32 noundef %18)
+  %19 = tail call { i64, i32 } @_ZN3std4time7Instant3now17h95d27afc96f9df2cE()
+  %20 = extractvalue { i64, i32 } %19, 0
+  %21 = extractvalue { i64, i32 } %19, 1
   %.val13.us = load i64, ptr %1, align 8, !noundef !4
   %.val14.us = load i32, ptr %11, align 8
-  %24 = icmp eq i64 %22, %.val13.us
-  %25 = tail call i8 @llvm.ucmp.i8.i32(i32 %23, i32 %.val14.us)
-  %26 = tail call i8 @llvm.scmp.i8.i64(i64 %22, i64 %.val13.us)
-  %.sroa.0.0.i.us = select i1 %24, i8 %25, i8 %26
-  %switch.us = icmp ult i8 %.sroa.0.0.i.us, 2
+  %22 = icmp eq i64 %20, %.val13.us
+  %switch39.us = icmp uge i32 %21, %.val14.us
+  %switch40.us = icmp sge i64 %20, %.val13.us
+  %switch.us = select i1 %22, i1 %switch39.us, i1 %switch40.us
   br i1 %switch.us, label %._crit_edge, label %.lr.ph.split.us
 
-27:                                               ; preds = %4
+23:                                               ; preds = %4
   tail call void @_ZN17crossbeam_channel5utils11sleep_until17he0ebdfaff23eeba3E(i64 %2, i32 noundef %3)
   store i8 0, ptr %0, align 8
-  br label %39
+  br label %33
 
-.lr.ph.split:                                     ; preds = %.lr.ph, %41
-  %.val1445 = phi i32 [ %.val14, %41 ], [ %.val1441, %.lr.ph ]
-  %.val1344 = phi i64 [ %.val13, %41 ], [ %.val1340, %.lr.ph ]
-  %28 = phi i32 [ %51, %41 ], [ %10, %.lr.ph ]
-  %29 = phi i64 [ %50, %41 ], [ %9, %.lr.ph ]
-  %30 = icmp eq i64 %29, %2
-  %31 = tail call i8 @llvm.ucmp.i8.i32(i32 %28, i32 %3)
-  %32 = tail call i8 @llvm.scmp.i8.i64(i64 %29, i64 %2)
-  %.sroa.0.0.i23 = select i1 %30, i8 %31, i8 %32
-  %switch10 = icmp ult i8 %.sroa.0.0.i23, 2
-  br i1 %switch10, label %55, label %41
+.lr.ph.split:                                     ; preds = %.lr.ph, %35
+  %.val1450 = phi i32 [ %.val14, %35 ], [ %.val1445, %.lr.ph ]
+  %.val1349 = phi i64 [ %.val13, %35 ], [ %.val1344, %.lr.ph ]
+  %24 = phi i32 [ %45, %35 ], [ %10, %.lr.ph ]
+  %25 = phi i64 [ %44, %35 ], [ %9, %.lr.ph ]
+  %26 = icmp eq i64 %25, %2
+  %switch1041 = icmp uge i32 %24, %3
+  %switch1042 = icmp sge i64 %25, %2
+  %switch10 = select i1 %26, i1 %switch1041, i1 %switch1042
+  br i1 %switch10, label %47, label %35
 
-._crit_edge:                                      ; preds = %41, %.lr.ph.split.us, %.preheader
-  %33 = atomicrmw xchg ptr %5, i8 1 seq_cst, align 1
-  %34 = icmp eq i8 %33, 0
-  br i1 %34, label %35, label %38
+._crit_edge:                                      ; preds = %35, %.lr.ph.split.us, %.preheader
+  %27 = atomicrmw xchg ptr %5, i8 1 seq_cst, align 1
+  %28 = icmp eq i8 %27, 0
+  br i1 %28, label %29, label %32
 
-35:                                               ; preds = %._crit_edge
-  %36 = load i64, ptr %1, align 8, !noundef !4
-  %37 = load i32, ptr %11, align 8, !range !1530, !noundef !4
-  store i64 %36, ptr %0, align 8
-  br label %39
+29:                                               ; preds = %._crit_edge
+  %30 = load i64, ptr %1, align 8, !noundef !4
+  %31 = load i32, ptr %11, align 8, !range !1530, !noundef !4
+  store i64 %30, ptr %0, align 8
+  br label %33
 
-38:                                               ; preds = %._crit_edge
+32:                                               ; preds = %._crit_edge
   tail call void @_ZN17crossbeam_channel5utils11sleep_until17he0ebdfaff23eeba3E(i64 undef, i32 noundef 1000000000)
   tail call void @_ZN4core9panicking5panic17h75b3c9209f97d725E(ptr noalias noundef nonnull readonly align 1 @anon.695ce54c0493ea6bfa978dacabdf8173.5.llvm.5336188084572713014, i64 noundef 40, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.695ce54c0493ea6bfa978dacabdf8173.13) #45
   unreachable
 
-39:                                               ; preds = %55, %35, %27
-  %.sink = phi i32 [ 1000000000, %55 ], [ %37, %35 ], [ 1000000000, %27 ]
-  %40 = getelementptr inbounds i8, ptr %0, i64 8
-  store i32 %.sink, ptr %40, align 8
+33:                                               ; preds = %47, %29, %23
+  %.sink = phi i32 [ 1000000000, %47 ], [ %31, %29 ], [ 1000000000, %23 ]
+  %34 = getelementptr inbounds i8, ptr %0, i64 8
+  store i32 %.sink, ptr %34, align 8
   ret void
 
-41:                                               ; preds = %.lr.ph.split
-  %42 = icmp eq i64 %2, %.val1344
-  %43 = tail call i8 @llvm.ucmp.i8.i32(i32 %3, i32 %.val1445)
-  %44 = tail call i8 @llvm.scmp.i8.i64(i64 %2, i64 %.val1344)
-  %.sroa.0.0.i24 = select i1 %42, i8 %43, i8 %44
-  %45 = icmp eq i8 %.sroa.0.0.i24, -1
-  %spec.select = select i1 %45, i32 %3, i32 %.val1445
-  %spec.select38 = select i1 %45, i64 %2, i64 %.val1344
-  %46 = tail call { i64, i32 } @"_ZN60_$LT$std..time..Instant$u20$as$u20$core..ops..arith..Sub$GT$3sub17hb26d59006e5bd325E"(i64 noundef %spec.select38, i32 noundef %spec.select, i64 noundef %29, i32 noundef %28)
-  %47 = extractvalue { i64, i32 } %46, 0
-  %48 = extractvalue { i64, i32 } %46, 1
-  tail call void @_ZN3std6thread5sleep17ha4ece277e44faea7E(i64 noundef %47, i32 noundef %48)
-  %49 = tail call { i64, i32 } @_ZN3std4time7Instant3now17h95d27afc96f9df2cE()
-  %50 = extractvalue { i64, i32 } %49, 0
-  %51 = extractvalue { i64, i32 } %49, 1
+35:                                               ; preds = %.lr.ph.split
+  %36 = icmp eq i64 %2, %.val1349
+  %37 = icmp ult i32 %3, %.val1450
+  %38 = icmp slt i64 %2, %.val1349
+  %39 = select i1 %36, i1 %37, i1 %38
+  %spec.select = select i1 %39, i32 %3, i32 %.val1450
+  %spec.select38 = select i1 %39, i64 %2, i64 %.val1349
+  %40 = tail call { i64, i32 } @"_ZN60_$LT$std..time..Instant$u20$as$u20$core..ops..arith..Sub$GT$3sub17hb26d59006e5bd325E"(i64 noundef %spec.select38, i32 noundef %spec.select, i64 noundef %25, i32 noundef %24)
+  %41 = extractvalue { i64, i32 } %40, 0
+  %42 = extractvalue { i64, i32 } %40, 1
+  tail call void @_ZN3std6thread5sleep17ha4ece277e44faea7E(i64 noundef %41, i32 noundef %42)
+  %43 = tail call { i64, i32 } @_ZN3std4time7Instant3now17h95d27afc96f9df2cE()
+  %44 = extractvalue { i64, i32 } %43, 0
+  %45 = extractvalue { i64, i32 } %43, 1
   %.val13 = load i64, ptr %1, align 8, !noundef !4
   %.val14 = load i32, ptr %11, align 8
-  %52 = icmp eq i64 %50, %.val13
-  %53 = tail call i8 @llvm.ucmp.i8.i32(i32 %51, i32 %.val14)
-  %54 = tail call i8 @llvm.scmp.i8.i64(i64 %50, i64 %.val13)
-  %.sroa.0.0.i = select i1 %52, i8 %53, i8 %54
-  %switch = icmp ult i8 %.sroa.0.0.i, 2
+  %46 = icmp eq i64 %44, %.val13
+  %switch39 = icmp uge i32 %45, %.val14
+  %switch40 = icmp sge i64 %44, %.val13
+  %switch = select i1 %46, i1 %switch39, i1 %switch40
   br i1 %switch, label %._crit_edge, label %.lr.ph.split
 
-55:                                               ; preds = %.lr.ph.split
+47:                                               ; preds = %.lr.ph.split
   store i8 0, ptr %0, align 8
-  br label %39
+  br label %33
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
@@ -4443,7 +4433,7 @@ define hidden void @_ZN17crossbeam_channel7flavors4tick7Channel4recv17h63c8e3b58
   %8 = getelementptr inbounds i8, ptr %1, i64 24
   br i1 %6, label %.split.us, label %.split
 
-.split.us:                                        ; preds = %4, %24
+.split.us:                                        ; preds = %4, %22
   %9 = tail call { i64, i32 } @_ZN15crossbeam_utils6atomic11atomic_cell11atomic_load17h8561ea542f06f4a5E(ptr noundef nonnull %1)
   %10 = extractvalue { i64, i32 } %9, 0
   %11 = extractvalue { i64, i32 } %9, 1
@@ -4452,128 +4442,122 @@ define hidden void @_ZN17crossbeam_channel7flavors4tick7Channel4recv17h63c8e3b58
   %14 = extractvalue { i64, i32 } %12, 1
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5)
   %15 = icmp eq i64 %10, %13
-  %16 = tail call i8 @llvm.ucmp.i8.i32(i32 %11, i32 %14)
-  %17 = tail call i8 @llvm.scmp.i8.i64(i64 %10, i64 %13)
-  %.sroa.0.0.i.i.i.us = select i1 %15, i8 %16, i8 %17
-  %switch.i.us = icmp eq i8 %.sroa.0.0.i.i.i.us, 1
+  %switch15.i.us = icmp ugt i32 %11, %14
+  %switch16.i.us = icmp sgt i64 %10, %13
+  %switch.i.us = select i1 %15, i1 %switch15.i.us, i1 %switch16.i.us
   %.sroa.3.0.i.us = select i1 %switch.i.us, i32 %11, i32 %14
   %.sroa.0.0.sroa.speculated.i.us = select i1 %switch.i.us, i64 %10, i64 %13
-  %18 = load i64, ptr %7, align 8, !noundef !4
-  %19 = load i32, ptr %8, align 8, !range !1530, !noundef !4
-  %20 = tail call { i64, i32 } @"_ZN88_$LT$std..time..Instant$u20$as$u20$core..ops..arith..Add$LT$core..time..Duration$GT$$GT$3add17h255b1a39f8b6874bE"(i64 noundef %.sroa.0.0.sroa.speculated.i.us, i32 noundef %.sroa.3.0.i.us, i64 noundef %18, i32 noundef %19)
-  %21 = extractvalue { i64, i32 } %20, 0
-  %22 = extractvalue { i64, i32 } %20, 1
-  call void @_ZN15crossbeam_utils6atomic11atomic_cell28atomic_compare_exchange_weak17h44f9487b13f8c037E(ptr noalias nocapture noundef nonnull sret([24 x i8]) align 8 dereferenceable(24) %5, ptr noundef nonnull %1, i64 noundef %10, i32 noundef %11, i64 noundef %21, i32 noundef %22)
-  %23 = load i64, ptr %5, align 8, !range !204, !noundef !4
-  %trunc.us = trunc nuw i64 %23 to i1
-  br i1 %trunc.us, label %24, label %.split57.us
+  %16 = load i64, ptr %7, align 8, !noundef !4
+  %17 = load i32, ptr %8, align 8, !range !1530, !noundef !4
+  %18 = tail call { i64, i32 } @"_ZN88_$LT$std..time..Instant$u20$as$u20$core..ops..arith..Add$LT$core..time..Duration$GT$$GT$3add17h255b1a39f8b6874bE"(i64 noundef %.sroa.0.0.sroa.speculated.i.us, i32 noundef %.sroa.3.0.i.us, i64 noundef %16, i32 noundef %17)
+  %19 = extractvalue { i64, i32 } %18, 0
+  %20 = extractvalue { i64, i32 } %18, 1
+  call void @_ZN15crossbeam_utils6atomic11atomic_cell28atomic_compare_exchange_weak17h44f9487b13f8c037E(ptr noalias nocapture noundef nonnull sret([24 x i8]) align 8 dereferenceable(24) %5, ptr noundef nonnull %1, i64 noundef %10, i32 noundef %11, i64 noundef %19, i32 noundef %20)
+  %21 = load i64, ptr %5, align 8, !range !204, !noundef !4
+  %trunc.us = trunc nuw i64 %21 to i1
+  br i1 %trunc.us, label %22, label %.split57.us
 
-24:                                               ; preds = %.split.us
+22:                                               ; preds = %.split.us
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5)
   br label %.split.us
 
 .split:                                           ; preds = %4
-  %25 = tail call { i64, i32 } @_ZN15crossbeam_utils6atomic11atomic_cell11atomic_load17h8561ea542f06f4a5E(ptr noundef nonnull %1)
-  %26 = extractvalue { i64, i32 } %25, 0
-  %27 = extractvalue { i64, i32 } %25, 1
-  %28 = tail call { i64, i32 } @_ZN3std4time7Instant3now17h95d27afc96f9df2cE()
-  %29 = extractvalue { i64, i32 } %28, 0
-  %30 = extractvalue { i64, i32 } %28, 1
-  %31 = icmp eq i64 %2, %26
-  %32 = tail call i8 @llvm.ucmp.i8.i32(i32 %3, i32 %27)
-  %33 = tail call i8 @llvm.scmp.i8.i64(i64 %2, i64 %26)
-  %.sroa.0.0.i62 = select i1 %31, i8 %32, i8 %33
-  %34 = icmp eq i8 %.sroa.0.0.i62, -1
-  br i1 %34, label %._crit_edge, label %.lr.ph
+  %23 = tail call { i64, i32 } @_ZN15crossbeam_utils6atomic11atomic_cell11atomic_load17h8561ea542f06f4a5E(ptr noundef nonnull %1)
+  %24 = extractvalue { i64, i32 } %23, 0
+  %25 = extractvalue { i64, i32 } %23, 1
+  %26 = tail call { i64, i32 } @_ZN3std4time7Instant3now17h95d27afc96f9df2cE()
+  %27 = extractvalue { i64, i32 } %26, 0
+  %28 = extractvalue { i64, i32 } %26, 1
+  %29 = icmp eq i64 %2, %24
+  %30 = icmp ult i32 %3, %25
+  %31 = icmp slt i64 %2, %24
+  %32 = select i1 %29, i1 %30, i1 %31
+  br i1 %32, label %._crit_edge, label %.lr.ph
 
-.lr.ph:                                           ; preds = %.split, %62
-  %35 = phi i32 [ %68, %62 ], [ %30, %.split ]
-  %36 = phi i64 [ %67, %62 ], [ %29, %.split ]
-  %37 = phi i32 [ %65, %62 ], [ %27, %.split ]
-  %38 = phi i64 [ %64, %62 ], [ %26, %.split ]
+.lr.ph:                                           ; preds = %.split, %58
+  %33 = phi i32 [ %64, %58 ], [ %28, %.split ]
+  %34 = phi i64 [ %63, %58 ], [ %27, %.split ]
+  %35 = phi i32 [ %61, %58 ], [ %25, %.split ]
+  %36 = phi i64 [ %60, %58 ], [ %24, %.split ]
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5)
-  %39 = icmp eq i64 %38, %36
-  %40 = tail call i8 @llvm.ucmp.i8.i32(i32 %37, i32 %35)
-  %41 = tail call i8 @llvm.scmp.i8.i64(i64 %38, i64 %36)
-  %.sroa.0.0.i.i.i = select i1 %39, i8 %40, i8 %41
-  %switch.i = icmp eq i8 %.sroa.0.0.i.i.i, 1
-  %.sroa.3.0.i = select i1 %switch.i, i32 %37, i32 %35
-  %.sroa.0.0.sroa.speculated.i = select i1 %switch.i, i64 %38, i64 %36
-  %42 = load i64, ptr %7, align 8, !noundef !4
-  %43 = load i32, ptr %8, align 8, !range !1530, !noundef !4
-  %44 = tail call { i64, i32 } @"_ZN88_$LT$std..time..Instant$u20$as$u20$core..ops..arith..Add$LT$core..time..Duration$GT$$GT$3add17h255b1a39f8b6874bE"(i64 noundef %.sroa.0.0.sroa.speculated.i, i32 noundef %.sroa.3.0.i, i64 noundef %42, i32 noundef %43)
-  %45 = extractvalue { i64, i32 } %44, 0
-  %46 = extractvalue { i64, i32 } %44, 1
-  call void @_ZN15crossbeam_utils6atomic11atomic_cell28atomic_compare_exchange_weak17h44f9487b13f8c037E(ptr noalias nocapture noundef nonnull sret([24 x i8]) align 8 dereferenceable(24) %5, ptr noundef nonnull %1, i64 noundef %38, i32 noundef %37, i64 noundef %45, i32 noundef %46)
-  %47 = load i64, ptr %5, align 8, !range !204, !noundef !4
-  %trunc = trunc nuw i64 %47 to i1
-  br i1 %trunc, label %62, label %.split57.us
+  %37 = icmp eq i64 %36, %34
+  %switch15.i = icmp ugt i32 %35, %33
+  %switch16.i = icmp sgt i64 %36, %34
+  %switch.i = select i1 %37, i1 %switch15.i, i1 %switch16.i
+  %.sroa.3.0.i = select i1 %switch.i, i32 %35, i32 %33
+  %.sroa.0.0.sroa.speculated.i = select i1 %switch.i, i64 %36, i64 %34
+  %38 = load i64, ptr %7, align 8, !noundef !4
+  %39 = load i32, ptr %8, align 8, !range !1530, !noundef !4
+  %40 = tail call { i64, i32 } @"_ZN88_$LT$std..time..Instant$u20$as$u20$core..ops..arith..Add$LT$core..time..Duration$GT$$GT$3add17h255b1a39f8b6874bE"(i64 noundef %.sroa.0.0.sroa.speculated.i, i32 noundef %.sroa.3.0.i, i64 noundef %38, i32 noundef %39)
+  %41 = extractvalue { i64, i32 } %40, 0
+  %42 = extractvalue { i64, i32 } %40, 1
+  call void @_ZN15crossbeam_utils6atomic11atomic_cell28atomic_compare_exchange_weak17h44f9487b13f8c037E(ptr noalias nocapture noundef nonnull sret([24 x i8]) align 8 dereferenceable(24) %5, ptr noundef nonnull %1, i64 noundef %36, i32 noundef %35, i64 noundef %41, i32 noundef %42)
+  %43 = load i64, ptr %5, align 8, !range !204, !noundef !4
+  %trunc = trunc nuw i64 %43 to i1
+  br i1 %trunc, label %58, label %.split57.us
 
-._crit_edge:                                      ; preds = %62, %.split
-  %.lcssa49 = phi i64 [ %29, %.split ], [ %67, %62 ]
-  %.lcssa = phi i32 [ %30, %.split ], [ %68, %62 ]
-  %48 = icmp eq i64 %.lcssa49, %2
-  %49 = tail call i8 @llvm.ucmp.i8.i32(i32 %.lcssa, i32 %3)
-  %50 = tail call i8 @llvm.scmp.i8.i64(i64 %.lcssa49, i64 %2)
-  %.sroa.0.0.i22 = select i1 %48, i8 %49, i8 %50
-  %51 = icmp eq i8 %.sroa.0.0.i22, -1
-  br i1 %51, label %53, label %52
+._crit_edge:                                      ; preds = %58, %.split
+  %.lcssa49 = phi i64 [ %27, %.split ], [ %63, %58 ]
+  %.lcssa = phi i32 [ %28, %.split ], [ %64, %58 ]
+  %44 = icmp eq i64 %.lcssa49, %2
+  %45 = icmp ult i32 %.lcssa, %3
+  %46 = icmp slt i64 %.lcssa49, %2
+  %47 = select i1 %44, i1 %45, i1 %46
+  br i1 %47, label %49, label %48
 
-52:                                               ; preds = %53, %._crit_edge
+48:                                               ; preds = %49, %._crit_edge
   store i8 0, ptr %0, align 8
-  br label %57
+  br label %53
 
-53:                                               ; preds = %._crit_edge
-  %54 = tail call { i64, i32 } @"_ZN60_$LT$std..time..Instant$u20$as$u20$core..ops..arith..Sub$GT$3sub17hb26d59006e5bd325E"(i64 noundef %2, i32 noundef %3, i64 noundef %.lcssa49, i32 noundef %.lcssa)
-  %55 = extractvalue { i64, i32 } %54, 0
-  %56 = extractvalue { i64, i32 } %54, 1
-  tail call void @_ZN3std6thread5sleep17ha4ece277e44faea7E(i64 noundef %55, i32 noundef %56)
-  br label %52
+49:                                               ; preds = %._crit_edge
+  %50 = tail call { i64, i32 } @"_ZN60_$LT$std..time..Instant$u20$as$u20$core..ops..arith..Sub$GT$3sub17hb26d59006e5bd325E"(i64 noundef %2, i32 noundef %3, i64 noundef %.lcssa49, i32 noundef %.lcssa)
+  %51 = extractvalue { i64, i32 } %50, 0
+  %52 = extractvalue { i64, i32 } %50, 1
+  tail call void @_ZN3std6thread5sleep17ha4ece277e44faea7E(i64 noundef %51, i32 noundef %52)
+  br label %48
 
-57:                                               ; preds = %73, %52
-  %.us-phi59.sink = phi i32 [ %.us-phi59, %73 ], [ 1000000000, %52 ]
-  %58 = getelementptr inbounds i8, ptr %0, i64 8
-  store i32 %.us-phi59.sink, ptr %58, align 8
+53:                                               ; preds = %69, %48
+  %.us-phi59.sink = phi i32 [ %.us-phi59, %69 ], [ 1000000000, %48 ]
+  %54 = getelementptr inbounds i8, ptr %0, i64 8
+  store i32 %.us-phi59.sink, ptr %54, align 8
   ret void
 
 .split57.us:                                      ; preds = %.lr.ph, %.split.us
-  %.us-phi = phi i1 [ %15, %.split.us ], [ %39, %.lr.ph ]
-  %.us-phi58 = phi i64 [ %10, %.split.us ], [ %38, %.lr.ph ]
-  %.us-phi59 = phi i32 [ %11, %.split.us ], [ %37, %.lr.ph ]
-  %.us-phi60 = phi i64 [ %13, %.split.us ], [ %36, %.lr.ph ]
-  %.us-phi61 = phi i32 [ %14, %.split.us ], [ %35, %.lr.ph ]
+  %.us-phi = phi i1 [ %15, %.split.us ], [ %37, %.lr.ph ]
+  %.us-phi58 = phi i64 [ %10, %.split.us ], [ %36, %.lr.ph ]
+  %.us-phi59 = phi i32 [ %11, %.split.us ], [ %35, %.lr.ph ]
+  %.us-phi60 = phi i64 [ %13, %.split.us ], [ %34, %.lr.ph ]
+  %.us-phi61 = phi i32 [ %14, %.split.us ], [ %33, %.lr.ph ]
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5)
-  %59 = tail call i8 @llvm.ucmp.i8.i32(i32 %.us-phi61, i32 %.us-phi59)
-  %60 = tail call i8 @llvm.scmp.i8.i64(i64 %.us-phi60, i64 %.us-phi58)
-  %.sroa.0.0.i23 = select i1 %.us-phi, i8 %59, i8 %60
-  %61 = icmp eq i8 %.sroa.0.0.i23, -1
-  br i1 %61, label %74, label %73
+  %55 = icmp ult i32 %.us-phi61, %.us-phi59
+  %56 = icmp slt i64 %.us-phi60, %.us-phi58
+  %57 = select i1 %.us-phi, i1 %55, i1 %56
+  br i1 %57, label %70, label %69
 
-62:                                               ; preds = %.lr.ph
+58:                                               ; preds = %.lr.ph
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5)
-  %63 = tail call { i64, i32 } @_ZN15crossbeam_utils6atomic11atomic_cell11atomic_load17h8561ea542f06f4a5E(ptr noundef nonnull %1)
-  %64 = extractvalue { i64, i32 } %63, 0
-  %65 = extractvalue { i64, i32 } %63, 1
-  %66 = tail call { i64, i32 } @_ZN3std4time7Instant3now17h95d27afc96f9df2cE()
-  %67 = extractvalue { i64, i32 } %66, 0
-  %68 = extractvalue { i64, i32 } %66, 1
-  %69 = icmp eq i64 %2, %64
-  %70 = tail call i8 @llvm.ucmp.i8.i32(i32 %3, i32 %65)
-  %71 = tail call i8 @llvm.scmp.i8.i64(i64 %2, i64 %64)
-  %.sroa.0.0.i = select i1 %69, i8 %70, i8 %71
-  %72 = icmp eq i8 %.sroa.0.0.i, -1
-  br i1 %72, label %._crit_edge, label %.lr.ph
+  %59 = tail call { i64, i32 } @_ZN15crossbeam_utils6atomic11atomic_cell11atomic_load17h8561ea542f06f4a5E(ptr noundef nonnull %1)
+  %60 = extractvalue { i64, i32 } %59, 0
+  %61 = extractvalue { i64, i32 } %59, 1
+  %62 = tail call { i64, i32 } @_ZN3std4time7Instant3now17h95d27afc96f9df2cE()
+  %63 = extractvalue { i64, i32 } %62, 0
+  %64 = extractvalue { i64, i32 } %62, 1
+  %65 = icmp eq i64 %2, %60
+  %66 = icmp ult i32 %3, %61
+  %67 = icmp slt i64 %2, %60
+  %68 = select i1 %65, i1 %66, i1 %67
+  br i1 %68, label %._crit_edge, label %.lr.ph
 
-73:                                               ; preds = %74, %.split57.us
+69:                                               ; preds = %70, %.split57.us
   store i64 %.us-phi58, ptr %0, align 8
-  br label %57
+  br label %53
 
-74:                                               ; preds = %.split57.us
-  %75 = tail call { i64, i32 } @"_ZN60_$LT$std..time..Instant$u20$as$u20$core..ops..arith..Sub$GT$3sub17hb26d59006e5bd325E"(i64 noundef %.us-phi58, i32 noundef %.us-phi59, i64 noundef %.us-phi60, i32 noundef %.us-phi61)
-  %76 = extractvalue { i64, i32 } %75, 0
-  %77 = extractvalue { i64, i32 } %75, 1
-  tail call void @_ZN3std6thread5sleep17ha4ece277e44faea7E(i64 noundef %76, i32 noundef %77)
-  br label %73
+70:                                               ; preds = %.split57.us
+  %71 = tail call { i64, i32 } @"_ZN60_$LT$std..time..Instant$u20$as$u20$core..ops..arith..Sub$GT$3sub17hb26d59006e5bd325E"(i64 noundef %.us-phi58, i32 noundef %.us-phi59, i64 noundef %.us-phi60, i32 noundef %.us-phi61)
+  %72 = extractvalue { i64, i32 } %71, 0
+  %73 = extractvalue { i64, i32 } %71, 1
+  tail call void @_ZN3std6thread5sleep17ha4ece277e44faea7E(i64 noundef %72, i32 noundef %73)
+  br label %69
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -153128,12 +153112,6 @@ declare i32 @llvm.umin.i32(i32, i32) #40
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i8 @llvm.umin.i8(i8, i8) #40
-
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i8 @llvm.scmp.i8.i64(i64, i64) #40
-
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i8 @llvm.ucmp.i8.i32(i32, i32) #40
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umax.i64(i64, i64) #40

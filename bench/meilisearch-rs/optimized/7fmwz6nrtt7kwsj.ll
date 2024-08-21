@@ -2646,23 +2646,23 @@ define hidden void @"_ZN9hashbrown3raw21RawIterRange$LT$T$GT$9fold_impl17hfc7d97
   %.lcssa2430 = phi ptr [ %.lcssa2429, %"_ZN92_$LT$hashbrown..map..Iter$LT$K$C$V$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold28_$u7b$$u7b$closure$u7d$$u7d$17haae09fb47eaf96f4E.exit" ], [ %.promoted28, %5 ]
   %.lcssa2327 = phi ptr [ %.lcssa2326, %"_ZN92_$LT$hashbrown..map..Iter$LT$K$C$V$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold28_$u7b$$u7b$closure$u7d$$u7d$17haae09fb47eaf96f4E.exit" ], [ %.promoted, %5 ]
   %13 = phi i16 [ %21, %"_ZN92_$LT$hashbrown..map..Iter$LT$K$C$V$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold28_$u7b$$u7b$closure$u7d$$u7d$17haae09fb47eaf96f4E.exit" ], [ %.promoted25, %5 ]
-  %.sroa.0.0.ph = phi i64 [ %38, %"_ZN92_$LT$hashbrown..map..Iter$LT$K$C$V$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold28_$u7b$$u7b$closure$u7d$$u7d$17haae09fb47eaf96f4E.exit" ], [ %2, %5 ]
+  %.sroa.0.0.ph = phi i64 [ %37, %"_ZN92_$LT$hashbrown..map..Iter$LT$K$C$V$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold28_$u7b$$u7b$closure$u7d$$u7d$17haae09fb47eaf96f4E.exit" ], [ %2, %5 ]
   %14 = icmp eq i16 %13, 0
   br i1 %14, label %.lr.ph, label %17
 
 .lr.ph:                                           ; preds = %.outer
   %15 = icmp eq i64 %.sroa.0.0.ph, 0
-  br i1 %15, label %47, label %.lr.ph.split
+  br i1 %15, label %46, label %.lr.ph.split
 
 ._crit_edge:                                      ; preds = %.lr.ph.split
-  %16 = xor i16 %43, -1
-  store ptr %44, ptr %1, align 8
-  store ptr %45, ptr %9, align 8
+  %16 = xor i16 %42, -1
+  store ptr %43, ptr %1, align 8
+  store ptr %44, ptr %9, align 8
   br label %17
 
 17:                                               ; preds = %._crit_edge, %.outer
-  %.lcssa2429 = phi ptr [ %45, %._crit_edge ], [ %.lcssa2430, %.outer ]
-  %.lcssa2326 = phi ptr [ %44, %._crit_edge ], [ %.lcssa2327, %.outer ]
+  %.lcssa2429 = phi ptr [ %44, %._crit_edge ], [ %.lcssa2430, %.outer ]
+  %.lcssa2326 = phi ptr [ %43, %._crit_edge ], [ %.lcssa2327, %.outer ]
   %.lcssa = phi i16 [ %16, %._crit_edge ], [ %13, %.outer ]
   %18 = tail call range(i16 0, 17) i16 @llvm.cttz.i16(i16 %.lcssa, i1 true)
   %19 = zext nneg i16 %18 to i64
@@ -2700,9 +2700,9 @@ define hidden void @"_ZN9hashbrown3raw21RawIterRange$LT$T$GT$9fold_impl17hfc7d97
   %34 = sub nsw i8 %33, %32
   %35 = icmp eq i8 %33, %32
   %36 = load i64, ptr %12, align 8, !noalias !509
-  %37 = tail call i8 @llvm.ucmp.i8.i64(i64 %36, i64 %31)
-  %.sroa.0.0.i.i.i.i.i.i.i.i.i = select i1 %35, i8 %37, i8 %34
-  %switch.i.i.i.i.i = icmp eq i8 %.sroa.0.0.i.i.i.i.i.i.i.i.i, 1
+  %switch.i.i2.i.i.i = icmp ugt i64 %36, %31
+  %switch.i.i3.i.i.i = icmp eq i8 %34, 1
+  %switch.i.i.i.i.i = select i1 %35, i1 %switch.i.i2.i.i.i, i1 %switch.i.i3.i.i.i
   %..i.i.i.i.i = select i1 %switch.i.i.i.i.i, ptr %6, ptr %11
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %7, ptr noundef nonnull align 8 dereferenceable(32) %..i.i.i.i.i, i64 32, i1 false), !alias.scope !550, !noalias !551
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %6), !noalias !509
@@ -2711,21 +2711,21 @@ define hidden void @"_ZN9hashbrown3raw21RawIterRange$LT$T$GT$9fold_impl17hfc7d97
 "_ZN92_$LT$hashbrown..map..Iter$LT$K$C$V$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold28_$u7b$$u7b$closure$u7d$$u7d$17haae09fb47eaf96f4E.exit": ; preds = %26, %27
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(32) %7, i64 32, i1 false)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %7)
-  %38 = add i64 %.sroa.0.0.ph, -1
+  %37 = add i64 %.sroa.0.0.ph, -1
   br label %.outer
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %.lr.ph.split
-  %39 = phi ptr [ %45, %.lr.ph.split ], [ %.lcssa2430, %.lr.ph ]
-  %40 = phi ptr [ %44, %.lr.ph.split ], [ %.lcssa2327, %.lr.ph ]
-  %41 = load <16 x i8>, ptr %39, align 16, !noalias !552
-  %42 = icmp slt <16 x i8> %41, zeroinitializer
-  %43 = bitcast <16 x i1> %42 to i16
-  %44 = getelementptr inbounds i8, ptr %40, i64 -1536
-  %45 = getelementptr inbounds i8, ptr %39, i64 16
-  %46 = icmp eq i16 %43, -1
-  br i1 %46, label %.lr.ph.split, label %._crit_edge
+  %38 = phi ptr [ %44, %.lr.ph.split ], [ %.lcssa2430, %.lr.ph ]
+  %39 = phi ptr [ %43, %.lr.ph.split ], [ %.lcssa2327, %.lr.ph ]
+  %40 = load <16 x i8>, ptr %38, align 16, !noalias !552
+  %41 = icmp slt <16 x i8> %40, zeroinitializer
+  %42 = bitcast <16 x i1> %41 to i16
+  %43 = getelementptr inbounds i8, ptr %39, i64 -1536
+  %44 = getelementptr inbounds i8, ptr %38, i64 16
+  %45 = icmp eq i16 %42, -1
+  br i1 %45, label %.lr.ph.split, label %._crit_edge
 
-47:                                               ; preds = %.lr.ph
+46:                                               ; preds = %.lr.ph
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %3, i64 32, i1 false)
   ret void
 }
@@ -4909,14 +4909,11 @@ declare hidden { ptr, i64 } @_ZN5alloc5alloc6Global10alloc_impl17ha40af4e5081ee8
 ; Function Attrs: nonlazybind uwtable
 declare hidden void @"_ZN52_$LT$std..path..Path$u20$as$u20$core..hash..Hash$GT$4hash17he97416b96dc2683cE.llvm.12527824420698527888"(ptr noalias noundef nonnull readonly align 1, i64 noundef, ptr noalias noundef align 8 dereferenceable(72)) unnamed_addr #0
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i8 @llvm.ucmp.i8.i64(i64, i64) #29
-
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite)
-declare void @llvm.experimental.noalias.scope.decl(metadata) #30
+declare void @llvm.experimental.noalias.scope.decl(metadata) #29
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.umax.i64(i64, i64) #29
+declare i64 @llvm.umax.i64(i64, i64) #30
 
 attributes #0 = { nonlazybind uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
 attributes #1 = { nounwind nonlazybind uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
@@ -4947,8 +4944,8 @@ attributes #25 = { nounwind nonlazybind allockind("free") uwtable "alloc-family"
 attributes #26 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #27 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
 attributes #28 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #29 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #30 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite) }
+attributes #29 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite) }
+attributes #30 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #31 = { cold noreturn nounwind }
 attributes #32 = { nounwind }
 attributes #33 = { cold }

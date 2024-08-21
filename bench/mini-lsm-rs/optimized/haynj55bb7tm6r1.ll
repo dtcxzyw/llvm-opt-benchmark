@@ -3231,14 +3231,13 @@ define hidden noundef i64 @"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15parti
   %22 = sext i32 %21 to i64
   %23 = icmp eq i32 %21, 0
   %spec.store.select.i.i.i.i.i.i.i.i.i = select i1 %23, i64 %20, i64 %22
-  %.0.i.i.i.i.i.i.i.i.i = tail call noundef range(i8 -1, 2) i8 @llvm.scmp.i8.i64(i64 %spec.store.select.i.i.i.i.i.i.i.i.i, i64 0)
   %24 = icmp eq i64 %spec.store.select.i.i.i.i.i.i.i.i.i, 0
-  %.0.i.i.i.i.i.i.i = tail call range(i8 -1, 2) i8 @llvm.ucmp.i8.i64(i64 %8, i64 %19)
-  %.0.i.i.i.i.i = select i1 %24, i8 %.0.i.i.i.i.i.i.i, i8 %.0.i.i.i.i.i.i.i.i.i
-  %switch.selectcmp.i.i.i = icmp sgt i8 %.0.i.i.i.i.i, 0
+  %switch.selectcmp3.i.i.i = icmp ule i64 %8, %19
+  %switch.selectcmp4.i.i.i = icmp slt i64 %spec.store.select.i.i.i.i.i.i.i.i.i, 1
+  %switch.selectcmp.i.i.i = select i1 %24, i1 %switch.selectcmp3.i.i.i, i1 %switch.selectcmp4.i.i.i
   %25 = add nuw i64 %11, 1
-  %.022.i = select i1 %switch.selectcmp.i.i.i, i64 %.01925.i, i64 %25
-  %.021.i = select i1 %switch.selectcmp.i.i.i, i64 %11, i64 %.02024.i
+  %.022.i = select i1 %switch.selectcmp.i.i.i, i64 %25, i64 %.01925.i
+  %.021.i = select i1 %switch.selectcmp.i.i.i, i64 %.02024.i, i64 %11
   %26 = sub i64 %.021.i, %.022.i
   %27 = icmp ult i64 %.022.i, %.021.i
   br i1 %27, label %9, label %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$16binary_search_by17h5ebb02aca1a2ae04E.llvm.15192800734258360407.exit"
@@ -3285,14 +3284,13 @@ define hidden noundef i64 @"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15parti
   %22 = sext i32 %21 to i64
   %23 = icmp eq i32 %21, 0
   %spec.store.select.i.i.i.i.i.i.i.i.i = select i1 %23, i64 %20, i64 %22
-  %.0.i.i.i.i.i.i.i.i.i = tail call noundef range(i8 -1, 2) i8 @llvm.scmp.i8.i64(i64 %spec.store.select.i.i.i.i.i.i.i.i.i, i64 0)
   %24 = icmp eq i64 %spec.store.select.i.i.i.i.i.i.i.i.i, 0
-  %.0.i.i.i.i.i.i.i = tail call range(i8 -1, 2) i8 @llvm.ucmp.i8.i64(i64 %8, i64 %19)
-  %.0.i.i.i.i.i = select i1 %24, i8 %.0.i.i.i.i.i.i.i, i8 %.0.i.i.i.i.i.i.i.i.i
-  %switch.selectcmp.i.i.i = icmp sgt i8 %.0.i.i.i.i.i, 0
+  %switch.selectcmp1.i.i.i = icmp ule i64 %8, %19
+  %switch.selectcmp2.i.i.i = icmp slt i64 %spec.store.select.i.i.i.i.i.i.i.i.i, 1
+  %switch.selectcmp.i.i.i = select i1 %24, i1 %switch.selectcmp1.i.i.i, i1 %switch.selectcmp2.i.i.i
   %25 = add nuw i64 %11, 1
-  %.022.i = select i1 %switch.selectcmp.i.i.i, i64 %.01924.i, i64 %25
-  %.021.i = select i1 %switch.selectcmp.i.i.i, i64 %11, i64 %.02023.i
+  %.022.i = select i1 %switch.selectcmp.i.i.i, i64 %25, i64 %.01924.i
+  %.021.i = select i1 %switch.selectcmp.i.i.i, i64 %.02023.i, i64 %11
   %26 = sub i64 %.021.i, %.022.i
   %27 = icmp ult i64 %.022.i, %.021.i
   br i1 %27, label %9, label %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$16binary_search_by17h8d152a2a152d4dd3E.llvm.15192800734258360407.exit"
@@ -3348,14 +3346,13 @@ define hidden { i64, i64 } @"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$16bina
   %24 = sext i32 %23 to i64
   %25 = icmp eq i32 %23, 0
   %spec.store.select.i.i.i.i.i.i.i.i = select i1 %25, i64 %22, i64 %24
-  %.0.i.i.i.i.i.i.i.i = tail call noundef range(i8 -1, 2) i8 @llvm.scmp.i8.i64(i64 %spec.store.select.i.i.i.i.i.i.i.i, i64 0)
   %26 = icmp eq i64 %spec.store.select.i.i.i.i.i.i.i.i, 0
-  %.0.i.i.i.i.i.i = tail call range(i8 -1, 2) i8 @llvm.ucmp.i8.i64(i64 %8, i64 %21)
-  %.0.i.i.i.i = select i1 %26, i8 %.0.i.i.i.i.i.i, i8 %.0.i.i.i.i.i.i.i.i
-  %switch.selectcmp.i.i = icmp sgt i8 %.0.i.i.i.i, 0
+  %switch.selectcmp3.i.i = icmp ule i64 %8, %21
+  %switch.selectcmp4.i.i = icmp slt i64 %spec.store.select.i.i.i.i.i.i.i.i, 1
+  %switch.selectcmp.i.i = select i1 %26, i1 %switch.selectcmp3.i.i, i1 %switch.selectcmp4.i.i
   %27 = add nuw i64 %13, 1
-  %.022 = select i1 %switch.selectcmp.i.i, i64 %.01925, i64 %27
-  %.021 = select i1 %switch.selectcmp.i.i, i64 %13, i64 %.02024
+  %.022 = select i1 %switch.selectcmp.i.i, i64 %27, i64 %.01925
+  %.021 = select i1 %switch.selectcmp.i.i, i64 %.02024, i64 %13
   %28 = sub i64 %.021, %.022
   %29 = icmp ult i64 %.022, %.021
   br i1 %29, label %11, label %._crit_edge
@@ -3404,14 +3401,13 @@ define hidden { i64, i64 } @"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$16bina
   %24 = sext i32 %23 to i64
   %25 = icmp eq i32 %23, 0
   %spec.store.select.i.i.i.i.i.i.i.i = select i1 %25, i64 %22, i64 %24
-  %.0.i.i.i.i.i.i.i.i = tail call noundef range(i8 -1, 2) i8 @llvm.scmp.i8.i64(i64 %spec.store.select.i.i.i.i.i.i.i.i, i64 0)
   %26 = icmp eq i64 %spec.store.select.i.i.i.i.i.i.i.i, 0
-  %.0.i.i.i.i.i.i = tail call range(i8 -1, 2) i8 @llvm.ucmp.i8.i64(i64 %8, i64 %21)
-  %.0.i.i.i.i = select i1 %26, i8 %.0.i.i.i.i.i.i, i8 %.0.i.i.i.i.i.i.i.i
-  %switch.selectcmp.i.i = icmp sgt i8 %.0.i.i.i.i, 0
+  %switch.selectcmp1.i.i = icmp ule i64 %8, %21
+  %switch.selectcmp2.i.i = icmp slt i64 %spec.store.select.i.i.i.i.i.i.i.i, 1
+  %switch.selectcmp.i.i = select i1 %26, i1 %switch.selectcmp1.i.i, i1 %switch.selectcmp2.i.i
   %27 = add nuw i64 %13, 1
-  %.022 = select i1 %switch.selectcmp.i.i, i64 %.01924, i64 %27
-  %.021 = select i1 %switch.selectcmp.i.i, i64 %13, i64 %.02023
+  %.022 = select i1 %switch.selectcmp.i.i, i64 %27, i64 %.01924
+  %.021 = select i1 %switch.selectcmp.i.i, i64 %.02023, i64 %13
   %28 = sub i64 %.021, %.022
   %29 = icmp ult i64 %.022, %.021
   br i1 %29, label %11, label %._crit_edge

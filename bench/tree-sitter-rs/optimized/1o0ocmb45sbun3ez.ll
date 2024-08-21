@@ -4128,12 +4128,11 @@ define hidden void @"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1183)
   %20 = load i64, ptr %19, align 8, !alias.scope !1180, !noalias !1185, !noundef !4
   %21 = load i64, ptr %17, align 8, !alias.scope !1186, !noalias !1187, !noundef !4
-  %.0.i.i.i.i.i.i.i.i.i.i.i.i = tail call noundef i8 @llvm.ucmp.i8.i64(i64 %20, i64 %21)
   %22 = icmp eq i64 %20, %21
   %23 = load i64, ptr %13, align 8, !noalias !1135
-  %.0.i.i.i.i.i.i.i.i.i.i.i = tail call i8 @llvm.scmp.i8.i64(i64 %23, i64 %18)
-  %.0.i.i.i.i.i.i.i.i.i.i = select i1 %22, i8 %.0.i.i.i.i.i.i.i.i.i.i.i, i8 %.0.i.i.i.i.i.i.i.i.i.i.i.i
-  %switch.i.i.i.i.i.i = icmp eq i8 %.0.i.i.i.i.i.i.i.i.i.i, 1
+  %switch.i.i1.i.i.i.i = icmp sgt i64 %23, %18
+  %switch.i.i2.i.i.i.i = icmp ugt i64 %20, %21
+  %switch.i.i.i.i.i.i = select i1 %22, i1 %switch.i.i1.i.i.i.i, i1 %switch.i.i2.i.i.i.i
   %..i.i.i.i.i.i = select i1 %switch.i.i.i.i.i.i, ptr %4, ptr %12
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(32) %..i.i.i.i.i.i, i64 32, i1 false), !noalias !1145
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %4), !noalias !1135
@@ -5895,12 +5894,11 @@ define hidden void @"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1705)
   %25 = load i64, ptr %24, align 8, !alias.scope !1702, !noalias !1707, !noundef !4
   %26 = load i64, ptr %22, align 8, !alias.scope !1708, !noalias !1709, !noundef !4
-  %.0.i.i.i.i.i.i.i.i.i.i.i = tail call noundef i8 @llvm.ucmp.i8.i64(i64 %25, i64 %26)
   %27 = icmp eq i64 %25, %26
   %28 = load i64, ptr %18, align 8, !noalias !1658
-  %.0.i.i.i.i.i.i.i.i.i.i = tail call i8 @llvm.scmp.i8.i64(i64 %28, i64 %23)
-  %.0.i.i.i.i.i.i.i.i.i = select i1 %27, i8 %.0.i.i.i.i.i.i.i.i.i.i, i8 %.0.i.i.i.i.i.i.i.i.i.i.i
-  %switch.i.i.i.i.i = icmp eq i8 %.0.i.i.i.i.i.i.i.i.i, 1
+  %switch.i.i1.i.i.i = icmp sgt i64 %28, %23
+  %switch.i.i2.i.i.i = icmp ugt i64 %25, %26
+  %switch.i.i.i.i.i = select i1 %27, i1 %switch.i.i1.i.i.i, i1 %switch.i.i2.i.i.i
   %..i.i.i.i.i = select i1 %switch.i.i.i.i.i, ptr %4, ptr %17
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(32) %..i.i.i.i.i, i64 32, i1 false), !noalias !1657
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %4), !noalias !1658
@@ -23542,12 +23540,11 @@ define hidden void @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core.
   tail call void @llvm.experimental.noalias.scope.decl(metadata !6720)
   %23 = load i64, ptr %22, align 8, !alias.scope !6717, !noalias !6722, !noundef !4
   %24 = load i64, ptr %20, align 8, !alias.scope !6723, !noalias !6724, !noundef !4
-  %.0.i.i.i.i.i.i.i.i.i.i = tail call noundef i8 @llvm.ucmp.i8.i64(i64 %23, i64 %24)
   %25 = icmp eq i64 %23, %24
   %26 = load i64, ptr %16, align 8, !noalias !6673
-  %.0.i.i.i.i.i.i.i.i.i = tail call i8 @llvm.scmp.i8.i64(i64 %26, i64 %21)
-  %.0.i.i.i.i.i.i.i.i = select i1 %25, i8 %.0.i.i.i.i.i.i.i.i.i, i8 %.0.i.i.i.i.i.i.i.i.i.i
-  %switch.i.i.i.i = icmp eq i8 %.0.i.i.i.i.i.i.i.i, 1
+  %switch.i.i1.i.i = icmp sgt i64 %26, %21
+  %switch.i.i2.i.i = icmp ugt i64 %23, %24
+  %switch.i.i.i.i = select i1 %25, i1 %switch.i.i1.i.i, i1 %switch.i.i2.i.i
   %..i.i.i.i = select i1 %switch.i.i.i.i, ptr %6, ptr %15
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %7, ptr noundef nonnull align 8 dereferenceable(32) %..i.i.i.i, i64 32, i1 false)
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %6), !noalias !6673
@@ -35783,9 +35780,6 @@ declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #4
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.usub.sat.i32(i32, i32) #46
-
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i8 @llvm.scmp.i8.i64(i64, i64) #46
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.umax.i32(i32, i32) #46

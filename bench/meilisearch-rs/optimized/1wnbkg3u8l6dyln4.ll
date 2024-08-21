@@ -26474,8 +26474,8 @@ define internal fastcc void @"_ZN5alloc11collections11binary_heap23BinaryHeap$LT
   store i64 %.16.val, ptr %9, align 8, !alias.scope !4118, !noalias !4113
   %10 = getelementptr inbounds i8, ptr %4, i64 176
   store i64 %0, ptr %10, align 8
-  %.not2 = icmp eq i64 %0, 0
-  br i1 %.not2, label %_ZN4core3cmp10PartialOrd2le17h30403f7113682fb9E.exit.thread, label %.lr.ph
+  %.not4 = icmp eq i64 %0, 0
+  br i1 %.not4, label %_ZN4core3cmp10PartialOrd2le17h30403f7113682fb9E.exit.thread, label %.lr.ph
 
 .lr.ph:                                           ; preds = %1
   %11 = getelementptr inbounds i8, ptr %4, i64 8
@@ -26486,8 +26486,8 @@ define internal fastcc void @"_ZN5alloc11collections11binary_heap23BinaryHeap$LT
   br label %16
 
 16:                                               ; preds = %.lr.ph, %_ZN4core3cmp10PartialOrd2le17h30403f7113682fb9E.exit
-  %storemerge3 = phi i64 [ %0, %.lr.ph ], [ %18, %_ZN4core3cmp10PartialOrd2le17h30403f7113682fb9E.exit ]
-  %17 = add i64 %storemerge3, -1
+  %storemerge5 = phi i64 [ %0, %.lr.ph ], [ %18, %_ZN4core3cmp10PartialOrd2le17h30403f7113682fb9E.exit ]
+  %17 = add i64 %storemerge5, -1
   %18 = lshr i64 %17, 1
   %19 = load ptr, ptr %8, align 8, !nonnull !7, !align !1204, !noundef !7
   %20 = load i64, ptr %9, align 8, !noundef !7
@@ -26515,7 +26515,7 @@ define internal fastcc void @"_ZN5alloc11collections11binary_heap23BinaryHeap$LT
   %26 = load i64, ptr %11, align 8, !alias.scope !4146, !noalias !4147
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %3), !noalias !4150
   invoke void @_ZN6grenad5block5Block8entry_at17h9a9f4bceccb5ae6bE(ptr noalias nocapture noundef nonnull sret([40 x i8]) align 8 dereferenceable(40) %3, ptr noalias noundef nonnull readonly align 8 dereferenceable(64) %12, i64 noundef %26)
-          to label %.noexc unwind label %61
+          to label %.noexc unwind label %60
 
 .noexc:                                           ; preds = %"_ZN6grenad6reader13reader_cursor21ReaderCursor$LT$R$GT$7current17h69fbf525e3cfa729E.exit.thread.sink.split.i.i.i"
   %27 = load ptr, ptr %3, align 8, !noalias !4150, !noundef !7
@@ -26545,7 +26545,7 @@ define internal fastcc void @"_ZN5alloc11collections11binary_heap23BinaryHeap$LT
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %2), !noalias !4171
   %35 = getelementptr inbounds i8, ptr %22, i64 16
   invoke void @_ZN6grenad5block5Block8entry_at17h9a9f4bceccb5ae6bE(ptr noalias nocapture noundef nonnull sret([40 x i8]) align 8 dereferenceable(40) %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(64) %35, i64 noundef %34)
-          to label %.noexc4 unwind label %61
+          to label %.noexc4 unwind label %60
 
 .noexc4:                                          ; preds = %"_ZN6grenad6reader13reader_cursor21ReaderCursor$LT$R$GT$7current17h69fbf525e3cfa729E.exit11.thread.sink.split.i.i.i"
   %36 = load ptr, ptr %2, align 8, !noalias !4171, !noundef !7
@@ -26590,43 +26590,43 @@ define internal fastcc void @"_ZN5alloc11collections11binary_heap23BinaryHeap$LT
   %51 = getelementptr inbounds i8, ptr %22, i64 152
   %52 = load i64, ptr %51, align 8, !alias.scope !4182, !noalias !4183
   %53 = load i64, ptr %15, align 8, !alias.scope !4183, !noalias !4182
-  %54 = call i8 @llvm.ucmp.i8.i64(i64 %53, i64 %52)
-  %spec.select.i.i.i = select i1 %50, i8 %54, i8 %.sroa.0.0.i.i.i.i
-  %switch = icmp eq i8 %spec.select.i.i.i, -1
-  %.pre.pre6 = load i64, ptr %10, align 8
+  %switch2 = icmp ult i64 %53, %52
+  %switch3 = icmp eq i8 %.sroa.0.0.i.i.i.i, -1
+  %switch = select i1 %50, i1 %switch2, i1 %switch3
+  %.pre.pre8 = load i64, ptr %10, align 8
   br i1 %switch, label %_ZN4core3cmp10PartialOrd2le17h30403f7113682fb9E.exit, label %_ZN4core3cmp10PartialOrd2le17h30403f7113682fb9E.exit.thread.loopexit
 
 _ZN4core3cmp10PartialOrd2le17h30403f7113682fb9E.exit.thread.loopexit: ; preds = %"_ZN64_$LT$core..option..Option$LT$T$GT$$u20$as$u20$core..cmp..Ord$GT$3cmp17h9ed347b6e22d0f96E.exit.i.i.i", %_ZN4core3cmp10PartialOrd2le17h30403f7113682fb9E.exit, %._ZN4core3cmp10PartialOrd2le17h30403f7113682fb9E.exit.thread.loopexit_crit_edge
-  %.pre = phi i64 [ %.pre.pre, %._ZN4core3cmp10PartialOrd2le17h30403f7113682fb9E.exit.thread.loopexit_crit_edge ], [ %.pre.pre6, %"_ZN64_$LT$core..option..Option$LT$T$GT$$u20$as$u20$core..cmp..Ord$GT$3cmp17h9ed347b6e22d0f96E.exit.i.i.i" ], [ %18, %_ZN4core3cmp10PartialOrd2le17h30403f7113682fb9E.exit ]
-  %.pre5 = load ptr, ptr %8, align 8, !alias.scope !4184
+  %.pre = phi i64 [ %.pre.pre, %._ZN4core3cmp10PartialOrd2le17h30403f7113682fb9E.exit.thread.loopexit_crit_edge ], [ %.pre.pre8, %"_ZN64_$LT$core..option..Option$LT$T$GT$$u20$as$u20$core..cmp..Ord$GT$3cmp17h9ed347b6e22d0f96E.exit.i.i.i" ], [ %18, %_ZN4core3cmp10PartialOrd2le17h30403f7113682fb9E.exit ]
+  %.pre7 = load ptr, ptr %8, align 8, !alias.scope !4184
   br label %_ZN4core3cmp10PartialOrd2le17h30403f7113682fb9E.exit.thread
 
 _ZN4core3cmp10PartialOrd2le17h30403f7113682fb9E.exit.thread: ; preds = %_ZN4core3cmp10PartialOrd2le17h30403f7113682fb9E.exit.thread.loopexit, %1
-  %55 = phi ptr [ %.pre5, %_ZN4core3cmp10PartialOrd2le17h30403f7113682fb9E.exit.thread.loopexit ], [ %.8.val, %1 ]
-  %56 = phi i64 [ %.pre, %_ZN4core3cmp10PartialOrd2le17h30403f7113682fb9E.exit.thread.loopexit ], [ 0, %1 ]
-  %57 = getelementptr inbounds { { { i64, [9 x i64] }, { { i64, [2 x i64] }, i64, i8, i8, [6 x i8] }, { { i64, i64, i32, i8, i8, [2 x i8] }, i32, [1 x i32] } }, i64 }, ptr %55, i64 %56
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(160) %57, ptr noundef nonnull readonly align 8 dereferenceable(160) %4, i64 160, i1 false)
+  %54 = phi ptr [ %.pre7, %_ZN4core3cmp10PartialOrd2le17h30403f7113682fb9E.exit.thread.loopexit ], [ %.8.val, %1 ]
+  %55 = phi i64 [ %.pre, %_ZN4core3cmp10PartialOrd2le17h30403f7113682fb9E.exit.thread.loopexit ], [ 0, %1 ]
+  %56 = getelementptr inbounds { { { i64, [9 x i64] }, { { i64, [2 x i64] }, i64, i8, i8, [6 x i8] }, { { i64, i64, i32, i8, i8, [2 x i8] }, i32, [1 x i32] } }, i64 }, ptr %54, i64 %55
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(160) %56, ptr noundef nonnull readonly align 8 dereferenceable(160) %4, i64 160, i1 false)
   call void @llvm.lifetime.end.p0(i64 184, ptr nonnull %4)
   ret void
 
 _ZN4core3cmp10PartialOrd2le17h30403f7113682fb9E.exit: ; preds = %"_ZN64_$LT$core..option..Option$LT$T$GT$$u20$as$u20$core..cmp..Ord$GT$3cmp17h9ed347b6e22d0f96E.exit.i.i.i"
   call void @llvm.experimental.noalias.scope.decl(metadata !4189)
-  %58 = load ptr, ptr %8, align 8, !alias.scope !4189, !nonnull !7, !align !1204, !noundef !7
-  %59 = getelementptr inbounds { { { i64, [9 x i64] }, { { i64, [2 x i64] }, i64, i8, i8, [6 x i8] }, { { i64, i64, i32, i8, i8, [2 x i8] }, i32, [1 x i32] } }, i64 }, ptr %58, i64 %18
-  %60 = getelementptr inbounds { { { i64, [9 x i64] }, { { i64, [2 x i64] }, i64, i8, i8, [6 x i8] }, { { i64, i64, i32, i8, i8, [2 x i8] }, i32, [1 x i32] } }, i64 }, ptr %58, i64 %.pre.pre6
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(160) %60, ptr noundef nonnull align 8 dereferenceable(160) %59, i64 160, i1 false), !noalias !4189
+  %57 = load ptr, ptr %8, align 8, !alias.scope !4189, !nonnull !7, !align !1204, !noundef !7
+  %58 = getelementptr inbounds { { { i64, [9 x i64] }, { { i64, [2 x i64] }, i64, i8, i8, [6 x i8] }, { { i64, i64, i32, i8, i8, [2 x i8] }, i32, [1 x i32] } }, i64 }, ptr %57, i64 %18
+  %59 = getelementptr inbounds { { { i64, [9 x i64] }, { { i64, [2 x i64] }, i64, i8, i8, [6 x i8] }, { { i64, i64, i32, i8, i8, [2 x i8] }, i32, [1 x i32] } }, i64 }, ptr %57, i64 %.pre.pre8
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(160) %59, ptr noundef nonnull align 8 dereferenceable(160) %58, i64 160, i1 false), !noalias !4189
   store i64 %18, ptr %10, align 8
   %.not = icmp ult i64 %17, 2
   br i1 %.not, label %_ZN4core3cmp10PartialOrd2le17h30403f7113682fb9E.exit.thread.loopexit, label %16
 
-61:                                               ; preds = %"_ZN6grenad6reader13reader_cursor21ReaderCursor$LT$R$GT$7current17h69fbf525e3cfa729E.exit.thread.sink.split.i.i.i", %"_ZN6grenad6reader13reader_cursor21ReaderCursor$LT$R$GT$7current17h69fbf525e3cfa729E.exit11.thread.sink.split.i.i.i"
-  %62 = landingpad { ptr, i32 }
+60:                                               ; preds = %"_ZN6grenad6reader13reader_cursor21ReaderCursor$LT$R$GT$7current17h69fbf525e3cfa729E.exit.thread.sink.split.i.i.i", %"_ZN6grenad6reader13reader_cursor21ReaderCursor$LT$R$GT$7current17h69fbf525e3cfa729E.exit11.thread.sink.split.i.i.i"
+  %61 = landingpad { ptr, i32 }
           cleanup
-  %63 = load i64, ptr %10, align 8, !alias.scope !4192, !noundef !7
-  %64 = load ptr, ptr %8, align 8, !alias.scope !4192, !nonnull !7, !align !1204, !noundef !7
-  %65 = getelementptr inbounds { { { i64, [9 x i64] }, { { i64, [2 x i64] }, i64, i8, i8, [6 x i8] }, { { i64, i64, i32, i8, i8, [2 x i8] }, i32, [1 x i32] } }, i64 }, ptr %64, i64 %63
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(160) %65, ptr noundef nonnull readonly align 8 dereferenceable(160) %4, i64 160, i1 false)
-  resume { ptr, i32 } %62
+  %62 = load i64, ptr %10, align 8, !alias.scope !4192, !noundef !7
+  %63 = load ptr, ptr %8, align 8, !alias.scope !4192, !nonnull !7, !align !1204, !noundef !7
+  %64 = getelementptr inbounds { { { i64, [9 x i64] }, { { i64, [2 x i64] }, i64, i8, i8, [6 x i8] }, { { i64, i64, i32, i8, i8, [2 x i8] }, i32, [1 x i32] } }, i64 }, ptr %63, i64 %62
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(160) %64, ptr noundef nonnull readonly align 8 dereferenceable(160) %4, i64 160, i1 false)
+  resume { ptr, i32 } %61
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind nonlazybind memory(readwrite, inaccessiblemem: write) uwtable
